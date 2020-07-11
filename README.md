@@ -1,114 +1,55 @@
-# **第九回 国内东方人气投票**
+<h3 align="center">第九回 国内东方人气投票</h3>
 
-## 目标
+<p align="center">
+  <img alt="Commit activity" src="https://img.shields.io/github/commit-activity/m/PatchyVideo/Touhou-Vote" />
+  <img alt="Version" src="https://img.shields.io/github/package-json/v/PatchyVideo/Touhou-Vote">
+  <img alt="Code size" src="https://img.shields.io/github/languages/code-size/PatchyVideo/Touhou-Vote">
+  <img alt="Contributors" src="https://img.shields.io/github/contributors/PatchyVideo/Touhou-Vote" />
+  <img alt="License" src="https://img.shields.io/github/license/PatchyVideo/Touhou-Vote" />
+</p>
 
-- 界面尽量的**简洁明了**
-  1. 多级菜单分类
-  2. 表单多页分类
-- **方便使用**
-  1. 投票流程简化
-  2. 尽量减少投票所占用的时间
-- **移动端**兼容
-  1. 分为两个不同的网址
-  2. 响应式布局
-- **拓展性**
-  1. 与其他网站的联动
-  2. ~~以后的整活兼容~~
+由 [TBSGroup](https://thwiki.cc/TBSGroup) 与 [PatchyVideo](https://github.com/PatchyVideo) 共同开发的 “国内东方人气投票” 前端部分。
 
-## 组成人员
+开发进度 / Status : 半成品 / WIP
 
-- 前端
-- 后端及数据库
-- 服务器及网络运营
-- 编辑
-- UI、美工
-- 画师
+## 路线图 / Roadmap
 
-## 开发框架
+https://github.com/PatchyVideo/Touhou-Vote/blob/master/ROADMAP.md
 
-前端：Nuxt.js & Tailwind
+## 贡献指南 / Contributing
 
-## 日常工作
+### 安装 / Setup
 
-- 投票内容的多语言兼容，~~万一有歪果仁也来投票了呢~~
-- 调整优化界面效果（尤其是对手机端不同分辨率的兼容）
-- 浏览器兼容性测试，~~Safari天天出问题来个人测试一下~~
-- 加载速度优化
-- 文本内容校验，**特别是对于存在争议的名字尽量想办法避开争议**
+```bash
+# 拉取项目 / Clone repo
+$ git clone https://github.com/PatchyVideo/Touhou-Vote.git
+$ cd patchyvideo-vue
 
-## 页面需求
+# 安装依赖 / Install dependences
+$ npm i
+```
 
-*无特殊说明所有页面全都包含顶部导航条和底栏
+### 调试 / Development
 
-### 主页面
+```bash
+# 启动本地调试 / Start a dev server
+$ npm run dev
+```
 
-- 登录页面（未登录）
-- 投票入口按钮（已登录）
+### 构建 / Production
 
-### 登录页面
+```bash
+# 构建 & 运行 / Build & Start the project
+$ npm run build
+$ npm run start
+```
 
-- 用户名、密码登录
-- 单邮箱登录
-- QQ，THB等外部账户登录
-- 用户名查重功能
-- 验证码校验功能
+### 常用插件表 / A list of common editor plugins
 
-### 投票入口
+#### VSCode
 
-- 人妖部门
-- 音乐部门
-- 作品部门
-- CP部门
-  - ~~支持2人以上的CP~~
-- 投票者问卷
-  - 存档功能
-  - ~~去掉卖萌用选项~~
-
-### 投票界面
-
-- 投票列表
-  - **搜索功能完善**
-  - 按照作品多级分类
-  - 多语言支持
-  - 存档功能
-  - 增加可投票的数量。**尤其是音乐部门**
-- 投票理由
-- ~~本命测试网站链接~~
-
-### 投票结果
-
-- 每日折线图
-- 历史趋势变化图
-- 投票饼图
-- 总结表
-  - 票数
-  - 本命率
-  - 男女比例
-  - 排名功能（正序，倒序）
-
-### 其他
-
-- 顶部导航条
-  - 投票logo
-  - 页面链接跳转
-    - 投票范围一览
-    - Q&A
-    - 投票应援页面
-    - 投票企划时间、剩余时间等
-- 底栏
-  - 企划负责情况、友链、网站声明等
-- 刷票检测
-
-## 非代码类需求
-
-- 投票介绍、投票常见Q&A
-- 投票范围整理、尤其是对译名的整理
-- 网站解释文本整理
-- 问卷内容整理
-- 投票结果分析
-- 背景插画
-- UI美术素材
-  - 整体配色与布局
-  - 主标题
-  - 装饰用图标
-  - 每一个作品的图标（如果可能实现的话）
+- Vetur(octref.vetur): 基本 Vue 高亮、整理
+- Eslint(dbaeumer.vscode-eslint): 代码纠错
+- Prettier - Code formatter(esbenp.prettier-vscode): 代码格式化
+- VSCode Conventional Commits(vivaxy.vscode-conventional-commits): commit 书写辅助
+- i18n Ally(antfu.i18n-ally): 国际化辅助
