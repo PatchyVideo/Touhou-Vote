@@ -8,7 +8,7 @@
   <img alt="License" src="https://img.shields.io/github/license/PatchyVideo/Touhou-Vote" />
 </p>
 
-由 [TBSGroup](https://thwiki.cc/TBSGroup) 与 [PatchyVideo](https://github.com/PatchyVideo) 共同开发的 “国内东方人气投票” 前端部分。
+由 [THBWiki](https://thwiki.cc) 与 [PatchyVideo](https://github.com/PatchyVideo) 共同开发的 “国内东方人气投票” 前端部分。
 
 开发进度 / Status : 半成品 / WIP
 
