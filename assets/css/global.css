@@ -1,1 +1,21 @@
 /* 全局CSS，在nuxt.config.js中引用 */
+
+/* 主题配色 */
+.g-w {
+  color: #ffffff;
+}
+.g-g {
+  color: #339933;
+}
+.g-b {
+  color: #000000;
+}
+.gb-w {
+  background-color: #ffffff;
+}
+.gb-g {
+  background-color: #339933;
+}
+.gb-b {
+  background-color: #000000;
+}
