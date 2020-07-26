@@ -29,7 +29,7 @@ export default {
   /*
    * Global CSS
    */
-  css: [],
+  css: ['@/assets/css/global.css'],
   /*
    * Plugins to load before mounting the App
    * https://nuxtjs.org/guide/plugins
@@ -64,7 +64,7 @@ export default {
         locales: ['zh-CN', 'en-US'],
         defaultLocale: 'zh-CN',
         lazy: true,
-        langDir: 'locales/',
+        langDir: '/locales/',
       },
     ],
   ],
