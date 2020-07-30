@@ -16,6 +16,10 @@
 
 https://github.com/PatchyVideo/Touhou-Vote/blob/master/ROADMAP.md
 
+## 范围一览 / Vote Range
+
+https://github.com/PatchyVideo/Touhou-Vote/blob/master/VOTEDETAIL.md
+
 ## 贡献指南 / Contributing
 
 ### 安装 / Setup
