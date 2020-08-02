@@ -1,6 +1,6 @@
 <template>
   <div class="NavTop">
-    第九届东方Project人气投票
+    <span class="text-2xl">(LOGO)THBWiki & PatchyVideo</span>
   </div>
 </template>
 
@@ -14,4 +14,10 @@ export default defineComponent({
 })
 </script>
 
-<style lang="postcss" scoped></style>
+<style lang="postcss" scoped>
+.NavTop {
+  @apply p-2;
+  @apply shadow;
+  @apply bg-gray-100;
+}
+</style>
