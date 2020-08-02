@@ -1,17 +1,7 @@
-<template>
-  <div class="container">
-    {{ $t('main.hello') }}
-  </div>
-</template>
-
-<script lang="ts">
-import { defineComponent } from 'nuxt-composition-api'
-
-export default defineComponent({
-  setup() {
-    return {}
+<script>
+export default {
+  fetch({ redirect }) {
+    redirect(302, '/UserLogin')
   },
-})
+}
 </script>
-
-<style lang="postcss" scoped></style>
