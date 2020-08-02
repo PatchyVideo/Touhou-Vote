@@ -7,6 +7,15 @@
 module.exports = {
   theme: {
     extend: {
+      color: {
+        w: '#FFFFFF',
+        wdeep: '#F7FAFC',
+        glight: '#48BB78',
+        g: '#2F855A',
+        gdeep: '#22543D',
+        blight: '#1A202C',
+        b: '#000000',
+      },
       spacing: {
         '72': '18rem',
         '84': '21rem',
@@ -14,6 +23,9 @@ module.exports = {
       },
       zIndex: {
         '-1': '-1',
+      },
+      opacity: {
+        '90': '0.90',
       },
     },
   },
