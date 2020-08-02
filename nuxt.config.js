@@ -1,4 +1,5 @@
 import path from 'path'
+import fs from 'fs'
 
 export default {
   /*
@@ -63,8 +64,12 @@ export default {
       {
         locales: ['zh-CN', 'en-US'],
         defaultLocale: 'zh-CN',
-        lazy: true,
-        langDir: '/locales/',
+        vueI18n: {
+          messages: {
+            'zh-CN': JSON.parse(fs.readFileSync('./locales/zh-CN.json').toString()),
+            'en-US': JSON.parse(fs.readFileSync('./locales/en-US.json').toString()),
+          },
+        },
       },
     ],
   ],
