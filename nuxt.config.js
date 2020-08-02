@@ -65,10 +65,13 @@ export default {
         locales: ['zh-CN', 'en-US'],
         defaultLocale: 'zh-CN',
         vueI18n: {
-          messages: {
-            'zh-CN': JSON.parse(fs.readFileSync('./locales/zh-CN.json').toString()),
-            'en-US': JSON.parse(fs.readFileSync('./locales/en-US.json').toString()),
-          },
+          messages: (() => {
+            const msg = {}
+            fs.readdirSync('./locales').forEach((file) => {
+              msg[file.replace(/.json$/, '')] = JSON.parse(fs.readFileSync('./locales/' + file).toString() || '{}')
+            })
+            return msg
+          })(),
         },
       },
     ],
