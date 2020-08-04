@@ -7,14 +7,20 @@
 module.exports = {
   theme: {
     extend: {
-      color: {
-        w: '#FFFFFF',
-        wdeep: '#F7FAFC',
-        glight: '#48BB78',
-        g: '#2F855A',
-        gdeep: '#22543D',
-        blight: '#1A202C',
-        b: '#000000',
+      colors: {
+        base: {
+          black: '#000000',
+          white: '#FFFFFF',
+          green: '#38B2AC',
+        },
+        light: {
+          black: '#1A202C',
+          green: '#81E6D9',
+        },
+        dark: {
+          white: '#F7FAFC',
+          green: '#285E61',
+        },
       },
       spacing: {
         '72': '18rem',
