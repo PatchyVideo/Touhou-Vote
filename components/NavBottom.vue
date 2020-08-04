@@ -22,6 +22,5 @@ export default defineComponent({
   @apply p-2;
   @apply shadow;
   @apply bg-gray-100;
-  @apply text-wdeep-600;
 }
 </style>
