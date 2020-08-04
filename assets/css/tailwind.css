@@ -4,5 +4,14 @@
 
 body {
   min-width: 320px;
-  /* @apply text-g; */
+  @apply text-light-black;
+}
+
+a {
+  transition: ease-in-out 0.2s;
+  @apply cursor-pointer;
+  @apply text-base-green;
+}
+a:hover {
+  @apply text-dark-green;
 }
