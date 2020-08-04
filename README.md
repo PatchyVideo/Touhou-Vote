@@ -27,7 +27,7 @@ https://github.com/PatchyVideo/Touhou-Vote/blob/master/VOTEDETAIL.md
 ```bash
 # 拉取项目 / Clone repo
 $ git clone https://github.com/PatchyVideo/Touhou-Vote.git
-$ cd patchyvideo-vue
+$ cd Touhou-Vote
 
 # 安装依赖 / Install dependences
 $ npm i
