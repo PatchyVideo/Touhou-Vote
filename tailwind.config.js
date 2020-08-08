@@ -12,6 +12,7 @@ module.exports = {
           black: '#000000',
           white: '#FFFFFF',
           green: '#38B2AC',
+          error: '#E53E3E',
         },
         light: {
           black: '#1A202C',
@@ -32,6 +33,9 @@ module.exports = {
       },
       opacity: {
         '90': '0.90',
+      },
+      boxShadow: {
+        outline: '0 0 0 3px rgba(56, 178, 172, 0.75)',
       },
     },
   },
