@@ -13,21 +13,11 @@
       <form class="w-84">
         <label class="font-mono tracking-wide text-3xl font-bold mb-2">您好，请登录</label>
         <div class="mb-4">
-          <input
-            id="username"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            placeholder="邮箱地址"
-          />
+          <base-input v-model="userMail" placeholder="请输入邮箱" />
           <a class="underline">发送验证码</a>
         </div>
         <div class="mb-6">
-          <input
-            id="password"
-            class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="password"
-            placeholder="请输入密码"
-          />
+          <base-input v-model="userPassword" placeholder="请输入密码" />
         </div>
         <div>
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
@@ -51,10 +41,19 @@
 
 <script lang="ts">
 import { defineComponent } from 'nuxt-composition-api'
-import divider from '~/components/Divider.vue'
+import divider from '~/components/BaseDivider.vue'
+import baseInput from '~/components/BaseInput.vue'
 
 export default defineComponent({
-  components: { divider },
+  components: { divider, baseInput },
+  data() {
+    return {
+      // 用户邮箱
+      userMail: '',
+      // 用户密码
+      userPassword: '',
+    }
+  },
   setup() {
     return {}
   },
