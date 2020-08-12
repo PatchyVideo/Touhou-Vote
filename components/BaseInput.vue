@@ -1,6 +1,6 @@
 <template>
   <div class="Input">
-    <input v-model="value" :class="{ inputError: error }" :type="type" :placeholder="placeholder" />
+    <input :class="{ inputError: error }" :type="type" :placeholder="placeholder" v-on="inputListeners" />
   </div>
 </template>
 
@@ -21,12 +21,6 @@ export default defineComponent({
       required: false,
       default: 'text',
     },
-    // value，原生属性
-    value: {
-      type: String,
-      required: false,
-      default: '',
-    },
     // 判断输入内容是否错误
     error: {
       type: Boolean,
@@ -37,7 +31,25 @@ export default defineComponent({
   data() {
     return {}
   },
-  computed: {},
+  computed: {
+    inputListeners(): Object {
+      const vm = this
+      // `Object.assign` 将所有的对象合并为一个新对象
+      return Object.assign(
+        {},
+        // 我们从父级添加所有的监听器
+        this.$listeners,
+        // 然后我们添加自定义监听器，
+        // 或覆写一些监听器的行为
+        {
+          // 这里确保组件配合 `v-model` 的工作
+          input(event: InputEvent) {
+            vm.$emit('input', (<HTMLInputElement>event.target).value)
+          },
+        }
+      )
+    },
+  },
   watch: {},
   setup() {
     return {}
