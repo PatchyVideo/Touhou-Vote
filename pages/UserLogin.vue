@@ -20,9 +20,7 @@
           <base-input v-model="userPassword" placeholder="请输入密码" />
         </div>
         <div>
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-            登录
-          </button>
+          <base-button @click="console.log('hi')">登录</base-button>
         </div>
       </form>
     </div>
@@ -43,9 +41,10 @@
 import { defineComponent } from 'nuxt-composition-api'
 import divider from '~/components/BaseDivider.vue'
 import baseInput from '~/components/BaseInput.vue'
+import baseButton from '~/components/BaseButton.vue'
 
 export default defineComponent({
-  components: { divider, baseInput },
+  components: { divider, baseInput, baseButton },
   data() {
     return {
       // 用户邮箱
