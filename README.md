@@ -22,28 +22,33 @@ https://github.com/PatchyVideo/Touhou-Vote/blob/master/VOTEDETAIL.md
 
 ## 贡献指南 / Contributing
 
-### 安装 / Setup
+### 如何在本地启动项目 / Run project locally
 
 ```bash
-# 拉取项目 / Clone repo
+# 拉取后端项目 / clone backend repo
+$ git clone https://github.com/zyddnys/Touhou-Vote-BE.git
+$ cd Touhou-Vote-BE
+
+# 启动 gateway / run gateway
+$ cd gateway
+$ cargo run
+```
+
+```bash
+# 拉取前端项目 / clone frontend repo
 $ git clone https://github.com/PatchyVideo/Touhou-Vote.git
 $ cd Touhou-Vote
 
-# 安装依赖 / Install dependences
+# 安装依赖 / install dependences
 $ npm i
-```
 
-### 调试 / Development
+# 生成 GraphQL schema （需要启动 gateway） / generate GraphQL schema (needs gateway started)
+$ npm run codegen
 
-```bash
-# 启动本地调试 / Start a dev server
+# 启动本地调试 / start a dev server
 $ npm run dev
-```
 
-### 构建 / Production
-
-```bash
-# 构建 & 运行 / Build & Start the project
+# 构建 & 运行 / build & start the project
 $ npm run build
 $ npm run start
 ```
@@ -57,3 +62,4 @@ $ npm run start
 - Prettier - Code formatter(esbenp.prettier-vscode): 代码格式化
 - VSCode Conventional Commits(vivaxy.vscode-conventional-commits): commit 书写辅助
 - i18n Ally(antfu.i18n-ally): 国际化辅助
+- GraphQL(prisma.vscode-graphql)

@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'nuxt-composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 import divider from '~/components/BaseDivider.vue'
 import baseInput from '~/components/BaseInput.vue'
 import baseButton from '~/components/BaseButton.vue'

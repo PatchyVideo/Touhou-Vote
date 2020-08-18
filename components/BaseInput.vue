@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'nuxt-composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
@@ -44,7 +44,7 @@ export default defineComponent({
         {
           // 这里确保组件配合 `v-model` 的工作
           input(event: InputEvent) {
-            vm.$emit('input', (<HTMLInputElement>event.target).value)
+            vm.$emit('input', (event.target as HTMLInputElement).value)
           },
         }
       )

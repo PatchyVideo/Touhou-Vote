@@ -35,7 +35,7 @@ export default {
    * Plugins to load before mounting the App
    * https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: ['./plugins/apollo/index.ts'],
   /*
    * Auto import components
    * See https://nuxtjs.org/api/configuration-components
@@ -49,8 +49,8 @@ export default {
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
-    // Doc: https://composition-api.now.sh/
-    'nuxt-composition-api',
+    // Doc: https://composition-api.nuxtjs.org/
+    '@nuxtjs/composition-api',
   ],
   /*
    * Nuxt.js modules

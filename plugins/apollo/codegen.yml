@@ -1,0 +1,6 @@
+overwrite: true
+schema: 'http://127.0.0.1:8080/graphql'
+generates:
+  plugins/apollo/__generated__/graphql.ts:
+    plugins:
+      - 'typescript'
