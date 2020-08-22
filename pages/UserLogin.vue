@@ -28,17 +28,19 @@
     <!-- 投票说明 -->
     <div class="h-screen">
       投票说明
+      {{ characters.主角组[1].name }}
     </div>
     <divider />
     <!-- 常见问题 -->
     <div class="h-screen">
-      投票说明
+      常见问题
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
+import { character } from 'static/Data/Character.js'
 import divider from '~/components/BaseDivider.vue'
 import baseInput from '~/components/BaseInput.vue'
 import baseButton from '~/components/BaseButton.vue'
@@ -51,6 +53,8 @@ export default defineComponent({
       userMail: '',
       // 用户密码
       userPassword: '',
+      // 投票范围
+      characters: character,
     }
   },
   setup() {
