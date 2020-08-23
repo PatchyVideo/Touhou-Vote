@@ -6,7 +6,13 @@ import {
   NormalizedCacheObject,
   // QueryOptions,
   MutationOptions,
+  from,
+  HttpLink,
 } from '@apollo/client/core'
+import { withScalars } from 'apollo-link-scalars'
+import { buildClientSchema, IntrospectionQuery } from 'graphql'
+import jsonSchema from './__generated__/graphql.schema.json'
+
 import * as schema from './__generated__/graphql'
 export { schema }
 
@@ -15,8 +21,21 @@ export { gql } from '@apollo/client/core'
 const clientSymbol = Symbol('apollo client Symbol')
 
 export function createApollo() {
+  const typesMap = {
+    DateTimeUtc: {
+      serialize: (parsed: Date) => parsed.toISOString(),
+      parseValue: (raw: string | null): Date | null => {
+        return raw ? new Date(raw) : null
+      },
+    },
+  }
+  const link = from([
+    withScalars({ schema: buildClientSchema((jsonSchema as unknown) as IntrospectionQuery), typesMap }),
+    // Backend Server
+    new HttpLink({ uri: 'http://localhost:8080/graphql' }),
+  ])
   const client = new ApolloClient({
-    uri: 'http://127.0.0.1:8080/graphql',
+    link,
     cache: new InMemoryCache(),
   })
   provideClient(client)

@@ -18,6 +18,7 @@
     "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/axios": "^5.12.1",
     "@nuxtjs/composition-api": "^0.12.1",
+    "apollo-link-scalars": "^1.0.1",
     "cross-fetch": "^3.0.5",
     "graphql": "^15.3.0",
     "nuxt": "^2.14.3",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@graphql-codegen/cli": "^1.17.8",
+    "@graphql-codegen/introspection": "^1.17.8",
     "@graphql-codegen/typescript": "^1.17.8",
     "@nuxt/types": "^2.14.3",
     "@nuxt/typescript-build": "^2.0.2",

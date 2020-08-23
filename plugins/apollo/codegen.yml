@@ -4,3 +4,11 @@ generates:
   plugins/apollo/__generated__/graphql.ts:
     plugins:
       - 'typescript'
+    config:
+      scalars:
+        DateTimeUtc: Date
+  plugins/apollo/__generated__/graphql.schema.json:
+    plugins:
+      - 'introspection'
+    config:
+      minify: true
