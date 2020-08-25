@@ -18,9 +18,7 @@
     "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/axios": "^5.12.1",
     "@nuxtjs/composition-api": "^0.12.1",
-    "apollo-link-scalars": "^1.0.1",
     "cross-fetch": "^3.0.5",
-    "graphql": "^15.3.0",
     "nuxt": "^2.14.3",
     "nuxt-i18n": "^6.13.9"
   },
@@ -40,6 +38,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "graphql": "^15.3.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5"

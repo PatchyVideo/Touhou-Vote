@@ -6,15 +6,47 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from '@nuxtjs/composition-api'
-import { useMutation, gql } from '@/plugins/apollo'
+import { useApollo, gql } from '@/plugins/apollo'
 
 export default defineComponent({
   setup() {
     const apiVersion = ref('')
     const serverDate = ref(new Date())
 
+    const apollo = useApollo()
+
     onMounted(async () => {
-      const result = await useMutation({
+      const resultq = await apollo.query({
+        query: gql`
+          query {
+            frontendInfo @client {
+              voteData2020 {
+                allchar: characters {
+                  name
+                  appeared {
+                    name
+                  }
+                }
+                reimu_by_name: characters(name: "博丽灵梦") {
+                  name
+                  appeared {
+                    name
+                    people {
+                      name
+                    }
+                  }
+                }
+                games {
+                  name
+                  date
+                }
+              }
+            }
+          }
+        `,
+      })
+      console.log(apollo.client, resultq)
+      const resultm = await apollo.mutate({
         mutation: gql`
           mutation {
             apiVersion
@@ -22,8 +54,8 @@ export default defineComponent({
           }
         `,
       })
-      apiVersion.value = result.data?.apiVersion || 'unknown'
-      serverDate.value = result.data?.serverDate || new Date('0000')
+      apiVersion.value = resultm.data?.apiVersion || 'unknown'
+      serverDate.value = new Date(resultm.data?.serverDate || '0000')
     })
 
     return { apiVersion, serverDate }

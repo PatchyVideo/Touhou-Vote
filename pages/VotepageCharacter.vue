@@ -12,13 +12,10 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { character } from 'static/Data/Character.js'
 
 export default defineComponent({
   data() {
     return {
-      // 投票范围
-      Character: character,
       // 问卷
       Questionnaire: Array(4),
     }

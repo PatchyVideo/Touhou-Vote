@@ -40,7 +40,6 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { character } from 'static/Data/Character.js'
 import divider from '~/components/BaseDivider.vue'
 import baseInput from '~/components/BaseInput.vue'
 import baseButton from '~/components/BaseButton.vue'
@@ -53,8 +52,6 @@ export default defineComponent({
       userMail: '',
       // 用户密码
       userPassword: '',
-      // 投票范围
-      characters: character,
     }
   },
   setup() {

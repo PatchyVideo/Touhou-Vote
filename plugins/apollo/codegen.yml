@@ -1,12 +1,15 @@
 overwrite: true
-schema: 'http://127.0.0.1:8080/graphql'
+schema:
+  - 'http://127.0.0.1:8080/graphql'
+  - 'plugins/apollo/clientData.gql'
 generates:
   plugins/apollo/__generated__/graphql.ts:
     plugins:
       - 'typescript'
     config:
       scalars:
-        DateTimeUtc: Date
+        DateTimeUtc: string
+        Date: string
   plugins/apollo/__generated__/graphql.schema.json:
     plugins:
       - 'introspection'
