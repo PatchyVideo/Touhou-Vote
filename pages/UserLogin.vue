@@ -28,7 +28,6 @@
     <!-- 投票说明 -->
     <div class="h-screen">
       投票说明
-      {{ characters.主角组[1].name }}
     </div>
     <divider />
     <!-- 常见问题 -->
