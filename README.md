@@ -18,7 +18,7 @@ https://github.com/PatchyVideo/Touhou-Vote/blob/master/ROADMAP.md
 
 ## 调查问卷大纲 / Outline-Questionnaire
 
-https://github.com/PatchyVideo/Touhou-Vote/blob/master/OUTLINE-Questionnaire.md
+https://github.com/PatchyVideo/Touhou-Vote/blob/dev/OUTLINE-Questionnaire.md
 
 ## 范围一览 / Vote Range
 
