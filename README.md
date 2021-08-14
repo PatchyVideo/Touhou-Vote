@@ -1,4 +1,4 @@
-<h3 align="center">第九回 国内东方人气投票</h3>
+<h3 align="center">第十回 国内东方人气投票</h3>
 
 <p align="center">
   <img alt="Commit activity" src="https://img.shields.io/github/commit-activity/m/PatchyVideo/Touhou-Vote" />
@@ -14,15 +14,15 @@
 
 ## 路线图 / Roadmap
 
-https://github.com/PatchyVideo/Touhou-Vote/blob/master/ROADMAP.md
+https://github.com/PatchyVideo/Touhou-Vote/blob/next/doc/ROADMAP.md
 
 ## 调查问卷大纲 / Outline-Questionnaire
 
-https://github.com/PatchyVideo/Touhou-Vote/blob/dev/OUTLINE-Questionnaire.md
+https://github.com/PatchyVideo/Touhou-Vote/blob/next/doc/OUTLINE-Questionnaire.md
 
 ## 范围一览 / Vote Range
 
-https://github.com/PatchyVideo/Touhou-Vote/blob/master/VOTEDETAIL.md
+https://github.com/PatchyVideo/Touhou-Vote/blob/next/doc/VOTEDETAIL.md
 
 ## 贡献指南 / Contributing
 
@@ -44,26 +44,12 @@ $ git clone https://github.com/PatchyVideo/Touhou-Vote.git
 $ cd Touhou-Vote
 
 # 安装依赖 / install dependences
-$ npm i
-
-# 生成 GraphQL schema （需要启动 gateway） / generate GraphQL schema (needs gateway started)
-$ npm run codegen
+$ yarn
 
 # 启动本地调试 / start a dev server
-$ npm run dev
+$ yarn dev
 
 # 构建 & 运行 / build & start the project
-$ npm run build
-$ npm run start
+$ yarn build
+$ yarn serve
 ```
-
-### 常用插件表 / A list of common editor plugins
-
-#### VSCode
-
-- Vetur(octref.vetur): 基本 Vue 高亮、整理
-- Eslint(dbaeumer.vscode-eslint): 代码纠错
-- Prettier - Code formatter(esbenp.prettier-vscode): 代码格式化
-- VSCode Conventional Commits(vivaxy.vscode-conventional-commits): commit 书写辅助
-- i18n Ally(antfu.i18n-ally): 国际化辅助
-- GraphQL(prisma.vscode-graphql)

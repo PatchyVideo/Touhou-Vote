@@ -1,22 +1,23 @@
 {
+  "include": ["packages"],
+  "exclude": ["**/__tests__"],
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "lib": ["esnext", "esnext.asynciterable", "dom"],
-    "esModuleInterop": true,
-    "allowJs": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
+    "types": ["vite/client"],
+    "jsx": "preserve",
+    "target": "ESNext",
     "sourceMap": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
     "strict": true,
-    "noEmit": true,
-    "experimentalDecorators": true,
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"]
-    },
-    "types": ["@types/node", "@nuxt/types", "@apollo/client"]
-  },
-  "exclude": ["node_modules", ".nuxt", "dist"]
+      "@/*": ["./packages/*"],
+      "@@/*": ["./*"]
+    }
+  }
 }
