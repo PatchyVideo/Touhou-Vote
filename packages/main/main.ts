@@ -32,6 +32,10 @@ const router = createRouter({
       path: '/',
       component: () => import('@/home/Home.vue'),
     },
+    {
+      path: '/vote/character',
+      component: () => import('@/vote-character/VoteCharacter.vue'),
+    },
   ],
 })
 app.use(router)
