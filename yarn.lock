@@ -106,44 +106,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formatjs/ecma402-abstract@npm:1.9.6":
-  version: 1.9.6
-  resolution: "@formatjs/ecma402-abstract@npm:1.9.6"
+"@formatjs/ecma402-abstract@npm:1.9.7":
+  version: 1.9.7
+  resolution: "@formatjs/ecma402-abstract@npm:1.9.7"
   dependencies:
-    "@formatjs/intl-localematcher": 0.2.19
+    "@formatjs/intl-localematcher": 0.2.20
     tslib: ^2.1.0
-  checksum: 2fc0b6d4dacce0bb3e01184ccd11e15012d49bf03fccdeade0662648f84e198db1af29ce557534d5ef7266afb205ea37a1dd9b9857d873b58355a89340e4ade5
+  checksum: 0b28190b789c6991813408d1d6f5f61568fdf4c540696a83669c15e2844d739660f337952ca3a54247592d3a3ff46e841b3dbf8a9de27859e5a0a72cb29f5af1
   languageName: node
   linkType: hard
 
-"@formatjs/intl-getcanonicallocales@npm:1.7.2":
-  version: 1.7.2
-  resolution: "@formatjs/intl-getcanonicallocales@npm:1.7.2"
+"@formatjs/intl-getcanonicallocales@npm:1.7.3":
+  version: 1.7.3
+  resolution: "@formatjs/intl-getcanonicallocales@npm:1.7.3"
   dependencies:
     tslib: ^2.1.0
   peerDependencies:
     "@types/node": 14 || 16
-  checksum: a6dccd866f28c62fb6ec34357278c40e6861db6f5660bba5a71bd82328ef19a34767f47d1104d036e88eca9e57145162e52b7cf7993a74b7c6803a3cf13ea4c0
+  checksum: a335784e9f5d9fbef7e8bd88a59bd6f4562e109fd55926b36b8131c40ed685c211a1827c56a7c4e04eb8f3a71e0dc0be606c04ce5162a1a820ec9510ad281b18
   languageName: node
   linkType: hard
 
-"@formatjs/intl-locale@npm:^2.4.35":
-  version: 2.4.35
-  resolution: "@formatjs/intl-locale@npm:2.4.35"
+"@formatjs/intl-locale@npm:^2.4.36":
+  version: 2.4.36
+  resolution: "@formatjs/intl-locale@npm:2.4.36"
   dependencies:
-    "@formatjs/ecma402-abstract": 1.9.6
-    "@formatjs/intl-getcanonicallocales": 1.7.2
+    "@formatjs/ecma402-abstract": 1.9.7
+    "@formatjs/intl-getcanonicallocales": 1.7.3
     tslib: ^2.1.0
-  checksum: cb1dc9080c3bed0fc1ae40c22a830a9edb04fff4b5b78d25ba4dbab6835741ea633fc96f3be3016361065a273429183761c763713ffcbafc9127947efb09ecd8
+  checksum: 259efcd22da59f3dfb67d7b7b58f46f78193b634e7e94c68e46b342a171725e068ada6e60322c6dfecf1daaefa558c4e178c9d8f698ebbe73d8cf23732f4d68f
   languageName: node
   linkType: hard
 
-"@formatjs/intl-localematcher@npm:0.2.19, @formatjs/intl-localematcher@npm:^0.2.19":
-  version: 0.2.19
-  resolution: "@formatjs/intl-localematcher@npm:0.2.19"
+"@formatjs/intl-localematcher@npm:0.2.20, @formatjs/intl-localematcher@npm:^0.2.20":
+  version: 0.2.20
+  resolution: "@formatjs/intl-localematcher@npm:0.2.20"
   dependencies:
     tslib: ^2.1.0
-  checksum: 1ac8430bf6733e8783d2ba565309b27ccff6673a8892ee840853d4b2770334537a64e71d6413449086fe712feeb8bdf16b759af5ad606c97296380be2a66a953
+  checksum: 758d3678a43828e390b9cdf597d57581e7f0e771d24168fc8dba317a9dd97ab92edd1ee037e19e46ee2a055905590d3c8f25870510e39b792fe4d429d2035a67
   languageName: node
   linkType: hard
 
@@ -627,33 +627,49 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/components@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "@vueuse/components@npm:5.3.0"
+"@vueuse/components@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@vueuse/components@npm:6.0.0"
   dependencies:
-    "@vueuse/core": 5.3.0
-    "@vueuse/shared": 5.3.0
+    "@vueuse/core": 6.0.0
+    "@vueuse/shared": 6.0.0
     vue-demi: "*"
-  checksum: ea142a571d36181c42b6b0b473b47fcfd30f6735660e2c9d66e650c026a2ac84e64a0fc14eca7b17bc4a549ae6d9037181df8ab0861888b6b684e646cde23b44
+  checksum: 7d3d10dd1cd4091500c2b3160b263889d5b3a6673dcd42df8feed36dcc5ad4683e42defaa5c94d8b27fb36748da3bac1f4fd7be58c8dd4fb754eacffc10d94ae
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:5.3.0, @vueuse/core@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "@vueuse/core@npm:5.3.0"
+"@vueuse/core@npm:6.0.0, @vueuse/core@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@vueuse/core@npm:6.0.0"
   dependencies:
-    "@vueuse/shared": 5.3.0
+    "@vueuse/shared": 6.0.0
     vue-demi: "*"
-  checksum: 331099472441b83aa5939b214ad5baa32659ab268555941002fb0a9dabfea154d22d067d8074a62c40ecdbe669067df073f2bc8058fbe83379fc6a7a08e08323
+  peerDependencies:
+    "@vue/composition-api": ^1.1.0
+    vue: ^2.6.0 || ^3.2.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+    vue:
+      optional: true
+  checksum: 1c3d55c0540507baa5e087049d427517247288eac5b56f807dec42dcdb83b7ddb9800bf97e7b12b3823e9720565a2437a48ef9e7820840f9a08f334e1f1a96c9
   languageName: node
   linkType: hard
 
-"@vueuse/shared@npm:5.3.0":
-  version: 5.3.0
-  resolution: "@vueuse/shared@npm:5.3.0"
+"@vueuse/shared@npm:6.0.0":
+  version: 6.0.0
+  resolution: "@vueuse/shared@npm:6.0.0"
   dependencies:
     vue-demi: "*"
-  checksum: d7ca6280cdb187da39e45382c0918e1b8bb2edd627ea149e433785e747b368e0a37d88f510fbb9925b3d208e753dd3ca565b9850994f48fb570fd8265ce2ad3e
+  peerDependencies:
+    "@vue/composition-api": ^1.1.0
+    vue: ^2.6.0 || ^3.2.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+    vue:
+      optional: true
+  checksum: 19ccd32a124b73cd636666d3239db2243bf982373d86cc04eb09af6b9caaeb440cb02eb44e59b982ee9b0ece2e37afd6d58cc6b7e78c673a61c54449e6faf89c
   languageName: node
   linkType: hard
 
@@ -1229,9 +1245,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.793":
-  version: 1.3.805
-  resolution: "electron-to-chromium@npm:1.3.805"
-  checksum: 1397b35c0e59ede7f9cbbec0b14d81e80951ef458390cebbdc59e822681f0c4bf4bad42d6683c48fa76a14cce13415012c2091da38ce036059e12ae0dae1e8ef
+  version: 1.3.806
+  resolution: "electron-to-chromium@npm:1.3.806"
+  checksum: cba7104935f8fe9d5d466a7ade478021a7ede8d8c8ad5a13bf11022ebbc316270065bb2ed7ecd3fb450bbf1351628d123d4efadd600001f97c05e6628f0de59d
   languageName: node
   linkType: hard
 
@@ -1281,7 +1297,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.12.8":
+"esbuild@npm:^0.12.17":
   version: 0.12.20
   resolution: "esbuild@npm:0.12.20"
   bin:
@@ -3355,8 +3371,8 @@ fsevents@~2.3.2:
   resolution: "touhou-vote@workspace:."
   dependencies:
     "@apollo/client": ^3.4.7
-    "@formatjs/intl-locale": ^2.4.35
-    "@formatjs/intl-localematcher": ^0.2.19
+    "@formatjs/intl-locale": ^2.4.36
+    "@formatjs/intl-localematcher": ^0.2.20
     "@iconify/json": ^1.1.387
     "@rollup/plugin-yaml": ^3.1.0
     "@types/eslint": ^7
@@ -3368,8 +3384,8 @@ fsevents@~2.3.2:
     "@vitejs/plugin-vue": ^1.4.0
     "@vue/apollo-composable": ^4.0.0-alpha.14
     "@vue/compiler-sfc": ^3.2.2
-    "@vueuse/components": ^5.3.0
-    "@vueuse/core": ^5.3.0
+    "@vueuse/components": ^6.0.0
+    "@vueuse/core": ^6.0.0
     apollo-link-scalars: ^2.1.4
     autoprefixer: ^10.3.1
     bson-objectid: ^2.0.1
@@ -3385,7 +3401,7 @@ fsevents@~2.3.2:
     prettier: ^2.3.2
     rollup-plugin-visualizer: ^5.5.2
     typescript: ^4.3.5
-    vite: ^2.4.4
+    vite: ^2.5.0
     vite-plugin-components: ^0.13.2
     vite-plugin-icons: ^0.6.5
     vite-plugin-windicss: ^1.2.7
@@ -3553,11 +3569,11 @@ typescript@^4.3.5:
   languageName: node
   linkType: hard
 
-"vite@npm:^2.4.4":
-  version: 2.4.4
-  resolution: "vite@npm:2.4.4"
+"vite@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "vite@npm:2.5.0"
   dependencies:
-    esbuild: ^0.12.8
+    esbuild: ^0.12.17
     fsevents: ~2.3.2
     postcss: ^8.3.6
     resolve: ^1.20.0
@@ -3567,23 +3583,23 @@ typescript@^4.3.5:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 075deeb5f915f2a0a2b2e90c6bcbe919b894b6004133e3280eb413dfb17aa1dd6b82aaf35451291f3ba572566f8948e62b32476ce39d5046eef6092106c80a8a
+  checksum: 9465f56c7b3bf9014cb028fbf533590c9f150bd5d37eac81e1f3abb3a05a8a20ad431204b622a7d39d18fd245b175dbf00b5b800138544371d436c214cfbb09f
   languageName: node
   linkType: hard
 
 "vue-demi@npm:*":
-  version: 0.11.2
-  resolution: "vue-demi@npm:0.11.2"
+  version: 0.11.3
+  resolution: "vue-demi@npm:0.11.3"
   peerDependencies:
     "@vue/composition-api": ^1.0.0-rc.1
-    vue: ^3.0.0 || ^2.6.0
+    vue: ^3.0.0-0 || ^2.6.0
   peerDependenciesMeta:
     "@vue/composition-api":
       optional: true
   bin:
     vue-demi-fix: bin/vue-demi-fix.js
     vue-demi-switch: bin/vue-demi-switch.js
-  checksum: 0b88d46721cc799a46980e57035885e817f6aac6d155c46463211dadc7acdb55be10fc6b71c740ecb83cafe4243d3afa58bd96d89684dea66824bf2d199fb8bf
+  checksum: f579914ee5a3fa3db4a11068298859112dca4469e2622fe85d0a3bd98a195fac02910796640ba57186370d9570d1985a4e61c21b19752be95c5f2b3441f1004f
   languageName: node
   linkType: hard
 

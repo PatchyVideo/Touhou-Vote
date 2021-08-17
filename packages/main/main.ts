@@ -30,7 +30,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('@/home/Home.vue'),
+      component: () => import('@/home/HomeEntry.vue'),
     },
     {
       path: '/vote/character',

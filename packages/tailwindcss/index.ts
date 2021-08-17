@@ -1,5 +1,5 @@
 import 'virtual:windi.css'
-import './global.css'
+import './global.postcss'
 
 import { useMediaQuery } from '@vueuse/core'
 import { computed, reactive } from 'vue'
