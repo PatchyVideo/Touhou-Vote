@@ -10,7 +10,6 @@
                   <div class="quicksand text-3xl text-gray-800">
                     <img class="inline-block w-10 h-11 pb-1 align-middle" src="https://thwiki.cc/favicon.ico" />THBWiki
                     &
-                    <!-- <img class="inline-block w-10 h-10 align-text-bottom" src="https://platinum.vercel.app/favicon.svg" /> -->
                     <span class="inline-block w-10 h-10 align-middle"
                       ><svg
                         version="1.2"
@@ -48,110 +47,118 @@
                     >PatchyVideo
                   </div>
                   <div class="mt-10 h-15 w-128"><img src="@/common/assets/title.svg" /></div>
-                  <div class="flex ml-6 mr-8 mt-4 flex-row justify-between">
-                    <div class="h-12 w-37"><img src="@/common/assets/title10.svg" /></div>
-                    <div class="mt-2 text-right text-gray-700 font-sans">距离投票结束还有 00天00时00分</div>
+                  <div class="flex mr-15 mt-4 flex-row items-center justify-between">
+                    <div class="h-12 w-37 rounded border-5"><img src="@/common/assets/title10.svg" /></div>
+                    <div class="flex items-center space-x-1">
+                      <span class="inline-block w-12 h-12 align-middle">
+                        <icon-uil-clock-five
+                          height="30"
+                          class="w-full h-full fill-current inline-block"
+                        ></icon-uil-clock-five>
+                      </span>
+                      <div class="text-right text-gray-700 font-sans">距离投票结束还有 00天00时00分</div>
+                    </div>
                   </div>
                   <div class="mt-8 w-128 text-gray-600 text-xl font-light">
                     这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。<br />
-                    <a class="float-arrow-box text-cyan-600"
+                    <a class="float-arrow-box"
                       >查看往届结果<icon-uil-arrow-right class="float-arrow inline -ml-1 w-8 h-8 align-middle"
                     /></a>
                   </div>
                 </div>
-                <div>
-                  <div
-                    class="
-                      w-146
-                      shadow-xl
-                      rounded-3xl
-                      bg-white bg-opacity-90
-                      backdrop-filter backdrop-blur-4
-                      border-2 border-white border-opacity-20
-                    "
-                  >
-                    <div class="px-10 py-8 w-full h-full">
-                      <div class="text-lg text-gray-700 font-light">登录一个账户 开始参与投票吧！</div>
-                      <div class="mt-2 flex flex-row space-x-6">
-                        <div class="linkbox-border inline-block mt-2 px-4 pt-2 pb-1 text-gray-800 cursor-pointer">
-                          <img class="inline-block w-8 h-9 pb-1 align-middle" src="https://thwiki.cc/favicon.ico" />
-                          <span> 通过 THBWiki 登录</span>
-                        </div>
-                        <div class="linkbox-border inline-block mt-2 px-4 pt-2 pb-1 text-gray-800 cursor-pointer">
-                          <span class="inline-block w-8 h-9 py-0.5 align-middle"
-                            ><svg
-                              version="1.2"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 2844 3778"
-                              class="w-full h-full fill-current inline-block"
-                              height="30"
-                            >
-                              <path
-                                d="M1836.8 2530.3c-690.5 0-1250.3-559.8-1250.3-1250.3 0-586.4 403.7-1078.5 948.4-1213.6h-3.3c-773.4 0-1400.3 626.9-1400.3 1400.3S758.2 2867 1531.6 2867c545.8 0 1018.6-312.2 1249.6-767.8-229.1 264.1-567.2 431.1-944.4 431.1z"
-                                stroke="#000"
-                                stroke-width="3"
-                                stroke-miterlimit="10"
-                              ></path>
-                              <path
-                                d="M793.1 2724.5c-225.2 0-416.5 145.1-485.6 346.9 88.5-128 236.2-211.9 403.6-211.9 270.8 0 490.2 219.5 490.2 490.2 0 112.9-38.2 216.9-102.4 299.8 125.7-93.5 207.2-243.2 207.2-412 .1-283.3-229.6-513-513-513z"
-                                stroke="#000"
-                                stroke-width="10"
-                                stroke-miterlimit="10"
-                              ></path>
-                              <path
-                                fill="none"
-                                stroke="#000"
-                                stroke-width="14"
-                                stroke-miterlimit="10"
-                                d="M609.7 3238.6l67.8 60.2 12.1 10.6 43.9-25.8 53.1-33.2-42.7 97.8 74.8 75.8-101.8-9.9-4.4-.4-42.7 97.8-22.9-104.3-18.3-1.7-87.9-8.6 54.6-32.1 37.4-22z"
-                              ></path>
-                              <path
-                                fill="none"
-                                stroke="#000"
-                                stroke-width="14"
-                                stroke-miterlimit="10"
-                                d="M712.5 3413.7l-65.6-6.5-14.2-64.4 61.9-38.4 49.3 43.8-31.4 65.5"
-                              ></path></svg></span
-                          ><span> 通过 PatchyVideo 登录</span>
-                        </div>
+                <!-- Login Box -->
+                <div
+                  class="
+                    w-146
+                    shadow-around
+                    ring-2 ring-accent-color-200
+                    rounded-3xl
+                    bg-white bg-opacity-90
+                    backdrop-filter backdrop-blur-4
+                    border-2 border-white border-opacity-20
+                  "
+                >
+                  <div class="px-10 py-8 w-full h-full">
+                    <div class="text-lg text-gray-700 font-light">登录一个账户 开始参与投票吧！</div>
+                    <div class="mt-2 flex flex-row space-x-6">
+                      <div class="linkbox-border inline-block mt-2 px-4 pt-2 pb-1 text-gray-800 cursor-pointer">
+                        <img class="inline-block w-8 h-9 pb-1 align-middle" src="https://thwiki.cc/favicon.ico" />
+                        <span> 通过 THBWiki 登录</span>
                       </div>
-                      <div class="mt-6 mb-5 w-full border-dotted border-t border-gray-400"></div>
-                      <div class="text-lg text-gray-700 font-light">使用既有人气投票账户登录</div>
-                      <label class="input-border flex flex-row mt-5 py-2.5 px-4"
-                        ><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /><input
-                          class="ml-2 w-full bg-transparent focus:outline-none"
-                          placeholder="在这里输入你的邮箱"
-                          type="text"
-                      /></label>
-                      <!-- <div class="mt-1 text-blue-400 font-thin hover:text-blue-500 transition-colors duration-150">
+                      <div class="linkbox-border inline-block mt-2 px-4 pt-2 pb-1 text-gray-800 cursor-pointer">
+                        <span class="inline-block w-8 h-9 py-0.5 align-middle"
+                          ><svg
+                            version="1.2"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 2844 3778"
+                            class="w-full h-full fill-current inline-block"
+                            height="30"
+                          >
+                            <path
+                              d="M1836.8 2530.3c-690.5 0-1250.3-559.8-1250.3-1250.3 0-586.4 403.7-1078.5 948.4-1213.6h-3.3c-773.4 0-1400.3 626.9-1400.3 1400.3S758.2 2867 1531.6 2867c545.8 0 1018.6-312.2 1249.6-767.8-229.1 264.1-567.2 431.1-944.4 431.1z"
+                              stroke="#000"
+                              stroke-width="3"
+                              stroke-miterlimit="10"
+                            ></path>
+                            <path
+                              d="M793.1 2724.5c-225.2 0-416.5 145.1-485.6 346.9 88.5-128 236.2-211.9 403.6-211.9 270.8 0 490.2 219.5 490.2 490.2 0 112.9-38.2 216.9-102.4 299.8 125.7-93.5 207.2-243.2 207.2-412 .1-283.3-229.6-513-513-513z"
+                              stroke="#000"
+                              stroke-width="10"
+                              stroke-miterlimit="10"
+                            ></path>
+                            <path
+                              fill="none"
+                              stroke="#000"
+                              stroke-width="14"
+                              stroke-miterlimit="10"
+                              d="M609.7 3238.6l67.8 60.2 12.1 10.6 43.9-25.8 53.1-33.2-42.7 97.8 74.8 75.8-101.8-9.9-4.4-.4-42.7 97.8-22.9-104.3-18.3-1.7-87.9-8.6 54.6-32.1 37.4-22z"
+                            ></path>
+                            <path
+                              fill="none"
+                              stroke="#000"
+                              stroke-width="14"
+                              stroke-miterlimit="10"
+                              d="M712.5 3413.7l-65.6-6.5-14.2-64.4 61.9-38.4 49.3 43.8-31.4 65.5"
+                            ></path></svg></span
+                        ><span> 通过 PatchyVideo 登录</span>
+                      </div>
+                    </div>
+                    <div class="mt-6 mb-5 w-full border-dotted border-t border-gray-400"></div>
+                    <div class="text-lg text-gray-700 font-light">使用既有人气投票账户登录</div>
+                    <label class="input-border flex flex-row mt-5 py-2.5 px-4"
+                      ><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /><input
+                        class="ml-2 w-full bg-transparent focus:outline-none"
+                        placeholder="在这里输入你的邮箱"
+                        type="text"
+                    /></label>
+                    <!-- <div class="mt-1 text-blue-400 font-thin hover:text-blue-500 transition-colors duration-150">
                         注册一个新的人气投票账户<icon-uil-arrow-right class="inline w-6 h-6 align-middle" />
                       </div> -->
-                      <label class="input-border flex flex-row mt-4 py-2.5 px-4"
-                        ><icon-uil-lock-alt class="inline-block w-6 h-6 text-gray-700" /><input
-                          class="ml-2 w-full bg-transparent focus:outline-none"
-                          placeholder="在这里输入你的密码"
-                          type="password"
-                      /></label>
-                      <!-- <div class="mt-1 text-blue-400 font-thin hover:text-blue-500 transition-colors duration-150">
+                    <label class="input-border flex flex-row mt-4 py-2.5 px-4"
+                      ><icon-uil-lock-alt class="inline-block w-6 h-6 text-gray-700" /><input
+                        class="ml-2 w-full bg-transparent focus:outline-none"
+                        placeholder="在这里输入你的密码"
+                        type="password"
+                    /></label>
+                    <!-- <div class="mt-1 text-blue-400 font-thin hover:text-blue-500 transition-colors duration-150">
                         忘记密码？<icon-uil-arrow-right class="inline w-6 h-6 align-middle" />
                       </div> -->
-                      <button class="mt-5 w-full h-12 rounded-xl text-lg text-white bg-indigo-600">开始投票</button>
-                      <div
-                        class="
-                          flex
-                          mt-2
-                          flex-row
-                          justify-between
-                          text-blue-400
-                          font-thin
-                          hover:text-blue-500
-                          transition-colors
-                          duration-150
-                        "
-                      >
-                        <div>忘记密码？</div>
-                        <div>注册一个新的人气投票账户</div>
-                      </div>
+                    <button class="mt-5 w-full h-12 rounded-xl text-lg text-white bg-indigo-600">开始投票</button>
+                    <div
+                      class="
+                        flex
+                        mt-2
+                        flex-row
+                        justify-between
+                        text-blue-400
+                        font-thin
+                        hover:text-blue-500
+                        transition-colors
+                        duration-150
+                      "
+                    >
+                      <a>忘记密码？</a>
+                      <a>注册一个新的人气投票账户</a>
                     </div>
                   </div>
                 </div>
@@ -161,7 +168,7 @@
         </div>
       </div>
       <div class="w-3/4 h-full mx-auto py-12">
-        <div class="w-full h-full p-8 rounded-xl bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
+        <div class="w-full h-full p-8 shadow-around rounded-xl bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
           <article class="prose-xl">
             <h2>其他信息</h2>
             <p>投票的举办地点与结果的发布地点均为本站。</p>
@@ -221,8 +228,8 @@
   background-image: radial-gradient(
     circle at top left,
     transparent 0 min(60vw, 1152px),
-    theme('colors.pink.200') min(60vw, 1152px),
-    theme('colors.pink.100')
+    theme('colors.accent-color.600') min(60vw, 1152px),
+    theme('colors.accent-color.500')
   );
 }
 </style>
