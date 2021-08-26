@@ -26,7 +26,7 @@
               </div>
               <div class="mt-8 w-128 text-gray-600 text-xl font-light">
                 这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。<br />
-                <a class="float-arrow-box"
+                <a v-if="false" class="float-arrow-box"
                   >查看往届结果<icon-uil-arrow-right class="float-arrow inline -ml-1 w-8 h-8 align-middle"
                 /></a>
               </div>
