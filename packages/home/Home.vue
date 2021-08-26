@@ -5,7 +5,7 @@
       <div class="w-full h-100vh max-h-screen-lg">
         <div class="grid w-full h-full place-items-center mx-auto">
           <div class="flex w-4/5 flex-row justify-between">
-            <!-- Left Part -->
+            <!-- Left Text -->
             <div>
               <!-- Logo -->
               <div class="quicksand text-3xl text-gray-800">
@@ -32,86 +32,12 @@
               </div>
             </div>
             <!-- Login Box -->
-            <!-- <div
-            
-              class="
-                w-146
-                shadow-around
-                ring-2 ring-accent-color-200
-                rounded-3xl
-                bg-white bg-opacity-90
-                backdrop-filter backdrop-blur-4
-                border-2 border-white border-opacity-20
-                px-10
-                py-8
-              "
-            >
-              <div class="text-lg text-gray-700 font-light">登录一个账户 开始参与投票吧！</div>
-              <div class="mt-2 flex flex-row space-x-6">
-                <div class="linkbox-border inline-block mt-2 px-4 pt-2 pb-1 text-gray-800 cursor-pointer">
-                  <img class="inline-block w-8 h-9 pb-1 align-middle" src="https://thwiki.cc/favicon.ico" />
-                  <span> 通过 THBWiki 登录</span>
-                </div>
-                <div class="linkbox-border inline-block mt-2 px-4 pt-2 pb-1 text-gray-800 cursor-pointer">
-                  <span class="inline-block w-8 h-9 py-0.5 align-middle"
-                    ><svg
-                      version="1.2"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 2844 3778"
-                      class="w-full h-full fill-current inline-block"
-                      height="30"
-                    >
-                      <path
-                        d="M1836.8 2530.3c-690.5 0-1250.3-559.8-1250.3-1250.3 0-586.4 403.7-1078.5 948.4-1213.6h-3.3c-773.4 0-1400.3 626.9-1400.3 1400.3S758.2 2867 1531.6 2867c545.8 0 1018.6-312.2 1249.6-767.8-229.1 264.1-567.2 431.1-944.4 431.1z"
-                        stroke="#000"
-                        stroke-width="3"
-                        stroke-miterlimit="10"
-                      ></path>
-                      <path
-                        d="M793.1 2724.5c-225.2 0-416.5 145.1-485.6 346.9 88.5-128 236.2-211.9 403.6-211.9 270.8 0 490.2 219.5 490.2 490.2 0 112.9-38.2 216.9-102.4 299.8 125.7-93.5 207.2-243.2 207.2-412 .1-283.3-229.6-513-513-513z"
-                        stroke="#000"
-                        stroke-width="10"
-                        stroke-miterlimit="10"
-                      ></path>
-                      <path
-                        fill="none"
-                        stroke="#000"
-                        stroke-width="14"
-                        stroke-miterlimit="10"
-                        d="M609.7 3238.6l67.8 60.2 12.1 10.6 43.9-25.8 53.1-33.2-42.7 97.8 74.8 75.8-101.8-9.9-4.4-.4-42.7 97.8-22.9-104.3-18.3-1.7-87.9-8.6 54.6-32.1 37.4-22z"
-                      ></path>
-                      <path
-                        fill="none"
-                        stroke="#000"
-                        stroke-width="14"
-                        stroke-miterlimit="10"
-                        d="M712.5 3413.7l-65.6-6.5-14.2-64.4 61.9-38.4 49.3 43.8-31.4 65.5"
-                      ></path></svg></span
-                  ><span> 通过 PatchyVideo 登录</span>
-                </div>
-              </div>
-              <div class="mt-6 mb-5 w-full border-t border-gray-400"></div>
-              <div class="text-lg text-gray-700 font-light">使用既有人气投票账户登录</div>
-              <label class="input-border flex flex-row mt-5 py-2.5 px-4"
-                ><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /><input
-                  class="ml-2 w-full bg-transparent focus:outline-none"
-                  placeholder="在这里输入你的邮箱"
-                  type="text"
-              /></label>
-              <label class="input-border flex flex-row mt-4 py-2.5 px-4"
-                ><icon-uil-lock-alt class="inline-block w-6 h-6 text-gray-700" /><input
-                  class="ml-2 w-full bg-transparent focus:outline-none"
-                  placeholder="在这里输入你的密码"
-                  type="password"
-              /></label>
-              <button class="mt-5 w-full h-12 rounded-xl text-lg text-white bg-accent-color-600">开始投票</button>
-            </div> -->
             <div
               class="relative w-146 shadow-around rounded-3xl bg-white bg-opacity-90 backdrop-filter backdrop-blur-4"
             >
               <div class="w-full flex content-between text-center">
                 <div
-                  class="pl-5 pt-5 w-9/20 rounded-tl-3xl"
+                  class="pl-5 py-4 w-9/20 rounded-tl-3xl"
                   :class="{ 'bg-cool-gray-300 bg-opacity-50 cursor-pointer shadow-innery': !loginWithVerificationCode }"
                   @click="loginWithVerificationCode = true"
                 >
@@ -124,7 +50,7 @@
                   ></div>
                 </div>
                 <div
-                  class="pr-7 pt-5 w-9/20 rounded-tr-3xl"
+                  class="pr-7 py-4 w-9/20 rounded-tr-3xl"
                   :class="{ 'bg-cool-gray-300 bg-opacity-50 cursor-pointer shadow-innery': loginWithVerificationCode }"
                   @click="loginWithVerificationCode = false"
                 >
