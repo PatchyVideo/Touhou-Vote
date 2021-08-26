@@ -34,6 +34,8 @@ export default defineConfig({
       },
       boxShadow: {
         around: '5px 20px 25px rgba(0, 0, 0, 0.1), -3px -3px 10px rgba(0, 0, 0, 0.1)',
+        tab: '0 6px 4px  -4px rgba(0, 0, 0, 0.2)',
+        innery: 'inset 0 -6px 4px -4px rgba(0, 0, 0, 0.1)',
       },
     },
   },
