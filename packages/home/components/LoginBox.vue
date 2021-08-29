@@ -1,0 +1,274 @@
+<template>
+  <Transition name="mask">
+    <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-50" @touchmove.stop.prevent>
+      <div
+        class="
+          login-box
+          fixed
+          max-h-full
+          top-1/2
+          mx-auto
+          left-0
+          right-0
+          -mt-40
+          p-4
+          w-19/20
+          rounded-xl
+          bg-white
+          md:w-100
+        "
+      >
+        <div class="w-full overflow-hidden">
+          <div
+            class="w-2/1 flex transform-gpu transition-transform duration-300 space-x-1"
+            :class="{ '-translate-x-1/2': useOldSystemLogin }"
+          >
+            <!-- Normal Login -->
+            <div class="w-1/2 space-y-2">
+              <div class="flex justify-between items-center">
+                <div class="text-lg">请先登陆</div>
+                <icon-uil-times class="w-8 h-8 cursor-pointer" @click="loading || (open = false)"></icon-uil-times>
+              </div>
+              <div>
+                <label class="input-border flex flex-row py-2 px-4"
+                  ><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /><input
+                    v-model="userEmailOrPhoneNum"
+                    class="ml-2 w-full bg-transparent focus:outline-none"
+                    placeholder="邮箱或手机号"
+                    type="text"
+                /></label>
+                <div class="text-accent-color-600 text-xs h-5" v-text="userTypeError"></div>
+                <div class="flex justify-between">
+                  <label class="w-1/2 py-2 px-4 inline-block input-border flex flex-row"
+                    ><icon-uil-lock-alt class="inline-block w-6 h-6 text-gray-700" /><input
+                      v-model="verificationCode"
+                      class="ml-2 w-full bg-transparent focus:outline-none"
+                      placeholder="验证码"
+                      type="text"
+                  /></label>
+                  <button
+                    class="py-2 px-5 rounded-xl text-white bg-accent-color-600"
+                    :class="{ 'bg-accent-color-300': !verificationCodeAvailable || loading }"
+                    @click="verificationCodeGet()"
+                  >
+                    {{ '获取' + (verificationCodeAvailable ? '' : '(' + verificationCodeAvailableTime + ')') }}
+                  </button>
+                </div>
+                <div class="text-accent-color-600 text-xs h-5" v-text="verificationCodeError"></div>
+                <button
+                  class="
+                    w-full
+                    py-2
+                    rounded-xl
+                    text text-white
+                    bg-accent-color-600
+                    flex
+                    items-center
+                    space-x-1
+                    justify-center
+                  "
+                  :class="{ 'bg-accent-color-300': loading }"
+                  @click="login()"
+                >
+                  <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>开始投票</label>
+                </button>
+              </div>
+              <div class="h-1 w-full"></div>
+              <div class="flex justify-between items-center space-y-1 border-t-2 p-2">
+                <div class="text-gray-600 text-sm">其他方式登陆:</div>
+                <div class="flex flex-row-reverse">
+                  <div class="rounded-full shadow p-0.5 mx-2 border-3 border-accent-color-300">
+                    <img
+                      class="w-5 h-6 cursor-pointer mx-0.5"
+                      src="@/common/assets/logoPatchyVideo.png"
+                      title="通过 PatchyVideo 登录"
+                    />
+                  </div>
+                  <div class="rounded-full shadow p-0.5 mx-2 border-3 border-accent-color-300">
+                    <img class="w-6 h-6 cursor-pointer" src="https://thwiki.cc/favicon.ico" title="通过 THBWiki 登录" />
+                  </div>
+                  <div
+                    class="rounded-full shadow p-0.5 mx-2 border-3 border-accent-color-300"
+                    @click="loading || (useOldSystemLogin = true)"
+                  >
+                    <img
+                      class="w-6 h-6 cursor-pointer"
+                      src="@/common/assets/logoOldSystem.ico"
+                      title="使用旧版账号密码登陆"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Old System Login -->
+            <div class="w-1/2">
+              <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                  <icon-uil-angle-left-b class="w-8 h-8" @click="loading || (useOldSystemLogin = false)" />
+                  <div class="text-lg">使用旧版账号密码登陆</div>
+                </div>
+              </div>
+              <div class="mt-10">
+                <label class="input-border flex flex-row py-2 px-4"
+                  ><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /><input
+                    v-model="userName"
+                    class="ml-2 w-full bg-transparent focus:outline-none"
+                    placeholder="账号"
+                    type="text"
+                /></label>
+                <div class="text-accent-color-600 text-xs h-5" v-text="userNameError"></div>
+                <label class="input-border flex flex-row py-2 px-4"
+                  ><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /><input
+                    v-model="userPassword"
+                    class="ml-2 w-full bg-transparent focus:outline-none"
+                    placeholder="密码"
+                    type="password"
+                /></label>
+                <div class="text-accent-color-600 text-xs h-5" v-text="userPasswordError"></div>
+                <button
+                  class="
+                    w-full
+                    py-2
+                    rounded-xl
+                    text text-white
+                    bg-accent-color-600
+                    flex
+                    items-center
+                    space-x-1
+                    justify-center
+                  "
+                  :class="{ 'bg-accent-color-300': loading }"
+                  @click="loginOldSystem()"
+                >
+                  <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>登陆</label>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Transition>
+</template>
+<script lang="ts" setup>
+import { ref, computed, watchEffect, defineProps } from 'vue'
+import { useVModel } from '@vueuse/core'
+
+const props = defineProps({
+  open: {
+    type: Boolean,
+    default: false,
+    requred: true,
+  },
+})
+const emit = defineEmits<{
+  (event: 'update:open', value: boolean): void
+}>()
+const open = useVModel(props, 'open', emit)
+
+watchEffect(() => {
+  if (!open.value) document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:auto')
+  else document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:hidden')
+})
+
+const loading = ref(false)
+
+/* Verification Code Login */
+const emailFormat =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+const phoneFormat = /^1[3-9]\d{9}$/
+const userEmailOrPhoneNum = ref<string>('')
+const userTypeError = ref<' ' | '请输入邮箱或手机号！' | '请输入正确格式的邮箱或手机号！(不支持海外手机号)'>(' ')
+const userType = computed<'phone' | 'email' | 'invalid'>(() => {
+  if (emailFormat.test(userEmailOrPhoneNum.value)) return 'email'
+  else if (phoneFormat.test(userEmailOrPhoneNum.value)) return 'phone'
+  else return 'invalid'
+})
+function userEmailOrPhoneNumVerify(): boolean {
+  userTypeError.value = ' '
+  verificationCodeError.value = ' '
+  if (userEmailOrPhoneNum.value === '') {
+    userTypeError.value = '请输入邮箱或手机号！'
+    return false
+  } else if (userType.value === 'invalid') {
+    userTypeError.value = '请输入正确格式的邮箱或手机号！(不支持海外手机号)'
+    return false
+  }
+  return true
+}
+const verificationCode = ref<string>('')
+const verificationCodeError = ref<' ' | '请输入验证码！' | '请输入正确的验证码！' | '网络错误！请稍后重试'>(' ')
+const verificationCodeAvailable = ref(true)
+const verificationCodeAvailableTime = ref(60)
+let verificationCodeAvailableTimer: number
+async function verificationCodeGet(): Promise<void> {
+  if (!verificationCodeAvailable.value || loading.value) return
+  if (!userEmailOrPhoneNumVerify()) return
+  verificationCodeAvailable.value = false
+  verificationCodeAvailableTime.value = 60
+  verificationCodeAvailableTimer = setInterval(() => {
+    verificationCodeAvailableTime.value--
+  }, 1000)
+}
+watchEffect(() => {
+  if (!verificationCodeAvailableTime.value) {
+    clearInterval(verificationCodeAvailableTimer)
+    verificationCodeAvailable.value = true
+  }
+})
+async function login(): Promise<void> {
+  if (!userEmailOrPhoneNumVerify() || loading.value) return
+  if (verificationCode.value === '') {
+    verificationCodeError.value = '请输入验证码！'
+    return
+  }
+  loading.value = true
+  loading.value = false
+}
+
+/* Old System Login */
+const useOldSystemLogin = ref(false)
+const userName = ref<string>('')
+const userNameError = ref<' ' | '请输入用户名！' | '用户名或密码错误！'>(' ')
+const userPassword = ref<string>('')
+const userPasswordError = ref<' ' | '请输入密码！' | '网络错误！请稍后重试'>(' ')
+async function loginOldSystem(): Promise<void> {
+  loading.value = true
+  loading.value = false
+}
+</script>
+<style lang="postcss" scoped>
+.mask-enter-active {
+  animation: show-login-box 0.3s;
+}
+.mask-leave-active {
+  animation: show-login-box 0.3s reverse;
+}
+@keyframes show-login-box {
+  10% {
+    @apply opacity-10;
+    .login-box {
+      @apply opacity-0;
+    }
+  }
+  50% {
+    @apply opacity-50;
+    .login-box {
+      @apply opacity-0;
+    }
+  }
+  90% {
+    @apply opacity-90;
+    .login-box {
+      @apply opacity-90;
+    }
+  }
+}
+.mask-enter-from,
+.mask-leave-to {
+  @apply opacity-0;
+  .login-box {
+    @apply opacity-0;
+  }
+}
+</style>
