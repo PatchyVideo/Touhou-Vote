@@ -30,8 +30,9 @@
                 <icon-uil-times class="w-8 h-8 cursor-pointer" @click="loading || (open = false)"></icon-uil-times>
               </div>
               <div>
-                <label class="input-border flex flex-row py-2 px-4"
-                  ><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /><input
+                <label class="input-border flex flex-row py-2 px-4">
+                  <span class="h-6 w-6"><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /></span>
+                  <input
                     v-model="userEmailOrPhoneNum"
                     class="ml-2 w-full bg-transparent focus:outline-none"
                     placeholder="邮箱或手机号"
@@ -39,8 +40,9 @@
                 /></label>
                 <div class="text-accent-color-600 text-xs h-5" v-text="userTypeError"></div>
                 <div class="flex justify-between">
-                  <label class="w-1/2 py-2 px-4 inline-block input-border flex flex-row"
-                    ><icon-uil-lock-alt class="inline-block w-6 h-6 text-gray-700" /><input
+                  <label class="w-1/2 py-2 px-4 inline-block input-border flex flex-row">
+                    <span class="h-6 w-6"><icon-uil-lock-alt class="inline-block w-6 h-6 text-gray-700" /></span>
+                    <input
                       v-model="verificationCode"
                       class="ml-2 w-full bg-transparent focus:outline-none"
                       placeholder="验证码"
@@ -101,7 +103,7 @@
               </div>
             </div>
             <!-- Old System Login -->
-            <div class="w-1/2">
+            <div class="w-1/2 pr-1/100">
               <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
                   <icon-uil-angle-left-b class="w-8 h-8" @click="loading || (useOldSystemLogin = false)" />
@@ -109,16 +111,18 @@
                 </div>
               </div>
               <div class="mt-10">
-                <label class="input-border flex flex-row py-2 px-4"
-                  ><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /><input
+                <label class="input-border flex flex-row py-2 px-4">
+                  <span class="h-6 w-6"><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /></span>
+                  <input
                     v-model="userName"
                     class="ml-2 w-full bg-transparent focus:outline-none"
                     placeholder="账号"
                     type="text"
                 /></label>
                 <div class="text-accent-color-600 text-xs h-5" v-text="userNameError"></div>
-                <label class="input-border flex flex-row py-2 px-4"
-                  ><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /><input
+                <label class="input-border flex flex-row py-2 px-4">
+                  <span class="h-6 w-6"><icon-uil-lock-alt class="inline-block w-6 h-6 text-gray-700" /></span>
+                  <input
                     v-model="userPassword"
                     class="ml-2 w-full bg-transparent focus:outline-none"
                     placeholder="密码"
