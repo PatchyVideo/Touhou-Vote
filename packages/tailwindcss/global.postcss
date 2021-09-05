@@ -94,3 +94,15 @@ a {
     background-color: theme('colors.accent-color.200');
   }
 }
+
+/* Background */
+@variants <md {
+  .page {
+    background-image: radial-gradient(circle at top left, theme('colors.accent-color.200') min(100vh), transparent 0);
+  }
+}
+@variants md {
+  .page {
+    background-image: radial-gradient(circle at 120% 40%, theme('colors.accent-color.200') min(80vw), transparent 0);
+  }
+}

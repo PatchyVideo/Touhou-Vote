@@ -33,6 +33,10 @@ const router = createRouter({
       component: () => import('@/home/HomeEntry.vue'),
     },
     {
+      path: '/user/settings',
+      component: () => import('@/home/UserSettings.vue'),
+    },
+    {
       path: '/vote/character',
       component: () => import('@/vote-character/VoteCharacter.vue'),
     },
