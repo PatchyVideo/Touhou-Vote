@@ -8,7 +8,7 @@
         <div class="font-semibold text-xl truncate">东风谷 早苗</div>
       </div>
       <div class="w-full flex justify-end">
-        <div class="transform -rotate-45 border rounded-sm border-red-500 text-red-500">本命</div>
+        <div class="transform -rotate-45 border rounded-sm border-red-500 text-red-500 md:text-lg xl:text-xl">本命</div>
       </div>
     </div>
   </div>
