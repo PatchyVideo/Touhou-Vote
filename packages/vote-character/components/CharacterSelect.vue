@@ -17,9 +17,13 @@
         w-9/10
         mx-auto
         md:w-1/2
-        xl:w-1/3
-        3xl:w-1/4
-        2xl:text-3xl
+        lg:w-1/3
+        xl:w-1/4
+        3xl:w-1/5
+        text-sm
+        md:text-base
+        xl:text-xl
+        2xl:text-2xl
       "
     >
       <div class="flex justify-between border-b">
@@ -31,8 +35,8 @@
           <icon-uil-search class="flex-shrink-0 inline ml-2 mr-1" />
           <input class="nline-block h-full outline-none dark:bg-gray-800 w-full rounded" />
         </div>
-        <div class="text-sm md:text-base 2 xl:text-xl">从新到旧</div>
-        <div class="text-sm md:text-base 2xl:text-xl">筛选</div>
+        <div>从新到旧</div>
+        <div>筛选</div>
       </div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <div
@@ -43,8 +47,10 @@
           <img class="w-1/3 rounded border" src="https://i.loli.net/2021/08/16/vUNt2gOj37F16cs.png" />
           <div class="w-9/10 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">
-              <div class="truncate text-sm 2xl:text-xl">祭祀风的人类</div>
-              <div class="font-semibold truncate text-character-sanae">东风谷 早苗</div>
+              <div class="truncate">祭祀风的人类</div>
+              <div class="font-semibold truncate text-lg md:text-xl xl:text-2xl 2xl:text-3xl text-character-sanae">
+                东风谷 早苗
+              </div>
             </div>
             <div class="w-full flex justify-end">
               <div
@@ -105,12 +111,12 @@ const characterList = ref([1, 2, 3])
 <style lang="postcss" scoped>
 .selectBox-enter-active,
 .selectBox-leave-active {
-  transition: opacity 0.2s ease;
+  @apply transition-all duration-200;
 }
 
 .selectBox-enter-from,
 .selectBox-leave-to {
-  opacity: 0;
+  @apply opacity-0;
 }
 .mask-enter-active,
 .mask-leave-active {

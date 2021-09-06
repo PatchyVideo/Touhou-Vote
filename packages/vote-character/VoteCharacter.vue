@@ -1,30 +1,32 @@
 <template>
-  <div class="p-2 shadow flex items-center">
-    <div class="font-medium">第⑩届 国内东方人气投票 - 角色部门</div>
-  </div>
-  <div class="p-2 flex flex-wrap space-y-2 md:p-5 md:w-1/2 md:m-auto lg:w-1/3">
-    <div class="p-1 rounded w-full shadow">
-      <div class="p-1 flex justify-between">
-        <div>本命角色(1/1)</div>
-        <icon-uil-plus class="cursor-pointer" @click="CharacterSelectOpen = true"></icon-uil-plus>
+  <div class="w-full min-h-100vh flex flex-col">
+    <div class="p-2 shadow flex items-center">
+      <div class="font-medium">第⑩届 国内东方人气投票 - 角色部门</div>
+    </div>
+    <div class="flex-grow flex flex-wrap content-center space-y-2 md:w-1/2 lg:w-1/3 xl:w-1/4 3xl:w-1/5 md:m-auto">
+      <div class="p-1 rounded w-full shadow">
+        <div class="p-1 flex justify-between">
+          <div>本命角色(1/1)</div>
+          <icon-uil-plus class="cursor-pointer" @click="CharacterSelectOpen = true"></icon-uil-plus>
+        </div>
+        <div class="p-2 rounded shadow-inner bg-gray-50 flex">
+          <CharacterHonmeiCard v-model:character-honmei="characterHonmei" />
+        </div>
       </div>
-      <div class="p-2 rounded shadow-inner bg-gray-50 flex">
-        <CharacterHonmeiCard v-model:character-honmei="characterHonmei" />
+      <div class="p-1 rounded w-full shadow">
+        <div class="p-1 flex justify-between">
+          <div>我喜欢的角色(3/3)</div>
+          <icon-uil-plus class="cursor-pointer" @click="CharacterSelectOpen = true"></icon-uil-plus>
+        </div>
+        <div class="p-2 rounded shadow-inner bg-gray-50 flex justify-between">
+          <div class="w-3/10"><CharacterCard v-model:character="characterSecond" /></div>
+          <div class="w-3/10"><CharacterCard v-model:character="characterThird" /></div>
+          <div class="w-3/10"><CharacterCard v-model:character="characterFourth" /></div>
+        </div>
       </div>
     </div>
-    <div class="p-1 rounded w-full shadow">
-      <div class="p-1 flex justify-between">
-        <div>我喜欢的角色(3/3)</div>
-        <icon-uil-plus class="cursor-pointer" @click="CharacterSelectOpen = true"></icon-uil-plus>
-      </div>
-      <div class="p-2 rounded shadow-inner bg-gray-50 flex justify-between">
-        <div class="w-3/10"><CharacterCard v-model:character="characterSecond" /></div>
-        <div class="w-3/10"><CharacterCard v-model:character="characterThird" /></div>
-        <div class="w-3/10"><CharacterCard v-model:character="characterFourth" /></div>
-      </div>
-    </div>
+    <CharacterSelect v-model:open="CharacterSelectOpen" />
   </div>
-  <CharacterSelect v-model:open="CharacterSelectOpen" />
 </template>
 
 <script lang="ts" setup>
