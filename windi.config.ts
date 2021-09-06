@@ -28,6 +28,9 @@ export default defineConfig({
           800: '#561B15',
           900: '#822820',
         },
+        character: {
+          sanae: '#58b675',
+        },
       },
       screens: {
         '3xl': '1920px',

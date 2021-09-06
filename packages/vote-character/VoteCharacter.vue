@@ -6,7 +6,7 @@
     <div class="p-1 rounded w-full shadow">
       <div class="p-1 flex justify-between">
         <div>本命角色(1/1)</div>
-        <icon-uil-plus class="cursor-pointer"></icon-uil-plus>
+        <icon-uil-plus class="cursor-pointer" @click="CharacterSelectOpen = true"></icon-uil-plus>
       </div>
       <div class="p-2 rounded shadow-inner bg-gray-50 flex">
         <CharacterHonmeiCard v-model:character-honmei="characterHonmei" />
@@ -15,7 +15,7 @@
     <div class="p-1 rounded w-full shadow">
       <div class="p-1 flex justify-between">
         <div>我喜欢的角色(3/3)</div>
-        <icon-uil-plus class="cursor-pointer"></icon-uil-plus>
+        <icon-uil-plus class="cursor-pointer" @click="CharacterSelectOpen = true"></icon-uil-plus>
       </div>
       <div class="p-2 rounded shadow-inner bg-gray-50 flex justify-between">
         <div class="w-3/10"><CharacterCard v-model:character="characterSecond" /></div>
@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-  <CharacterSelect />
+  <CharacterSelect v-model:open="CharacterSelectOpen" />
 </template>
 
 <script lang="ts" setup>
@@ -37,4 +37,6 @@ const characterHonmei = ref<string>('none')
 const characterSecond = ref<string>('none')
 const characterThird = ref<string>('none')
 const characterFourth = ref<string>('none')
+
+const CharacterSelectOpen = ref(false)
 </script>
