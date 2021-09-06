@@ -3,7 +3,7 @@
     <div class="p-2 shadow flex items-center">
       <div class="font-medium">第⑩届 国内东方人气投票 - 角色部门</div>
     </div>
-    <div class="flex-grow flex flex-wrap content-center space-y-2 md:w-1/2 lg:w-1/3 xl:w-1/4 3xl:w-1/5 md:m-auto">
+    <div class="md:flex-grow flex flex-wrap md:content-center space-y-2 md:w-1/2 lg:w-1/3 xl:w-1/4 3xl:w-1/5 md:m-auto">
       <div class="p-1 rounded w-full shadow">
         <div class="p-1 flex justify-between">
           <div>本命角色(1/1)</div>
