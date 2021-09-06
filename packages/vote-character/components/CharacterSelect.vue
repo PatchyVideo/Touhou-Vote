@@ -18,8 +18,7 @@
         mx-auto
         md:w-1/2
         lg:w-1/3
-        xl:w-1/4
-        3xl:w-1/5
+        3xl:w-1/4
         text-sm
         md:text-base
         xl:text-xl
@@ -40,34 +39,25 @@
       </div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <div
-          v-for="(item, index) in characterList"
+          v-for="(item, index) in characterListLeft"
           :key="index"
           class="p-1 rounded shadow bg-white flex ring ring-character-sanae"
         >
-          <img class="w-1/3 rounded border" src="https://i.loli.net/2021/08/16/vUNt2gOj37F16cs.png" />
-          <div class="w-9/10 p-1 flex flex-wrap content-between md:p-2">
+          <img class="w-1/3 rounded border" :src="item.image" />
+          <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">
-              <div class="truncate">祭祀风的人类</div>
+              <div class="truncate">{{ item.title }}</div>
               <div class="font-semibold truncate text-lg md:text-xl xl:text-2xl 2xl:text-3xl text-character-sanae">
-                东风谷 早苗
+                {{ item.name }}
               </div>
             </div>
             <div class="w-full flex justify-end">
-              <div
-                class="
-                  px-3
-                  md:px-5
-                  py-1
-                  shadow
-                  rounded
-                  text-white text-sm
-                  md:text-base
-                  cursor-pointer
-                  bg-character-sanae
-                "
+              <button
+                class="px-3 md:px-5 py-1 shadow rounded text-white text-sm md:text-base bg-character-sanae"
+                @click="characterSelect(item.id)"
               >
                 选择
-              </div>
+              </button>
             </div>
           </div>
         </div>
@@ -80,32 +70,61 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watchEffect, defineProps } from 'vue'
-import { useVModel } from '@vueuse/core'
+import { ref, watchEffect, defineProps, PropType } from 'vue'
+import { useVModels } from '@vueuse/core'
+import { Character } from '@/vote-character/lib/character'
+import { characterListLeft } from '@/vote-character/lib/characterList'
+import { character0 } from '@/vote-character/lib/voteData'
 
 const props = defineProps({
   open: {
     type: Boolean,
     requred: true,
   },
+  characterHonmeiIsSelected: {
+    type: Boolean,
+    requred: true,
+    default: true,
+  },
+  characterHonmeiSelected: {
+    type: Object as PropType<Character>,
+    requred: true,
+    default: function () {
+      return character0
+    },
+  },
+  characterSelected: {
+    type: Object as PropType<Character>,
+    requred: true,
+    default: function () {
+      return character0
+    },
+  },
 })
 const emit = defineEmits<{
   (event: 'update:open', value: boolean): void
+  (event: 'update:characterSelected', value: string): void
+  (event: 'update:characterHonmeiSelected', value: string): void
 }>()
-const open = useVModel(props, 'open', emit)
-
+const { open, characterSelected, characterHonmeiSelected } = useVModels(props, emit)
+function close(): void {
+  open.value = false
+}
 watchEffect(() => {
   if (!open.value) document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:auto')
   else document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:hidden')
 })
 
-function close(): void {
-  open.value = false
-}
-
 const loading = ref(false)
 
-const characterList = ref([1, 2, 3])
+function characterSelect(id: string): void {
+  const targetCharacter = characterListLeft.value.find((item) => item.id === id)
+  if (targetCharacter)
+    props.characterHonmeiIsSelected
+      ? (characterHonmeiSelected.value = targetCharacter)
+      : (characterSelected.value = targetCharacter)
+  close()
+}
 </script>
 <style lang="postcss" scoped>
 .selectBox-enter-active,
