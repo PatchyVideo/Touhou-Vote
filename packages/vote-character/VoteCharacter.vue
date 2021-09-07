@@ -1,11 +1,13 @@
 <template>
-  <div class="w-full min-h-100vh flex flex-col">
-    <div class="p-2 shadow flex items-center">
+  <div class="page w-full min-h-100vh flex flex-col">
+    <div class="p-2 shadow flex items-center bg-white mb-2">
       <div class="font-medium">第⑩届 国内东方人气投票 - 角色部门</div>
     </div>
 
-    <div class="md:flex-grow flex flex-wrap md:content-center space-y-2 md:w-1/2 lg:w-1/3 xl:w-1/4 3xl:w-1/5 md:m-auto">
-      <div class="p-1 rounded w-full shadow">
+    <div
+      class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 lg:w-1/3 xl:w-1/4 3xl:w-1/5 md:m-auto"
+    >
+      <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between">
           <div>{{ '本命角色(' + (characterHonmei.id === character0.id ? 0 : 1) + '/1)' }}</div>
           <icon-uil-plus
@@ -21,17 +23,17 @@
             "
           ></icon-uil-plus>
         </div>
-        <div class="p-2 rounded shadow-inner bg-gray-50">
+        <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50">
           <transition name="characterHonmei" mode="out-in">
             <div v-if="characterHonmei.id != character0.id" key="selecting">
-              <CharacterHonmeiCard v-model:character-honmei="characterHonmei" />
+              <CharacterHonmeiCard v-model:character-honmei="characterHonmei" class="opacity-80" />
             </div>
             <div v-else key="no-selecting" class="w-full aspect-69/200"></div>
           </transition>
         </div>
       </div>
 
-      <div class="p-1 rounded w-full shadow">
+      <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between">
           <div>{{ '我喜欢的角色(' + charactersVotedNumber + '/8)' }}</div>
           <icon-uil-plus
@@ -47,7 +49,7 @@
             "
           ></icon-uil-plus>
         </div>
-        <div class="p-2 rounded shadow-inner bg-gray-50 whitespace-nowrap overflow-x-auto">
+        <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50 whitespace-nowrap overflow-x-auto">
           <div v-if="charactersVotedNumber">
             <transition-group name="characterList" tag="div">
               <div
@@ -58,6 +60,7 @@
                 <CharacterCard
                   v-model:character="charactersReverse[index]"
                   v-model:charactersSelectedList="characters"
+                  class="opacity-80"
                 />
               </div>
             </transition-group>

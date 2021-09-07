@@ -3,4 +3,5 @@ export interface Character {
   name: string
   title: string
   image: string
+  color: string
 }

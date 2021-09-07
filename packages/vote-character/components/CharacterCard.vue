@@ -2,7 +2,9 @@
   <div class="relative p-1 pt-5 rounded shadow bg-white">
     <icon-uil-times class="absolute right-0 top-0 cursor-pointer" @click="closeCharacterCard()"></icon-uil-times>
     <img class="w-full rounded border" :src="character.image" />
-    <div class="p-1 truncate text-center text-xs md:text-base">{{ character.name }}</div>
+    <div class="p-1 truncate text-center text-xs md:text-base" :style="'color:' + character.color">
+      {{ character.name }}
+    </div>
   </div>
 </template>
 
