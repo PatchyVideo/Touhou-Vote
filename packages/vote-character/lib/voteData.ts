@@ -5,6 +5,7 @@ export const character0: Character = {
   name: 'ERROR',
   title: '原初的错误',
   image: 'https://thwiki.cc/favicon.ico',
+  color: '#FFFFFF',
 }
 export const characterHonmei = ref<Character>(character0)
 export const characters = ref<Character[]>([
