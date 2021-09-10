@@ -34,8 +34,8 @@
           <icon-uil-search class="flex-shrink-0 inline ml-2 mr-1" />
           <input class="nline-block h-full outline-none dark:bg-gray-800 w-full rounded" />
         </div>
-        <div>从新到旧</div>
-        <div>筛选</div>
+        <VoteSelect v-model:selected="order" :item-list="orderOptions" />
+        <div class="cursor-pointer shadow p-1">筛选</div>
       </div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <div
@@ -80,6 +80,7 @@ import { useVModels } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
 import { characterListLeft } from '@/vote-character/lib/characterList'
 import { character0 } from '@/vote-character/lib/voteData'
+import VoteSelect from '@/common/components/VoteSelect.vue'
 
 const props = defineProps({
   open: {
@@ -121,6 +122,18 @@ watchEffect(() => {
 })
 
 const loading = ref(false)
+
+const orderOptions = [
+  {
+    name: '从新到旧',
+    value: 'newest',
+  },
+  {
+    name: '从旧到新',
+    value: 'oldest',
+  },
+]
+const order = ref(orderOptions[0])
 
 function characterSelect(id: string): void {
   const targetCharacter = characterListLeft.value.find((item) => item.id === id)
