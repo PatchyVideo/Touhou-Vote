@@ -1,11 +1,14 @@
 <template>
-  <div class="relative w-full p-1 rounded shadow bg-white flex">
+  <div
+    class="relative w-full p-1 rounded shadow bg-white flex ring"
+    :style="'--tw-ring-color:' + characterHonmei.color + ';color:' + characterHonmei.color"
+  >
     <img class="w-1/3 rounded border" :src="characterHonmei.image" />
     <icon-uil-times class="absolute right-1 top-1 cursor-pointer" @click="closeCard()"></icon-uil-times>
     <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
       <div class="w-full">
-        <div class="truncate opacity-60" :style="'color:' + characterHonmei.color">{{ characterHonmei.title }}</div>
-        <div class="font-semibold text-xl truncate" :style="'color:' + characterHonmei.color">
+        <div class="truncate opacity-60">{{ characterHonmei.title }}</div>
+        <div class="font-semibold text-xl truncate">
           {{ characterHonmei.name }}
         </div>
       </div>
