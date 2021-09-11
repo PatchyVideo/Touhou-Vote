@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-100vh page flex flex-col">
+  <div class="min-h-100vh page flex flex-col text-sm md:text-base xl:text-xl 2xl:text-2xl">
     <!-- Top Nav -->
     <div class="w-full py-1 pr-3 bg-white bg-opacity-80 shadow flex items-center justify-between">
       <div
@@ -139,8 +139,8 @@
     </div>
 
     <!-- DeskTop View -->
-    <div v-else class="flex-grow w-9/10 mx-auto flex justify-between items-center lg:4/5 2xl:w-2/3">
-      <div class="w-3/10 overflow-hidden">
+    <div v-else class="flex-grow w-9/10 mx-auto flex justify-between items-center lg:w-9/10 xl:w-2/3 3xl:w-1/2">
+      <div class="w-3/10 overflow-hidden shadow-around">
         <div
           class="w-2/1 flex transform-gpu transition-transform duration-300"
           :class="{ '-translate-x-1/2': systemListIsOpen && systemListOpenName === 'questionnaire' }"
@@ -168,7 +168,7 @@
             </div>
             <div class="w-full text-center">
               <button
-                class="w-full py-0.5 rounded text-white bg-accent-color-600"
+                class="w-full p-2 rounded text-white bg-accent-color-600"
                 @click="systemListOpen('questionnaire')"
               >
                 开始填写
@@ -179,7 +179,7 @@
         </div>
       </div>
 
-      <div class="w-3/10 overflow-hidden">
+      <div class="w-3/10 overflow-hidden shadow-around">
         <div
           class="w-2/1 flex transform-gpu transition-transform duration-300"
           :class="{ '-translate-x-1/2': systemListIsOpen && systemListOpenName === 'vote' }"
@@ -206,7 +206,7 @@
               <div class="text-gray-600">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
             </div>
             <div class="w-full text-center">
-              <button class="w-full py-0.5 rounded text-white bg-accent-color-600" @click="systemListOpen('vote')">
+              <button class="w-full p-2 rounded text-white bg-accent-color-600" @click="systemListOpen('vote')">
                 开始投票
               </button>
             </div>
@@ -221,7 +221,7 @@
           space-y-2
           w-3/10
           p-2
-          shadow
+          shadow-around
           rounded
           bg-white bg-opacity-50
           backdrop-filter backdrop-blur-2
@@ -237,7 +237,7 @@
           <div class="text-gray-600">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
         </div>
         <div class="w-full text-center">
-          <button class="w-full py-0.5 rounded text-white bg-accent-color-600" @click="systemListOpen('vote')">
+          <button class="w-full p-2 rounded text-white bg-accent-color-600" @click="systemListOpen('vote')">
             查看数据
           </button>
         </div>

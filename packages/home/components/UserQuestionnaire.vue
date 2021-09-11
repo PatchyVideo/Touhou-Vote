@@ -11,10 +11,9 @@
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
             <div class="text-xl">必填问卷</div>
-            <div class="text-xs">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
           </div>
           <div class="w-full text-right">
-            <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600">开始填写</button>
+            <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2">开始填写</button>
           </div>
         </div>
       </div>
@@ -28,10 +27,9 @@
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
             <div class="text-xl">官作部分</div>
-            <div class="text-xs">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
           </div>
           <div class="w-full text-right">
-            <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600">开始投票</button>
+            <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2">开始投票</button>
           </div>
         </div>
       </div>
