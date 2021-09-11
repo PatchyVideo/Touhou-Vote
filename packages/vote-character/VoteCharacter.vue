@@ -70,6 +70,13 @@
           <div v-else class="w-full aspect-21/49"></div>
         </div>
       </div>
+      <button
+        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        :class="{ 'bg-accent-color-300': loading }"
+        @click="vote()"
+      >
+        <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>{{ loading ? '投票中' : '投票！' }}</label>
+      </button>
     </div>
     <CharacterSelect
       v-model:open="characterSelectOpen"
@@ -100,6 +107,16 @@ const charactersVotedNumber = computed<number>(() => charactersReverse.value.len
 
 const characterSelectOpen = ref(false)
 const characterHonmeiIsSelected = ref(false)
+
+const loading = ref(false)
+async function vote(): Promise<void> {
+  if (!window.confirm('确定要投票吗？（投票期间可随时更改）')) return
+  loading.value = true
+  alert('投票成功！')
+  setTimeout(() => {
+    loading.value = false
+  }, 1000)
+}
 </script>
 <style lang="postcss" scoped>
 .characterHonmei-enter-active,
