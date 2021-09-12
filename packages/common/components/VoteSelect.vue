@@ -9,7 +9,10 @@
         ▼
       </div>
     </div>
-    <div class="absolute z-52 rounded bg-white shadow p-1 mt-1 w-full text-center overflow-hidden">
+    <div
+      class="absolute z-52 rounded bg-white shadow mt-1 w-full text-center overflow-hidden"
+      :class="{ 'p-1': !listHidden }"
+    >
       <ul
         class="space-y-1 overflow-x-hidden overflow-y-auto transform-gpu transition-all duration-200"
         :style="{ marginTop: listHidden ? '-100%' : '0' }"
@@ -29,7 +32,6 @@
 <script lang="ts" setup>
 import { ref, shallowRef } from 'vue'
 import type { PropType } from 'vue'
-import { useI18n } from 'vue-i18n'
 import { useEventListener, useVModel } from '@vueuse/core'
 
 interface SelectList {

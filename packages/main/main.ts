@@ -40,6 +40,10 @@ const router = createRouter({
       path: '/vote/character',
       component: () => import('@/vote-character/VoteCharacter.vue'),
     },
+    {
+      path: '/vote/music',
+      component: () => import('@/vote-music/VoteMusic.vue'),
+    },
   ],
 })
 app.use(router)

@@ -14,7 +14,12 @@
             <div class="text-xs"></div>
           </div>
           <div class="w-full text-right">
-            <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2">开始投票</button>
+            <button
+              class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2"
+              @click="voteCharacter()"
+            >
+              开始投票
+            </button>
           </div>
         </div>
       </div>
@@ -31,7 +36,12 @@
             <div class="text-xs"></div>
           </div>
           <div class="w-full text-right">
-            <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2">开始投票</button>
+            <button
+              class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2"
+              @click="voteMusic()"
+            >
+              开始投票
+            </button>
           </div>
         </div>
       </div>
@@ -59,6 +69,13 @@ const props = defineProps({
 
 const route = useRoute()
 const router = useRouter()
+
+function voteCharacter(): void {
+  router.push('/vote/character')
+}
+function voteMusic(): void {
+  router.push('/vote/music')
+}
 
 function returnBack(): void {
   const query = JSON.parse(JSON.stringify(route.query))
