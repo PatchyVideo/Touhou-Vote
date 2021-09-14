@@ -164,7 +164,6 @@ watchEffect(() => {
 })
 function close(): void {
   open.value = false
-  console.log(open.value)
 }
 
 const loading = ref(false)
