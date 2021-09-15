@@ -2,10 +2,28 @@
   <transition name="messageBox">
     <div
       v-if="open"
-      class="fixed max-h-full top-1/2 mx-auto left-0 right-0 -mt-40 p-2 w-19/20 md:w-auto rounded bg-white z-51"
+      class="
+        fixed
+        max-h-full
+        top-1/2
+        mx-auto
+        left-0
+        right-0
+        -mt-40
+        p-2
+        w-19/20
+        md:w-1/2
+        lg:w-1/3
+        xl:w-1/4
+        3xl:w-1/5
+        rounded
+        bg-white
+        z-51
+        flex flex-col
+      "
     >
-      <div class="flex justify-between">
-        <div class="text-lg">{{ props.tittle }}</div>
+      <div class="flex justify-between items-center">
+        <div class="text-lg truncate">{{ props.title }}</div>
         <icon-uil-times class="w-8 h-8 cursor-pointer" @click="close()"></icon-uil-times>
       </div>
       <slot></slot>
@@ -25,7 +43,7 @@ const props = defineProps({
     default: false,
     requred: true,
   },
-  tittle: {
+  title: {
     type: String,
     default: '',
   },

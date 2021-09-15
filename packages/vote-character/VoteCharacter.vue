@@ -9,9 +9,7 @@
     >
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
-          <div>
-            {{ '本命角色(' + (characterHonmei.id === character0.id ? 0 : 1) + '/1)' }}
-          </div>
+          <div>本命角色</div>
           <icon-uil-plus
             class="cursor-pointer"
             :class="{ 'text-gray-400': characterHonmei.id != character0.id }"
@@ -30,7 +28,10 @@
             <div v-if="characterHonmei.id != character0.id" key="selecting">
               <CharacterHonmeiCard v-model:character-honmei="characterHonmei" class="opacity-80" />
             </div>
-            <div v-else key="no-selecting" class="w-full aspect-69/200"></div>
+            <div v-else key="no-selecting" class="w-full text-center text-gray-400 py-10 space-y-2">
+              可以从喜欢的角色中选择一位<br />
+              把Ta选为你的本命票哦
+            </div>
           </transition>
         </div>
       </div>
@@ -52,22 +53,24 @@
           ></icon-uil-plus>
         </div>
         <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50 whitespace-nowrap overflow-x-auto">
-          <div v-if="charactersVotedNumber">
-            <transition-group name="characterList" tag="div">
-              <div
-                v-for="(character, index) in charactersReverse"
-                :key="character.id"
-                class="inline-block transition transition-all duration-200 mr-3 w-3/10"
-              >
-                <CharacterCard
-                  v-model:character="charactersReverse[index]"
-                  v-model:charactersSelectedList="characters"
-                  class="opacity-80"
-                />
-              </div>
-            </transition-group>
-          </div>
-          <div v-else class="w-full aspect-21/49"></div>
+          <transition name="character" mode="out-in">
+            <div v-if="charactersVotedNumber">
+              <transition-group name="characterList" tag="div">
+                <div
+                  v-for="(character, index) in charactersReverse"
+                  :key="character.id"
+                  class="inline-block transition transition-all duration-200 mr-3 w-3/10"
+                >
+                  <CharacterCard
+                    v-model:character="charactersReverse[index]"
+                    v-model:charactersSelectedList="characters"
+                    class="opacity-80"
+                  />
+                </div>
+              </transition-group>
+            </div>
+            <div v-else class="w-full text-center text-gray-400 py-15">请为您喜爱的角色投上一票吧!</div>
+          </transition>
         </div>
       </div>
       <button
@@ -119,11 +122,14 @@ async function vote(): Promise<void> {
 }
 </script>
 <style lang="postcss" scoped>
+.character-enter-active,
+.character-leave-active,
 .characterHonmei-enter-active,
 .characterHonmei-leave-active {
   @apply transition-all duration-200;
 }
-
+.character-enter-from,
+.character-leave-to,
 .characterHonmei-enter-from,
 .characterHonmei-leave-to {
   @apply opacity-0;
