@@ -1,8 +1,5 @@
 <template>
-  <div class="w-full">
-    <VoteMessageBox v-model:open="open">MessageBox!</VoteMessageBox>
-    <button class="w-full my-10 border shadow bg-accent-color-600 text-white" @click="open = true">Click!</button>
-  </div>
+  <div class="w-full"></div>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'

@@ -34,7 +34,7 @@
   </Transition>
 </template>
 <script lang="ts" setup>
-import { ref, watchEffect } from 'vue'
+import { watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 
 const props = defineProps({
