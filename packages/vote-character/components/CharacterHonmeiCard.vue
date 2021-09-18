@@ -67,6 +67,4 @@ function updateReason(): void {
 function closeCard(): void {
   characters.value.map((item) => (item.honmei = false))
 }
-
-// const reasonPlaceholder
 </script>

@@ -4,7 +4,7 @@
       v-if="open"
       class="
         fixed
-        max-h-full
+        max-h-1/2
         top-1/2
         mx-auto
         left-0

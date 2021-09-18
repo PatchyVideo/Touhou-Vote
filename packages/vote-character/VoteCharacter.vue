@@ -82,39 +82,73 @@
       <button
         class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
         :class="{ 'bg-accent-color-300': loading }"
-        @click="vote()"
+        @click="confirmBoxOpen = true"
       >
-        <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>{{ loading ? '投票中' : '投票！' }}</label>
+        <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>{{ loading ? '投票中' : '提交!' }}</label>
       </button>
     </div>
-    <CharacterSelect
-      v-model:open="characterSelectOpen"
-      v-model:characterSelected="characters[charactersVotedNumber]"
-      :character-honmei-is-selected="characterHonmeiIsSelected"
-    />
   </div>
+  <CharacterSelect
+    v-model:open="characterSelectOpen"
+    v-model:characterSelected="characters[charactersVotedNumber]"
+    :character-honmei-is-selected="characterHonmeiIsSelected"
+  />
+  <VoteMessageBox v-model:open="confirmBoxOpen" title="请确定投票内容：">
+    <div class="overflow-auto">
+      <div class="divide-y p-2">
+        <div v-if="characterHonmei.honmei" class="py-1" :style="'color:' + characterHonmei.color">
+          <div class="text-lg">
+            {{ '本命位：' + characterHonmei.name }}
+          </div>
+          <div class="">{{ '投票理由：' + (characterHonmei.reason ? characterHonmei.reason : '无') }}</div>
+        </div>
+        <div v-for="(character, index) in charactersReverseWithoutHonmei" :key="character.id" class="py-1">
+          <div class="">
+            {{ '投票位' + (index + 1) + '：' + character.name }}
+          </div>
+          <div class="text-sm">{{ '投票理由：' + (character.reason ? character.reason : '无') }}</div>
+        </div>
+        <div class="text-gray-500 italic">*票位序号仅给用户参考，不影响加权<br />*投票期间可随时更改投票内容哦</div>
+      </div>
+      <button
+        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        :class="{ 'bg-accent-color-300': loading }"
+        @click="vote()"
+      >
+        <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>{{
+          loading ? '投票中' : '确认投票！'
+        }}</label>
+      </button>
+    </div>
+  </VoteMessageBox>
 </template>
 
 <script lang="ts" setup>
+import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import CharacterSelect from './components/CharacterSelect.vue'
 import CharacterCard from '@/vote-character/components/CharacterCard.vue'
 import CharacterHonmeiCard from './components/CharacterHonmeiCard.vue'
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import { charactersReverse, charactersReverseWithoutHonmei } from '@/vote-character/lib/characterList'
 import { characterHonmei, characters, character0 } from '@/vote-character/lib/voteData'
+
+const router = useRouter()
 
 const charactersVotedNumber = computed<number>(() => charactersReverse.value.length)
 
 const characterSelectOpen = ref(false)
 const characterHonmeiIsSelected = ref(false)
 
+const confirmBoxOpen = ref(false)
+
 const loading = ref(false)
 async function vote(): Promise<void> {
-  if (!window.confirm('确定要投票吗？（投票期间可随时更改）')) return
   loading.value = true
-  alert('投票成功！')
   setTimeout(() => {
+    alert('投票成功！')
     loading.value = false
+    router.push({ path: '/' })
   }, 1000)
 }
 </script>
