@@ -4,4 +4,6 @@ export interface Character {
   title: string
   image: string
   color: string
+  reason: string
+  honmei: boolean
 }

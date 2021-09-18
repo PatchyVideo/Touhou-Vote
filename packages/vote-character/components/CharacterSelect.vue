@@ -29,7 +29,7 @@
         <div>请选择角色</div>
         <icon-uil-times class="cursor-pointer" @click="loading || close()"></icon-uil-times>
       </div>
-      <div class="flex justify-between items-center">
+      <div v-if="!characterHonmeiIsSelected" class="flex justify-between items-center">
         <div class="shadow rounded h-7 w-1/2 flex justify-start items-center">
           <icon-uil-search class="flex-shrink-0 inline ml-2 mr-1" />
           <input class="nline-block h-full outline-none dark:bg-gray-800 w-full rounded" />
@@ -39,7 +39,7 @@
       </div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <div
-          v-for="(item, index) in characterListLeft"
+          v-for="(item, index) in characterList"
           :key="index"
           class="p-1 rounded shadow bg-white flex ring"
           :style="'--tw-ring-color:' + item.color"
@@ -75,11 +75,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watchEffect, defineProps, PropType } from 'vue'
+import { ref, watchEffect, defineProps, PropType, computed } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
-import { characterListLeft } from '@/vote-character/lib/characterList'
-import { character0 } from '@/vote-character/lib/voteData'
+import { characterListLeft, characterHonmeiListLeft } from '@/vote-character/lib/characterList'
+import { character0, characters } from '@/vote-character/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 
 const props = defineProps({
@@ -92,13 +92,6 @@ const props = defineProps({
     requred: true,
     default: true,
   },
-  characterHonmeiSelected: {
-    type: Object as PropType<Character>,
-    requred: true,
-    default: function () {
-      return character0
-    },
-  },
   characterSelected: {
     type: Object as PropType<Character>,
     requred: true,
@@ -110,9 +103,8 @@ const props = defineProps({
 const emit = defineEmits<{
   (event: 'update:open', value: boolean): void
   (event: 'update:characterSelected', value: string): void
-  (event: 'update:characterHonmeiSelected', value: string): void
 }>()
-const { open, characterSelected, characterHonmeiSelected } = useVModels(props, emit)
+const { open, characterSelected } = useVModels(props, emit)
 function close(): void {
   open.value = false
 }
@@ -122,6 +114,10 @@ watchEffect(() => {
 })
 
 const loading = ref(false)
+
+const characterList = computed(() =>
+  props.characterHonmeiIsSelected ? characterHonmeiListLeft.value : characterListLeft.value
+)
 
 const orderOptions = [
   {
@@ -136,11 +132,16 @@ const orderOptions = [
 const order = ref(orderOptions[0])
 
 function characterSelect(id: string): void {
-  const targetCharacter = characterListLeft.value.find((item) => item.id === id)
-  if (targetCharacter)
-    props.characterHonmeiIsSelected
-      ? (characterHonmeiSelected.value = targetCharacter)
-      : (characterSelected.value = targetCharacter)
+  const targetCharacter = props.characterHonmeiIsSelected
+    ? characterHonmeiListLeft.value.find((item) => item.id === id)
+    : characterListLeft.value.find((item) => item.id === id)
+  if (targetCharacter) {
+    if (props.characterHonmeiIsSelected) {
+      characters.value.map((item) => (item.id === id ? (item.honmei = true) : (item.honmei = false)))
+    } else {
+      characterSelected.value = targetCharacter
+    }
+  }
   close()
 }
 </script>

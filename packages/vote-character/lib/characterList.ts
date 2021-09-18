@@ -1,6 +1,7 @@
 import { Character } from '@/vote-character/lib/character'
 import { computed } from 'vue'
 import { characterHonmei, characters } from '@/vote-character/lib/voteData'
+import { character0 } from '@/vote-character/lib/voteData'
 
 const characterList: Character[] = [
   {
@@ -9,6 +10,8 @@ const characterList: Character[] = [
     title: '乐园的巫女',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#FC4328',
+    reason: '',
+    honmei: false,
   },
   {
     id: 'Kirisame Marisa',
@@ -16,6 +19,8 @@ const characterList: Character[] = [
     title: '普通的魔法使',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#E3D26B',
+    reason: '',
+    honmei: false,
   },
   {
     id: 'Kochiya Sanae',
@@ -23,6 +28,8 @@ const characterList: Character[] = [
     title: '祭祀风的人类',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#14DE64',
+    reason: '',
+    honmei: false,
   },
   {
     id: 'Izayoi Sakuya',
@@ -30,6 +37,8 @@ const characterList: Character[] = [
     title: '完美潇洒的从者',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#78909C',
+    reason: '',
+    honmei: false,
   },
   {
     id: 'Konpaku Youmu',
@@ -37,6 +46,8 @@ const characterList: Character[] = [
     title: '半人半灵的庭师',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#E1CE82',
+    reason: '',
+    honmei: false,
   },
   {
     id: 'Reisen Udongein Inaba',
@@ -44,6 +55,8 @@ const characterList: Character[] = [
     title: '狂气的月兔',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#D24B7E',
+    reason: '',
+    honmei: false,
   },
   {
     id: 'Syameimaru Aya',
@@ -51,6 +64,8 @@ const characterList: Character[] = [
     title: '传统的幻想记者',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#531319',
+    reason: '',
+    honmei: false,
   },
   {
     id: 'Cirno',
@@ -58,6 +73,8 @@ const characterList: Character[] = [
     title: '湖上的冰精',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#9ED5F2',
+    reason: '',
+    honmei: false,
   },
   {
     id: 'Ibuki Suika',
@@ -65,6 +82,8 @@ const characterList: Character[] = [
     title: '小小的百鬼夜行',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#DD926B',
+    reason: '',
+    honmei: false,
   },
   {
     id: 'Hinanawi Tenshi',
@@ -72,6 +91,8 @@ const characterList: Character[] = [
     title: '非想非非想天之女',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#1365A5',
+    reason: '',
+    honmei: false,
   },
   {
     id: 'Hata no Kokoro',
@@ -79,6 +100,8 @@ const characterList: Character[] = [
     title: '表情丰富的扑克脸',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#DFADE0',
+    reason: '',
+    honmei: false,
   },
 ]
 
@@ -94,4 +117,28 @@ export const characterListLeft = computed<Character[]>(() => {
     }
   })
   return charactersLeft
+})
+export const characterHonmeiListLeft = computed<Character[]>(() => {
+  const charactersHonmeiLeft: Character[] = []
+  charactersReverse.value.map((character) => {
+    if (character.id != characterHonmei.value.id) {
+      charactersHonmeiLeft.push(character)
+    }
+  })
+  return charactersHonmeiLeft
+})
+
+export const charactersReverse = computed<Character[]>(() => {
+  const charactersCopy: Character[] = []
+  characters.value.map((character) => {
+    if (character.id != character0.id) charactersCopy.push(character)
+  })
+  return charactersCopy.reverse()
+})
+export const charactersReverseWithoutHonmei = computed<Character[]>(() => {
+  const charactersCopy: Character[] = []
+  charactersReverse.value.map((character) => {
+    if (!character.honmei) charactersCopy.push(character)
+  })
+  return charactersCopy
 })

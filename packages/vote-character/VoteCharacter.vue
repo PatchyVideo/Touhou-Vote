@@ -10,27 +10,35 @@
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
           <div>本命角色</div>
-          <icon-uil-plus
+          <icon-uil-arrows-h
+            v-show="characterHonmei.id != character0.id"
             class="cursor-pointer"
-            :class="{ 'text-gray-400': characterHonmei.id != character0.id }"
             @click="
-              characterHonmei.id === character0.id
-                ? (() => {
-                    characterHonmeiIsSelected = true
-                    characterSelectOpen = true
-                  })()
-                : ''
+              () => {
+                characterHonmeiIsSelected = true
+                characterSelectOpen = true
+              }
             "
-          ></icon-uil-plus>
+          />
         </div>
         <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50">
           <transition name="characterHonmei" mode="out-in">
-            <div v-if="characterHonmei.id != character0.id" key="selecting">
+            <div v-if="characterHonmei.honmei" key="selecting">
               <CharacterHonmeiCard v-model:character-honmei="characterHonmei" class="opacity-80" />
             </div>
             <div v-else key="no-selecting" class="w-full text-center text-gray-400 py-10 space-y-2">
-              可以从喜欢的角色中选择一位<br />
-              把Ta选为你的本命票哦
+              <div>可以从喜欢的角色中选择一位</div>
+              <div
+                class="underline cursor-pointer transition hover:text-gray-500"
+                @click="
+                  () => {
+                    characterHonmeiIsSelected = true
+                    characterSelectOpen = true
+                  }
+                "
+              >
+                把Ta选为你的本命票哦
+              </div>
             </div>
           </transition>
         </div>
@@ -38,7 +46,9 @@
 
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl®">
-          <div>{{ '我喜欢的角色(' + charactersVotedNumber + '/8)' }}</div>
+          <div>
+            {{ '我喜欢的角色(' + charactersReverseWithoutHonmei.length + '/' + (characterHonmei.honmei ? '7)' : '8)') }}
+          </div>
           <icon-uil-plus
             class="cursor-pointer"
             :class="{ 'text-gray-400': charactersVotedNumber === 8 }"
@@ -54,18 +64,14 @@
         </div>
         <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50 whitespace-nowrap overflow-x-auto">
           <transition name="character" mode="out-in">
-            <div v-if="charactersVotedNumber">
+            <div v-if="charactersReverseWithoutHonmei.length">
               <transition-group name="characterList" tag="div">
                 <div
-                  v-for="(character, index) in charactersReverse"
+                  v-for="(character, index) in charactersReverseWithoutHonmei"
                   :key="character.id"
                   class="inline-block transition transition-all duration-200 mr-3 w-3/10"
                 >
-                  <CharacterCard
-                    v-model:character="charactersReverse[index]"
-                    v-model:charactersSelectedList="characters"
-                    class="opacity-80"
-                  />
+                  <CharacterCard v-model:character="charactersReverseWithoutHonmei[index]" />
                 </div>
               </transition-group>
             </div>
@@ -84,7 +90,6 @@
     <CharacterSelect
       v-model:open="characterSelectOpen"
       v-model:characterSelected="characters[charactersVotedNumber]"
-      v-model:characterHonmeiSelected="characterHonmei"
       :character-honmei-is-selected="characterHonmeiIsSelected"
     />
   </div>
@@ -95,17 +100,9 @@ import CharacterSelect from './components/CharacterSelect.vue'
 import CharacterCard from '@/vote-character/components/CharacterCard.vue'
 import CharacterHonmeiCard from './components/CharacterHonmeiCard.vue'
 import { ref, computed } from 'vue'
-import { Character } from '@/vote-character/lib/character'
-import { character0 } from '@/vote-character/lib/voteData'
-import { characterHonmei, characters } from '@/vote-character/lib/voteData'
+import { charactersReverse, charactersReverseWithoutHonmei } from '@/vote-character/lib/characterList'
+import { characterHonmei, characters, character0 } from '@/vote-character/lib/voteData'
 
-const charactersReverse = computed<Character[]>(() => {
-  const charactersCopy: Character[] = []
-  characters.value.map((character) => {
-    if (character.id != character0.id) charactersCopy.push(character)
-  })
-  return charactersCopy.reverse()
-})
 const charactersVotedNumber = computed<number>(() => charactersReverse.value.length)
 
 const characterSelectOpen = ref(false)

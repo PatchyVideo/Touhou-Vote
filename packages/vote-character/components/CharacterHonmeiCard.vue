@@ -3,7 +3,7 @@
     class="relative w-full p-1 rounded shadow bg-white flex ring"
     :style="'--tw-ring-color:' + characterHonmei.color + ';color:' + characterHonmei.color"
   >
-    <img class="w-1/3 rounded border" :src="characterHonmei.image" />
+    <img class="w-2/5 rounded border" :src="characterHonmei.image" />
     <icon-uil-times class="absolute right-1 top-1 cursor-pointer" @click="closeCard()"></icon-uil-times>
     <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
       <div class="w-full">
@@ -11,6 +11,15 @@
         <div class="font-semibold text-xl truncate">
           {{ characterHonmei.name }}
         </div>
+        <input
+          ref="reasonInput"
+          v-model="reasonEdit"
+          placeholder="点此填写理由（可选）"
+          class="truncate"
+          type="text"
+          @blur="updateReason()"
+          @keydown.enter="updateReason()"
+        />
       </div>
       <div class="w-full flex justify-end">
         <div
@@ -24,10 +33,10 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineEmits, PropType } from 'vue'
+import { defineProps, defineEmits, PropType, ref, watch, shallowRef } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
-import { character0 } from '@/vote-character/lib/voteData'
+import { character0, characters } from '@/vote-character/lib/voteData'
 
 const props = defineProps({
   characterHonmei: {
@@ -43,7 +52,21 @@ const emit = defineEmits<{
 }>()
 const characterHonmei = useVModel(props, 'characterHonmei', emit)
 
-function closeCard(): void {
-  characterHonmei.value = character0
+const reasonInput = shallowRef<HTMLInputElement | null>(null)
+const reasonEdit = ref(characterHonmei.value.reason)
+watch(characterHonmei, () => {
+  reasonEdit.value = characterHonmei.value.reason
+})
+function updateReason(): void {
+  characters.value.map((item) => {
+    if (item.honmei) item.reason = reasonEdit.value
+  })
+  reasonInput.value?.blur()
 }
+
+function closeCard(): void {
+  characters.value.map((item) => (item.honmei = false))
+}
+
+// const reasonPlaceholder
 </script>
