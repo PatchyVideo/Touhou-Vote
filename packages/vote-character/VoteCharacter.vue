@@ -81,10 +81,10 @@
       </div>
       <button
         class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
-        :class="{ 'bg-accent-color-300': loading }"
-        @click="confirmBoxOpen = true"
+        :class="{ 'bg-accent-color-300': !charactersVotedNumber }"
+        @click="charactersVotedNumber ? (confirmBoxOpen = true) : ''"
       >
-        <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>{{ loading ? '投票中' : '提交!' }}</label>
+        {{ charactersVotedNumber ? '提交!' : '请投票' }}
       </button>
     </div>
   </div>

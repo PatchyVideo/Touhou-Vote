@@ -38,8 +38,20 @@
         <div class="cursor-pointer shadow p-1">筛选</div>
       </div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
+        <!-- eslint-disable vue/no-v-html -->
+        <div
+          v-if="!characterList.length"
+          class="text-center text-gray-400 py-10"
+          v-html="
+            characterHonmeiIsSelected
+              ? '只能从喜欢的角色中选择自己的本命哦<br />先选择一个自己喜欢的角色吧！'
+              : '没有符合条件的角色QAQ'
+          "
+        ></div>
+        <!-- eslint-enable vue/no-v-html -->
         <div
           v-for="(item, index) in characterList"
+          v-else
           :key="index"
           class="p-1 rounded shadow bg-white flex ring"
           :style="'--tw-ring-color:' + item.color"
