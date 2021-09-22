@@ -5,7 +5,7 @@
   >
     <img class="w-2/5 rounded border" :src="characterHonmei.image" />
     <icon-uil-times class="absolute right-1 top-1 cursor-pointer" @click="closeCard()"></icon-uil-times>
-    <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
+    <div class="w-3/5 p-1 flex flex-wrap content-between md:p-2">
       <div class="w-full">
         <div class="truncate opacity-60">{{ characterHonmei.title }}</div>
         <div class="font-semibold text-xl truncate">

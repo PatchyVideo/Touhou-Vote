@@ -44,7 +44,7 @@
           class="text-center text-gray-400 py-10"
           v-html="
             characterHonmeiIsSelected
-              ? '只能从喜欢的角色中选择自己的本命哦<br />先选择一个自己喜欢的角色吧！'
+              ? '只能从喜欢的角色中选择自己的本命哦<br />先选择一位自己喜欢的角色吧！'
               : '没有符合条件的角色QAQ'
           "
         ></div>
