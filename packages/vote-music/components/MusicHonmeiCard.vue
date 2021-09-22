@@ -1,13 +1,22 @@
 <template>
   <div class="relative w-full p-1 rounded shadow bg-white flex">
-    <img class="w-1/3 rounded border" :src="musicHonmei.image" />
+    <img class="w-2/5 rounded border" :src="musicHonmei.image" />
     <icon-uil-times class="absolute right-1 top-1 cursor-pointer" @click="closeCard()"></icon-uil-times>
-    <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
+    <div class="w-3/5 p-1 flex flex-wrap content-between md:p-2">
       <div class="w-full">
         <div class="truncate opacity-60">{{ musicHonmei.album }}</div>
         <div class="font-semibold text-xl truncate">
           {{ musicHonmei.name }}
         </div>
+        <input
+          ref="reasonInput"
+          v-model="reasonEdit"
+          placeholder="点此填写理由（可选）"
+          class="truncate"
+          type="text"
+          @blur="updateReason()"
+          @keydown.enter="updateReason()"
+        />
       </div>
       <div class="w-full flex justify-end">
         <div
@@ -21,10 +30,10 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineEmits, PropType } from 'vue'
+import { defineProps, defineEmits, PropType, ref, watch, shallowRef } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
-import { music0 } from '@/vote-music/lib/voteData'
+import { music0, musics } from '@/vote-music/lib/voteData'
 
 const props = defineProps({
   musicHonmei: {
@@ -40,7 +49,19 @@ const emit = defineEmits<{
 }>()
 const musicHonmei = useVModel(props, 'musicHonmei', emit)
 
+const reasonInput = shallowRef<HTMLInputElement | null>(null)
+const reasonEdit = ref(musicHonmei.value.reason)
+watch(musicHonmei, () => {
+  reasonEdit.value = musicHonmei.value.reason
+})
+function updateReason(): void {
+  musics.value.map((item) => {
+    if (item.honmei) item.reason = reasonEdit.value
+  })
+  reasonInput.value?.blur()
+}
+
 function closeCard(): void {
-  musicHonmei.value = music0
+  musics.value.map((item) => (item.honmei = false))
 }
 </script>

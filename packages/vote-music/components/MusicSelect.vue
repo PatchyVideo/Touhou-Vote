@@ -29,7 +29,7 @@
         <div>请选择曲目</div>
         <icon-uil-times class="cursor-pointer" @click="loading || close()"></icon-uil-times>
       </div>
-      <div class="flex justify-between items-center">
+      <div v-if="!musicHonmeiIsSelected" class="flex justify-between items-center">
         <div class="shadow rounded h-7 w-1/2 flex justify-start items-center">
           <icon-uil-search class="flex-shrink-0 inline ml-2 mr-1" />
           <input class="nline-block h-full outline-none dark:bg-gray-800 w-full rounded" />
@@ -38,7 +38,18 @@
         <div class="cursor-pointer shadow p-1">筛选</div>
       </div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
-        <div v-for="(item, index) in musicListLeft" :key="index" class="p-1 rounded shadow bg-white flex">
+        <!-- eslint-disable vue/no-v-html -->
+        <div
+          v-if="!musicList.length"
+          class="text-center text-gray-400 py-10"
+          v-html="
+            musicHonmeiIsSelected
+              ? '只能从喜欢的曲目中选择自己的本命哦<br />先选择一首自己喜欢的曲目吧！'
+              : '没有符合条件的曲目QAQ'
+          "
+        ></div>
+        <!-- eslint-enable vue/no-v-html -->
+        <div v-for="(item, index) in musicList" v-else :key="index" class="p-1 rounded shadow bg-white flex">
           <img class="w-1/3 rounded border" :src="item.image" />
           <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">
@@ -48,10 +59,7 @@
               </div>
             </div>
             <div class="w-full flex justify-end">
-              <button
-                class="px-3 md:px-5 py-1 shadow rounded text-white text-sm md:text-base bg-accent-color-600"
-                @click="musicSelect(item.id)"
-              >
+              <button class="px-3 md:px-5 py-1 shadow rounded text-sm md:text-base" @click="musicSelect(item.id)">
                 选择
               </button>
             </div>
@@ -66,11 +74,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watchEffect, defineProps, PropType } from 'vue'
+import { ref, watchEffect, defineProps, PropType, computed } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
-import { musicListLeft } from '@/vote-music/lib/musicList'
-import { music0 } from '@/vote-music/lib/voteData'
+import { musicListLeft, musicHonmeiListLeft } from '@/vote-music/lib/musicList'
+import { music0, musics } from '@/vote-music/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 
 const props = defineProps({
@@ -83,13 +91,6 @@ const props = defineProps({
     requred: true,
     default: true,
   },
-  musicHonmeiSelected: {
-    type: Object as PropType<Music>,
-    requred: true,
-    default: function () {
-      return music0
-    },
-  },
   musicSelected: {
     type: Object as PropType<Music>,
     requred: true,
@@ -101,9 +102,8 @@ const props = defineProps({
 const emit = defineEmits<{
   (event: 'update:open', value: boolean): void
   (event: 'update:musicSelected', value: string): void
-  (event: 'update:musicHonmeiSelected', value: string): void
 }>()
-const { open, musicSelected, musicHonmeiSelected } = useVModels(props, emit)
+const { open, musicSelected } = useVModels(props, emit)
 function close(): void {
   open.value = false
 }
@@ -113,6 +113,8 @@ watchEffect(() => {
 })
 
 const loading = ref(false)
+
+const musicList = computed(() => (props.musicHonmeiIsSelected ? musicHonmeiListLeft.value : musicListLeft.value))
 
 const orderOptions = [
   {
@@ -127,9 +129,16 @@ const orderOptions = [
 const order = ref(orderOptions[0])
 
 function musicSelect(id: string): void {
-  const targetMusic = musicListLeft.value.find((item) => item.id === id)
-  if (targetMusic)
-    props.musicHonmeiIsSelected ? (musicHonmeiSelected.value = targetMusic) : (musicSelected.value = targetMusic)
+  const targetMusic = props.musicHonmeiIsSelected
+    ? musicHonmeiListLeft.value.find((item) => item.id === id)
+    : musicListLeft.value.find((item) => item.id === id)
+  if (targetMusic) {
+    if (props.musicHonmeiIsSelected) {
+      musics.value.map((item) => (item.id === id ? (item.honmei = true) : (item.honmei = false)))
+    } else {
+      musicSelected.value = targetMusic
+    }
+  }
   close()
 }
 </script>

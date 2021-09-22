@@ -9,35 +9,46 @@
     >
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
-          <div>
-            {{ '本命曲(' + (musicHonmei.id === music0.id ? 0 : 1) + '/1)' }}
-          </div>
-          <icon-uil-plus
+          <div>本命曲目</div>
+          <icon-uil-arrows-h
+            v-show="musicHonmei.id != music0.id"
             class="cursor-pointer"
-            :class="{ 'text-gray-400': musicHonmei.id != music0.id }"
             @click="
-              musicHonmei.id === music0.id
-                ? (() => {
-                    musicHonmeiIsSelected = true
-                    musicSelectOpen = true
-                  })()
-                : ''
+              () => {
+                musicHonmeiIsSelected = true
+                musicSelectOpen = true
+              }
             "
-          ></icon-uil-plus>
+          />
         </div>
         <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50">
           <transition name="musicHonmei" mode="out-in">
-            <div v-if="musicHonmei.id != music0.id" key="selecting">
+            <div v-if="musicHonmei.honmei" key="selecting">
               <MusicHonmeiCard v-model:music-honmei="musicHonmei" class="opacity-80" />
             </div>
-            <div v-else key="no-selecting" class="w-full aspect-69/200"></div>
+            <div v-else key="no-selecting" class="w-full text-center text-gray-400 py-10 space-y-2">
+              <div>可以从喜欢的曲目中选择一首</div>
+              <div
+                class="underline cursor-pointer transition hover:text-gray-500"
+                @click="
+                  () => {
+                    musicHonmeiIsSelected = true
+                    musicSelectOpen = true
+                  }
+                "
+              >
+                把它选为你的本命票哦
+              </div>
+            </div>
           </transition>
         </div>
       </div>
 
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl®">
-          <div>{{ '我喜欢的曲目(' + musicsVotedNumber + '/11)' }}</div>
+          <div>
+            {{ '我喜欢的曲目(' + musicsReverseWithoutHonmei.length + '/' + (musicHonmei.honmei ? '7)' : '8)') }}
+          </div>
           <icon-uil-plus
             class="cursor-pointer"
             :class="{ 'text-gray-400': musicsVotedNumber === 8 }"
@@ -52,78 +63,106 @@
           ></icon-uil-plus>
         </div>
         <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50 whitespace-nowrap overflow-x-auto">
-          <div v-if="musicsVotedNumber">
-            <transition-group name="musicList" tag="div">
-              <div
-                v-for="(music, index) in musicsReverse"
-                :key="music.id"
-                class="inline-block transition transition-all duration-200 mr-3 w-3/10"
-              >
-                <MusicCard
-                  v-model:music="musicsReverse[index]"
-                  v-model:musicsSelectedList="musics"
-                  class="opacity-80"
-                />
-              </div>
-            </transition-group>
-          </div>
-          <div v-else class="w-full aspect-21/49"></div>
+          <transition name="music" mode="out-in">
+            <div v-if="musicsReverseWithoutHonmei.length">
+              <transition-group name="musicList" tag="div">
+                <div
+                  v-for="(music, index) in musicsReverseWithoutHonmei"
+                  :key="music.id"
+                  class="inline-block transition transition-all duration-200 mr-3 w-3/10"
+                >
+                  <MusicCard v-model:music="musicsReverseWithoutHonmei[index]" />
+                </div>
+              </transition-group>
+            </div>
+            <div v-else class="w-full text-center text-gray-400 py-15">请为您喜爱的曲目投上一票吧!</div>
+          </transition>
         </div>
+      </div>
+      <button
+        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        :class="{ 'bg-accent-color-300': !musicsVotedNumber }"
+        @click="musicsVotedNumber ? (confirmBoxOpen = true) : ''"
+      >
+        {{ musicsVotedNumber ? '提交!' : '请投票' }}
+      </button>
+    </div>
+  </div>
+  <MusicSelect
+    v-model:open="musicSelectOpen"
+    v-model:musicSelected="musics[musicsVotedNumber]"
+    :music-honmei-is-selected="musicHonmeiIsSelected"
+  />
+  <VoteMessageBox v-model:open="confirmBoxOpen" title="请确定投票内容：">
+    <div class="overflow-auto">
+      <div class="divide-y p-2">
+        <div v-if="musicHonmei.honmei" class="py-1 text-accent-color-600">
+          <div class="text-lg">
+            {{ '本命位：' + musicHonmei.name }}
+          </div>
+          <div class="truncate">{{ '专辑：' + musicHonmei.album }}</div>
+          <div class="">{{ '投票理由：' + (musicHonmei.reason ? musicHonmei.reason : '无') }}</div>
+        </div>
+        <div v-for="(music, index) in musicsReverseWithoutHonmei" :key="music.id" class="py-1">
+          <div class="">
+            {{ '投票位' + (index + 1) + '：' + music.name }}
+          </div>
+          <div class="text-sm truncate">{{ '专辑：' + musicHonmei.album }}</div>
+          <div class="text-sm">{{ '投票理由：' + (music.reason ? music.reason : '无') }}</div>
+        </div>
+        <div class="text-gray-500 italic">*票位序号仅给用户参考，不影响加权<br />*投票期间可随时更改投票内容哦</div>
       </div>
       <button
         class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
         :class="{ 'bg-accent-color-300': loading }"
         @click="vote()"
       >
-        <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>{{ loading ? '投票中' : '投票！' }}</label>
+        <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>{{
+          loading ? '投票中' : '确认投票！'
+        }}</label>
       </button>
     </div>
-    <MusicSelect
-      v-model:open="musicSelectOpen"
-      v-model:musicSelected="musics[musicsVotedNumber]"
-      v-model:musicHonmeiSelected="musicHonmei"
-      :music-honmei-is-selected="musicHonmeiIsSelected"
-    />
-  </div>
+  </VoteMessageBox>
 </template>
 
 <script lang="ts" setup>
-import MusicSelect from '@/vote-music/components/MusicSelect.vue'
+import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import MusicSelect from './components/MusicSelect.vue'
 import MusicCard from '@/vote-music/components/MusicCard.vue'
-import MusicHonmeiCard from '@/vote-music/components/MusicHonmeiCard.vue'
+import MusicHonmeiCard from './components/MusicHonmeiCard.vue'
 import { ref, computed } from 'vue'
-import { Music } from '@/vote-music/lib/music'
-import { music0 } from '@/vote-music/lib/voteData'
-import { musicHonmei, musics } from '@/vote-music/lib/voteData'
+import { useRouter } from 'vue-router'
+import { musicsReverse, musicsReverseWithoutHonmei } from '@/vote-music/lib/musicList'
+import { musicHonmei, musics, music0 } from '@/vote-music/lib/voteData'
 
-const musicsReverse = computed<Music[]>(() => {
-  const musicsCopy: Music[] = []
-  musics.value.map((music) => {
-    if (music.id != music0.id) musicsCopy.push(music)
-  })
-  return musicsCopy.reverse()
-})
+const router = useRouter()
+
 const musicsVotedNumber = computed<number>(() => musicsReverse.value.length)
 
 const musicSelectOpen = ref(false)
 const musicHonmeiIsSelected = ref(false)
 
+const confirmBoxOpen = ref(false)
+
 const loading = ref(false)
 async function vote(): Promise<void> {
-  if (!window.confirm('确定要投票吗？（投票期间可随时更改）')) return
   loading.value = true
-  alert('投票成功！')
   setTimeout(() => {
+    alert('投票成功！')
     loading.value = false
+    router.push({ path: '/' })
   }, 1000)
 }
 </script>
 <style lang="postcss" scoped>
+.music-enter-active,
+.music-leave-active,
 .musicHonmei-enter-active,
 .musicHonmei-leave-active {
   @apply transition-all duration-200;
 }
-
+.music-enter-from,
+.music-leave-to,
 .musicHonmei-enter-from,
 .musicHonmei-leave-to {
   @apply opacity-0;
