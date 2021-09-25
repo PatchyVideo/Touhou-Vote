@@ -45,6 +45,27 @@
           </div>
         </div>
       </div>
+      <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
+        <div class="w-1/3 p-0.5 overflow-hidden rounded">
+          <div class="w-full aspect-1/1">
+            <img src="@/home/assets/DefaultAvatar.jpg" class="object-cover rounded" />
+          </div>
+        </div>
+        <div class="w-2/3 p-0.5 flex flex-wrap content-between">
+          <div class="w-full space-y-0.5">
+            <div class="text-xl">CP部门</div>
+            <div class="text-xs"></div>
+          </div>
+          <div class="w-full text-right">
+            <button
+              class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2"
+              @click="voteMusic()"
+            >
+              开始投票
+            </button>
+          </div>
+        </div>
+      </div>
       <button
         v-if="props.deskTopReturn"
         class="w-full py-2 text-sm rounded text-white bg-accent-color-600"
