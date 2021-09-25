@@ -37,7 +37,7 @@
                   }
                 "
               >
-                把它选为你的本命票哦
+                把它选为你的本命曲哦
               </div>
             </div>
           </transition>
@@ -47,7 +47,7 @@
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl®">
           <div>
-            {{ '我喜欢的曲目(' + musicsReverseWithoutHonmei.length + '/' + (musicHonmei.honmei ? '7)' : '8)') }}
+            {{ '我喜欢的曲目(' + musicsReverseWithoutHonmei.length + '/' + (musicHonmei.honmei ? '11)' : '12)') }}
           </div>
           <icon-uil-plus
             class="cursor-pointer"
