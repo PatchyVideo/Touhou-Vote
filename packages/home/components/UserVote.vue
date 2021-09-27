@@ -59,7 +59,7 @@
           <div class="w-full text-right">
             <button
               class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2"
-              @click="voteMusic()"
+              @click="voteCouple()"
             >
               开始投票
             </button>
@@ -96,6 +96,9 @@ function voteCharacter(): void {
 }
 function voteMusic(): void {
   router.push('/vote/music')
+}
+function voteCouple(): void {
+  router.push('/vote/couple')
 }
 
 function returnBack(): void {

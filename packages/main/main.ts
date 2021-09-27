@@ -45,6 +45,10 @@ const router = createRouter({
       component: () => import('@/vote-music/VoteMusic.vue'),
     },
     {
+      path: '/vote/couple',
+      component: () => import('@/vote-couple/VoteCouple.vue'),
+    },
+    {
       path: '/test',
       component: () => import('@/common/TestPage.vue'),
     },
