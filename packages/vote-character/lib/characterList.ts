@@ -104,15 +104,15 @@ const characterList: Character[] = [
   },
 ]
 
-export const characterListLeft = computed<Character[]>(() => {
-  return characterList.filter((character) => {
+export const characterListLeft = computed<Character[]>(() =>
+  characterList.filter((character) => {
     let characterInCharacters = false
     for (let i = 0; i < characters.value.length; i++) {
       if (characters.value[i].id === character.id) characterInCharacters = true
     }
     return character.id != characterHonmei.value.id && !characterInCharacters
   })
-})
+)
 export const characterHonmeiListLeft = computed<Character[]>(() => {
   return charactersReverse.value.filter((character) => character.id != characterHonmei.value.id)
 })

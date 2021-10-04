@@ -47,7 +47,12 @@
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl®">
           <div>
-            {{ '我喜欢的角色(' + charactersReverseWithoutHonmei.length + '/' + (characterHonmei.honmei ? '7)' : '8)') }}
+            {{
+              '我喜欢的角色(' +
+              charactersReverseWithoutHonmei.length +
+              '/' +
+              (characterHonmei.honmei ? characters.length - 1 + ')' : characters.length + ')')
+            }}
           </div>
           <icon-uil-plus
             class="cursor-pointer"

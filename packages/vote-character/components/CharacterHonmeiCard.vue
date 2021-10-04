@@ -35,7 +35,7 @@
 <script lang="ts" setup>
 import { defineProps, defineEmits, PropType, ref, watch, shallowRef } from 'vue'
 import { useVModel } from '@vueuse/core'
-import { Character, character0 } from '@/vote-character/lib/character'
+import { Character } from '@/vote-character/lib/character'
 import { characters } from '@/vote-character/lib/voteData'
 
 const props = defineProps({
@@ -43,7 +43,7 @@ const props = defineProps({
     type: Object as PropType<Character>,
     requred: true,
     default: function () {
-      return character0
+      return new Character()
     },
   },
 })
