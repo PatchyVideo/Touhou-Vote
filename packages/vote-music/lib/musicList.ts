@@ -1,6 +1,6 @@
-import { Music } from '@/vote-music/lib/music'
+import { Music, music0 } from '@/vote-music/lib/music'
 import { computed } from 'vue'
-import { musicHonmei, musics, music0 } from '@/vote-music/lib/voteData'
+import { musicHonmei, musics } from '@/vote-music/lib/voteData'
 
 const musicList: Music[] = [
   {
@@ -85,40 +85,24 @@ const musicList: Music[] = [
   },
 ]
 
-export const musicListLeft = computed<Music[]>(() => {
-  const musicsLeft: Music[] = []
-  musicList.map((music) => {
+export const musicListLeft = computed<Music[]>(() =>
+  musicList.filter((music) => {
     let musicInMusics = false
     for (let i = 0; i < musics.value.length; i++) {
       if (musics.value[i].id === music.id) musicInMusics = true
     }
-    if (music.id != musicHonmei.value.id && !musicInMusics) {
-      musicsLeft.push(music)
-    }
+    return music.id != musicHonmei.value.id && !musicInMusics
   })
-  return musicsLeft
-})
-export const musicHonmeiListLeft = computed<Music[]>(() => {
-  const musicsHonmeiLeft: Music[] = []
-  musicsReverse.value.map((music) => {
-    if (music.id != musicHonmei.value.id) {
-      musicsHonmeiLeft.push(music)
-    }
-  })
-  return musicsHonmeiLeft
-})
+)
+export const musicHonmeiListLeft = computed<Music[]>(() =>
+  musicsReverse.value.filter((music) => music.id != musicHonmei.value.id)
+)
 
-export const musicsReverse = computed<Music[]>(() => {
-  const musicsCopy: Music[] = []
-  musics.value.map((music) => {
-    if (music.id != music0.id) musicsCopy.push(music)
-  })
-  return musicsCopy.reverse()
-})
-export const musicsReverseWithoutHonmei = computed<Music[]>(() => {
-  const musicsCopy: Music[] = []
-  musicsReverse.value.map((music) => {
-    if (!music.honmei) musicsCopy.push(music)
-  })
-  return musicsCopy
-})
+export const musicsReverse = computed<Music[]>(() =>
+  musics.value
+    .filter((music) => {
+      music.id != music0.id
+    })
+    .reverse()
+)
+export const musicsReverseWithoutHonmei = computed<Music[]>(() => musicsReverse.value.filter((music) => !music.honmei))

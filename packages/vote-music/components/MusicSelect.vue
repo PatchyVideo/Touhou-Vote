@@ -78,7 +78,7 @@ import { ref, watchEffect, defineProps, PropType, computed } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
 import { musicListLeft, musicHonmeiListLeft } from '@/vote-music/lib/musicList'
-import { music0, musics } from '@/vote-music/lib/voteData'
+import { musics } from '@/vote-music/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 
 const props = defineProps({
@@ -95,7 +95,7 @@ const props = defineProps({
     type: Object as PropType<Music>,
     requred: true,
     default: function () {
-      return music0
+      return new Music()
     },
   },
 })

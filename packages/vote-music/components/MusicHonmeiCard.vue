@@ -33,14 +33,14 @@
 import { defineProps, defineEmits, PropType, ref, watch, shallowRef } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
-import { music0, musics } from '@/vote-music/lib/voteData'
+import { musics } from '@/vote-music/lib/voteData'
 
 const props = defineProps({
   musicHonmei: {
     type: Object as PropType<Music>,
     requred: true,
     default: function () {
-      return music0
+      return new Music()
     },
   },
 })

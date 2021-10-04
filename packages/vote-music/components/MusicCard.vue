@@ -38,7 +38,6 @@ import { defineProps, defineEmits, PropType, ref, computed, shallowRef, watchEff
 import { useVModel } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
 import { musics } from '@/vote-music/lib/voteData'
-import { music0 } from '@/vote-music/lib/voteData'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 
 const props = defineProps({
@@ -46,7 +45,7 @@ const props = defineProps({
     type: Object as PropType<Music>,
     requred: true,
     default: function () {
-      return music0
+      return new Music()
     },
   },
 })
@@ -72,9 +71,10 @@ function commitReasonBox(): void {
 }
 
 function closeMusicCard(): void {
-  musics.value = musics.value.map((item): Music => {
-    if (item.id === music.value.id) return music0
-    else return item
-  })
+  musics.value.splice(
+    musics.value.findIndex((item) => item.id === music.value.id),
+    1
+  )
+  musics.value.push(new Music())
 }
 </script>

@@ -132,8 +132,9 @@ import MusicCard from '@/vote-music/components/MusicCard.vue'
 import MusicHonmeiCard from './components/MusicHonmeiCard.vue'
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { music0 } from '@/vote-music/lib/music'
 import { musicsReverse, musicsReverseWithoutHonmei } from '@/vote-music/lib/musicList'
-import { musicHonmei, musics, music0 } from '@/vote-music/lib/voteData'
+import { musicHonmei, musics } from '@/vote-music/lib/voteData'
 
 const router = useRouter()
 
