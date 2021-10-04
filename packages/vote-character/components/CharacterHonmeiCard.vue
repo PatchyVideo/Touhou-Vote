@@ -35,8 +35,8 @@
 <script lang="ts" setup>
 import { defineProps, defineEmits, PropType, ref, watch, shallowRef } from 'vue'
 import { useVModel } from '@vueuse/core'
-import { Character } from '@/vote-character/lib/character'
-import { character0, characters } from '@/vote-character/lib/voteData'
+import { Character, character0 } from '@/vote-character/lib/character'
+import { characters } from '@/vote-character/lib/voteData'
 
 const props = defineProps({
   characterHonmei: {

@@ -91,7 +91,7 @@ import { ref, watchEffect, defineProps, PropType, computed } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
 import { characterListLeft, characterHonmeiListLeft } from '@/vote-character/lib/characterList'
-import { character0, characters } from '@/vote-character/lib/voteData'
+import { characters } from '@/vote-character/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 
 const props = defineProps({
@@ -108,7 +108,7 @@ const props = defineProps({
     type: Object as PropType<Character>,
     requred: true,
     default: function () {
-      return character0
+      return new Character()
     },
   },
 })

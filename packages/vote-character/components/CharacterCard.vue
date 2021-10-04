@@ -42,7 +42,6 @@ import { defineProps, defineEmits, PropType, ref, computed, shallowRef, watchEff
 import { useVModel } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
 import { characters } from '@/vote-character/lib/voteData'
-import { character0 } from '@/vote-character/lib/voteData'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 
 const props = defineProps({
@@ -50,7 +49,7 @@ const props = defineProps({
     type: Object as PropType<Character>,
     requred: true,
     default: function () {
-      return character0
+      return new Character()
     },
   },
 })
@@ -76,9 +75,10 @@ function commitReasonBox(): void {
 }
 
 function closeCharacterCard(): void {
-  characters.value = characters.value.map((item): Character => {
-    if (item.id === character.value.id) return character0
-    else return item
-  })
+  characters.value.splice(
+    characters.value.findIndex((item) => item.id === character.value.id),
+    1
+  )
+  characters.value.push(new Character())
 }
 </script>

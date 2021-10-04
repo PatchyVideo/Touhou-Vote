@@ -130,8 +130,9 @@ import CharacterCard from '@/vote-character/components/CharacterCard.vue'
 import CharacterHonmeiCard from './components/CharacterHonmeiCard.vue'
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { character0 } from '@/vote-character/lib/character'
 import { charactersReverse, charactersReverseWithoutHonmei } from '@/vote-character/lib/characterList'
-import { characterHonmei, characters, character0 } from '@/vote-character/lib/voteData'
+import { characterHonmei, characters } from '@/vote-character/lib/voteData'
 
 const router = useRouter()
 

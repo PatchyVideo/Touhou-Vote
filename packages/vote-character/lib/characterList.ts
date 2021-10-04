@@ -1,7 +1,6 @@
-import { Character } from '@/vote-character/lib/character'
+import { Character, character0 } from '@/vote-character/lib/character'
 import { computed } from 'vue'
 import { characterHonmei, characters } from '@/vote-character/lib/voteData'
-import { character0 } from '@/vote-character/lib/voteData'
 
 const characterList: Character[] = [
   {
@@ -106,39 +105,21 @@ const characterList: Character[] = [
 ]
 
 export const characterListLeft = computed<Character[]>(() => {
-  const charactersLeft: Character[] = []
-  characterList.map((character) => {
+  return characterList.filter((character) => {
     let characterInCharacters = false
     for (let i = 0; i < characters.value.length; i++) {
       if (characters.value[i].id === character.id) characterInCharacters = true
     }
-    if (character.id != characterHonmei.value.id && !characterInCharacters) {
-      charactersLeft.push(character)
-    }
+    return character.id != characterHonmei.value.id && !characterInCharacters
   })
-  return charactersLeft
 })
 export const characterHonmeiListLeft = computed<Character[]>(() => {
-  const charactersHonmeiLeft: Character[] = []
-  charactersReverse.value.map((character) => {
-    if (character.id != characterHonmei.value.id) {
-      charactersHonmeiLeft.push(character)
-    }
-  })
-  return charactersHonmeiLeft
+  return charactersReverse.value.filter((character) => character.id != characterHonmei.value.id)
 })
 
-export const charactersReverse = computed<Character[]>(() => {
-  const charactersCopy: Character[] = []
-  characters.value.map((character) => {
-    if (character.id != character0.id) charactersCopy.push(character)
-  })
-  return charactersCopy.reverse()
-})
+export const charactersReverse = computed<Character[]>(() =>
+  characters.value.filter((character) => character.id != character0.id).reverse()
+)
 export const charactersReverseWithoutHonmei = computed<Character[]>(() => {
-  const charactersCopy: Character[] = []
-  charactersReverse.value.map((character) => {
-    if (!character.honmei) charactersCopy.push(character)
-  })
-  return charactersCopy
+  return charactersReverse.value.filter((character) => !character.honmei)
 })
