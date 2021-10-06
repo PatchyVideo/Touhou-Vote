@@ -1,7 +1,7 @@
 <template>
   <div class="inline-block relative">
     <div ref="VoteSelectRoot" class="cursor-pointer shadow p-1 md:px-3 rounded" @click="listHidden = !listHidden">
-      {{ selected.name }}
+      {{ selected.name === '' ? selectedName : selected.name }}
       <div
         class="inline-block transform-gpu origin-center transition-all duration-200"
         :class="{ 'rotate-180': !listHidden }"
@@ -15,13 +15,13 @@
     >
       <ul
         class="space-y-1 overflow-x-hidden overflow-y-auto transform-gpu transition-all duration-200"
-        :style="{ marginTop: listHidden ? '-100%' : '0' }"
+        :style="{ marginTop: listHidden ? '-' + 34 * itemList.length + '%' : '0' }"
       >
         <li
           v-for="item in itemList"
           :key="item.value"
           class="cursor-pointer transition transition-colors hover:bg-gray-100"
-          @click="selected = item"
+          @click="selectItem(item)"
         >
           {{ item.name }}
         </li>
@@ -36,7 +36,7 @@ import { useEventListener, useVModel } from '@vueuse/core'
 
 interface SelectList {
   name: string
-  value: string
+  value: string | number
 }
 
 const props = defineProps({
@@ -55,6 +55,10 @@ const props = defineProps({
     },
     requred: true,
   },
+  selectedName: {
+    type: String,
+    default: '请选择',
+  },
 })
 
 const emit = defineEmits<{
@@ -64,6 +68,10 @@ const emit = defineEmits<{
 const selected = useVModel(props, 'selected', emit)
 
 const listHidden = ref<boolean>(true)
+
+function selectItem(item: SelectList): void {
+  selected.value = item
+}
 
 // Click to hide the list
 const VoteSelectRoot = shallowRef<HTMLDivElement | null>(null)
