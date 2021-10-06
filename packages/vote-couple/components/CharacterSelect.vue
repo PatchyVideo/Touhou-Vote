@@ -39,7 +39,7 @@
       </div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <div
-          v-for="(item, index) in characterList"
+          v-for="(item, index) in characterListLeft"
           :key="index"
           class="p-1 rounded shadow bg-white flex ring"
           :style="'--tw-ring-color:' + item.color"
@@ -78,8 +78,8 @@
 import { ref, watchEffect, defineProps, PropType, computed } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
-import { characterListLeft, characterHonmeiListLeft } from '@/vote-character/lib/characterList'
-import { character0, characters } from '@/vote-character/lib/voteData'
+import { characterList } from '@/vote-couple/lib/coupleList'
+import { Couple } from '@/vote-couple/lib/couple'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 
 const props = defineProps({
@@ -87,11 +87,18 @@ const props = defineProps({
     type: Boolean,
     requred: true,
   },
+  coupleSelected: {
+    type: Object as PropType<Couple>,
+    requred: true,
+    default: function () {
+      return new Couple()
+    },
+  },
   characterSelected: {
     type: Object as PropType<Character>,
     requred: true,
     default: function () {
-      return character0
+      return new Character()
     },
   },
 })
@@ -122,7 +129,18 @@ const orderOptions = [
 ]
 const order = ref(orderOptions[0])
 
+const characterListLeft = computed<Character[]>(() =>
+  characterList.filter((character) => {
+    let characterInCharacters = false
+    for (let i = 0; i < props.coupleSelected.characters.length; i++) {
+      if (props.coupleSelected.characters[i].id === character.id) characterInCharacters = true
+    }
+    return !characterInCharacters
+  })
+)
+
 function characterSelect(id: string): void {
+  characterSelected.value = characterListLeft.value.find((character) => character.id === id) || new Character()
   close()
 }
 </script>
