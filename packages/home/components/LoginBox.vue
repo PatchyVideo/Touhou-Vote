@@ -145,6 +145,8 @@
 <script lang="ts" setup>
 import { ref, computed, watchEffect, defineProps } from 'vue'
 import { useVModel } from '@vueuse/core'
+import { useMutation, gql } from '@/graphql'
+import type { Mutation } from '@/graphql'
 
 const props = defineProps({
   open: {
@@ -204,6 +206,7 @@ async function verificationCodeGet(): Promise<void> {
   verificationCodeAvailableTimer = setInterval(() => {
     verificationCodeAvailableTime.value--
   }, 1000)
+  mutate({ phone: userEmailOrPhoneNum.value })
 }
 watchEffect(() => {
   if (!verificationCodeAvailableTime.value) {
@@ -211,6 +214,16 @@ watchEffect(() => {
     verificationCodeAvailable.value = true
   }
 })
+/* Mutation for notifications read */
+const { mutate } = useMutation<Mutation>(
+  gql`
+    mutation ($phone: String) {
+      requestPhoneCode(para: { phone: $phone }) {
+        empty
+      }
+    }
+  `
+)
 async function login(): Promise<void> {
   if (!userEmailOrPhoneNumVerify() || loading.value) return
   if (verificationCode.value === '') {
