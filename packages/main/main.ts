@@ -7,8 +7,8 @@ import '@/tailwindcss'
 import '@/darkmode'
 
 /* GraphQL */
-// import { createApollo, provideClient } from '@/graphql'
-// const client = createApollo()
+import { createApollo, provideClient } from '@/graphql'
+const client = createApollo()
 
 /* Vue App */
 import AppRouterView from './components/AppRouterView.vue'
@@ -16,7 +16,7 @@ const app = createApp(
   defineComponent({
     render: () => [h(AppRouterView)],
     setup() {
-      // provideClient(client)
+      provideClient(client)
     },
   })
 )

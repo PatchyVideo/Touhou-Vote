@@ -1,6 +1,6 @@
 overwrite: true
 schema:
-  - https://patchyvideo.com/be/gql/graphql
+  - https://touhou.ai/vote-be/graphql
 generates:
   packages/graphql/__generated__/graphql.ts:
     plugins:

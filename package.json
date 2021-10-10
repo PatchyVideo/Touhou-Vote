@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "codegen": "node ./scripts/codegen.js"
   },
   "dependencies": {
-    "@apollo/client": "^3.4.7",
-    "@formatjs/intl-locale": "^2.4.36",
+    "@apollo/client": "^3.4.10",
+    "@formatjs/intl-locale": "^2.4.37",
     "@formatjs/intl-localematcher": "^0.2.20",
     "@vue/apollo-composable": "^4.0.0-alpha.14",
     "@vueuse/components": "^6.0.0",
@@ -22,6 +23,11 @@
     "vue-router": "4.0.11"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.1.1",
+    "@graphql-codegen/fragment-matcher": "^3.1.0",
+    "@graphql-codegen/introspection": "^2.1.0",
+    "@graphql-codegen/schema-ast": "^2.1.0",
+    "@graphql-codegen/typescript": "^2.2.0",
     "@iconify/json": "^1.1.387",
     "@rollup/plugin-yaml": "^3.1.0",
     "@types/eslint": "^7",
