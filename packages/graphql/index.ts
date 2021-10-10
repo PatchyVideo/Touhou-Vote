@@ -54,7 +54,7 @@ export function createApollo(): ApolloClient<NormalizedCacheObject> {
       typesMap,
     }),
     new HttpLink({
-      uri: 'https://touhou.ai/vote-be/graphql',
+      uri: 'https://touhou.ai/graphql',
       credentials: 'include',
     }),
   ])
