@@ -206,7 +206,8 @@ async function verificationCodeGet(): Promise<void> {
   verificationCodeAvailableTimer = setInterval(() => {
     verificationCodeAvailableTime.value--
   }, 1000)
-  mutate({ phone: userEmailOrPhoneNum.value })
+  if (userType.value === 'phone') getPhoneCode({ phone: userEmailOrPhoneNum.value })
+  else if (userType.value === 'email') getEmailCode({ email: userEmailOrPhoneNum.value })
 }
 watchEffect(() => {
   if (!verificationCodeAvailableTime.value) {
@@ -214,11 +215,17 @@ watchEffect(() => {
     verificationCodeAvailable.value = true
   }
 })
-/* Mutation for notifications read */
-const { mutate } = useMutation<Mutation>(
+const { mutate: getPhoneCode } = useMutation<Mutation>(
   gql`
     mutation ($phone: String!) {
       requestPhoneCode(phone: $phone)
+    }
+  `
+)
+const { mutate: getEmailCode } = useMutation<Mutation>(
+  gql`
+    mutation ($email: String!) {
+      requestEmailCode(email: $email)
     }
   `
 )
