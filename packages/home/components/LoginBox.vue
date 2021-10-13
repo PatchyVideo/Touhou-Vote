@@ -217,10 +217,8 @@ watchEffect(() => {
 /* Mutation for notifications read */
 const { mutate } = useMutation<Mutation>(
   gql`
-    mutation ($phone: String) {
-      requestPhoneCode(para: { phone: $phone }) {
-        empty
-      }
+    mutation ($phone: String!) {
+      requestPhoneCode(phone: $phone)
     }
   `
 )
