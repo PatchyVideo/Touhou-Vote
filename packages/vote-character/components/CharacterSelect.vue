@@ -35,7 +35,7 @@
           <input class="nline-block h-full outline-none dark:bg-gray-800 w-full rounded" />
         </div>
         <VoteSelect v-model:selected="order" :item-list="orderOptions" />
-        <div class="cursor-pointer shadow p-1">筛选</div>
+        <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
       </div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <!-- eslint-disable vue/no-v-html -->
@@ -84,6 +84,7 @@
   <Transition name="mask">
     <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-50" @touchmove.stop.prevent></div>
   </Transition>
+  <AdvancedFilter v-model:open="advancedFilterOpen" />
 </template>
 
 <script lang="ts" setup>
@@ -93,6 +94,7 @@ import { Character } from '@/vote-character/lib/character'
 import { characterListLeft, characterHonmeiListLeft } from '@/vote-character/lib/characterList'
 import { characters } from '@/vote-character/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
+import AdvancedFilter from './AdvancedFilter.vue'
 
 const props = defineProps({
   open: {
@@ -126,6 +128,7 @@ watchEffect(() => {
 })
 
 const loading = ref(false)
+const advancedFilterOpen = ref(false)
 
 const characterList = computed(() =>
   props.characterHonmeiIsSelected ? characterHonmeiListLeft.value : characterListLeft.value
@@ -133,11 +136,11 @@ const characterList = computed(() =>
 
 const orderOptions = [
   {
-    name: '从新到旧',
+    name: '出场正序',
     value: 'newest',
   },
   {
-    name: '从旧到新',
+    name: '出场倒序',
     value: 'oldest',
   },
 ]
