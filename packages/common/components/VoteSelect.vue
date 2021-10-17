@@ -1,6 +1,10 @@
 <template>
   <div class="inline-block relative">
-    <div ref="VoteSelectRoot" class="cursor-pointer shadow p-1 md:px-3 rounded" @click="listHidden = !listHidden">
+    <div
+      ref="VoteSelectRoot"
+      class="flex justify-between cursor-pointer shadow p-1 md:px-3 rounded"
+      @click="listHidden = !listHidden"
+    >
       {{ selected.name === '' ? selectedName : selected.name }}
       <div
         class="inline-block transform-gpu origin-center transition-all duration-200"
@@ -10,6 +14,7 @@
       </div>
     </div>
     <div
+      v-if="itemList.length"
       class="absolute z-52 rounded bg-white shadow mt-1 w-full text-center overflow-hidden"
       :class="{ 'p-1': !listHidden }"
     >
@@ -20,7 +25,7 @@
         <li
           v-for="item in itemList"
           :key="item.value"
-          class="cursor-pointer transition transition-colors hover:bg-gray-100"
+          class="truncate cursor-pointer transition transition-colors hover:bg-gray-100"
           @click="selectItem(item)"
         >
           {{ item.name }}
