@@ -20,7 +20,7 @@
     >
       <ul
         class="space-y-1 overflow-x-hidden overflow-y-auto transform-gpu transition-all duration-200"
-        :style="{ marginTop: listHidden ? '-' + 34 * itemList.length + '%' : '0' }"
+        :style="{ marginTop: listHidden ? '-' + 40 * itemList.length + '%' : '0' }"
       >
         <li
           v-for="item in itemList"
