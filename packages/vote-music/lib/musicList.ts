@@ -98,11 +98,5 @@ export const musicHonmeiListLeft = computed<Music[]>(() =>
   musicsReverse.value.filter((music) => music.id != musicHonmei.value.id)
 )
 
-export const musicsReverse = computed<Music[]>(() =>
-  musics.value
-    .filter((music) => {
-      music.id != music0.id
-    })
-    .reverse()
-)
+export const musicsReverse = computed<Music[]>(() => musics.value.filter((music) => music.id != music0.id).reverse())
 export const musicsReverseWithoutHonmei = computed<Music[]>(() => musicsReverse.value.filter((music) => !music.honmei))
