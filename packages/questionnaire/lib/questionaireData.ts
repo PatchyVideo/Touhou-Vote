@@ -27,17 +27,17 @@ interface QuestionaireData {
   mainQuestionaire: MainQuestionaire
   [key: string]: MainQuestionaire
 }
+
+// 获取一级问卷
 function IDToBigQuestionaire(ID: number): string {
-  while (ID > 10) {
-    ID = Math.floor(ID / 10)
-  }
+  ID = Number(String(ID).substring(0, 1))
   if (ID === 1) return 'mainQuestionaire'
   else return 'extraQuestionaire'
 }
+
+// 获取二级问卷
 function IDToSmallQuestionaire(ID: number): string {
-  while (ID > 100) {
-    ID = Math.floor(ID / 10)
-  }
+  ID = Number(String(ID).substring(0, 2))
   switch (ID) {
     case 11:
       return 'requiredQuestionaire'
@@ -57,11 +57,29 @@ function IDToSmallQuestionaire(ID: number): string {
       return ''
   }
 }
+
+// 获取问题库编号（数组索引用，即第三、四位ID-1）
 function IDToQuestionLibrary(ID: number): number {
-  while (ID > 1000) {
-    ID = Math.floor(ID / 10)
+  return Number(String(ID).substring(2, 4)) - 1
+}
+
+// 获取问题的在问题库中的编号（数组索引用，即第五位ID-1）
+function IDToQuestionLibraryNumber(ID: number): number {
+  return Number(String(ID).substring(4, 5)) - 1
+}
+
+// 匹配两个ID是否在同一个问题库里，ID要求5位ID
+function IsInSameQuestionLibrary(ID1: number, ID2: number) {
+  return Math.floor(ID1 / 10) === Math.floor(ID2 / 10)
+}
+
+// 重置问题答案
+function resetAnswer(answer: Answer, answerID: number) {
+  return {
+    id: answerID,
+    input: '',
+    options: [],
   }
-  return Math.floor(ID / 100)
 }
 
 export const questionaireData = ref<QuestionaireData>({
@@ -98,14 +116,39 @@ export function computeQuestionaire(): QuestionaireALL {
     for (const smallQuestionaire in questionaire[bigQuestionaire]) {
       for (const questionLibrary of questionaire[bigQuestionaire][smallQuestionaire].questions) {
         if (!questionLibrary.length) return questionaireReturn
-        const answerTarget = questionaireData.value[bigQuestionaire][smallQuestionaire].answers.find(
-          (answer) => Math.floor(answer.id / 10) === Math.floor(questionLibrary[0].id / 10)
+        const answerTarget = questionaireData.value[bigQuestionaire][smallQuestionaire].answers.find((answer) =>
+          IsInSameQuestionLibrary(answer.id, questionLibrary[0].id)
         )
         const questionTarget = questionLibrary.find((question) => question.id === answerTarget?.id)
         if (!answerTarget?.options || !questionTarget) continue
         for (const option of answerTarget.options) {
           for (const relatedQuestionID of questionTarget.options[option].related) {
-            questionaire[IDToBigQuestionaire(relatedQuestionID)][IDToSmallQuestionaire(relatedQuestionID)].questions
+            questionaireReturn[IDToBigQuestionaire(relatedQuestionID)][
+              IDToSmallQuestionaire(relatedQuestionID)
+            ].questions[IDToQuestionLibrary(relatedQuestionID)] = questionaireReturn[
+              IDToBigQuestionaire(relatedQuestionID)
+            ][IDToSmallQuestionaire(relatedQuestionID)].questions[IDToQuestionLibrary(relatedQuestionID)].filter(
+              (question) => question.id == option
+            )
+            questionaireData.value[bigQuestionaire][smallQuestionaire].answers.map((answer) => {
+              if (IsInSameQuestionLibrary(answer.id, option)) {
+                answer = resetAnswer(answer, option)
+              }
+            })
+          }
+          for (const mutexOptionID of questionTarget.options[option].mutex) {
+            questionaireReturn[IDToBigQuestionaire(mutexOptionID)][IDToSmallQuestionaire(mutexOptionID)].questions[
+              IDToQuestionLibrary(mutexOptionID)
+            ][IDToQuestionLibraryNumber(mutexOptionID)].options = questionaireReturn[
+              IDToBigQuestionaire(mutexOptionID)
+            ][IDToSmallQuestionaire(mutexOptionID)].questions[IDToQuestionLibrary(mutexOptionID)][
+              IDToQuestionLibraryNumber(mutexOptionID)
+            ].options.filter((option) => option.id != mutexOptionID)
+            questionaireData.value[bigQuestionaire][smallQuestionaire].answers.map((answer) => {
+              if (IsInSameQuestionLibrary(Math.floor(mutexOptionID / 100), answer.id)) {
+                answer.options = answer.options.filter((item) => item != mutexOptionID)
+              }
+            })
           }
         }
       }
