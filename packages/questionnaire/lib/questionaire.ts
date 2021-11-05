@@ -100,13 +100,13 @@ export const questionaire: QuestionaireALL = {
             input: '',
             options: [
               {
-                id: 1101201,
+                id: 1102101,
                 related: [11031],
                 mutex: [],
                 content: '国内',
               },
               {
-                id: 1101201,
+                id: 1102101,
                 related: [11032],
                 mutex: [],
                 content: '国外',
@@ -765,7 +765,7 @@ export const questionaire: QuestionaireALL = {
               },
             ],
           },
-        ]
+        ],
       ],
     },
   },
