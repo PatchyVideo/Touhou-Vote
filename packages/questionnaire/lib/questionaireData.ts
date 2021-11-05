@@ -102,6 +102,41 @@ export const questionaireData = ref<QuestionaireData>({
           options: [],
           input: '',
         },
+        {
+          id: 11041,
+          options: [],
+          input: '',
+        },
+        {
+          id: 11051,
+          options: [],
+          input: '',
+        },
+        {
+          id: 11061,
+          options: [],
+          input: '',
+        },
+        {
+          id: 11071,
+          options: [],
+          input: '',
+        },
+        {
+          id: 11081,
+          options: [],
+          input: '',
+        },
+        {
+          id: 11091,
+          options: [],
+          input: '',
+        },
+        {
+          id: 11101,
+          options: [],
+          input: '',
+        },
       ],
     },
   },
