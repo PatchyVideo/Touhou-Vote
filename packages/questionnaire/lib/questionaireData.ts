@@ -89,7 +89,7 @@ export const questionaireData = ref<QuestionaireData>({
       answers: [
         {
           id: 11011,
-          options: [],
+          options: [1101101],
           input: '',
         },
         {
@@ -151,13 +151,17 @@ export function computeQuestionaire(): QuestionaireALL {
     for (const smallQuestionaire in questionaire[bigQuestionaire]) {
       for (const questionLibrary of questionaire[bigQuestionaire][smallQuestionaire].questions) {
         if (!questionLibrary.length) return questionaireReturn
+        // 此题库下对应的问题的答案
         const answerTarget = questionaireData.value[bigQuestionaire][smallQuestionaire].answers.find((answer) =>
           IsInSameQuestionLibrary(answer.id, questionLibrary[0].id)
         )
+        // 此题库下对应答案的问题
         const questionTarget = questionLibrary.find((question) => question.id === answerTarget?.id)
         if (!answerTarget?.options || !questionTarget) continue
         for (const option of answerTarget.options) {
-          for (const relatedQuestionID of questionTarget.options[option].related) {
+          const questionOption = questionTarget.options.find((item) => item.id === option)
+          if (!questionOption) continue
+          for (const relatedQuestionID of questionOption.related) {
             questionaireReturn[IDToBigQuestionaire(relatedQuestionID)][
               IDToSmallQuestionaire(relatedQuestionID)
             ].questions[IDToQuestionLibrary(relatedQuestionID)] = questionaireReturn[
@@ -171,7 +175,7 @@ export function computeQuestionaire(): QuestionaireALL {
               }
             })
           }
-          for (const mutexOptionID of questionTarget.options[option].mutex) {
+          for (const mutexOptionID of questionOption.mutex) {
             questionaireReturn[IDToBigQuestionaire(mutexOptionID)][IDToSmallQuestionaire(mutexOptionID)].questions[
               IDToQuestionLibrary(mutexOptionID)
             ][IDToQuestionLibraryNumber(mutexOptionID)].options = questionaireReturn[

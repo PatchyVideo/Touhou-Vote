@@ -50,7 +50,7 @@ interface MainQuestionaire {
   [key: string]: Questionaire
 }
 interface ExtraQuestionaire {
-  exQuestionaire: Questionaire
+  exQuestionaire1: Questionaire
   [key: string]: Questionaire
 }
 export interface QuestionaireALL {
@@ -64,7 +64,7 @@ export const questionaire: QuestionaireALL = {
   mainQuestionaire: {
     requiredQuestionaire: {
       id: 11,
-      name: '必填问卷',
+      name: '主问卷 - 必填问卷',
       introduction:
         '本问卷的目的是收集一些投票者的非敏感信息。这些信息既可以勾勒出中文东方众的基本构成，也可以就其中一些项对投票结果的影响进行分析而得到一些有用的信息',
       questions: [
