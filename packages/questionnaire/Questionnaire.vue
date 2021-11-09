@@ -18,12 +18,16 @@
       ></div>
     </div>
 
-    <div class="w-full flex flex-col space-y-3 p-1">
+    <div class="w-full flex flex-col space-y-3 p-1 md:w-1/2 lg:w-1/3 xl:w-1/4 3xl:w-1/5 md:m-auto">
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="space-y-5 p-2">
           <div>{{ questionNum + 1 + '：' + question.content + '（' + TypeToChinese[question.type] + '）' }}</div>
-          <div class="rounded bg-gray-50 bg-opacity-50 space-y-4">
-            <div v-for="option in options" :key="option.id">
+          <div class="rounded bg-gray-50 bg-opacity-50 space-y-1">
+            <div
+              v-for="option in options"
+              :key="option.id"
+              class="hover:bg-accent-color-100 py-1 px-1 rounded transition transition-colors cursor-pointer"
+            >
               <VoteCheckBox
                 :check="answerData.find((answer) => answer === option.id) != undefined"
                 :read-only="true"
@@ -34,7 +38,12 @@
         </div>
       </div>
       <div class="flex justify-between space-x-2">
-        <button class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base">上一题</button>
+        <button
+          class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+          :class="{ 'bg-accent-color-300 cursor-default': questionNum === 0 }"
+        >
+          上一题
+        </button>
         <button class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base">下一题</button>
       </div>
     </div>
