@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { questionaire, QuestionaireALL } from '@/questionnaire/lib/questionaire'
 
 interface Answer {
@@ -8,7 +8,8 @@ interface Answer {
   options: number[]
   // 填空题的内容
   input: string
-  [key: string]: string | number | number[]
+  done?: boolean
+  [key: string]: string | number | number[] | boolean | undefined
 }
 interface AnswerQuestionaire {
   // 问卷ID，ID的含义参考文件“questionnaire.ts”
@@ -195,3 +196,18 @@ export function computeQuestionaire(): QuestionaireALL {
   }
   return questionaireReturn
 }
+
+// 用户的投票情况
+export const questionDone = computed(() => {
+  const questiondone = questionaireData.value
+  for (const bigQuestionaire in questionaireData.value)
+    for (const smallQuestionaire in questionaireData.value[bigQuestionaire])
+      questiondone[bigQuestionaire][smallQuestionaire].answers = questionaireData.value[bigQuestionaire][
+        smallQuestionaire
+      ].answers.map((answer) => {
+        answer.done = answer.input != '' || Boolean(answer.options.length)
+        return answer
+      })
+
+  return questiondone
+})
