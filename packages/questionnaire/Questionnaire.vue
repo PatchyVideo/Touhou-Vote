@@ -11,10 +11,8 @@
         v-for="(answer, index) in questionDone[bigQuestionaire][smallQuestionaire].answers"
         :key="index"
         class="h-full"
-        :class="[
-          answer.done ? 'bg-accent-color-600' : 'bg-accent-color-100',
-          'w-1/' + questionDone[bigQuestionaire][smallQuestionaire].answers.length,
-        ]"
+        :class="[answer.done ? 'bg-accent-color-600' : ' bg-gray-300']"
+        :style="'width:' + 100 / questionDone[bigQuestionaire][smallQuestionaire].answers.length + '%'"
       ></div>
     </div>
 
