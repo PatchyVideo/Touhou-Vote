@@ -90,7 +90,7 @@ export const questionaireData = ref<QuestionaireData>({
       answers: [
         {
           id: 11011,
-          options: [1101101],
+          options: [],
           input: '',
         },
         {
@@ -147,7 +147,7 @@ export const questionaireComputed = ref<QuestionaireALL>(computeQuestionaire())
 
 // 根据用户的投票数据计算出的问卷数据
 export function computeQuestionaire(): QuestionaireALL {
-  const questionaireReturn = questionaire
+  const questionaireReturn: QuestionaireALL = JSON.parse(JSON.stringify(questionaire))
   for (const bigQuestionaire in questionaire) {
     for (const smallQuestionaire in questionaire[bigQuestionaire]) {
       for (const questionLibrary of questionaire[bigQuestionaire][smallQuestionaire].questions) {
@@ -168,7 +168,7 @@ export function computeQuestionaire(): QuestionaireALL {
             ].questions[IDToQuestionLibrary(relatedQuestionID)] = questionaireReturn[
               IDToBigQuestionaire(relatedQuestionID)
             ][IDToSmallQuestionaire(relatedQuestionID)].questions[IDToQuestionLibrary(relatedQuestionID)].filter(
-              (question) => question.id == option
+              (question) => question.id === option
             )
             questionaireData.value[bigQuestionaire][smallQuestionaire].answers.map((answer) => {
               if (IsInSameQuestionLibrary(answer.id, option)) {

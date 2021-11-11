@@ -22,12 +22,13 @@
           <div>{{ questionNum + 1 + '：' + question.content + '（' + TypeToChinese[question.type] + '）' }}</div>
           <div class="rounded bg-gray-50 bg-opacity-50 space-y-1">
             <div
-              v-for="option in options"
-              :key="option.id"
+              v-for="(option, index) in options"
+              :key="index"
               class="hover:bg-accent-color-100 py-1 px-1 rounded transition transition-colors cursor-pointer"
+              @click="selectOption(option.id)"
             >
               <VoteCheckBox
-                :check="answerData.find((answer) => answer === option.id) != undefined"
+                :check="answerData.findIndex((answer) => answer === option.id) != -1"
                 :read-only="true"
                 class="mr-2"
               />{{ option.content }}
@@ -39,23 +40,40 @@
         <button
           class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
           :class="{ 'bg-accent-color-300 cursor-default': questionNum === 0 }"
+          @click="!questionNum || changeQuestion('forward')"
         >
           上一题
         </button>
-        <button class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base">下一题</button>
+        <button
+          v-if="questionNum != questionDone[bigQuestionaire][smallQuestionaire].answers.length"
+          class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+          @click="changeQuestion('back')"
+        >
+          下一题
+        </button>
+        <button v-else class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base">
+          提交
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-import { questionaireComputed, questionaireData, questionDone } from '@/questionnaire/lib/questionaireData'
+import { computed, ref, watch } from 'vue'
+import {
+  questionaireComputed,
+  computeQuestionaire,
+  questionaireData,
+  questionDone,
+} from '@/questionnaire/lib/questionaireData'
 import { useRoute, useRouter } from 'vue-router'
 import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
 
 const route = useRoute()
 const router = useRouter()
+
+getQuestionaireDataFromLocalStorage()
 
 const bigQuestionaire = computed<'mainQuestionaire' | 'extraQuestionaire'>(() => {
   let big = String(
@@ -124,12 +142,56 @@ const options = computed<Option[]>(() =>
     }
   })
 )
-const answerData = computed<number[]>(
-  () =>
-    questionaireData.value[bigQuestionaire.value][smallQuestionaire.value].answers.find(
-      (answer) => answer.id === question.value.id
-    )?.options || []
+const answerData = ref<number[]>(updateAnswerData())
+function updateAnswerData(): number[] {
+  return questionaireData.value[bigQuestionaire.value][smallQuestionaire.value].answers[questionNum.value].options || []
+}
+watch(
+  route,
+  () => {
+    answerData.value = updateAnswerData()
+  },
+  { deep: true }
 )
+
+function selectOption(id: number): void {
+  const index = answerData.value.findIndex((option) => option === id)
+  if (question.value.type === 'Single') {
+    if (index === -1) {
+      answerData.value = []
+      answerData.value.push(id)
+      changeQuestion('back')
+    }
+  } else if (question.value.type === 'Multiple') {
+    index === -1 ? answerData.value.push(id) : answerData.value.splice(index, index + 1)
+  }
+}
+
+function changeQuestion(direction: 'forward' | 'back'): void {
+  changeQuestionaireData()
+  questionaireComputed.value = computeQuestionaire()
+  console.log(questionaireComputed.value)
+  const query = JSON.parse(JSON.stringify(route.query))
+  query.number = direction === 'forward' ? questionNum.value - 1 : questionNum.value + 1
+  router.push({ path: route.path, query })
+}
+function changeQuestionaireData(): void {
+  questionaireData.value[bigQuestionaire.value][smallQuestionaire.value].answers[questionNum.value].options =
+    answerData.value
+  setQuestionaireDataToLocalStorage()
+}
+function setQuestionaireDataToLocalStorage(): void {
+  let questionaireDataLocal = JSON.parse(localStorage.getItem('questionaireDataLocal') || '{}')
+  questionaireDataLocal = questionaireData.value
+  localStorage.setItem('questionaireDataLocal', JSON.stringify(questionaireDataLocal))
+}
+function getQuestionaireDataFromLocalStorage(): void {
+  let questionaireDataLocal = JSON.parse(localStorage.getItem('questionaireDataLocal') || '{}')
+  if (JSON.stringify(questionaireDataLocal) != '{}') {
+    questionaireData.value = questionaireDataLocal
+  }
+}
+// console.log(questionaireComputed.value[bigQuestionaire.value][smallQuestionaire.value])
 </script>
 
 <style lang="postcss" scoped></style>
