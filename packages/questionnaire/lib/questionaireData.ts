@@ -1,5 +1,5 @@
 import { ref, computed } from 'vue'
-import { questionaire, QuestionaireALL } from '@/questionnaire/lib/questionaire'
+import { questionnaire, QuestionnaireALL } from '@/questionnaire/lib/questionnaire'
 
 interface Answer {
   // 选择的问题ID，默认为改题目序号对应的题库中的第一个题目,ID的含义参考文件“questionnaire.ts”
@@ -11,49 +11,49 @@ interface Answer {
   done?: boolean
   [key: string]: string | number | number[] | boolean | undefined
 }
-interface AnswerQuestionaire {
+interface AnswerQuestionnaire {
   // 问卷ID，ID的含义参考文件“questionnaire.ts”
   id: number
   // 问卷的答案
   answers: Answer[]
   [key: string]: number | Answer[]
 }
-interface MainQuestionaire {
-  requiredQuestionaire: AnswerQuestionaire
-  // optionalQuestionaire1: AnswerQuestionaire
-  // optionalQuestionaire2: AnswerQuestionaire
-  [key: string]: AnswerQuestionaire
+interface MainQuestionnaire {
+  requiredQuestionnaire: AnswerQuestionnaire
+  // optionalQuestionnaire1: AnswerQuestionnaire
+  // optionalQuestionnaire2: AnswerQuestionnaire
+  [key: string]: AnswerQuestionnaire
 }
-interface QuestionaireData {
-  mainQuestionaire: MainQuestionaire
-  [key: string]: MainQuestionaire
+interface QuestionnaireData {
+  mainQuestionnaire: MainQuestionnaire
+  [key: string]: MainQuestionnaire
 }
 
 // 获取一级问卷
-function IDToBigQuestionaire(ID: number): string {
+function IDToBigQuestionnaire(ID: number): string {
   ID = Number(String(ID).substring(0, 1))
-  if (ID === 1) return 'mainQuestionaire'
-  else return 'extraQuestionaire'
+  if (ID === 1) return 'mainQuestionnaire'
+  else return 'extraQuestionnaire'
 }
 
 // 获取二级问卷
-function IDToSmallQuestionaire(ID: number): string {
+function IDToSmallQuestionnaire(ID: number): string {
   ID = Number(String(ID).substring(0, 2))
   switch (ID) {
     case 11:
-      return 'requiredQuestionaire'
+      return 'requiredQuestionnaire'
     case 12:
-      return 'optionalQuestionaire1'
+      return 'optionalQuestionnaire1'
     case 13:
-      return 'optionalQuestionaire2'
+      return 'optionalQuestionnaire2'
     case 21:
-      return 'exQuestionaire1'
+      return 'exQuestionnaire1'
     case 22:
-      return 'exQuestionaire2'
+      return 'exQuestionnaire2'
     case 23:
-      return 'exQuestionaire3'
+      return 'exQuestionnaire3'
     case 24:
-      return 'exQuestionaire4'
+      return 'exQuestionnaire4'
     default:
       return ''
   }
@@ -83,9 +83,9 @@ function resetAnswer(answer: Answer, answerID: number) {
   }
 }
 
-export const questionaireData = ref<QuestionaireData>({
-  mainQuestionaire: {
-    requiredQuestionaire: {
+export const questionnaireData = ref<QuestionnaireData>({
+  mainQuestionnaire: {
+    requiredQuestionnaire: {
       id: 11,
       answers: [
         {
@@ -143,17 +143,17 @@ export const questionaireData = ref<QuestionaireData>({
   },
 })
 
-export const questionaireComputed = ref<QuestionaireALL>(computeQuestionaire())
+export const questionnaireComputed = ref<QuestionnaireALL>(computeQuestionnaire())
 
 // 根据用户的投票数据计算出的问卷数据
-export function computeQuestionaire(): QuestionaireALL {
-  const questionaireReturn: QuestionaireALL = JSON.parse(JSON.stringify(questionaire))
-  for (const bigQuestionaire in questionaire) {
-    for (const smallQuestionaire in questionaire[bigQuestionaire]) {
-      for (const questionLibrary of questionaire[bigQuestionaire][smallQuestionaire].questions) {
-        if (!questionLibrary.length) return questionaireReturn
+export function computeQuestionnaire(): QuestionnaireALL {
+  const questionnaireReturn: QuestionnaireALL = JSON.parse(JSON.stringify(questionnaire))
+  for (const bigQuestionnaire in questionnaire) {
+    for (const smallQuestionnaire in questionnaire[bigQuestionnaire]) {
+      for (const questionLibrary of questionnaire[bigQuestionnaire][smallQuestionnaire].questions) {
+        if (!questionLibrary.length) return questionnaireReturn
         // 此题库下对应的问题的答案
-        const answerTarget = questionaireData.value[bigQuestionaire][smallQuestionaire].answers.find((answer) =>
+        const answerTarget = questionnaireData.value[bigQuestionnaire][smallQuestionnaire].answers.find((answer) =>
           IsInSameQuestionLibrary(answer.id, questionLibrary[0].id)
         )
         // 此题库下对应答案的问题
@@ -163,28 +163,28 @@ export function computeQuestionaire(): QuestionaireALL {
           const questionOption = questionTarget.options.find((item) => item.id === option)
           if (!questionOption) continue
           for (const relatedQuestionID of questionOption.related) {
-            questionaireReturn[IDToBigQuestionaire(relatedQuestionID)][
-              IDToSmallQuestionaire(relatedQuestionID)
-            ].questions[IDToQuestionLibrary(relatedQuestionID)] = questionaireReturn[
-              IDToBigQuestionaire(relatedQuestionID)
-            ][IDToSmallQuestionaire(relatedQuestionID)].questions[IDToQuestionLibrary(relatedQuestionID)].filter(
+            questionnaireReturn[IDToBigQuestionnaire(relatedQuestionID)][
+              IDToSmallQuestionnaire(relatedQuestionID)
+            ].questions[IDToQuestionLibrary(relatedQuestionID)] = questionnaireReturn[
+              IDToBigQuestionnaire(relatedQuestionID)
+            ][IDToSmallQuestionnaire(relatedQuestionID)].questions[IDToQuestionLibrary(relatedQuestionID)].filter(
               (question) => question.id === option
             )
-            questionaireData.value[bigQuestionaire][smallQuestionaire].answers.map((answer) => {
+            questionnaireData.value[bigQuestionnaire][smallQuestionnaire].answers.map((answer) => {
               if (IsInSameQuestionLibrary(answer.id, option)) {
                 answer = resetAnswer(answer, option)
               }
             })
           }
           for (const mutexOptionID of questionOption.mutex) {
-            questionaireReturn[IDToBigQuestionaire(mutexOptionID)][IDToSmallQuestionaire(mutexOptionID)].questions[
+            questionnaireReturn[IDToBigQuestionnaire(mutexOptionID)][IDToSmallQuestionnaire(mutexOptionID)].questions[
               IDToQuestionLibrary(mutexOptionID)
-            ][IDToQuestionLibraryNumber(mutexOptionID)].options = questionaireReturn[
-              IDToBigQuestionaire(mutexOptionID)
-            ][IDToSmallQuestionaire(mutexOptionID)].questions[IDToQuestionLibrary(mutexOptionID)][
+            ][IDToQuestionLibraryNumber(mutexOptionID)].options = questionnaireReturn[
+              IDToBigQuestionnaire(mutexOptionID)
+            ][IDToSmallQuestionnaire(mutexOptionID)].questions[IDToQuestionLibrary(mutexOptionID)][
               IDToQuestionLibraryNumber(mutexOptionID)
             ].options.filter((option) => option.id != mutexOptionID)
-            questionaireData.value[bigQuestionaire][smallQuestionaire].answers.map((answer) => {
+            questionnaireData.value[bigQuestionnaire][smallQuestionnaire].answers.map((answer) => {
               if (IsInSameQuestionLibrary(Math.floor(mutexOptionID / 100), answer.id)) {
                 answer.options = answer.options.filter((item) => item != mutexOptionID)
               }
@@ -194,16 +194,16 @@ export function computeQuestionaire(): QuestionaireALL {
       }
     }
   }
-  return questionaireReturn
+  return questionnaireReturn
 }
 
 // 用户的投票情况
 export const questionDone = computed(() => {
-  const questiondone = questionaireData.value
-  for (const bigQuestionaire in questionaireData.value)
-    for (const smallQuestionaire in questionaireData.value[bigQuestionaire])
-      questiondone[bigQuestionaire][smallQuestionaire].answers = questionaireData.value[bigQuestionaire][
-        smallQuestionaire
+  const questiondone = questionnaireData.value
+  for (const bigQuestionnaire in questionnaireData.value)
+    for (const smallQuestionnaire in questionnaireData.value[bigQuestionnaire])
+      questiondone[bigQuestionnaire][smallQuestionnaire].answers = questionnaireData.value[bigQuestionnaire][
+        smallQuestionnaire
       ].answers.map((answer) => {
         answer.done = answer.input != '' || Boolean(answer.options.length)
         return answer

@@ -37,7 +37,7 @@ const router = createRouter({
       component: () => import('@/home/UserSettings.vue'),
     },
     {
-      path: '/questionaire',
+      path: '/questionnaire',
       component: () => import('@/questionnaire/Questionnaire.vue'),
     },
     {

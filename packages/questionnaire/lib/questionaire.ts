@@ -32,7 +32,7 @@ interface Question {
   input: string
   [key: string]: number | string | Option[]
 }
-interface Questionaire {
+interface Questionnaire {
   // 2位ID，说明见上
   id: number
   // 问卷名称
@@ -43,26 +43,26 @@ interface Questionaire {
   questions: Question[][]
   [key: string]: number | string | Question[][]
 }
-interface MainQuestionaire {
-  requiredQuestionaire: Questionaire
-  // optionalQuestionaire1: Questionaire
-  // optionalQuestionaire2: Questionaire
-  [key: string]: Questionaire
+interface MainQuestionnaire {
+  requiredQuestionnaire: Questionnaire
+  // optionalQuestionnaire1: Questionnaire
+  // optionalQuestionnaire2: Questionnaire
+  [key: string]: Questionnaire
 }
-interface ExtraQuestionaire {
-  exQuestionaire1: Questionaire
-  [key: string]: Questionaire
+interface ExtraQuestionnaire {
+  exQuestionnaire1: Questionnaire
+  [key: string]: Questionnaire
 }
-export interface QuestionaireALL {
-  mainQuestionaire: MainQuestionaire
-  // extraQuestionaire: ExtraQuestionaire
-  [key: string]: MainQuestionaire | ExtraQuestionaire
+export interface QuestionnaireALL {
+  mainQuestionnaire: MainQuestionnaire
+  // extraQuestionnaire: ExtraQuestionnaire
+  [key: string]: MainQuestionnaire | ExtraQuestionnaire
 }
 
 // 问卷的大致分类参见文件：TOUHOU-VOTE/doc/QUESTIONAIREROADMAP.png
-export const questionaire: QuestionaireALL = {
-  mainQuestionaire: {
-    requiredQuestionaire: {
+export const questionnaire: QuestionnaireALL = {
+  mainQuestionnaire: {
+    requiredQuestionnaire: {
       id: 11,
       name: '主问卷 - 必填问卷',
       introduction:

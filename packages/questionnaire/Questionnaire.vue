@@ -2,17 +2,17 @@
   <div class="page w-full min-h-100vh flex flex-col">
     <div class="p-2 shadow flex items-center justify-between bg-white">
       <div class="font-medium">
-        {{ questionaireName }}
+        {{ questionnaireName }}
       </div>
       <icon-uil-align-justify class="inline align-middle w-7 text-lg text-center cursor-pointer" />
     </div>
     <div class="w-full h-1 flex mb-1">
       <div
-        v-for="(answer, index) in questionDone[bigQuestionaire][smallQuestionaire].answers"
+        v-for="(answer, index) in questionDone[bigQuestionnaire][smallQuestionnaire].answers"
         :key="index"
         class="h-full"
         :class="[answer.done ? 'bg-accent-color-600' : ' bg-gray-300']"
-        :style="'width:' + 100 / questionDone[bigQuestionaire][smallQuestionaire].answers.length + '%'"
+        :style="'width:' + 100 / questionDone[bigQuestionnaire][smallQuestionnaire].answers.length + '%'"
       ></div>
     </div>
 
@@ -45,7 +45,7 @@
           上一题
         </button>
         <button
-          v-if="questionNum != questionDone[bigQuestionaire][smallQuestionaire].answers.length"
+          v-if="questionNum != questionDone[bigQuestionnaire][smallQuestionnaire].answers.length"
           class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
           @click="changeQuestion('back')"
         >
@@ -62,48 +62,48 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
 import {
-  questionaireComputed,
-  computeQuestionaire,
-  questionaireData,
+  questionnaireComputed,
+  computeQuestionnaire,
+  questionnaireData,
   questionDone,
-} from '@/questionnaire/lib/questionaireData'
+} from '@/questionnaire/lib/questionnaireData'
 import { useRoute, useRouter } from 'vue-router'
 import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
 
 const route = useRoute()
 const router = useRouter()
 
-getQuestionaireDataFromLocalStorage()
+getQuestionnaireDataFromLocalStorage()
 
-const bigQuestionaire = computed<'mainQuestionaire' | 'extraQuestionaire'>(() => {
+const bigQuestionnaire = computed<'mainQuestionnaire' | 'extraQuestionnaire'>(() => {
   let big = String(
-    route.query.bigQuestionaire
-      ? Array.isArray(route.query.bigQuestionaire)
-        ? route.query.bigQuestionaire[0]
-        : route.query.bigQuestionaire
-      : 'mainQuestionaire'
+    route.query.bigQuestionnaire
+      ? Array.isArray(route.query.bigQuestionnaire)
+        ? route.query.bigQuestionnaire[0]
+        : route.query.bigQuestionnaire
+      : 'mainQuestionnaire'
   )
-  return big === 'mainQuestionaire' || big === 'extraQuestionaire' ? big : 'mainQuestionaire'
+  return big === 'mainQuestionnaire' || big === 'extraQuestionnaire' ? big : 'mainQuestionnaire'
 })
-const smallQuestionaire = computed<
-  'requiredQuestionaire' | 'optionalQuestionaire1' | 'optionalQuestionaire2' | 'exQuestionaire1'
+const smallQuestionnaire = computed<
+  'requiredQuestionnaire' | 'optionalQuestionnaire1' | 'optionalQuestionnaire2' | 'exQuestionnaire1'
 >(() => {
   let small = String(
-    route.query.smallQuestionaire
-      ? Array.isArray(route.query.smallQuestionaire)
-        ? route.query.smallQuestionaire[0]
-        : route.query.smallQuestionaire
-      : 'mainQuestionaire'
+    route.query.smallQuestionnaire
+      ? Array.isArray(route.query.smallQuestionnaire)
+        ? route.query.smallQuestionnaire[0]
+        : route.query.smallQuestionnaire
+      : 'mainQuestionnaire'
   )
-  return small === 'requiredQuestionaire' ||
-    small === 'optionalQuestionaire1' ||
-    small === 'optionalQuestionaire2' ||
-    small === 'exQuestionaire1'
+  return small === 'requiredQuestionnaire' ||
+    small === 'optionalQuestionnaire1' ||
+    small === 'optionalQuestionnaire2' ||
+    small === 'exQuestionnaire1'
     ? small
-    : 'requiredQuestionaire'
+    : 'requiredQuestionnaire'
 })
-const questionaireName = computed<string>(
-  () => questionaireComputed.value[bigQuestionaire.value][smallQuestionaire.value].name
+const questionnaireName = computed<string>(
+  () => questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].name
 )
 const questionNum = computed<number>(() =>
   Number(route.query.number ? (Array.isArray(route.query.number) ? route.query.number[0] : route.query.number) : 0)
@@ -116,10 +116,11 @@ interface Question {
 const question = computed<Question>(() => {
   return {
     content:
-      questionaireComputed.value[bigQuestionaire.value][smallQuestionaire.value].questions[questionNum.value][0]
+      questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].questions[questionNum.value][0]
         .question,
-    id: questionaireComputed.value[bigQuestionaire.value][smallQuestionaire.value].questions[questionNum.value][0].id,
-    type: questionaireComputed.value[bigQuestionaire.value][smallQuestionaire.value].questions[questionNum.value][0]
+    id: questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].questions[questionNum.value][0]
+      .id,
+    type: questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].questions[questionNum.value][0]
       .type,
   }
 })
@@ -133,7 +134,7 @@ interface Option {
   id: number
 }
 const options = computed<Option[]>(() =>
-  questionaireComputed.value[bigQuestionaire.value][smallQuestionaire.value].questions[
+  questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].questions[
     questionNum.value
   ][0].options.map((option) => {
     return {
@@ -144,7 +145,9 @@ const options = computed<Option[]>(() =>
 )
 const answerData = ref<number[]>(updateAnswerData())
 function updateAnswerData(): number[] {
-  return questionaireData.value[bigQuestionaire.value][smallQuestionaire.value].answers[questionNum.value].options || []
+  return (
+    questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[questionNum.value].options || []
+  )
 }
 watch(
   route,
@@ -168,30 +171,30 @@ function selectOption(id: number): void {
 }
 
 function changeQuestion(direction: 'forward' | 'back'): void {
-  changeQuestionaireData()
-  questionaireComputed.value = computeQuestionaire()
-  console.log(questionaireComputed.value)
+  changeQuestionnaireData()
+  questionnaireComputed.value = computeQuestionnaire()
+  console.log(questionnaireComputed.value)
   const query = JSON.parse(JSON.stringify(route.query))
   query.number = direction === 'forward' ? questionNum.value - 1 : questionNum.value + 1
   router.push({ path: route.path, query })
 }
-function changeQuestionaireData(): void {
-  questionaireData.value[bigQuestionaire.value][smallQuestionaire.value].answers[questionNum.value].options =
+function changeQuestionnaireData(): void {
+  questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[questionNum.value].options =
     answerData.value
-  setQuestionaireDataToLocalStorage()
+  setQuestionnaireDataToLocalStorage()
 }
-function setQuestionaireDataToLocalStorage(): void {
-  let questionaireDataLocal = JSON.parse(localStorage.getItem('questionaireDataLocal') || '{}')
-  questionaireDataLocal = questionaireData.value
-  localStorage.setItem('questionaireDataLocal', JSON.stringify(questionaireDataLocal))
+function setQuestionnaireDataToLocalStorage(): void {
+  let questionnaireDataLocal = JSON.parse(localStorage.getItem('questionnaireDataLocal') || '{}')
+  questionnaireDataLocal = questionnaireData.value
+  localStorage.setItem('questionnaireDataLocal', JSON.stringify(questionnaireDataLocal))
 }
-function getQuestionaireDataFromLocalStorage(): void {
-  let questionaireDataLocal = JSON.parse(localStorage.getItem('questionaireDataLocal') || '{}')
-  if (JSON.stringify(questionaireDataLocal) != '{}') {
-    questionaireData.value = questionaireDataLocal
+function getQuestionnaireDataFromLocalStorage(): void {
+  let questionnaireDataLocal = JSON.parse(localStorage.getItem('questionnaireDataLocal') || '{}')
+  if (JSON.stringify(questionnaireDataLocal) != '{}') {
+    questionnaireData.value = questionnaireDataLocal
   }
 }
-// console.log(questionaireComputed.value[bigQuestionaire.value][smallQuestionaire.value])
+// console.log(questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value])
 </script>
 
 <style lang="postcss" scoped></style>
