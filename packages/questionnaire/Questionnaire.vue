@@ -184,9 +184,7 @@ function changeQuestionnaireData(): void {
   setQuestionnaireDataToLocalStorage()
 }
 function setQuestionnaireDataToLocalStorage(): void {
-  let questionnaireDataLocal = JSON.parse(localStorage.getItem('questionnaireDataLocal') || '{}')
-  questionnaireDataLocal = questionnaireData.value
-  localStorage.setItem('questionnaireDataLocal', JSON.stringify(questionnaireDataLocal))
+  localStorage.setItem('questionnaireDataLocal', JSON.stringify(questionnaireData.value))
 }
 function getQuestionnaireDataFromLocalStorage(): void {
   let questionnaireDataLocal = JSON.parse(localStorage.getItem('questionnaireDataLocal') || '{}')
