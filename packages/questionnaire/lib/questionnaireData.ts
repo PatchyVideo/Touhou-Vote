@@ -75,7 +75,7 @@ function IsInSameQuestionLibrary(ID1: number, ID2: number) {
 }
 
 // 重置问题答案
-function resetAnswer(answer: Answer, answerID: number) {
+function resetAnswer(answerID: number) {
   return {
     id: answerID,
     input: '',
@@ -158,7 +158,7 @@ export function computeQuestionnaire(): QuestionnaireALL {
         )
         // 此题库下对应答案的问题
         const questionTarget = questionLibrary.find((question) => question.id === answerTarget?.id)
-        if (!answerTarget?.options || !questionTarget) continue
+        if (!answerTarget?.options.length || !questionTarget) continue
         for (const option of answerTarget.options) {
           const questionOption = questionTarget.options.find((item) => item.id === option)
           if (!questionOption) continue
@@ -168,11 +168,12 @@ export function computeQuestionnaire(): QuestionnaireALL {
             ].questions[IDToQuestionLibrary(relatedQuestionID)] = questionnaireReturn[
               IDToBigQuestionnaire(relatedQuestionID)
             ][IDToSmallQuestionnaire(relatedQuestionID)].questions[IDToQuestionLibrary(relatedQuestionID)].filter(
-              (question) => question.id === option
+              (question) => question.id === relatedQuestionID
             )
             questionnaireData.value[bigQuestionnaire][smallQuestionnaire].answers.map((answer) => {
-              if (IsInSameQuestionLibrary(answer.id, option)) {
-                answer = resetAnswer(answer, option)
+              console.log(IsInSameQuestionLibrary(answer.id, relatedQuestionID))
+              if (IsInSameQuestionLibrary(answer.id, relatedQuestionID)) {
+                answer = resetAnswer(relatedQuestionID)
               }
             })
           }

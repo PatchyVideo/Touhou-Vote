@@ -24,7 +24,7 @@
             <div
               v-for="(option, index) in options"
               :key="index"
-              class="hover:bg-accent-color-100 py-1 px-1 rounded transition transition-colors cursor-pointer"
+              class="md:hover:bg-accent-color-100 py-1 px-1 rounded transition transition-colors cursor-pointer"
               @click="selectOption(option.id)"
             >
               <VoteCheckBox
@@ -173,7 +173,6 @@ function selectOption(id: number): void {
 function changeQuestion(direction: 'forward' | 'back'): void {
   changeQuestionnaireData()
   questionnaireComputed.value = computeQuestionnaire()
-  console.log(questionnaireComputed.value)
   const query = JSON.parse(JSON.stringify(route.query))
   query.number = direction === 'forward' ? questionNum.value - 1 : questionNum.value + 1
   router.push({ path: route.path, query })
@@ -194,7 +193,6 @@ function getQuestionnaireDataFromLocalStorage(): void {
     questionnaireData.value = questionnaireDataLocal
   }
 }
-// console.log(questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value])
 </script>
 
 <style lang="postcss" scoped></style>
