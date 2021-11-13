@@ -8,7 +8,6 @@ export class User {
   email: string
   patchyvideo: boolean
   thbwiki: boolean
-  voteToken: string
   constructor(
     userName = 'ERRORUSER',
     image = 'default',
@@ -16,8 +15,7 @@ export class User {
     phoneNum = '',
     email = '',
     patchyvideo = false,
-    thbwiki = false,
-    voteToken = ''
+    thbwiki = false
   ) {
     this.userName = userName
     this.image = image
@@ -26,13 +24,14 @@ export class User {
     this.email = email
     this.patchyvideo = patchyvideo
     this.thbwiki = thbwiki
-    this.voteToken = voteToken
   }
 }
 
 export const user = ref<User>(new User())
 
-export const isLogin = computed(() => user.value.voteToken != '')
+export const voteToken = ref<string>('')
+
+export const isLogin = computed(() => voteToken.value != '')
 
 export function setUserDataToLocalStorage(userData = new User()): void {
   localStorage.setItem('userData', JSON.stringify(userData))
