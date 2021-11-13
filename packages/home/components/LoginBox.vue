@@ -147,6 +147,7 @@ import { ref, computed, watchEffect, defineProps } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useMutation, gql } from '@/graphql'
 import type { Mutation } from '@/graphql'
+import { setUserDataToLocalStorage } from '@/home/lib/user'
 
 const props = defineProps({
   open: {
@@ -168,7 +169,7 @@ function close(): void {
   open.value = false
 }
 
-const loading = ref(false)
+const loading = computed<boolean>(() => newLoginPhoneNumLoading.value)
 
 /* Verification Code Login */
 const emailFormat =
@@ -235,9 +236,33 @@ async function login(): Promise<void> {
     verificationCodeError.value = '请输入验证码！'
     return
   }
-  loading.value = true
-  loading.value = false
+  if (userType.value === 'phone') {
+    newLoginPhoneNum({ phone: userEmailOrPhoneNum.value, verifyCode: verificationCode.value })
+  }
 }
+const {
+  mutate: newLoginPhoneNum,
+  loading: newLoginPhoneNumLoading,
+  onDone: newLoginPhoneNumDone,
+  onError: newLoginError,
+} = useMutation<Mutation>(
+  gql`
+    mutation ($phone: String!, $nickname: String, $verifyCode: String!) {
+      loginPhone(phone: $phone, nickname: $nickname, verifyCode: $verifyCode) {
+        voteToken
+      }
+    }
+  `
+)
+newLoginPhoneNumDone((result) => {
+  console.log(result.data)
+  setUserDataToLocalStorage()
+  location.reload()
+})
+newLoginError((error) => {
+  verificationCodeError.value = '网络错误！请稍后重试'
+  console.log(error)
+})
 
 /* Old System Login */
 const useOldSystemLogin = ref(false)
@@ -245,10 +270,7 @@ const userName = ref<string>('')
 const userNameError = ref<' ' | '请输入用户名！' | '用户名或密码错误！'>(' ')
 const userPassword = ref<string>('')
 const userPasswordError = ref<' ' | '请输入密码！' | '网络错误！请稍后重试'>(' ')
-async function loginOldSystem(): Promise<void> {
-  loading.value = true
-  loading.value = false
-}
+async function loginOldSystem(): Promise<void> {}
 </script>
 <style lang="postcss" scoped>
 .loginBox-enter-active,
