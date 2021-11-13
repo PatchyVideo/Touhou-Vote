@@ -163,6 +163,7 @@ export function computeQuestionnaire(): QuestionnaireALL {
           const questionOption = questionTarget.options.find((item) => item.id === option)
           if (!questionOption) continue
           for (const relatedQuestionID of questionOption.related) {
+            // 如果选择的选项有相关问题（related属性里的题目ID），则将相关问题所在题库中的所有不相关的题目删除掉
             questionnaireReturn[IDToBigQuestionnaire(relatedQuestionID)][
               IDToSmallQuestionnaire(relatedQuestionID)
             ].questions[IDToQuestionLibrary(relatedQuestionID)] = questionnaireReturn[
@@ -170,14 +171,18 @@ export function computeQuestionnaire(): QuestionnaireALL {
             ][IDToSmallQuestionnaire(relatedQuestionID)].questions[IDToQuestionLibrary(relatedQuestionID)].filter(
               (question) => question.id === relatedQuestionID
             )
-            questionnaireData.value[bigQuestionnaire][smallQuestionnaire].answers.map((answer) => {
-              console.log(IsInSameQuestionLibrary(answer.id, relatedQuestionID))
-              if (IsInSameQuestionLibrary(answer.id, relatedQuestionID)) {
-                answer = resetAnswer(relatedQuestionID)
-              }
-            })
+            // 如果不相关的题目已经回答过了，则删除回答的数据
+            const indexOfRelatedQuestionID = questionnaireData.value[bigQuestionnaire][
+              smallQuestionnaire
+            ].answers.findIndex(
+              (answer) => IsInSameQuestionLibrary(answer.id, relatedQuestionID) && answer.id != relatedQuestionID
+            )
+            if (indexOfRelatedQuestionID != -1)
+              questionnaireData.value[bigQuestionnaire][smallQuestionnaire].answers[indexOfRelatedQuestionID] =
+                resetAnswer(relatedQuestionID)
           }
           for (const mutexOptionID of questionOption.mutex) {
+            // 如果选择的选项有互斥选项（mutex属性里的选项ID），则将mutex中的选项从其所在问题中删除掉
             questionnaireReturn[IDToBigQuestionnaire(mutexOptionID)][IDToSmallQuestionnaire(mutexOptionID)].questions[
               IDToQuestionLibrary(mutexOptionID)
             ][IDToQuestionLibraryNumber(mutexOptionID)].options = questionnaireReturn[
@@ -185,6 +190,7 @@ export function computeQuestionnaire(): QuestionnaireALL {
             ][IDToSmallQuestionnaire(mutexOptionID)].questions[IDToQuestionLibrary(mutexOptionID)][
               IDToQuestionLibraryNumber(mutexOptionID)
             ].options.filter((option) => option.id != mutexOptionID)
+            // 如果已经选过mutex中的选项了，则将该选项从答案中删除
             questionnaireData.value[bigQuestionnaire][smallQuestionnaire].answers.map((answer) => {
               if (IsInSameQuestionLibrary(Math.floor(mutexOptionID / 100), answer.id)) {
                 answer.options = answer.options.filter((item) => item != mutexOptionID)

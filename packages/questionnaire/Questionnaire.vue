@@ -45,7 +45,7 @@
           上一题
         </button>
         <button
-          v-if="questionNum != questionDone[bigQuestionnaire][smallQuestionnaire].answers.length"
+          v-if="questionNum + 1 != questionDone[bigQuestionnaire][smallQuestionnaire].answers.length"
           class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
           @click="changeQuestion('back')"
         >
@@ -163,7 +163,8 @@ function selectOption(id: number): void {
     if (index === -1) {
       answerData.value = []
       answerData.value.push(id)
-      changeQuestion('back')
+      if (questionNum.value + 1 != questionDone.value[bigQuestionnaire.value][smallQuestionnaire.value].answers.length)
+        changeQuestion('back')
     }
   } else if (question.value.type === 'Multiple') {
     index === -1 ? answerData.value.push(id) : answerData.value.splice(index, index + 1)

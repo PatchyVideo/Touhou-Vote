@@ -397,7 +397,7 @@ export const questionnaire: QuestionnaireALL = {
               {
                 id: 1104101,
                 related: [],
-                mutex: [],
+                mutex: [1107107],
                 content: '未满10岁',
               },
               {
