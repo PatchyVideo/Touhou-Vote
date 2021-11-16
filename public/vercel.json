@@ -4,16 +4,21 @@
   "github": {
     "enabled": false
   },
-  "builds": [
+  "rewrites": [
     {
-      "src": "./public/**",
-      "use": "@now/static"
+      "source": "/(.*)",
+      "destination": "/api"
     }
   ],
-  "routes": [
+  "headers": [
     {
-      "src": "/(.*)",
-      "dest": "public/$1"
+      "source": "/manifest.webmanifest",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/manifest+json"
+        }
+      ]
     }
   ]
 }
