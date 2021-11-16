@@ -25,15 +25,11 @@ jobs:
         run: yarn codegen
         timeout-minutes: 5
 
-      - name: Test
-        run: yarn ci-test
-        timeout-minutes: 15
-
       - name: Build
         run: yarn build
         timeout-minutes: 15
 
-      - name: Deploy to Vercel (Staging)
+      - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
