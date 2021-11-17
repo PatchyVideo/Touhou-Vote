@@ -5,12 +5,15 @@ import { characterHonmei, characters } from '@/vote-character/lib/voteData'
 const characterList: Character[] = [
   {
     id: 'Hakurei Reimu',
-    name: '博丽灵梦',
+    name: '博丽灵梦(新作)',
+    altnames: ['红白', '十万巫女', '赤色杀人魔'],
     title: '乐园的巫女',
     image: 'https://thwiki.cc/favicon.ico',
     color: '#FC4328',
     reason: '',
     honmei: false,
+    date: 19961103,
+    kind: 'new',
   },
   {
     id: 'Kirisame Marisa',
