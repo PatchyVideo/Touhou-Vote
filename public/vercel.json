@@ -6,7 +6,7 @@
   },
   "rewrites": [
     {
-      "source": "/:match*",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
