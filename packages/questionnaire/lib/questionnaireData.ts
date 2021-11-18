@@ -20,13 +20,18 @@ interface AnswerQuestionnaire {
 }
 interface MainQuestionnaire {
   requiredQuestionnaire: AnswerQuestionnaire
-  // optionalQuestionnaire1: AnswerQuestionnaire
+  optionalQuestionnaire1: AnswerQuestionnaire
   // optionalQuestionnaire2: AnswerQuestionnaire
+  [key: string]: AnswerQuestionnaire
+}
+interface ExtraQuestionnaire {
+  exQuestionnaire1: AnswerQuestionnaire
   [key: string]: AnswerQuestionnaire
 }
 interface QuestionnaireData {
   mainQuestionnaire: MainQuestionnaire
-  [key: string]: MainQuestionnaire
+  extraQuestionnaire: ExtraQuestionnaire
+  [key: string]: MainQuestionnaire | ExtraQuestionnaire
 }
 
 // 获取一级问卷
@@ -135,6 +140,73 @@ export const questionnaireData = ref<QuestionnaireData>({
         },
         {
           id: 11101,
+          options: [],
+          input: '',
+        },
+      ],
+    },
+    optionalQuestionnaire1: {
+      id: 12,
+      answers: [
+        {
+          id: 12011,
+          options: [],
+          input: '',
+        },
+        {
+          id: 12021,
+          options: [],
+          input: '',
+        },
+        {
+          id: 12031,
+          options: [],
+          input: '',
+        },
+        {
+          id: 12041,
+          options: [],
+          input: '',
+        },
+        {
+          id: 12051,
+          options: [],
+          input: '',
+        },
+        {
+          id: 12061,
+          options: [],
+          input: '',
+        },
+        {
+          id: 12071,
+          options: [],
+          input: '',
+        },
+        {
+          id: 12081,
+          options: [],
+          input: '',
+        },
+        {
+          id: 12091,
+          options: [],
+          input: '',
+        },
+        {
+          id: 12101,
+          options: [],
+          input: '',
+        },
+      ],
+    },
+  },
+  extraQuestionnaire: {
+    exQuestionnaire1: {
+      id: 21,
+      answers: [
+        {
+          id: 21011,
           options: [],
           input: '',
         },

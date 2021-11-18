@@ -1,10 +1,10 @@
 <template>
-  <div class="page w-full min-h-100vh flex flex-col">
+  <div class="page w-full min-h-100vh flex flex-col overflow-hidden">
     <div class="p-2 shadow flex items-center justify-between bg-white">
       <div class="font-medium">
         {{ questionnaireName }}
       </div>
-      <icon-uil-align-justify class="inline align-middle w-7 text-lg text-center cursor-pointer" />
+      <icon-uil-align-justify class="inline align-middle w-7 text-lg text-center cursor-pointer" @click="drawerOpen" />
     </div>
     <div class="w-full h-1 flex mb-1">
       <div
@@ -57,6 +57,7 @@
       </div>
     </div>
   </div>
+  <QuestionnaireChange v-model:open="open" />
 </template>
 
 <script lang="ts" setup>
@@ -69,6 +70,7 @@ import {
 } from '@/questionnaire/lib/questionnaireData'
 import { useRoute, useRouter } from 'vue-router'
 import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
+import QuestionnaireChange from '@/questionnaire/components/QuestionnaireChange.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -191,6 +193,11 @@ function getQuestionnaireDataFromLocalStorage(): void {
   if (JSON.stringify(questionnaireDataLocal) != '{}') {
     questionnaireData.value = questionnaireDataLocal
   }
+}
+
+const open = ref(false)
+function drawerOpen(): void {
+  open.value = true
 }
 </script>
 

@@ -45,7 +45,7 @@ interface Questionnaire {
 }
 interface MainQuestionnaire {
   requiredQuestionnaire: Questionnaire
-  // optionalQuestionnaire1: Questionnaire
+  optionalQuestionnaire1: Questionnaire
   // optionalQuestionnaire2: Questionnaire
   [key: string]: Questionnaire
 }
@@ -55,7 +55,7 @@ interface ExtraQuestionnaire {
 }
 export interface QuestionnaireALL {
   mainQuestionnaire: MainQuestionnaire
-  // extraQuestionnaire: ExtraQuestionnaire
+  extraQuestionnaire: ExtraQuestionnaire
   [key: string]: MainQuestionnaire | ExtraQuestionnaire
 }
 
@@ -762,6 +762,440 @@ export const questionnaire: QuestionnaireALL = {
                 related: [],
                 mutex: [],
                 content: '不感兴趣',
+              },
+            ],
+          },
+        ],
+      ],
+    },
+    optionalQuestionnaire1: {
+      id: 12,
+      name: '主问卷 - 官作分问卷',
+      introduction: '该部分问卷涉及投票者对官作的基本认知情况。投票者可以在该问卷与二次创作分问卷中择一填写',
+      questions: [
+        [
+          {
+            id: 12011,
+            type: 'Multiple',
+            question: '您关注哪一类官作？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1201101,
+                related: [],
+                mutex: [],
+                content: '原作游戏',
+              },
+              {
+                id: 1201102,
+                related: [],
+                mutex: [],
+                content: '官方出版物',
+              },
+              {
+                id: 1201103,
+                related: [],
+                mutex: [],
+                content: '音乐CD',
+              },
+              {
+                id: 1201104,
+                related: [],
+                mutex: [],
+                content: '其它公式资料等',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 12021,
+            type: 'Single',
+            question: '您喜欢官方游戏中的哪一类？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1202101,
+                related: [],
+                mutex: [],
+                content: 'STG（整数作，射击类）',
+              },
+              {
+                id: 1202102,
+                related: [],
+                mutex: [],
+                content: 'FTG（小数点作，格斗类）',
+              },
+              {
+                id: 1202103,
+                related: [],
+                mutex: [],
+                content: '都喜欢',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 12031,
+            type: 'Single',
+            question: '您是否了解旧五作？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1203101,
+                related: [],
+                mutex: [],
+                content: '了解并且玩过',
+              },
+              {
+                id: 1203102,
+                related: [],
+                mutex: [],
+                content: '了解但没有玩过',
+              },
+              {
+                id: 1203103,
+                related: [],
+                mutex: [],
+                content: '不了解',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 12041,
+            type: 'Single',
+            question: '您是否在steam平台上购买过官方游戏？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1204101,
+                related: [],
+                mutex: [],
+                content: '买过',
+              },
+              {
+                id: 1204102,
+                related: [],
+                mutex: [],
+                content: '没买过',
+              },
+              {
+                id: 1204103,
+                related: [],
+                mutex: [],
+                content: '不知道这回事',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 12051,
+            type: 'Multiple',
+            question: '您关注哪些近期连载的官方作品？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1205101,
+                related: [],
+                mutex: [],
+                content: '东方醉蝶华',
+              },
+              {
+                id: 1205102,
+                related: [],
+                mutex: [],
+                content: '东方智灵奇传',
+              },
+              {
+                id: 1205103,
+                related: [],
+                mutex: [],
+                content: '东方外来韦编',
+              },
+              {
+                id: 1205104,
+                related: [],
+                mutex: [],
+                content: '东方我乐多丛志中的其它内容',
+              },
+              {
+                id: 1205105,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 12061,
+            type: 'Multiple',
+            question: '您最喜欢东方原作的哪方面？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1206101,
+                related: [],
+                mutex: [],
+                content: '游戏本身',
+              },
+              {
+                id: 1206102,
+                related: [],
+                mutex: [],
+                content: '音乐曲目',
+              },
+              {
+                id: 1206103,
+                related: [],
+                mutex: [],
+                content: '人物设定',
+              },
+              {
+                id: 1206104,
+                related: [],
+                mutex: [],
+                content: '故事剧情',
+              },
+              {
+                id: 1206105,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 12071,
+            type: 'Single',
+            question: '您购买过实体正版原作吗？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1207101,
+                related: [12081],
+                mutex: [],
+                content: '热衷于收集',
+              },
+              {
+                id: 1207102,
+                related: [12081],
+                mutex: [],
+                content: '购买过',
+              },
+              {
+                id: 1207103,
+                related: [12082],
+                mutex: [],
+                content: '想买但是没有条件',
+              },
+              {
+                id: 1207104,
+                related: [12082],
+                mutex: [],
+                content: '没买过且没有购买的想法',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 12081,
+            type: 'Multiple',
+            question: '您购买实体正版原作的渠道为？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1208101,
+                related: [],
+                mutex: [],
+                content: '代购',
+              },
+              {
+                id: 1208102,
+                related: [],
+                mutex: [],
+                content: '通过二手交易',
+              },
+              {
+                id: 1208103,
+                related: [],
+                mutex: [],
+                content: '委托朋友',
+              },
+              {
+                id: 1208104,
+                related: [],
+                mutex: [],
+                content: '实地购买',
+              },
+            ],
+          },
+          {
+            id: 12082,
+            type: 'Multiple',
+            question: '是什么原因而没有购买？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1208201,
+                related: [],
+                mutex: [],
+                content: '缺少渠道',
+              },
+              {
+                id: 1208202,
+                related: [],
+                mutex: [],
+                content: '不懂日语',
+              },
+              {
+                id: 1208203,
+                related: [],
+                mutex: [],
+                content: '价格过高',
+              },
+              {
+                id: 1208204,
+                related: [],
+                mutex: [],
+                content: '不感兴趣',
+              },
+              {
+                id: 1208205,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 12091,
+            type: 'Single',
+            question: '您的购买力范围是？（单个作品，含税费、运费等）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1209101,
+                related: [],
+                mutex: [],
+                content: '没有自主购买能力',
+              },
+              {
+                id: 1209102,
+                related: [],
+                mutex: [],
+                content: '总价50RMB以内',
+              },
+              {
+                id: 1209103,
+                related: [],
+                mutex: [],
+                content: '总价100RMB以内',
+              },
+              {
+                id: 1209104,
+                related: [],
+                mutex: [],
+                content: '总价150RMB以内',
+              },
+              {
+                id: 1209105,
+                related: [],
+                mutex: [],
+                content: '总价200RMB以内',
+              },
+              {
+                id: 1209106,
+                related: [],
+                mutex: [],
+                content: '总价200RMB以上',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 12101,
+            type: 'Single',
+            question: '您是否了解官中出版物？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1210101,
+                related: [],
+                mutex: [],
+                content: '已经购买',
+              },
+              {
+                id: 1210102,
+                related: [],
+                mutex: [],
+                content: '了解，打算购买',
+              },
+              {
+                id: 1210103,
+                related: [],
+                mutex: [],
+                content: '了解，不打算购买',
+              },
+              {
+                id: 1210104,
+                related: [],
+                mutex: [],
+                content: '不了解',
+              },
+            ],
+          },
+        ],
+      ],
+    },
+  },
+  extraQuestionnaire: {
+    exQuestionnaire1: {
+      id: 21,
+      name: '额外问卷 - 官作通关深入了解',
+      introduction: '该部分问卷涉及投票者官作游玩的具体情况。投票者可以选择是否填写该问卷',
+      questions: [
+        [
+          {
+            id: 21011,
+            type: 'Multiple',
+            question: '你吼辣么大声干什么嘛',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2101101,
+                related: [],
+                mutex: [],
+                content: 'あないます',
+              },
+              {
+                id: 2101102,
+                related: [],
+                mutex: [],
+                content: 'あみましぜならひ',
               },
             ],
           },
