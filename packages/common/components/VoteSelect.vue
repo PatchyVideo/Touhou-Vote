@@ -15,7 +15,7 @@
     </div>
     <div
       v-if="itemList.length"
-      class="absolute z-52 rounded bg-white shadow mt-1 w-full text-center overflow-hidden"
+      class="absolute z-52 rounded bg-white shadow mt-1 w-full overflow-hidden"
       :class="{ 'p-1': !listHidden }"
     >
       <ul
