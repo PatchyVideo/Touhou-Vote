@@ -290,3 +290,17 @@ export const questionDone = computed(() => {
 
   return questiondone
 })
+
+// 投票问卷的键名匹配名称
+export const questionnaireKeyToName = computed(() => {
+  const questionnaireKeyToName = []
+  for (const bigQuestionnaire in questionnaire)
+    for (const smallQuestionnaire in questionnaire[bigQuestionnaire]) {
+      questionnaireKeyToName.push({
+        bigQuestionnaire: bigQuestionnaire,
+        smallQuestionnaire: smallQuestionnaire,
+        name: questionnaire[bigQuestionnaire][smallQuestionnaire].name,
+      })
+    }
+  return questionnaireKeyToName
+})

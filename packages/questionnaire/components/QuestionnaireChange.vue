@@ -2,27 +2,44 @@
   <div
     class="
       fixed
-      right-0
-      inset-y-0
+      top-0
+      inset-x-0
+      max-h-100vh
+      min-h-100
       z-51
-      p-1
+      p-3
+      md:p-10
       rounded
-      w-3/4
-      lg:w-auto
       shadow
-      bg-white bg-opacity-80
+      bg-white
       overflow-auto
       transform-gpu
       transition-transform
       duration-[250ms]
       ease-in-out
     "
-    :class="{ 'translate-x-full': !open }"
+    :class="{ '-translate-y-full': !open }"
   >
-    <div>问卷列表：</div>
-    <div v-for="(bigQuestionaire, bigIndex) in questionnaireComputed" :key="bigIndex">
-      <div v-for="(smallQuestionaire, smallIndex) in bigQuestionaire" :key="smallIndex">
-        {{ smallQuestionaire.name }}
+    <VoteSelect
+      v-model:selected="selectedQuestionnaire"
+      class="w-full"
+      :item-list="
+        questionnaireKeyToName.map((item) => {
+          return {
+            name: item.name,
+            value: item.smallQuestionnaire,
+          }
+        })
+      "
+    />
+    <div class="flex flex-wrap">
+      <div
+        v-for="(answer, index) in questionDone[bigQuestionnaire][smallQuestionnaire].answers"
+        :key="index"
+        class="rounded-full ring ring-accent-color-600 m-3 w-8 h-8 leading-8 text-center cursor-pointer"
+        :class="[answer.done ? 'text-white bg-accent-color-600' : 'text-black bg-accent-color-100']"
+      >
+        {{ index + 1 }}
       </div>
     </div>
   </div>
@@ -32,14 +49,25 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { questionnaireComputed } from '@/questionnaire/lib/questionnaireData'
-import { watchEffect } from 'vue'
+import { questionnaireComputed, questionDone, questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
+import { watchEffect, watch } from 'vue'
 import { useVModel } from '@vueuse/core'
+import VoteSelect from '@/common/components/VoteSelect.vue'
 
 const props = defineProps({
   open: {
     type: Boolean,
     default: false,
+    requred: true,
+  },
+  bigQuestionnaire: {
+    type: String,
+    default: 'mainQuestionnaire',
+    requred: true,
+  },
+  smallQuestionnaire: {
+    type: String,
+    default: 'requiredQuestionnaire',
     requred: true,
   },
 })
@@ -54,7 +82,26 @@ watchEffect(() => {
 })
 function close(): void {
   open.value = false
+  bigQuestionnaire.value = props.bigQuestionnaire
+  smallQuestionnaire.value = props.smallQuestionnaire
+  selectedQuestionnaire.value = {
+    name: questionnaireComputed.value[props.bigQuestionnaire][props.smallQuestionnaire].name,
+    value: props.smallQuestionnaire,
+  }
 }
+
+const bigQuestionnaire = ref(props.bigQuestionnaire)
+const smallQuestionnaire = ref(props.smallQuestionnaire)
+const selectedQuestionnaire = ref({
+  name: questionnaireComputed.value[props.bigQuestionnaire][props.smallQuestionnaire].name,
+  value: props.smallQuestionnaire,
+})
+watch(selectedQuestionnaire, () => {
+  bigQuestionnaire.value =
+    questionnaireKeyToName.value.find((item) => item.smallQuestionnaire == selectedQuestionnaire.value.value)
+      ?.bigQuestionnaire || questionnaireKeyToName.value[0].bigQuestionnaire
+  smallQuestionnaire.value = selectedQuestionnaire.value.value
+})
 </script>
 <style lang="postcss" scoped>
 .mask-enter-active,

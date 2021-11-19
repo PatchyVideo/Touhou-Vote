@@ -1,10 +1,15 @@
 <template>
   <div class="page w-full min-h-100vh flex flex-col overflow-hidden">
-    <div class="p-2 shadow flex items-center justify-between bg-white">
+    <div class="p-2 shadow flex items-center justify-between bg-white" @click="drawerOpen">
       <div class="font-medium">
         {{ questionnaireName }}
       </div>
-      <icon-uil-align-justify class="inline align-middle w-7 text-lg text-center cursor-pointer" @click="drawerOpen" />
+      <div
+        class="text-2xl mr-3 cursor-pointer transform-gpu origin-center transition-all duration-200"
+        :class="{ 'rotate-180': open }"
+      >
+        ▼
+      </div>
     </div>
     <div class="w-full h-1 flex mb-1">
       <div
@@ -57,7 +62,11 @@
       </div>
     </div>
   </div>
-  <QuestionnaireChange v-model:open="open" />
+  <QuestionnaireChange
+    v-model:open="open"
+    :big-questionnaire="bigQuestionnaire"
+    :small-questionnaire="smallQuestionnaire"
+  />
 </template>
 
 <script lang="ts" setup>
