@@ -1,50 +1,47 @@
 import { ref, computed } from 'vue'
+import { Voter } from '@/graphql/__generated__/graphql'
 
-export class User {
-  userName: string
-  image: string
-  password: boolean
-  phoneNum: string
-  email: string
-  patchyvideo: boolean
-  thbwiki: boolean
-  constructor(
-    userName = 'ERRORUSER',
-    image = 'default',
-    password = false,
-    phoneNum = '',
-    email = '',
-    patchyvideo = false,
-    thbwiki = false
-  ) {
-    this.userName = userName
-    this.image = image
-    this.password = password
-    this.phoneNum = phoneNum
-    this.email = email
-    this.patchyvideo = patchyvideo
-    this.thbwiki = thbwiki
+export function createDefaultVoter(): Voter {
+  return {
+    username: 'ERRORUSER',
+    pfp: 'default',
+    password: false,
+    phone: '',
+    email: '',
+    patchyvideo: false,
+    thbwiki: false,
+    __typename: 'Voter',
   }
 }
 
-export const user = ref<User>(new User())
+export const user = ref<Voter>(createDefaultVoter())
 
 export const voteToken = ref<string>('')
 
+export const sessionToken = ref<string>('')
+
 export const isLogin = computed(() => voteToken.value != '')
 
-export function setUserDataToLocalStorage(userData = new User()): void {
-  localStorage.setItem('userData', JSON.stringify(userData))
+export function setUserDataToLocalStorage(user: Voter, token: string, session: string): void {
+  localStorage.setItem('user', JSON.stringify(user))
+  localStorage.setItem('voteToken', JSON.stringify(token))
+  localStorage.setItem('sessionToken', JSON.stringify(session))
 }
 
 export function getUserDataFromLocalStorage(): void {
-  const userData = JSON.parse(localStorage.getItem('userData') || '{}')
+  const userData = JSON.parse(localStorage.getItem('user') || '{}')
+  const tokenData = JSON.parse(localStorage.getItem('voteToken') || '')
+  const sessionData = JSON.parse(localStorage.getItem('sessionToken') || '')
   if (JSON.stringify(userData) != '{}') {
     user.value = userData
+    voteToken.value = tokenData
+    sessionToken.value = sessionData
   }
 }
 
 export function deleteUserData(): void {
   localStorage.removeItem('userData')
-  user.value = new User()
+  localStorage.removeItem('voteToken')
+  localStorage.removeItem('sessionToken')
+  user.value = createDefaultVoter()
 }

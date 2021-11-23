@@ -1,4 +1,5 @@
 import { createApp, defineComponent, h } from 'vue'
+import { getUserDataFromLocalStorage } from '@/home/lib/user'
 
 /* Tailwind CSS */
 import '@/tailwindcss'
@@ -71,3 +72,5 @@ app.use(i18n)
 Promise.allSettled(appPromises).then(() => {
   app.mount('#app')
 })
+
+getUserDataFromLocalStorage()

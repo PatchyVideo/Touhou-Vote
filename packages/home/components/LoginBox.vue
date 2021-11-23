@@ -249,14 +249,30 @@ const {
   gql`
     mutation ($phone: String!, $nickname: String, $verifyCode: String!) {
       loginPhone(phone: $phone, nickname: $nickname, verifyCode: $verifyCode) {
+        user {
+          username
+          pfp
+          password
+          phone
+          email
+          thbwiki
+          patchyvideo
+        }
+        sessionToken
         voteToken
       }
     }
   `
 )
 newLoginPhoneNumDone((result) => {
-  console.log(result.data)
-  setUserDataToLocalStorage()
+  console.log(result)
+  if (result.data?.loginPhone.user && result.data?.loginPhone.voteToken && result.data?.loginPhone.sessionToken) {
+    setUserDataToLocalStorage(
+      result.data?.loginPhone.user,
+      result.data?.loginPhone.voteToken,
+      result.data?.loginPhone.sessionToken
+    )
+  }
   location.reload()
 })
 newLoginError((error) => {

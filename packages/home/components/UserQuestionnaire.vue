@@ -10,10 +10,15 @@
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
-            <div class="text-xl">必填问卷</div>
+            <div class="text-xl">主问卷</div>
           </div>
           <div class="w-full text-right">
-            <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2">开始填写</button>
+            <button
+              class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2"
+              @click="mainQuestionnaire()"
+            >
+              开始填写
+            </button>
           </div>
         </div>
       </div>
@@ -26,10 +31,15 @@
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
-            <div class="text-xl">官作部分</div>
+            <div class="text-xl">额外问卷</div>
           </div>
           <div class="w-full text-right">
-            <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2">开始投票</button>
+            <button
+              class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2"
+              @click="extraQuestionnaire()"
+            >
+              开始填写
+            </button>
           </div>
         </div>
       </div>
@@ -62,6 +72,16 @@ function returnBack(): void {
   const query = JSON.parse(JSON.stringify(route.query))
   query.open = 0
   router.push({ path: route.path, query })
+}
+
+function mainQuestionnaire(): void {
+  router.push('/questionnaire')
+}
+function extraQuestionnaire(): void {
+  router.push({
+    path: '/questionnaire',
+    query: { bigQuestionnaire: 'extraQuestionnaire', smallQuestionnaire: 'exQuestionnaire1' },
+  })
 }
 </script>
 
