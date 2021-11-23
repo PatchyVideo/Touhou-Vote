@@ -21,7 +21,10 @@
     :class="{ '-translate-y-full': !open }"
   >
     <div v-for="(questionnaire, index) in questionnaireKeyToName" :key="index" class="w-full rounded shadow mb-2">
-      <div class="px-2 py-1 truncate" @click="selectAsQuestionnaireCurrent(questionnaire.smallQuestionnaire)">
+      <div
+        class="px-2 py-1 truncate cursor-pointer"
+        @click="selectAsQuestionnaireCurrent(questionnaire.smallQuestionnaire)"
+      >
         {{
           questionnaire.name +
           '（' +
