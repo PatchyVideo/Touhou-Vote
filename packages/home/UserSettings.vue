@@ -56,7 +56,7 @@
               <div>密码：已设置</div>
               <label class="text-red-600 underline cursor-pointer">修改</label>
             </div>
-            <div class="p-3 flex items-center justify-between">
+            <!-- <div class="p-3 flex items-center justify-between">
               <div>账号绑定:</div>
               <div class="flex">
                 <div class="filter grayscale rounded-full shadow p-0.5 mx-2 border-3 border-accent-color-300">
@@ -70,7 +70,7 @@
                   />
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

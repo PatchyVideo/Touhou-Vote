@@ -62,7 +62,8 @@
               </button>
             </div>
             <div class="h-1 w-full"></div>
-            <div class="flex justify-between items-center space-y-1 border-t-2 p-2">
+            <!-- The third party login -->
+            <!-- <div class="flex justify-between items-center space-y-1 border-t-2 p-2">
               <div class="text-gray-600 text-sm">其他方式登陆:</div>
               <div class="flex flex-row-reverse">
                 <div class="rounded-full shadow p-0.5 mx-2 border-3 border-accent-color-300">
@@ -86,6 +87,17 @@
                   />
                 </div>
               </div>
+            </div> -->
+            <div
+              class="
+                text-gray-600 text-sm text-right
+                cursor-pointer
+                transition transition-colors
+                hover:text-accent-color-600
+              "
+              @click="loading || (useOldSystemLogin = true)"
+            >
+              使用旧版账号密码登陆
             </div>
           </div>
           <!-- Old System Login -->
