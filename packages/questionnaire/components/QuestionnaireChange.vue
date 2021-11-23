@@ -5,43 +5,63 @@
       top-0
       inset-x-0
       max-h-100vh
-      min-h-100
       z-51
       p-3
       md:p-10
-      rounded
+      rounded-b
       shadow
       bg-white
       overflow-auto
       transform-gpu
       transition-transform
-      duration-[250ms]
+      duration-200
       ease-in-out
+      flex flex-col
     "
     :class="{ '-translate-y-full': !open }"
   >
-    <VoteSelect
-      v-model:selected="selectedQuestionnaire"
-      class="w-full"
-      :item-list="
-        questionnaireKeyToName.map((item) => {
-          return {
-            name: item.name,
-            value: item.smallQuestionnaire,
-          }
-        })
-      "
-    />
-    <div class="flex flex-wrap">
+    <div v-for="(questionnaire, index) in questionnaireKeyToName" :key="index" class="w-full rounded shadow mb-2">
+      <div class="px-2 py-1 truncate" @click="selectAsQuestionnaireCurrent(questionnaire.smallQuestionnaire)">
+        {{
+          questionnaire.name +
+          '（' +
+          questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire].answers.filter(
+            (item) => item.done
+          ).length +
+          '/' +
+          questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire].answers.length +
+          '）'
+        }}
+      </div>
       <div
-        v-for="(answer, index) in questionDone[bigQuestionnaire][smallQuestionnaire].answers"
-        :key="index"
-        class="rounded-full ring ring-accent-color-600 m-3 w-8 h-8 leading-8 text-center cursor-pointer"
-        :class="[answer.done ? 'text-white bg-accent-color-600' : 'text-black bg-accent-color-100']"
+        :id="questionnaire.smallQuestionnaire"
+        name="questionnaire"
+        class="
+          flex flex-wrap
+          shadow-inner
+          m-1
+          rounded
+          transform
+          transition-all
+          duration-200
+          ease-in-out
+          h-0
+          overflow-hidden
+        "
       >
-        {{ index + 1 }}
+        <div
+          v-for="(answer, index2) in questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire]
+            .answers"
+          :key="index2"
+          class="rounded-full ring ring-accent-color-600 m-3 w-8 h-8 leading-8 text-center cursor-pointer"
+          :class="[answer.done ? 'text-white bg-accent-color-600' : 'text-black bg-accent-color-100']"
+          @click="changeQuestion(questionnaire.bigQuestionnaire, questionnaire.smallQuestionnaire, index2)"
+        >
+          {{ index2 + 1 }}
+        </div>
       </div>
     </div>
+    <div class="text-right text-accent-color-600 cursor-pointer" @click="close()">▲收起</div>
   </div>
   <Transition name="mask">
     <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-50" @touchmove.stop.prevent @click="close()"></div>
@@ -49,10 +69,13 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { questionnaireComputed, questionDone, questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
-import { watchEffect, watch } from 'vue'
+import { questionDone, questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
+import { watchEffect, watch, onMounted } from 'vue'
 import { useVModel } from '@vueuse/core'
-import VoteSelect from '@/common/components/VoteSelect.vue'
+import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
 
 const props = defineProps({
   open: {
@@ -73,6 +96,7 @@ const props = defineProps({
 })
 const emit = defineEmits<{
   (event: 'update:open', value: string): void
+  (event: 'changeQuestion', direction: 'forward' | 'back' | 'no'): void
 }>()
 
 const open = useVModel(props, 'open', emit)
@@ -82,26 +106,44 @@ watchEffect(() => {
 })
 function close(): void {
   open.value = false
-  bigQuestionnaire.value = props.bigQuestionnaire
-  smallQuestionnaire.value = props.smallQuestionnaire
-  selectedQuestionnaire.value = {
-    name: questionnaireComputed.value[props.bigQuestionnaire][props.smallQuestionnaire].name,
-    value: props.smallQuestionnaire,
-  }
+  // Waiting for animation
+  setTimeout(() => {
+    bigQuestionnaireCurrent.value = props.bigQuestionnaire
+    smallQuestionnaireCurrent.value = props.smallQuestionnaire
+    selectedQuestionnaire.value = props.smallQuestionnaire
+    selectAsQuestionnaireCurrent(selectedQuestionnaire.value)
+  }, 200)
 }
 
-const bigQuestionnaire = ref(props.bigQuestionnaire)
-const smallQuestionnaire = ref(props.smallQuestionnaire)
-const selectedQuestionnaire = ref({
-  name: questionnaireComputed.value[props.bigQuestionnaire][props.smallQuestionnaire].name,
-  value: props.smallQuestionnaire,
-})
+const bigQuestionnaireCurrent = ref(props.bigQuestionnaire)
+const smallQuestionnaireCurrent = ref(props.smallQuestionnaire)
+const selectedQuestionnaire = ref(props.smallQuestionnaire)
 watch(selectedQuestionnaire, () => {
-  bigQuestionnaire.value =
-    questionnaireKeyToName.value.find((item) => item.smallQuestionnaire == selectedQuestionnaire.value.value)
+  bigQuestionnaireCurrent.value =
+    questionnaireKeyToName.value.find((item) => item.smallQuestionnaire == selectedQuestionnaire.value)
       ?.bigQuestionnaire || questionnaireKeyToName.value[0].bigQuestionnaire
-  smallQuestionnaire.value = selectedQuestionnaire.value.value
+  smallQuestionnaireCurrent.value = selectedQuestionnaire.value
 })
+function selectAsQuestionnaireCurrent(selectedClass: string): void {
+  let SubContentAll = document.getElementsByName('questionnaire')
+  SubContentAll.forEach((item) => {
+    item.style.height = '0'
+  })
+  let openSubContent = document.getElementById(selectedClass)
+  if (openSubContent) openSubContent.style.height = openSubContent.scrollHeight + 'px'
+  selectedQuestionnaire.value = selectedClass
+}
+onMounted(() => selectAsQuestionnaireCurrent(selectedQuestionnaire.value))
+
+function changeQuestion(big: string, small: string, index: number): void {
+  emit('changeQuestion', 'no')
+  const query = JSON.parse(JSON.stringify(route.query))
+  query.number = index
+  query.bigQuestionnaire = big
+  query.smallQuestionnaire = small
+  router.push({ path: route.path, query })
+  close()
+}
 </script>
 <style lang="postcss" scoped>
 .mask-enter-active,

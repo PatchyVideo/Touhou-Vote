@@ -66,6 +66,7 @@
     v-model:open="open"
     :big-questionnaire="bigQuestionnaire"
     :small-questionnaire="smallQuestionnaire"
+    @changeQuestion="changeQuestion"
   />
 </template>
 
@@ -182,9 +183,10 @@ function selectOption(id: number): void {
   }
 }
 
-function changeQuestion(direction: 'forward' | 'back'): void {
+function changeQuestion(direction: 'forward' | 'back' | 'no'): void {
   changeQuestionnaireData()
   questionnaireComputed.value = computeQuestionnaire()
+  if (direction === 'no') return
   const query = JSON.parse(JSON.stringify(route.query))
   query.number = direction === 'forward' ? questionNum.value - 1 : questionNum.value + 1
   router.push({ path: route.path, query })
