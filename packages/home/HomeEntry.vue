@@ -4,6 +4,4 @@
 import { isLogin } from '@/home/lib/user'
 import Home from './Home.vue'
 import UserHome2 from './UserHome2.vue'
-
-console.log(isLogin.value)
 </script>

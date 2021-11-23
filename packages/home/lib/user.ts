@@ -30,8 +30,8 @@ export function setUserDataToLocalStorage(user: Voter, token: string, session: s
 
 export function getUserDataFromLocalStorage(): void {
   const userData = JSON.parse(localStorage.getItem('user') || '{}')
-  const tokenData = JSON.parse(localStorage.getItem('voteToken') || '')
-  const sessionData = JSON.parse(localStorage.getItem('sessionToken') || '')
+  const tokenData = localStorage.getItem('voteToken') || ''
+  const sessionData = localStorage.getItem('sessionToken') || ''
   if (JSON.stringify(userData) != '{}') {
     user.value = userData
     voteToken.value = tokenData
