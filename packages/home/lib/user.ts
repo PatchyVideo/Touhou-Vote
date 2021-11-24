@@ -3,11 +3,11 @@ import { Voter } from '@/graphql/__generated__/graphql'
 
 export function createDefaultVoter(): Voter {
   return {
-    username: 'ERRORUSER',
+    username: null,
     pfp: 'default',
     password: false,
-    phone: '',
-    email: '',
+    phone: null,
+    email: null,
     patchyvideo: false,
     thbwiki: false,
     __typename: 'Voter',
@@ -15,6 +15,14 @@ export function createDefaultVoter(): Voter {
 }
 
 export const user = ref<Voter>(createDefaultVoter())
+
+export const username = computed(() => {
+  const defaultUser = createDefaultVoter()
+  if (user.value.username != defaultUser.username) return user.value.username
+  else if (user.value.phone != defaultUser.phone) return user.value.phone
+  else if (user.value.email != defaultUser.email) return user.value.email
+  else return defaultUser.username
+})
 
 export const voteToken = ref<string>('')
 

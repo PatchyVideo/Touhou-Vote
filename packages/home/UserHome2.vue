@@ -33,14 +33,19 @@
             class="absolute -top-5 right-2 h-11 w-11 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
             src="@/home/assets/DefaultAvatar.jpg"
           />
-          <div class="pr-15">TestUser144</div>
+          <div class="pr-15 truncate">{{ username }}</div>
           <div class="space-y-2 mt-2">
             <router-link
               to="/user/settings"
               class="block text-black rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
               ><div>账号设置</div></router-link
             >
-            <div class="rounded cursor-pointer transition transition-colors hover:bg-accent-color-100">退出登陆</div>
+            <div
+              class="rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
+              @click="logout()"
+            >
+              退出登陆
+            </div>
           </div>
         </div>
       </Transition>
@@ -250,6 +255,7 @@
 import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { screenSizes } from '@/tailwindcss'
+import { username, deleteUserData } from '@/home/lib/user'
 import UserQuestionnaire from './components/UserQuestionnaire.vue'
 import UserVote from './components/UserVote.vue'
 
@@ -286,6 +292,11 @@ function systemListClose(): void {
   const query = JSON.parse(JSON.stringify(route.query))
   query.open = 0
   router.push({ path: route.path, query })
+}
+
+function logout(): void {
+  deleteUserData()
+  location.reload()
 }
 </script>
 
