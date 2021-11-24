@@ -31,8 +31,8 @@
               src="@/home/assets/DefaultAvatar.jpg"
             />
             <div class="space-y-2">
-              <div class="truncate text-xl">TestUser144</div>
-              <div class="truncate text-sm text-gray-600">注册于2021年⑨月1日</div>
+              <div class="truncate text-xl">{{ user.username }}</div>
+              <!-- <div class="truncate text-sm text-gray-600">注册于2021年⑨月1日</div> -->
               <div class="space-x-2">
                 <label class="text-red-600 underline cursor-pointer">修改头像</label>
                 <label class="text-red-600 underline cursor-pointer">修改用户名</label>
@@ -41,19 +41,15 @@
           </div>
           <div class="mt-3 divide-y divide-accent-color-300">
             <div class="p-3 flex items-center justify-between">
-              <div>邮箱：1510033076@qq.com</div>
-              <label class="text-red-300 underline cursor-pointer">修改</label>
-            </div>
-            <div v-if="false" class="p-3 flex items-center justify-between">
-              <div>手机：13333333333</div>
-              <label class="text-red-600 underline cursor-pointer">修改</label>
-            </div>
-            <div v-else class="p-3 flex items-center justify-between">
-              <div>手机：未绑定</div>
-              <label class="text-red-600 underline cursor-pointer">去绑定</label>
+              <div>{{ '邮箱：' + user.email === '' ? user.email : '未绑定' }}</div>
+              <label class="text-red-300 underline cursor-pointer">{{ user.email === '' ? '修改' : '去绑定' }}</label>
             </div>
             <div class="p-3 flex items-center justify-between">
-              <div>密码：已设置</div>
+              <div>{{ '手机：' + user.phone === '' ? user.phone : '未绑定' }}</div>
+              <label class="text-red-600 underline cursor-pointer">{{ user.phone === '' ? '修改' : '去绑定' }}</label>
+            </div>
+            <div class="p-3 flex items-center justify-between">
+              <div>{{ '密码：' + user.password ? '已设置' : '未设置' }}</div>
               <label class="text-red-600 underline cursor-pointer">修改</label>
             </div>
             <!-- <div class="p-3 flex items-center justify-between">
@@ -78,6 +74,17 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { user, createDefaultVoter } from '@/home/lib/user'
+import { computed } from 'vue'
+
+const username = computed(() => {
+  const defaultUser = createDefaultVoter()
+  if (user.value.username != defaultUser.username) return user.value.username
+  else if (user.value.phone != defaultUser.phone) return user.value.phone
+  else if (user.value.email != defaultUser.email) return user.value.email
+  else return defaultUser.username
+})
+</script>
 
 <style lang="postcss" scoped></style>
