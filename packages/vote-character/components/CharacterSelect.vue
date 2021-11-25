@@ -91,7 +91,12 @@
 import { ref, watchEffect, defineProps, PropType, computed } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
-import { characterListLeft, characterHonmeiListLeft } from '@/vote-character/lib/characterList'
+import {
+  characterListLeftWithFilter,
+  characterHonmeiListLeft,
+  order,
+  orderOptions,
+} from '@/vote-character/lib/characterList'
 import { characters } from '@/vote-character/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import AdvancedFilter from './AdvancedFilter.vue'
@@ -131,25 +136,13 @@ const loading = ref(false)
 const advancedFilterOpen = ref(false)
 
 const characterList = computed(() =>
-  props.characterHonmeiIsSelected ? characterHonmeiListLeft.value : characterListLeft.value
+  props.characterHonmeiIsSelected ? characterHonmeiListLeft.value : characterListLeftWithFilter.value
 )
-
-const orderOptions = [
-  {
-    name: '出场正序',
-    value: 'newest',
-  },
-  {
-    name: '出场倒序',
-    value: 'oldest',
-  },
-]
-const order = ref(orderOptions[0])
 
 function characterSelect(id: string): void {
   const targetCharacter = props.characterHonmeiIsSelected
     ? characterHonmeiListLeft.value.find((item) => item.id === id)
-    : characterListLeft.value.find((item) => item.id === id)
+    : characterListLeftWithFilter.value.find((item) => item.id === id)
   if (targetCharacter) {
     if (props.characterHonmeiIsSelected) {
       characters.value.map((item) => (item.id === id ? (item.honmei = true) : (item.honmei = false)))

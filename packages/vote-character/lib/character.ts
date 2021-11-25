@@ -1,14 +1,15 @@
 export class Character {
   id: string
   name: string
-  altnames?: string[]
+  altnames: string[]
   title: string
   image: string
   color: string
   reason: string
   honmei: boolean
-  date?: number
-  kind?: 'old' | 'new' | 'book' | 'CD' | 'others'
+  date: number
+  kind: ('old' | 'new' | 'book' | 'CD' | 'others' | '')[]
+  work: string[]
   constructor(
     id = '',
     name = 'ERROR',
@@ -19,7 +20,8 @@ export class Character {
     reason = '相遇，只是再度重逢',
     date = 19961103,
     honmei = false,
-    kind: 'old' | 'new' | 'book' | 'CD' | 'others' = 'others'
+    kind: ('old' | 'new' | 'book' | 'CD' | 'others' | '')[] = ['others'],
+    work = ['其他']
   ) {
     this.id = id
     this.name = name
@@ -31,6 +33,7 @@ export class Character {
     this.honmei = honmei
     this.date = date
     this.kind = kind
+    this.work = work
   }
 }
 export const character0 = new Character()

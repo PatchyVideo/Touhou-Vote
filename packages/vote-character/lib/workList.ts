@@ -2,12 +2,12 @@ import { ref, computed } from 'vue'
 
 interface Work {
   name: string
-  kind: 'old' | 'new' | 'CD' | 'book'
+  kind: 'old' | 'new' | 'CD' | 'book' | ''
 }
 
 interface SelectList {
   name: string
-  value: string | number
+  value: 'old' | 'new' | 'CD' | 'book' | ''
 }
 
 const works: Work[] = [
@@ -114,7 +114,7 @@ export const worksListAfterFilter = computed<SelectList[]>(() =>
     .map((work) => {
       return {
         name: work.name,
-        value: work.name,
+        value: work.kind,
       }
     })
 )
@@ -131,7 +131,7 @@ export const worksListAfterFilterTem = computed<SelectList[]>(() =>
     .map((work) => {
       return {
         name: work.name,
-        value: work.name,
+        value: work.kind,
       }
     })
 )
