@@ -18,6 +18,7 @@
     "apollo-link-scalars": "^2.1.4",
     "bson-objectid": "^2.0.1",
     "graphql": "^15.5.1",
+    "nprogress": "1.0.0-1",
     "vue": "^3.2.2",
     "vue-i18n": "9.1.7",
     "vue-router": "4.0.11"
@@ -33,6 +34,7 @@
     "@types/eslint": "^7",
     "@types/eslint-plugin-prettier": "^3",
     "@types/node": "^16.6.1",
+    "@types/nprogress": "^0",
     "@types/prettier": "^2",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",

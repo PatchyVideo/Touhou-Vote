@@ -1,5 +1,4 @@
 import { createApp, defineComponent, h } from 'vue'
-import { getUserDataFromLocalStorage } from '@/home/lib/user'
 
 /* Tailwind CSS */
 import '@/tailwindcss'
@@ -10,6 +9,14 @@ import '@/darkmode'
 /* GraphQL */
 import { createApollo, provideClient } from '@/graphql'
 const client = createApollo()
+
+/* NProgress */
+import NProgress from 'nprogress'
+import 'nprogress/css/nprogress.css'
+function incProcess() {
+  if (NProgress.isStarted()) NProgress.inc()
+}
+NProgress.start()
 
 /* Vue App */
 import AppRouterView from './components/AppRouterView.vue'
@@ -59,6 +66,19 @@ const router = createRouter({
     },
   ],
 })
+router.beforeEach((to, from, next) => {
+  if (!NProgress.isStarted()) NProgress.start()
+  if (to.path != '/' && !isLogin.value) next({ path: '/' })
+  else next()
+})
+router.afterEach((guard) => {
+  incProcess()
+  appPromisesFinish.then(() => {
+    if (!guard.meta.holdLoading && NProgress.isStarted()) {
+      NProgress.done()
+    }
+  })
+})
 app.use(router)
 
 /* Vue I18n */
@@ -66,11 +86,13 @@ import i18n from '@/locales'
 app.use(i18n)
 
 /* Login authentication & user data filling */
-// import { checkLoginStatus } from '@/user'
+// import { checkLoginStatus } from '@/home/lib/user'
 // appPromises.push(checkLoginStatus(true))
 
-Promise.allSettled(appPromises).then(() => {
-  app.mount('#app')
-})
-
+import { getUserDataFromLocalStorage, isLogin } from '@/home/lib/user'
 getUserDataFromLocalStorage()
+
+const appPromisesFinish = Promise.allSettled(appPromises.map((v) => v.then(incProcess))).then(() => {
+  app.mount('#app')
+  incProcess()
+})

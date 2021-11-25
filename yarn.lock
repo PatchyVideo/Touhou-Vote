@@ -1620,6 +1620,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/nprogress@npm:^0":
+  version: 0.2.0
+  resolution: "@types/nprogress@npm:0.2.0"
+  checksum: 561384775008ae58111f038f8f9468b3de8987cd753feef9bf6d07af0e1343390d492a078bb08a7b53ac7370208e31e06ac069cb852c435d49f5fe218e9769c4
+  languageName: node
+  linkType: hard
+
 "@types/parse-json@npm:^4.0.0":
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0"
@@ -5351,6 +5358,13 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"nprogress@npm:1.0.0-1":
+  version: 1.0.0-1
+  resolution: "nprogress@npm:1.0.0-1"
+  checksum: cbbea814cbd950f00ad237c533ad4a8a462370e06f495b9239fc13faf6e17c2a61b9e79ae48b8af53422cda26a128b95c8ba9b8dca0701d4543362bbed37e5a6
+  languageName: node
+  linkType: hard
+
 "nullthrows@npm:^1.1.1":
   version: 1.1.1
   resolution: "nullthrows@npm:1.1.1"
@@ -6771,6 +6785,7 @@ fsevents@~2.3.2:
     "@types/eslint": ^7
     "@types/eslint-plugin-prettier": ^3
     "@types/node": ^16.6.1
+    "@types/nprogress": ^0
     "@types/prettier": ^2
     "@typescript-eslint/eslint-plugin": ^4.29.1
     "@typescript-eslint/parser": ^4.29.1
@@ -6787,6 +6802,7 @@ fsevents@~2.3.2:
     eslint-plugin-prettier: ^3.4.0
     eslint-plugin-vue: ^7.16.0
     graphql: ^15.5.1
+    nprogress: 1.0.0-1
     postcss: ^8.3.6
     postcss-import: ^14.0.2
     postcss-mixins: ^8.1.0
