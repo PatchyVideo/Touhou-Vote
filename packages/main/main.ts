@@ -66,6 +66,8 @@ const router = createRouter({
     },
   ],
 })
+import { isLogin } from '@/home/lib/user'
+
 router.beforeEach((to, from, next) => {
   if (!NProgress.isStarted()) NProgress.start()
   if (to.path != '/' && !isLogin.value) next({ path: '/' })
@@ -86,11 +88,8 @@ import i18n from '@/locales'
 app.use(i18n)
 
 /* Login authentication & user data filling */
-// import { checkLoginStatus } from '@/home/lib/user'
-// appPromises.push(checkLoginStatus(true))
-
-import { getUserDataFromLocalStorage, isLogin } from '@/home/lib/user'
-getUserDataFromLocalStorage()
+import { checkLoginStatus } from '@/home/lib/user'
+appPromises.push(checkLoginStatus(true))
 
 const appPromisesFinish = Promise.allSettled(appPromises.map((v) => v.then(incProcess))).then(() => {
   app.mount('#app')

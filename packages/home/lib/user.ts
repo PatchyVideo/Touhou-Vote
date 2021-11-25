@@ -33,8 +33,8 @@ export const isLogin = computed(() => voteToken.value != '')
 export function setUserDataToLocalStorage(user: Voter, token: string, session: string): void {
   if (user.phone != null) user.phone = replacePhoneNum(user.phone)
   localStorage.setItem('user', JSON.stringify(user))
-  localStorage.setItem('voteToken', JSON.stringify(token))
-  localStorage.setItem('sessionToken', JSON.stringify(session))
+  localStorage.setItem('voteToken', token)
+  localStorage.setItem('sessionToken', session)
 }
 function replacePhoneNum(phone: string): string {
   let replacedPhoneNum = ''
@@ -56,8 +56,34 @@ export function getUserDataFromLocalStorage(): void {
 }
 
 export function deleteUserData(): void {
-  localStorage.removeItem('userData')
+  localStorage.removeItem('user')
   localStorage.removeItem('voteToken')
   localStorage.removeItem('sessionToken')
+  localStorage.removeItem('questionnaireDataLocal')
   user.value = createDefaultVoter()
+}
+
+export async function checkLoginStatus(needGetUserDataFromLocalStorage = false): Promise<void> {
+  await fetch('https://touhou.ai/vote-be/user-token-status', {
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+    body: JSON.stringify({
+      user_token: localStorage.getItem('sessionToken') || '',
+    }),
+    credentials: 'include',
+  })
+    .then((data) => data.json())
+    .then((res) => {
+      if (res.status === 'valid') {
+        if (needGetUserDataFromLocalStorage) getUserDataFromLocalStorage()
+      } else {
+        deleteUserData()
+      }
+    })
+    .catch((err) => {
+      console.log(err)
+      deleteUserData()
+    })
 }
