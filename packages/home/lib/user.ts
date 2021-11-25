@@ -19,7 +19,7 @@ export const user = ref<Voter>(createDefaultVoter())
 export const username = computed(() => {
   const defaultUser = createDefaultVoter()
   if (user.value.username != defaultUser.username) return user.value.username
-  else if (user.value.phone != defaultUser.phone) return user.value.phone
+  else if (user.value.phone != defaultUser.phone) return user.value.phone?.slice(-4)
   else if (user.value.email != defaultUser.email) return user.value.email
   else return defaultUser.username
 })
@@ -31,9 +31,17 @@ export const sessionToken = ref<string>('')
 export const isLogin = computed(() => voteToken.value != '')
 
 export function setUserDataToLocalStorage(user: Voter, token: string, session: string): void {
+  if (user.phone != null) user.phone = replacePhoneNum(user.phone)
   localStorage.setItem('user', JSON.stringify(user))
   localStorage.setItem('voteToken', JSON.stringify(token))
   localStorage.setItem('sessionToken', JSON.stringify(session))
+}
+function replacePhoneNum(phone: string): string {
+  let replacedPhoneNum = ''
+  for (let i = 0; i < phone.length - 4; i++) {
+    replacedPhoneNum += '*'
+  }
+  return (replacedPhoneNum += phone.slice(-4))
 }
 
 export function getUserDataFromLocalStorage(): void {
