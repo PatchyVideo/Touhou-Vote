@@ -22,7 +22,7 @@ const props = defineProps({
   },
 })
 
-const searchContent = ref(props.type === 'character' ? keywordCharacter : '')
+const searchContent = ref<string>(props.type === 'character' ? keywordCharacter.value : '')
 
 function search(): void {
   searchContent.value = searchContent.value.trim()

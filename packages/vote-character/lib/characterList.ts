@@ -2,7 +2,7 @@ import { Character, character0 } from '@/vote-character/lib/character'
 import { computed, ref } from 'vue'
 import { characterHonmei, characters } from '@/vote-character/lib/voteData'
 
-const characterList: Character[] = [
+export const characterList: Character[] = [
   {
     id: 'Hakurei Reimu',
     name: '博丽灵梦',
