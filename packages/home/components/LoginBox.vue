@@ -277,7 +277,6 @@ const {
   `
 )
 newLoginPhoneNumDone((result) => {
-  console.log(result)
   if (result.data?.loginPhone.user && result.data?.loginPhone.voteToken && result.data?.loginPhone.sessionToken) {
     setUserDataToLocalStorage(
       result.data?.loginPhone.user,

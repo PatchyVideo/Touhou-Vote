@@ -159,15 +159,15 @@ const characterListLeftWithFilter = computed<Character[]>(() => {
   list.sort((a, b) =>
     order.value.name === orderOptions[0].name ? Number(a.date) - Number(b.date) : Number(b.date) - Number(a.date)
   )
-  if (filterForKind.value.length) console.log(list)
-  list = list.filter((item) => {
-    for (const work of filterForKind.value) {
-      if (item.kind.find((item2) => item2 === work.value)) {
-        return true
+  if (filterForKind.value.length)
+    list = list.filter((item) => {
+      for (const work of filterForKind.value) {
+        if (item.kind.find((item2) => item2 === work.value)) {
+          return true
+        }
       }
-    }
-    return false
-  })
+      return false
+    })
   if (workSelected.value.name != '') {
     list = list.filter((item) => {
       if (item.work.find((item2) => item2 === workSelected.value.name)) return true

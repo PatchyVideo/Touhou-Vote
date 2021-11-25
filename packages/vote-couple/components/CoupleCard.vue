@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineEmits, PropType, ref, computed, watch, watchEffect } from 'vue'
+import { defineProps, defineEmits, PropType, ref, computed, watch } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Couple } from '@/vote-couple/lib/couple'
 import { couples } from '@/vote-couple/lib/voteData'
@@ -86,9 +86,6 @@ const characterSelected = ref(couple.value.characters[charactersValid.value.leng
 watch(characterSelected, () => {
   if (characterSelected.value.id != character0.id)
     couple.value.characters[charactersValid.value.length] = characterSelected.value
-})
-watchEffect(() => {
-  // console.log(characterSelected.value)
 })
 const moreCharacterCanBeSelected = computed<boolean>(() =>
   couple.value.characters.find((character) => character.id === character0.id) ? true : false
