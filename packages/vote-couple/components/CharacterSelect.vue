@@ -32,14 +32,18 @@
       <div class="flex justify-between items-center">
         <div class="shadow rounded h-7 w-1/2 flex justify-start items-center">
           <icon-uil-search class="flex-shrink-0 inline ml-2 mr-1" />
-          <input class="nline-block h-full outline-none dark:bg-gray-800 w-full rounded" />
+          <input
+            v-model="searchContent"
+            class="nline-block h-full outline-none dark:bg-gray-800 w-full rounded"
+            @keydown.enter="search()"
+          />
         </div>
         <VoteSelect v-model:selected="order" :item-list="orderOptions" />
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
       </div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <div
-          v-for="(item, index) in characterListLeft"
+          v-for="(item, index) in characterListLeftWithFilter"
           :key="index"
           class="p-1 rounded shadow bg-white flex ring"
           :style="'--tw-ring-color:' + item.color"
@@ -79,7 +83,7 @@
 import { ref, watchEffect, defineProps, PropType, computed } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
-import { characterList } from '@/vote-couple/lib/coupleList'
+import { characterList } from '@/vote-character/lib/characterList'
 import { Couple } from '@/vote-couple/lib/couple'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import AdvancedFilter from './AdvancedFilter.vue'
@@ -142,8 +146,53 @@ const characterListLeft = computed<Character[]>(() =>
   })
 )
 
+const keyword = ref('')
+const searchContent = ref<string>(keyword.value)
+function search(): void {
+  searchContent.value = searchContent.value.trim()
+  keyword.value = searchContent.value
+}
+
+import { filterForKind, workSelected } from '@/vote-couple/lib/workList'
+const characterListLeftWithFilter = computed<Character[]>(() => {
+  let list: Character[] = JSON.parse(JSON.stringify(characterListLeft.value))
+  list.sort((a, b) =>
+    order.value.name === orderOptions[0].name ? Number(a.date) - Number(b.date) : Number(b.date) - Number(a.date)
+  )
+  if (filterForKind.value.length) console.log(list)
+  list = list.filter((item) => {
+    for (const work of filterForKind.value) {
+      if (item.kind.find((item2) => item2 === work.value)) {
+        return true
+      }
+    }
+    return false
+  })
+  if (workSelected.value.name != '') {
+    list = list.filter((item) => {
+      if (item.work.find((item2) => item2 === workSelected.value.name)) return true
+      else return false
+    })
+  }
+  if (keyword.value != '') {
+    const regex = new RegExp(keyword.value)
+    list = list.filter((item) => {
+      if (regex.test(item.name)) return true
+      if (regex.test(item.title)) return true
+      else if (item.altnames.length) {
+        for (const item2 of item.altnames) {
+          if (regex.test(item2)) return true
+        }
+        return false
+      }
+    })
+  }
+  return list
+})
+
 function characterSelect(id: string): void {
-  characterSelected.value = characterListLeft.value.find((character) => character.id === id) || new Character()
+  characterSelected.value =
+    characterListLeftWithFilter.value.find((character) => character.id === id) || new Character()
   close()
 }
 </script>

@@ -2,12 +2,12 @@ import { ref, computed } from 'vue'
 
 interface Work {
   name: string
-  kind: 'old' | 'new' | 'CD' | 'book'
+  kind: 'old' | 'new' | 'CD' | 'book' | ''
 }
 
 interface SelectList {
   name: string
-  value: string | number
+  value: 'old' | 'new' | 'CD' | 'book' | ''
 }
 
 const works: Work[] = [
@@ -101,6 +101,14 @@ export function updateFilterForKindTem(kind: SelectList): void {
 export function updateFilterForKind(): void {
   filterForKind.value = JSON.parse(JSON.stringify(filterForKindTem.value))
 }
+export function resetFilterForKindTem(): void {
+  filterForKindTem.value = [
+    { name: '旧作', value: 'old' },
+    { name: '新作', value: 'new' },
+    { name: 'CD', value: 'CD' },
+    { name: '出版物', value: 'book' },
+  ]
+}
 
 export const worksListAfterFilter = computed<SelectList[]>(() =>
   works
@@ -114,7 +122,7 @@ export const worksListAfterFilter = computed<SelectList[]>(() =>
     .map((work) => {
       return {
         name: work.name,
-        value: work.name,
+        value: work.kind,
       }
     })
 )
@@ -131,7 +139,7 @@ export const worksListAfterFilterTem = computed<SelectList[]>(() =>
     .map((work) => {
       return {
         name: work.name,
-        value: work.name,
+        value: work.kind,
       }
     })
 )
