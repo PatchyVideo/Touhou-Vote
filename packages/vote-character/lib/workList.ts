@@ -101,6 +101,14 @@ export function updateFilterForKindTem(kind: SelectList): void {
 export function updateFilterForKind(): void {
   filterForKind.value = JSON.parse(JSON.stringify(filterForKindTem.value))
 }
+export function resetFilterForKindTem(): void {
+  filterForKindTem.value = [
+    { name: '旧作', value: 'old' },
+    { name: '新作', value: 'new' },
+    { name: 'CD', value: 'CD' },
+    { name: '出版物', value: 'book' },
+  ]
+}
 
 export const worksListAfterFilter = computed<SelectList[]>(() =>
   works

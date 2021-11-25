@@ -47,6 +47,17 @@
         </div>
         <div>初登场作品：</div>
         <VoteSelect v-model:selected="workSelectedTem" :item-list="worksListAfterFilterTem" />
+        <div
+          class="
+            text-right text-accent-color-600
+            transition transition-colors
+            cursor-pointer
+            hover:text-accent-color-300
+          "
+          @click="resetFilter()"
+        >
+          重置条件
+        </div>
       </div>
       <div class="p-2 border-t">
         <button class="w-full py-2 rounded-xl text-white bg-accent-color-600 justify-center" @click="commitFilter()">
@@ -70,6 +81,7 @@ import {
   workSelectedTem,
   getFilterForKindTem,
   getWorkSelectedTem,
+  resetFilterForKindTem,
   updateFilterForKind,
   updateFilterForKindTem,
   updateWorkSelected,
@@ -102,6 +114,10 @@ function commitFilter(): void {
   updateFilterForKind()
   updateWorkSelected()
   close()
+}
+function resetFilter(): void {
+  resetFilterForKindTem()
+  resetWorkSelectedTem()
 }
 </script>
 <style lang="postcss" scoped>
