@@ -2,10 +2,21 @@
   <div class="w-full"></div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
-function IsInSameQuestionLibrary(ID1: number, ID2: number) {
-  return Math.floor(ID1 / 10) === Math.floor(ID2 / 10)
-}
-console.log(IsInSameQuestionLibrary(11031, 11042))
+import { useQuery, gql } from '@/graphql'
+import type { Query } from '@/graphql'
+import { watch } from 'vue'
+const { result } = useQuery<Query>(
+  gql`
+    query ($userToken: String!) {
+      userTokenStatus(userToken: $userToken)
+    }
+  `,
+  {
+    userToken: localStorage.getItem('voteToken') || '',
+  }
+)
+watch(result, (value) => {
+  console.log(value)
+})
 </script>
 <style lang="postcss" scoped></style>
