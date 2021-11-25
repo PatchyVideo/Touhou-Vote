@@ -30,9 +30,8 @@
         <icon-uil-times class="cursor-pointer" @click="loading || close()"></icon-uil-times>
       </div>
       <div v-if="!characterHonmeiIsSelected" class="flex justify-between items-center">
-        <div class="shadow rounded h-7 w-1/2 flex justify-start items-center">
-          <icon-uil-search class="flex-shrink-0 inline ml-2 mr-1" />
-          <input class="nline-block h-full outline-none dark:bg-gray-800 w-full rounded" />
+        <div class="w-1/2">
+          <AutoComplete type="character" />
         </div>
         <VoteSelect v-model:selected="order" :item-list="orderOptions" />
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
@@ -100,6 +99,7 @@ import {
 import { characters } from '@/vote-character/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import AdvancedFilter from './AdvancedFilter.vue'
+import AutoComplete from '@/common/components/AutoComplete.vue'
 
 const props = defineProps({
   open: {

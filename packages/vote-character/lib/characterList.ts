@@ -180,8 +180,9 @@ export const orderOptions = [
 ]
 export const order = ref(orderOptions[0])
 import { filterForKind, workSelected } from '@/vote-character/lib/workList'
+export const keyword = ref('')
 
-export const characterListLeftWithFilter = computed(() => {
+export const characterListLeftWithFilter = computed<Character[]>(() => {
   let list: Character[] = JSON.parse(JSON.stringify(characterListLeft.value))
   list.sort((a, b) =>
     order.value.name === orderOptions[0].name ? Number(a.date) - Number(b.date) : Number(b.date) - Number(a.date)
@@ -199,6 +200,19 @@ export const characterListLeftWithFilter = computed(() => {
     list = list.filter((item) => {
       if (item.work.find((item2) => item2 === workSelected.value.name)) return true
       else return false
+    })
+  }
+  if (keyword.value != '') {
+    const regex = new RegExp(keyword.value)
+    list = list.filter((item) => {
+      if (regex.test(item.name)) return true
+      if (regex.test(item.title)) return true
+      else if (item.altnames.length) {
+        for (const item2 of item.altnames) {
+          if (regex.test(item2)) return true
+        }
+        return false
+      }
     })
   }
   return list
