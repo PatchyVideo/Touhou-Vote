@@ -11,6 +11,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { keyword as keywordCharacter } from '@/vote-character/lib/characterList'
+import { keyword as keywordMusic } from '@/vote-music/lib/musicList'
 
 const props = defineProps({
   type: {
@@ -22,11 +23,13 @@ const props = defineProps({
   },
 })
 
-const searchContent = ref<string>(props.type === 'character' ? keywordCharacter.value : '')
+const searchContent = ref<string>(props.type === 'character' ? keywordCharacter.value : keywordMusic.value)
 
 function search(): void {
   searchContent.value = searchContent.value.trim()
-  props.type === 'character' ? (keywordCharacter.value = searchContent.value) : ''
+  props.type === 'character'
+    ? (keywordCharacter.value = searchContent.value)
+    : (keywordMusic.value = searchContent.value)
 }
 </script>
 <style lang="postcss" scoped></style>

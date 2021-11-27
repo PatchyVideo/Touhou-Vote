@@ -30,12 +30,11 @@
         <icon-uil-times class="cursor-pointer" @click="loading || close()"></icon-uil-times>
       </div>
       <div v-if="!musicHonmeiIsSelected" class="flex justify-between items-center">
-        <div class="shadow rounded h-7 w-1/2 flex justify-start items-center">
-          <icon-uil-search class="flex-shrink-0 inline ml-2 mr-1" />
-          <input class="nline-block h-full outline-none dark:bg-gray-800 w-full rounded" />
+        <div class="w-1/2">
+          <AutoComplete type="music" />
         </div>
         <VoteSelect v-model:selected="order" :item-list="orderOptions" />
-        <div class="cursor-pointer shadow p-1">筛选</div>
+        <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
       </div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <!-- eslint-disable vue/no-v-html -->
@@ -71,15 +70,18 @@
   <Transition name="mask">
     <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-50" @touchmove.stop.prevent></div>
   </Transition>
+  <AdvancedFilter v-model:open="advancedFilterOpen" />
 </template>
 
 <script lang="ts" setup>
 import { ref, watchEffect, defineProps, PropType, computed } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
-import { musicListLeft, musicHonmeiListLeft } from '@/vote-music/lib/musicList'
+import { musicListLeftWithFilter, musicHonmeiListLeft, order, orderOptions } from '@/vote-music/lib/musicList'
 import { musics } from '@/vote-music/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
+import AdvancedFilter from './AdvancedFilter.vue'
+import AutoComplete from '@/common/components/AutoComplete.vue'
 
 const props = defineProps({
   open: {
@@ -113,25 +115,16 @@ watchEffect(() => {
 })
 
 const loading = ref(false)
+const advancedFilterOpen = ref(false)
 
-const musicList = computed(() => (props.musicHonmeiIsSelected ? musicHonmeiListLeft.value : musicListLeft.value))
-
-const orderOptions = [
-  {
-    name: '从新到旧',
-    value: 'newest',
-  },
-  {
-    name: '从旧到新',
-    value: 'oldest',
-  },
-]
-const order = ref(orderOptions[0])
+const musicList = computed(() =>
+  props.musicHonmeiIsSelected ? musicHonmeiListLeft.value : musicListLeftWithFilter.value
+)
 
 function musicSelect(id: string): void {
   const targetMusic = props.musicHonmeiIsSelected
     ? musicHonmeiListLeft.value.find((item) => item.id === id)
-    : musicListLeft.value.find((item) => item.id === id)
+    : musicListLeftWithFilter.value.find((item) => item.id === id)
   if (targetMusic) {
     if (props.musicHonmeiIsSelected) {
       musics.value.map((item) => (item.id === id ? (item.honmei = true) : (item.honmei = false)))

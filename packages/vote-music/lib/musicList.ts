@@ -104,7 +104,7 @@ const musicList: Music[] = [
     kind: ['CD'],
   },
   {
-    id: '',
+    id: '信仰は儚き人間の為に',
     name: '信仰是为了虚幻之人',
     album: '东方风神录　～ Mountain of Faith.',
     date: 20070817,
@@ -114,7 +114,7 @@ const musicList: Music[] = [
     kind: ['game'],
   },
   {
-    id: '',
+    id: '判読眼のビブロフィリア',
     name: '识文解意的爱书人',
     album: '东方铃奈庵 ～ Forbidden Scrollery.',
     date: 20161210,
