@@ -68,8 +68,9 @@ const router = createRouter({
 })
 import { isLogin } from '@/home/lib/user'
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   if (!NProgress.isStarted()) NProgress.start()
+  await appPromisesFinish
   if (to.path != '/' && !isLogin.value) next({ path: '/' })
   else next()
 })
