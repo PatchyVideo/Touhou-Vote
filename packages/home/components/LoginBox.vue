@@ -114,7 +114,7 @@
                 <input
                   v-model="userName"
                   class="ml-2 w-full bg-transparent focus:outline-none"
-                  placeholder="账号"
+                  placeholder="邮箱"
                   type="text"
               /></label>
               <div class="text-accent-color-600 text-xs h-5" v-text="userNameError"></div>
