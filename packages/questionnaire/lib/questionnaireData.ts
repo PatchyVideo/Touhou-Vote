@@ -74,6 +74,11 @@ function IDToQuestionLibraryNumber(ID: number): number {
   return Number(String(ID).substring(4, 5)) - 1
 }
 
+// 判断该问题（的答案）是否是无效问题（即第五位ID为0）
+function IsVaildQuestion(ID: number): boolean {
+  return Boolean(ID % 10)
+}
+
 // 匹配两个ID是否在同一个问题库里，ID要求5位ID
 function IsInSameQuestionLibrary(ID1: number, ID2: number) {
   return Math.floor(ID1 / 10) === Math.floor(ID2 / 10)
@@ -223,11 +228,19 @@ export function computeQuestionnaire(): QuestionnaireALL {
   for (const bigQuestionnaire in questionnaire) {
     for (const smallQuestionnaire in questionnaire[bigQuestionnaire]) {
       for (const questionLibrary of questionnaire[bigQuestionnaire][smallQuestionnaire].questions) {
-        if (!questionLibrary.length) return questionnaireReturn
+        if (!questionLibrary.length) continue
         // 此题库下对应的问题的答案
         const answerTarget = questionnaireData.value[bigQuestionnaire][smallQuestionnaire].answers.find((answer) =>
           IsInSameQuestionLibrary(answer.id, questionLibrary[0].id)
         )
+        if (!answerTarget?.id) continue
+        // 倘若是无效的问题，则清空题库
+        if (!IsVaildQuestion(answerTarget.id)) {
+          questionnaireReturn[IDToBigQuestionnaire(answerTarget.id)][IDToSmallQuestionnaire(answerTarget.id)].questions[
+            IDToQuestionLibrary(answerTarget.id)
+          ] = []
+          continue
+        }
         // 此题库下对应答案的问题
         const questionTarget = questionLibrary.find((question) => question.id === answerTarget?.id)
         if (!answerTarget?.options.length || !questionTarget) continue
@@ -270,6 +283,10 @@ export function computeQuestionnaire(): QuestionnaireALL {
             })
           }
         }
+        // 删除空问题库
+        questionnaireReturn[bigQuestionnaire][smallQuestionnaire].questions = questionnaireReturn[bigQuestionnaire][
+          smallQuestionnaire
+        ].questions.filter((item) => item.length)
       }
     }
   }
@@ -283,10 +300,12 @@ export const questionDone = computed(() => {
     for (const smallQuestionnaire in questionnaireData.value[bigQuestionnaire])
       questiondone[bigQuestionnaire][smallQuestionnaire].answers = questionnaireData.value[bigQuestionnaire][
         smallQuestionnaire
-      ].answers.map((answer) => {
-        answer.done = answer.input != '' || Boolean(answer.options.length)
-        return answer
-      })
+      ].answers
+        .map((answer) => {
+          answer.done = answer.input != '' || Boolean(answer.options.length)
+          return answer
+        })
+        .filter((answer) => IsVaildQuestion(answer.id))
 
   return questiondone
 })
