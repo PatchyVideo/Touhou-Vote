@@ -326,11 +326,15 @@ const {
   `
 )
 oldLoginDone((result) => {
-  if (result.data?.loginPhone.user && result.data?.loginPhone.voteToken && result.data?.loginPhone.sessionToken) {
+  if (
+    result.data?.loginEmailPassword.user &&
+    result.data?.loginEmailPassword.voteToken &&
+    result.data?.loginEmailPassword.sessionToken
+  ) {
     setUserDataToLocalStorage(
-      result.data?.loginPhone.user,
-      result.data?.loginPhone.voteToken,
-      result.data?.loginPhone.sessionToken
+      result.data?.loginEmailPassword.user,
+      result.data?.loginEmailPassword.voteToken,
+      result.data?.loginEmailPassword.sessionToken
     )
   }
   location.reload()
