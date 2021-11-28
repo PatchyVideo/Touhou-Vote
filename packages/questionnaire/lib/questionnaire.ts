@@ -7,8 +7,6 @@
 // 第五位：表示该题目序号对应的题库中的题目顺序，从1开始计数
 // 第六位&第七位：表示该题目对应的选项的序号，从1开始计数
 
-import { computed } from 'vue-demi'
-
 interface Option {
   // 7位ID，说明见上
   id: number
