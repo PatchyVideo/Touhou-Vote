@@ -340,7 +340,8 @@ oldLoginDone((result) => {
   location.reload()
 })
 oldLoginError((error) => {
-  userPasswordError.value = '网络错误！请稍后重试'
+  if (error.message === 'Incorrect login') userNameError.value = '用户名或密码错误！'
+  else userPasswordError.value = '网络错误！请稍后重试'
   console.log(error)
 })
 </script>
