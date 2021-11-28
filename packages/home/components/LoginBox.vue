@@ -140,7 +140,7 @@
                   justify-center
                 "
                 :class="{ 'bg-accent-color-300': loading }"
-                @click="loginOldSystem()"
+                @click="oldSystemlogin()"
               >
                 <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>登陆</label>
               </button>
@@ -181,7 +181,7 @@ function close(): void {
   open.value = false
 }
 
-const loading = computed<boolean>(() => newLoginPhoneNumLoading.value)
+const loading = computed<boolean>(() => newLoginPhoneNumLoading.value || oldLoginLoading.value)
 
 /* Verification Code Login */
 const emailFormat =
@@ -287,7 +287,8 @@ newLoginPhoneNumDone((result) => {
   location.reload()
 })
 newLoginError((error) => {
-  verificationCodeError.value = '网络错误！请稍后重试'
+  if (error.message === 'Incorrect login') verificationCodeError.value = '请输入正确的验证码！'
+  else verificationCodeError.value = '网络错误！请稍后重试'
   console.log(error)
 })
 
@@ -297,7 +298,47 @@ const userName = ref<string>('')
 const userNameError = ref<' ' | '请输入用户名！' | '用户名或密码错误！'>(' ')
 const userPassword = ref<string>('')
 const userPasswordError = ref<' ' | '请输入密码！' | '网络错误！请稍后重试'>(' ')
-async function loginOldSystem(): Promise<void> {}
+async function oldSystemlogin(): Promise<void> {
+  oldLogin({ email: userName.value, password: userPassword.value })
+}
+const {
+  mutate: oldLogin,
+  loading: oldLoginLoading,
+  onDone: oldLoginDone,
+  onError: oldLoginError,
+} = useMutation<Mutation>(
+  gql`
+    mutation ($email: String!, $password: String!) {
+      loginEmailPassword(email: $email, password: $password) {
+        user {
+          username
+          pfp
+          password
+          phone
+          email
+          thbwiki
+          patchyvideo
+        }
+        sessionToken
+        voteToken
+      }
+    }
+  `
+)
+oldLoginDone((result) => {
+  if (result.data?.loginPhone.user && result.data?.loginPhone.voteToken && result.data?.loginPhone.sessionToken) {
+    setUserDataToLocalStorage(
+      result.data?.loginPhone.user,
+      result.data?.loginPhone.voteToken,
+      result.data?.loginPhone.sessionToken
+    )
+  }
+  location.reload()
+})
+oldLoginError((error) => {
+  userPasswordError.value = '网络错误！请稍后重试'
+  console.log(error)
+})
 </script>
 <style lang="postcss" scoped>
 .loginBox-enter-active,
