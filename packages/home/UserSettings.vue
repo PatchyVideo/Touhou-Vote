@@ -55,12 +55,9 @@
             </div>
             <div class="p-3 flex items-center justify-between">
               <div>{{ '密码：' + (user.password ? '已设置' : '未设置') }}</div>
-              <label
-                v-if="user.password"
-                class="text-red-600 underline cursor-pointer"
-                @click="changePasswordOpen = true"
-                >{{ user.password ? '修改' : '去设置' }}</label
-              >
+              <label class="text-red-600 underline cursor-pointer" @click="changePasswordOpen = true">{{
+                user.password ? '修改' : '去设置'
+              }}</label>
             </div>
             <!-- <div class="p-3 flex items-center justify-between">
               <div>账号绑定:</div>
@@ -142,11 +139,16 @@ function updatePassword(): void {
     alert('输入的两次新密码不一致！')
     return
   }
-  updatePasswordMutate({
-    userToken: sessionToken.value,
-    oldPassword: passwordOld.value,
-    newPassword: passwordNew.value,
-  })
+  user.value.password
+    ? updatePasswordMutate({
+        userToken: sessionToken.value,
+        oldPassword: passwordOld.value,
+        newPassword: passwordNew.value,
+      })
+    : updatePasswordMutate({
+        userToken: sessionToken.value,
+        newPassword: passwordNew.value,
+      })
 }
 const {
   mutate: updatePasswordMutate,
@@ -155,7 +157,7 @@ const {
   onError: updatePasswordError,
 } = useMutation<Mutation>(
   gql`
-    mutation ($userToken: String!, $oldPassword: String!, $newPassword: String!) {
+    mutation ($userToken: String!, $oldPassword: String, $newPassword: String!) {
       updatePassword(userToken: $userToken, oldPassword: $oldPassword, newPassword: $newPassword)
     }
   `
