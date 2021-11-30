@@ -80,7 +80,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watchEffect, defineProps, PropType, computed } from 'vue'
+import { ref, watchEffect, PropType, computed } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
 import { characterList } from '@/vote-character/lib/characterList'

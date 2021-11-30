@@ -155,7 +155,7 @@
   </Transition>
 </template>
 <script lang="ts" setup>
-import { ref, computed, watchEffect, defineProps } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useMutation, gql } from '@/graphql'
 import type { Mutation } from '@/graphql'

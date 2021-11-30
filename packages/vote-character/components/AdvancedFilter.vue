@@ -72,7 +72,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, watch } from 'vue'
+import { watch } from 'vue'
 import { useVModels } from '@vueuse/core'
 import {
   kinds,

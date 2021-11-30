@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineEmits, PropType, ref, computed, watch } from 'vue'
+import { defineEmits, PropType, ref, computed, watch } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Couple } from '@/vote-couple/lib/couple'
 import { couples } from '@/vote-couple/lib/voteData'

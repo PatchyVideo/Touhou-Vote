@@ -74,7 +74,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watchEffect, defineProps, PropType, computed } from 'vue'
+import { ref, watchEffect, PropType, computed } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
 import { musicListLeftWithFilter, musicHonmeiListLeft, order, orderOptions } from '@/vote-music/lib/musicList'
