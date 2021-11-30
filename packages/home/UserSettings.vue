@@ -33,30 +33,34 @@
             <div class="space-y-2">
               <div class="truncate text-xl">{{ username }}</div>
               <!-- <div class="truncate text-sm text-gray-600">注册于2021年⑨月1日</div> -->
-              <div class="space-x-2">
+              <!-- <div class="space-x-2">
                 <label class="text-red-600 underline cursor-pointer" @click="WIP()">修改头像</label>
                 <label class="text-red-600 underline cursor-pointer" @click="WIP()">修改用户名</label>
-              </div>
+              </div> -->
+              <div class="text-accent-color-600 text-sm">*出于防刷票考虑，投票期间不能修改账户绑定信息哦</div>
             </div>
           </div>
           <div class="mt-3 divide-y divide-accent-color-300">
             <div class="p-3 flex items-center justify-between">
               <div>{{ '邮箱：' + (user.email != null ? user.email : '未绑定') }}</div>
-              <label class="text-red-600 underline cursor-pointer" @click="WIP()">{{
+              <!-- <label class="text-red-600 underline cursor-pointer" @click="WIP()">{{
                 user.email != null ? '修改' : '去绑定'
-              }}</label>
+              }}</label> -->
             </div>
             <div class="p-3 flex items-center justify-between">
               <div>{{ '手机：' + (user.phone != null ? user.phone : '未绑定') }}</div>
-              <label class="text-red-600 underline cursor-pointer" @click="WIP()">{{
+              <!-- <label class="text-red-600 underline cursor-pointer" @click="WIP()">{{
                 user.phone != null ? '修改' : '去绑定'
-              }}</label>
+              }}</label> -->
             </div>
             <div class="p-3 flex items-center justify-between">
               <div>{{ '密码：' + (user.password ? '已设置' : '未设置') }}</div>
-              <label class="text-red-600 underline cursor-pointer" @click="WIP()">{{
-                user.password ? '修改' : '去设置'
-              }}</label>
+              <label
+                v-if="user.password"
+                class="text-red-600 underline cursor-pointer"
+                @click="changePasswordOpen = true"
+                >{{ user.password ? '修改' : '去设置' }}</label
+              >
             </div>
             <!-- <div class="p-3 flex items-center justify-between">
               <div>账号绑定:</div>
@@ -78,14 +82,94 @@
       </div>
     </div>
   </div>
+  <VoteMessageBox v-model:open="changePasswordOpen" title="修改密码">
+    <div class="space-y-3 py-5">
+      <label v-if="user.password" class="input-border input-border-md flex flex-row py-2 px-4">
+        <input
+          v-model="passwordOld"
+          class="w-full bg-transparent rounded focus:outline-none"
+          placeholder="请输入旧密码"
+          type="password"
+      /></label>
+      <label class="input-border input-border-md flex flex-row py-2 px-4">
+        <input
+          v-model="passwordNew"
+          class="w-full bg-transparent rounded focus:outline-none"
+          placeholder="请输入新密码"
+          type="password"
+      /></label>
+      <label class="input-border input-border-md flex flex-row py-2 px-4">
+        <input
+          v-model="passwordNewConfirm"
+          class="w-full bg-transparent rounded focus:outline-none"
+          placeholder="请重复新密码"
+          type="password"
+          @keydown.enter="updatePassword()"
+      /></label>
+      <button
+        class="w-full py-2 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+        :class="{ 'bg-accent-color-300': updatePasswordLoading }"
+        @click="updatePassword()"
+      >
+        <icon-uil-spinner-alt v-if="updatePasswordLoading" class="animate-spin" /><label>确定</label>
+      </button>
+    </div>
+  </VoteMessageBox>
 </template>
 
 <script lang="ts" setup>
-import { user, username } from '@/home/lib/user'
+import { ref } from 'vue'
+import { user, username, sessionToken } from '@/home/lib/user'
+import { useMutation, gql } from '@/graphql'
+import type { Mutation } from '@/graphql'
+import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 
-function WIP(): void {
-  alert('投票期间不能修改个人信息哦，才不是因为没还做完呢(o˘д˘)o')
+// function WIP(): void {
+//   alert('投票期间不能修改个人信息哦，才不是因为没还做完呢(o˘д˘)o')
+// }
+
+const changePasswordOpen = ref(false)
+const passwordOld = ref('')
+const passwordNew = ref('')
+const passwordNewConfirm = ref('')
+function updatePassword(): void {
+  if (updatePasswordLoading.value) return
+  if ((user.value.password && !passwordOld.value) || !passwordNew.value || !passwordNewConfirm.value) {
+    alert('请填写完整！')
+    return
+  }
+  if (passwordNew.value != passwordNewConfirm.value) {
+    alert('输入的两次新密码不一致！')
+    return
+  }
+  updatePasswordMutate({
+    userToken: sessionToken.value,
+    oldPassword: passwordOld.value,
+    newPassword: passwordNew.value,
+  })
 }
+const {
+  mutate: updatePasswordMutate,
+  loading: updatePasswordLoading,
+  onDone: updatePasswordDone,
+  onError: updatePasswordError,
+} = useMutation<Mutation>(
+  gql`
+    mutation ($userToken: String!, $oldPassword: String!, $newPassword: String!) {
+      updatePassword(userToken: $userToken, oldPassword: $oldPassword, newPassword: $newPassword)
+    }
+  `
+)
+updatePasswordDone((result) => {
+  if (result.data?.updatePassword) alert('修改成功！')
+  else alert('旧密码输入错误！')
+  changePasswordOpen.value = false
+})
+updatePasswordError((error) => {
+  console.log(error)
+  alert('修改失败，旧密码输入错误或网络错误！')
+  changePasswordOpen.value = false
+})
 </script>
 
 <style lang="postcss" scoped></style>
