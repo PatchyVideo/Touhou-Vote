@@ -181,7 +181,9 @@ function close(): void {
   open.value = false
 }
 
-const loading = computed<boolean>(() => newLoginPhoneNumLoading.value || oldLoginLoading.value)
+const loading = computed<boolean>(
+  () => newLoginPhoneNumLoading.value || newLoginEmailLoading.value || oldLoginLoading.value
+)
 
 /* Verification Code Login */
 const emailFormat =
@@ -250,13 +252,15 @@ async function login(): Promise<void> {
   }
   if (userType.value === 'phone') {
     newLoginPhoneNum({ phone: userEmailOrPhoneNum.value, verifyCode: verificationCode.value })
-  }
+  } else if (userType.value === 'email') {
+    newLoginEmailNum({ email: userEmailOrPhoneNum.value, verifyCode: verificationCode.value })
+  } else return
 }
 const {
   mutate: newLoginPhoneNum,
   loading: newLoginPhoneNumLoading,
   onDone: newLoginPhoneNumDone,
-  onError: newLoginError,
+  onError: newLoginPhoneNumError,
 } = useMutation<Mutation>(
   gql`
     mutation ($phone: String!, $nickname: String, $verifyCode: String!) {
@@ -286,7 +290,46 @@ newLoginPhoneNumDone((result) => {
   }
   location.reload()
 })
-newLoginError((error) => {
+newLoginPhoneNumError((error) => {
+  if (error.message === 'Incorrect login') verificationCodeError.value = '请输入正确的验证码！'
+  else verificationCodeError.value = '网络错误！请稍后重试'
+  console.log(error)
+})
+const {
+  mutate: newLoginEmailNum,
+  loading: newLoginEmailLoading,
+  onDone: newLoginEmailDone,
+  onError: newLoginEmailError,
+} = useMutation<Mutation>(
+  gql`
+    mutation ($email: String!, $nickname: String, $verifyCode: String!) {
+      loginEmail(email: $email, nickname: $nickname, verifyCode: $verifyCode) {
+        user {
+          username
+          pfp
+          password
+          phone
+          email
+          thbwiki
+          patchyvideo
+        }
+        sessionToken
+        voteToken
+      }
+    }
+  `
+)
+newLoginEmailDone((result) => {
+  if (result.data?.loginPhone.user && result.data?.loginPhone.voteToken && result.data?.loginPhone.sessionToken) {
+    setUserDataToLocalStorage(
+      result.data?.loginPhone.user,
+      result.data?.loginPhone.voteToken,
+      result.data?.loginPhone.sessionToken
+    )
+  }
+  location.reload()
+})
+newLoginEmailError((error) => {
   if (error.message === 'Incorrect login') verificationCodeError.value = '请输入正确的验证码！'
   else verificationCodeError.value = '网络错误！请稍后重试'
   console.log(error)
