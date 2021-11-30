@@ -105,7 +105,7 @@
             <div class="flex justify-between items-center">
               <div class="flex items-center space-x-2">
                 <icon-uil-angle-left-b class="w-8 h-8" @click="loading || (useOldSystemLogin = false)" />
-                <div class="text-lg">使用旧版账号密码登陆</div>
+                <div class="text-lg">使用账号密码登陆</div>
               </div>
             </div>
             <div class="mt-10">
@@ -211,13 +211,13 @@ function userEmailOrPhoneNumVerify(): boolean {
 const verificationCode = ref<string>('')
 const verificationCodeError = ref<' ' | '请输入验证码！' | '请输入正确的验证码！' | '网络错误！请稍后重试'>(' ')
 const verificationCodeAvailable = ref(true)
-const verificationCodeAvailableTime = ref(60)
+const verificationCodeAvailableTime = ref(120)
 let verificationCodeAvailableTimer: number
 async function verificationCodeGet(): Promise<void> {
   if (!verificationCodeAvailable.value || loading.value) return
   if (!userEmailOrPhoneNumVerify()) return
   verificationCodeAvailable.value = false
-  verificationCodeAvailableTime.value = 60
+  verificationCodeAvailableTime.value = 120
   verificationCodeAvailableTimer = setInterval(() => {
     verificationCodeAvailableTime.value--
   }, 1000)
