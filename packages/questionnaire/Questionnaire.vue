@@ -56,10 +56,28 @@
         >
           下一题
         </button>
-        <button v-else class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base">
-          提交
+        <button
+          v-else
+          class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+          :class="{ 'bg-accent-color-300': submiting }"
+          @click="submitQuestionnire()"
+        >
+          <icon-uil-spinner-alt v-if="submiting" class="animate-spin" /><label>{{
+            submiting ? '提交中' : '提交'
+          }}</label>
         </button>
       </div>
+      <button
+        v-if="
+          questionnaireDone &&
+          Boolean(questionNum + 1 != questionDone[bigQuestionnaire][smallQuestionnaire].answers.length)
+        "
+        class="w-full py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+        :class="{ 'bg-accent-color-300': submiting }"
+        @click="submitQuestionnire()"
+      >
+        <icon-uil-spinner-alt v-if="submiting" class="animate-spin" /><label>{{ submiting ? '提交中' : '提交' }}</label>
+      </button>
     </div>
   </div>
   <QuestionnaireChange
@@ -177,6 +195,7 @@ function selectOption(id: number): void {
       answerData.value.push(id)
       if (questionNum.value + 1 != questionDone.value[bigQuestionnaire.value][smallQuestionnaire.value].answers.length)
         changeQuestion('back')
+      else changeQuestion('no')
     }
   } else if (question.value.type === 'Multiple') {
     index === -1 ? answerData.value.push(id) : answerData.value.splice(index, index + 1)
@@ -209,6 +228,25 @@ function getQuestionnaireDataFromLocalStorage(): void {
 const open = ref(false)
 function drawerOpen(): void {
   open.value = true
+}
+
+const questionnaireDone = computed<boolean>(() => {
+  return (
+    questionDone.value[bigQuestionnaire.value][smallQuestionnaire.value].answers.filter((item) => item.done).length ===
+    questionDone.value[bigQuestionnaire.value][smallQuestionnaire.value].answers.length
+  )
+})
+const submiting = ref(false)
+function submitQuestionnire() {
+  changeQuestion('no')
+  if (submiting.value) return
+  if (window.confirm('确认提交' + questionnaireName.value + '吗？')) {
+    submiting.value = true
+    setTimeout(() => {
+      submiting.value = false
+      alert('提交成功！')
+    }, 1000)
+  }
 }
 </script>
 
