@@ -101,7 +101,7 @@
         </button>
         <button
           class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
-          @click="continueEdit('back')"
+          @click="continueEdit()"
         >
           我还想继续填写/修改问卷！
         </button>

@@ -256,6 +256,19 @@
       </div>
     </div>
   </div>
+  <VoteMessageBox v-model:open="ruleMessageBoxOpen" title="问卷填写规则：">
+    <div class="p-2">
+      <div class="space-y-2">
+        <div>
+          需要完成调查问卷才能开始投票哦，本次投票将投票问卷拆分成了8份，分成主问卷和额外问卷两个大类，填写规则如下：
+        </div>
+        <div>• 主问卷中必填问卷需要填写</div>
+        <div>• 主问卷中可选问卷选择至少一个填写</div>
+        <div>• 额外中必填问卷选择至少一个填写</div>
+        <div>那么，祝各位投票愉快啦！</div>
+      </div>
+    </div>
+  </VoteMessageBox>
 </template>
 
 <script lang="ts" setup>
@@ -264,8 +277,10 @@ import { useRoute, useRouter } from 'vue-router'
 import { screenSizes } from '@/tailwindcss'
 import { username, deleteUserData } from '@/home/lib/user'
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
+import { ruleMessageBoxOpen } from '@/home/lib/questionnaireRule'
 import UserQuestionnaire from './components/UserQuestionnaire.vue'
 import UserVote from './components/UserVote.vue'
+import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 
 const route = useRoute()
 const router = useRouter()

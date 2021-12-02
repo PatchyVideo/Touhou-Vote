@@ -3,6 +3,18 @@
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
       <div
+        class="
+          text-accent-color-600 text-lg text-right
+          underline
+          cursor-pointer
+          transition transition-colors
+          hover:text-accent-color-900
+        "
+        @click="openRuleMessageBox()"
+      >
+        ！问卷填写规则
+      </div>
+      <div
         v-for="(questionaire, index) in questionnaireKeyToName"
         :key="index"
         class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2"
@@ -45,6 +57,7 @@
 </template>
 
 <script lang="ts" setup>
+import { openRuleMessageBox } from '@/home/lib/questionnaireRule'
 import { useRoute, useRouter } from 'vue-router'
 import { questionnaireKeyToName, IsQuestionnaireDone } from '@/questionnaire/lib/questionnaireData'
 
