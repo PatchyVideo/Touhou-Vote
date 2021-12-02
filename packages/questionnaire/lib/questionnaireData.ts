@@ -294,7 +294,7 @@ export function computeQuestionnaire(): QuestionnaireALL {
 }
 
 // 用户的投票情况
-export const questionDone = computed(() => {
+export const questionDone = computed<QuestionnaireData>(() => {
   const questiondone = questionnaireData.value
   for (const bigQuestionnaire in questionnaireData.value)
     for (const smallQuestionnaire in questionnaireData.value[bigQuestionnaire])
@@ -310,8 +310,15 @@ export const questionDone = computed(() => {
   return questiondone
 })
 
+interface questionnaireList {
+  bigQuestionnaire: string
+  smallQuestionnaire: string
+  name: string
+  [key: string]: string
+}
+
 // 投票问卷的键名匹配名称
-export const questionnaireKeyToName = computed(() => {
+export const questionnaireKeyToName = computed<questionnaireList[]>(() => {
   const questionnaireKeyToName = []
   for (const bigQuestionnaire in questionnaire)
     for (const smallQuestionnaire in questionnaire[bigQuestionnaire]) {
@@ -323,3 +330,75 @@ export const questionnaireKeyToName = computed(() => {
     }
   return questionnaireKeyToName
 })
+
+// 获取未完成的问卷列表
+export const getQuestionnaireUncomplete = computed<questionnaireList[]>(() => {
+  const getQuestionnaireUncomplete: questionnaireList[] = []
+  for (const bigQuestionnaire in questionDone.value)
+    for (const smallQuestionnaire in questionDone.value[bigQuestionnaire]) {
+      if (!IsQuestionnaireDone(bigQuestionnaire, smallQuestionnaire))
+        getQuestionnaireUncomplete.push({
+          bigQuestionnaire: bigQuestionnaire,
+          smallQuestionnaire: smallQuestionnaire,
+          name: questionnaire[bigQuestionnaire][smallQuestionnaire].name,
+        })
+    }
+  return getQuestionnaireUncomplete
+})
+
+// 获取完成的问卷列表
+export const getQuestionnaireComplete = computed<questionnaireList[]>(() =>
+  questionnaireKeyToName.value.filter((item) =>
+    getQuestionnaireUncomplete.value.findIndex((item2) => item2.name === item.name) === -1 ? true : false
+  )
+)
+
+// 判断是否完成问卷
+export function IsQuestionnaireDone(bigQuestionnaire: string, smallQuestionnaire: string): boolean {
+  return (
+    questionDone.value[bigQuestionnaire][smallQuestionnaire].answers.length ===
+    questionDone.value[bigQuestionnaire][smallQuestionnaire].answers.filter((item) => item.done).length
+  )
+}
+
+// 判断是否完全填写完成问卷
+// 即主问卷：必填问卷完成，官作分问卷/二创分问卷二者选择至少一个填写
+// 额外问卷：二创深入了解问卷/官作通关情况深入了解问卷/正版&盗版深入了解问卷/表示主办方附加问卷选择至少一个填写
+export const IsQuestionnaireAllDone = computed<boolean>(() => {
+  let flag = 0
+  for (const smallQuestionnaire of getQuestionnaireComplete.value) {
+    if (smallQuestionnaire.smallQuestionnaire === 'requiredQuestionnaire') {
+      flag++
+      break
+    }
+  }
+  for (const smallQuestionnaire of getQuestionnaireComplete.value) {
+    if (
+      smallQuestionnaire.smallQuestionnaire === 'optionalQuestionnaire1' ||
+      smallQuestionnaire.smallQuestionnaire === 'optionalQuestionnaire2'
+    ) {
+      flag++
+      break
+    }
+  }
+  for (const smallQuestionnaire of getQuestionnaireComplete.value) {
+    if (
+      smallQuestionnaire.smallQuestionnaire === 'exQuestionnaire1' ||
+      smallQuestionnaire.smallQuestionnaire === 'exQuestionnaire2' ||
+      smallQuestionnaire.smallQuestionnaire === 'exQuestionnaire3' ||
+      smallQuestionnaire.smallQuestionnaire === 'exQuestionnaire4' ||
+      smallQuestionnaire.smallQuestionnaire === 'exQuestionnaire5'
+    ) {
+      flag++
+      break
+    }
+  }
+  return flag === 3
+})
+
+export function getQuestionnaireDataFromLocalStorage(): void {
+  const questionnaireDataLocal = JSON.parse(localStorage.getItem('questionnaireDataLocal') || '{}')
+  if (JSON.stringify(questionnaireDataLocal) != '{}') {
+    questionnaireData.value = questionnaireDataLocal
+  }
+}

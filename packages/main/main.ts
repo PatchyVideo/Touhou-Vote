@@ -1,4 +1,5 @@
 import { createApp, defineComponent, h } from 'vue'
+import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
 
 /* Tailwind CSS */
 import '@/tailwindcss'
@@ -72,6 +73,11 @@ router.beforeEach(async (to, from, next) => {
   if (!NProgress.isStarted()) NProgress.start()
   await appPromisesFinish
   if (to.path != '/' && !isLogin.value) next({ path: '/' })
+  else if (
+    (to.path === '/vote/character' || to.path === '/vote/music' || to.path === '/vote/couple') &&
+    !IsQuestionnaireAllDone.value
+  )
+    next({ path: '/' })
   else next()
 })
 router.afterEach((guard) => {

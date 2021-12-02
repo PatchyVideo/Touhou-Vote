@@ -95,6 +95,7 @@ import {
   computeQuestionnaire,
   questionnaireData,
   questionDone,
+  IsQuestionnaireDone,
 } from '@/questionnaire/lib/questionnaireData'
 import { useRoute, useRouter } from 'vue-router'
 import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
@@ -102,8 +103,6 @@ import QuestionnaireChange from '@/questionnaire/components/QuestionnaireChange.
 
 const route = useRoute()
 const router = useRouter()
-
-getQuestionnaireDataFromLocalStorage()
 
 const bigQuestionnaire = computed<'mainQuestionnaire' | 'extraQuestionnaire'>(() => {
   let big = String(
@@ -218,12 +217,6 @@ function changeQuestionnaireData(): void {
 function setQuestionnaireDataToLocalStorage(): void {
   localStorage.setItem('questionnaireDataLocal', JSON.stringify(questionnaireData.value))
 }
-function getQuestionnaireDataFromLocalStorage(): void {
-  let questionnaireDataLocal = JSON.parse(localStorage.getItem('questionnaireDataLocal') || '{}')
-  if (JSON.stringify(questionnaireDataLocal) != '{}') {
-    questionnaireData.value = questionnaireDataLocal
-  }
-}
 
 const open = ref(false)
 function drawerOpen(): void {
@@ -231,10 +224,7 @@ function drawerOpen(): void {
 }
 
 const questionnaireDone = computed<boolean>(() => {
-  return (
-    questionDone.value[bigQuestionnaire.value][smallQuestionnaire.value].answers.filter((item) => item.done).length ===
-    questionDone.value[bigQuestionnaire.value][smallQuestionnaire.value].answers.length
-  )
+  return IsQuestionnaireDone(bigQuestionnaire.value, smallQuestionnaire.value)
 })
 const submiting = ref(false)
 function submitQuestionnire() {

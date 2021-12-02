@@ -14,7 +14,14 @@
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
-            <div class="text-base">{{ questionaire.name }}</div>
+            <div class="text-base">
+              {{ questionaire.name }}
+              <label
+                v-if="IsQuestionnaireDone(questionaire.bigQuestionnaire, questionaire.smallQuestionnaire)"
+                class="p-1 rounded text-xs shadow bg-accent-color-600 text-white"
+                >完成</label
+              >
+            </div>
           </div>
           <div class="w-full text-right">
             <button
@@ -39,7 +46,7 @@
 
 <script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
-import { questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
+import { questionnaireKeyToName, IsQuestionnaireDone } from '@/questionnaire/lib/questionnaireData'
 
 const props = defineProps({
   deskTopReturn: {

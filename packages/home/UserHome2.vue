@@ -76,7 +76,7 @@
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
-                <div class="text-xl truncate">填写问卷（100%）</div>
+                <div class="text-xl truncate">{{ '填写问卷' + (IsQuestionnaireAllDone ? '(完成)' : '') }}</div>
                 <div class="text-xs">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
               </div>
               <div class="w-full text-right">
@@ -84,7 +84,7 @@
                   class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600"
                   @click="systemListOpen('questionnaire')"
                 >
-                  开始填写
+                  {{ IsQuestionnaireAllDone ? '修改问卷' : '开始填写' }}
                 </button>
               </div>
             </div>
@@ -98,15 +98,16 @@
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
-                <div class="text-xl truncate">参与投票（100%）</div>
+                <div class="text-xl truncate">参与投票</div>
                 <div class="text-xs">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
               </div>
               <div class="w-full text-right">
                 <button
                   class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600"
+                  :class="{ 'bg-accent-color-300': !IsQuestionnaireAllDone }"
                   @click="systemListOpen('vote')"
                 >
-                  开始投票
+                  {{ IsQuestionnaireAllDone ? '开始投票' : '请先填写问卷哦' }}
                 </button>
               </div>
             </div>
@@ -120,7 +121,7 @@
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
-                <div class="text-xl truncate">查看往届数据（100%）</div>
+                <div class="text-xl truncate">查看往届数据</div>
                 <div class="text-xs">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
               </div>
               <div class="w-full text-right">
@@ -168,7 +169,9 @@
               </div>
             </div>
             <div class="w-full space-y-2">
-              <div class="text-xl text-center truncate">填写问卷（100%）</div>
+              <div class="text-xl text-center truncate">
+                {{ '填写问卷' + (IsQuestionnaireAllDone ? '(完成)' : '') }}
+              </div>
               <div class="text-gray-600">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
             </div>
             <div class="w-full text-center">
@@ -176,7 +179,7 @@
                 class="w-full p-2 rounded text-white bg-accent-color-600"
                 @click="systemListOpen('questionnaire')"
               >
-                开始填写
+                {{ IsQuestionnaireAllDone ? '修改问卷' : '开始填写' }}
               </button>
             </div>
           </div>
@@ -207,12 +210,16 @@
               </div>
             </div>
             <div class="w-full space-y-2">
-              <div class="text-xl text-center truncate">参与投票（100%）</div>
+              <div class="text-xl text-center truncate">参与投票</div>
               <div class="text-gray-600">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
             </div>
             <div class="w-full text-center">
-              <button class="w-full p-2 rounded text-white bg-accent-color-600" @click="systemListOpen('vote')">
-                开始投票
+              <button
+                class="w-full p-2 rounded text-white bg-accent-color-600"
+                :class="{ 'bg-accent-color-300': !IsQuestionnaireAllDone }"
+                @click="systemListOpen('vote')"
+              >
+                {{ IsQuestionnaireAllDone ? '开始投票' : '请先填写问卷哦' }}
               </button>
             </div>
           </div>
@@ -256,6 +263,7 @@ import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { screenSizes } from '@/tailwindcss'
 import { username, deleteUserData } from '@/home/lib/user'
+import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
 import UserQuestionnaire from './components/UserQuestionnaire.vue'
 import UserVote from './components/UserVote.vue'
 
