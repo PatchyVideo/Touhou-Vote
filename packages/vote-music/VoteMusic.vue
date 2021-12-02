@@ -107,7 +107,7 @@
           <div class="">
             {{ '投票位' + (index + 1) + '：' + music.name }}
           </div>
-          <div class="text-sm truncate">{{ '专辑：' + musicHonmei.album }}</div>
+          <div class="text-sm truncate">{{ '专辑：' + music.album }}</div>
           <div class="text-sm">{{ '投票理由：' + (music.reason ? music.reason : '无') }}</div>
         </div>
         <div class="text-gray-500 italic">*票位序号仅给用户参考，不影响加权<br />*投票期间可随时更改投票内容哦</div>

@@ -151,7 +151,8 @@ function checkVote(): void {
       if (
         characterOverlapNumber ===
           Math.min(couplesValid.value[i].characters.length, couplesValid.value[j].characters.length) &&
-        couplesValid.value[i].seme === couplesValid.value[j].seme
+        couplesValid.value[i].characters[couplesValid.value[i].seme].name ===
+          couplesValid.value[j].characters[couplesValid.value[j].seme].name
       ) {
         alert('投票位' + (i + 1) + '投票位' + (j + 1) + '重复！')
         return
