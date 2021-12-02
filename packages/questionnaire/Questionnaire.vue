@@ -86,6 +86,28 @@
     :small-questionnaire="smallQuestionnaire"
     @changeQuestion="changeQuestion"
   />
+  <VoteMessageBox v-model:open="submitCompleteMessageBoxOpen" title="提交成功！">
+    <div class="p-2 space-y-2">
+      <div>
+        <div>{{ '感谢您完成了' + questionnaireName + '的填写！' }}</div>
+        <div>您是希望休息一下，还是继续填写/修改其他问卷呢？</div>
+      </div>
+      <div class="flex justify-between space-x-2">
+        <button
+          class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+          @click="backHome()"
+        >
+          休息一下，返回主页面
+        </button>
+        <button
+          class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+          @click="continueEdit('back')"
+        >
+          我还想继续填写/修改问卷！
+        </button>
+      </div>
+    </div>
+  </VoteMessageBox>
 </template>
 
 <script lang="ts" setup>
@@ -100,6 +122,7 @@ import {
 import { useRoute, useRouter } from 'vue-router'
 import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
 import QuestionnaireChange from '@/questionnaire/components/QuestionnaireChange.vue'
+import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -223,6 +246,7 @@ function drawerOpen(): void {
   open.value = true
 }
 
+const submitCompleteMessageBoxOpen = ref(false)
 const questionnaireDone = computed<boolean>(() => {
   return IsQuestionnaireDone(bigQuestionnaire.value, smallQuestionnaire.value)
 })
@@ -234,9 +258,17 @@ function submitQuestionnire() {
     submiting.value = true
     setTimeout(() => {
       submiting.value = false
-      alert('提交成功！')
+      submitCompleteMessageBoxOpen.value = true
     }, 1000)
   }
+}
+
+function backHome(): void {
+  router.push('/')
+}
+function continueEdit(): void {
+  submitCompleteMessageBoxOpen.value = false
+  drawerOpen()
 }
 </script>
 
