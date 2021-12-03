@@ -1202,27 +1202,6 @@ export const questionnaire: QuestionnaireALL = {
         ],
         [
           {
-            id: 21020,
-            type: 'Single',
-            question: '被遗忘的问题 ～ Error Occured',
-            introduction: '',
-            input: '',
-            options: [
-              {
-                id: 2102001,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-              {
-                id: 2102002,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-            ],
-          },
-          {
             id: 21021,
             type: 'Single',
             question: '你能不能好好说话',
@@ -1240,6 +1219,27 @@ export const questionnaire: QuestionnaireALL = {
                 related: [],
                 mutex: [],
                 content: '那你去物管啊',
+              },
+            ],
+          },
+          {
+            id: 21020,
+            type: 'Single',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2102001,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
+              },
+              {
+                id: 2102002,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
               },
             ],
           },
