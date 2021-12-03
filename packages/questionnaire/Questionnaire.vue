@@ -25,7 +25,7 @@
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="space-y-5 p-2">
           <div>{{ questionNum + 1 + '：' + question.content + '（' + TypeToChinese[question.type] + '）' }}</div>
-          <div class="rounded bg-gray-50 bg-opacity-50 space-y-1">
+          <div v-if="question.type != 'Input'" class="rounded bg-gray-50 bg-opacity-50 space-y-1">
             <div
               v-for="(option, index) in options"
               :key="index"
@@ -38,6 +38,9 @@
                 class="mr-2"
               />{{ option.content }}
             </div>
+          </div>
+          <div v-else>
+            <input v-model="answerContent" />
           </div>
         </div>
       </div>
@@ -201,10 +204,17 @@ function updateAnswerData(): number[] {
     questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[questionNum.value].options || []
   )
 }
+const answerContent = ref<string>(updateAnswerContent())
+function updateAnswerContent(): string {
+  return (
+    questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[questionNum.value].input || ''
+  )
+}
 watch(
   route,
   () => {
     answerData.value = updateAnswerData()
+    answerContent.value = updateAnswerContent()
   },
   { deep: true }
 )
@@ -235,6 +245,8 @@ function changeQuestion(direction: 'forward' | 'back' | 'no'): void {
 function changeQuestionnaireData(): void {
   questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[questionNum.value].options =
     answerData.value
+  questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[questionNum.value].input =
+    answerContent.value
   setQuestionnaireDataToLocalStorage()
 }
 function setQuestionnaireDataToLocalStorage(): void {
@@ -270,6 +282,7 @@ function continueEdit(): void {
   submitCompleteMessageBoxOpen.value = false
   drawerOpen()
 }
+console.log(questionnaireComputed.value)
 </script>
 
 <style lang="postcss" scoped></style>

@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { questionnaire, QuestionnaireALL } from '@/questionnaire/lib/questionnaire'
 
 interface Answer {
@@ -80,7 +80,7 @@ function IsVaildQuestion(ID: number): boolean {
 }
 
 // 匹配两个ID是否在同一个问题库里，ID要求5位ID
-function IsInSameQuestionLibrary(ID1: number, ID2: number) {
+function IsInSameQuestionLibrary(ID1: number, ID2: number): boolean {
   return Math.floor(ID1 / 10) === Math.floor(ID2 / 10)
 }
 
@@ -93,132 +93,146 @@ function resetAnswer(answerID: number) {
   }
 }
 
-export const questionnaireData = ref<QuestionnaireData>({
-  mainQuestionnaire: {
-    requiredQuestionnaire: {
-      id: 11,
-      answers: [
-        {
-          id: 11011,
-          options: [],
-          input: '',
-        },
-        {
-          id: 11021,
-          options: [],
-          input: '',
-        },
-        {
-          id: 11031,
-          options: [],
-          input: '',
-        },
-        {
-          id: 11041,
-          options: [],
-          input: '',
-        },
-        {
-          id: 11051,
-          options: [],
-          input: '',
-        },
-        {
-          id: 11061,
-          options: [],
-          input: '',
-        },
-        {
-          id: 11071,
-          options: [],
-          input: '',
-        },
-        {
-          id: 11081,
-          options: [],
-          input: '',
-        },
-        {
-          id: 11091,
-          options: [],
-          input: '',
-        },
-        {
-          id: 11101,
-          options: [],
-          input: '',
-        },
-      ],
+export function getQuestionnaireData(): QuestionnaireData {
+  return {
+    mainQuestionnaire: {
+      requiredQuestionnaire: {
+        id: 11,
+        answers: [
+          {
+            id: 11011,
+            options: [],
+            input: '',
+          },
+          {
+            id: 11021,
+            options: [],
+            input: '',
+          },
+          {
+            id: 11031,
+            options: [],
+            input: '',
+          },
+          {
+            id: 11041,
+            options: [],
+            input: '',
+          },
+          {
+            id: 11051,
+            options: [],
+            input: '',
+          },
+          {
+            id: 11061,
+            options: [],
+            input: '',
+          },
+          {
+            id: 11071,
+            options: [],
+            input: '',
+          },
+          {
+            id: 11081,
+            options: [],
+            input: '',
+          },
+          {
+            id: 11091,
+            options: [],
+            input: '',
+          },
+          {
+            id: 11101,
+            options: [],
+            input: '',
+          },
+        ],
+      },
+      optionalQuestionnaire1: {
+        id: 12,
+        answers: [
+          {
+            id: 12011,
+            options: [],
+            input: '',
+          },
+          {
+            id: 12021,
+            options: [],
+            input: '',
+          },
+          {
+            id: 12031,
+            options: [],
+            input: '',
+          },
+          {
+            id: 12041,
+            options: [],
+            input: '',
+          },
+          {
+            id: 12051,
+            options: [],
+            input: '',
+          },
+          {
+            id: 12061,
+            options: [],
+            input: '',
+          },
+          {
+            id: 12071,
+            options: [],
+            input: '',
+          },
+          {
+            id: 12081,
+            options: [],
+            input: '',
+          },
+          {
+            id: 12091,
+            options: [],
+            input: '',
+          },
+          {
+            id: 12101,
+            options: [],
+            input: '',
+          },
+        ],
+      },
     },
-    optionalQuestionnaire1: {
-      id: 12,
-      answers: [
-        {
-          id: 12011,
-          options: [],
-          input: '',
-        },
-        {
-          id: 12021,
-          options: [],
-          input: '',
-        },
-        {
-          id: 12031,
-          options: [],
-          input: '',
-        },
-        {
-          id: 12041,
-          options: [],
-          input: '',
-        },
-        {
-          id: 12051,
-          options: [],
-          input: '',
-        },
-        {
-          id: 12061,
-          options: [],
-          input: '',
-        },
-        {
-          id: 12071,
-          options: [],
-          input: '',
-        },
-        {
-          id: 12081,
-          options: [],
-          input: '',
-        },
-        {
-          id: 12091,
-          options: [],
-          input: '',
-        },
-        {
-          id: 12101,
-          options: [],
-          input: '',
-        },
-      ],
+    extraQuestionnaire: {
+      exQuestionnaire1: {
+        id: 21,
+        answers: [
+          {
+            id: 21011,
+            options: [],
+            input: '',
+          },
+          {
+            id: 21020,
+            options: [],
+            input: '',
+          },
+          {
+            id: 21031,
+            options: [],
+            input: '',
+          },
+        ],
+      },
     },
-  },
-  extraQuestionnaire: {
-    exQuestionnaire1: {
-      id: 21,
-      answers: [
-        {
-          id: 21011,
-          options: [],
-          input: '',
-        },
-      ],
-    },
-  },
-})
+  }
+}
+
+export const questionnaireData = ref<QuestionnaireData>(getQuestionnaireDataFromLocalStorage())
 
 export const questionnaireComputed = ref<QuestionnaireALL>(computeQuestionnaire())
 
@@ -236,6 +250,7 @@ export function computeQuestionnaire(): QuestionnaireALL {
         if (!answerTarget?.id) continue
         // 倘若是无效的问题，则清空题库
         if (!IsVaildQuestion(answerTarget.id)) {
+          console.log(answerTarget.id)
           questionnaireReturn[IDToBigQuestionnaire(answerTarget.id)][IDToSmallQuestionnaire(answerTarget.id)].questions[
             IDToQuestionLibrary(answerTarget.id)
           ] = []
@@ -248,7 +263,7 @@ export function computeQuestionnaire(): QuestionnaireALL {
           const questionOption = questionTarget.options.find((item) => item.id === option)
           if (!questionOption) continue
           for (const relatedQuestionID of questionOption.related) {
-            // 如果选择的选项有相关问题（related属性里的题目ID），则将相关问题所在题库中的所有不相关的题目删除掉
+            // 如果选择的选项有相关问题（related属性里的题目ID），则将相关问题所在题库中的所有不相关的题目删除掉,并重置回答数据
             questionnaireReturn[IDToBigQuestionnaire(relatedQuestionID)][
               IDToSmallQuestionnaire(relatedQuestionID)
             ].questions[IDToQuestionLibrary(relatedQuestionID)] = questionnaireReturn[
@@ -256,7 +271,7 @@ export function computeQuestionnaire(): QuestionnaireALL {
             ][IDToSmallQuestionnaire(relatedQuestionID)].questions[IDToQuestionLibrary(relatedQuestionID)].filter(
               (question) => question.id === relatedQuestionID
             )
-            // 如果不相关的题目已经回答过了，则删除回答的数据
+            // 如果不相关的题目已经回答过了，则重置回答的数据
             const indexOfRelatedQuestionID = questionnaireData.value[bigQuestionnaire][
               smallQuestionnaire
             ].answers.findIndex(
@@ -283,11 +298,11 @@ export function computeQuestionnaire(): QuestionnaireALL {
             })
           }
         }
-        // 删除空问题库
-        questionnaireReturn[bigQuestionnaire][smallQuestionnaire].questions = questionnaireReturn[bigQuestionnaire][
-          smallQuestionnaire
-        ].questions.filter((item) => item.length)
       }
+      // 删除空问题库
+      questionnaireReturn[bigQuestionnaire][smallQuestionnaire].questions = questionnaireReturn[bigQuestionnaire][
+        smallQuestionnaire
+      ].questions.filter((item) => item.length)
     }
   }
   return questionnaireReturn
@@ -295,10 +310,10 @@ export function computeQuestionnaire(): QuestionnaireALL {
 
 // 用户的投票情况
 export const questionDone = computed<QuestionnaireData>(() => {
-  const questiondone = questionnaireData.value
+  const questiondone: QuestionnaireData = JSON.parse(JSON.stringify(questionnaireData.value))
   for (const bigQuestionnaire in questionnaireData.value)
     for (const smallQuestionnaire in questionnaireData.value[bigQuestionnaire])
-      questiondone[bigQuestionnaire][smallQuestionnaire].answers = questionnaireData.value[bigQuestionnaire][
+      questiondone[bigQuestionnaire][smallQuestionnaire].answers = questiondone[bigQuestionnaire][
         smallQuestionnaire
       ].answers
         .map((answer) => {
@@ -306,7 +321,6 @@ export const questionDone = computed<QuestionnaireData>(() => {
           return answer
         })
         .filter((answer) => IsVaildQuestion(answer.id))
-
   return questiondone
 })
 
@@ -396,9 +410,10 @@ export const IsQuestionnaireAllDone = computed<boolean>(() => {
   return flag === 3
 })
 
-export function getQuestionnaireDataFromLocalStorage(): void {
+// 从本地储存读取问卷数据
+export function getQuestionnaireDataFromLocalStorage(): QuestionnaireData {
   const questionnaireDataLocal = JSON.parse(localStorage.getItem('questionnaireDataLocal') || '{}')
   if (JSON.stringify(questionnaireDataLocal) != '{}') {
-    questionnaireData.value = questionnaireDataLocal
-  }
+    return questionnaireDataLocal
+  } else return getQuestionnaireData()
 }

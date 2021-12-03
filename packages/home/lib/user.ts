@@ -1,5 +1,4 @@
 import { ref, computed } from 'vue'
-import { getQuestionnaireDataFromLocalStorage } from '@/questionnaire/lib/questionnaireData'
 import { Voter } from '@/graphql/__generated__/graphql'
 
 export function createDefaultVoter(): Voter {
@@ -80,7 +79,6 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
       if (res.status === 'valid') {
         if (needGetUserDataFromLocalStorage) {
           getUserDataFromLocalStorage()
-          getQuestionnaireDataFromLocalStorage()
         }
       } else {
         deleteUserData()

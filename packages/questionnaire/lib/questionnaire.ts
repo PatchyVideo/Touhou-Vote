@@ -1180,24 +1180,78 @@ export const questionnaire: QuestionnaireALL = {
         [
           {
             id: 21011,
-            type: 'Multiple',
+            type: 'Single',
             question: '你吼辣么大声干什么嘛',
             introduction: '',
             input: '',
             options: [
               {
                 id: 2101101,
-                related: [],
+                related: [21021],
                 mutex: [],
                 content: 'あないます',
               },
               {
                 id: 2101102,
-                related: [],
+                related: [21020],
                 mutex: [],
                 content: 'あみましぜならひ',
               },
             ],
+          },
+        ],
+        [
+          {
+            id: 21020,
+            type: 'Single',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2102001,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
+              },
+              {
+                id: 2102002,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
+              },
+            ],
+          },
+          {
+            id: 21021,
+            type: 'Single',
+            question: '你能不能好好说话',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2102101,
+                related: [],
+                mutex: [],
+                content: '大家晚上吼啊',
+              },
+              {
+                id: 2102102,
+                related: [],
+                mutex: [],
+                content: '那你去物管啊',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 21031,
+            type: 'Input',
+            question: '你再骂!',
+            introduction: '',
+            input: '',
+            options: [],
           },
         ],
       ],
