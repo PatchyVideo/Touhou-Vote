@@ -1,4 +1,4 @@
-import { ref, computed, watch } from 'vue'
+import { ref, computed } from 'vue'
 import { questionnaire, QuestionnaireALL } from '@/questionnaire/lib/questionnaire'
 
 interface Answer {
@@ -263,7 +263,7 @@ export function computeQuestionnaire(): QuestionnaireALL {
           const questionOption = questionTarget.options.find((item) => item.id === option)
           if (!questionOption) continue
           for (const relatedQuestionID of questionOption.related) {
-            // 如果选择的选项有相关问题（related属性里的题目ID），则将相关问题所在题库中的所有不相关的题目删除掉,并重置回答数据
+            // 如果选择的选项有相关问题（related属性里的题目ID），则将相关问题所在题库中的所有不相关的题目删除掉
             questionnaireReturn[IDToBigQuestionnaire(relatedQuestionID)][
               IDToSmallQuestionnaire(relatedQuestionID)
             ].questions[IDToQuestionLibrary(relatedQuestionID)] = questionnaireReturn[
