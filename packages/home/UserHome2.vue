@@ -105,7 +105,7 @@
                 <button
                   class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600"
                   :class="{ 'bg-accent-color-300': !IsQuestionnaireAllDone }"
-                  @click="systemListOpen('vote')"
+                  @click="IsQuestionnaireAllDone && systemListOpen('vote')"
                 >
                   {{ IsQuestionnaireAllDone ? '开始投票' : '请先填写问卷哦' }}
                 </button>
@@ -217,7 +217,7 @@
               <button
                 class="w-full p-2 rounded text-white bg-accent-color-600"
                 :class="{ 'bg-accent-color-300': !IsQuestionnaireAllDone }"
-                @click="systemListOpen('vote')"
+                @click="IsQuestionnaireAllDone && systemListOpen('vote')"
               >
                 {{ IsQuestionnaireAllDone ? '开始投票' : '请先填写问卷哦' }}
               </button>
