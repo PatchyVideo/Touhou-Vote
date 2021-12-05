@@ -135,6 +135,9 @@ import { useRouter } from 'vue-router'
 import { music0 } from '@/vote-music/lib/music'
 import { musicsReverse, musicsReverseWithoutHonmei } from '@/vote-music/lib/musicList'
 import { musicHonmei, musics } from '@/vote-music/lib/voteData'
+import { useMutation, gql } from '@/graphql'
+import type { Mutation, schema } from '@/graphql'
+import { voteToken } from '@/home/lib/user'
 
 const router = useRouter()
 
@@ -145,15 +148,37 @@ const musicHonmeiIsSelected = ref(false)
 
 const confirmBoxOpen = ref(false)
 
-const loading = ref(false)
+const MusicSubmit = computed<schema.MusicSubmit[]>(() =>
+  musics.value
+    .filter((item) => item.id != '')
+    .map((item) => {
+      return {
+        name: item.name,
+        reason: item.reason,
+        first: item.honmei,
+      }
+    })
+)
 async function vote(): Promise<void> {
-  loading.value = true
-  setTimeout(() => {
-    alert('投票成功！')
-    loading.value = false
-    router.push({ path: '/' })
-  }, 1000)
+  mutate({ voteToken: voteToken.value, musics: MusicSubmit.value })
 }
+const { mutate, loading, onDone, onError } = useMutation<Mutation>(
+  gql`
+    mutation ($voteToken: String!, $musics: [MusicSubmit!]!) {
+      submitMusicVote(voteToken: $voteToken, musics: $musics) {
+        errno
+      }
+    }
+  `
+)
+onDone((result) => {
+  alert('投票成功！')
+  router.push({ path: '/' })
+})
+onError((error) => {
+  console.log(error)
+  alert('投票失败，请检查网络设置！')
+})
 </script>
 <style lang="postcss" scoped>
 .music-enter-active,

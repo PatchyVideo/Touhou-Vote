@@ -105,6 +105,9 @@ import CoupleCard from '@/vote-couple/components/CoupleCard.vue'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import { Character, character0 } from '@/vote-character/lib/character'
+import { useMutation, gql } from '@/graphql'
+import type { Mutation, schema } from '@/graphql'
+import { voteToken } from '@/home/lib/user'
 
 const coupleHonmeiOptions = computed(() =>
   new Array(couplesValid.value.length).fill(null).map((item, index) => {
@@ -161,16 +164,62 @@ function checkVote(): void {
   confirmBoxOpen.value = true
 }
 
-const loading = ref(false)
+const CPSubmit = computed<schema.CpSubmit[]>(() =>
+  couplesValid.value.map((item) => {
+    if (item.seme === -1)
+      if (computeCharactersValid(item.characters).length === 3)
+        return {
+          nameA: computeCharactersValid(item.characters)[0].name,
+          nameB: computeCharactersValid(item.characters)[1].name,
+          nameC: computeCharactersValid(item.characters)[2].name,
+          first: item.honmei,
+        }
+      else
+        return {
+          nameA: computeCharactersValid(item.characters)[0].name,
+          nameB: computeCharactersValid(item.characters)[1].name,
+          first: item.honmei,
+        }
+    else {
+      if (computeCharactersValid(item.characters).length === 3)
+        return {
+          nameA: computeCharactersValid(item.characters)[0].name,
+          nameB: computeCharactersValid(item.characters)[1].name,
+          nameC: computeCharactersValid(item.characters)[2].name,
+          active: item.characters[item.seme].name,
+          first: item.honmei,
+        }
+      else
+        return {
+          nameA: computeCharactersValid(item.characters)[0].name,
+          nameB: computeCharactersValid(item.characters)[1].name,
+          active: item.characters[item.seme].name,
+          first: item.honmei,
+        }
+    }
+  })
+)
 const router = useRouter()
 async function vote(): Promise<void> {
-  loading.value = true
-  setTimeout(() => {
-    alert('投票成功！')
-    loading.value = false
-    router.push({ path: '/' })
-  }, 1000)
+  mutate({ voteToken: voteToken.value, cps: CPSubmit.value })
 }
+const { mutate, loading, onDone, onError } = useMutation<Mutation>(
+  gql`
+    mutation ($voteToken: String!, $cps: [CPSubmit!]!) {
+      submitCPVote(voteToken: $voteToken, cps: $cps) {
+        errno
+      }
+    }
+  `
+)
+onDone((result) => {
+  alert('投票成功！')
+  router.push({ path: '/' })
+})
+onError((error) => {
+  console.log(error)
+  alert('投票失败，请检查网络设置！')
+})
 </script>
 
 <style lang="postcss" scoped>
