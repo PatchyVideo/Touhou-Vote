@@ -250,7 +250,6 @@ export function computeQuestionnaire(): QuestionnaireALL {
         if (!answerTarget?.id) continue
         // 倘若是无效的问题，则清空题库
         if (!IsVaildQuestion(answerTarget.id)) {
-          console.log(answerTarget.id)
           questionnaireReturn[IDToBigQuestionnaire(answerTarget.id)][IDToSmallQuestionnaire(answerTarget.id)].questions[
             IDToQuestionLibrary(answerTarget.id)
           ] = []

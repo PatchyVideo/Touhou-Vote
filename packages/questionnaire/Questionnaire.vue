@@ -62,8 +62,8 @@
         <button
           v-else
           class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
-          :class="{ 'bg-accent-color-300': submiting }"
-          @click="submitQuestionnire()"
+          :class="{ 'bg-accent-color-300': submiting || !questionnaireDone }"
+          @click="questionnaireDone && submitQuestionnire()"
         >
           <icon-uil-spinner-alt v-if="submiting" class="animate-spin" /><label>{{
             submiting ? '提交中' : '提交'
@@ -163,6 +163,14 @@ const questionnaireName = computed<string>(
 const questionNum = computed<number>(() =>
   Number(route.query.number ? (Array.isArray(route.query.number) ? route.query.number[0] : route.query.number) : 0)
 )
+// Because questionnaireComputed will delete questions invaild while questionnaireData won't, questionNum is not equal to the index of this question in questionnaireData
+const indexOfAnswerInQuestionnaireData = computed<number>(() =>
+  questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers.findIndex(
+    (item) =>
+      item.id ===
+      questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].questions[questionNum.value][0].id
+  )
+)
 interface Question {
   content: string
   id: number
@@ -201,13 +209,17 @@ const options = computed<Option[]>(() =>
 const answerData = ref<number[]>(updateAnswerData())
 function updateAnswerData(): number[] {
   return (
-    questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[questionNum.value].options || []
+    questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
+      indexOfAnswerInQuestionnaireData.value
+    ].options || []
   )
 }
 const answerContent = ref<string>(updateAnswerContent())
 function updateAnswerContent(): string {
   return (
-    questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[questionNum.value].input || ''
+    questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
+      indexOfAnswerInQuestionnaireData.value
+    ].input || ''
   )
 }
 watch(
@@ -243,10 +255,12 @@ function changeQuestion(direction: 'forward' | 'back' | 'no'): void {
   router.push({ path: route.path, query })
 }
 function changeQuestionnaireData(): void {
-  questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[questionNum.value].options =
-    answerData.value
-  questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[questionNum.value].input =
-    answerContent.value
+  questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
+    indexOfAnswerInQuestionnaireData.value
+  ].options = answerData.value
+  questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
+    indexOfAnswerInQuestionnaireData.value
+  ].input = answerContent.value
   setQuestionnaireDataToLocalStorage()
 }
 function setQuestionnaireDataToLocalStorage(): void {
@@ -282,7 +296,6 @@ function continueEdit(): void {
   submitCompleteMessageBoxOpen.value = false
   drawerOpen()
 }
-console.log(questionnaireComputed.value)
 </script>
 
 <style lang="postcss" scoped></style>
