@@ -223,6 +223,15 @@ function updateAnswerContent(): string {
   )
 }
 watch(
+  answerContent,
+  () => {
+    questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
+      indexOfAnswerInQuestionnaireData.value
+    ].input = answerContent.value
+  },
+  { deep: true }
+)
+watch(
   route,
   () => {
     answerData.value = updateAnswerData()
