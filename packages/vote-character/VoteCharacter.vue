@@ -167,7 +167,7 @@ async function vote(): Promise<void> {
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`
-    mutation ($content: MusicSubmitGQL!) {
+    mutation ($content: CharacterSubmitGQL!) {
       submitCharacterVote(content: $content) {
         errno
       }
