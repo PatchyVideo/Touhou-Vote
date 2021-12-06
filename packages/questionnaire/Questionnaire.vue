@@ -40,7 +40,12 @@
             </div>
           </div>
           <div v-else>
-            <input v-model="answerContent" />
+            <textarea
+              v-model="answerContent"
+              class="w-full ring ring-accent-color-600 rounded"
+              placeholder="请说点儿什么吧..."
+              rows="5"
+            />
           </div>
         </div>
       </div>
@@ -190,7 +195,7 @@ const question = computed<Question>(() => {
 const TypeToChinese = {
   Single: '单选',
   Multiple: '多选',
-  Input: '',
+  Input: '输入',
 }
 interface Option {
   content: string
