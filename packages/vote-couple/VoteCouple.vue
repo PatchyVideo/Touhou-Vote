@@ -201,12 +201,12 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
 )
 const router = useRouter()
 async function vote(): Promise<void> {
-  mutate({ voteToken: voteToken.value, cps: CPSubmit.value })
+  mutate({ content: { voteToken: voteToken.value, cps: CPSubmit.value } })
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`
-    mutation ($voteToken: String!, $cps: [CPSubmit!]!) {
-      submitCPVote(voteToken: $voteToken, cps: $cps) {
+    mutation ($content: CPSubmitGQL!) {
+      submitCPVote(content: $content) {
         errno
       }
     }

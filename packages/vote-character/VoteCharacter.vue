@@ -163,12 +163,12 @@ const CharacterSubmit = computed<schema.CharacterSubmit[]>(() =>
     })
 )
 async function vote(): Promise<void> {
-  mutate({ voteToken: voteToken.value, characters: CharacterSubmit.value })
+  mutate({ content: { voteToken: voteToken.value, characters: CharacterSubmit.value } })
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`
-    mutation ($voteToken: String!, $characters: [CharacterSubmit!]!) {
-      submitCharacterVote(voteToken: $voteToken, characters: $characters) {
+    mutation ($content: MusicSubmitGQL!) {
+      submitCharacterVote(content: $content) {
         errno
       }
     }
