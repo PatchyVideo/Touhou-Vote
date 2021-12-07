@@ -10,7 +10,7 @@
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
-            <div class="text-xl">人妖部门</div>
+            <div class="text-xl">角色部门</div>
             <div class="text-xs"></div>
           </div>
           <div class="w-full text-right">
