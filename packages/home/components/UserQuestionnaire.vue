@@ -30,7 +30,7 @@
               {{ questionaire.name }}
               <label
                 v-if="IsQuestionnaireDone(questionaire.bigQuestionnaire, questionaire.smallQuestionnaire)"
-                class="p-1 rounded text-xs shadow bg-accent-color-600 text-white"
+                class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
                 >完成</label
               >
             </div>

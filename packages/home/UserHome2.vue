@@ -77,7 +77,7 @@
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
                 <div class="text-xl truncate">{{ '填写问卷' + (IsQuestionnaireAllDone ? '(完成)' : '') }}</div>
-                <div class="text-xs">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
+                <div class="text-xs">投票之前请先完成调查问卷哦</div>
               </div>
               <div class="w-full text-right">
                 <button
@@ -99,7 +99,7 @@
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
                 <div class="text-xl truncate">参与投票</div>
-                <div class="text-xs">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
+                <div class="text-xs">为你喜爱的角色/曲目/CP投上一票吧！</div>
               </div>
               <div class="w-full text-right">
                 <button
@@ -113,7 +113,7 @@
             </div>
           </div>
 
-          <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
+          <!-- <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
                 <img src="@/home/assets/DefaultAvatar.jpg" class="object-cover rounded" />
@@ -128,7 +128,7 @@
                 <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600">查看数据</button>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="w-1/2">
           <Component
@@ -172,7 +172,7 @@
               <div class="text-xl text-center truncate">
                 {{ '填写问卷' + (IsQuestionnaireAllDone ? '(完成)' : '') }}
               </div>
-              <div class="text-gray-600">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
+              <div class="text-gray-600">投票之前请先完成调查问卷哦</div>
             </div>
             <div class="w-full text-center">
               <button
@@ -211,7 +211,7 @@
             </div>
             <div class="w-full space-y-2">
               <div class="text-xl text-center truncate">参与投票</div>
-              <div class="text-gray-600">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
+              <div class="text-gray-600">为你喜爱的角色/曲目/CP投上一票吧！</div>
             </div>
             <div class="w-full text-center">
               <button
@@ -227,7 +227,7 @@
         </div>
       </div>
 
-      <div
+      <!-- <div
         class="
           flex flex-wrap
           space-y-2
@@ -253,7 +253,7 @@
             查看数据
           </button>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <VoteMessageBox v-model:open="ruleMessageBoxOpen" title="问卷填写规则：">
