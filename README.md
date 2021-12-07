@@ -8,7 +8,7 @@
   <img alt="License" src="https://img.shields.io/github/license/PatchyVideo/Touhou-Vote" />
 </p>
 
-由 [THBWiki](https://thwiki.cc) 与 [PatchyVideo](https://github.com/PatchyVideo) 共同开发的 “国内东方人气投票” 前端部分。
+由 [THBWiki](https://thwiki.cc) 与 [VoileLabs](https://github.com/PatchyVideo) 共同开发的 “国内东方人气投票” 前端部分。
 
 开发进度 / Status : 半成品 / WIP
 
@@ -27,16 +27,6 @@ https://github.com/PatchyVideo/Touhou-Vote/blob/next/doc/VOTEDETAIL.md
 ## 贡献指南 / Contributing
 
 ### 如何在本地启动项目 / Run project locally
-
-```bash
-# 拉取后端项目 / clone backend repo
-$ git clone https://github.com/zyddnys/Touhou-Vote-BE.git
-$ cd Touhou-Vote-BE
-
-# 启动 gateway / run gateway
-$ cd gateway
-$ cargo run
-```
 
 ```bash
 # 拉取前端项目 / clone frontend repo
