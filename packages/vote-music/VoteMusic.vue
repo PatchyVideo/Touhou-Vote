@@ -166,7 +166,7 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`
     mutation ($content: MusicSubmitGQL!) {
       submitMusicVote(content: $content) {
-        errno
+        code
       }
     }
   `

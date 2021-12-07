@@ -169,7 +169,7 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`
     mutation ($content: CharacterSubmitGQL!) {
       submitCharacterVote(content: $content) {
-        errno
+        code
       }
     }
   `
