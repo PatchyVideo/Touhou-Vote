@@ -34,7 +34,9 @@
         /></a>
         <div class="w-full text-lg flex items-center space-x-1">
           <icon-uil-clock-five></icon-uil-clock-five>
-          <div class="text-right text-md text-gray-700 font-sans">距投票结束还有 00天00时00分</div>
+          <div class="text-right text-md text-gray-700 font-sans">
+            {{ '距结束还有 ' + daysWith0 + '天' + hoursWith0 + '时' + minutesWith0 + '分' + secondsWith0 + '秒' }}
+          </div>
         </div>
       </div>
 
@@ -139,7 +141,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, computed, onBeforeUnmount } from 'vue'
 import { screenSizes } from '@/tailwindcss'
 import LoginBox from './components/LoginBox.vue'
 
@@ -151,6 +153,43 @@ function showMoreInfo(): void {
     behavior: 'smooth',
   })
 }
+
+// Calculate Time Remains
+const days = ref<number>(0)
+const daysWith0 = computed<string>(() => SupplementZero(days.value))
+const hours = ref<number>(0)
+const hoursWith0 = computed<string>(() => SupplementZero(hours.value))
+const minutes = ref<number>(0)
+const minutesWith0 = computed<string>(() => SupplementZero(minutes.value))
+const seconds = ref<number>(0)
+const secondsWith0 = computed<string>(() => SupplementZero(seconds.value))
+function SupplementZero(num: number): string {
+  let stringNumber = '00' + String(num)
+  return stringNumber.substr(stringNumber.length - 2)
+}
+
+let timer = setInterval(() => {
+  let d = new Date()
+  let hoursNow = d.getHours()
+  let minutesNow = d.getMinutes()
+  let secondsNow = d.getSeconds()
+
+  let now1 = d.getTime()
+  let ddl = new Date('2022/1/1')
+  let now2 = ddl.getTime()
+  let ddlTime = now2 - now1
+  if (ddlTime < 0) return
+
+  days.value = Math.floor(ddlTime / 1000 / 60 / 60 / 24)
+  hours.value = 23 - hoursNow
+  minutes.value = 59 - minutesNow
+  seconds.value = 59 - secondsNow
+}, 1000)
+onBeforeUnmount(() => {
+  if (timer) {
+    clearInterval(timer)
+  }
+})
 </script>
 
 <style lang="postcss" scoped></style>
