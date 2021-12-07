@@ -145,8 +145,8 @@
     </div>
 
     <!-- DeskTop View -->
-    <div v-else class="flex-grow w-9/10 mx-auto flex justify-between items-center lg:w-9/10 xl:w-2/3 3xl:w-1/2">
-      <div class="w-3/10 overflow-hidden shadow-around">
+    <div v-else class="flex-grow w-9/10 mx-auto flex justify-between items-center lg:w-9/10 xl:w-3/5 3xl:w-1/2">
+      <div class="w-9/19 overflow-hidden shadow-around">
         <div
           class="w-2/1 flex transform-gpu transition-transform duration-300"
           :class="{ '-translate-x-1/2': systemListIsOpen && systemListOpenName === 'questionnaire' }"
@@ -187,7 +187,7 @@
         </div>
       </div>
 
-      <div class="w-3/10 overflow-hidden shadow-around">
+      <div class="w-9/19 overflow-hidden shadow-around">
         <div
           class="w-2/1 flex transform-gpu transition-transform duration-300"
           :class="{ '-translate-x-1/2': systemListIsOpen && systemListOpenName === 'vote' }"
