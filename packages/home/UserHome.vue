@@ -281,6 +281,9 @@ import { ruleMessageBoxOpen } from '@/home/lib/questionnaireRule'
 import UserQuestionnaire from './components/UserQuestionnaire.vue'
 import UserVote from './components/UserVote.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import { setSiteTitle } from '@/common/lib/setSiteTitle'
+
+setSiteTitle(username.value + ' - 第⑩回 中文东方人气投票')
 
 const route = useRoute()
 const router = useRouter()

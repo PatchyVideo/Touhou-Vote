@@ -108,6 +108,9 @@ import { Character, character0 } from '@/vote-character/lib/character'
 import { useMutation, gql } from '@/graphql'
 import type { Mutation, schema } from '@/graphql'
 import { voteToken } from '@/home/lib/user'
+import { setSiteTitle } from '@/common/lib/setSiteTitle'
+
+setSiteTitle('CP部门 - 第⑩回 中文东方人气投票')
 
 const coupleHonmeiOptions = computed(() =>
   new Array(couplesValid.value.length).fill(null).map((item, index) => {

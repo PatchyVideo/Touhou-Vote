@@ -2,21 +2,8 @@
   <div class="w-full"></div>
 </template>
 <script lang="ts" setup>
-import { useQuery, gql } from '@/graphql'
-import type { Query } from '@/graphql'
-import { watch } from 'vue'
-const { result } = useQuery<Query>(
-  gql`
-    query ($userToken: String!) {
-      userTokenStatus(userToken: $userToken)
-    }
-  `,
-  {
-    userToken: localStorage.getItem('voteToken') || '',
-  }
-)
-watch(result, (value) => {
-  console.log(value)
-})
+import { setSiteTitle } from '@/common/lib/setSiteTitle'
+
+setSiteTitle('测试界面 - 第⑩回 中文东方人气投票')
 </script>
 <style lang="postcss" scoped></style>

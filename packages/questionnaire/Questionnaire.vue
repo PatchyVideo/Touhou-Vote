@@ -131,6 +131,9 @@ import { useRoute, useRouter } from 'vue-router'
 import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
 import QuestionnaireChange from '@/questionnaire/components/QuestionnaireChange.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import { setSiteTitle } from '@/common/lib/setSiteTitle'
+
+setSiteTitle('调查问卷 - 第⑩回 中文东方人气投票')
 
 const route = useRoute()
 const router = useRouter()

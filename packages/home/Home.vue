@@ -144,6 +144,9 @@
 import { ref, computed, onBeforeUnmount } from 'vue'
 import { screenSizes } from '@/tailwindcss'
 import LoginBox from './components/LoginBox.vue'
+import { setSiteTitle } from '@/common/lib/setSiteTitle'
+
+setSiteTitle('第⑩回 中文东方人气投票')
 
 const loginBoxOpen = ref(false)
 

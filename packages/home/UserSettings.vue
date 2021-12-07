@@ -120,6 +120,9 @@ import { user, username, sessionToken } from '@/home/lib/user'
 import { useMutation, gql } from '@/graphql'
 import type { Mutation } from '@/graphql'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import { setSiteTitle } from '@/common/lib/setSiteTitle'
+
+setSiteTitle('用户设置 - 第⑩回 中文东方人气投票')
 
 // function WIP(): void {
 //   alert('投票期间不能修改个人信息哦，才不是因为没还做完呢(o˘д˘)o')
