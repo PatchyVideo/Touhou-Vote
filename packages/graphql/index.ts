@@ -110,35 +110,7 @@ export function createApollo(): ApolloClient<NormalizedCacheObject> {
     possibleTypes: generatedIntrospection.possibleTypes,
     typePolicies: {
       Query: {
-        fields: {
-          listPlaylist: {
-            ...childOffsetLimitPara('playlists'),
-            keyArgs: ['query', 'order', 'additionalConstraint'],
-          },
-          listVideo: {
-            ...childOffsetLimitPara('videos'),
-            keyArgs: ['query', 'qtype', 'order', 'additionalConstraint', 'hidePlaceholder', 'lang', 'humanReadableTag'],
-          },
-          listTagObjects: {
-            ...childOffsetLimitPara('tags'),
-            keyArgs: ['query', 'queryRegex', 'category', 'order'],
-          },
-          listNotifications: {
-            ...childOffsetLimitPara('notes'),
-            keyArgs: ['listAll', 'noteType'],
-          },
-          listSubscriptionVideos: {
-            ...childOffsetLimitPara('videos'),
-            keyArgs: ['query', 'queryRegex', 'category', 'order'],
-          },
-        },
-      },
-      Playlist: {
-        fields: {
-          videos: {
-            ...offsetLimitPagination(),
-          },
-        },
+        fields: {},
       },
     },
   })
