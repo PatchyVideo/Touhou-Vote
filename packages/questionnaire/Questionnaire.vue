@@ -132,6 +132,9 @@ import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
 import QuestionnaireChange from '@/questionnaire/components/QuestionnaireChange.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
+import { useMutation, gql } from '@/graphql'
+import type { Mutation } from '@/graphql'
+import { voteToken } from '@/home/lib/user'
 
 setSiteTitle('调查问卷 - 第⑩回 中文东方人气投票')
 
@@ -293,16 +296,12 @@ const submitCompleteMessageBoxOpen = ref(false)
 const questionnaireDone = computed<boolean>(() => {
   return IsQuestionnaireDone(bigQuestionnaire.value, smallQuestionnaire.value)
 })
-const submiting = ref(false)
+
 function submitQuestionnire() {
   changeQuestion('no')
   if (submiting.value) return
   if (window.confirm('确认提交' + questionnaireName.value + '吗？')) {
-    submiting.value = true
-    setTimeout(() => {
-      submiting.value = false
-      submitCompleteMessageBoxOpen.value = true
-    }, 1000)
+    mutate({ content: { voteToken: voteToken.value, paperJson: JSON.stringify(questionnaireData.value) } })
   }
 }
 
@@ -313,6 +312,29 @@ function continueEdit(): void {
   submitCompleteMessageBoxOpen.value = false
   drawerOpen()
 }
+
+const {
+  mutate,
+  loading: submiting,
+  onDone,
+  onError,
+} = useMutation<Mutation>(
+  gql`
+    mutation ($content: PaperSubmitGQL!) {
+      submitPaperVote(content: $content) {
+        code
+      }
+    }
+  `
+)
+onDone((result) => {
+  alert('提交成功！')
+  submitCompleteMessageBoxOpen.value = true
+})
+onError((error) => {
+  console.log(error)
+  alert('提交失败，请检查网络设置！')
+})
 </script>
 
 <style lang="postcss" scoped></style>
