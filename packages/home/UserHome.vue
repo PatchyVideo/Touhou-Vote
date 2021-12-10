@@ -103,7 +103,14 @@
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
-                <div class="text-xl truncate">参与投票</div>
+                <div class="text-xl truncate">
+                  参与投票
+                  <label
+                    v-if="voteCharacterComplete && voteMusicComplete && voteCoupleComplete"
+                    class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
+                    >完成</label
+                  >
+                </div>
                 <div class="text-xs">为你喜爱的角色/曲目/CP投上一票吧！</div>
               </div>
               <div class="w-full text-right">
@@ -112,7 +119,13 @@
                   :class="{ 'bg-accent-color-300': !IsQuestionnaireAllDone }"
                   @click="IsQuestionnaireAllDone && systemListOpen('vote')"
                 >
-                  {{ IsQuestionnaireAllDone ? '开始投票' : '请先填写问卷哦' }}
+                  {{
+                    IsQuestionnaireAllDone
+                      ? voteCharacterComplete && voteMusicComplete && voteCoupleComplete
+                        ? '修改结果'
+                        : '开始投票'
+                      : '请先填写问卷哦'
+                  }}
                 </button>
               </div>
             </div>
@@ -175,7 +188,10 @@
             </div>
             <div class="w-full space-y-2">
               <div class="text-xl text-center truncate">
-                {{ '填写问卷' + (IsQuestionnaireAllDone ? '(完成)' : '') }}
+                填写问卷
+                <label v-if="IsQuestionnaireAllDone" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
+                  >完成</label
+                >
               </div>
               <div class="text-gray-600">投票之前请先完成调查问卷哦</div>
             </div>
@@ -215,7 +231,14 @@
               </div>
             </div>
             <div class="w-full space-y-2">
-              <div class="text-xl text-center truncate">参与投票</div>
+              <div class="text-xl text-center truncate">
+                参与投票
+                <label
+                  v-if="voteCharacterComplete && voteMusicComplete && voteCoupleComplete"
+                  class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
+                  >完成</label
+                >
+              </div>
               <div class="text-gray-600">为你喜爱的角色/曲目/CP投上一票吧！</div>
             </div>
             <div class="w-full text-center">
@@ -280,7 +303,7 @@
 import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { screenSizes } from '@/tailwindcss'
-import { username, deleteUserData } from '@/home/lib/user'
+import { username, deleteUserData, voteCharacterComplete, voteMusicComplete, voteCoupleComplete } from '@/home/lib/user'
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
 import { ruleMessageBoxOpen } from '@/home/lib/questionnaireRule'
 import UserQuestionnaire from './components/UserQuestionnaire.vue'
