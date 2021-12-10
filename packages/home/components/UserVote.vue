@@ -10,7 +10,12 @@
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
-            <div class="text-xl">角色部门</div>
+            <div class="text-xl">
+              角色部门
+              <label v-if="voteCharacterComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
+                >完成</label
+              >
+            </div>
             <div class="text-xs"></div>
           </div>
           <div class="w-full text-right">
@@ -32,7 +37,10 @@
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
-            <div class="text-xl">音乐部门</div>
+            <div class="text-xl">
+              音乐部门
+              <label v-if="voteMusicComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white">完成</label>
+            </div>
             <div class="text-xs"></div>
           </div>
           <div class="w-full text-right">
@@ -53,7 +61,10 @@
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
-            <div class="text-xl">CP部门</div>
+            <div class="text-xl">
+              CP部门
+              <label v-if="voteCoupleComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white">完成</label>
+            </div>
             <div class="text-xs"></div>
           </div>
           <div class="w-full text-right">
@@ -79,6 +90,7 @@
 
 <script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
+import { voteCharacterComplete, voteMusicComplete, voteCoupleComplete } from '../lib/user'
 
 const props = defineProps({
   deskTopReturn: {

@@ -137,7 +137,7 @@ import { musicsReverse, musicsReverseWithoutHonmei } from '@/vote-music/lib/musi
 import { musicHonmei, musics } from '@/vote-music/lib/voteData'
 import { useMutation, gql } from '@/graphql'
 import type { Mutation, schema } from '@/graphql'
-import { voteToken } from '@/home/lib/user'
+import { voteToken, voteMusicComplete } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 
 setSiteTitle('音乐部门 - 第⑩回 中文东方人气投票')
@@ -176,6 +176,7 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
 )
 onDone((result) => {
   alert('投票成功！')
+  voteMusicComplete.value = true
   router.push({ path: '/' })
 })
 onError((error) => {

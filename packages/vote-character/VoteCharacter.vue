@@ -140,7 +140,7 @@ import { charactersReverse, charactersReverseWithoutHonmei } from '@/vote-charac
 import { characterHonmei, characters } from '@/vote-character/lib/voteData'
 import { useMutation, gql } from '@/graphql'
 import type { Mutation, schema } from '@/graphql'
-import { voteToken } from '@/home/lib/user'
+import { voteToken, voteCharacterComplete } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 
 setSiteTitle('角色部门 - 第⑩回 中文东方人气投票')
@@ -179,6 +179,7 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
 )
 onDone((result) => {
   alert('投票成功！')
+  voteCharacterComplete.value = true
   router.push({ path: '/' })
 })
 onError((error) => {

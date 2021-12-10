@@ -30,6 +30,10 @@ export const sessionToken = ref<string>('')
 
 export const isLogin = computed(() => voteToken.value != '')
 
+export const voteCharacterComplete = ref(false)
+export const voteMusicComplete = ref(false)
+export const voteCoupleComplete = ref(false)
+
 export function setUserDataToLocalStorage(user: Voter, token: string, session: string): void {
   if (user.phone != null) user.phone = replacePhoneNum(user.phone)
   localStorage.setItem('user', JSON.stringify(user))
@@ -64,6 +68,11 @@ export function deleteUserData(): void {
 }
 
 export async function checkLoginStatus(needGetUserDataFromLocalStorage = false): Promise<void> {
+  const tokenData = localStorage.getItem('voteToken')
+  if (!tokenData) {
+    deleteUserData()
+    return
+  }
   await fetch('https://touhou.ai/vote-be/user-token-status', {
     method: 'POST',
     headers: new Headers({
@@ -71,6 +80,7 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
     }),
     body: JSON.stringify({
       user_token: localStorage.getItem('sessionToken') || '',
+      voteToken: localStorage.getItem('voteToken') || '',
     }),
     credentials: 'include',
   })

@@ -76,7 +76,12 @@
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
-                <div class="text-xl truncate">{{ '填写问卷' + (IsQuestionnaireAllDone ? '(完成)' : '') }}</div>
+                <div class="text-xl truncate">
+                  填写问卷
+                  <label v-if="IsQuestionnaireAllDone" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
+                    >完成</label
+                  >
+                </div>
                 <div class="text-xs">投票之前请先完成调查问卷哦</div>
               </div>
               <div class="w-full text-right">
