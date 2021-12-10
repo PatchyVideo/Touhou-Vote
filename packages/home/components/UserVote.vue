@@ -23,7 +23,7 @@
               class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2"
               @click="voteCharacter()"
             >
-              开始投票
+              {{ voteCharacterComplete ? '修改结果' : '开始投票' }}
             </button>
           </div>
         </div>
@@ -48,7 +48,7 @@
               class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2"
               @click="voteMusic()"
             >
-              开始投票
+              {{ voteMusicComplete ? '修改结果' : '开始投票' }}
             </button>
           </div>
         </div>
@@ -72,7 +72,7 @@
               class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 md:px-3 md:py-2"
               @click="voteCouple()"
             >
-              开始投票
+              {{ voteCoupleComplete ? '修改结果' : '开始投票' }}
             </button>
           </div>
         </div>
@@ -90,7 +90,7 @@
 
 <script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
-import { voteCharacterComplete, voteMusicComplete, voteCoupleComplete } from '../lib/user'
+import { voteCharacterComplete, voteMusicComplete, voteCoupleComplete } from '@/home/lib/user'
 
 const props = defineProps({
   deskTopReturn: {

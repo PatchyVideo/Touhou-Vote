@@ -33,6 +33,12 @@ export const isLogin = computed(() => voteToken.value != '')
 export const voteCharacterComplete = ref(false)
 export const voteMusicComplete = ref(false)
 export const voteCoupleComplete = ref(false)
+function setVoteStatus(votingStatus = { characters: true, cps: true, musics: true, papers: false }): void {
+  voteCharacterComplete.value = votingStatus.characters
+  voteMusicComplete.value = votingStatus.musics
+  voteCoupleComplete.value = votingStatus.cps
+  console.log(voteCoupleComplete.value)
+}
 
 export function setUserDataToLocalStorage(user: Voter, token: string, session: string): void {
   if (user.phone != null) user.phone = replacePhoneNum(user.phone)
@@ -80,13 +86,14 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
     }),
     body: JSON.stringify({
       user_token: localStorage.getItem('sessionToken') || '',
-      voteToken: localStorage.getItem('voteToken') || '',
+      vote_token: localStorage.getItem('voteToken') || '',
     }),
     credentials: 'include',
   })
     .then((data) => data.json())
     .then((res) => {
       if (res.status === 'valid') {
+        if (res.voting_status) setVoteStatus(res.voting_status)
         if (needGetUserDataFromLocalStorage) {
           getUserDataFromLocalStorage()
         }
