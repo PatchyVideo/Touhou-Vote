@@ -130,19 +130,58 @@ import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import MusicSelect from './components/MusicSelect.vue'
 import MusicCard from '@/vote-music/components/MusicCard.vue'
 import MusicHonmeiCard from './components/MusicHonmeiCard.vue'
-import { ref, computed } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { music0 } from '@/vote-music/lib/music'
 import { musicsReverse, musicsReverseWithoutHonmei } from '@/vote-music/lib/musicList'
-import { musicHonmei, musics } from '@/vote-music/lib/voteData'
-import { useMutation, gql } from '@/graphql'
-import type { Mutation, schema } from '@/graphql'
+import { musicHonmei, musics, updateVotemusics } from '@/vote-music/lib/voteData'
+import { useMutation, useQuery, gql, useResult } from '@/graphql'
+import type { Mutation, Query, schema } from '@/graphql'
 import { voteToken, voteMusicComplete } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
+import NProgress from 'nprogress'
 
 setSiteTitle('音乐部门 - 第⑩回 中文东方人气投票')
 
 const router = useRouter()
+
+const {
+  result,
+  loading: getSubmitMusicVoteLoading,
+  onError: getSubmitMusicVoteError,
+} = useQuery<Query>(
+  gql`
+    query ($voteToken: String!) {
+      getSubmitMusicVote(voteToken: $voteToken) {
+        music {
+          name
+          first
+          reason
+        }
+      }
+    }
+  `,
+  {
+    voteToken: voteToken.value,
+  }
+)
+watchEffect(() => {
+  if (getSubmitMusicVoteLoading.value) {
+    if (!NProgress.isStarted()) NProgress.start()
+  } else {
+    if (NProgress.isStarted()) NProgress.done()
+  }
+})
+const resultData = useResult(result, null, (data) => data?.getSubmitMusicVote)
+watchEffect(() => {
+  if (resultData.value) {
+    updateVotemusics(resultData.value.music)
+  }
+})
+getSubmitMusicVoteError((err) => {
+  console.log(err.message)
+  alert('获取投票信息失败！失败原因：' + err.message)
+})
 
 const musicsVotedNumber = computed<number>(() => musicsReverse.value.length)
 

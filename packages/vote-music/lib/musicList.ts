@@ -2,7 +2,7 @@ import { Music, music0 } from '@/vote-music/lib/music'
 import { computed, ref } from 'vue'
 import { musicHonmei, musics } from '@/vote-music/lib/voteData'
 
-const musicList: Music[] = [
+export const musicList: Music[] = [
   {
     id: 'ZCDS-0001-01',
     name: '蓬莱传说',

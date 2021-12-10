@@ -133,19 +133,58 @@ import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import CharacterSelect from './components/CharacterSelect.vue'
 import CharacterCard from '@/vote-character/components/CharacterCard.vue'
 import CharacterHonmeiCard from './components/CharacterHonmeiCard.vue'
-import { ref, computed } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { character0 } from '@/vote-character/lib/character'
 import { charactersReverse, charactersReverseWithoutHonmei } from '@/vote-character/lib/characterList'
-import { characterHonmei, characters } from '@/vote-character/lib/voteData'
-import { useMutation, gql } from '@/graphql'
-import type { Mutation, schema } from '@/graphql'
+import { characterHonmei, characters, updateVotecharacters } from '@/vote-character/lib/voteData'
+import { useMutation, useQuery, gql, useResult } from '@/graphql'
+import type { Mutation, Query, schema } from '@/graphql'
 import { voteToken, voteCharacterComplete } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
+import NProgress from 'nprogress'
 
 setSiteTitle('角色部门 - 第⑩回 中文东方人气投票')
 
 const router = useRouter()
+
+const {
+  result,
+  loading: getSubmitCharacterVoteLoading,
+  onError: getSubmitCharacterVoteError,
+} = useQuery<Query>(
+  gql`
+    query ($voteToken: String!) {
+      getSubmitCharacterVote(voteToken: $voteToken) {
+        characters {
+          name
+          first
+          reason
+        }
+      }
+    }
+  `,
+  {
+    voteToken: voteToken.value,
+  }
+)
+watchEffect(() => {
+  if (getSubmitCharacterVoteLoading.value) {
+    if (!NProgress.isStarted()) NProgress.start()
+  } else {
+    if (NProgress.isStarted()) NProgress.done()
+  }
+})
+const resultData = useResult(result, null, (data) => data?.getSubmitCharacterVote)
+watchEffect(() => {
+  if (resultData.value) {
+    updateVotecharacters(resultData.value.characters)
+  }
+})
+getSubmitCharacterVoteError((err) => {
+  console.log(err.message)
+  alert('获取投票信息失败！失败原因：' + err.message)
+})
 
 const charactersVotedNumber = computed<number>(() => charactersReverse.value.length)
 

@@ -97,20 +97,61 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
-import { couples } from '@/vote-couple/lib/voteData'
+import { couples, updateVotecouple } from '@/vote-couple/lib/voteData'
 import { couplesValid, coupleHonmei, couplesValidWithoutHonmei } from '@/vote-couple/lib/coupleList'
 import CoupleCard from '@/vote-couple/components/CoupleCard.vue'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import { Character, character0 } from '@/vote-character/lib/character'
-import { useMutation, gql } from '@/graphql'
-import type { Mutation, schema } from '@/graphql'
+import { useMutation, useQuery, gql, useResult } from '@/graphql'
+import type { Mutation, Query, schema } from '@/graphql'
 import { voteToken, voteCoupleComplete } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
+import NProgress from 'nprogress'
 
 setSiteTitle('CP部门 - 第⑩回 中文东方人气投票')
+
+const {
+  result,
+  loading: getSubmitCPVoteLoading,
+  onError: getSubmitCPVoteError,
+} = useQuery<Query>(
+  gql`
+    query ($voteToken: String!) {
+      getSubmitCPVote(voteToken: $voteToken) {
+        cps {
+          nameA
+          nameB
+          nameC
+          active
+          first
+        }
+      }
+    }
+  `,
+  {
+    voteToken: voteToken.value,
+  }
+)
+watchEffect(() => {
+  if (getSubmitCPVoteLoading.value) {
+    if (!NProgress.isStarted()) NProgress.start()
+  } else {
+    if (NProgress.isStarted()) NProgress.done()
+  }
+})
+const resultData = useResult(result, null, (data) => data?.getSubmitCPVote)
+watchEffect(() => {
+  if (resultData.value) {
+    updateVotecouple(resultData.value.cps)
+  }
+})
+getSubmitCPVoteError((err) => {
+  console.log(err.message)
+  alert('获取投票信息失败！失败原因：' + err.message)
+})
 
 const coupleHonmeiOptions = computed(() =>
   new Array(couplesValid.value.length).fill(null).map((item, index) => {
