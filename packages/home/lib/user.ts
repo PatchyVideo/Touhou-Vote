@@ -94,7 +94,7 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
     .then((res) => {
       if (res.status === 'valid') {
         if (res.voting_status) setVoteStatus(res.voting_status)
-        if (res.papers_json) {
+        if (res.papers_json && !localStorage.getItem('questionnaireDataLocal')) {
           localStorage.setItem('questionnaireDataLocal', res.papers_json)
           questionnaireData.value = JSON.parse(res.papers_json)
         }
