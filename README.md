@@ -8,9 +8,19 @@
   <img alt="License" src="https://img.shields.io/github/license/PatchyVideo/Touhou-Vote" />
 </p>
 
-由 [THBWiki](https://thwiki.cc) 与 [VoileLabs](https://github.com/PatchyVideo) 共同开发的 “国内东方人气投票” 前端部分。
+由 [THBWiki](https://thwiki.cc) 与 [VoileLabs](https://github.com/PatchyVideo) 共同开发的 “第十回 国内东方人气投票” 前端部分。为全新搭建的系统。
 
 开发进度 / Status : 半成品 / WIP
+
+## 新功能 / What's new
+
+比起前几届的系统，本届多出了以下功能：
+
+- 全新设计的UI，支持全响应式布局，更好的兼容手机端
+- 精简的登陆逻辑，支持邮箱/手机号登陆和旧版邮箱密码登陆
+- 深度拆分的问卷，问卷变短，针对性变强的同时，也将问卷数据实时存入本地，防止意外退出/刷新界面的时候还得重新填写问卷
+- 图形化的投票界面，更多丰富的图形效果，规避了文字过多导致的杂乱，看起来更加简洁直观
+- 更广泛的搜索系统，即使不知道名字也可以通过称号，出场作品甚至是外号来搜索到自己喜欢的角色/曲目
 
 ## 路线图 / Roadmap
 
