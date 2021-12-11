@@ -22,6 +22,10 @@
 - 图形化的投票界面，更多丰富的图形效果，规避了文字过多导致的杂乱，看起来更加简洁直观
 - 更广泛的搜索系统，即使不知道名字也可以通过称号，出场作品甚至是外号来搜索到自己喜欢的角色/曲目
 
+## 需求文档 / Requirements Doc
+
+https://github.com/PatchyVideo/Touhou-Vote/blob/next/doc/VoileLabs-人气投票项目-需求文档.docx
+
 ## 路线图 / Roadmap
 
 https://github.com/PatchyVideo/Touhou-Vote/blob/next/doc/ROADMAP.md
