@@ -122,3 +122,4 @@ dist
 __generated__
 .idea
 .vercel
+.vs
