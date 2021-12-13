@@ -51,6 +51,7 @@ interface MainQuestionnaire {
 }
 interface ExtraQuestionnaire {
   exQuestionnaire1: Questionnaire
+  exQuestionnaire2: Questionnaire
   [key: string]: Questionnaire
 }
 export interface QuestionnaireALL {
@@ -1252,6 +1253,290 @@ export const questionnaire: QuestionnaireALL = {
             introduction: '',
             input: '',
             options: [],
+          },
+        ],
+      ],
+    },
+    exQuestionnaire2: {
+      id: 22,
+      name: '额外问卷 - 官作通关深入了解',
+      introduction: '该部分问卷涉及投票者官作游玩的具体情况。投票者可以选择是否填写该问卷',
+      questions: [
+        [
+          {
+            id: 22011,
+            type: 'Single',
+            question: '您玩过STG正作吗？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2201101,
+                related: [],
+                mutex: [],
+                content: '玩过',
+              },
+              {
+                id: 2201102,
+                related: [22020],
+                mutex: [],
+                content: '没玩过',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 22021,
+            type: 'Single',
+            question: '您以什么为目标游玩STG？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2202101,
+                related: [],
+                mutex: [],
+                content: '我想体验游戏',
+              },
+              {
+                id: 2202102,
+                related: [],
+                mutex: [],
+                content: '我想通关游戏',
+              },
+              {
+                id: 2202103,
+                related: [],
+                mutex: [],
+                content: '我想挑战游戏的最高难度',
+              },
+              {
+                id: 2202104,
+                related: [],
+                mutex: [],
+                content: '我想挑战游戏的neta挑战',
+              },
+              {
+                id: 2202105,
+                related: [],
+                mutex: [],
+                content: '我想挑战游戏的最高得分',
+              },
+            ],
+          },
+          {
+            id: 22020,
+            type: 'Single',
+            question: '占位',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2202001,
+                related: [],
+                mutex: [],
+                content: '占位',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 22031,
+            type: 'Single',
+            question: '您玩过旧作吗？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2203101,
+                related: [],
+                mutex: [],
+                content: '玩过',
+              },
+              {
+                id: 2203102,
+                related: [],
+                mutex: [],
+                content: '玩过且已有一部或以上的作品通关',
+              },
+              {
+                id: 2203103,
+                related: [],
+                mutex: [],
+                content: '没玩过',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 22041,
+            type: 'Single',
+            question: '您玩过FTG作（单人）吗？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2204101,
+                related: [],
+                mutex: [],
+                content: '玩过',
+              },
+              {
+                id: 2204102,
+                related: [22050],
+                mutex: [],
+                content: '没玩过',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 22051,
+            type: 'Single',
+            question: '您以什么为目标游玩FTG？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2205101,
+                related: [],
+                mutex: [],
+                content: '我想体验游戏',
+              },
+              {
+                id: 2205102,
+                related: [],
+                mutex: [],
+                content: '我想通关某部作品的一条路线',
+              },
+              {
+                id: 2205103,
+                related: [],
+                mutex: [],
+                content: '我想通关某部作品的全部路线',
+              },
+              {
+                id: 2205104,
+                related: [],
+                mutex: [],
+                content: '我想尝试最高难度或挑战关卡',
+              },
+            ],
+          },
+          {
+            id: 22050,
+            type: 'Input',
+            question: '占位',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2205001,
+                related: [],
+                mutex: [],
+                content: '占位',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 22061,
+            type: 'Single',
+            question: '您玩过FTG作（多人）吗？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2206101,
+                related: [],
+                mutex: [],
+                content: '玩过',
+              },
+              {
+                id: 2206102,
+                related: [22070],
+                mutex: [],
+                content: '没玩过',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 22071,
+            type: 'Single',
+            question: '您的多人FTG对战情况是什么样的？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2207101,
+                related: [],
+                mutex: [],
+                content: '我与没什么游戏经验的朋友进行过联机对战',
+              },
+              {
+                id: 2207102,
+                related: [],
+                mutex: [],
+                content: '我与对游戏较为熟悉的玩家进行过对战',
+              },
+              {
+                id: 2207103,
+                related: [],
+                mutex: [],
+                content: '我与游戏水平较高的玩家进行过互有胜负的对战',
+              },
+              {
+                id: 2207104,
+                related: [],
+                mutex: [],
+                content: '我在经常进行格斗对战的社交圈内处于顶尖水平',
+              },
+            ],
+          },
+          {
+            id: 22070,
+            type: 'Single',
+            question: '占位',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2207001,
+                related: [],
+                mutex: [],
+                content: '占位',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 22081,
+            type: 'Single',
+            question: '您是否玩过《东方刚欲异闻》？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2208101,
+                related: [],
+                mutex: [],
+                content: '玩过',
+              },
+              {
+                id: 2208102,
+                related: [],
+                mutex: [],
+                content: '没玩过',
+              },
+            ],
           },
         ],
       ],

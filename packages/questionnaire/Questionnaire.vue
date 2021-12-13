@@ -152,7 +152,14 @@ const bigQuestionnaire = computed<'mainQuestionnaire' | 'extraQuestionnaire'>(()
   return big === 'mainQuestionnaire' || big === 'extraQuestionnaire' ? big : 'mainQuestionnaire'
 })
 const smallQuestionnaire = computed<
-  'requiredQuestionnaire' | 'optionalQuestionnaire1' | 'optionalQuestionnaire2' | 'exQuestionnaire1'
+  | 'requiredQuestionnaire'
+  | 'optionalQuestionnaire1'
+  | 'optionalQuestionnaire2'
+  | 'exQuestionnaire1'
+  | 'exQuestionnaire2'
+  | 'exQuestionnaire3'
+  | 'exQuestionnaire4'
+  | 'exQuestionnaire5'
 >(() => {
   let small = String(
     route.query.smallQuestionnaire
@@ -164,7 +171,11 @@ const smallQuestionnaire = computed<
   return small === 'requiredQuestionnaire' ||
     small === 'optionalQuestionnaire1' ||
     small === 'optionalQuestionnaire2' ||
-    small === 'exQuestionnaire1'
+    small === 'exQuestionnaire1' ||
+    small === 'exQuestionnaire2' ||
+    small === 'exQuestionnaire3' ||
+    small === 'exQuestionnaire4' ||
+    small === 'exQuestionnaire5'
     ? small
     : 'requiredQuestionnaire'
 })
