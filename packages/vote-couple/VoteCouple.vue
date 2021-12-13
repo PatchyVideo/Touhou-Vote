@@ -250,9 +250,7 @@ async function vote(): Promise<void> {
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`
     mutation ($content: CPSubmitGQL!) {
-      submitCPVote(content: $content) {
-        code
-      }
+      submitCPVote(content: $content)
     }
   `
 )
