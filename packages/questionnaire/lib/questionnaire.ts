@@ -1175,7 +1175,7 @@ export const questionnaire: QuestionnaireALL = {
   extraQuestionnaire: {
     exQuestionnaire1: {
       id: 21,
-      name: '额外问卷 - 官作通关深入了解',
+      name: '额外问卷 - 二创深入了解问卷',
       introduction: '该部分问卷涉及投票者官作游玩的具体情况。投票者可以选择是否填写该问卷',
       questions: [
         [
