@@ -332,9 +332,7 @@ const {
 } = useMutation<Mutation>(
   gql`
     mutation ($content: PaperSubmitGQL!) {
-      submitPaperVote(content: $content) {
-        code
-      }
+      submitPaperVote(content: $content)
     }
   `
 )
