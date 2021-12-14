@@ -320,11 +320,11 @@ const {
   `
 )
 newLoginEmailDone((result) => {
-  if (result.data?.loginPhone.user && result.data?.loginPhone.voteToken && result.data?.loginPhone.sessionToken) {
+  if (result.data?.loginEmail.user && result.data?.loginEmail.voteToken && result.data?.loginEmail.sessionToken) {
     setUserDataToLocalStorage(
-      result.data?.loginPhone.user,
-      result.data?.loginPhone.voteToken,
-      result.data?.loginPhone.sessionToken
+      result.data?.loginEmail.user,
+      result.data?.loginEmail.voteToken,
+      result.data?.loginEmail.sessionToken
     )
   }
   location.reload()
