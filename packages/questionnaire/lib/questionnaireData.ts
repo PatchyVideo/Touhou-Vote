@@ -28,7 +28,7 @@ interface ExtraQuestionnaire {
   exQuestionnaire1: AnswerQuestionnaire
   exQuestionnaire2: AnswerQuestionnaire
   // exQuestionnaire3: AnswerQuestionnaire
-  // exQuestionnaire4: AnswerQuestionnaire
+  exQuestionnaire4: AnswerQuestionnaire
   exQuestionnaire5: AnswerQuestionnaire
   [key: string]: AnswerQuestionnaire
 }
@@ -274,6 +274,61 @@ export function getQuestionnaireData(): QuestionnaireData {
           },
           {
             id: 22081,
+            options: [],
+            input: '',
+          },
+        ],
+      },
+      exQuestionnaire4: {
+        id: 24,
+        answers: [
+          {
+            id: 24011,
+            options: [],
+            input: '',
+          },
+          {
+            id: 24021,
+            options: [],
+            input: '',
+          },
+          {
+            id: 24031,
+            options: [],
+            input: '',
+          },
+          {
+            id: 24041,
+            options: [],
+            input: '',
+          },
+          {
+            id: 24051,
+            options: [],
+            input: '',
+          },
+          {
+            id: 24060,
+            options: [],
+            input: '',
+          },
+          {
+            id: 24071,
+            options: [],
+            input: '',
+          },
+          {
+            id: 24080,
+            options: [],
+            input: '',
+          },
+          {
+            id: 24091,
+            options: [],
+            input: '',
+          },
+          {
+            id: 24101,
             options: [],
             input: '',
           },

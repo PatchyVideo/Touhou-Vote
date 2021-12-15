@@ -53,7 +53,7 @@ interface ExtraQuestionnaire {
   exQuestionnaire1: Questionnaire
   exQuestionnaire2: Questionnaire
   // exQuestionnaire3: Questionnaire
-  // exQuestionnaire4: Questionnaire
+  exQuestionnaire4: Questionnaire
   exQuestionnaire5: Questionnaire
   [key: string]: Questionnaire
 }
@@ -1228,24 +1228,11 @@ export const questionnaire: QuestionnaireALL = {
           },
           {
             id: 21020,
-            type: 'Single',
+            type: 'Input',
             question: '被遗忘的问题 ～ Error Occured',
             introduction: '',
             input: '',
-            options: [
-              {
-                id: 2102001,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-              {
-                id: 2102002,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-            ],
+            options: [],
           },
         ],
         [
@@ -1330,24 +1317,11 @@ export const questionnaire: QuestionnaireALL = {
           },
           {
             id: 22020,
-            type: 'Single',
+            type: 'Input',
             question: '被遗忘的问题 ～ Error Occured',
             introduction: '',
             input: '',
-            options: [
-              {
-                id: 2202001,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-              {
-                id: 2202002,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-            ],
+            options: [],
           },
         ],
         [
@@ -1438,24 +1412,11 @@ export const questionnaire: QuestionnaireALL = {
           },
           {
             id: 22050,
-            type: 'Single',
+            type: 'Input',
             question: '被遗忘的问题 ～ Error Occured',
             introduction: '',
             input: '',
-            options: [
-              {
-                id: 2205001,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-              {
-                id: 2205002,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-            ],
+            options: [],
           },
         ],
         [
@@ -1517,24 +1478,11 @@ export const questionnaire: QuestionnaireALL = {
           },
           {
             id: 22070,
-            type: 'Single',
+            type: 'Input',
             question: '被遗忘的问题 ～ Error Occured',
             introduction: '',
             input: '',
-            options: [
-              {
-                id: 2207001,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-              {
-                id: 2707002,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-            ],
+            options: [],
           },
         ],
         [
@@ -1558,6 +1506,251 @@ export const questionnaire: QuestionnaireALL = {
                 content: '没玩过',
               },
             ],
+          },
+        ],
+      ],
+    },
+    exQuestionnaire4: {
+      id: 24,
+      name: '额外问卷 - 正版&盗版深入了解',
+      introduction: '该部分问卷涉及投票者对正版和盗版了解的具体情况。投票者可以选择是否填写该问卷',
+      questions: [
+        [
+          {
+            id: 24011,
+            type: 'Single',
+            question: '您是否已购买引进的官中出版物（人物名鉴 常世篇/宵暗篇）？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2401101,
+                related: [],
+                mutex: [],
+                content: '购买了两本',
+              },
+              {
+                id: 2401102,
+                related: [],
+                mutex: [],
+                content: '只购买了常世篇',
+              },
+              {
+                id: 2401103,
+                related: [],
+                mutex: [],
+                content: '只购买了宵暗篇',
+              },
+              {
+                id: 2401104,
+                related: [],
+                mutex: [],
+                content: '没有购买',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 24021,
+            type: 'Single',
+            question: '您认为现在的官中出版物定价如何？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2402101,
+                related: [],
+                mutex: [],
+                content: '合适',
+              },
+              {
+                id: 2402102,
+                related: [],
+                mutex: [],
+                content: '偏高，不太值得（或有其它理由）',
+              },
+              {
+                id: 2402103,
+                related: [],
+                mutex: [],
+                content: '偏低，妨碍进一步引入（或有其它理由）',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 24031,
+            type: 'Single',
+            question: '您是否支持继续以目前的模式（保持现在的引进速度及质量）引进官中出版物？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2403101,
+                related: [24041],
+                mutex: [],
+                content: '支持',
+              },
+              {
+                id: 2403102,
+                related: [24042],
+                mutex: [],
+                content: '不支持',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 24041,
+            type: 'Input',
+            question: '您支持的理由是？',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 24042,
+            type: 'Input',
+            question: '您不支持的理由是？',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+        ],
+        [
+          {
+            id: 24051,
+            type: 'Single',
+            question: '您是否使用过盗版官作游戏？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2405101,
+                related: [24061],
+                mutex: [],
+                content: '是，并且购买了对应的原作',
+              },
+              {
+                id: 2405102,
+                related: [24061],
+                mutex: [],
+                content: '是，并且没有购买对应的原作',
+              },
+              {
+                id: 2405103,
+                related: [24060],
+                mutex: [],
+                content: '否',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 24060,
+            type: 'Input',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 24061,
+            type: 'Input',
+            question: '您使用盗版官作游戏的理由是？',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+        ],
+        [
+          {
+            id: 24071,
+            type: 'Single',
+            question: '您是否了解盗版的非官方作品（刊物、CD等）？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2407101,
+                related: [24081],
+                mutex: [],
+                content: '（有意或无意地）购买过',
+              },
+              {
+                id: 2407102,
+                related: [24081],
+                mutex: [],
+                content: '听说过',
+              },
+              {
+                id: 2406103,
+                related: [24080],
+                mutex: [],
+                content: '没有听说过',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 24080,
+            type: 'Input',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 24081,
+            type: 'Input',
+            question: '您如何看待盗版的非官方作品（刊物、CD等）？',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+        ],
+        [
+          {
+            id: 24091,
+            type: 'Single',
+            question: '您是否了解在同人创作中存在的盗版（如盗视频，换皮，小说剽窃等）？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2409101,
+                related: [],
+                mutex: [],
+                content: '见到过相关的盗版作品',
+              },
+              {
+                id: 2409102,
+                related: [],
+                mutex: [],
+                content: '听说过',
+              },
+              {
+                id: 2409103,
+                related: [],
+                mutex: [],
+                content: '没有听说过',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 24101,
+            type: 'Input',
+            question: '您如何看待同人创作中出现的盗版作品？',
+            introduction: '',
+            input: '',
+            options: [],
           },
         ],
       ],
@@ -1652,24 +1845,11 @@ export const questionnaire: QuestionnaireALL = {
         [
           {
             id: 25030,
-            type: 'Single',
+            type: 'Input',
             question: '被遗忘的问题 ～ Error Occured',
             introduction: '',
             input: '',
-            options: [
-              {
-                id: 2503001,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-              {
-                id: 2503002,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-            ],
+            options: [],
           },
           {
             id: 25031,
@@ -1708,24 +1888,11 @@ export const questionnaire: QuestionnaireALL = {
         [
           {
             id: 25040,
-            type: 'Single',
+            type: 'Input',
             question: '被遗忘的问题 ～ Error Occured',
             introduction: '',
             input: '',
-            options: [
-              {
-                id: 2504001,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-              {
-                id: 2504002,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-            ],
+            options: [],
           },
           {
             id: 25041,
@@ -1733,14 +1900,7 @@ export const questionnaire: QuestionnaireALL = {
             question: '您认为帕琪站还可以提供哪些功能？（不限于视频方面）',
             introduction: '',
             input: '',
-            options: [
-              {
-                id: 2504101,
-                related: [],
-                mutex: [],
-                content: '',
-              },
-            ],
+            options: [],
           },
         ],
         [
@@ -2005,24 +2165,11 @@ export const questionnaire: QuestionnaireALL = {
         [
           {
             id: 25100,
-            type: 'Single',
+            type: 'Input',
             question: '被遗忘的问题 ～ Error Occured',
             introduction: '',
             input: '',
-            options: [
-              {
-                id: 2510001,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-              {
-                id: 2510002,
-                related: [],
-                mutex: [],
-                content: 'ERROR',
-              },
-            ],
+            options: [],
           },
           {
             id: 25101,
