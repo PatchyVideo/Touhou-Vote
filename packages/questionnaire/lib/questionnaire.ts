@@ -1331,7 +1331,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 22020,
             type: 'Single',
-            question: '占位',
+            question: '被遗忘的问题 ～ Error Occured',
             introduction: '',
             input: '',
             options: [
@@ -1339,7 +1339,13 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2202001,
                 related: [],
                 mutex: [],
-                content: '占位',
+                content: 'ERROR',
+              },
+              {
+                id: 2202002,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
               },
             ],
           },
@@ -1432,8 +1438,8 @@ export const questionnaire: QuestionnaireALL = {
           },
           {
             id: 22050,
-            type: 'Input',
-            question: '占位',
+            type: 'Single',
+            question: '被遗忘的问题 ～ Error Occured',
             introduction: '',
             input: '',
             options: [
@@ -1441,7 +1447,13 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2205001,
                 related: [],
                 mutex: [],
-                content: '占位',
+                content: 'ERROR',
+              },
+              {
+                id: 2205002,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
               },
             ],
           },
@@ -1506,7 +1518,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 22070,
             type: 'Single',
-            question: '占位',
+            question: '被遗忘的问题 ～ Error Occured',
             introduction: '',
             input: '',
             options: [
@@ -1514,7 +1526,13 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2207001,
                 related: [],
                 mutex: [],
-                content: '占位',
+                content: 'ERROR',
+              },
+              {
+                id: 2707002,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
               },
             ],
           },
@@ -1547,7 +1565,7 @@ export const questionnaire: QuestionnaireALL = {
     exQuestionnaire5: {
       id: 25,
       name: '额外问卷 - 主办方附加问卷',
-      introduction: '该部分问卷涉及投票者官作游玩的具体情况。投票者可以选择是否填写该问卷',
+      introduction: '该部分问卷涉及投票者对主办方了解的具体情况。投票者可以选择是否填写该问卷',
       questions: [
         [
           {
@@ -1600,25 +1618,25 @@ export const questionnaire: QuestionnaireALL = {
             options: [
               {
                 id: 2502101,
-                related: [25041],
+                related: [25030],
                 mutex: [],
                 content: '一直在使用',
               },
               {
                 id: 2502102,
-                related: [25041],
+                related: [25030],
                 mutex: [],
                 content: '偶尔会使用',
               },
               {
                 id: 2502103,
-                related: [25041],
+                related: [25030],
                 mutex: [],
                 content: '基本不使用',
               },
               {
                 id: 2502104,
-                related: [25041],
+                related: [25030],
                 mutex: [],
                 content: '仅仅知道存在但是没有访问过',
               },
@@ -1633,6 +1651,27 @@ export const questionnaire: QuestionnaireALL = {
         ],
         [
           {
+            id: 25030,
+            type: 'Single',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2503001,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
+              },
+              {
+                id: 2503002,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
+              },
+            ],
+          },
+          {
             id: 25031,
             type: 'Single',
             question: '请问您是否了解视频索引站（帕琪站）提供的功能？',
@@ -1641,39 +1680,62 @@ export const questionnaire: QuestionnaireALL = {
             options: [
               {
                 id: 2503101,
-                related: [],
+                related: [25040],
                 mutex: [],
                 content: '了解并且在使用',
               },
               {
                 id: 2503102,
-                related: [],
+                related: [25040],
                 mutex: [],
                 content: '了解但没有使用',
               },
               {
                 id: 2503103,
-                related: [],
+                related: [25040],
                 mutex: [],
                 content: '了解一些',
               },
               {
                 id: 2503104,
-                related: [25032],
+                related: [25041],
                 mutex: [],
                 content: '不了解',
               },
             ],
           },
+        ],
+        [
           {
-            id: 25032,
+            id: 25040,
+            type: 'Single',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2504001,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
+              },
+              {
+                id: 2504002,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
+              },
+            ],
+          },
+          {
+            id: 25041,
             type: 'Input',
             question: '您认为帕琪站还可以提供哪些功能？（不限于视频方面）',
             introduction: '',
             input: '',
             options: [
               {
-                id: 2503201,
+                id: 2504101,
                 related: [],
                 mutex: [],
                 content: '',
@@ -1683,32 +1745,32 @@ export const questionnaire: QuestionnaireALL = {
         ],
         [
           {
-            id: 25041,
+            id: 25051,
             type: 'Single',
             question: '您平时是否会主动关注东方信息？',
             introduction: '',
             input: '',
             options: [
               {
-                id: 2504101,
+                id: 2505101,
                 related: [],
                 mutex: [],
                 content: '会',
               },
               {
-                id: 2504102,
+                id: 2505102,
                 related: [],
                 mutex: [],
                 content: '不会，但是会被动从社交环境中获得部分信息',
               },
               {
-                id: 2504103,
+                id: 2505103,
                 related: [],
                 mutex: [],
                 content: '想，但是不知道从何关注',
               },
               {
-                id: 2504104,
+                id: 2505104,
                 related: [],
                 mutex: [],
                 content: '完全不想关注',
@@ -1718,50 +1780,50 @@ export const questionnaire: QuestionnaireALL = {
         ],
         [
           {
-            id: 25051,
+            id: 25061,
             type: 'Multiple',
             question: '您接触东方信息的渠道有哪些？（多选）',
             introduction: '',
             input: '',
             options: [
               {
-                id: 2505101,
+                id: 2506101,
                 related: [],
                 mutex: [],
                 content: '贴吧论坛等主题社区',
               },
               {
-                id: 2505102,
+                id: 2506102,
                 related: [],
                 mutex: [],
                 content: '微博推特类网站',
               },
               {
-                id: 2505103,
+                id: 2506103,
                 related: [],
                 mutex: [],
                 content: '社交网络（如人人，FB，G+等）',
               },
               {
-                id: 2505104,
+                id: 2506104,
                 related: [],
                 mutex: [],
                 content: '视频网站',
               },
               {
-                id: 2505105,
+                id: 2506105,
                 related: [],
                 mutex: [],
                 content: '即时通信工具（包括QQ、Discord）',
               },
               {
-                id: 2505106,
+                id: 2506106,
                 related: [],
                 mutex: [],
                 content: '现实生活',
               },
               {
-                id: 2505107,
+                id: 2506107,
                 related: [],
                 mutex: [],
                 content: '其他途径',
@@ -1771,56 +1833,9 @@ export const questionnaire: QuestionnaireALL = {
         ],
         [
           {
-            id: 25061,
-            type: 'Multiple',
-            question: '您主动关注的信息类型有哪些？（多选）',
-            introduction: '',
-            input: '',
-            options: [
-              {
-                id: 2506101,
-                related: [],
-                mutex: [],
-                content: '官方情报',
-              },
-              {
-                id: 2506102,
-                related: [],
-                mutex: [],
-                content: 'ZUN情报',
-              },
-              {
-                id: 2506103,
-                related: [],
-                mutex: [],
-                content: '社群动态',
-              },
-              {
-                id: 2506104,
-                related: [],
-                mutex: [],
-                content: '日本二次创作情报',
-              },
-              {
-                id: 2506105,
-                related: [],
-                mutex: [],
-                content: '国内二次创作情报',
-              },
-              {
-                id: 2506106,
-                related: [],
-                mutex: [],
-                content: '创作灵感',
-              },
-            ],
-          },
-        ],
-        [
-          {
             id: 25071,
             type: 'Multiple',
-            question: '您被动关注的信息类型有哪些？（多选）',
+            question: '您主动关注的信息类型有哪些？（多选）',
             introduction: '',
             input: '',
             options: [
@@ -1867,7 +1882,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 25081,
             type: 'Multiple',
-            question: '您通过哪些账号或平台了解东方信息？（多选）',
+            question: '您被动关注的信息类型有哪些？（多选）',
             introduction: '',
             input: '',
             options: [
@@ -1875,82 +1890,37 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2508101,
                 related: [],
                 mutex: [],
-                content: '东方吧',
+                content: '官方情报',
               },
               {
                 id: 2508102,
                 related: [],
                 mutex: [],
-                content: '喵玉殿',
+                content: 'ZUN情报',
               },
               {
                 id: 2508103,
                 related: [],
                 mutex: [],
-                content: '殇韵月风微博',
+                content: '社群动态',
               },
               {
                 id: 2508104,
                 related: [],
                 mutex: [],
-                content: 'THBWiki微博',
+                content: '日本二次创作情报',
               },
               {
                 id: 2508105,
                 related: [],
                 mutex: [],
-                content: '幻奏盛宴群',
+                content: '国内二次创作情报',
               },
               {
                 id: 2508106,
                 related: [],
                 mutex: [],
-                content: '东方初心者讲座群',
-              },
-              {
-                id: 2508107,
-                related: [],
-                mutex: [],
-                content: '囧仙B站号',
-              },
-              {
-                id: 2508108,
-                related: [],
-                mutex: [],
-                content: '东游鉴B站号',
-              },
-              {
-                id: 2508109,
-                related: [],
-                mutex: [],
-                content: 'THBWikiB站号',
-              },
-              {
-                id: 2508250,
-                related: [],
-                mutex: [],
-                content: '魅知幻想之旅B站号',
-              },
-              {
-                id: 2508111,
-                related: [25082],
-                mutex: [],
-                content: '其他',
-              },
-            ],
-          },
-          {
-            id: 25082,
-            type: 'Input',
-            question: '除以上账号/平台外，您通过哪些账号/平台了解东方信息？',
-            introduction: '',
-            input: '',
-            options: [
-              {
-                id: 2508201,
-                related: [],
-                mutex: [],
-                content: '',
+                content: '创作灵感',
               },
             ],
           },
@@ -1958,18 +1928,119 @@ export const questionnaire: QuestionnaireALL = {
         [
           {
             id: 25091,
-            type: 'Input',
-            question: '您认为除了现有平台，还可以搭建什么样的平台来帮助创作者与观众？',
+            type: 'Multiple',
+            question: '您通过哪些账号或平台了解东方信息？（多选）',
             introduction: '',
             input: '',
             options: [
               {
                 id: 2509101,
-                related: [],
+                related: [25100],
                 mutex: [],
-                content: '',
+                content: '东方吧',
+              },
+              {
+                id: 2509102,
+                related: [25100],
+                mutex: [],
+                content: '喵玉殿',
+              },
+              {
+                id: 2509103,
+                related: [25100],
+                mutex: [],
+                content: '殇韵月风微博',
+              },
+              {
+                id: 2509104,
+                related: [25100],
+                mutex: [],
+                content: 'THBWiki微博',
+              },
+              {
+                id: 2509105,
+                related: [25100],
+                mutex: [],
+                content: '幻奏盛宴群',
+              },
+              {
+                id: 2509106,
+                related: [25100],
+                mutex: [],
+                content: '东方初心者讲座群',
+              },
+              {
+                id: 2509107,
+                related: [25100],
+                mutex: [],
+                content: '囧仙B站号',
+              },
+              {
+                id: 2509108,
+                related: [25100],
+                mutex: [],
+                content: '东游鉴B站号',
+              },
+              {
+                id: 2509109,
+                related: [25100],
+                mutex: [],
+                content: 'THBWikiB站号',
+              },
+              {
+                id: 2509110,
+                related: [25100],
+                mutex: [],
+                content: '魅知幻想之旅B站号',
+              },
+              {
+                id: 2509111,
+                related: [25101],
+                mutex: [],
+                content: '其他',
               },
             ],
+          },
+        ],
+        [
+          {
+            id: 25100,
+            type: 'Single',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2510001,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
+              },
+              {
+                id: 2510002,
+                related: [],
+                mutex: [],
+                content: 'ERROR',
+              },
+            ],
+          },
+          {
+            id: 25101,
+            type: 'Input',
+            question: '除以上账号/平台外，您通过哪些账号/平台了解东方信息？',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+        ],
+        [
+          {
+            id: 25111,
+            type: 'Input',
+            question: '您认为除了现有平台，还可以搭建什么样的平台来帮助创作者与观众？',
+            introduction: '',
+            input: '',
+            options: [],
           },
         ],
       ],

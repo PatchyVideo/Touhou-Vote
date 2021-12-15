@@ -63,6 +63,8 @@ function IDToSmallQuestionnaire(ID: number): string {
       return 'exQuestionnaire3'
     case 24:
       return 'exQuestionnaire4'
+    case 25:
+      return 'exQuestionnaire5'
     default:
       return ''
   }
@@ -291,12 +293,12 @@ export function getQuestionnaireData(): QuestionnaireData {
             input: '',
           },
           {
-            id: 25031,
+            id: 25030,
             options: [],
             input: '',
           },
           {
-            id: 25041,
+            id: 25040,
             options: [],
             input: '',
           },
@@ -322,6 +324,16 @@ export function getQuestionnaireData(): QuestionnaireData {
           },
           {
             id: 25091,
+            options: [],
+            input: '',
+          },
+          {
+            id: 25100,
+            options: [],
+            input: '',
+          },
+          {
+            id: 25111,
             options: [],
             input: '',
           },
