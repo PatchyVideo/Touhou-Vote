@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-100vh page md:min-h-0">
+  <div class="overflow-auto">
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
       <div

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-100vh page md:min-h-0">
+  <div class="min-h-100vh md:min-h-0">
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
       <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">

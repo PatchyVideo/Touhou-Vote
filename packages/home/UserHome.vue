@@ -204,7 +204,7 @@
               </button>
             </div>
           </div>
-          <UserQuestionnaire :desk-top-return="true" class="w-1/2" />
+          <UserQuestionnaire id="userQuestionnaire" :desk-top-return="true" class="w-1/2" />
         </div>
       </div>
 
@@ -214,6 +214,7 @@
           :class="{ '-translate-x-1/2': systemListIsOpen && systemListOpenName === 'vote' }"
         >
           <div
+            id="userVoteBox"
             class="
               w-1/2
               flex flex-wrap
@@ -300,7 +301,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { screenSizes } from '@/tailwindcss'
 import { username, deleteUserData, voteCharacterComplete, voteMusicComplete, voteCoupleComplete } from '@/home/lib/user'
@@ -352,6 +353,17 @@ function logout(): void {
   deleteUserData()
   location.reload()
 }
+
+// Resize the height of UserQuestionnaire
+function setUserQuestionnaireHeight(): void {
+  if (screenSizes['<md']) return
+  let userQuestionnaire = document.getElementById('userQuestionnaire')
+  let userVoteBox = document.getElementById('userVoteBox')
+  if (userQuestionnaire && userVoteBox)
+    userQuestionnaire.style.maxHeight = window.getComputedStyle(userVoteBox).getPropertyValue('height')
+}
+onMounted(() => setUserQuestionnaireHeight())
+window.onresize = setUserQuestionnaireHeight
 </script>
 
 <style lang="postcss" scoped>
