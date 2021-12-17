@@ -46,13 +46,13 @@ interface Questionnaire {
 interface MainQuestionnaire {
   requiredQuestionnaire: Questionnaire
   optionalQuestionnaire1: Questionnaire
-  // optionalQuestionnaire2: Questionnaire
+  optionalQuestionnaire2: Questionnaire
   [key: string]: Questionnaire
 }
 interface ExtraQuestionnaire {
   exQuestionnaire1: Questionnaire
   exQuestionnaire2: Questionnaire
-  // exQuestionnaire3: Questionnaire
+  exQuestionnaire3: Questionnaire
   exQuestionnaire4: Questionnaire
   exQuestionnaire5: Questionnaire
   [key: string]: Questionnaire
@@ -1174,6 +1174,689 @@ export const questionnaire: QuestionnaireALL = {
         ],
       ],
     },
+    optionalQuestionnaire2: {
+      id: 13,
+      name: '主问卷 - 二次创作分问卷',
+      introduction: '该部分问卷涉及投票者对二次创作的基本了解情况。投票者可以在该问卷与官作分问卷中择一填写',
+      questions: [
+        [
+          {
+            id: 13011,
+            type: 'Multiple',
+            question: '您比较关注哪一类二次创作？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1301101,
+                related: [],
+                mutex: [],
+                content: '音乐',
+              },
+              {
+                id: 1301102,
+                related: [],
+                mutex: [],
+                content: '漫画',
+              },
+              {
+                id: 1301103,
+                related: [],
+                mutex: [],
+                content: '游戏',
+              },
+              {
+                id: 1301104,
+                related: [],
+                mutex: [],
+                content: '绘画',
+              },
+              {
+                id: 1301105,
+                related: [],
+                mutex: [],
+                content: '视频',
+              },
+              {
+                id: 1301106,
+                related: [],
+                mutex: [],
+                content: '小说',
+              },
+              {
+                id: 1301107,
+                related: [],
+                mutex: [],
+                content: '实物',
+              },
+              {
+                id: 1301108,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13021,
+            type: 'Multiple',
+            question: '您喜欢二次创作的原因？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1302101,
+                related: [],
+                mutex: [],
+                content: '作品中的二次人物设定',
+              },
+              {
+                id: 1302102,
+                related: [],
+                mutex: [],
+                content: '故事剧情与世界观架构',
+              },
+              {
+                id: 1302103,
+                related: [],
+                mutex: [],
+                content: '（音乐编曲、漫画分镜等）在同类作品中表现出色',
+              },
+              {
+                id: 1302104,
+                related: [],
+                mutex: [],
+                content: '单纯喜欢东方相关创作',
+              },
+              {
+                id: 1302105,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13031,
+            type: 'Single',
+            question: '平均来说，您浏览二次创作的大致频率为？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1303101,
+                related: [],
+                mutex: [],
+                content: '每天都会浏览数次',
+              },
+              {
+                id: 1303102,
+                related: [],
+                mutex: [],
+                content: '几乎每天都会浏览',
+              },
+              {
+                id: 1303103,
+                related: [],
+                mutex: [],
+                content: '每周几次',
+              },
+              {
+                id: 1303104,
+                related: [],
+                mutex: [],
+                content: '每月几次',
+              },
+              {
+                id: 1303105,
+                related: [],
+                mutex: [],
+                content: '一年里会有几次',
+              },
+              {
+                id: 1303106,
+                related: [],
+                mutex: [],
+                content: '如果没有特别的原因不会主动浏览',
+              },
+              {
+                id: 1303107,
+                related: [],
+                mutex: [],
+                content: '从不浏览',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13041,
+            type: 'Single',
+            question: '您购买过国内的二次同人作品吗？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1304101,
+                related: [13051, 13061, 13071],
+                mutex: [1312102],
+                content: '购买过国内的二次同人作品',
+              },
+              {
+                id: 1304103,
+                related: [13050, 13060, 13070],
+                mutex: [],
+                content: '没有购买过',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13050,
+            type: 'Input',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 13051,
+            type: 'Multiple',
+            question: '您购买的国内二次同人作品类型为？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1305101,
+                related: [],
+                mutex: [],
+                content: '音乐类',
+              },
+              {
+                id: 1305102,
+                related: [],
+                mutex: [],
+                content: '漫画类',
+              },
+              {
+                id: 1305103,
+                related: [],
+                mutex: [],
+                content: '插画类（包括挂画等）',
+              },
+              {
+                id: 1305104,
+                related: [],
+                mutex: [],
+                content: '游戏类（包括游戏软件与实体游戏）',
+              },
+              {
+                id: 1305105,
+                related: [],
+                mutex: [],
+                content: '实体类（立牌，手办等）',
+              },
+              {
+                id: 1305106,
+                related: [],
+                mutex: [],
+                content: '视频类',
+              },
+              {
+                id: 1305107,
+                related: [],
+                mutex: [],
+                content: '小说类',
+              },
+              {
+                id: 1305108,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13060,
+            type: 'Input',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 13061,
+            type: 'Multiple',
+            question: '您购买国内二次同人作品的渠道为？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1306101,
+                related: [],
+                mutex: [],
+                content: '网络通贩',
+              },
+              {
+                id: 1306102,
+                related: [],
+                mutex: [],
+                content: '展会购买',
+              },
+              {
+                id: 1306103,
+                related: [],
+                mutex: [],
+                content: '购买二手',
+              },
+              {
+                id: 1306104,
+                related: [],
+                mutex: [],
+                content: '委托朋友',
+              },
+              {
+                id: 1306105,
+                related: [],
+                mutex: [],
+                content: '代购',
+              },
+              {
+                id: 1306106,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13070,
+            type: 'Input',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 13071,
+            type: 'Single',
+            question: '您对国内二次同人作品的购买力范围是？（单个作品，含税费、运费等）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1307101,
+                related: [],
+                mutex: [],
+                content: '总价50RMB以内',
+              },
+              {
+                id: 1307102,
+                related: [],
+                mutex: [],
+                content: '总价100RMB以内',
+              },
+              {
+                id: 1307103,
+                related: [],
+                mutex: [],
+                content: '总价150RMB以内',
+              },
+              {
+                id: 1307104,
+                related: [],
+                mutex: [],
+                content: '总价200RMB以内',
+              },
+              {
+                id: 1307105,
+                related: [],
+                mutex: [],
+                content: '总价300RMB以内',
+              },
+              {
+                id: 1307106,
+                related: [],
+                mutex: [],
+                content: '总价300RMB以上',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13081,
+            type: 'Single',
+            question: '您购买过国外的二次同人作品吗？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1304102,
+                related: [13091, 13101, 13111],
+                mutex: [1312101, 1312103],
+                content: '购买过国外的二次同人作品',
+              },
+              {
+                id: 1304103,
+                related: [13090, 13100, 13110],
+                mutex: [],
+                content: '没有购买过',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13090,
+            type: 'Input',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 13091,
+            type: 'Multiple',
+            question: '您购买的国外二次同人作品类型为？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1309101,
+                related: [],
+                mutex: [],
+                content: '音乐类',
+              },
+              {
+                id: 1309102,
+                related: [],
+                mutex: [],
+                content: '漫画类',
+              },
+              {
+                id: 1309103,
+                related: [],
+                mutex: [],
+                content: '插画类（包括挂画等）',
+              },
+              {
+                id: 1309104,
+                related: [],
+                mutex: [],
+                content: '游戏类（包括游戏软件与实体游戏，）',
+              },
+              {
+                id: 1309105,
+                related: [],
+                mutex: [],
+                content: '实体类（立牌，手办等）',
+              },
+              {
+                id: 1309106,
+                related: [],
+                mutex: [],
+                content: '视频类',
+              },
+              {
+                id: 1309107,
+                related: [],
+                mutex: [],
+                content: '小说类',
+              },
+              {
+                id: 1309108,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13100,
+            type: 'Input',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 13101,
+            type: 'Multiple',
+            question: '您购买国外二次同人作品的渠道为？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1310101,
+                related: [],
+                mutex: [],
+                content: '网络通贩',
+              },
+              {
+                id: 1310102,
+                related: [],
+                mutex: [],
+                content: '展会购买',
+              },
+              {
+                id: 1310103,
+                related: [],
+                mutex: [],
+                content: '购买二手',
+              },
+              {
+                id: 1310104,
+                related: [],
+                mutex: [],
+                content: '委托朋友',
+              },
+              {
+                id: 1310105,
+                related: [],
+                mutex: [],
+                content: '代购',
+              },
+              {
+                id: 1310106,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13110,
+            type: 'Input',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 13111,
+            type: 'Single',
+            question: '您对国外二次同人作品的购买力范围是？（单个作品，含税费、运费等）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1311101,
+                related: [],
+                mutex: [],
+                content: '总价50RMB以内',
+              },
+              {
+                id: 1311102,
+                related: [],
+                mutex: [],
+                content: '总价100RMB以内',
+              },
+              {
+                id: 1311103,
+                related: [],
+                mutex: [],
+                content: '总价150RMB以内',
+              },
+              {
+                id: 1311104,
+                related: [],
+                mutex: [],
+                content: '总价200RMB以内',
+              },
+              {
+                id: 1311105,
+                related: [],
+                mutex: [],
+                content: '总价300RMB以内',
+              },
+              {
+                id: 1311106,
+                related: [],
+                mutex: [],
+                content: '总价500RMB以内',
+              },
+              {
+                id: 1311107,
+                related: [],
+                mutex: [],
+                content: '总价500RMB以上',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13121,
+            type: 'Multiple',
+            question: '阻碍您购买二次同人作品的原因是？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1312101,
+                related: [],
+                mutex: [],
+                content: '缺少购买国外二次创作的渠道',
+              },
+              {
+                id: 1312102,
+                related: [],
+                mutex: [],
+                content: '缺少购买国内二次创作的渠道',
+              },
+              {
+                id: 1312103,
+                related: [],
+                mutex: [],
+                content: '不懂国外二次创作对应的外语',
+              },
+              {
+                id: 1312104,
+                related: [],
+                mutex: [],
+                content: '价格过高',
+              },
+              {
+                id: 1312105,
+                related: [],
+                mutex: [],
+                content: '不感兴趣',
+              },
+              {
+                id: 1312106,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+              {
+                id: 1312107,
+                related: [],
+                mutex: [1312101, 1312102, 1312103, 1312104, 1312105, 1312106],
+                content: '不存在阻碍，我想买啥买啥！',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13131,
+            type: 'Single',
+            question: '您在进行（任何形式、任何程度的）二次创作吗？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1313101,
+                related: [],
+                mutex: [],
+                content: '是，且有持续性的投入',
+              },
+              {
+                id: 1313102,
+                related: [],
+                mutex: [],
+                content: '是，偶尔进行',
+              },
+              {
+                id: 1313103,
+                related: [],
+                mutex: [],
+                content: '否',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 13141,
+            type: 'Single',
+            question: '您了解官方授权商业作品（归言录、弹幕神乐等）吗？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 1314101,
+                related: [],
+                mutex: [],
+                content: '正在玩，并且有在游戏中消费',
+              },
+              {
+                id: 1314102,
+                related: [],
+                mutex: [],
+                content: '正在玩，但没有在游戏中消费',
+              },
+              {
+                id: 1314103,
+                related: [],
+                mutex: [],
+                content: '了解，但没在玩',
+              },
+              {
+                id: 1314104,
+                related: [],
+                mutex: [],
+                content: '不了解',
+              },
+            ],
+          },
+        ],
+      ],
+    },
   },
   extraQuestionnaire: {
     exQuestionnaire1: {
@@ -1506,6 +2189,254 @@ export const questionnaire: QuestionnaireALL = {
                 content: '没玩过',
               },
             ],
+          },
+        ],
+      ],
+    },
+    exQuestionnaire3: {
+      id: 23,
+      name: '额外问卷 - 展会观众与商业授权手游深入了解',
+      introduction: '该部分问卷涉及投票者对展会与授权手游了解的具体情况。投票者可以选择是否填写该问卷',
+      questions: [
+        [
+          {
+            id: 23011,
+            type: 'Single',
+            question: '您是否（作为观众/摊主）参加过东方Only同人展？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2301101,
+                related: [23021],
+                mutex: [],
+                content: '是',
+              },
+              {
+                id: 2301102,
+                related: [23022],
+                mutex: [],
+                content: '否',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 23021,
+            type: 'Single',
+            question: '您2021年内是否（作为观众/摊主）参加过东方Only同人展？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2302101,
+                related: [],
+                mutex: [],
+                content: '是',
+              },
+              {
+                id: 2302102,
+                related: [],
+                mutex: [],
+                content: '否',
+              },
+            ],
+          },
+          {
+            id: 23022,
+            type: 'Multiple',
+            question: '您没有参加过展会的原因是？（多选）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2302201,
+                related: [],
+                mutex: [],
+                content: '想去的展会被取消',
+              },
+              {
+                id: 2302202,
+                related: [],
+                mutex: [],
+                content: '没有时间',
+              },
+              {
+                id: 2302203,
+                related: [],
+                mutex: [],
+                content: '路费太贵',
+              },
+              {
+                id: 2302204,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 23031,
+            type: 'Single',
+            question: '在参加展会方面您是否受到了疫情的影响？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2303101,
+                related: [],
+                mutex: [],
+                content: '是',
+              },
+              {
+                id: 2303102,
+                related: [],
+                mutex: [],
+                content: '否',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 23041,
+            type: 'Single',
+            question: '您是否只考虑参加本地或附近地区的同人展？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2304101,
+                related: [],
+                mutex: [],
+                content: '仅参加本地或附近地区的展会',
+              },
+              {
+                id: 2304102,
+                related: [],
+                mutex: [],
+                content: '异地的展会也会去',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 23051,
+            type: 'Single',
+            question: '您了解官方授权商业作品《东方LostWord（东方归言录）》吗？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2305101,
+                related: [23061],
+                mutex: [],
+                content: '正在玩，并且有在游戏中消费',
+              },
+              {
+                id: 2305102,
+                related: [23061],
+                mutex: [],
+                content: '正在玩，但没有在游戏中消费',
+              },
+              {
+                id: 2305103,
+                related: [23061],
+                mutex: [],
+                content: '了解，但没在玩',
+              },
+              {
+                id: 2305104,
+                related: [23060],
+                mutex: [],
+                content: '不了解',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 23061,
+            type: 'Input',
+            question: '您对《东方LostWord（东方归言录）》评价如何？',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 23060,
+            type: 'Input',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+        ],
+        [
+          {
+            id: 23071,
+            type: 'Single',
+            question: '您了解官方授权商业作品《东方弹幕神乐》吗？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2307101,
+                related: [23081],
+                mutex: [],
+                content: '正在玩，并且有在游戏中消费',
+              },
+              {
+                id: 2307102,
+                related: [23081],
+                mutex: [],
+                content: '正在玩，但没有在游戏中消费',
+              },
+              {
+                id: 2307103,
+                related: [23081],
+                mutex: [],
+                content: '了解，但没在玩',
+              },
+              {
+                id: 2307104,
+                related: [23080],
+                mutex: [],
+                content: '不了解',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 23081,
+            type: 'Input',
+            question: '您对《东方弹幕神乐》评价如何？',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 23080,
+            type: 'Input',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+        ],
+        [
+          {
+            id: 23091,
+            type: 'Input',
+            question: '您对商业授权手游的看法如何？',
+            introduction: '',
+            input: '',
+            options: [],
           },
         ],
       ],

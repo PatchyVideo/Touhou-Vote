@@ -21,13 +21,13 @@ interface AnswerQuestionnaire {
 interface MainQuestionnaire {
   requiredQuestionnaire: AnswerQuestionnaire
   optionalQuestionnaire1: AnswerQuestionnaire
-  // optionalQuestionnaire2: AnswerQuestionnaire
+  optionalQuestionnaire2: AnswerQuestionnaire
   [key: string]: AnswerQuestionnaire
 }
 interface ExtraQuestionnaire {
   exQuestionnaire1: AnswerQuestionnaire
   exQuestionnaire2: AnswerQuestionnaire
-  // exQuestionnaire3: AnswerQuestionnaire
+  exQuestionnaire3: AnswerQuestionnaire
   exQuestionnaire4: AnswerQuestionnaire
   exQuestionnaire5: AnswerQuestionnaire
   [key: string]: AnswerQuestionnaire
@@ -212,6 +212,81 @@ export function getQuestionnaireData(): QuestionnaireData {
           },
         ],
       },
+      optionalQuestionnaire2: {
+        id: 13,
+        answers: [
+          {
+            id: 13011,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13021,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13031,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13041,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13050,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13060,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13070,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13081,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13090,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13100,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13110,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13121,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13131,
+            options: [],
+            input: '',
+          },
+          {
+            id: 13141,
+            options: [],
+            input: '',
+          },
+        ],
+      },
     },
     extraQuestionnaire: {
       exQuestionnaire1: {
@@ -274,6 +349,56 @@ export function getQuestionnaireData(): QuestionnaireData {
           },
           {
             id: 22081,
+            options: [],
+            input: '',
+          },
+        ],
+      },
+      exQuestionnaire3: {
+        id: 23,
+        answers: [
+          {
+            id: 23011,
+            options: [],
+            input: '',
+          },
+          {
+            id: 23021,
+            options: [],
+            input: '',
+          },
+          {
+            id: 23031,
+            options: [],
+            input: '',
+          },
+          {
+            id: 23041,
+            options: [],
+            input: '',
+          },
+          {
+            id: 23051,
+            options: [],
+            input: '',
+          },
+          {
+            id: 23061,
+            options: [],
+            input: '',
+          },
+          {
+            id: 23071,
+            options: [],
+            input: '',
+          },
+          {
+            id: 23081,
+            options: [],
+            input: '',
+          },
+          {
+            id: 23091,
             options: [],
             input: '',
           },
