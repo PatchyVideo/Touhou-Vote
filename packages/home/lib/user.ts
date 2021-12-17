@@ -1,6 +1,5 @@
 import { ref, computed } from 'vue'
 import { Voter } from '@/graphql/__generated__/graphql'
-import { questionnaireData } from '@/questionnaire/lib/questionnaireData'
 
 export function createDefaultVoter(): Voter {
   return {
