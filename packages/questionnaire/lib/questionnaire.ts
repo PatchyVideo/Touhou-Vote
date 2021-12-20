@@ -2967,25 +2967,25 @@ export const questionnaire: QuestionnaireALL = {
             options: [
               {
                 id: 2503101,
-                related: [25040],
+                related: [],
                 mutex: [],
                 content: '了解并且在使用',
               },
               {
                 id: 2503102,
-                related: [25040],
+                related: [],
                 mutex: [],
                 content: '了解但没有使用',
               },
               {
                 id: 2503103,
-                related: [25040],
+                related: [],
                 mutex: [],
                 content: '了解一些',
               },
               {
                 id: 2503104,
-                related: [25041],
+                related: [],
                 mutex: [],
                 content: '不了解',
               },
@@ -2994,17 +2994,9 @@ export const questionnaire: QuestionnaireALL = {
         ],
         [
           {
-            id: 25040,
-            type: 'Input',
-            question: '被遗忘的问题 ～ Error Occured',
-            introduction: '',
-            input: '',
-            options: [],
-          },
-          {
             id: 25041,
             type: 'Input',
-            question: '您认为帕琪站还可以提供哪些功能？（不限于视频方面）',
+            question: '您认为帕琪站可以或者应该提供哪些功能？（不限于视频方面）',
             introduction: '',
             input: '',
             options: [],
