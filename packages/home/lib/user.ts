@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue'
 import { Voter } from '@/graphql/__generated__/graphql'
+import { questionnaireData } from '@/questionnaire/lib/questionnaireData'
 
 export function createDefaultVoter(): Voter {
   return {
@@ -94,8 +95,8 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
       if (res.status === 'valid') {
         if (res.voting_status) setVoteStatus(res.voting_status)
         if (res.papers_json && !localStorage.getItem('questionnaireDataLocal')) {
-          // localStorage.setItem('questionnaireDataLocal', res.papers_json)
-          // questionnaireData.value = JSON.parse(res.papers_json)
+          localStorage.setItem('questionnaireDataLocal', res.papers_json)
+          questionnaireData.value = JSON.parse(res.papers_json)
         }
         if (needGetUserDataFromLocalStorage) {
           getUserDataFromLocalStorage()
