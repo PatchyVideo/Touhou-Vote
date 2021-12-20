@@ -9,6 +9,7 @@ export const characterHonmei = computed<Character>(
 export const characters = ref<Character[]>(new Array(8).fill(null).map(() => new Character()))
 
 export function updateVotecharacters(characterVoteData: CharacterSubmitQuery[]): void {
+  if (!characterVoteData.length) return
   for (let i = 0; i < characterVoteData.length; i++) {
     characters.value[i] = characterList.find((item) => item.name === characterVoteData[i].name) || characters.value[i]
     characters.value[i].honmei = characterVoteData[i].first || false

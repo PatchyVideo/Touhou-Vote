@@ -7,6 +7,7 @@ export const musicHonmei = computed<Music>(() => musics.value.find((music) => mu
 
 export const musics = ref<Music[]>(new Array(12).fill(null).map(() => new Music()))
 export function updateVotemusics(musicVoteData: MusicSubmitQuery[]): void {
+  if (!musicVoteData.length) return
   for (let i = 0; i < musicVoteData.length; i++) {
     musics.value[i] = musicList.find((item) => item.name === musicVoteData[i].name) || musics.value[i]
     musics.value[i].honmei = musicVoteData[i].first || false
