@@ -781,7 +781,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 12011,
             type: 'Multiple',
-            question: '您关注哪一类官作？（多选）',
+            question: '您关注哪一类官作？',
             introduction: '',
             input: '',
             options: [
@@ -903,7 +903,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 12051,
             type: 'Multiple',
-            question: '您关注哪些近期连载的官方作品？（多选）',
+            question: '您关注哪些近期连载的官方作品？',
             introduction: '',
             input: '',
             options: [
@@ -944,7 +944,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 12061,
             type: 'Multiple',
-            question: '您最喜欢东方原作的哪方面？（多选）',
+            question: '您最喜欢东方原作的哪方面？',
             introduction: '',
             input: '',
             options: [
@@ -1020,7 +1020,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 12081,
             type: 'Multiple',
-            question: '您购买实体正版原作的渠道为？（多选）',
+            question: '您购买实体正版原作的渠道为？',
             introduction: '',
             input: '',
             options: [
@@ -1053,7 +1053,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 12082,
             type: 'Multiple',
-            question: '是什么原因而没有购买？（多选）',
+            question: '是什么原因而没有购买？',
             introduction: '',
             input: '',
             options: [
@@ -1183,7 +1183,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 13011,
             type: 'Multiple',
-            question: '您比较关注哪一类二次创作？（多选）',
+            question: '您比较关注哪一类二次创作？',
             introduction: '',
             input: '',
             options: [
@@ -1242,7 +1242,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 13021,
             type: 'Multiple',
-            question: '您喜欢二次创作的原因？（多选）',
+            question: '您喜欢二次创作的原因？',
             introduction: '',
             input: '',
             options: [
@@ -1336,7 +1336,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 13041,
             type: 'Single',
-            question: '您购买过国内的二次同人作品吗？（多选）',
+            question: '您购买过国内的二次同人作品吗？',
             introduction: '',
             input: '',
             options: [
@@ -1367,7 +1367,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 13051,
             type: 'Multiple',
-            question: '您购买的国内二次同人作品类型为？（多选）',
+            question: '您购买的国内二次同人作品类型为？',
             introduction: '',
             input: '',
             options: [
@@ -1434,7 +1434,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 13061,
             type: 'Multiple',
-            question: '您购买国内二次同人作品的渠道为？（多选）',
+            question: '您购买国内二次同人作品的渠道为？',
             introduction: '',
             input: '',
             options: [
@@ -1536,7 +1536,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 13081,
             type: 'Single',
-            question: '您购买过国外的二次同人作品吗？（多选）',
+            question: '您购买过国外的二次同人作品吗？',
             introduction: '',
             input: '',
             options: [
@@ -1567,7 +1567,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 13091,
             type: 'Multiple',
-            question: '您购买的国外二次同人作品类型为？（多选）',
+            question: '您购买的国外二次同人作品类型为？',
             introduction: '',
             input: '',
             options: [
@@ -1634,7 +1634,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 13101,
             type: 'Multiple',
-            question: '您购买国外二次同人作品的渠道为？（多选）',
+            question: '您购买国外二次同人作品的渠道为？',
             introduction: '',
             input: '',
             options: [
@@ -1742,7 +1742,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 13121,
             type: 'Multiple',
-            question: '阻碍您购买二次同人作品的原因是？（多选）',
+            question: '阻碍您购买二次同人作品的原因是？',
             introduction: '',
             input: '',
             options: [
@@ -1867,22 +1867,58 @@ export const questionnaire: QuestionnaireALL = {
         [
           {
             id: 21011,
-            type: 'Single',
-            question: '你吼辣么大声干什么嘛',
+            type: 'Multiple',
+            question: '您在进行何种类型的二次创作？',
             introduction: '',
             input: '',
             options: [
               {
                 id: 2101101,
-                related: [21021],
+                related: [],
                 mutex: [],
-                content: 'あないます',
+                content: '音乐类',
               },
               {
                 id: 2101102,
-                related: [21020],
+                related: [],
                 mutex: [],
-                content: 'あみましぜならひ',
+                content: '漫画类',
+              },
+              {
+                id: 2101103,
+                related: [],
+                mutex: [],
+                content: '插画类',
+              },
+              {
+                id: 2101104,
+                related: [],
+                mutex: [],
+                content: '小说类',
+              },
+              {
+                id: 2101105,
+                related: [],
+                mutex: [],
+                content: '视频类',
+              },
+              {
+                id: 2101106,
+                related: [],
+                mutex: [],
+                content: '软件类',
+              },
+              {
+                id: 2101107,
+                related: [],
+                mutex: [],
+                content: '实物类',
+              },
+              {
+                id: 2101108,
+                related: [],
+                mutex: [],
+                content: '其它',
               },
             ],
           },
@@ -1890,8 +1926,8 @@ export const questionnaire: QuestionnaireALL = {
         [
           {
             id: 21021,
-            type: 'Single',
-            question: '你能不能好好说话',
+            type: 'Multiple',
+            question: '在创作过程中，您的动力来源是？',
             introduction: '',
             input: '',
             options: [
@@ -1899,33 +1935,173 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2102101,
                 related: [],
                 mutex: [],
-                content: '大家晚上吼啊',
+                content: '其它创作者的支持与鼓励',
               },
               {
                 id: 2102102,
                 related: [],
                 mutex: [],
-                content: '那你去物管啊',
+                content: '观众的反馈',
+              },
+              {
+                id: 2102103,
+                related: [],
+                mutex: [],
+                content: '创作的成就感',
+              },
+              {
+                id: 2102104,
+                related: [],
+                mutex: [],
+                content: '表达对角色/音乐/作品的喜爱',
+              },
+              {
+                id: 2102105,
+                related: [],
+                mutex: [],
+                content: '其它',
               },
             ],
-          },
-          {
-            id: 21020,
-            type: 'Input',
-            question: '被遗忘的问题 ～ Error Occured',
-            introduction: '',
-            input: '',
-            options: [],
           },
         ],
         [
           {
             id: 21031,
             type: 'Input',
-            question: '你再骂!',
+            question: '在诸多支持您进行创作的因素中，最主要的是？',
             introduction: '',
             input: '',
-            options: [],
+            options: [
+              {
+                id: 2103101,
+                related: [],
+                mutex: [],
+                content: '',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 21041,
+            type: 'Multiple',
+            question: '在创作过程中遇到过什么样的困难？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2104101,
+                related: [],
+                mutex: [],
+                content: '需要从其他事情上分时间和精力',
+              },
+              {
+                id: 2104102,
+                related: [],
+                mutex: [],
+                content: '技术力不足',
+              },
+              {
+                id: 2104103,
+                related: [],
+                mutex: [],
+                content: '难以维持自己的动力',
+              },
+              {
+                id: 2104104,
+                related: [],
+                mutex: [],
+                content: '周边氛围对创作非常不友好',
+              },
+              {
+                id: 2104105,
+                related: [],
+                mutex: [],
+                content: '其它',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 21051,
+            type: 'Input',
+            question: '您认为在创作过程中遇到过的各种困难中，最需要解决的是？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2105101,
+                related: [],
+                mutex: [],
+                content: '',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 21061,
+            type: 'Input',
+            question:
+              '您认为您需要/希望获得来自平台方面的何种帮助？（如建立新的推荐作品的渠道等）（如果认为现在状况很好可以写现状很好）',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2106101,
+                related: [],
+                mutex: [],
+                content: '',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 21071,
+            type: 'Single',
+            question: '基于线下的同人展会对您来说意义如何？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2107101,
+                related: [],
+                mutex: [],
+                content: '非常重要，是作品销量的大头所在',
+              },
+              {
+                id: 2107102,
+                related: [],
+                mutex: [],
+                content: '非常重要',
+              },
+              {
+                id: 2107103,
+                related: [],
+                mutex: [],
+                content: '重要',
+              },
+              {
+                id: 2107104,
+                related: [],
+                mutex: [],
+                content: '一般',
+              },
+              {
+                id: 2107105,
+                related: [],
+                mutex: [],
+                content: '不重要',
+              },
+              {
+                id: 2107106,
+                related: [],
+                mutex: [],
+                content: '完全不重要',
+              },
+            ],
           },
         ],
       ],
@@ -1962,7 +2138,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 22021,
             type: 'Single',
-            question: '您以什么为目标游玩STG？（多选）',
+            question: '您以什么为目标游玩STG？',
             introduction: '',
             input: '',
             options: [
@@ -2063,7 +2239,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 22051,
             type: 'Single',
-            question: '您以什么为目标游玩FTG？（多选）',
+            question: '您以什么为目标游玩FTG？',
             introduction: '',
             input: '',
             options: [
@@ -2246,7 +2422,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 23022,
             type: 'Multiple',
-            question: '您没有参加过展会的原因是？（多选）',
+            question: '您没有参加过展会的原因是？',
             introduction: '',
             input: '',
             options: [
@@ -2873,7 +3049,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 25061,
             type: 'Multiple',
-            question: '您接触东方信息的渠道有哪些？（多选）',
+            question: '您接触东方信息的渠道有哪些？',
             introduction: '',
             input: '',
             options: [
@@ -2926,7 +3102,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 25071,
             type: 'Multiple',
-            question: '您主动关注的信息类型有哪些？（多选）',
+            question: '您主动关注的信息类型有哪些？',
             introduction: '',
             input: '',
             options: [
@@ -2973,7 +3149,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 25081,
             type: 'Multiple',
-            question: '您被动关注的信息类型有哪些？（多选）',
+            question: '您被动关注的信息类型有哪些？',
             introduction: '',
             input: '',
             options: [
@@ -3020,7 +3196,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 25091,
             type: 'Multiple',
-            question: '您通过哪些账号或平台了解东方信息？（多选）',
+            question: '您通过哪些账号或平台了解东方信息？',
             introduction: '',
             input: '',
             options: [

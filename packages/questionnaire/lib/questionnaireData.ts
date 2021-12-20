@@ -307,6 +307,26 @@ export function getQuestionnaireData(): QuestionnaireData {
             options: [],
             input: '',
           },
+          {
+            id: 21041,
+            options: [],
+            input: '',
+          },
+          {
+            id: 21051,
+            options: [],
+            input: '',
+          },
+          {
+            id: 21061,
+            options: [],
+            input: '',
+          },
+          {
+            id: 21071,
+            options: [],
+            input: '',
+          },
         ],
       },
       exQuestionnaire2: {
