@@ -30,7 +30,7 @@
         <icon-uil-times class="cursor-pointer" @click="cancelFilter()"></icon-uil-times>
       </div>
       <div class="flex-grow overflow-y-auto p-2 flex flex-col space-y-3">
-        <div>初登场作品种类：</div>
+        <div>收录专辑的种类：</div>
         <div class="flex flex-wrap space-x-3">
           <div
             v-for="(kind, index) in kinds"
@@ -45,7 +45,7 @@
             {{ kind.name }}
           </div>
         </div>
-        <div>初登场作品：</div>
+        <div>收录于专辑：</div>
         <VoteSelect v-model:selected="albumSelectedTem" :item-list="albumsListAfterFilterTem" />
         <div
           class="
