@@ -1172,6 +1172,26 @@ export const questionnaire: QuestionnaireALL = {
             ],
           },
         ],
+        [
+          {
+            id: 12111,
+            type: 'Input',
+            question: '您最喜欢的官方作品是？',
+            introduction: '',
+            input: '',
+            options: []
+          }
+        ],
+        [
+          {
+            id: 12121,
+            type: 'Input',
+            question: '喜欢的理由是？',
+            introduction: '',
+            input: '',
+            options: []
+          }
+        ]
       ],
     },
     optionalQuestionnaire2: {
