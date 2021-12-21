@@ -729,6 +729,8 @@ export const IsQuestionnaireAllDone = computed<boolean>(() => {
   }
   return flag === 3
 })
+// 是否是第一次完成问卷
+export const firstCompleteQuestionnaireAll = ref(true)
 
 // 从本地储存读取问卷数据
 export function getQuestionnaireDataFromLocalStorage(): QuestionnaireData {

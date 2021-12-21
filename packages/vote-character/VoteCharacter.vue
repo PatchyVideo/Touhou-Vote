@@ -126,10 +126,12 @@
       </button>
     </div>
   </VoteMessageBox>
+  <BackToHome :show="true" :saveable="false" />
 </template>
 
 <script lang="ts" setup>
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import BackToHome from '@/common/components/BackToHome.vue'
 import CharacterSelect from './components/CharacterSelect.vue'
 import CharacterCard from '@/vote-character/components/CharacterCard.vue'
 import CharacterHonmeiCard from './components/CharacterHonmeiCard.vue'

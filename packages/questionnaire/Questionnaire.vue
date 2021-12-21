@@ -96,16 +96,20 @@
   />
   <VoteMessageBox v-model:open="submitCompleteMessageBoxOpen" title="提交成功！">
     <div class="p-2 space-y-2">
-      <div>
+      <div v-if="IsQuestionnaireAllDone && firstCompleteQuestionnaireAll">
+        <div>感谢您完成了调查问卷的填写！,您可以进行投票了！</div>
+        <div>您是希望进行投票，还是继续填写/修改其他问卷呢？</div>
+      </div>
+      <div v-else>
         <div>{{ '感谢您完成了' + questionnaireName + '的填写！' }}</div>
         <div>您是希望休息一下，还是继续填写/修改其他问卷呢？</div>
       </div>
       <div class="flex justify-between space-x-2">
         <button
           class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
-          @click="backHome()"
+          @click="backHome(IsQuestionnaireAllDone && firstCompleteQuestionnaireAll)"
         >
-          休息一下，返回主页面
+          {{ IsQuestionnaireAllDone && firstCompleteQuestionnaireAll ? '去投票！' : '休息一下，返回主页面' }}
         </button>
         <button
           class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
@@ -116,6 +120,7 @@
       </div>
     </div>
   </VoteMessageBox>
+  <BackToHome :show="true" :saveable="true" />
 </template>
 
 <script lang="ts" setup>
@@ -126,11 +131,14 @@ import {
   questionnaireData,
   questionDone,
   IsQuestionnaireDone,
+  IsQuestionnaireAllDone,
+  firstCompleteQuestionnaireAll,
 } from '@/questionnaire/lib/questionnaireData'
 import { useRoute, useRouter } from 'vue-router'
 import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
 import QuestionnaireChange from '@/questionnaire/components/QuestionnaireChange.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import BackToHome from '@/common/components/BackToHome.vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { useMutation, gql } from '@/graphql'
 import type { Mutation } from '@/graphql'
@@ -316,10 +324,12 @@ function submitQuestionnire() {
   }
 }
 
-function backHome(): void {
-  router.push('/')
+function backHome(gotoVote: boolean): void {
+  firstCompleteQuestionnaireAll.value = false
+  router.push(gotoVote ? '/?openList=vote&open=1' : '/')
 }
 function continueEdit(): void {
+  firstCompleteQuestionnaireAll.value = false
   submitCompleteMessageBoxOpen.value = false
   drawerOpen()
 }

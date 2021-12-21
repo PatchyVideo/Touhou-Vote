@@ -123,10 +123,12 @@
       </button>
     </div>
   </VoteMessageBox>
+  <BackToHome :show="true" :saveable="false" />
 </template>
 
 <script lang="ts" setup>
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import BackToHome from '@/common/components/BackToHome.vue'
 import MusicSelect from './components/MusicSelect.vue'
 import MusicCard from '@/vote-music/components/MusicCard.vue'
 import MusicHonmeiCard from './components/MusicHonmeiCard.vue'

@@ -94,6 +94,7 @@
       </button>
     </div>
   </VoteMessageBox>
+  <BackToHome :show="true" :saveable="false" />
 </template>
 
 <script lang="ts" setup>
@@ -104,6 +105,7 @@ import { couplesValid, coupleHonmei, couplesValidWithoutHonmei } from '@/vote-co
 import CoupleCard from '@/vote-couple/components/CoupleCard.vue'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import BackToHome from '@/common/components/BackToHome.vue'
 import { Character, character0 } from '@/vote-character/lib/character'
 import { useMutation, useQuery, gql, useResult } from '@/graphql'
 import type { Mutation, Query, schema } from '@/graphql'
