@@ -44,17 +44,7 @@
               </div>
               <div class="text-accent-color-600 text-xs h-5" v-text="verificationCodeError"></div>
               <button
-                class="
-                  w-full
-                  py-2
-                  rounded-xl
-                  text text-white
-                  bg-accent-color-600
-                  flex
-                  items-center
-                  space-x-1
-                  justify-center
-                "
+                class="w-full py-2 rounded-xl text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
                 :class="{ 'bg-accent-color-300': loading }"
                 @click="login()"
               >
@@ -89,12 +79,7 @@
               </div>
             </div> -->
             <div
-              class="
-                text-gray-600 text-sm text-right
-                cursor-pointer
-                transition transition-colors
-                hover:text-accent-color-600
-              "
+              class="text-gray-600 text-sm text-right cursor-pointer transition transition-colors hover:text-accent-color-600"
               @click="loading || (useOldSystemLogin = true)"
             >
               使用旧版账号密码登陆
@@ -128,17 +113,7 @@
               /></label>
               <div class="text-accent-color-600 text-xs h-5" v-text="userPasswordError"></div>
               <button
-                class="
-                  w-full
-                  py-2
-                  rounded-xl
-                  text text-white
-                  bg-accent-color-600
-                  flex
-                  items-center
-                  space-x-1
-                  justify-center
-                "
+                class="w-full py-2 rounded-xl text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
                 :class="{ 'bg-accent-color-300': loading }"
                 @click="oldSystemlogin()"
               >
@@ -383,9 +358,9 @@ oldLoginDone((result) => {
   location.reload()
 })
 oldLoginError((error) => {
-  if (error.message === 'Incorrect login') userNameError.value = '用户名或密码错误！'
+  if (error.graphQLErrors[0].extensions.error_kind === 'NOT_FOUND') userNameError.value = '用户名或密码错误！'
   else userPasswordError.value = '网络错误！请稍后重试'
-  console.log(error)
+  console.log(error.graphQLErrors)
 })
 </script>
 <style lang="postcss" scoped>
