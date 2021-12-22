@@ -119,4 +119,4 @@ function returnBack(): void {
 }
 </script>
 
-<style lang="postcss" scoped></style>
+

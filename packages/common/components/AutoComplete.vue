@@ -32,4 +32,4 @@ function search(): void {
     : (keywordMusic.value = searchContent.value)
 }
 </script>
-<style lang="postcss" scoped></style>
+

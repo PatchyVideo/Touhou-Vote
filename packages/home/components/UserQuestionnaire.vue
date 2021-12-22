@@ -85,4 +85,4 @@ function gotoQuestionnaire(bigQuestionnaire: string, smallQuestionnaire: string)
 }
 </script>
 
-<style lang="postcss" scoped></style>
+

@@ -92,7 +92,7 @@
     v-model:open="open"
     :big-questionnaire="bigQuestionnaire"
     :small-questionnaire="smallQuestionnaire"
-    @changeQuestion="changeQuestion"
+    @change-question="changeQuestion"
   />
   <VoteMessageBox v-model:open="submitCompleteMessageBoxOpen" title="提交成功！">
     <div class="p-2 space-y-2">
@@ -356,4 +356,4 @@ onError((error) => {
 })
 </script>
 
-<style lang="postcss" scoped></style>
+

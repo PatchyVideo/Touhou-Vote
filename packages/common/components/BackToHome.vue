@@ -50,4 +50,4 @@ function backToHome() {
   }
 }
 </script>
-<style lang="postcss" scoped></style>
+
