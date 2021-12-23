@@ -19,7 +19,7 @@
           <div v-if="screenSizes['<md']" class="text-gray-600 text-lg">
             这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
           </div>
-          <a class="float-arrow-box space-x-3 flex items-center w-3/5" @click="loginBoxOpen = true"
+          <a class="float-arrow-box space-x-3 flex items-center w-3/5 md:w-1/2" @click="loginBoxOpen = true"
             ><img class="w-3/5" src="@/common/assets/login.svg" /><img
               src="@/common/assets/loginIcon.svg"
               class="float-arrow w-1/6"
