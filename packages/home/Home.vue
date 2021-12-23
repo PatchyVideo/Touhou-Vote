@@ -5,7 +5,7 @@
     >
       <!-- Title -->
       <div class="grid md:grid-cols-2 place-items-center w-full min-h-100vh gap-16">
-        <div class="space-y-6vh md:pt-0 md:flex md:flex-wrap md:content-center">
+        <div class="space-y-6vh md:pt-0 md:flex md:flex-wrap md:content-center md:space-y-4vh">
           <div class="w-full space-y-2">
             <div class="quicksand text-gray-800 md:text-xl">
               <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://thwiki.cc/favicon.ico" />THBWiki &
