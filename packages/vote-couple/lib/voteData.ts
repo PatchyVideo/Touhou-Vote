@@ -14,16 +14,15 @@ export const coupleHonmei = computed<Couple>(() => couples.value.find((couple) =
 export function updateVotecouple(coupleVoteData: CpSubmitQuery[]): void {
   if (!coupleVoteData.length) return
   for (let i = 0; i < coupleVoteData.length; i++) {
-    couples.value[i].characters[0] =
-      characterList.find((item) => item.name === coupleVoteData[i].nameA) || new Character()
-    couples.value[i].characters[1] =
-      characterList.find((item) => item.name === coupleVoteData[i].nameB) || new Character()
+    let coupleData = new Couple()
+    coupleData.characters[0] = characterList.find((item) => item.name === coupleVoteData[i].nameA) || new Character()
+    coupleData.characters[1] = characterList.find((item) => item.name === coupleVoteData[i].nameB) || new Character()
     if (coupleVoteData[i].nameC)
-      couples.value[i].characters[2] =
-        characterList.find((item) => item.name === coupleVoteData[i].nameC) || new Character()
+      coupleData.characters[2] = characterList.find((item) => item.name === coupleVoteData[i].nameC) || new Character()
     if (coupleVoteData[i].active)
-      couples.value[i].seme = couples.value[i].characters.findIndex((item) => item.name === coupleVoteData[i].active)
-    if (coupleVoteData[i].first) couples.value[i].honmei = true
-    couples.value[i].valid = true
+      coupleData.seme = coupleData.characters.findIndex((item) => item.name === coupleVoteData[i].active)
+    if (coupleVoteData[i].first) coupleData.honmei = true
+    coupleData.valid = true
+    couples.value[i] = coupleData
   }
 }
