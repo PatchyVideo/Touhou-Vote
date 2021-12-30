@@ -9,8 +9,9 @@ export const musics = ref<Music[]>(new Array(12).fill(null).map(() => new Music(
 export function updateVotemusics(musicVoteData: MusicSubmitQuery[]): void {
   if (!musicVoteData.length) return
   for (let i = 0; i < musicVoteData.length; i++) {
-    musics.value[i] = musicList.find((item) => item.name === musicVoteData[i].name) || musics.value[i]
-    musics.value[i].honmei = musicVoteData[i].first || false
-    musics.value[i].reason = musicVoteData[i].reason || ''
+    let musicData = musicList.find((item) => item.name === musicVoteData[i].name) || musics.value[i]
+    musicData.honmei = musicVoteData[i].first || false
+    musicData.reason = musicVoteData[i].reason || ''
+    musics.value[i] = musicData
   }
 }
