@@ -135,6 +135,9 @@ const {
   `,
   {
     voteToken: voteToken.value,
+  },
+  {
+    fetchPolicy: 'network-only',
   }
 )
 watchEffect(() => {
@@ -169,9 +172,18 @@ function updateCoupleHonmeiNumber() {
   return honmeiIndex === -1 ? { name: '', value: -1 } : { name: '投票位' + (honmeiIndex + 1), value: honmeiIndex }
 }
 watch(coupleHonmeiNumber, () => {
-  couples.value[coupleHonmeiNumber.value.value].honmei = true
+  couples.value.map((item) => {
+    item.honmei = false
+  })
+  if (coupleHonmeiNumber.value.value != -1) couples.value[coupleHonmeiNumber.value.value].honmei = true
 })
-watch(couples, updateCoupleHonmeiNumber)
+watch(
+  couples,
+  () => {
+    coupleHonmeiNumber.value = updateCoupleHonmeiNumber()
+  },
+  { deep: true }
+)
 
 function addCouple(): void {
   couples.value[couplesValid.value.length].valid = true
@@ -197,15 +209,16 @@ function checkVote(): void {
           if (couplesValid.value[i].characters[m].id === couplesValid.value[j].characters[n].id)
             characterOverlapNumber++
         }
-      if (
-        characterOverlapNumber ===
-          Math.min(couplesValid.value[i].characters.length, couplesValid.value[j].characters.length) &&
-        couplesValid.value[i].characters[couplesValid.value[i].seme].name ===
-          couplesValid.value[j].characters[couplesValid.value[j].seme].name
-      ) {
-        alert('投票位' + (i + 1) + '投票位' + (j + 1) + '重复！')
-        return
-      }
+      if (couplesValid.value[i].seme != -1 && couplesValid.value[j].seme != -1)
+        if (
+          characterOverlapNumber ===
+            Math.min(couplesValid.value[i].characters.length, couplesValid.value[j].characters.length) &&
+          couplesValid.value[i].characters[couplesValid.value[i].seme].name ===
+            couplesValid.value[j].characters[couplesValid.value[j].seme].name
+        ) {
+          alert('投票位' + (i + 1) + '投票位' + (j + 1) + '重复！')
+          return
+        }
     }
   confirmBoxOpen.value = true
 }
