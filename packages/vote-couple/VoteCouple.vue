@@ -171,12 +171,7 @@ function updateCoupleHonmeiNumber() {
   const honmeiIndex = couplesValid.value.findIndex((couple) => couple.honmei)
   return honmeiIndex === -1 ? { name: '', value: -1 } : { name: '投票位' + (honmeiIndex + 1), value: honmeiIndex }
 }
-watch(coupleHonmeiNumber, () => {
-  couples.value.map((item) => {
-    item.honmei = false
-  })
-  if (coupleHonmeiNumber.value.value != -1) couples.value[coupleHonmeiNumber.value.value].honmei = true
-})
+// Note: 'couples.value[coupleHonmeiNumber.value.value].honmei = true' has been moved to function vote() to avoid infinite call bug.
 watch(
   couples,
   () => {
@@ -260,6 +255,10 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
 )
 const router = useRouter()
 async function vote(): Promise<void> {
+  couples.value.map((item) => {
+    item.honmei = false
+  })
+  if (coupleHonmeiNumber.value.value != -1) couples.value[coupleHonmeiNumber.value.value].honmei = true
   mutate({ content: { voteToken: voteToken.value, cps: CPSubmit.value } })
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
