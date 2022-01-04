@@ -13,10 +13,10 @@ export const characterList: Character[] = [
     reason: '',
     honmei: false,
     date: 19970815,
-    kind: ['new'],
-    work: ['东方灵异传','东方红魔乡'],
+    kind: ['old', 'new'],
+    work: ['东方灵异传', '东方红魔乡'],
   },
-{
+  {
     id: '2',
     name: '雾雨魔理沙',
     altnames: [],
@@ -26,10 +26,10 @@ export const characterList: Character[] = [
     reason: '',
     honmei: false,
     date: 19970815,
-    kind: ['new'],
-    work: ['东方封魔录','东方红魔乡'],
+    kind: ['old', 'new'],
+    work: ['东方封魔录', '东方红魔乡'],
   },
-{
+  {
     id: '3',
     name: '露米娅',
     altnames: [],
@@ -42,7 +42,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方红魔乡'],
   },
-{
+  {
     id: '4',
     name: '大妖精',
     altnames: [],
@@ -55,7 +55,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方红魔乡'],
   },
-{
+  {
     id: '5',
     name: '琪露诺',
     altnames: [],
@@ -68,7 +68,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方红魔乡'],
   },
-{
+  {
     id: '6',
     name: '红美铃',
     altnames: [],
@@ -81,7 +81,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方红魔乡'],
   },
-{
+  {
     id: '7',
     name: '小恶魔',
     altnames: [],
@@ -94,7 +94,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方红魔乡'],
   },
-{
+  {
     id: '8',
     name: '帕秋莉·诺蕾姬',
     altnames: [],
@@ -107,7 +107,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方红魔乡'],
   },
-{
+  {
     id: '9',
     name: '十六夜咲夜',
     altnames: [],
@@ -120,7 +120,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方红魔乡'],
   },
-{
+  {
     id: '10',
     name: '蕾米莉亚·斯卡蕾特',
     altnames: [],
@@ -133,7 +133,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方红魔乡'],
   },
-{
+  {
     id: '11',
     name: '芙兰朵露·斯卡蕾特',
     altnames: [],
@@ -146,12 +146,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方红魔乡'],
   },
-{
+  {
     id: '12',
     name: '冴月麟',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -159,7 +159,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方红魔乡'],
   },
-{
+  {
     id: '13',
     name: '蕾蒂·霍瓦特洛克',
     altnames: [],
@@ -172,7 +172,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '14',
     name: '橙',
     altnames: [],
@@ -185,7 +185,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '15',
     name: '爱丽丝·玛格特洛依德',
     altnames: [],
@@ -195,10 +195,10 @@ export const characterList: Character[] = [
     reason: '',
     honmei: false,
     date: 20030817,
-    kind: ['new'],
-    work: ['东方妖妖梦'],
+    kind: ['old', 'new'],
+    work: ['东方怪绮谈', '东方妖妖梦'],
   },
-{
+  {
     id: '16',
     name: '莉莉霍瓦特',
     altnames: [],
@@ -211,7 +211,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '17',
     name: '露娜萨·普莉兹姆利巴',
     altnames: [],
@@ -224,7 +224,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '18',
     name: '梅露兰·普莉兹姆利巴',
     altnames: [],
@@ -237,7 +237,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '19',
     name: '莉莉卡·普莉兹姆利巴',
     altnames: [],
@@ -250,7 +250,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '20',
     name: '魂魄妖梦',
     altnames: [],
@@ -263,7 +263,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '21',
     name: '西行寺幽幽子',
     altnames: [],
@@ -276,7 +276,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '22',
     name: '八云蓝',
     altnames: [],
@@ -289,7 +289,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '23',
     name: '八云紫',
     altnames: [],
@@ -302,12 +302,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '24',
     name: '魂魄妖忌',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -315,12 +315,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '25',
     name: '蕾拉·普莉兹姆利巴',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -328,7 +328,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方妖妖梦'],
   },
-{
+  {
     id: '26',
     name: '伊吹萃香',
     altnames: [],
@@ -341,7 +341,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方萃梦想'],
   },
-{
+  {
     id: '27',
     name: '莉格露·奈特巴格',
     altnames: [],
@@ -354,7 +354,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方永夜抄'],
   },
-{
+  {
     id: '28',
     name: '米斯蒂娅·萝蕾拉',
     altnames: [],
@@ -367,7 +367,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方永夜抄'],
   },
-{
+  {
     id: '29',
     name: '上白泽慧音',
     altnames: [],
@@ -380,7 +380,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方永夜抄'],
   },
-{
+  {
     id: '30',
     name: '因幡天为（因幡帝）',
     altnames: [],
@@ -393,7 +393,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方永夜抄'],
   },
-{
+  {
     id: '31',
     name: '铃仙·优昙华院·因幡',
     altnames: [],
@@ -406,7 +406,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方永夜抄'],
   },
-{
+  {
     id: '32',
     name: '八意永琳',
     altnames: [],
@@ -419,7 +419,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方永夜抄'],
   },
-{
+  {
     id: '33',
     name: '蓬莱山辉夜',
     altnames: [],
@@ -432,7 +432,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方永夜抄'],
   },
-{
+  {
     id: '34',
     name: '藤原妹红',
     altnames: [],
@@ -445,7 +445,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方永夜抄'],
   },
-{
+  {
     id: '35',
     name: '射命丸文',
     altnames: [],
@@ -458,7 +458,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方花映塚'],
   },
-{
+  {
     id: '36',
     name: '梅蒂欣·梅兰可莉',
     altnames: [],
@@ -471,7 +471,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方花映塚'],
   },
-{
+  {
     id: '37',
     name: '风见幽香',
     altnames: [],
@@ -481,10 +481,10 @@ export const characterList: Character[] = [
     reason: '',
     honmei: false,
     date: 20050814,
-    kind: ['new'],
-    work: ['东方花映塚'],
+    kind: ['old', 'new'],
+    work: ['东方幻想乡', '东方花映塚'],
   },
-{
+  {
     id: '38',
     name: '小野塚小町',
     altnames: [],
@@ -497,7 +497,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方花映塚'],
   },
-{
+  {
     id: '39',
     name: '四季映姬·夜摩仙那度',
     altnames: [],
@@ -510,7 +510,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方花映塚'],
   },
-{
+  {
     id: '40',
     name: '秋静叶',
     altnames: [],
@@ -523,7 +523,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方风神录'],
   },
-{
+  {
     id: '41',
     name: '秋穰子',
     altnames: [],
@@ -536,7 +536,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方风神录'],
   },
-{
+  {
     id: '42',
     name: '键山雏',
     altnames: [],
@@ -549,7 +549,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方风神录'],
   },
-{
+  {
     id: '43',
     name: '河城荷取',
     altnames: [],
@@ -562,7 +562,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方风神录'],
   },
-{
+  {
     id: '44',
     name: '犬走椛',
     altnames: [],
@@ -575,7 +575,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方风神录'],
   },
-{
+  {
     id: '45',
     name: '东风谷早苗',
     altnames: [],
@@ -588,7 +588,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方风神录'],
   },
-{
+  {
     id: '46',
     name: '八坂神奈子',
     altnames: [],
@@ -601,7 +601,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方风神录'],
   },
-{
+  {
     id: '47',
     name: '洩矢诹访子',
     altnames: [],
@@ -614,7 +614,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方风神录'],
   },
-{
+  {
     id: '48',
     name: '永江衣玖',
     altnames: [],
@@ -627,7 +627,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方绯想天'],
   },
-{
+  {
     id: '49',
     name: '比那名居天子',
     altnames: [],
@@ -640,7 +640,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方绯想天'],
   },
-{
+  {
     id: '50',
     name: '琪斯美',
     altnames: [],
@@ -653,7 +653,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方地灵殿'],
   },
-{
+  {
     id: '51',
     name: '黑谷山女',
     altnames: [],
@@ -666,7 +666,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方地灵殿'],
   },
-{
+  {
     id: '52',
     name: '水桥帕露西',
     altnames: [],
@@ -679,7 +679,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方地灵殿'],
   },
-{
+  {
     id: '53',
     name: '星熊勇仪',
     altnames: [],
@@ -692,7 +692,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方地灵殿'],
   },
-{
+  {
     id: '54',
     name: '古明地觉',
     altnames: [],
@@ -705,7 +705,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方地灵殿'],
   },
-{
+  {
     id: '55',
     name: '火焰猫燐',
     altnames: [],
@@ -718,7 +718,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方地灵殿'],
   },
-{
+  {
     id: '56',
     name: '灵乌路空',
     altnames: [],
@@ -731,7 +731,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方地灵殿'],
   },
-{
+  {
     id: '57',
     name: '古明地恋',
     altnames: [],
@@ -744,7 +744,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方地灵殿'],
   },
-{
+  {
     id: '58',
     name: '娜兹玲',
     altnames: [],
@@ -757,7 +757,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方星莲船'],
   },
-{
+  {
     id: '59',
     name: '多多良小伞',
     altnames: [],
@@ -770,7 +770,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方星莲船'],
   },
-{
+  {
     id: '60',
     name: '云山',
     altnames: [],
@@ -783,7 +783,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方星莲船'],
   },
-{
+  {
     id: '61',
     name: '云居一轮',
     altnames: [],
@@ -796,7 +796,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方星莲船'],
   },
-{
+  {
     id: '62',
     name: '村纱水蜜',
     altnames: [],
@@ -809,7 +809,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方星莲船'],
   },
-{
+  {
     id: '63',
     name: '寅丸星',
     altnames: [],
@@ -822,7 +822,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方星莲船'],
   },
-{
+  {
     id: '64',
     name: '圣白莲',
     altnames: [],
@@ -835,7 +835,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方星莲船'],
   },
-{
+  {
     id: '65',
     name: '封兽鵺',
     altnames: [],
@@ -848,12 +848,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方星莲船'],
   },
-{
+  {
     id: '66',
     name: '命莲',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -861,12 +861,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方星莲船'],
   },
-{
+  {
     id: '67',
     name: '大鲶鱼',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -874,12 +874,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方非想天则'],
   },
-{
+  {
     id: '68',
     name: '非想天则',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -887,7 +887,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方非想天则'],
   },
-{
+  {
     id: '69',
     name: '姬海棠果',
     altnames: [],
@@ -900,7 +900,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方文花帖DS'],
   },
-{
+  {
     id: '70',
     name: '幽谷响子',
     altnames: [],
@@ -913,7 +913,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方神灵庙'],
   },
-{
+  {
     id: '71',
     name: '宫古芳香',
     altnames: [],
@@ -926,7 +926,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方神灵庙'],
   },
-{
+  {
     id: '72',
     name: '霍青娥',
     altnames: [],
@@ -939,7 +939,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方神灵庙'],
   },
-{
+  {
     id: '73',
     name: '苏我屠自古',
     altnames: [],
@@ -952,7 +952,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方神灵庙'],
   },
-{
+  {
     id: '74',
     name: '物部布都',
     altnames: [],
@@ -965,7 +965,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方神灵庙'],
   },
-{
+  {
     id: '75',
     name: '丰聪耳神子',
     altnames: [],
@@ -978,7 +978,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方神灵庙'],
   },
-{
+  {
     id: '76',
     name: '二岩猯藏',
     altnames: [],
@@ -991,7 +991,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方神灵庙'],
   },
-{
+  {
     id: '77',
     name: '秦心',
     altnames: [],
@@ -1004,12 +1004,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方心绮楼'],
   },
-{
+  {
     id: '78',
     name: '秦河胜',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1017,7 +1017,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方心绮楼'],
   },
-{
+  {
     id: '79',
     name: '若鹭姬',
     altnames: [],
@@ -1030,7 +1030,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方辉针城'],
   },
-{
+  {
     id: '80',
     name: '赤蛮奇',
     altnames: [],
@@ -1043,7 +1043,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方辉针城'],
   },
-{
+  {
     id: '81',
     name: '今泉影狼',
     altnames: [],
@@ -1056,7 +1056,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方辉针城'],
   },
-{
+  {
     id: '82',
     name: '九十九弁弁',
     altnames: [],
@@ -1069,7 +1069,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方辉针城'],
   },
-{
+  {
     id: '83',
     name: '九十九八桥',
     altnames: [],
@@ -1082,7 +1082,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方辉针城'],
   },
-{
+  {
     id: '84',
     name: '鬼人正邪',
     altnames: [],
@@ -1095,7 +1095,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方辉针城'],
   },
-{
+  {
     id: '85',
     name: '少名针妙丸',
     altnames: [],
@@ -1108,7 +1108,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方辉针城'],
   },
-{
+  {
     id: '86',
     name: '堀川雷鼓',
     altnames: [],
@@ -1121,7 +1121,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方辉针城'],
   },
-{
+  {
     id: '87',
     name: '宇佐见堇子',
     altnames: [],
@@ -1134,12 +1134,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方深秘录'],
   },
-{
+  {
     id: '88',
     name: '绿巨人',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1147,12 +1147,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方深秘录'],
   },
-{
+  {
     id: '89',
     name: '阿菊',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1160,12 +1160,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方深秘录'],
   },
-{
+  {
     id: '90',
     name: '八尺大人',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1173,12 +1173,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方深秘录'],
   },
-{
+  {
     id: '91',
     name: '彭祖',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1186,12 +1186,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方深秘录'],
   },
-{
+  {
     id: '92',
     name: '黄帝',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1199,12 +1199,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方深秘录'],
   },
-{
+  {
     id: '93',
     name: '尼西号',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1212,7 +1212,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方深秘录'],
   },
-{
+  {
     id: '94',
     name: '清兰',
     altnames: [],
@@ -1225,7 +1225,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方绀珠传'],
   },
-{
+  {
     id: '95',
     name: '铃瑚',
     altnames: [],
@@ -1238,7 +1238,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方绀珠传'],
   },
-{
+  {
     id: '96',
     name: '哆来咪·苏伊特',
     altnames: [],
@@ -1251,7 +1251,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方绀珠传'],
   },
-{
+  {
     id: '97',
     name: '稀神探女',
     altnames: [],
@@ -1264,7 +1264,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方绀珠传'],
   },
-{
+  {
     id: '98',
     name: '克劳恩皮丝',
     altnames: [],
@@ -1277,7 +1277,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方绀珠传'],
   },
-{
+  {
     id: '99',
     name: '纯狐',
     altnames: [],
@@ -1290,7 +1290,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方绀珠传'],
   },
-{
+  {
     id: '100',
     name: '赫卡提亚·拉碧斯拉祖利',
     altnames: [],
@@ -1303,7 +1303,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方绀珠传'],
   },
-{
+  {
     id: '101',
     name: '爱塔妮缇拉尔瓦',
     altnames: [],
@@ -1316,7 +1316,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方天空璋'],
   },
-{
+  {
     id: '102',
     name: '坂田合欢',
     altnames: [],
@@ -1329,7 +1329,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方天空璋'],
   },
-{
+  {
     id: '103',
     name: '高丽野阿吽',
     altnames: [],
@@ -1342,7 +1342,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方天空璋'],
   },
-{
+  {
     id: '104',
     name: '矢田寺成美',
     altnames: [],
@@ -1355,7 +1355,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方天空璋'],
   },
-{
+  {
     id: '105',
     name: '丁礼田舞',
     altnames: [],
@@ -1368,7 +1368,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方天空璋'],
   },
-{
+  {
     id: '106',
     name: '尔子田里乃',
     altnames: [],
@@ -1381,7 +1381,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方天空璋'],
   },
-{
+  {
     id: '107',
     name: '摩多罗隐岐奈',
     altnames: [],
@@ -1394,7 +1394,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方天空璋'],
   },
-{
+  {
     id: '108',
     name: '依神女苑',
     altnames: [],
@@ -1407,7 +1407,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方凭依华'],
   },
-{
+  {
     id: '109',
     name: '依神紫苑',
     altnames: [],
@@ -1420,7 +1420,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方凭依华'],
   },
-{
+  {
     id: '110',
     name: '戎璎花',
     altnames: [],
@@ -1433,7 +1433,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方鬼形兽'],
   },
-{
+  {
     id: '111',
     name: '牛崎润美',
     altnames: [],
@@ -1446,7 +1446,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方鬼形兽'],
   },
-{
+  {
     id: '112',
     name: '庭渡久侘歌',
     altnames: [],
@@ -1459,7 +1459,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方鬼形兽'],
   },
-{
+  {
     id: '113',
     name: '吉吊八千慧',
     altnames: [],
@@ -1472,7 +1472,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方鬼形兽'],
   },
-{
+  {
     id: '114',
     name: '杖刀偶磨弓',
     altnames: [],
@@ -1485,7 +1485,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方鬼形兽'],
   },
-{
+  {
     id: '115',
     name: '埴安神袿姬',
     altnames: [],
@@ -1498,7 +1498,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方鬼形兽'],
   },
-{
+  {
     id: '116',
     name: '骊驹早鬼',
     altnames: [],
@@ -1511,12 +1511,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方鬼形兽'],
   },
-{
+  {
     id: '117',
     name: '野狼灵',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1524,12 +1524,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方鬼形兽'],
   },
-{
+  {
     id: '118',
     name: '水獭灵',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1537,12 +1537,12 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方鬼形兽'],
   },
-{
+  {
     id: '119',
     name: '大鹫灵',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1550,7 +1550,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方鬼形兽'],
   },
-{
+  {
     id: '120',
     name: '饕餮尤魔',
     altnames: [],
@@ -1563,7 +1563,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方刚欲异闻'],
   },
-{
+  {
     id: '121',
     name: '豪德寺三花',
     altnames: [],
@@ -1576,7 +1576,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方虹龙洞'],
   },
-{
+  {
     id: '122',
     name: '山城高岭',
     altnames: [],
@@ -1589,7 +1589,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方虹龙洞'],
   },
-{
+  {
     id: '123',
     name: '驹草山如',
     altnames: [],
@@ -1602,7 +1602,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方虹龙洞'],
   },
-{
+  {
     id: '124',
     name: '玉造魅须丸',
     altnames: [],
@@ -1615,7 +1615,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方虹龙洞'],
   },
-{
+  {
     id: '125',
     name: '菅牧典',
     altnames: [],
@@ -1628,7 +1628,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方虹龙洞'],
   },
-{
+  {
     id: '126',
     name: '饭纲丸龙',
     altnames: [],
@@ -1641,7 +1641,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方虹龙洞'],
   },
-{
+  {
     id: '127',
     name: '天弓千亦',
     altnames: [],
@@ -1654,7 +1654,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方虹龙洞'],
   },
-{
+  {
     id: '128',
     name: '姬虫百百世',
     altnames: [],
@@ -1667,7 +1667,7 @@ export const characterList: Character[] = [
     kind: ['new'],
     work: ['东方虹龙洞'],
   },
-{
+  {
     id: '129',
     name: '神玉',
     altnames: [],
@@ -1680,7 +1680,7 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方灵异传'],
   },
-{
+  {
     id: '130',
     name: '魅魔',
     altnames: [],
@@ -1693,12 +1693,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方灵异传'],
   },
-{
+  {
     id: '131',
     name: '菊理',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1706,12 +1706,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方灵异传'],
   },
-{
+  {
     id: '132',
     name: '矜羯罗',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1719,12 +1719,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方灵异传'],
   },
-{
+  {
     id: '133',
     name: '幽幻魔眼',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1732,12 +1732,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方灵异传'],
   },
-{
+  {
     id: '134',
     name: '依莉斯',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1745,12 +1745,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方灵异传'],
   },
-{
+  {
     id: '135',
     name: '萨丽爱尔',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1758,12 +1758,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方灵异传'],
   },
-{
+  {
     id: '136',
     name: '玄爷',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1771,12 +1771,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方封魔录'],
   },
-{
+  {
     id: '137',
     name: '里香',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1784,12 +1784,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方封魔录'],
   },
-{
+  {
     id: '138',
     name: '明罗',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1797,12 +1797,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方封魔录'],
   },
-{
+  {
     id: '139',
     name: 'Flower～战车',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1810,12 +1810,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方封魔录'],
   },
-{
+  {
     id: '140',
     name: '邪眼西格玛',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1823,12 +1823,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方封魔录'],
   },
-{
+  {
     id: '141',
     name: '爱莲',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1836,12 +1836,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方梦时空'],
   },
-{
+  {
     id: '142',
     name: '小兔姬',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1849,12 +1849,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方梦时空'],
   },
-{
+  {
     id: '143',
     name: '卡娜·安娜贝拉尔',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1862,12 +1862,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方梦时空'],
   },
-{
+  {
     id: '144',
     name: '朝仓理香子',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1875,12 +1875,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方梦时空'],
   },
-{
+  {
     id: '145',
     name: '北白河千百合',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1888,12 +1888,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方梦时空'],
   },
-{
+  {
     id: '146',
     name: '冈崎梦美',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1901,12 +1901,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方梦时空'],
   },
-{
+  {
     id: '147',
     name: '咪咪号',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1914,12 +1914,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方梦时空'],
   },
-{
+  {
     id: '148',
     name: '留琴',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1927,12 +1927,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方梦时空'],
   },
-{
+  {
     id: '149',
     name: '玛○奇',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1940,12 +1940,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方梦时空'],
   },
-{
+  {
     id: '150',
     name: '苏格拉底',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1953,12 +1953,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方梦时空'],
   },
-{
+  {
     id: '151',
     name: '奥莲姬',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1966,12 +1966,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方幻想乡'],
   },
-{
+  {
     id: '152',
     name: '胡桃',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1979,12 +1979,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方幻想乡'],
   },
-{
+  {
     id: '153',
     name: '艾丽',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1992,12 +1992,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方幻想乡'],
   },
-{
+  {
     id: '154',
     name: '梦月',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2005,12 +2005,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方幻想乡'],
   },
-{
+  {
     id: '155',
     name: '幻月',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2018,12 +2018,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方幻想乡'],
   },
-{
+  {
     id: '156',
     name: '萨拉',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2031,12 +2031,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方怪绮谈'],
   },
-{
+  {
     id: '157',
     name: '露易兹',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2044,12 +2044,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方怪绮谈'],
   },
-{
+  {
     id: '158',
     name: '雪',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2057,12 +2057,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方怪绮谈'],
   },
-{
+  {
     id: '159',
     name: '舞',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2070,12 +2070,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方怪绮谈'],
   },
-{
+  {
     id: '160',
     name: '梦子',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2083,12 +2083,12 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方怪绮谈'],
   },
-{
+  {
     id: '161',
     name: '神绮',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2096,7 +2096,7 @@ export const characterList: Character[] = [
     kind: ['old'],
     work: ['东方怪绮谈'],
   },
-{
+  {
     id: '162',
     name: '宇佐见莲子',
     altnames: [],
@@ -2109,7 +2109,7 @@ export const characterList: Character[] = [
     kind: ['CD'],
     work: ['莲台野夜行'],
   },
-{
+  {
     id: '163',
     name: '玛艾露贝莉·赫恩',
     altnames: [],
@@ -2122,12 +2122,12 @@ export const characterList: Character[] = [
     kind: ['CD'],
     work: ['莲台野夜行'],
   },
-{
+  {
     id: '164',
     name: '酒吧“Old Adam”的老板',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2135,7 +2135,7 @@ export const characterList: Character[] = [
     kind: ['CD'],
     work: ['旧约酒馆'],
   },
-{
+  {
     id: '165',
     name: '稗田阿求',
     altnames: [],
@@ -2148,12 +2148,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方求闻史纪'],
   },
-{
+  {
     id: '166',
     name: '求闻史纪中的受访人群',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2161,7 +2161,7 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方求闻史纪'],
   },
-{
+  {
     id: '167',
     name: '桑尼米尔克',
     altnames: [],
@@ -2174,7 +2174,7 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方三月精'],
   },
-{
+  {
     id: '168',
     name: '露娜切露德',
     altnames: [],
@@ -2187,7 +2187,7 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方三月精'],
   },
-{
+  {
     id: '169',
     name: '斯塔萨菲雅',
     altnames: [],
@@ -2200,12 +2200,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方三月精'],
   },
-{
+  {
     id: '170',
     name: '嫦娥',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2213,7 +2213,7 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '171',
     name: '绵月丰姬',
     altnames: [],
@@ -2226,7 +2226,7 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '172',
     name: '绵月依姬',
     altnames: [],
@@ -2239,7 +2239,7 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '173',
     name: 'Reisen',
     altnames: [],
@@ -2252,12 +2252,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '174',
     name: '月夜见',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2265,12 +2265,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '175',
     name: '石长姬',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2278,12 +2278,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '176',
     name: '木花咲耶姬',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2291,12 +2291,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '177',
     name: '天照大御神',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2304,12 +2304,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '178',
     name: '石凝老命',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2317,12 +2317,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '179',
     name: '天宇受卖命',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2330,12 +2330,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '180',
     name: '伊豆能卖',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2343,12 +2343,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '181',
     name: '火雷神',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2356,12 +2356,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '182',
     name: '岩笠',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2369,7 +2369,7 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方儚月抄'],
   },
-{
+  {
     id: '183',
     name: '森近霖之助',
     altnames: [],
@@ -2382,7 +2382,7 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方香霖堂'],
   },
-{
+  {
     id: '184',
     name: '无名的读书妖怪',
     altnames: [],
@@ -2395,7 +2395,7 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方香霖堂'],
   },
-{
+  {
     id: '185',
     name: '茨木华扇',
     altnames: [],
@@ -2408,12 +2408,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '186',
     name: '野槌',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2421,12 +2421,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '187',
     name: '酒虫',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2434,12 +2434,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '188',
     name: '雷兽（务光）',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2447,12 +2447,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '189',
     name: '运松翁',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2460,12 +2460,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '190',
     name: '久米 / 竿打',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2473,12 +2473,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '191',
     name: '管狐',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2486,12 +2486,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '192',
     name: '水鬼鬼神长',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2499,12 +2499,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '193',
     name: '万岁乐',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2512,12 +2512,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '194',
     name: '地精',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2525,12 +2525,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '195',
     name: '大老爷',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2538,12 +2538,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '196',
     name: '杀死大老爷的侍童',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2551,12 +2551,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '197',
     name: '妖怪兔',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2564,12 +2564,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '198',
     name: '卖脚婆',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2577,12 +2577,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '199',
     name: '袈裟罗婆娑罗',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2590,12 +2590,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '200',
     name: '饿神',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2603,12 +2603,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '201',
     name: '睡鼠',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2616,12 +2616,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '202',
     name: '假扮魔理沙的妖狐',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2629,12 +2629,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '203',
     name: '茨木童子之臂',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2642,7 +2642,7 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方茨歌仙'],
   },
-{
+  {
     id: '204',
     name: '本居小铃',
     altnames: [],
@@ -2655,12 +2655,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '205',
     name: '龙神',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2668,12 +2668,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '206',
     name: '烟烟罗',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2681,12 +2681,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '207',
     name: '卓柏卡布拉',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2694,12 +2694,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '208',
     name: '沓颊',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2707,12 +2707,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '209',
     name: '怨灵少女',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2720,12 +2720,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '210',
     name: '祐天上人',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2733,12 +2733,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '211',
     name: '白仙和尚',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2746,12 +2746,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '212',
     name: '占卜师（易者）',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2759,12 +2759,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '213',
     name: '抗抑郁药大叔',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2772,12 +2772,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '214',
     name: '盐家老板',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2785,12 +2785,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '215',
     name: '马凭',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2798,12 +2798,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '216',
     name: '竹扫帚付丧神',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2811,12 +2811,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '217',
     name: '兜风四人组',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2824,12 +2824,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '218',
     name: '导航',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2837,12 +2837,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '219',
     name: '百鬼夜行绘卷妖怪（黑鬼）',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2850,12 +2850,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方铃奈庵'],
   },
-{
+  {
     id: '220',
     name: '反狱王',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2863,7 +2863,7 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方智灵奇传'],
   },
-{
+  {
     id: '221',
     name: '奥野田美宵',
     altnames: [],
@@ -2876,12 +2876,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方醉蝶华'],
   },
-{
+  {
     id: '222',
     name: '鲵吞亭店主',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2889,12 +2889,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方醉蝶华'],
   },
-{
+  {
     id: '223',
     name: '鲵吞亭的常客',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2902,12 +2902,12 @@ export const characterList: Character[] = [
     kind: ['book'],
     work: ['东方醉蝶华'],
   },
-{
+  {
     id: '224',
     name: '毛玉',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2915,12 +2915,12 @@ export const characterList: Character[] = [
     kind: ['others'],
     work: ['其他'],
   },
-{
+  {
     id: '225',
     name: '妖精（含持花妖精，僵尸妖精）',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2928,12 +2928,12 @@ export const characterList: Character[] = [
     kind: ['others'],
     work: ['其他'],
   },
-{
+  {
     id: '226',
     name: 'UFO',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2941,12 +2941,12 @@ export const characterList: Character[] = [
     kind: ['others'],
     work: ['其他'],
   },
-{
+  {
     id: '227',
     name: '怨灵',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2954,12 +2954,12 @@ export const characterList: Character[] = [
     kind: ['others'],
     work: ['其他'],
   },
-{
+  {
     id: '228',
     name: '人偶（含上海人偶、哥利亚人偶）',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2967,12 +2967,12 @@ export const characterList: Character[] = [
     kind: ['others'],
     work: ['其他'],
   },
-{
+  {
     id: '229',
     name: '幽灵',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2980,12 +2980,12 @@ export const characterList: Character[] = [
     kind: ['others'],
     work: ['其他'],
   },
-{
+  {
     id: '230',
     name: '阴阳玉',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2993,12 +2993,12 @@ export const characterList: Character[] = [
     kind: ['others'],
     work: ['其他'],
   },
-{
+  {
     id: '231',
     name: '狸猫',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3006,12 +3006,12 @@ export const characterList: Character[] = [
     kind: ['others'],
     work: ['其他'],
   },
-{
+  {
     id: '232',
     name: '河童（含山童）',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3019,12 +3019,12 @@ export const characterList: Character[] = [
     kind: ['others'],
     work: ['其他'],
   },
-{
+  {
     id: '233',
     name: '野铁炮',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3032,12 +3032,12 @@ export const characterList: Character[] = [
     kind: ['others'],
     work: ['其他'],
   },
-{
+  {
     id: '234',
     name: '座敷童子',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3045,12 +3045,12 @@ export const characterList: Character[] = [
     kind: ['others'],
     work: ['其他'],
   },
-{
+  {
     id: '235',
     name: '酒吧“Old Adam”的客人',
     altnames: [],
     title: '',
-    image: '',
+    image: 'https://upload.thwiki.cc/4/43/%E6%97%A0%E7%AB%8B%E7%BB%98%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
