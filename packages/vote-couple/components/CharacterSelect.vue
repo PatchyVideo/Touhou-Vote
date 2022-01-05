@@ -2,28 +2,7 @@
   <transition name="selectBox">
     <div
       v-if="open"
-      class="
-        fixed
-        top-1/10
-        left-0
-        right-0
-        h-4/5
-        flex flex-col
-        p-3
-        z-51
-        space-y-2
-        bg-white
-        rounded
-        w-9/10
-        mx-auto
-        md:w-1/2
-        lg:w-1/3
-        3xl:w-1/4
-        text-sm
-        md:text-base
-        xl:text-xl
-        2xl:text-2xl
-      "
+      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-white rounded w-9/10 mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>请选择角色</div>

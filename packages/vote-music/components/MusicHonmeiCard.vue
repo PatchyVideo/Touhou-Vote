@@ -5,7 +5,7 @@
     <div class="w-3/5 p-1 flex flex-wrap content-between md:p-2">
       <div class="w-full">
         <div class="truncate opacity-60">{{ musicHonmei.album }}</div>
-        <div class="font-semibold text-xl truncate">
+        <div class="font-semibold text-xl line-clamp-2 whitespace-pre-wrap">
           {{ musicHonmei.name }}
         </div>
         <input

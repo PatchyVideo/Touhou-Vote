@@ -2,28 +2,7 @@
   <transition name="selectBox">
     <div
       v-if="open"
-      class="
-        fixed
-        top-1/10
-        left-0
-        right-0
-        h-4/5
-        flex flex-col
-        p-3
-        z-51
-        space-y-2
-        bg-white
-        rounded
-        w-9/10
-        mx-auto
-        md:w-1/2
-        lg:w-1/3
-        3xl:w-1/4
-        text-sm
-        md:text-base
-        xl:text-xl
-        2xl:text-2xl
-      "
+      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-white rounded w-9/10 mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>请选择曲目</div>
@@ -52,8 +31,8 @@
           <img class="w-1/3 rounded border" :src="item.image" />
           <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">
-              <div class="truncate opacity-60">{{ item.album }}</div>
-              <div class="font-semibold truncate text-lg md:text-xl xl:text-2xl 2xl:text-3xl">
+              <div class="truncate opacity-60 text-sm md:text-base xl:text-lg 2xl:text-xl">{{ item.album }}</div>
+              <div class="font-semibold line-clamp-2 whitespace-pre-wrap md:text-lg xl:text-xl 2xl:text-2xl">
                 {{ item.name }}
               </div>
             </div>
