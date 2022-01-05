@@ -21,7 +21,7 @@
       ></div>
     </div>
 
-    <div class="w-full flex flex-col space-y-3 p-1 md:w-1/2 lg:w-1/3 xl:w-1/4 3xl:w-1/5 md:m-auto">
+    <div class="w-full flex flex-col space-y-3 p-1 md:w-1/2 3xl:w-1/4 md:m-auto">
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="space-y-5 p-2">
           <div>{{ questionNum + 1 + '：' + question.content + '（' + TypeToChinese[question.type] + '）' }}</div>
@@ -355,5 +355,3 @@ onError((error) => {
   alert('提交失败，请检查网络设置！')
 })
 </script>
-
-
