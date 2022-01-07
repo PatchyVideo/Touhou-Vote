@@ -132,10 +132,6 @@ function characterSelect(id: string): void {
   }
   close()
 }
-
-// const characterImages = import.meta.globEager('../assets/defaultCharacterImage.png')[
-//   '../assets/defaultCharacterImage.png'
-// ].default
 </script>
 <style lang="postcss" scoped>
 .selectBox-enter-active,
