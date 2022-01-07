@@ -2,28 +2,7 @@
   <transition name="advancedFilter">
     <div
       v-if="open"
-      class="
-        fixed
-        top-1/8
-        left-0
-        right-0
-        h-3/5
-        flex flex-col
-        p-3
-        z-53
-        space-y-2
-        bg-white
-        rounded
-        w-3/4
-        mx-auto
-        md:w-2/5
-        lg:w-4/15
-        3xl:w-1/5
-        text-sm
-        md:text-base
-        xl:text-xl
-        2xl:text-2xl
-      "
+      class="fixed top-1/8 left-0 right-0 h-3/5 flex flex-col p-3 z-53 space-y-2 bg-white rounded w-3/4 mx-auto md:w-2/5 lg:w-4/15 3xl:w-1/5 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>高级筛选</div>
@@ -33,8 +12,8 @@
         <div>收录专辑的种类：</div>
         <div class="flex flex-wrap space-x-3">
           <div
-            v-for="(kind, index) in kinds"
-            :key="index"
+            v-for="kind in kinds"
+            :key="kind.name"
             class="cursor-pointer rounded shadow py-1 px-2 mb-2 transition transition-colors select-none"
             :class="{
               'ring ring-accent-color-600 bg-accent-color-400 text-white':
@@ -48,12 +27,7 @@
         <div>收录于专辑：</div>
         <VoteSelect v-model:selected="albumSelectedTem" :item-list="albumsListAfterFilterTem" />
         <div
-          class="
-            text-right text-accent-color-600
-            transition transition-colors
-            cursor-pointer
-            hover:text-accent-color-300
-          "
+          class="text-right text-accent-color-600 transition transition-colors cursor-pointer hover:text-accent-color-300"
           @click="resetFilter()"
         >
           重置条件
