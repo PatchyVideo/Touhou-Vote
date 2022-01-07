@@ -3,13 +3,7 @@
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
       <div
-        class="
-          text-accent-color-600 text-lg text-right
-          underline
-          cursor-pointer
-          transition transition-colors
-          hover:text-accent-color-900
-        "
+        class="text-accent-color-600 text-lg text-right underline cursor-pointer transition transition-colors hover:text-accent-color-900"
         @click="openRuleMessageBox()"
       >
         ！问卷填写规则
@@ -21,7 +15,7 @@
       >
         <div class="w-1/3 p-0.5 overflow-hidden rounded">
           <div class="w-full aspect-1/1">
-            <img src="@/home/assets/DefaultAvatar.jpg" class="object-cover rounded" />
+            <img :src="imageListForSmallQuestionnaire[index]" class="object-cover rounded" />
           </div>
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
@@ -83,6 +77,15 @@ function gotoQuestionnaire(bigQuestionnaire: string, smallQuestionnaire: string)
     query: { bigQuestionnaire: bigQuestionnaire, smallQuestionnaire: smallQuestionnaire },
   })
 }
+
+const imageListForSmallQuestionnaire = [
+  'https://upload.thwiki.cc/3/32/THBWiki-LOGO-%E5%85%AB%E4%BA%91%E7%B4%AB.png',
+  'https://upload.thwiki.cc/b/b7/THBWiki-LOGO-ZUN.png',
+  'https://upload.thwiki.cc/f/f1/THBWiki-LOGO-BigSight.png',
+  'https://upload.thwiki.cc/8/84/THBWiki-LOGO-%E7%A5%B8%E7%81%B5%E6%A2%A6.png',
+  'https://upload.thwiki.cc/3/34/THBWiki-LOGO-%E9%98%B4%E9%98%B3%E7%8E%89.png',
+  'https://upload.thwiki.cc/0/05/THBWiki-LOGO-%E8%A7%92%E5%B7%9D%E4%B9%A6%E5%BA%97.png',
+  'https://upload.thwiki.cc/7/7e/%E6%82%94%E6%82%9F%E6%A3%92.png',
+  'https://upload.thwiki.cc/c/c1/Wiki%E6%97%A0%E5%AD%97.png',
+]
 </script>
-
-

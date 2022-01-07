@@ -71,7 +71,10 @@
           <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
-                <img src="@/home/assets/DefaultAvatar.jpg" class="object-cover rounded" />
+                <img
+                  src="https://upload.thwiki.cc/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png"
+                  class="object-cover rounded"
+                />
               </div>
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
@@ -98,7 +101,10 @@
           <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
-                <img src="@/home/assets/DefaultAvatar.jpg" class="object-cover rounded" />
+                <img
+                  src="https://upload.thwiki.cc/a/a6/THBWiki-LOGO-%E7%A7%98%E5%B0%81%E4%BF%B1%E4%B9%90%E9%83%A8.png"
+                  class="object-cover rounded"
+                />
               </div>
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
@@ -170,20 +176,14 @@
           :class="{ '-translate-x-1/2': systemListIsOpen && systemListOpenName === 'questionnaire' }"
         >
           <div
-            class="
-              w-1/2
-              flex flex-wrap
-              space-y-2
-              p-2
-              shadow-around
-              rounded
-              bg-white bg-opacity-50
-              backdrop-filter backdrop-blur-2
-            "
+            class="w-1/2 flex flex-wrap space-y-2 p-2 shadow-around rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2"
           >
             <div class="w-full overflow-hidden rounded">
               <div class="w-full aspect-1/1">
-                <img src="@/home/assets/DefaultAvatar.jpg" class="object-cover rounded" />
+                <img
+                  src="https://upload.thwiki.cc/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png"
+                  class="object-cover rounded"
+                />
               </div>
             </div>
             <div class="w-full space-y-2">
@@ -215,20 +215,14 @@
         >
           <div
             id="userVoteBox"
-            class="
-              w-1/2
-              flex flex-wrap
-              space-y-2
-              p-2
-              shadow
-              rounded
-              bg-white bg-opacity-50
-              backdrop-filter backdrop-blur-2
-            "
+            class="w-1/2 flex flex-wrap space-y-2 p-2 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2"
           >
             <div class="w-full overflow-hidden rounded">
               <div class="w-full aspect-1/1">
-                <img src="@/home/assets/DefaultAvatar.jpg" class="object-cover rounded" />
+                <img
+                  src="https://upload.thwiki.cc/a/a6/THBWiki-LOGO-%E7%A7%98%E5%B0%81%E4%BF%B1%E4%B9%90%E9%83%A8.png"
+                  class="object-cover rounded"
+                />
               </div>
             </div>
             <div class="w-full space-y-2">
