@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineEmits, PropType, ref, computed, shallowRef, watchEffect } from 'vue'
+import { PropType, ref, computed, shallowRef, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
 import { characters } from '@/vote-character/lib/voteData'

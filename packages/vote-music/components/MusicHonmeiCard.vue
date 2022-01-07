@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineEmits, PropType, ref, watch, shallowRef } from 'vue'
+import { PropType, ref, watch, shallowRef } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
 import { musics } from '@/vote-music/lib/voteData'
