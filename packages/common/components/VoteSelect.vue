@@ -23,8 +23,8 @@
         :style="{ marginTop: listHidden ? '-' + 40 * itemList.length + '%' : '0' }"
       >
         <li
-          v-for="item in itemList"
-          :key="item.value"
+          v-for="(item, index) in itemList"
+          :key="index"
           class="truncate cursor-pointer transition transition-colors hover:bg-gray-100"
           @click="selectItem(item)"
         >
@@ -86,4 +86,3 @@ useEventListener(document, 'click', (e) => {
   }
 })
 </script>
-

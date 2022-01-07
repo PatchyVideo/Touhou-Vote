@@ -36,7 +36,10 @@
                 {{ item.name }}
               </div>
             </div>
-            <div class="w-full flex justify-end">
+            <div class="w-full flex justify-between">
+              <button class="px-3 md:px-5 py-1 shadow rounded text-sm md:text-base" @click="playAudio(item.music)">
+                试听
+              </button>
               <button class="px-3 md:px-5 py-1 shadow rounded text-sm md:text-base" @click="musicSelect(item.id)">
                 选择
               </button>
@@ -86,6 +89,7 @@ const emit = defineEmits<{
 }>()
 const { open, musicSelected } = useVModels(props, emit)
 function close(): void {
+  audio.pause()
   open.value = false
 }
 watchEffect(() => {
@@ -112,6 +116,15 @@ function musicSelect(id: string): void {
     }
   }
   close()
+}
+
+let audio = new Audio()
+function playAudio(musicSrc: string): void {
+  if (musicSrc === audio.src && !audio.paused) audio.pause()
+  else {
+    audio.src = musicSrc
+    audio.play()
+  }
 }
 </script>
 <style lang="postcss" scoped>
