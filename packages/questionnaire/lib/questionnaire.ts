@@ -838,6 +838,12 @@ export const questionnaire: QuestionnaireALL = {
                 mutex: [],
                 content: '都喜欢',
               },
+              {
+                id: 1202104,
+                related: [],
+                mutex: [],
+                content: '都没兴趣',
+              },
             ],
           },
         ],
@@ -1176,7 +1182,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 12111,
             type: 'Input',
-            question: '您最喜欢的官方作品是？',
+            question: '您最喜欢的官方作品是？（可填无）',
             introduction: '',
             input: '',
             options: []
@@ -1186,7 +1192,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 12121,
             type: 'Input',
-            question: '喜欢的理由是？',
+            question: '喜欢的理由是？（可填无）',
             introduction: '',
             input: '',
             options: []
@@ -1979,6 +1985,12 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2102105,
                 related: [],
                 mutex: [],
+                content: '经济收益',
+              },
+              {
+                id: 2102106,
+                related: [],
+                mutex: [],
                 content: '其它',
               },
             ],
@@ -2037,6 +2049,12 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2104105,
                 related: [],
                 mutex: [],
+                content: '经济上难以维持',
+              },
+              {
+                id: 2104106,
+                related: [],
+                mutex: [],
                 content: '其它',
               },
             ],
@@ -2046,7 +2064,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 21051,
             type: 'Input',
-            question: '您认为在创作过程中遇到过的各种困难中，最需要解决的是？',
+            question: '您认为在创作过程中遇到过的各种困难，可以如何得到改善？（如，印刷生产方面的建议和帮助、更好的同人作品交易平台，等等）',
             introduction: '',
             input: '',
             options: [
