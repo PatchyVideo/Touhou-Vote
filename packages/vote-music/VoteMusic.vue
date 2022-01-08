@@ -183,7 +183,8 @@ watchEffect(() => {
 })
 getSubmitMusicVoteError((err) => {
   console.log(err.message)
-  alert('获取投票信息失败！失败原因：' + err.message)
+  if (err.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
+  else alert('获取投票信息失败！失败原因：' + err.message)
 })
 
 const musicsVotedNumber = computed<number>(() => musicsReverse.value.length)
