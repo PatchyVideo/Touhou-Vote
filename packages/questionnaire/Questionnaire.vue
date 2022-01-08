@@ -41,6 +41,7 @@
           </div>
           <div v-else>
             <textarea
+              maxlength="1000"
               v-model="answerContent"
               class="w-full ring ring-accent-color-600 rounded"
               placeholder="请说点儿什么吧..."

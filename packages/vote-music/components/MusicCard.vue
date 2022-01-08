@@ -20,6 +20,7 @@
         <input
           ref="reasonInput"
           v-model="reasonEdit"
+          maxlength="1000"
           class="w-full bg-transparent rounded focus:outline-none"
           placeholder="理由："
           type="text"

@@ -81,6 +81,7 @@
           v-model="passwordNew"
           class="w-full bg-transparent rounded focus:outline-none"
           placeholder="请输入新密码"
+          maxlength="30"
           type="password"
       /></label>
       <label class="input-border input-border-md flex flex-row py-2 px-4">
@@ -88,6 +89,7 @@
           v-model="passwordNewConfirm"
           class="w-full bg-transparent rounded focus:outline-none"
           placeholder="请重复新密码"
+          maxlength="30"
           type="password"
           @keydown.enter="updatePassword()"
       /></label>

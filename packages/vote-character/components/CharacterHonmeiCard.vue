@@ -14,6 +14,7 @@
         <input
           ref="reasonInput"
           v-model="reasonEdit"
+          maxlength="1000"
           placeholder="点此填写理由（可选）"
           class="truncate"
           type="text"
