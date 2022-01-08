@@ -1,8 +1,10 @@
 <template>
   <div class="relative p-1 pt-5 opacity-80 rounded shadow bg-white">
     <icon-uil-times class="absolute right-0 top-0 cursor-pointer" @click="closeMusicCard()"></icon-uil-times>
-    <img class="w-full rounded border" :src="music.image" />
-    <div class="p-1 line-clamp-2 whitespace-pre-wrap text-center text-xs md:text-base">
+    <div class="aspect-ratio-1/1 rounded border overflow-hidden">
+      <img class="object-contain" :src="music.image ? music.image : MusicImages" />
+    </div>
+    <div class="p-1 pb-0 line-clamp-2 whitespace-pre-wrap text-center text-xs h-9 md:text-base md:h-13">
       {{ music.name }}
     </div>
     <button
@@ -39,6 +41,7 @@ import { useVModel } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
 import { musics } from '@/vote-music/lib/voteData'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import MusicImages from '@/vote-music/assets/defaultMusicImage.jpg?url'
 
 const props = defineProps({
   music: {

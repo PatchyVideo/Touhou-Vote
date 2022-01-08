@@ -28,7 +28,9 @@
         ></div>
         <!-- eslint-enable vue/no-v-html -->
         <div v-for="(item, index) in musicList" v-else :key="index" class="p-1 rounded shadow bg-white flex">
-          <img class="w-1/3 rounded border" :src="item.image" />
+          <div class="w-1/3 aspect-ratio-4/9 rounded border overflow-hidden">
+            <img class="object-contain" :src="item.image ? item.image : MusicImages" />
+          </div>
           <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">
               <div class="truncate opacity-60 text-sm md:text-base xl:text-lg 2xl:text-xl">{{ item.album }}</div>
@@ -64,6 +66,7 @@ import { musics } from '@/vote-music/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import AdvancedFilter from './AdvancedFilter.vue'
 import AutoComplete from '@/common/components/AutoComplete.vue'
+import MusicImages from '@/vote-music/assets/defaultMusicImage.jpg?url'
 
 const props = defineProps({
   open: {

@@ -1,6 +1,8 @@
 <template>
   <div class="relative w-full p-1 rounded shadow bg-white flex">
-    <img class="w-2/5 rounded border" :src="musicHonmei.image" />
+    <div class="w-2/5 border rounded aspect-ratio-2/5 overflow-hidden">
+      <img class="object-contain" :src="musicHonmei.image ? musicHonmei.image : MusicImages" />
+    </div>
     <icon-uil-times class="absolute right-1 top-1 cursor-pointer" @click="closeCard()"></icon-uil-times>
     <div class="w-3/5 p-1 flex flex-wrap content-between md:p-2">
       <div class="w-full">
@@ -34,6 +36,7 @@ import { PropType, ref, watch, shallowRef } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
 import { musics } from '@/vote-music/lib/voteData'
+import MusicImages from '@/vote-music/assets/defaultMusicImage.jpg?url'
 
 const props = defineProps({
   musicHonmei: {
