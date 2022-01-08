@@ -10,19 +10,7 @@
     <!-- Main Content -->
     <div class="md:p-3 md:w-1/3 md:min-w-95 md:m-auto md:flex md:flex-grow">
       <div
-        class="
-          md:w-full
-          md:rounded-xl
-          md:p-3
-          md:bg-white
-          md:bg-opacity-50
-          md:backdrop-filter
-          md:backdrop-blur-2
-          md:shadow
-          md:flex
-          md:flex-grow
-          md:items-center
-        "
+        class="md:w-full md:rounded-xl md:p-3 md:bg-white md:bg-opacity-50 md:backdrop-filter md:backdrop-blur-2 md:shadow md:flex md:flex-grow md:items-center"
       >
         <div class="w-full md:ring-accent-color-600 p-3 divide-y divide-accent-color-300">
           <div class="flex items-center space-x-3">
@@ -172,9 +160,8 @@ updatePasswordDone((result) => {
 })
 updatePasswordError((error) => {
   console.log(error)
-  alert('修改失败，旧密码输入错误或网络错误！')
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
+  else alert('修改失败，旧密码输入错误或网络错误！')
   changePasswordOpen.value = false
 })
 </script>
-
-

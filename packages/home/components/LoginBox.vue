@@ -266,7 +266,9 @@ newLoginPhoneNumDone((result) => {
   location.reload()
 })
 newLoginPhoneNumError((error) => {
-  if (error.message === 'Incorrect login') verificationCodeError.value = '请输入正确的验证码！'
+  if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
+    verificationCodeError.value = '请输入正确的验证码！'
+  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
   console.log(error)
 })
@@ -305,7 +307,9 @@ newLoginEmailDone((result) => {
   location.reload()
 })
 newLoginEmailError((error) => {
-  if (error.message === 'Incorrect login') verificationCodeError.value = '请输入正确的验证码！'
+  if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
+    verificationCodeError.value = '请输入正确的验证码！'
+  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
   console.log(error)
 })
@@ -359,6 +363,7 @@ oldLoginDone((result) => {
 })
 oldLoginError((error) => {
   if (error.graphQLErrors[0].extensions.error_kind === 'NOT_FOUND') userNameError.value = '用户名或密码错误！'
+  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
   else userPasswordError.value = '网络错误！请稍后重试'
   console.log(error.graphQLErrors)
 })
