@@ -39,7 +39,12 @@
               </div>
             </div>
             <div class="w-full flex justify-between">
-              <button class="px-3 md:px-5 py-1 shadow rounded text-sm md:text-base" @click="playAudio(item.music)">
+              <button
+                class="flex items-center px-3 md:px-5 py-1 shadow rounded text-sm md:text-base"
+                :class="{ 'ring ring-accent-color-600': musicPlaying === item.music }"
+                @click="playAudio(item.music)"
+              >
+                <icon-uil-spinner-alt v-if="musicPlaying === item.music && musicLoading" class="animate-spin" />
                 试听
               </button>
               <button class="px-3 md:px-5 py-1 shadow rounded text-sm md:text-base" @click="musicSelect(item.id)">
@@ -92,7 +97,7 @@ const emit = defineEmits<{
 }>()
 const { open, musicSelected } = useVModels(props, emit)
 function close(): void {
-  audio.pause()
+  audio.value.pause()
   open.value = false
 }
 watchEffect(() => {
@@ -121,12 +126,22 @@ function musicSelect(id: string): void {
   close()
 }
 
-let audio = new Audio()
+const audio = ref(new Audio())
+audio.value.addEventListener('canplay', () => {
+  musicLoading.value = false
+})
+audio.value.addEventListener('waiting', () => {
+  musicLoading.value = true
+})
+const musicLoading = ref(false)
+const musicPlaying = ref<string>('')
 function playAudio(musicSrc: string): void {
-  if (musicSrc === audio.src && !audio.paused) audio.pause()
+  if (musicLoading.value) return
+  if (musicSrc === audio.value.src && !audio.value.paused) audio.value.pause()
   else {
-    audio.src = musicSrc
-    audio.play()
+    audio.value.src = musicSrc
+    musicPlaying.value = musicSrc
+    audio.value.play()
   }
 }
 </script>
