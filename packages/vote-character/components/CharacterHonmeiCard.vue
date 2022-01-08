@@ -3,7 +3,7 @@
     class="relative w-full p-1 rounded shadow bg-white flex ring"
     :style="'--tw-ring-color:' + characterHonmei.color + ';color:' + characterHonmei.color"
   >
-    <img class="w-2/5 rounded border" :src="characterHonmei.image" />
+    <img class="w-2/5 rounded border" :src="characterHonmei.image ? characterHonmei.image : characterImages" />
     <icon-uil-times class="absolute right-1 top-1 cursor-pointer" @click="closeCard()"></icon-uil-times>
     <div class="w-3/5 p-1 flex flex-wrap content-between md:p-2">
       <div class="w-full">
@@ -37,6 +37,7 @@ import { PropType, ref, watch, shallowRef } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
 import { characters } from '@/vote-character/lib/voteData'
+import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
 
 const props = defineProps({
   characterHonmei: {
