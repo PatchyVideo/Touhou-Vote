@@ -57,6 +57,7 @@ export default defineConfig(async ({ command, mode }) => {
     ],
     build: {
       sourcemap: true,
+      assetsDir: 'v10/assets',
     },
   }
 })
