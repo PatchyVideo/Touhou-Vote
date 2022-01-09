@@ -34,7 +34,7 @@ const appPromises: Promise<unknown>[] = []
 /* Vue Router */
 import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/v10/'),
   strict: true,
   routes: [
     {
