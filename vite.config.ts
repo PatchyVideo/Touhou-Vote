@@ -25,6 +25,7 @@ export default defineConfig(async ({ command, mode }) => {
   }
 
   return {
+    base: '/v10/',
     resolve: {
       alias: [
         { find: '@', replacement: path.resolve(__dirname, './packages/') },
