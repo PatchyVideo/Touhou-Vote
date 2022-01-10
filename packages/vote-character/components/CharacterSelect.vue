@@ -28,9 +28,9 @@
         ></div>
         <!-- eslint-enable vue/no-v-html -->
         <div
-          v-for="(item, index) in characterList"
+          v-for="item in characterList"
           v-else
-          :key="index"
+          :key="item.id"
           class="p-1 rounded shadow bg-white flex ring"
           :style="'--tw-ring-color:' + item.color"
         >

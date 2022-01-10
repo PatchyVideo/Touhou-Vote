@@ -22,8 +22,8 @@
       </div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <div
-          v-for="(item, index) in characterListLeftWithFilter"
-          :key="index"
+          v-for="item in characterListLeftWithFilter"
+          :key="item.id"
           class="p-1 rounded shadow bg-white flex ring"
           :style="'--tw-ring-color:' + item.color"
         >
