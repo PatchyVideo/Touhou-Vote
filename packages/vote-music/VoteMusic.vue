@@ -49,9 +49,9 @@
           </div>
           <icon-uil-plus
             class="cursor-pointer"
-            :class="{ 'text-gray-400': musicsVotedNumber === 8 }"
+            :class="{ 'text-gray-400': musicsVotedNumber === 12 }"
             @click="
-              musicsVotedNumber === 8
+              musicsVotedNumber === 12
                 ? ''
                 : (() => {
                     musicHonmeiIsSelected = false
