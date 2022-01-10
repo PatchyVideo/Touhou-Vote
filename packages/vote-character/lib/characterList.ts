@@ -3233,7 +3233,7 @@ export const characterListLeftWithFilter = computed<Character[]>(() => {
     })
   }
   if (keyword.value != '') {
-    const regex = new RegExp(keyword.value)
+    const regex = new RegExp(keyword.value,"i")
     list = list.filter((item) => {
       if (regex.test(item.name)) return true
       if (regex.test(item.title)) return true
