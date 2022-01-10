@@ -29,7 +29,7 @@
         <!-- eslint-enable vue/no-v-html -->
         <div v-for="item in musicList" v-else :key="item.id" class="p-1 rounded shadow bg-white flex">
           <div class="w-1/3 aspect-ratio-4/9 rounded border overflow-hidden">
-            <img class="object-contain" :src="item.image ? item.image : MusicImages" />
+            <img class="object-contain" loading="lazy" :src="item.image ? item.image : MusicImages" />
           </div>
           <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">

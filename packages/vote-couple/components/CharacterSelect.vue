@@ -27,7 +27,7 @@
           class="p-1 rounded shadow bg-white flex ring"
           :style="'--tw-ring-color:' + item.color"
         >
-          <img class="w-1/3 rounded border" :src="item.image" />
+          <img class="w-1/3 rounded border" loading="lazy" :src="item.image" />
           <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">
               <div class="truncate opacity-60" :style="'color:' + item.color">{{ item.title }}</div>
