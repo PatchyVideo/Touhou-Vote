@@ -1,6 +1,6 @@
 overwrite: true
 schema:
-  - https://touhou.ai/graphql
+  - https://touhou-vote.vercel.app/v10-be/graphql
 generates:
   packages/graphql/__generated__/graphql.ts:
     plugins:

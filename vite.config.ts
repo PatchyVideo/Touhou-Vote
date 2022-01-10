@@ -54,6 +54,14 @@ export default defineConfig(async ({ command, mode }) => {
         apply: 'build',
       },
     ],
+    server: {
+      proxy: {
+        '/v10-be': {
+          target: 'https://touhou-vote.vercel.app',
+          changeOrigin: true,
+        },
+      },
+    },
     build: {
       sourcemap: true,
       assetsDir: 'v10/assets',

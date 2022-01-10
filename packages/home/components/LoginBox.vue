@@ -23,16 +23,24 @@
                   class="ml-2 w-full bg-transparent focus:outline-none"
                   placeholder="手机号(国内)或邮箱"
                   type="text"
+                  @keypress.enter="
+                    () => {
+                      verificationCodeGet()
+                      codeEl?.focus()
+                    }
+                  "
               /></label>
               <div class="text-accent-color-600 text-xs h-5" v-text="userTypeError"></div>
               <div class="flex justify-between">
                 <label class="w-1/2 py-2 px-4 inline-block input-border flex flex-row">
                   <span class="h-6 w-6"><icon-uil-lock-alt class="inline-block w-6 h-6 text-gray-700" /></span>
                   <input
+                    ref="codeEl"
                     v-model="verificationCode"
                     class="ml-2 w-full bg-transparent focus:outline-none"
                     placeholder="验证码"
                     type="text"
+                    @keypress.enter="login()"
                 /></label>
                 <button
                   class="py-2 px-5 rounded-xl text-white bg-accent-color-600"
@@ -130,7 +138,7 @@
   </Transition>
 </template>
 <script lang="ts" setup>
-import { ref, computed, watchEffect } from 'vue'
+import { ref, computed, watchEffect, shallowRef } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useMutation, gql } from '@/graphql'
 import type { Mutation } from '@/graphql'
@@ -367,6 +375,8 @@ oldLoginError((error) => {
   else userPasswordError.value = '网络错误！请稍后重试'
   console.log(error.graphQLErrors)
 })
+
+const codeEl = shallowRef<HTMLInputElement | null>()
 </script>
 <style lang="postcss" scoped>
 .loginBox-enter-active,
