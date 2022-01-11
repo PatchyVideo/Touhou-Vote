@@ -27,7 +27,7 @@
       <div v-if="screenSizes['<md']"></div>
       <!-- Copyright -->
       <div class="fixed bottom-0 left-0 quicksand w-full text-center my-6">
-        <div>&copy; Copyright 2021 VoileLabs, THBWiki. Licensed under GPL-3.0.</div>
+        <div>&copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.</div>
       </div>
     </div>
   </div>

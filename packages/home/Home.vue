@@ -77,7 +77,7 @@
 
       <!-- Copyright -->
       <div class="quicksand w-full text-center my-6">
-        <div>&copy; Copyright 2021 VoileLabs, THBWiki. Licensed under GPL-3.0.</div>
+        <div>&copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.</div>
       </div>
     </div>
   </div>

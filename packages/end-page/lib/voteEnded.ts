@@ -1,4 +1,4 @@
-export const deadline = '2022/1/31'
+export const deadline = '2022/1/1'
 export function voteEnded(): boolean {
   let now = new Date().getTime()
   let ddl = new Date(deadline)
