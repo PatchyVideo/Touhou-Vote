@@ -20,7 +20,7 @@
               class="underline underline-accent-color-600 transition transition-colors px-2 text-lg"
               @click="loginBoxOpen = true"
               >这里</a
-            >登陆
+            >登录
           </div>
         </div>
       </div>
