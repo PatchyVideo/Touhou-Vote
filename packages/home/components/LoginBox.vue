@@ -143,12 +143,19 @@ import { useVModel } from '@vueuse/core'
 import { useMutation, gql } from '@/graphql'
 import type { Mutation } from '@/graphql'
 import { setUserDataToLocalStorage } from '@/home/lib/user'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const props = defineProps({
   open: {
     type: Boolean,
     default: false,
     requred: true,
+  },
+  goto: {
+    type: String,
+    default: null,
   },
 })
 const emit = defineEmits<{
@@ -271,7 +278,8 @@ newLoginPhoneNumDone((result) => {
       result.data?.loginPhone.sessionToken
     )
   }
-  location.reload()
+  if (props.goto) router.push({ path: props.goto })
+  else location.reload()
 })
 newLoginPhoneNumError((error) => {
   if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
@@ -312,7 +320,8 @@ newLoginEmailDone((result) => {
       result.data?.loginEmail.sessionToken
     )
   }
-  location.reload()
+  if (props.goto) router.push({ path: props.goto })
+  else location.reload()
 })
 newLoginEmailError((error) => {
   if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
@@ -367,7 +376,8 @@ oldLoginDone((result) => {
       result.data?.loginEmailPassword.sessionToken
     )
   }
-  location.reload()
+  if (props.goto) router.push({ path: props.goto })
+  else location.reload()
 })
 oldLoginError((error) => {
   if (error.graphQLErrors[0].extensions.error_kind === 'NOT_FOUND') userNameError.value = '用户名或密码错误！'

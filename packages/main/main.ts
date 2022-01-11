@@ -31,8 +31,19 @@ const app = createApp(
 )
 const appPromises: Promise<unknown>[] = []
 
+/* Login authentication & user data filling */
+import { checkLoginStatus } from '@/home/lib/user'
+const checkLoginStatusPromise = checkLoginStatus(true)
+appPromises.push(checkLoginStatusPromise)
+
 /* Vue Router */
 import { createRouter, createWebHistory } from 'vue-router'
+declare module 'vue-router' {
+  interface RouteMeta {
+    requrieQuestionaire?: boolean
+    availableAfterVoteEnded?: boolean
+  }
+}
 const router = createRouter({
   history: createWebHistory('/v10/'),
   strict: true,
@@ -40,10 +51,12 @@ const router = createRouter({
     {
       path: '/',
       component: () => import('@/home/HomeEntry.vue'),
+      meta: { availableAfterVoteEnded: true },
     },
     {
       path: '/user/settings',
       component: () => import('@/home/UserSettings.vue'),
+      meta: { availableAfterVoteEnded: true },
     },
     {
       path: '/questionnaire',
@@ -52,14 +65,17 @@ const router = createRouter({
     {
       path: '/vote/character',
       component: () => import('@/vote-character/VoteCharacter.vue'),
+      meta: { requrieQuestionaire: true },
     },
     {
       path: '/vote/music',
       component: () => import('@/vote-music/VoteMusic.vue'),
+      meta: { requrieQuestionaire: true },
     },
     {
       path: '/vote/couple',
       component: () => import('@/vote-couple/VoteCouple.vue'),
+      meta: { requrieQuestionaire: true },
     },
     {
       path: '/test',
@@ -67,17 +83,15 @@ const router = createRouter({
     },
   ],
 })
-import { isLogin } from '@/home/lib/user'
 
+import { isLogin } from '@/home/lib/user'
+import { voteEnded } from '@/end-page/lib/voteEnded'
 router.beforeEach(async (to, from, next) => {
   if (!NProgress.isStarted()) NProgress.start()
-  await appPromisesFinish
-  if (to.path != '/' && !isLogin.value) next({ path: '/' })
-  else if (
-    (to.path === '/vote/character' || to.path === '/vote/music' || to.path === '/vote/couple') &&
-    !IsQuestionnaireAllDone.value
-  )
-    next({ path: '/' })
+  await checkLoginStatusPromise
+  if (to.meta.availableAfterVoteEnded && voteEnded) next()
+  else if (to.path != '/' && !isLogin.value) next({ path: '/' })
+  else if (to.meta.requrieQuestionaire && !IsQuestionnaireAllDone.value) next({ path: '/' })
   else next()
 })
 router.afterEach((guard) => {
@@ -93,10 +107,6 @@ app.use(router)
 /* Vue I18n */
 import i18n from '@/locales'
 app.use(i18n)
-
-/* Login authentication & user data filling */
-import { checkLoginStatus } from '@/home/lib/user'
-appPromises.push(checkLoginStatus(true))
 
 const appPromisesFinish = Promise.allSettled(appPromises.map((v) => v.then(incProcess))).then(() => {
   app.mount('#app')

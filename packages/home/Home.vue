@@ -89,6 +89,7 @@ import { ref, computed, onBeforeUnmount } from 'vue'
 import { screenSizes } from '@/tailwindcss'
 import LoginBox from './components/LoginBox.vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
+import { deadline } from '@/end-page/lib/voteEnded'
 
 setSiteTitle('第⑩回 中文东方人气投票')
 
@@ -122,7 +123,7 @@ let timer = setInterval(() => {
   let secondsNow = d.getSeconds()
 
   let now1 = d.getTime()
-  let ddl = new Date('2022/1/1')
+  let ddl = new Date(deadline)
   let now2 = ddl.getTime()
   let ddlTime = now2 - now1
   if (ddlTime < 0) return
