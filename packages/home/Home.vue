@@ -89,7 +89,7 @@ import { ref, computed, onBeforeUnmount } from 'vue'
 import { screenSizes } from '@/tailwindcss'
 import LoginBox from './components/LoginBox.vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
-import { deadline } from '@/end-page/lib/voteEnded'
+import { deadlineWithTimezoneOffset } from '@/end-page/lib/voteEnded'
 
 setSiteTitle('第⑩回 中文东方人气投票')
 
@@ -117,21 +117,12 @@ function SupplementZero(num: number): string {
 }
 
 let timer = setInterval(() => {
-  let d = new Date()
-  let hoursNow = d.getHours()
-  let minutesNow = d.getMinutes()
-  let secondsNow = d.getSeconds()
-
-  let now1 = d.getTime()
-  let ddl = new Date(deadline)
-  let now2 = ddl.getTime()
-  let ddlTime = now2 - now1
+  let ddlTime = deadlineWithTimezoneOffset - Date.now()
   if (ddlTime < 0) return
-
   days.value = Math.floor(ddlTime / 1000 / 60 / 60 / 24)
-  hours.value = 23 - hoursNow
-  minutes.value = 59 - minutesNow
-  seconds.value = 59 - secondsNow
+  hours.value = Math.floor(ddlTime / 1000 / 60 / 60) % 24
+  minutes.value = Math.floor(ddlTime / 1000 / 60) % 60
+  seconds.value = Math.floor(ddlTime / 1000) % 60
 }, 1000)
 onBeforeUnmount(() => {
   if (timer) {
