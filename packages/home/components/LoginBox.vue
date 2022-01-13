@@ -334,9 +334,9 @@ newLoginEmailError((error) => {
 /* Old System Login */
 const useOldSystemLogin = ref(false)
 const userName = ref<string>('')
-const userNameError = ref<' ' | '请输入用户名！' | '用户名或密码错误！'>(' ')
+const userNameError = ref<' ' | '请输入用户名！' | '该用户不存在！'>(' ')
 const userPassword = ref<string>('')
-const userPasswordError = ref<' ' | '请输入密码！' | '网络错误！请稍后重试'>(' ')
+const userPasswordError = ref<' ' | '密码错误！' | '请输入密码！' | '网络错误！请稍后重试'>(' ')
 async function oldSystemlogin(): Promise<void> {
   oldLogin({ email: userName.value, password: userPassword.value })
 }
@@ -380,7 +380,8 @@ oldLoginDone((result) => {
   else location.reload()
 })
 oldLoginError((error) => {
-  if (error.graphQLErrors[0].extensions.error_kind === 'NOT_FOUND') userNameError.value = '用户名或密码错误！'
+  if (error.graphQLErrors[0].extensions.error_kind === 'NOT_FOUND') userNameError.value = '该用户不存在！'
+  else if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_PASSWORD') userPasswordError.value = '密码错误！'
   else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
   else userPasswordError.value = '网络错误！请稍后重试'
   console.log(error.graphQLErrors)
