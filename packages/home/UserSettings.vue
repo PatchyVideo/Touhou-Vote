@@ -348,13 +348,17 @@ function openChangePhone(): void {
   changePhoneOrEmailOpen.value = true
   changeType.value = 'phone'
 }
-const { mutate: getPhoneCode } = useMutation<Mutation>(
+const { mutate: getPhoneCode, onError: getPhoneCodeError } = useMutation<Mutation>(
   gql`
     mutation ($phone: String!) {
       requestPhoneCode(phone: $phone)
     }
   `
 )
+getPhoneCodeError((error) => {
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁，请稍后再试！')
+  else verificationCodeError.value = '网络错误！请稍后重试'
+})
 const {
   mutate: updatePhone,
   loading: newLoginPhoneLoading,
@@ -387,13 +391,17 @@ function openChangeEmail(): void {
   changePhoneOrEmailOpen.value = true
   changeType.value = 'email'
 }
-const { mutate: getEmailCode } = useMutation<Mutation>(
+const { mutate: getEmailCode, onError: getEmailCodeError } = useMutation<Mutation>(
   gql`
     mutation ($email: String!) {
       requestEmailCode(email: $email)
     }
   `
 )
+getEmailCodeError((error) => {
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁，请稍后再试！')
+  else verificationCodeError.value = '网络错误！请稍后重试'
+})
 const {
   mutate: updateEmail,
   loading: updateEmailLoading,

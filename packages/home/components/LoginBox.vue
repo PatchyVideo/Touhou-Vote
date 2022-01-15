@@ -213,20 +213,28 @@ watchEffect(() => {
     verificationCodeAvailable.value = true
   }
 })
-const { mutate: getPhoneCode } = useMutation<Mutation>(
+const { mutate: getPhoneCode, onError: getPhoneCodeError } = useMutation<Mutation>(
   gql`
     mutation ($phone: String!) {
       requestPhoneCode(phone: $phone)
     }
   `
 )
-const { mutate: getEmailCode } = useMutation<Mutation>(
+getPhoneCodeError((error) => {
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁，请稍后再试！')
+  else verificationCodeError.value = '网络错误！请稍后重试'
+})
+const { mutate: getEmailCode, onError: getEmailCodeError } = useMutation<Mutation>(
   gql`
     mutation ($email: String!) {
       requestEmailCode(email: $email)
     }
   `
 )
+getEmailCodeError((error) => {
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁，请稍后再试！')
+  else verificationCodeError.value = '网络错误！请稍后重试'
+})
 async function login(): Promise<void> {
   if (!userEmailOrPhoneNumVerify() || loading.value) return
   if (verificationCode.value === '') {
