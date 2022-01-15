@@ -31,7 +31,7 @@
       </div>
     </div>
   </div>
-  <LoginBox v-model:open="loginBoxOpen" goto="/user/settings" />
+  <LoginBox v-model:open="loginBoxOpen" />
 </template>
 
 <script lang="ts" setup>

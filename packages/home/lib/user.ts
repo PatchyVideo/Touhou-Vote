@@ -12,6 +12,7 @@ export function createDefaultVoter(): Voter {
     patchyvideo: false,
     thbwiki: false,
     __typename: 'Voter',
+    createdAt: new Date(),
   }
 }
 
@@ -23,6 +24,26 @@ export const username = computed(() => {
   else if (user.value.phone != defaultUser.phone) return user.value.phone?.slice(-4)
   else if (user.value.email != defaultUser.email) return user.value.email
   else return defaultUser.username
+})
+
+export const createdAt = computed(() => {
+  const reg = /^\d+-\d+-\d+/
+  const createdAt = (String(user.value.createdAt).match(reg) || ['0000-00-00'])[0].split('-')
+  const year = createdAt[0] || '0000'
+  const month = createdAt[1] || '00'
+  const day = createdAt[2] || '00'
+  const with9 = (str: string): string =>
+    str
+      .split('')
+      .map((item) => {
+        if (item === '9') return '⑨'
+        else return item
+      })
+      .join('')
+  const yearWith9 = with9(year)
+  const monthWith9 = with9(month)
+  const dayWith9 = with9(day)
+  return yearWith9 + '年' + monthWith9 + '月' + dayWith9 + '日'
 })
 
 export const voteToken = ref<string>('')
