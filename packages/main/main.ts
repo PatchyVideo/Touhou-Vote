@@ -89,7 +89,8 @@ import { voteEnded } from '@/end-page/lib/voteEnded'
 router.beforeEach(async (to, from, next) => {
   if (!NProgress.isStarted()) NProgress.start()
   await checkLoginStatusPromise
-  if (to.meta.availableAfterVoteEnded && voteEnded) next()
+  if (to.meta.availableAfterVoteEnded && voteEnded()) next()
+  else if (voteEnded()) next({ path: '/' })
   else if (to.path != '/' && !isLogin.value) next({ path: '/' })
   else if (to.meta.requrieQuestionaire && !IsQuestionnaireAllDone.value) next({ path: '/' })
   else next()
