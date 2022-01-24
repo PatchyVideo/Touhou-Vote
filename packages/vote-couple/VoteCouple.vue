@@ -190,6 +190,10 @@ function computeCharactersValid(characterList: Character[]): Character[] {
 }
 
 function checkVote(): void {
+  couples.value.map((item) => {
+    item.honmei = false
+  })
+  if (coupleHonmeiNumber.value.value != -1) couples.value[coupleHonmeiNumber.value.value].honmei = true
   for (let i = 0; i < couplesValid.value.length; i++)
     if (computeCharactersValid(couplesValid.value[i].characters).length < 2) {
       alert('投票位' + (i + 1) + '选择的角色数量小于两个！')
@@ -254,10 +258,6 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
 )
 const router = useRouter()
 async function vote(): Promise<void> {
-  couples.value.map((item) => {
-    item.honmei = false
-  })
-  if (coupleHonmeiNumber.value.value != -1) couples.value[coupleHonmeiNumber.value.value].honmei = true
   mutate({ content: { voteToken: voteToken.value, cps: CPSubmit.value } })
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
