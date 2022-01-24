@@ -230,7 +230,7 @@ updateUsernameDone((result) => {
   logout()
 })
 updateUsernameError((error) => {
-  console.log(error)
+  console.log(error.graphQLErrors[0].extensions.error_kind)
   if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
   else alert('网络错误！')
   updateUsernameOpen.value = false
@@ -280,7 +280,7 @@ updatePasswordDone((result) => {
   changePasswordOpen.value = false
 })
 updatePasswordError((error) => {
-  console.log(error)
+  console.log(error.graphQLErrors[0].extensions.error_kind)
   if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
   else alert('修改失败，旧密码输入错误或网络错误！')
   changePasswordOpen.value = false
@@ -356,6 +356,7 @@ const { mutate: getPhoneCode, onError: getPhoneCodeError } = useMutation<Mutatio
   `
 )
 getPhoneCodeError((error) => {
+  console.log(error.graphQLErrors[0].extensions.error_kind)
   if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁，请稍后再试！')
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
@@ -382,7 +383,7 @@ updatePhoneError((error) => {
     verificationCodeError.value = '该手机号已经被使用！'
   else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
-  console.log(error)
+  console.log(error.graphQLErrors[0].extensions.error_kind)
 })
 
 const emailFormat =
@@ -399,6 +400,7 @@ const { mutate: getEmailCode, onError: getEmailCodeError } = useMutation<Mutatio
   `
 )
 getEmailCodeError((error) => {
+  console.log(error.graphQLErrors[0].extensions.error_kind)
   if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁，请稍后再试！')
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
@@ -425,7 +427,7 @@ updateEmailError((error) => {
     verificationCodeError.value = '该邮箱已经被使用！'
   else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
-  console.log(error)
+  console.log(error.graphQLErrors[0].extensions.error_kind)
 })
 
 async function updatePhoneOrEmail(): Promise<void> {

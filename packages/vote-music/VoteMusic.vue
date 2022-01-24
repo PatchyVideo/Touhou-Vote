@@ -221,7 +221,7 @@ onDone((result) => {
   router.push({ path: '/' })
 })
 onError((error) => {
-  console.log(error)
+  console.log(error.graphQLErrors[0].extensions.error_kind)
   if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
   else alert('投票失败，请检查网络设置！')
 })
