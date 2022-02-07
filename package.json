@@ -1,6 +1,6 @@
 {
   "name": "touhou-vote",
-  "version": "0.9.9_RC",
+  "version": "1.0",
   "private": true,
   "scripts": {
     "dev": "vite",
