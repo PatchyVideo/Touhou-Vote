@@ -1,0 +1,83 @@
+<template>
+  <transition name="messageBox">
+    <div
+      v-if="open"
+      class="
+        fixed
+        max-h-1/2
+        top-1/2
+        mx-auto
+        left-0
+        right-0
+        -mt-40
+        p-2
+        w-19/20
+        md:w-1/2
+        lg:w-1/3
+        xl:w-1/4
+        3xl:w-1/5
+        rounded
+        bg-white
+        z-51
+        flex flex-col
+      "
+    >
+      <div class="flex justify-between items-center">
+        <div class="text-lg truncate">{{ props.title }}</div>
+        <icon-uil-times class="w-8 h-8 cursor-pointer" @click="close()"></icon-uil-times>
+      </div>
+      <slot></slot>
+    </div>
+  </transition>
+  <Transition name="mask">
+    <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-50" @touchmove.stop.prevent></div>
+  </Transition>
+</template>
+<script lang="ts" setup>
+import { watchEffect } from 'vue'
+import { useVModel } from '@vueuse/core'
+
+const props = defineProps({
+  open: {
+    type: Boolean,
+    default: false,
+    requred: true,
+  },
+  title: {
+    type: String,
+    default: '',
+  },
+})
+
+const emit = defineEmits<{
+  (event: 'update:open', value: string): void
+}>()
+
+const open = useVModel(props, 'open', emit)
+watchEffect(() => {
+  if (!open.value) document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:auto')
+  else document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:hidden')
+})
+function close(): void {
+  open.value = false
+}
+</script>
+<style lang="postcss" scoped>
+.messageBox-enter-active,
+.messageBox-leave-active {
+  @apply transition-all duration-200;
+}
+
+.messageBox-enter-from,
+.messageBox-leave-to {
+  @apply opacity-0;
+}
+.mask-enter-active,
+.mask-leave-active {
+  @apply transition-all duration-200;
+}
+.mask-enter-from,
+.mask-leave-to {
+  @apply bg-opacity-0;
+}
+</style>

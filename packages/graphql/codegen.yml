@@ -1,0 +1,24 @@
+overwrite: true
+schema:
+  - https://touhou-vote.vercel.app/v10-be/graphql
+generates:
+  packages/graphql/__generated__/graphql.ts:
+    plugins:
+      - typescript
+    config:
+      useImplementingTypes: true
+      addUnderscoreToArgsType: true
+      nonOptionalTypename: true
+      scalars:
+        DateTimeUtc: Date
+        UtcDateTime: Date
+        ObjectId: 'bson-objectid#default as ObjectId'
+  packages/graphql/__generated__/graphql.schema.json:
+    plugins:
+      - introspection
+  packages/graphql/__generated__/graphql.fragment.ts:
+    plugins:
+      - fragment-matcher
+  packages/graphql/__generated__/schema.graphql:
+    plugins:
+      - schema-ast

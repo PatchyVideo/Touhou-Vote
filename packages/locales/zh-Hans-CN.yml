@@ -1,0 +1,6 @@
+_info:
+  name: 简体中文
+locales:
+  change-lang-reload-hint: |-
+    部分语言修改需要刷新页面才能生效
+    现在刷新页面吗？
