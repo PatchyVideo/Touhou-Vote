@@ -181,7 +181,7 @@
       role="tablist"
       tabindex="0"
     >
-      <div
+      <RouterLink
         v-for="(tab, index) in dpTabs"
         :key="tab.title"
         class="flex flex-col justify-center items-center pr-8 py-4 rounded-xl border-2 transform focus-visible:-translate-x-0.5 transition-transform"
@@ -190,19 +190,18 @@
             ? 'bg-white border-accent-color-400'
             : 'bg-accent-color-100 border-accent-color-300 cursor-pointer'
         "
-        @click="() => (dpActiveTab = index)"
+        :to="{ path: '/', query: { tab: index } }"
         role="tab"
-        tabindex="0"
       >
         <div class="flex min-h-0 aspect-square">
           <img class="object-cover" :src="tab.icon" />
         </div>
         <div
-          class="mx-auto text-center transition-all ease-in-out duration-600"
+          class="mx-auto text-black text-center transition-all ease-in-out duration-600"
           :class="dpCollapseNav ? 'w-2ch' : 'w-9ch'"
           v-text="tab.title"
         ></div>
-      </div>
+      </RouterLink>
     </div>
     <!-- Content Box -->
     <div class="absolute top-4 bottom-4 left-4 right-4 flex flex-nowrap pointer-events-none">
@@ -220,14 +219,18 @@
             <icon-uil-align-justify
               class="align-text-bottom text-gray-400 cursor-pointer"
               @click="() => (dpCollapseNav = !dpCollapseNav)"
+              @keydown.enter="() => (dpCollapseNav = !dpCollapseNav)"
+              tabindex="0"
             />
             中文东方人气投票 第⑩回
           </div>
-          <div class="flex flex-nowrap">
+          <div class="flex flex-nowrap" @keydown.escape="() => (userListOpen = false)">
             <img
               class="h-8 w-8 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
               src="@/home/assets/DefaultAvatar.jpg"
               @click="() => (userListOpen = true)"
+              @keydown.enter="() => (userListOpen = true)"
+              tabindex="0"
             />
             <!-- User List -->
             <Transition name="userList">
@@ -249,6 +252,8 @@
                   <div
                     class="rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
                     @click="logout()"
+                    @keydown.enter="logout()"
+                    tabindex="0"
                   >
                     退出登陆
                   </div>
@@ -260,7 +265,8 @@
               <div
                 v-if="userListOpen"
                 class="fixed inset-0 bg-black bg-opacity-0 z-50"
-                @click="userListOpen = false"
+                @click="() => (userListOpen = false)"
+                @keydown.escape="() => (userListOpen = false)"
                 @touchmove.prevent.passive
               ></div>
             </Transition>
