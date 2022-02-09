@@ -1,5 +1,9 @@
 <template>
   <div class="flex flex-col gap-4">
+    <div v-if="IsQuestionnaireAllDone" class="text-lg text-gray-800">
+      问卷填写完成了！你可以选择继续填写，或在左栏选择“参与投票”开始投票
+    </div>
+    <div v-else class="text-lg text-gray-800">在开始投票之前，你需要选择一些问卷填写：</div>
     <div v-for="(children, catogory) in questionnaire">
       <div class="flex flex-nowrap items-end gap-2">
         <h2 class="text-xl" v-text="nameById[catogory].name"></h2>
@@ -27,10 +31,6 @@
         </RouterLink>
       </div>
     </div>
-    <div v-if="IsQuestionnaireAllDone" class="text-gray-800">
-      问卷填写完成了！<RouterLink :to="{ path: '/', query: { tab: 1 } }">开始投票</RouterLink>
-    </div>
-    <div v-else class="text-gray-800">开始投票之前先填写问卷哦！</div>
   </div>
 </template>
 
