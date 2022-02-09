@@ -86,8 +86,14 @@ const router = createRouter({
 
 import { isLogin } from '@/home/lib/user'
 import { voteEnded } from '@/end-page/lib/voteEnded'
+let pendingNProgress: number | undefined
 router.beforeEach(async (to, from, next) => {
-  if (!NProgress.isStarted()) NProgress.start()
+  if (pendingNProgress === undefined)
+    pendingNProgress = setTimeout(() => {
+      if (!NProgress.isStarted()) NProgress.start()
+      pendingNProgress = undefined
+    }, 150)
+
   await checkLoginStatusPromise
   if (to.path != '/' && !isLogin.value) next({ path: '/' })
   else if (to.meta.availableAfterVoteEnded && voteEnded()) next()
@@ -98,8 +104,12 @@ router.beforeEach(async (to, from, next) => {
 router.afterEach((guard) => {
   incProcess()
   appPromisesFinish.then(() => {
-    if (!guard.meta.holdLoading && NProgress.isStarted()) {
-      NProgress.done()
+    if (pendingNProgress) {
+      clearTimeout(pendingNProgress)
+      pendingNProgress = undefined
+    }
+    if (!guard.meta.holdLoading) {
+      if (NProgress.isStarted()) NProgress.done()
     }
   })
 })

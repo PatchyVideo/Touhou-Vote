@@ -1,11 +1,9 @@
 <template>
-  <div class="min-h-100vh page flex flex-col text-sm md:text-base xl:text-xl 2xl:text-2xl">
+  <!-- Mobile View -->
+  <div v-if="screenSizes['<lg']" class="min-h-100vh flex flex-col text-sm bg-accent-color-200">
     <!-- Top Nav -->
     <div class="w-full py-1 pr-3 bg-white bg-opacity-80 shadow flex items-center justify-between">
-      <div
-        v-if="!systemListIsOpen || screenSizes['md']"
-        class="w-2/3 pl-3 flex items-center justify-between md:w-1/3 xl:w-1/4"
-      >
+      <div v-if="!systemListIsOpen" class="w-2/3 pl-3 flex items-center justify-between md:w-1/3 xl:w-1/4">
         <div class="w-3/4"><img src="@/common/assets/title.svg" /></div>
         <div class="w-1/5"><img src="@/common/assets/title10.svg" /></div>
       </div>
@@ -61,8 +59,7 @@
     </div>
 
     <!-- Main Content -->
-    <!-- Mobile View -->
-    <div v-if="screenSizes['<md']" class="w-full overflow-hidden">
+    <div class="w-full overflow-hidden">
       <div
         class="w-2/1 flex transform-gpu transition-transform duration-300 space-x-1"
         :class="{ '-translate-x-1/2': systemListIsOpen }"
@@ -167,90 +164,108 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- DeskTop View -->
-    <div v-else class="flex-grow w-9/10 mx-auto flex justify-between items-center lg:w-9/10 xl:w-3/5 3xl:w-1/2">
-      <div class="w-9/19 overflow-hidden shadow-around">
+  <!-- DeskTop View -->
+  <div v-else class="relative h-100vh p-4 bg-accent-color-200">
+    <div
+      class="grid grid-rows-3 grid-flow-col h-full text-lg lg:text-xl xl:text-2xl transition-all ease-in-out duration-600"
+      :class="dpCollapseNav ? 'w-[calc(4ch+2rem)]' : 'w-[min(calc(30vh-2rem),calc(256px+3rem))]'"
+    >
+      <div
+        v-for="(tab, index) in dpTabs"
+        :key="tab.title"
+        class="flex flex-col justify-center items-center pr-8 py-4 rounded-xl border-2"
+        :class="
+          dpActiveTab === index
+            ? 'bg-white border-accent-color-400'
+            : 'bg-accent-color-100 border-accent-color-300 cursor-pointer'
+        "
+        @click="() => (dpActiveTab = index)"
+      >
+        <div class="flex min-h-0 aspect-square">
+          <img class="object-cover" :src="tab.icon" />
+        </div>
         <div
-          class="w-2/1 flex transform-gpu transition-transform duration-300"
-          :class="{ '-translate-x-1/2': systemListIsOpen && systemListOpenName === 'questionnaire' }"
-        >
-          <div
-            class="w-1/2 flex flex-wrap space-y-2 p-2 shadow-around rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2"
-          >
-            <div class="w-full overflow-hidden rounded">
-              <div class="w-full aspect-1/1">
-                <img
-                  src="https://upload.thwiki.cc/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png"
-                  class="object-cover rounded"
-                />
-              </div>
-            </div>
-            <div class="w-full space-y-2">
-              <div class="text-xl text-center truncate">
-                填写问卷
-                <label v-if="IsQuestionnaireAllDone" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
-                  >完成</label
-                >
-              </div>
-              <div class="text-gray-600">投票之前请先完成调查问卷哦</div>
-            </div>
-            <div class="w-full text-center">
-              <button
-                class="w-full p-2 rounded text-white bg-accent-color-600"
-                @click="systemListOpen('questionnaire')"
-              >
-                {{ IsQuestionnaireAllDone ? '修改问卷' : '开始填写' }}
-              </button>
-            </div>
+          class="mx-auto text-center transition-all ease-in-out duration-600"
+          :class="dpCollapseNav ? 'w-2ch' : 'w-9ch'"
+          v-text="tab.title"
+        ></div>
+      </div>
+    </div>
+    <div class="absolute top-4 bottom-4 left-4 right-4 flex flex-nowrap pointer-events-none">
+      <!-- Left Padding -->
+      <div
+        class="text-lg lg:text-xl xl:text-2xl transition-all ease-in-out duration-600"
+        :class="dpCollapseNav ? 'ml-[calc(4ch-2px)]' : 'ml-[min(calc(30vh-4rem-2px),calc(256px+1rem-2px))]'"
+      ></div>
+      <div
+        class="flex-1 flex flex-col gap-4 pt-2 px-4 pb-px rounded-xl border-2 border-accent-color-400 bg-white pointer-events-auto"
+      >
+        <!-- Top Nav -->
+        <div class="flex justify-between">
+          <div class="flex-1 text-lg lg:text-xl xl:text-2xl">
+            <icon-uil-align-justify
+              class="align-text-bottom text-gray-400 cursor-pointer"
+              @click="() => (dpCollapseNav = !dpCollapseNav)"
+            />
+            中文东方人气投票 第⑩回
           </div>
-          <UserQuestionnaire id="userQuestionnaire" :desk-top-return="true" class="w-1/2" />
+          <div class="flex flex-nowrap">
+            <img
+              class="h-8 w-8 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
+              src="@/home/assets/DefaultAvatar.jpg"
+              @click="() => (userListOpen = true)"
+            />
+            <!-- User List -->
+            <Transition name="userList">
+              <div
+                v-if="userListOpen"
+                class="absolute min-w-30 text-center top-6 z-51 right-1 rounded bg-white p-2 shadow"
+              >
+                <img
+                  class="absolute -top-5 right-2 h-11 w-11 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
+                  src="@/home/assets/DefaultAvatar.jpg"
+                />
+                <div class="pr-15 truncate">{{ username }}</div>
+                <div class="space-y-2 mt-2">
+                  <router-link
+                    to="/user/settings"
+                    class="block text-black rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
+                    ><div>账号设置</div></router-link
+                  >
+                  <div
+                    class="rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
+                    @click="logout()"
+                  >
+                    退出登陆
+                  </div>
+                </div>
+              </div>
+            </Transition>
+            <!-- Mask -->
+            <Transition name="mask">
+              <div
+                v-if="userListOpen"
+                class="fixed inset-0 bg-black bg-opacity-0 z-50"
+                @click="userListOpen = false"
+                @touchmove.prevent.passive
+              ></div>
+            </Transition>
+          </div>
+        </div>
+        <!-- Main Content -->
+        <div :key="dpActiveTab" class="flex-1 overflow-auto">
+          <component :is="dpTabs[dpActiveTab].component" />
+        </div>
+        <!-- Copyright -->
+        <div class="text-sm text-gray-600 text-center">
+          &copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.
         </div>
       </div>
+    </div>
 
-      <div class="w-9/19 overflow-hidden shadow-around">
-        <div
-          class="w-2/1 flex transform-gpu transition-transform duration-300"
-          :class="{ '-translate-x-1/2': systemListIsOpen && systemListOpenName === 'vote' }"
-        >
-          <div
-            id="userVoteBox"
-            class="w-1/2 flex flex-wrap space-y-2 p-2 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2"
-          >
-            <div class="w-full overflow-hidden rounded">
-              <div class="w-full aspect-1/1">
-                <img
-                  src="https://upload.thwiki.cc/a/a6/THBWiki-LOGO-%E7%A7%98%E5%B0%81%E4%BF%B1%E4%B9%90%E9%83%A8.png"
-                  class="object-cover rounded"
-                />
-              </div>
-            </div>
-            <div class="w-full space-y-2">
-              <div class="text-xl text-center truncate">
-                参与投票
-                <label
-                  v-if="voteCharacterComplete && voteMusicComplete && voteCoupleComplete"
-                  class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
-                  >完成</label
-                >
-              </div>
-              <div class="text-gray-600">为你喜爱的角色/曲目/CP投上一票吧！</div>
-            </div>
-            <div class="w-full text-center">
-              <button
-                class="w-full p-2 rounded text-white bg-accent-color-600"
-                :class="{ 'bg-accent-color-300': !IsQuestionnaireAllDone }"
-                @click="IsQuestionnaireAllDone && systemListOpen('vote')"
-              >
-                {{ IsQuestionnaireAllDone ? '开始投票' : '请先填写问卷哦' }}
-              </button>
-            </div>
-          </div>
-          <UserVote :desk-top-return="true" class="w-1/2" />
-        </div>
-      </div>
-
-      <!-- <div
+    <!-- <div
         class="
           flex flex-wrap
           space-y-2
@@ -277,7 +292,6 @@
           </button>
         </div>
       </div> -->
-    </div>
   </div>
   <VoteMessageBox v-model:open="ruleMessageBoxOpen" title="问卷填写规则：">
     <div class="p-2">
@@ -292,18 +306,24 @@
       </div>
     </div>
   </VoteMessageBox>
+  <VoteMessageBox v-model:open="resetTabMessageBoxOpen" title="提示">
+    <div class="p-2">需要先完成调查问卷才能开始投票哦！</div>
+  </VoteMessageBox>
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, onMounted } from 'vue'
+import UserQuestionnaire from './components/UserQuestionnaire.vue'
+import UserVote from './components/UserVote.vue'
+import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import UserQuestionnaireDp from './components/UserQuestionnaireDp.vue'
+import UserVoteDp from './components/UserVoteDp.vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useEventListener } from '@vueuse/core'
 import { screenSizes } from '@/tailwindcss'
 import { username, deleteUserData, voteCharacterComplete, voteMusicComplete, voteCoupleComplete } from '@/home/lib/user'
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
 import { ruleMessageBoxOpen } from '@/home/lib/questionnaireRule'
-import UserQuestionnaire from './components/UserQuestionnaire.vue'
-import UserVote from './components/UserVote.vue'
-import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 
 setSiteTitle(username.value + ' - 第⑩回 中文东方人气投票')
@@ -357,7 +377,52 @@ function setUserQuestionnaireHeight(): void {
     userQuestionnaire.style.maxHeight = window.getComputedStyle(userVoteBox).getPropertyValue('height')
 }
 onMounted(() => setUserQuestionnaireHeight())
-window.onresize = setUserQuestionnaireHeight
+useEventListener('resize', setUserQuestionnaireHeight)
+
+// destop exclusive
+const dpActiveTab = computed<number>({
+  get: () => Number(route.query.tab) || 0,
+  set: (v) => {
+    router.push({
+      path: route.path,
+      query: {
+        ...route.query,
+        tab: v,
+      },
+    })
+  },
+})
+const resetTabMessageBoxOpen = ref(false)
+watch(dpActiveTab, (tab) => {
+  if (!IsQuestionnaireAllDone.value && tab > 0) {
+    resetTabMessageBoxOpen.value = true
+    router.push({
+      path: route.path,
+      query: {
+        ...route.query,
+        tab: 0,
+      },
+    })
+  }
+})
+const dpCollapseNav = ref(screenSizes['<xl'])
+const dpTabs = [
+  {
+    title: '填写问卷',
+    icon: 'https://upload.thwiki.cc/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png',
+    component: UserQuestionnaireDp,
+  },
+  {
+    title: '参与投票',
+    icon: 'https://upload.thwiki.cc/a/a6/THBWiki-LOGO-%E7%A7%98%E5%B0%81%E4%BF%B1%E4%B9%90%E9%83%A8.png',
+    component: UserVoteDp,
+  },
+  {
+    title: '提名作品',
+    icon: 'https://upload.thwiki.cc/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png',
+    component: UserVoteDp,
+  },
+]
 </script>
 
 <style lang="postcss" scoped>
