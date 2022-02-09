@@ -168,20 +168,31 @@
 
   <!-- DeskTop View -->
   <div v-else class="relative h-100vh p-4 bg-accent-color-200">
+    <!-- Skip Navigation -->
+    <a
+      class="z-52 absolute px-2 py-1 rounded-full bg-white transform -translate-x-3/2 focus-visible:translate-x-0"
+      href="#maincontent"
+      >Skip Navigation</a
+    >
+    <!-- Left Nav -->
     <div
       class="grid grid-rows-3 grid-flow-col h-full text-lg lg:text-xl xl:text-2xl transition-all ease-in-out duration-600"
       :class="dpCollapseNav ? 'w-[calc(4ch+2rem)]' : 'w-[min(calc(30vh-2rem),calc(256px+3rem))]'"
+      role="tablist"
+      tabindex="0"
     >
       <div
         v-for="(tab, index) in dpTabs"
         :key="tab.title"
-        class="flex flex-col justify-center items-center pr-8 py-4 rounded-xl border-2"
+        class="flex flex-col justify-center items-center pr-8 py-4 rounded-xl border-2 transform focus-visible:-translate-x-0.5 transition-transform"
         :class="
           dpActiveTab === index
             ? 'bg-white border-accent-color-400'
             : 'bg-accent-color-100 border-accent-color-300 cursor-pointer'
         "
         @click="() => (dpActiveTab = index)"
+        role="tab"
+        tabindex="0"
       >
         <div class="flex min-h-0 aspect-square">
           <img class="object-cover" :src="tab.icon" />
@@ -193,6 +204,7 @@
         ></div>
       </div>
     </div>
+    <!-- Content Box -->
     <div class="absolute top-4 bottom-4 left-4 right-4 flex flex-nowrap pointer-events-none">
       <!-- Left Padding -->
       <div
@@ -255,7 +267,7 @@
           </div>
         </div>
         <!-- Main Content -->
-        <div :key="dpActiveTab" class="flex-1 overflow-auto">
+        <div :key="dpActiveTab" class="flex-1 overflow-auto" id="maincontent">
           <component :is="dpTabs[dpActiveTab].component" />
         </div>
         <!-- Copyright -->
