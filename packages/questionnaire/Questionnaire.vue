@@ -282,7 +282,7 @@ function selectOption(id: number): void {
       else changeQuestion('no')
     }
   } else if (question.value.type === 'Multiple') {
-    index === -1 ? answerData.value.push(id) : answerData.value.splice(index, index + 1)
+    index === -1 ? answerData.value.push(id) : answerData.value.splice(index, 1)
   }
 }
 
