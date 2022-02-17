@@ -24,19 +24,19 @@
 
 ## 需求文档 / Requirements Doc
 
-https://github.com/PatchyVideo/Touhou-Vote/blob/next/doc/VoileLabs-人气投票项目-需求文档.docx
+https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/VoileLabs-人气投票项目-需求文档.docx
 
 ## 路线图 / Roadmap
 
-https://github.com/PatchyVideo/Touhou-Vote/blob/next/doc/ROADMAP.md
+https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/ROADMAP.md
 
 ## 调查问卷大纲 / Outline-Questionnaire
 
-https://github.com/PatchyVideo/Touhou-Vote/blob/next/doc/OUTLINE-Questionnaire.md
+https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/OUTLINE-Questionnaire.md
 
 ## 范围一览 / Vote Range
 
-https://github.com/PatchyVideo/Touhou-Vote/blob/next/doc/VOTEDETAIL.md
+https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/VOTEDETAIL.md
 
 ## 贡献指南 / Contributing
 
