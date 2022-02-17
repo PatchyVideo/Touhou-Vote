@@ -2,7 +2,10 @@
   <div v-if="confirmedNotice">
     <div class="flex flex-nowrap items-end gap-2">
       <h2 class="text-xl">
-        提名作品 (<icon-uil-spinner-alt class="align-text-bottom animate-spin" v-if="getSubmitDojinVoteLoading" /><template v-else>{{ doujinValid.length }}</template
+        提名作品 (<icon-uil-spinner-alt
+          class="align-text-bottom animate-spin"
+          v-if="getSubmitDojinVoteLoading"
+        /><template v-else>{{ doujinValid.length }}</template
         >/{{ doujins.length }})
       </h2>
       <span class="text-gray-700"
@@ -147,6 +150,6 @@ onDone((result) => {
 onError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
   if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('投票失败，请检查网络设置！')
+  else alert('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
 })
 </script>

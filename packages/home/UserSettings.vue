@@ -232,7 +232,7 @@ updateUsernameDone((result) => {
 updateUsernameError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
   if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('网络错误！')
+  else alert('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
   updateUsernameOpen.value = false
 })
 
@@ -282,7 +282,7 @@ updatePasswordDone((result) => {
 updatePasswordError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
   if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('修改失败，旧密码输入错误或网络错误！')
+  else alert('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
   changePasswordOpen.value = false
 })
 
