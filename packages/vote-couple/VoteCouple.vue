@@ -34,7 +34,7 @@
           <transition name="addMore" mode="out-in">
             <div
               v-if="couplesValid.length < couples.length"
-              class="w-full shadow text-center bg-white cursor-pointer select-none p-2 rounded dark:bg-gray-800"
+              class="w-full shadow text-center bg-white cursor-pointer select-none p-2 rounded"
               @click="addCouple()"
             >
               <icon-uil-plus class="text-lg" />

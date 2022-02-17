@@ -13,7 +13,7 @@
           <icon-uil-search class="flex-shrink-0 inline ml-2 mr-1" />
           <input
             v-model="searchContent"
-            class="nline-block h-full outline-none dark:bg-gray-800 w-full rounded"
+            class="inline-block h-full outline-none w-full rounded"
             @keydown.enter="search()"
           />
         </div>

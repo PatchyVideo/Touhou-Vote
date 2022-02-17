@@ -1,11 +1,7 @@
 <template>
   <div class="shadow rounded h-7 w-full flex justify-start items-center">
     <icon-uil-search class="flex-shrink-0 inline ml-2 mr-1" />
-    <input
-      v-model="searchContent"
-      class="nline-block h-full outline-none dark:bg-gray-800 w-full rounded"
-      @keydown.enter="search()"
-    />
+    <input v-model="searchContent" class="nline-block h-full outline-none w-full rounded" @keydown.enter="search()" />
   </div>
 </template>
 <script lang="ts" setup>
@@ -32,4 +28,3 @@ function search(): void {
     : (keywordMusic.value = searchContent.value)
 }
 </script>
-
