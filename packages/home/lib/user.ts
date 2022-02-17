@@ -96,6 +96,8 @@ export function deleteUserData(): void {
   localStorage.removeItem('sessionToken')
   localStorage.removeItem('questionnaireDataLocal')
   localStorage.removeItem('doujins')
+  localStorage.removeItem('confirmedDoujinNotice')
+  localStorage.removeItem('confirmedDoujinEditNotice')
   user.value = createDefaultVoter()
 }
 
