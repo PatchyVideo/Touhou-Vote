@@ -2,7 +2,7 @@
   <transition name="messageBox">
     <div
       v-if="open"
-      class="fixed max-h-2/3 top-1/2 mx-auto left-0 right-0 -mt-60 p-2 w-19/20 md:w-1/2 lg:w-1/3 xl:w-1/4 3xl:w-1/5 rounded bg-white z-51 flex flex-col"
+      class="fixed max-h-2/3 top-1/2 mx-auto left-0 right-0 -mt-60 p-2 w-19/20 max-w-70ch rounded bg-white z-51 flex flex-col"
     >
       <div class="flex justify-between items-center">
         <div class="text-lg truncate">{{ props.title }}</div>

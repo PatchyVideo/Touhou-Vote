@@ -19,13 +19,13 @@
           <div v-if="screenSizes['<md']" class="text-gray-600 text-lg">
             这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
           </div>
-          <a class="float-arrow-box space-x-3 flex items-center w-3/5 md:w-1/2" @click="loginBoxOpen = true"
+          <a class="float-arrow-box space-x-3 flex items-center w-3/5 md:w-1/2" tabindex="0" @click="loginBoxOpen = true"
             ><img class="w-3/5" src="@/common/assets/login.svg" /><img
               src="@/common/assets/loginIcon.svg"
               class="float-arrow w-1/6"
           /></a>
           <div class="w-full text-lg flex items-center space-x-1">
-            <icon-uil-clock-five></icon-uil-clock-five>
+            <icon-uil-clock-five />
             <div class="text-right text-md text-gray-700 font-sans">
               {{ '距结束还有 ' + daysWith0 + '天' + hoursWith0 + '时' + minutesWith0 + '分' + secondsWith0 + '秒' }}
             </div>
@@ -34,7 +34,7 @@
 
         <div
           v-if="screenSizes['md']"
-          class="text-gray-600 text-xl rounded-xl p-8 shadow-around bg-white bg-opacity-50 backdrop-filter backdrop-blur-2"
+          class="text-gray-600 text-xl rounded-xl p-8 shadow-around bg-white bg-opacity-80 backdrop-filter backdrop-blur-2"
         >
           这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
         </div>
@@ -49,13 +49,14 @@
 
       <!-- Other Messages -->
       <div
-        class="w-full pt-6vh md:p-10 md:shadow-around md:rounded-xl md:bg-white md:bg-opacity-50 md:backdrop-filter md:backdrop-blur-2 md:mt-10"
+        class="w-full pt-6vh md:p-10 md:shadow-around md:rounded-xl md:bg-white md:bg-opacity-80 md:backdrop-filter md:backdrop-blur-2 md:mt-10"
       >
-        <article class="prose-xl">
-          <h2>其他信息</h2>
+        <article class="prose-lg lg:prose-xl">
+          <h2>投票详情</h2>
           <p>投票的举办地点与结果的发布地点均为本站。</p>
           <p>
-            本次投票的规则与上一届相同。 <strong>角色票为8个，音乐票为12个。</strong><br />
+            本次投票的规则与上一届相同。 <strong>角色票为8个，音乐票为12个，CP票为4个。</strong><br />
+            此外，本届新增加了作品提名，<strong>每人有提名5个作品的机会</strong>。<br />
             投票过程为黑箱投票，即在投票过程中不显示当前总体投票情况，而是在投票结束后计算出结果进行展示。
           </p>
           <p>

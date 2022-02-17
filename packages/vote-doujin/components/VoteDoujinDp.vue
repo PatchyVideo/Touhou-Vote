@@ -1,62 +1,44 @@
 <template>
-  <div class="page w-full min-h-100vh flex flex-col">
-    <div class="p-2 shadow flex items-center bg-white mb-2">
-      <div class="font-medium">第⑩届 国内东方人气投票 - 提名系统</div>
+  <div v-if="confirmedNotice">
+    <div class="flex flex-nowrap items-end gap-2">
+      <h2 class="text-xl">
+        提名作品 (<icon-uil-spinner-alt class="align-text-bottom animate-spin" v-if="getSubmitDojinVoteLoading" /><template v-else>{{ doujinValid.length }}</template
+        >/{{ doujins.length }})
+      </h2>
+      <span class="text-gray-700"
+        >为喜欢的二次创作提名
+        <span class="cursor-pointer hover:text-gray-900" tabindex="0" @click="() => (confirmedNotice = false)"
+          >[阅读须知]</span
+        ></span
+      >
     </div>
-
-    <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
-      <div class="p-1 rounded w-full space-y-2 shadow bg-white bg-opacity-80">
-        <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
-          <div>{{ '提名作品(' + doujinValid.length + '/' + doujins.length + ')' }}</div>
-        </div>
-        <div class="shadow-inner p-2 rounded bg-gray-50 bg-opacity-50 space-y-2">
-          <transition name="doujin" mode="out-in">
-            <div v-if="!doujinValid.length" key="no-selecting" class="w-full text-center text-gray-400 py-10 space-y-2">
-              <div>请点击下方的按钮</div>
-              <div>提名一个对你来说印象最深刻，最想推荐给它人的作品吧!</div>
-            </div>
-            <div v-else key="selecting">
-              <transition-group name="coupleList" tag="div">
-                <div
-                  v-for="(doujin, index) in doujinValid"
-                  :key="doujin.url"
-                  class="transition transition-all duration-200 mb-2"
-                  @click="openEditDoujin(index)"
-                >
-                  <DoujinCard v-model:doujin="doujinValid[index]" />
-                </div>
-              </transition-group>
-            </div>
-          </transition>
-          <transition name="addMore" mode="out-in">
-            <div
-              v-if="doujinValid.length < doujins.length"
-              class="flex flex-row justify-center items-center shadow bg-white cursor-pointer select-none p-2 rounded border border-accent-color-200"
-              @click="openEditDoujin()"
-            >
-              <icon-uil-plus class="text-lg" />
-              <div>添加提名</div>
-            </div>
-          </transition>
-        </div>
+    <div class="flex flex-col gap-2 mt-1 max-w-80ch">
+      <div v-for="(doujin, index) in doujinValid" :key="doujin.url" @click="openEditDoujin(index)">
+        <DoujinCardDp v-model:doujin="doujinValid[index]" />
       </div>
-
+      <button
+        v-if="doujinValid.length < doujins.length"
+        class="flex flex-row justify-center items-center py-3 w-full rounded-md border-2 border-accent-color-200 hover:shadow-md hover:border-accent-color-300 transition-all ease-in-out"
+        @click="() => openEditDoujin()"
+      >
+        <icon-uil-plus class="text-xl" />
+        <div class="text-lg">添加提名</div>
+      </button>
       <button
         :class="{ 'bg-accent-color-300': !doujinValid.length || loading }"
-        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="inline-block mx-auto px-16 py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
         @click="!doujinValid.length || vote()"
       >
-        <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>
-          {{ doujinValid.length ? (loading ? '提交中...' : '提交!') : '请提名至少一个作品哦' }}
-        </label>
+        <icon-uil-spinner-alt v-if="loading" class="animate-spin" />
+        {{ doujinValid.length ? (loading ? '提交中...' : '提交!') : '请提名至少一个作品哦' }}
       </button>
     </div>
+    <EditDoujin v-model:open="editDoujinOpen" :index="editDoujinIndex" />
   </div>
-  <BackToHome :show="true" :saveable="false" />
-  <EditDoujin v-model:open="editDoujinOpen" :index="editDoujinIndex" />
-  <VoteMessageBox v-model:open="noticeOpen" title="用户须知">
-    <div class="flex flex-col overflow-auto">
-      <div class="space-y-1 p-2">
+  <div v-else class="grid place-items-center w-full h-full">
+    <div class="flex flex-col overflow-auto max-w-80ch">
+      <h2 class="mx-auto text-2xl">提名须知</h2>
+      <div class="space-y-2 p-4">
         <p class="indent-lg">
           欢迎来到新版中文东方人气投票的提名系统，您可通过本系统的提名页面，对于最近3年内
           <label class="font-bold"> 印象最深刻，最想推荐给它人 </label>
@@ -71,22 +53,19 @@
         <p class="italic text-sm">*本活动最终解释权归THBWiki所有</p>
       </div>
       <button
-        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="inline-block mx-auto px-8 py-2 rounded text-white bg-accent-color-600"
         @click="() => (confirmedNotice = true)"
       >
         我知道了
       </button>
     </div>
-  </VoteMessageBox>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
-import DoujinCard from '@/vote-doujin/components/DoujinCard.vue'
+import DoujinCardDp from '@/vote-doujin/components/DoujinCardDp.vue'
 import EditDoujin from '@/vote-doujin/components/EditDoujin.vue'
-import BackToHome from '@/common/components/BackToHome.vue'
-import { computed, ref, watchEffect } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, watchEffect } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import NProgress from 'nprogress'
 import { doujins, updateVoteDataDoujins } from '@/vote-doujin/lib/voteData'
@@ -98,17 +77,7 @@ import { setSiteTitle } from '@/common/lib/setSiteTitle'
 
 setSiteTitle('提名作品 - 第⑩回 中文东方人气投票')
 
-const router = useRouter()
-
 const confirmedNotice = useLocalStorage('confirmedDoujinNotice', false)
-const noticeOpen = computed<boolean>({
-  get() {
-    return !confirmedNotice.value
-  },
-  set(value) {
-    confirmedNotice.value = !value
-  },
-})
 
 const editDoujinOpen = ref(false)
 const editDoujinIndex = ref(0)
@@ -174,7 +143,6 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
 onDone((result) => {
   alert('投票成功！')
   voteDoujinComplete.value = true
-  router.push({ path: '/' })
 })
 onError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
@@ -182,27 +150,3 @@ onError((error) => {
   else alert('投票失败，请检查网络设置！')
 })
 </script>
-
-<style lang="postcss" scoped>
-.addMore-enter-active,
-.addMore-leave-active,
-.doujin-enter-active,
-.doujin-leave-active {
-  @apply transition-all duration-200;
-}
-.addMore-enter-from,
-.addMore-leave-to,
-.doujin-enter-from,
-.doujin-leave-to {
-  @apply opacity-0;
-}
-.doujin-enter-active,
-.doujin-leave-active {
-  @apply transition transition-all duration-200;
-}
-
-.doujin-enter-from,
-.doujin-leave-to {
-  @apply opacity-0  translate-y-2;
-}
-</style>

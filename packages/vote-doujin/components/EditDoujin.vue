@@ -2,31 +2,31 @@
   <transition name="editDoujin">
     <div
       v-if="open"
-      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-40 space-y-2 bg-white rounded w-19/20 mx-auto md:w-1/2 3xl:w-1/4"
+      class="fixed top-1/10 left-0 right-0 max-h-4/5 flex flex-col p-3 z-40 space-y-2 bg-white rounded w-19/20 mx-auto md:w-2/3 xl:w-1/2 3xl:w-1/4"
     >
-      <div class="flex justify-between pb-4">
+      <div class="flex justify-between">
         <div class="md:text-base xl:text-xl 2xl:text-2xl">编辑提名</div>
-        <icon-uil-times class="cursor-pointer" @click="cancelEdit()"></icon-uil-times>
+        <icon-uil-times class="text-xl xl:text-2xl 2xl:text-3xl cursor-pointer" @click="cancelEdit()"></icon-uil-times>
       </div>
-      <div class="flex-grow overflow-y-auto p-2 flex flex-col space-y-3">
+      <div class="flex-grow overflow-y-auto p-2 flex flex-col gap-y-3">
         <div class="flex flex-col">
-          <div class="flex justify-between items-center space-x-3">
+          <div class="flex justify-between items-center gap-x-3">
             <div class="whitespace-nowrap py-0.5">链接</div>
             <input
               v-model="doujinUrl"
-              class="inline-block h-full outline-none bg-gray-200 border-2 border-gray-300 w-full rounded"
+              class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
             />
           </div>
-          <ul class="text-xs text-gray-800 italic">
-            <li>*必填项，最长2048个字符</li>
+          <ul class="text-xs text-gray-800">
+            <li>*必填项，最长 2048 个字符</li>
             <li>
               *有效的链接仅能包括以下网站：Bilibili(仅限视频)、微博、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
-                class="text-blue-500 hover:text-blue-800 transition transition-colors underline"
+                class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
                 href="https://thvideo.tv/"
                 target="_blank"
                 >旧页面</a
               >和<a
-                class="text-blue-500 hover:text-blue-800 transition transition-colors underline"
+                class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
                 href="https://platinum.vercel.app/"
                 target="_blank"
                 >新页面</a
@@ -35,7 +35,7 @@
             <li>
               *如果在上述网站之外或无特定网站，请前往
               <a
-                class="text-blue-500 hover:text-blue-800 transition transition-colors underline"
+                class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
                 href="https://thwiki.cc/"
                 target="_blank"
                 >THBWiki</a
@@ -45,64 +45,62 @@
           </ul>
         </div>
         <div class="flex flex-col">
-          <div class="flex justify-between items-center space-x-3">
+          <div class="flex justify-between items-center gap-x-3">
             <div class="whitespace-nowrap py-0.5">标题</div>
             <input
               v-model="doujinTitle"
-              class="inline-block h-full outline-none bg-gray-200 border-2 border-gray-300 w-full rounded"
+              class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
             />
           </div>
-          <ul class="text-xs text-gray-800 italic">
-            <li>*必填项，最长256个字符</li>
+          <ul class="text-xs text-gray-800">
+            <li>*必填项，最长 256 个字符</li>
             <li>*请尽可能填写原名或较为通用的译名</li>
           </ul>
         </div>
         <div class="flex flex-col">
-          <div class="flex justify-between items-center space-x-3">
+          <div class="flex justify-between items-center gap-x-3">
             <div class="whitespace-nowrap py-0.5">作者</div>
             <input
               v-model="doujinAuthor"
-              class="inline-block h-full outline-none bg-gray-200 border-2 border-gray-300 w-full rounded"
+              class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
             />
           </div>
-          <ul class="text-xs text-gray-800 italic">
-            <li>*必填项，最长128个字符</li>
+          <ul class="text-xs text-gray-800">
+            <li>*必填项，最长 128 个字符</li>
             <li>*请尽可能填写原名或较为通用的译名</li>
           </ul>
         </div>
         <div class="flex flex-col">
-          <div class="flex items-center space-x-3">
+          <div class="flex items-center gap-x-3">
             <div class="whitespace-nowrap py-0.5">作品类型</div>
             <div class="flex-grow">
               <VoteSelect class="w-full" v-model:selected="doujinType" :item-list="doujintypesWithoutColor" />
             </div>
           </div>
         </div>
-        <div class="flex-grow flex flex-col space-y-1">
+        <div class="flex flex-col gap-y-1">
           <div>
             <div class="whitespace-nowrap">提名理由</div>
-            <ul class="text-xs text-gray-800 italic">
-              <li>*选填项，最长1024个字符</li>
+            <ul class="text-xs text-gray-800">
+              <li>*选填项，最长 1024 个字符</li>
               <li>*如果写的很长或者很优秀，甚至有可能入选年度最感人推荐感言哦！</li>
             </ul>
           </div>
-          <div class="flex-grow">
+          <div>
             <textarea
               maxlength="1024"
+              rows="8"
               v-model="doujinReason"
-              class="inline-block outline-none bg-gray-200 border-2 border-gray-300 w-full h-full rounded"
+              class="inline-block outline-none border border-gray-300 focus:border-accent-color-400 transition-colors w-full p-1 rounded"
             />
           </div>
         </div>
       </div>
       <div class="flex justify-between px-2">
-        <div class="h-full py-2">
-          <icon-uil-question-circle
-            class="cursor-pointer w-full h-full"
-            @click="noticeOpen = true"
-          ></icon-uil-question-circle>
+        <div class="flex flex-row items-center py-2 cursor-pointer" @click="noticeOpen = true">
+          <icon-uil-question-circle /><span class="<md:hidden">提名规则</span>
         </div>
-        <div class="flex space-x-4">
+        <div class="flex gap-x-4">
           <button v-if="props.index != doujinValid.length" class="px-5 py-1 rounded border" @click="deleteEdit()">
             删除
           </button>
@@ -115,17 +113,17 @@
   <Transition name="mask">
     <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-39" @touchmove.stop.prevent></div>
   </Transition>
-  <VoteMessageBox v-model:open="noticeOpen" title="提名须知">
+  <VoteMessageBox v-model:open="noticeOpen" title="提名规则">
     <div class="flex flex-col overflow-auto">
       <ul class="space-y-2 p-2 list-disc list-inside">
         <li>“最近三年的作品(2019/1/1 0:00:00 ~ 2022/1/1 0:00:00)”以发布日期计算，不考虑是否完结的问题</li>
         <li>同一个作品在不同网站上发布视为同一作品，其中提名的链接如指向营销号盗用的作品，则不计票</li>
         <li>
-          可能出现<label class="text-accent-color-600">版权问题或争议话题</label
-          >的IP联合创作作品（如创价x东方）的提名无效
+          可能出现<label class="text-accent-color-600">版权问题或争议话题</label>的 IP
+          联合创作作品（如创价x东方）的提名无效
         </li>
-        <li><label class="text-accent-color-600">R18</label>作品的提名无效</li>
-        <li>单品和组合作品（如同人游戏的ost和该同人游戏本身）视为不同的作品</li>
+        <li><label class="text-accent-color-600">R18</label> 作品的提名无效</li>
+        <li>单品和组合作品（如同人游戏的 OST 和该同人游戏本身）视为不同的作品</li>
       </ul>
       <button
         class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
@@ -139,7 +137,7 @@
 
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
-import { useVModel } from '@vueuse/core'
+import { useLocalStorage, useVModel } from '@vueuse/core'
 import { Doujin, Doujin0, doujinTypes } from '@/vote-doujin/lib/doujin'
 import { doujinValid } from '@/vote-doujin/lib/doujinList'
 import { doujins, setVoteDataDoujins } from '@/vote-doujin/lib/voteData'
@@ -161,13 +159,18 @@ const emit = defineEmits<{
 }>()
 const open = useVModel(props, 'open', emit)
 
-const noticeOpen = ref(false)
-watch(open, () => {
-  if (open.value) {
+const confirmedNotice = useLocalStorage('confirmedDoujinEditNotice', false)
+const noticeOpen = computed<boolean>({
+  get() {
+    return open.value && !confirmedNotice.value
+  },
+  set(value) {
+    confirmedNotice.value = !value
+  },
+})
+watch(open, (n, o) => {
+  if (n && !o) {
     clearDoujinData()
-    setTimeout(() => {
-      noticeOpen.value = true
-    }, 300)
   }
 })
 

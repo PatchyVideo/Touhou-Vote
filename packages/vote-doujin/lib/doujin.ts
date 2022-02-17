@@ -20,12 +20,12 @@ export class Doujin {
 }
 export const Doujin0 = new Doujin()
 
-interface DoujinTypes {
+interface DoujinType {
   name: string
   value: '' | 'MUSIC' | 'VIDEO' | 'DRAWING' | 'SOFTWARE' | 'ARTICLE' | 'CRAFT' | 'OTHER'
   color: string
 }
-export const doujinTypes: DoujinTypes[] = [
+export const doujinTypes: DoujinType[] = [
   {
     name: '',
     value: '',
@@ -67,3 +67,7 @@ export const doujinTypes: DoujinTypes[] = [
     color: '#733542',
   },
 ]
+
+export function getDoujinTypeData(value: DoujinType['value']): DoujinType {
+  return doujinTypes.find((v) => v.value === value) || doujinTypes[0]
+}

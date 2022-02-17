@@ -305,7 +305,7 @@
           <component :is="dpTabs[dpActiveTab].component" />
         </div>
         <!-- Copyright -->
-        <div class="text-sm text-gray-600 text-center">
+        <div class="quicksand text-sm text-gray-600 text-center">
           &copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.
         </div>
       </div>
@@ -363,7 +363,7 @@ import UserVote from '@/home/components/UserVote.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import UserQuestionnaireDp from '@/home/components/UserQuestionnaireDp.vue'
 import UserVoteDp from '@/home/components/UserVoteDp.vue'
-import UserVoteDoujin from '@/home/components/UserVoteDoujin.vue'
+import VoteDoujinDp from '@/vote-doujin/components/VoteDoujinDp.vue'
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useEventListener } from '@vueuse/core'
@@ -477,7 +477,7 @@ const dpTabs = [
   {
     title: '提名作品',
     icon: 'https://upload.thwiki.cc/f/f1/ConstructionClock.png',
-    component: UserVoteDoujin,
+    component: VoteDoujinDp,
   },
 ]
 </script>
