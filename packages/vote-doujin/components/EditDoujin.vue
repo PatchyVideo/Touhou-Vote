@@ -118,7 +118,7 @@
   <VoteMessageBox v-model:open="noticeOpen" title="提名须知">
     <div class="flex flex-col overflow-auto">
       <ul class="space-y-2 p-2 list-disc list-inside">
-        <li>”最近三年的作品“以发布日期计算，不考虑是否完结的问题</li>
+        <li>”最近三年的作品(2019/1/1 0:00:00 ~ 2022/1/1 0:00:00)“以发布日期计算，不考虑是否完结的问题</li>
         <li>同一个作品在不同网站上发布视为同一作品，其中提名的链接如指向营销号盗用的作品，则不计票</li>
         <li>
           可能出现<label class="text-accent-color-600">版权问题或争议话题</label
