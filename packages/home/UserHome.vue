@@ -134,6 +134,34 @@
             </div>
           </div>
 
+          <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
+            <div class="w-1/3 p-0.5 overflow-hidden rounded">
+              <div class="w-full aspect-1/1">
+                <img src="https://upload.thwiki.cc/f/f1/ConstructionClock.png" class="object-contain rounded" />
+              </div>
+            </div>
+            <div class="w-2/3 p-0.5 flex flex-wrap content-between">
+              <div class="w-full space-y-0.5">
+                <div class="text-xl truncate">
+                  <label class="text-accent-color-600">（NEW）</label>提名系统
+                  <label v-if="voteDoujinComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
+                    >完成</label
+                  >
+                </div>
+                <div class="text-xs">新系统，为自己喜爱的同人作品提名！</div>
+              </div>
+              <div class="w-full text-right">
+                <button
+                  class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600"
+                  :class="{ 'bg-accent-color-300': !voteDoujinComplete }"
+                  @click="IsQuestionnaireAllDone && gotoDoujinSystem()"
+                >
+                  {{ IsQuestionnaireAllDone ? (voteDoujinComplete ? '修改提名' : '前往提名') : '请先填写问卷哦' }}
+                </button>
+              </div>
+            </div>
+          </div>
+
           <!-- <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
@@ -194,7 +222,7 @@
         role="tab"
       >
         <div class="flex min-h-0 aspect-square">
-          <img class="object-cover" :src="tab.icon" />
+          <img class="object-contain" :src="tab.icon" />
         </div>
         <div
           class="mx-auto text-black text-center transition-all ease-in-out duration-600"
@@ -330,16 +358,24 @@
 </template>
 
 <script lang="ts" setup>
-import UserQuestionnaire from './components/UserQuestionnaire.vue'
-import UserVote from './components/UserVote.vue'
+import UserQuestionnaire from '@/home/components/UserQuestionnaire.vue'
+import UserVote from '@/home/components/UserVote.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
-import UserQuestionnaireDp from './components/UserQuestionnaireDp.vue'
-import UserVoteDp from './components/UserVoteDp.vue'
+import UserQuestionnaireDp from '@/home/components/UserQuestionnaireDp.vue'
+import UserVoteDp from '@/home/components/UserVoteDp.vue'
+import UserVoteDoujin from '@/home/components/UserVoteDoujin.vue'
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useEventListener } from '@vueuse/core'
 import { screenSizes } from '@/tailwindcss'
-import { username, deleteUserData, voteCharacterComplete, voteMusicComplete, voteCoupleComplete } from '@/home/lib/user'
+import {
+  username,
+  deleteUserData,
+  voteCharacterComplete,
+  voteMusicComplete,
+  voteCoupleComplete,
+  voteDoujinComplete,
+} from '@/home/lib/user'
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
 import { ruleMessageBoxOpen } from '@/home/lib/questionnaireRule'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
@@ -379,6 +415,9 @@ function systemListClose(): void {
   const query = JSON.parse(JSON.stringify(route.query))
   query.open = 0
   router.push({ path: route.path, query })
+}
+function gotoDoujinSystem(): void {
+  router.push({ path: '/doujin' })
 }
 
 function logout(): void {
@@ -437,8 +476,8 @@ const dpTabs = [
   },
   {
     title: '提名作品',
-    icon: 'https://upload.thwiki.cc/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png',
-    component: UserVoteDp,
+    icon: 'https://upload.thwiki.cc/f/f1/ConstructionClock.png',
+    component: UserVoteDoujin,
   },
 ]
 </script>

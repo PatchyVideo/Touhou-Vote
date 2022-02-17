@@ -78,6 +78,11 @@ const router = createRouter({
       meta: { requrieQuestionaire: true },
     },
     {
+      path: '/doujin',
+      component: () => import('@/vote-doujin/VoteDoujin.vue'),
+      meta: { requrieQuestionaire: true },
+    },
+    {
       path: '/test',
       component: () => import('@/common/TestPage.vue'),
     },

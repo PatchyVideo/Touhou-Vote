@@ -55,10 +55,14 @@ export const isLogin = computed(() => voteToken.value != '')
 export const voteCharacterComplete = ref(false)
 export const voteMusicComplete = ref(false)
 export const voteCoupleComplete = ref(false)
-function setVoteStatus(votingStatus = { characters: true, cps: true, musics: true, papers: false }): void {
+export const voteDoujinComplete = ref(false)
+function setVoteStatus(
+  votingStatus = { characters: true, cps: true, musics: true, papers: false, dojin: false }
+): void {
   voteCharacterComplete.value = votingStatus.characters
   voteMusicComplete.value = votingStatus.musics
   voteCoupleComplete.value = votingStatus.cps
+  voteDoujinComplete.value = votingStatus.dojin
 }
 
 export function setUserDataToLocalStorage(user: Voter, token: string, session: string): void {
@@ -91,6 +95,7 @@ export function deleteUserData(): void {
   localStorage.removeItem('voteToken')
   localStorage.removeItem('sessionToken')
   localStorage.removeItem('questionnaireDataLocal')
+  localStorage.removeItem('doujins')
   user.value = createDefaultVoter()
 }
 
