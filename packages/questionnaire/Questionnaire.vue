@@ -1,12 +1,17 @@
 <template>
   <div class="page w-full min-h-100vh flex flex-col overflow-hidden">
-    <div class="p-2 shadow flex items-center justify-between bg-white" @click="drawerOpen">
-      <div class="font-medium">
-        {{ questionnaireName }}
+    <div class="p-2 shadow flex items-center justify-between bg-white">
+      <div class="flex items-center">
+        <BackToHome :show="true" :saveable="true" />
+        <div class="font-medium">
+          {{ questionnaireName }}
+        </div>
       </div>
       <div
         class="text-2xl mr-3 cursor-pointer transform-gpu origin-center transition-all duration-200"
         :class="{ 'rotate-180': open }"
+        v-if="screenSizes['<lg']"
+        @click="drawerOpen"
       >
         ▼
       </div>
@@ -95,6 +100,14 @@
     :small-questionnaire="smallQuestionnaire"
     @change-question="changeQuestion"
   />
+  <button
+    class="fixed flex items-center bottom-20 right-5 px-3 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+    @click="drawerOpen"
+    v-if="screenSizes['lg']"
+  >
+    <icon-uil-align class="fill-current" />
+    选择题目
+  </button>
   <VoteMessageBox v-model:open="submitCompleteMessageBoxOpen" title="提交成功！">
     <div class="p-2 space-y-2">
       <div v-if="IsQuestionnaireAllDone && firstCompleteQuestionnaireAll">
@@ -121,7 +134,6 @@
       </div>
     </div>
   </VoteMessageBox>
-  <BackToHome :show="true" :saveable="true" />
 </template>
 
 <script lang="ts" setup>
@@ -144,6 +156,7 @@ import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { useMutation, gql } from '@/graphql'
 import type { Mutation } from '@/graphql'
 import { voteToken } from '@/home/lib/user'
+import { screenSizes } from '@/tailwindcss'
 
 setSiteTitle('调查问卷 - 第⑩回 中文东方人气投票')
 

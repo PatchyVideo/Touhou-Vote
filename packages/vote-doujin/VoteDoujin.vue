@@ -1,6 +1,7 @@
 <template>
   <div class="page w-full min-h-100vh flex flex-col">
     <div class="p-2 shadow flex items-center bg-white mb-2">
+      <BackToHome :show="true" :saveable="false" />
       <div class="font-medium">第⑩届 国内东方人气投票 - 提名系统</div>
     </div>
 
@@ -52,7 +53,6 @@
       </button>
     </div>
   </div>
-  <BackToHome :show="true" :saveable="false" />
   <EditDoujin v-model:open="editDoujinOpen" :index="editDoujinIndex" />
   <VoteMessageBox v-model:open="noticeOpen" title="用户须知">
     <div class="flex flex-col overflow-auto">

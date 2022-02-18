@@ -1,6 +1,7 @@
 <template>
   <div class="page w-full min-h-100vh flex flex-col">
     <div class="p-2 shadow flex items-center bg-white mb-2">
+      <BackToHome :show="true" :saveable="false" />
       <div class="font-medium">第⑩届 国内东方人气投票 - 音乐部门</div>
     </div>
 
@@ -121,7 +122,6 @@
       </button>
     </div>
   </VoteMessageBox>
-  <BackToHome :show="true" :saveable="false" />
 </template>
 
 <script lang="ts" setup>
