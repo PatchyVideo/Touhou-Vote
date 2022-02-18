@@ -8,11 +8,11 @@
     </div>
     <div class="flex flex-col">
       <div class="flex items-center gap-1">
-        <icon-uil-user />
+        <icon-uil-user class="flex-shrink-0" />
         <div class="truncate" v-text="doujin.author"></div>
       </div>
       <div class="flex items-center gap-1">
-        <icon-uil-link />
+        <icon-uil-link class="flex-shrink-0" />
         <div class="truncate" v-text="doujin.url"></div>
       </div>
     </div>
