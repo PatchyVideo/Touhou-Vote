@@ -10,10 +10,7 @@
       </div>
       <div class="flex-grow overflow-y-auto p-2 flex flex-col gap-y-3">
         <div class="flex flex-col">
-          <div
-            class="flex justify-between items-center gap-x-3"
-            :class="{ 'animate-animated animate-shakeY': urlError }"
-          >
+          <div class="flex justify-between items-center gap-x-3">
             <div class="whitespace-nowrap py-0.5">链接</div>
             <input
               v-model="doujinUrl"
@@ -22,17 +19,18 @@
           </div>
           <ul class="text-xs text-gray-800">
             <li>
-              *<label :class="{ 'text-accent-color-600': invaildUrl }">必填项</label>，
-              <label :class="{ 'text-accent-color-600': maxLengthUrl }">最长 2048 个字符</label>
+              *<span ref="hintElUrlEmpty">必填项</span>，
+              <span ref="hintElUrlMaxLength">最长 2048 个字符</span>
             </li>
             <li>
-              *有效的链接仅能包括以下网站：Bilibili(仅限视频)、微博、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
-                class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
+              *<span ref="hintElUrlInvalid">有效的链接仅能包括以下网站</span
+              >：Bilibili(仅限视频)、微博、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
+                class="text-gray-800 underline decoration-blue-400 hover:text-blue-600 transition transition-colors"
                 href="https://thvideo.tv/"
                 target="_blank"
                 >旧页面</a
               >和<a
-                class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
+                class="text-gray-800 underline decoration-blue-400 hover:text-blue-600 transition transition-colors"
                 href="https://platinum.vercel.app/"
                 target="_blank"
                 >新页面</a
@@ -51,10 +49,7 @@
           </ul>
         </div>
         <div class="flex flex-col">
-          <div
-            class="flex justify-between items-center gap-x-3"
-            :class="{ 'animate-animated animate-shakeY': titleError }"
-          >
+          <div class="flex justify-between items-center gap-x-3">
             <div class="whitespace-nowrap py-0.5">标题</div>
             <input
               v-model="doujinTitle"
@@ -63,17 +58,14 @@
           </div>
           <ul class="text-xs text-gray-800">
             <li>
-              *<label :class="{ 'text-accent-color-600': invaildTitle }">必填项</label>，
-              <label :class="{ 'text-accent-color-600': maxLengthTitle }">最长 256 个字符</label>
+              *<span ref="hintElTitleEmpty">必填项</span>，
+              <span ref="hintElTitleMaxLength">最长 256 个字符</span>
             </li>
             <li>*请尽可能填写原名或较为通用的译名</li>
           </ul>
         </div>
         <div class="flex flex-col">
-          <div
-            class="flex justify-between items-center gap-x-3"
-            :class="{ 'animate-animated animate-shakeY': authorError }"
-          >
+          <div class="flex justify-between items-center gap-x-3">
             <div class="whitespace-nowrap py-0.5">作者</div>
             <input
               v-model="doujinAuthor"
@@ -82,28 +74,28 @@
           </div>
           <ul class="text-xs text-gray-800">
             <li>
-              *<label :class="{ 'text-accent-color-600': invaildAuthor }">必填项</label>，
-              <label :class="{ 'text-accent-color-600': maxLengthAuthor }">最长 128 个字符</label>
+              *<span ref="hintElAuthorEmpty">必填项</span>，
+              <span ref="hintElAuthorMaxLength">最长 128 个字符</span>
             </li>
             <li>*请尽可能填写原名或较为通用的译名</li>
           </ul>
         </div>
         <div class="flex flex-col">
-          <div class="flex items-center gap-x-3" :class="{ 'animate-animated animate-shakeY': doujinTypeError }">
+          <div class="flex items-center gap-x-3">
             <div class="whitespace-nowrap py-0.5">作品类型</div>
             <div class="flex-grow">
               <VoteSelect class="w-full" v-model:selected="doujinType" :item-list="doujintypesWithoutColor" />
             </div>
           </div>
           <ul class="text-xs text-gray-800">
-            <li>*<label :class="{ 'text-accent-color-600': invaildDoujinType }">必填项</label></li>
+            <li>*<span ref="hintElTypeEmpty">必填项</span></li>
           </ul>
         </div>
-        <div class="flex flex-col gap-y-1" :class="{ 'animate-animated animate-shakeY': reasonError }">
+        <div class="flex flex-col gap-y-1">
           <div>
             <div class="whitespace-nowrap">提名理由</div>
             <ul class="text-xs text-gray-800">
-              <li>*选填项，<label :class="{ 'text-accent-color-600': maxLengthReason }">最长 1024 个字符</label></li>
+              <li>*选填项，<span ref="hintElReasonMaxLength">最长 1024 个字符</span></li>
               <li>*如果写的很长或者很优秀，甚至有可能入选年度最感人推荐感言哦！</li>
             </ul>
           </div>
@@ -157,8 +149,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue'
-import { useLocalStorage, useVModel } from '@vueuse/core'
+import { computed, Ref, ref, watch } from 'vue'
+import { useEventListener, useLocalStorage, useThrottle, useVModel } from '@vueuse/core'
 import { Doujin, Doujin0, doujinTypes } from '@/vote-doujin/lib/doujin'
 import { doujinValid } from '@/vote-doujin/lib/doujinList'
 import { doujins, setVoteDataDoujins } from '@/vote-doujin/lib/voteData'
@@ -254,94 +246,78 @@ const nicovideoRegExp = new RegExp(
 )
 const acfunRegExp = new RegExp('^(https:\\/\\/|http:\\/\\/)?(www\\.|m\\.)?acfun\\.cn\\/v\\/[aA][cC][\\d]+')
 const tiebaRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?tieba.baidu.com\\/p\\/[\\d]+')
-const invaildUrl = ref(false)
-const maxLengthUrl = ref(false)
-const invaildTitle = ref(false)
-const maxLengthTitle = ref(false)
-const invaildAuthor = ref(false)
-const maxLengthAuthor = ref(false)
-const invaildDoujinType = ref(false)
-const maxLengthReason = ref(false)
-const urlError = ref(false)
-const titleError = ref(false)
-const authorError = ref(false)
-const doujinTypeError = ref(false)
-const reasonError = ref(false)
-function checkDoujinData(): boolean {
-  let vaild = true
-  invaildUrl.value = false
-  maxLengthUrl.value = false
-  invaildTitle.value = false
-  maxLengthTitle.value = false
-  invaildAuthor.value = false
-  maxLengthAuthor.value = false
-  invaildDoujinType.value = false
-  maxLengthReason.value = false
-  if (
-    !(
-      bilibiliRegExp.test(doujinUrl.value) ||
-      weiboRegExp.test(doujinUrl.value) ||
-      thbwikiRegExp.test(doujinUrl.value) ||
-      patchyvideoRegExp.test(doujinUrl.value) ||
-      platinumRegExp.test(doujinUrl.value) ||
-      twitterRegExp.test(doujinUrl.value) ||
-      youtubeRegExp.test(doujinUrl.value) ||
-      pixivRegExp.test(doujinUrl.value) ||
-      nicovideoRegExp.test(doujinUrl.value) ||
-      acfunRegExp.test(doujinUrl.value) ||
-      tiebaRegExp.test(doujinUrl.value)
-    )
-  ) {
-    // alert('请输入有效的链接！')
-    invaildUrl.value = true
-    urlError.value = true
-    setTimeout(() => (urlError.value = false), 500)
-    vaild = false
-  } else if (doujinUrl.value.length > 2048) {
-    // alert('链接长度超过最大值！')
-    maxLengthUrl.value = true
-    urlError.value = true
-    setTimeout(() => (urlError.value = false), 500)
-    vaild = false
-  } else if (doujinTitle.value === '') {
-    // alert('请输入标题！')
-    invaildTitle.value = true
-    titleError.value = true
-    setTimeout(() => (titleError.value = false), 500)
-    vaild = false
-  } else if (doujinTitle.value.length > 256) {
-    // alert('标题长度超过最大值！')
-    maxLengthTitle.value = true
-    titleError.value = true
-    setTimeout(() => (titleError.value = false), 500)
-    vaild = false
-  } else if (doujinAuthor.value === '') {
-    // alert('请输入作者名！')
-    invaildAuthor.value = true
-    authorError.value = true
-    setTimeout(() => (authorError.value = false), 500)
-    vaild = false
-  } else if (doujinAuthor.value.length > 128) {
-    // alert('作者名长度超过最大值！')
-    maxLengthAuthor.value = true
-    authorError.value = true
-    setTimeout(() => (authorError.value = false), 500)
-    vaild = false
-  } else if (doujinType.value.value === Doujin0.dojinType) {
-    // alert('请选择作品类型！')
-    invaildDoujinType.value = true
-    doujinTypeError.value = true
-    setTimeout(() => (doujinTypeError.value = false), 500)
-    vaild = false
-  } else if (doujinReason.value.length > 1024) {
-    // alert('提名理由长度超过最大值！')
-    maxLengthReason.value = true
-    reasonError.value = true
-    setTimeout(() => (reasonError.value = false), 500)
-    vaild = false
+const hintError = ref(0)
+function useValidation<T>(el: Ref<HTMLElement | null>, value: Ref<T>, valCb: (value: T) => boolean) {
+  const throttled = useThrottle(value, 200, true, false)
+  const isValid = computed(() => valCb(throttled.value))
+  watch(el, (el) => {
+    if (el) el.classList.add('inline-block', 'animate-animated', 'decoration-accent-color-400')
+  })
+  watch([el, isValid], ([el, isValid]) => {
+    if (!el) return
+    if (isValid) el.classList.remove('text-accent-color-600', 'underline')
+    else el.classList.add('underline')
+  })
+  watch(hintError, () => {
+    if (!el.value) return
+    if (!isValid.value) el.value.classList.add('text-accent-color-600', 'animate-shakeX')
+  })
+  watch(open, (open) => {
+    if (!el.value || open) return
+    el.value.classList.remove('text-accent-color-600', 'animate-shakeX')
+  })
+  const onAnimationEnd = () => {
+    el.value?.classList.remove('animate-shakeX')
   }
-  return vaild
+  useEventListener(el, 'animationend', onAnimationEnd)
+  useEventListener(el, 'animationcancel', onAnimationEnd)
 }
+const hintElUrlEmpty = ref<HTMLElement | null>(null)
+useValidation(hintElUrlEmpty, doujinUrl, (value) => value !== '')
+const hintElUrlMaxLength = ref<HTMLElement | null>(null)
+useValidation(hintElUrlMaxLength, doujinUrl, (value) => value.length <= 2048)
+const hintElUrlInvalid = ref<HTMLElement | null>(null)
+useValidation(hintElUrlInvalid, doujinUrl, (value) =>
+  [
+    bilibiliRegExp,
+    weiboRegExp,
+    thbwikiRegExp,
+    patchyvideoRegExp,
+    platinumRegExp,
+    twitterRegExp,
+    youtubeRegExp,
+    pixivRegExp,
+    nicovideoRegExp,
+    acfunRegExp,
+    tiebaRegExp,
+  ].some((reg) => reg.test(value))
+)
+const hintElTitleEmpty = ref<HTMLElement | null>(null)
+useValidation(hintElTitleEmpty, doujinTitle, (value) => value !== '')
+const hintElTitleMaxLength = ref<HTMLElement | null>(null)
+useValidation(hintElTitleMaxLength, doujinTitle, (value) => value.length <= 256)
+const hintElAuthorEmpty = ref<HTMLElement | null>(null)
+useValidation(hintElAuthorEmpty, doujinAuthor, (value) => value !== '')
+const hintElAuthorMaxLength = ref<HTMLElement | null>(null)
+useValidation(hintElAuthorMaxLength, doujinAuthor, (value) => value.length <= 128)
+const hintElTypeEmpty = ref<HTMLElement | null>(null)
+useValidation(hintElTypeEmpty, doujinType, (value) => value.value !== Doujin0.dojinType)
+const hintElReasonMaxLength = ref<HTMLElement | null>(null)
+useValidation(hintElReasonMaxLength, doujinReason, (value) => value.length <= 1024)
+const isDoujinValid = computed(() =>
+  [
+    hintElUrlEmpty.value,
+    hintElUrlMaxLength.value,
+    hintElUrlInvalid.value,
+    hintElTitleEmpty.value,
+    hintElTitleMaxLength.value,
+    hintElAuthorEmpty.value,
+    hintElAuthorMaxLength.value,
+    hintElTypeEmpty.value,
+    hintElReasonMaxLength.value,
+  ].every((el) => !el)
+)
+
 function submitDoujinData(): void {
   const doujinData = new Doujin()
   doujinData.url = doujinUrl.value
@@ -366,10 +342,12 @@ function cancelEdit(): void {
   }
 }
 function comfirmEdit(): void {
-  if (checkDoujinData()) {
+  if (isDoujinValid.value) {
     submitDoujinData()
     setVoteDataDoujins()
     close()
+  } else {
+    hintError.value++
   }
 }
 </script>
