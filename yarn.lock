@@ -2171,6 +2171,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@windicss/plugin-animations@npm:^1.0.9":
+  version: 1.0.9
+  resolution: "@windicss/plugin-animations@npm:1.0.9"
+  checksum: 154b3b1277729315a938b359914efa3b37a70be9ed627e3e71831474278dc6bdac8f56b6376fdf6ad11eeb522de0566c8c69d77b225180a3b86444b58a9e6fcd
+  languageName: node
+  linkType: hard
+
 "@windicss/plugin-utils@npm:1.7.0":
   version: 1.7.0
   resolution: "@windicss/plugin-utils@npm:1.7.0"
@@ -7492,6 +7499,7 @@ resolve@^1.1.7:
     "@vue/apollo-composable": ^4.0.0-alpha.16
     "@vueuse/components": ^7.6.0
     "@vueuse/core": ^7.6.0
+    "@windicss/plugin-animations": ^1.0.9
     apollo-link-scalars: ^4.0.1
     autoprefixer: ^10.4.2
     bson-objectid: ^2.0.2
