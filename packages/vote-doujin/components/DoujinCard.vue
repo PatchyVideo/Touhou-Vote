@@ -11,7 +11,7 @@
         <div class="flex justify-between items-center">
           <div class="font-medium text-lg truncate" v-text="doujin.title"></div>
           <div
-            class="text-sm px-1 border rounded"
+            class="text-sm px-1 border rounded whitespace-nowrap"
             :style="{ borderColor: doujinType.color }"
             v-text="doujinType.name"
           ></div>
