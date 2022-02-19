@@ -9,7 +9,7 @@
         >/{{ doujins.length }})
       </h2>
       <span class="text-gray-700"
-        >为喜欢的二次创作提名
+        >为喜欢的同人作品提名
         <span class="cursor-pointer hover:text-gray-900" tabindex="0" @click="() => (confirmedNotice = false)"
           >[阅读须知]</span
         ></span
