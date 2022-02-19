@@ -3,14 +3,14 @@
     <div class="flex overflow-hidden">
       <div class="w-3/10">
         <div class="aspect-ratio-10/16 overflow-hidden border rounded">
-          <object
-            class="h-full w-full object-contain"
-            :data="
-              doujin.imageUrl === Doujin0.imageUrl ? Doujin0NoImageUrl : doujin.imageUrl.replace(/^http:/, 'https:')
-            "
-          >
+          <picture class="h-full w-full object-contain">
+            <source
+              :srcset="
+                doujin.imageUrl === Doujin0.imageUrl ? Doujin0NoImageUrl : doujin.imageUrl.replace(/^http:/, 'https:')
+              "
+            />
             <img class="h-full w-full object-contain" :src="Doujin0NoImageUrl" />
-          </object>
+          </picture>
         </div>
       </div>
       <div class="w-7/10 flex flex-col space-y-1 pl-1">
