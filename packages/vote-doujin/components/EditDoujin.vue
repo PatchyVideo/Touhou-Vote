@@ -149,22 +149,22 @@
           <button class="px-5 py-1 rounded text-white bg-accent-color-600" @click="comfirmEdit()">确定</button>
         </div>
       </div>
+      <!-- Mask for fetching messages  -->
+      <Transition name="mask">
+        <div
+          v-if="fetchLoading"
+          class="absolute top-0 bottom-0 left-0 right-0 rounded flex justify-center filter drop-shadow-md backdrop-filter backdrop-blur-sm"
+          @touchmove.stop.prevent
+        >
+          <div class="flex items-center text-accent-color-600 font-bold text-lg">
+            <icon-uil-spinner-alt class="animate-spin" />少女祈祷中...
+          </div>
+        </div>
+      </Transition>
     </div>
   </transition>
   <Transition name="mask">
     <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-39" @touchmove.stop.prevent></div>
-  </Transition>
-  <!-- Mask for fetching messages  -->
-  <Transition name="mask">
-    <div
-      v-if="fetchLoading"
-      class="fixed top-1/10 left-0 right-0 h-4/5 z-41 rounded w-19/20 mx-auto md:w-2/3 xl:w-1/2 3xl:w-1/4 flex justify-center filter drop-shadow-md backdrop-filter backdrop-blur-sm"
-      @touchmove.stop.prevent
-    >
-      <div class="flex items-center text-accent-color-600 font-bold text-lg">
-        <icon-uil-spinner-alt class="animate-spin" />少女祈祷中...
-      </div>
-    </div>
   </Transition>
   <VoteMessageBox v-model:open="noticeOpen" title="提名规则">
     <div class="flex flex-col overflow-auto">
