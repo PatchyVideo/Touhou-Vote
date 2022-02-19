@@ -396,6 +396,7 @@ function submitDoujinData(): void {
   doujinData.author = doujinAuthor.value
   doujinData.dojinType = doujinType.value.value
   doujinData.reason = doujinReason.value
+  doujinData.imageUrl = doujinImageUrl.value
   doujins.value[props.index] = doujinData
 }
 function deleteEdit(): void {
