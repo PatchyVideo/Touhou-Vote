@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-4">
     <div v-if="IsQuestionnaireAllDone" class="text-lg text-gray-800">
-      问卷填写完成了！你可以选择继续填写，或在左栏选择“参与投票”开始投票
+      问卷填写完成了！你可以继续填写，或在左栏选择“参与投票”开始投票
     </div>
     <div v-else class="text-lg text-gray-800">在开始投票之前，你需要选择一些问卷填写：</div>
     <div v-for="(children, catogory) in questionnaire">

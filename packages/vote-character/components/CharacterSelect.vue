@@ -31,11 +31,15 @@
           v-for="item in characterList"
           v-else
           :key="item.id"
-          class="p-1 rounded shadow bg-white flex ring"
+          class="flex flex-row p-1 rounded shadow bg-white ring"
           :style="'--tw-ring-color:' + item.color"
         >
-          <img class="w-1/3 rounded border" loading="lazy" :src="item.image ? item.image : characterImages" />
-          <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
+          <div class="w-1/3 max-w-32">
+            <div class="aspect-ratio-1/1 rounded border">
+              <img loading="lazy" :src="item.image ? item.image : characterImages" />
+            </div>
+          </div>
+          <div class="flex-1 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">
               <div class="truncate opacity-60" :style="'color:' + item.color">{{ item.title }}</div>
               <div
