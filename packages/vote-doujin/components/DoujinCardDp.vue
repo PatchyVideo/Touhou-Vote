@@ -3,13 +3,15 @@
     class="px-3 py-2 max-w-80ch rounded-md shadow cursor-pointer border-2 border-accent-color-400 hover:shadow-md hover:border-accent-color-500 transition-all ease-in-out"
   >
     <div class="flex overflow-hidden">
-      <div class="w-2/10 aspect-ratio-1/10 overflow-hidden border rounded">
-        <object
-          class="h-full w-full object-cover"
-          :data="doujin.imageUrl === Doujin0.imageUrl ? Doujin0NoImageUrl : doujin.imageUrl"
-        >
-          <img class="h-full w-full object-cover" :src="Doujin0NoImageUrl" />
-        </object>
+      <div class="w-42">
+        <div class="aspect-ratio-10/16 overflow-hidden border rounded">
+          <object
+            class="h-full w-full object-cover"
+            :data="doujin.imageUrl === Doujin0.imageUrl ? Doujin0NoImageUrl : doujin.imageUrl"
+          >
+            <img class="h-full w-full object-cover" :src="Doujin0NoImageUrl" />
+          </object>
+        </div>
       </div>
       <div class="w-8/10 flex flex-col space-y-1 pl-1">
         <div class="flex justify-between items-center">

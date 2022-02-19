@@ -2,7 +2,7 @@
   <transition name="editDoujin">
     <div
       v-if="open"
-      class="fixed top-1/10 left-0 right-0 mx-auto w-19/20 md:w-2/3 max-w-95ch max-h-4/5 flex flex-col p-3 z-40 space-y-2 bg-white rounded"
+      class="fixed top-1/10 left-0 right-0 mx-auto w-19/20 max-w-105ch max-h-4/5 flex flex-col p-3 z-40 space-y-2 bg-white rounded"
     >
       <div class="flex justify-between">
         <div class="md:text-base xl:text-xl 2xl:text-2xl">编辑提名</div>
@@ -56,51 +56,53 @@
             <li>*自动获取功能尚处于初级阶段，功能上仅供参考</li>
           </ul>
         </div>
-        <div class="flex flex-col">
-          <div class="flex justify-between items-center gap-x-3">
-            <div class="whitespace-nowrap py-0.5">标题</div>
-            <input
-              v-model="doujinTitle"
-              class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
-            />
-          </div>
-          <ul class="text-xs text-gray-800">
-            <li>
-              *<span ref="hintElTitleEmpty">必填项</span>，
-              <span ref="hintElTitleMaxLength">最长 256 个字符</span>
-            </li>
-            <li>*请尽可能填写原名或较为通用的译名</li>
-          </ul>
-        </div>
-        <div class="flex flex-col">
-          <div class="flex justify-between items-center gap-x-3">
-            <div class="whitespace-nowrap py-0.5">作者</div>
-            <input
-              v-model="doujinAuthor"
-              class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
-            />
-          </div>
-          <ul class="text-xs text-gray-800">
-            <li>
-              *<span ref="hintElAuthorEmpty">必填项</span>，
-              <span ref="hintElAuthorMaxLength">最长 128 个字符</span>
-            </li>
-            <li>*请尽可能填写原名或较为通用的译名</li>
-          </ul>
-        </div>
-        <div class="flex flex-col">
-          <div class="flex items-center gap-x-3">
-            <div class="whitespace-nowrap py-0.5">作品类型</div>
-            <div class="flex-grow">
-              <VoteSelect v-model:selected="doujinType" class="w-full" :item-list="doujintypesWithoutColor" />
+        <div class="lg:flex lg:flex-row lg:gap-4">
+          <div class="flex-1 flex flex-col gap-y-3">
+            <div class="flex flex-col">
+              <div class="flex justify-between items-center gap-x-3">
+                <div class="whitespace-nowrap py-0.5">标题</div>
+                <input
+                  v-model="doujinTitle"
+                  class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
+                />
+              </div>
+              <ul class="text-xs text-gray-800">
+                <li>
+                  *<span ref="hintElTitleEmpty">必填项</span>，
+                  <span ref="hintElTitleMaxLength">最长 256 个字符</span>
+                </li>
+                <li>*请尽可能填写原名或较为通用的译名</li>
+              </ul>
+            </div>
+            <div class="flex flex-col">
+              <div class="flex justify-between items-center gap-x-3">
+                <div class="whitespace-nowrap py-0.5">作者</div>
+                <input
+                  v-model="doujinAuthor"
+                  class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
+                />
+              </div>
+              <ul class="text-xs text-gray-800">
+                <li>
+                  *<span ref="hintElAuthorEmpty">必填项</span>，
+                  <span ref="hintElAuthorMaxLength">最长 128 个字符</span>
+                </li>
+                <li>*请尽可能填写原名或较为通用的译名</li>
+              </ul>
+            </div>
+            <div class="flex-grow flex flex-col">
+              <div class="flex items-center gap-x-3">
+                <div class="whitespace-nowrap py-0.5">作品类型</div>
+                <div class="flex-grow">
+                  <VoteSelect v-model:selected="doujinType" class="w-full" :item-list="doujintypesWithoutColor" />
+                </div>
+              </div>
+              <ul class="text-xs text-gray-800">
+                <li>*<span ref="hintElTypeEmpty">必填项</span></li>
+              </ul>
             </div>
           </div>
-          <ul class="text-xs text-gray-800">
-            <li>*<span ref="hintElTypeEmpty">必填项</span></li>
-          </ul>
-        </div>
-        <div class="flex flex-col">
-          <div class="flex justify-between items-top gap-x-3">
+          <div class="flex-shrink-0 flex flex-row lg:flex-col flex-wrap justify-between">
             <div class="whitespace-nowrap space-y-0.5">
               <div>作品封面</div>
               <ul class="text-xs text-gray-800">
@@ -108,10 +110,12 @@
                 <li>*仅供用户参考，对提名无影响</li>
               </ul>
             </div>
-            <div class="w-3/10 aspect-ratio-1/5 overflow-hidden border rounded">
-              <object class="h-full w-full object-contain" :data="doujinImageUrl">
-                <img class="h-full w-full object-contain" :src="Doujin0.imageUrl" />
-              </object>
+            <div class="w-58">
+              <div class="aspect-ratio-10/16 border rounded">
+                <object class="h-full w-full object-contain" :data="doujinImageUrl">
+                  <img class="h-full w-full object-contain" :src="Doujin0.imageUrl" />
+                </object>
+              </div>
             </div>
           </div>
         </div>
@@ -262,6 +266,8 @@ function clearDoujinData(): void {
           ? Doujin0.dojinType
           : doujins.value[props.index].dojinType)
     ) || doujintypesWithoutColor.value[0]
+  doujinImageUrl.value =
+    doujins.value[props.index].imageUrl === Doujin0.imageUrl ? Doujin0.imageUrl : doujins.value[props.index].imageUrl
 }
 
 const fetchLoading = ref(false)
