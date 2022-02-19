@@ -287,7 +287,6 @@ async function fetchMsg(): Promise<void> {
     .then((data) => data.json())
     .then((res) => {
       if (res.status === 'ok') {
-        console.log(res)
         if (doujinTitle.value === '') doujinTitle.value = res.data.title
         if (doujinAuthor.value === '') doujinAuthor.value = res.data.author_name
         doujinImageUrl.value = res.data.cover
