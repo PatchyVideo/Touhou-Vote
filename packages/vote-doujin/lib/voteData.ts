@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { Doujin } from '@/vote-doujin/lib/doujin'
+import { Doujin, Doujin0 } from '@/vote-doujin/lib/doujin'
 import { DojinSubmitQuery } from '@/graphql/__generated__/graphql'
 
 export const doujins = ref<Doujin[]>(
@@ -19,6 +19,7 @@ export function updateVoteDataDoujins(doujinVoteData: DojinSubmitQuery[]): void 
       let doujinData = new Doujin()
       doujinData.author = doujinVoteData[i].author
       doujinData.dojinType = doujinVoteData[i].dojinType
+      doujinData.imageUrl = doujinVoteData[i].imageUrl || Doujin0.imageUrl
       doujinData.reason = doujinVoteData[i].reason
       doujinData.title = doujinVoteData[i].title
       doujinData.url = doujinVoteData[i].url

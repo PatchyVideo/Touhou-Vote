@@ -16,6 +16,13 @@
               v-model="doujinUrl"
               class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
             />
+            <button
+              class="whitespace-nowrap px-1 py-0.5 text-xs rounded border lg:text-sm"
+              :class="{ 'text-gray-300': fetchLoading || !validUrlInvalid }"
+              @click="!fetchLoading && validUrlInvalid && fetchMsg()"
+            >
+              <icon-uil-spinner-alt v-if="fetchLoading" class="animate-spin" />自动获取信息
+            </button>
           </div>
           <ul class="text-xs text-gray-800">
             <li>
@@ -46,6 +53,7 @@
               >
               创建词条并将词条链接粘贴到此处
             </li>
+            <li>*自动获取功能尚处于初级阶段，功能上仅供参考</li>
           </ul>
         </div>
         <div class="flex flex-col">
@@ -91,6 +99,20 @@
             <li>*<span ref="hintElTypeEmpty">必填项</span></li>
           </ul>
         </div>
+        <div class="flex flex-col">
+          <div class="flex justify-between items-top gap-x-3">
+            <div class="whitespace-nowrap space-y-0.5">
+              <div>作品封面</div>
+              <ul class="text-xs text-gray-800">
+                <li>*只能由爬虫自动获取</li>
+                <li>*仅供用户参考，对提名无影响</li>
+              </ul>
+            </div>
+            <div class="w-3/10 aspect-ratio-1/5 overflow-hidden border rounded">
+              <img :src="doujinImageUrl" class="h-full w-full object-contain" />
+            </div>
+          </div>
+        </div>
         <div class="flex flex-col gap-y-1">
           <div>
             <div class="whitespace-nowrap">提名理由</div>
@@ -125,6 +147,18 @@
   </transition>
   <Transition name="mask">
     <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-39" @touchmove.stop.prevent></div>
+  </Transition>
+  <!-- Mask for fetching messages  -->
+  <Transition name="mask">
+    <div
+      v-if="fetchLoading"
+      class="fixed top-1/10 left-0 right-0 h-4/5 z-41 rounded w-19/20 mx-auto md:w-2/3 xl:w-1/2 3xl:w-1/4 flex justify-center filter drop-shadow-md backdrop-filter backdrop-blur-sm"
+      @touchmove.stop.prevent
+    >
+      <div class="flex items-center text-accent-color-600 font-bold text-lg">
+        <icon-uil-spinner-alt class="animate-spin" />少女祈祷中...
+      </div>
+    </div>
   </Transition>
   <VoteMessageBox v-model:open="noticeOpen" title="提名规则">
     <div class="flex flex-col overflow-auto">
@@ -191,6 +225,9 @@ const doujinUrl = ref(doujins.value[props.index].url === Doujin0.url ? '' : douj
 const doujinTitle = ref(doujins.value[props.index].title === Doujin0.title ? '' : doujins.value[props.index].title)
 const doujinAuthor = ref(doujins.value[props.index].author === Doujin0.author ? '' : doujins.value[props.index].author)
 const doujinReason = ref(doujins.value[props.index].reason === Doujin0.reason ? '' : doujins.value[props.index].reason)
+const doujinImageUrl = ref(
+  doujins.value[props.index].imageUrl === Doujin0.imageUrl ? Doujin0.imageUrl : doujins.value[props.index].imageUrl
+)
 const doujintypesWithoutColor = computed(() =>
   doujinTypes.map((item) => {
     return {
@@ -223,6 +260,39 @@ function clearDoujinData(): void {
           ? Doujin0.dojinType
           : doujins.value[props.index].dojinType)
     ) || doujintypesWithoutColor.value[0]
+}
+
+const fetchLoading = ref(false)
+async function fetchMsg(): Promise<void> {
+  fetchLoading.value = true
+  await fetch('/v10-be/doujin/api', {
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+    body: JSON.stringify({
+      url: doujinUrl.value,
+    }),
+    credentials: 'include',
+  })
+    .then((data) => data.json())
+    .then((res) => {
+      if (res.status === 'ok') {
+        console.log(res)
+        if (doujinTitle.value === '') doujinTitle.value = res.data.title
+        if (doujinAuthor.value === '') doujinAuthor.value = res.data.author_name
+        doujinImageUrl.value = res.data.cover
+      } else {
+        console.log(res.status, res.msg)
+        alert('未找到可以获取的内容！')
+      }
+    })
+    .catch((err) => {
+      console.log(err)
+      if (err.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
+      alert('获取失败，请稍后再试！')
+    })
+  fetchLoading.value = false
 }
 
 const bilibiliRegExp = new RegExp(

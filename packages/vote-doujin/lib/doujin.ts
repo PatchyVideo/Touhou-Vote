@@ -4,21 +4,26 @@ export class Doujin {
   title: string
   author: string
   reason: string
+  imageUrl: string
   constructor(
     dojinType: '' | 'MUSIC' | 'VIDEO' | 'DRAWING' | 'SOFTWARE' | 'ARTICLE' | 'CRAFT' | 'OTHER' = '',
     url = 'https://touhou.vote/',
     title = '新版中文东方人气投票',
     author = '东方众们',
-    reason = '只要大家齐心协力，就能向着崭新的明天展翅飞翔，前进吧！'
+    reason = '只要大家齐心协力，就能向着崭新的明天展翅飞翔，前进吧！',
+    imageUrl = 'https://upload.thwiki.cc/b/b3/Cover.png'
   ) {
     this.dojinType = dojinType
     this.url = url
     this.title = title
     this.author = author
     this.reason = reason
+    this.imageUrl = imageUrl
   }
 }
 export const Doujin0 = new Doujin()
+
+export const Doujin0NoImageUrl = 'https://upload.thwiki.cc/5/51/NoImage.png'
 
 interface DoujinType {
   name: string

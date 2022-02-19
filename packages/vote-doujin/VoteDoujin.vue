@@ -131,6 +131,7 @@ const {
           title
           author
           reason
+          imageUrl
         }
       }
     }
