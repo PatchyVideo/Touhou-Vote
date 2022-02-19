@@ -246,9 +246,9 @@
           <div class="flex-1 text-lg lg:text-xl xl:text-2xl">
             <icon-uil-align-justify
               class="align-text-bottom text-gray-400 cursor-pointer"
+              tabindex="0"
               @click="() => (dpCollapseNav = !dpCollapseNav)"
               @keydown.enter="() => (dpCollapseNav = !dpCollapseNav)"
-              tabindex="0"
             />
             中文东方人气投票 第⑩回
           </div>
@@ -256,9 +256,9 @@
             <img
               class="h-8 w-8 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
               src="@/home/assets/DefaultAvatar.jpg"
+              tabindex="0"
               @click="() => (userListOpen = true)"
               @keydown.enter="() => (userListOpen = true)"
-              tabindex="0"
             />
             <!-- User List -->
             <Transition name="userList">
@@ -279,9 +279,9 @@
                   >
                   <div
                     class="rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
+                    tabindex="0"
                     @click="logout()"
                     @keydown.enter="logout()"
-                    tabindex="0"
                   >
                     退出登陆
                   </div>
@@ -301,7 +301,7 @@
           </div>
         </div>
         <!-- Main Content -->
-        <div :key="dpActiveTab" class="flex-1 overflow-auto" id="maincontent">
+        <div id="maincontent" :key="dpActiveTab" class="flex-1 overflow-auto">
           <component :is="dpTabs[dpActiveTab].component" />
         </div>
         <!-- Copyright -->

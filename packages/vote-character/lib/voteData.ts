@@ -11,7 +11,7 @@ export const characters = ref<Character[]>(new Array(8).fill(null).map(() => new
 export function updateVotecharacters(characterVoteData: CharacterSubmitQuery[]): void {
   if (!characterVoteData.length) return
   for (let i = 0; i < characterVoteData.length; i++) {
-    let characterData = characterList.find((item) => item.name === characterVoteData[i].name) || characters.value[i]
+    const characterData = characterList.find((item) => item.name === characterVoteData[i].name) || characters.value[i]
     characterData.honmei = characterVoteData[i].first || false
     characterData.reason = characterVoteData[i].reason || ''
     characters.value[i] = characterData

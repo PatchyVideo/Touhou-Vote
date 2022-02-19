@@ -16,7 +16,7 @@ export function updateVoteDataDoujins(doujinVoteData: DojinSubmitQuery[]): void 
     doujins.value = doujinsData
   } else if (doujinVoteData.length) {
     for (let i = 0; i < doujinVoteData.length; i++) {
-      let doujinData = new Doujin()
+      const doujinData = new Doujin()
       doujinData.author = doujinVoteData[i].author
       doujinData.dojinType = doujinVoteData[i].dojinType
       doujinData.imageUrl = doujinVoteData[i].imageUrl || Doujin0.imageUrl

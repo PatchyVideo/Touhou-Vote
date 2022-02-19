@@ -318,7 +318,7 @@ function userEmailOrPhoneVerify(): boolean {
   if (newEmailOrPhone.value === '') {
     userTypeError.value = changeType.value === 'phone' ? '请输入手机号！' : '请输入邮箱！'
     return false
-  } else if (!newEmailOrPhoneVaild) {
+  } else if (!newEmailOrPhoneVaild.value) {
     userTypeError.value =
       changeType.value === 'phone' ? '请输入正确格式的手机号！(不支持海外手机号)' : '请输入正确格式的邮箱!'
     return false

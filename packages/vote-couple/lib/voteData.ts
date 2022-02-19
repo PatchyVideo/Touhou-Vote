@@ -14,7 +14,7 @@ export const coupleHonmei = computed<Couple>(() => couples.value.find((couple) =
 export function updateVotecouple(coupleVoteData: CpSubmitQuery[]): void {
   if (!coupleVoteData.length) return
   for (let i = 0; i < coupleVoteData.length; i++) {
-    let coupleData = new Couple()
+    const coupleData = new Couple()
     coupleData.characters[0] = characterList.find((item) => item.name === coupleVoteData[i].nameA) || new Character()
     coupleData.characters[1] = characterList.find((item) => item.name === coupleVoteData[i].nameB) || new Character()
     if (coupleVoteData[i].nameC)

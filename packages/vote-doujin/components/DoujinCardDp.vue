@@ -4,10 +4,12 @@
   >
     <div class="flex overflow-hidden">
       <div class="w-2/10 aspect-ratio-1/10 overflow-hidden border rounded">
-        <img
-          :src="doujin.imageUrl === Doujin0.imageUrl ? Doujin0NoImageUrl : doujin.imageUrl"
+        <object
           class="h-full w-full object-cover"
-        />
+          :data="doujin.imageUrl === Doujin0.imageUrl ? Doujin0NoImageUrl : doujin.imageUrl"
+        >
+          <img class="h-full w-full object-cover" :src="Doujin0NoImageUrl" />
+        </object>
       </div>
       <div class="w-8/10 flex flex-col space-y-1 pl-1">
         <div class="flex justify-between items-center">

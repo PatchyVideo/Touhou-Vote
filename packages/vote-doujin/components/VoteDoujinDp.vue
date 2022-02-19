@@ -3,8 +3,8 @@
     <div class="flex flex-nowrap items-end gap-2">
       <h2 class="text-xl">
         提名作品 (<icon-uil-spinner-alt
-          class="align-text-bottom animate-spin"
           v-if="getSubmitDojinVoteLoading"
+          class="align-text-bottom animate-spin"
         /><template v-else>{{ doujinValid.length }}</template
         >/{{ doujins.length }})
       </h2>

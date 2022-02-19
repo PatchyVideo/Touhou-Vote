@@ -8,9 +8,9 @@
         </div>
       </div>
       <div
+        v-if="screenSizes['<lg']"
         class="text-2xl mr-3 cursor-pointer transform-gpu origin-center transition-all duration-200"
         :class="{ 'rotate-180': open }"
-        v-if="screenSizes['<lg']"
         @click="drawerOpen"
       >
         ▼
@@ -46,8 +46,8 @@
           </div>
           <div v-else>
             <textarea
-              maxlength="1000"
               v-model="answerContent"
+              maxlength="1000"
               class="w-full ring ring-accent-color-600 rounded"
               placeholder="请说点儿什么吧..."
               rows="5"
@@ -101,9 +101,9 @@
     @change-question="changeQuestion"
   />
   <button
+    v-if="screenSizes['lg']"
     class="fixed flex items-center bottom-20 right-5 px-3 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
     @click="drawerOpen"
-    v-if="screenSizes['lg']"
   >
     <icon-uil-align class="fill-current" />
     选择题目

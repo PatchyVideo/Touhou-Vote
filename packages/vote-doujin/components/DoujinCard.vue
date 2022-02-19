@@ -2,10 +2,12 @@
   <div class="p-2 rounded shadow bg-white bg-opacity-80 space-y-1 cursor-pointer border" style="border-color: #fc4328">
     <div class="flex overflow-hidden">
       <div class="w-3/10 aspect-ratio-1/10 overflow-hidden border rounded">
-        <img
-          :src="doujin.imageUrl === Doujin0.imageUrl ? Doujin0NoImageUrl : doujin.imageUrl"
+        <object
           class="h-full w-full object-contain"
-        />
+          :data="doujin.imageUrl === Doujin0.imageUrl ? Doujin0NoImageUrl : doujin.imageUrl"
+        >
+          <img class="h-full w-full object-contain" :src="Doujin0NoImageUrl" />
+        </object>
       </div>
       <div class="w-7/10 flex flex-col space-y-1 pl-1">
         <div class="flex justify-between items-center">

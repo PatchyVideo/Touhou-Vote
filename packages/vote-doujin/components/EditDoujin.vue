@@ -92,7 +92,7 @@
           <div class="flex items-center gap-x-3">
             <div class="whitespace-nowrap py-0.5">作品类型</div>
             <div class="flex-grow">
-              <VoteSelect class="w-full" v-model:selected="doujinType" :item-list="doujintypesWithoutColor" />
+              <VoteSelect v-model:selected="doujinType" class="w-full" :item-list="doujintypesWithoutColor" />
             </div>
           </div>
           <ul class="text-xs text-gray-800">
@@ -109,7 +109,9 @@
               </ul>
             </div>
             <div class="w-3/10 aspect-ratio-1/5 overflow-hidden border rounded">
-              <img :src="doujinImageUrl" class="h-full w-full object-contain" />
+              <object class="h-full w-full object-contain" :data="doujinImageUrl">
+                <img class="h-full w-full object-contain" :src="Doujin0.imageUrl" />
+              </object>
             </div>
           </div>
         </div>
@@ -123,9 +125,9 @@
           </div>
           <div>
             <textarea
+              v-model="doujinReason"
               maxlength="1024"
               rows="8"
-              v-model="doujinReason"
               class="inline-block outline-none border border-gray-300 focus:border-accent-color-400 transition-colors w-full p-1 rounded"
             />
           </div>
