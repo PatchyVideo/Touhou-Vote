@@ -271,13 +271,14 @@ function useValidation<T>(el: Ref<HTMLElement | null>, value: Ref<T>, valCb: (va
   }
   useEventListener(el, 'animationend', onAnimationEnd)
   useEventListener(el, 'animationcancel', onAnimationEnd)
+  return isValid
 }
 const hintElUrlEmpty = ref<HTMLElement | null>(null)
-useValidation(hintElUrlEmpty, doujinUrl, (value) => value !== '')
+const validUrlEmpty = useValidation(hintElUrlEmpty, doujinUrl, (value) => value !== '')
 const hintElUrlMaxLength = ref<HTMLElement | null>(null)
-useValidation(hintElUrlMaxLength, doujinUrl, (value) => value.length <= 2048)
+const validUrlMaxLength = useValidation(hintElUrlMaxLength, doujinUrl, (value) => value.length <= 2048)
 const hintElUrlInvalid = ref<HTMLElement | null>(null)
-useValidation(hintElUrlInvalid, doujinUrl, (value) =>
+const validUrlInvalid = useValidation(hintElUrlInvalid, doujinUrl, (value) =>
   [
     bilibiliRegExp,
     weiboRegExp,
@@ -293,29 +294,29 @@ useValidation(hintElUrlInvalid, doujinUrl, (value) =>
   ].some((reg) => reg.test(value))
 )
 const hintElTitleEmpty = ref<HTMLElement | null>(null)
-useValidation(hintElTitleEmpty, doujinTitle, (value) => value !== '')
+const validTitleEmpty = useValidation(hintElTitleEmpty, doujinTitle, (value) => value !== '')
 const hintElTitleMaxLength = ref<HTMLElement | null>(null)
-useValidation(hintElTitleMaxLength, doujinTitle, (value) => value.length <= 256)
+const validTitleMaxLength = useValidation(hintElTitleMaxLength, doujinTitle, (value) => value.length <= 256)
 const hintElAuthorEmpty = ref<HTMLElement | null>(null)
-useValidation(hintElAuthorEmpty, doujinAuthor, (value) => value !== '')
+const validAuthorEmpty = useValidation(hintElAuthorEmpty, doujinAuthor, (value) => value !== '')
 const hintElAuthorMaxLength = ref<HTMLElement | null>(null)
-useValidation(hintElAuthorMaxLength, doujinAuthor, (value) => value.length <= 128)
+const validAuthorMaxLength = useValidation(hintElAuthorMaxLength, doujinAuthor, (value) => value.length <= 128)
 const hintElTypeEmpty = ref<HTMLElement | null>(null)
-useValidation(hintElTypeEmpty, doujinType, (value) => value.value !== Doujin0.dojinType)
+const validTypeEmpty = useValidation(hintElTypeEmpty, doujinType, (value) => value.value !== Doujin0.dojinType)
 const hintElReasonMaxLength = ref<HTMLElement | null>(null)
-useValidation(hintElReasonMaxLength, doujinReason, (value) => value.length <= 1024)
+const validReasonMaxLength = useValidation(hintElReasonMaxLength, doujinReason, (value) => value.length <= 1024)
 const isDoujinValid = computed(() =>
   [
-    hintElUrlEmpty.value,
-    hintElUrlMaxLength.value,
-    hintElUrlInvalid.value,
-    hintElTitleEmpty.value,
-    hintElTitleMaxLength.value,
-    hintElAuthorEmpty.value,
-    hintElAuthorMaxLength.value,
-    hintElTypeEmpty.value,
-    hintElReasonMaxLength.value,
-  ].every((el) => !el)
+    validUrlEmpty.value,
+    validUrlMaxLength.value,
+    validUrlInvalid.value,
+    validTitleEmpty.value,
+    validTitleMaxLength.value,
+    validAuthorEmpty.value,
+    validAuthorMaxLength.value,
+    validTypeEmpty.value,
+    validReasonMaxLength.value,
+  ].every((v) => v)
 )
 
 function submitDoujinData(): void {
