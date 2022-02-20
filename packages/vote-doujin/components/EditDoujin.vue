@@ -115,7 +115,7 @@
             <div class="w-58">
               <div class="aspect-ratio-10/16 border rounded">
                 <picture class="h-full w-full object-contain">
-                  <source :srcset="doujinImageUrl.replace(/^http:/, 'https:')" />
+                  <source :srcset="doujinImageUrl" />
                   <img class="h-full w-full object-contain" :src="Doujin0.imageUrl" />
                 </picture>
               </div>
@@ -249,7 +249,9 @@ const doujinType = ref(
   doujintypesWithoutColor.value.find(
     (item) =>
       item.value ===
-      (doujins.value[props.index].reason === Doujin0.reason ? Doujin0.dojinType : doujins.value[props.index].dojinType)
+      (doujins.value[props.index].dojinType === Doujin0.dojinType
+        ? Doujin0.dojinType
+        : doujins.value[props.index].dojinType)
   ) || doujintypesWithoutColor.value[0]
 )
 
@@ -265,7 +267,7 @@ function clearDoujinData(): void {
     doujintypesWithoutColor.value.find(
       (item) =>
         item.value ===
-        (doujins.value[props.index].reason === Doujin0.reason
+        (doujins.value[props.index].dojinType === Doujin0.dojinType
           ? Doujin0.dojinType
           : doujins.value[props.index].dojinType)
     ) || doujintypesWithoutColor.value[0]
@@ -290,7 +292,11 @@ async function fetchMsg(): Promise<void> {
     .then((res) => {
       if (res.status === 'ok') {
         if (doujinTitle.value === '') doujinTitle.value = res.data.title
-        if (doujinAuthor.value === '') doujinAuthor.value = res.data.author_name
+        if (doujinAuthor.value === '') doujinAuthor.value = res.data.author_name[0]
+        if (doujinType.value === doujintypesWithoutColor.value[0] && res.data.tname)
+          doujinType.value =
+            doujintypesWithoutColor.value.find((item) => item.value === res.data.tname) ||
+            doujintypesWithoutColor.value[0]
         doujinImageUrl.value = res.data.cover
       } else {
         console.log(res.status, res.msg)

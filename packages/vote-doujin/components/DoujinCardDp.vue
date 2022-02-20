@@ -6,11 +6,7 @@
       <div class="w-42">
         <div class="aspect-ratio-10/16 overflow-hidden border rounded">
           <picture class="h-full w-full object-contain">
-            <source
-              :srcset="
-                doujin.imageUrl === Doujin0.imageUrl ? Doujin0NoImageUrl : doujin.imageUrl.replace(/^http:/, 'https:')
-              "
-            />
+            <source :srcset="doujin.imageUrl === Doujin0.imageUrl ? Doujin0NoImageUrl : doujin.imageUrl" />
             <img class="h-full w-full object-contain" :src="Doujin0NoImageUrl" />
           </picture>
         </div>
