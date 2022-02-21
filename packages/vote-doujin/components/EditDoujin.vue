@@ -115,7 +115,7 @@
             <div class="w-58">
               <div class="aspect-ratio-10/16 border rounded">
                 <picture class="h-full w-full object-contain">
-                  <source :srcset="doujinImageUrl" />
+                  <source :srcset="doujinImageUrl.replace(/^http:/, 'https:')" />
                   <img class="h-full w-full object-contain" :src="Doujin0.imageUrl" />
                 </picture>
               </div>
