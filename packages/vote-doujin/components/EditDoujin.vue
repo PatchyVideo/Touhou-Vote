@@ -300,6 +300,7 @@ async function fetchMsg(): Promise<void> {
         doujinImageUrl.value = res.data.cover || Doujin0NoImageUrl
       } else {
         console.log(res.status, res.msg)
+        doujinImageUrl.value = Doujin0NoImageUrl
         alert('未找到可以获取的内容！')
       }
     })
