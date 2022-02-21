@@ -194,7 +194,7 @@
 <script lang="ts" setup>
 import { computed, Ref, ref, watch } from 'vue'
 import { useEventListener, useLocalStorage, useThrottle, useVModel } from '@vueuse/core'
-import { Doujin, Doujin0, doujinTypes } from '@/vote-doujin/lib/doujin'
+import { Doujin, Doujin0, Doujin0NoImageUrl, doujinTypes } from '@/vote-doujin/lib/doujin'
 import { doujinValid } from '@/vote-doujin/lib/doujinList'
 import { doujins, setVoteDataDoujins } from '@/vote-doujin/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
@@ -297,7 +297,7 @@ async function fetchMsg(): Promise<void> {
           doujinType.value =
             doujintypesWithoutColor.value.find((item) => item.value === res.data.tname) ||
             doujintypesWithoutColor.value[0]
-        doujinImageUrl.value = res.data.cover
+        doujinImageUrl.value = res.data.cover || Doujin0NoImageUrl
       } else {
         console.log(res.status, res.msg)
         alert('未找到可以获取的内容！')
