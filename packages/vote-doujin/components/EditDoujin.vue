@@ -291,8 +291,8 @@ async function fetchMsg(): Promise<void> {
     .then((data) => data.json())
     .then((res) => {
       if (res.status === 'ok') {
-        if (doujinTitle.value === '') doujinTitle.value = res.data.title
-        if (doujinAuthor.value === '') doujinAuthor.value = res.data.author_name[0]
+        if (res.data.title) doujinTitle.value = res.data.title
+        if (res.data.author_name[0]) doujinAuthor.value = res.data.author_name[0]
         if (doujinType.value === doujintypesWithoutColor.value[0] && res.data.tname)
           doujinType.value =
             doujintypesWithoutColor.value.find((item) => item.value === res.data.tname) ||
@@ -306,7 +306,6 @@ async function fetchMsg(): Promise<void> {
     })
     .catch((err) => {
       console.log(err)
-      if (err.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
       alert('获取失败，请稍后再试！')
     })
   fetchLoading.value = false
