@@ -2969,8 +2969,8 @@ export const characterList: Character[] = [
   },
   {
     id: '220',
-    name: '反狱王',
-    altnames: [],
+    name: '宫出口瑞灵',
+    altnames: ['反狱王'],
     title: '',
     image: '',
     color: '#FC4328',
