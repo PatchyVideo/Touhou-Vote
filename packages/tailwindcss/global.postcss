@@ -105,13 +105,22 @@ a {
 }
 
 /* Background */
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
 @variants <md {
   .page {
-    background-image: radial-gradient(circle at top left, theme('colors.accent-color.200') min(100vh), #ffffff 0);
+    background-image: radial-gradient(circle at top left, theme('colors.accent-color.200') min(95vh), #ffffff 0);
   }
 }
 @variants md {
   .page {
-    background-image: radial-gradient(circle at 120% 40%, theme('colors.accent-color.200') min(80vw), #ffffff 0);
+    background-image: radial-gradient(circle at 80% 30%, theme('colors.accent-color.200') min(40%), #ffffff 0);
   }
 }
