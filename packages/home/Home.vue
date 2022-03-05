@@ -19,7 +19,10 @@
           <div v-if="screenSizes['<md']" class="text-gray-600 text-lg">
             这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
           </div>
-          <a class="float-arrow-box space-x-3 flex items-center w-3/5 md:w-1/2" tabindex="0" @click="loginBoxOpen = true"
+          <a
+            class="float-arrow-box space-x-3 flex items-center w-3/5 md:w-1/2"
+            tabindex="0"
+            @click="loginBoxOpen = true"
             ><img class="w-3/5" src="@/common/assets/login.svg" /><img
               src="@/common/assets/loginIcon.svg"
               class="float-arrow w-1/6"
@@ -66,7 +69,14 @@
               rel="noopener noreferrer"
               href="https://weibo.com/touhouvote"
               >新浪微博</a
-            >，或者收藏本站。
+            >，或者收藏本站。<br />
+            若投票中遇到问题或有建议想要反馈，请<a
+              class="ani-link px-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://jq.qq.com/?k=0BnkgDKx"
+              >加入 QQ 群反馈</a
+            >。
           </p>
           <p>
             为了防止刷票等影响公平的行为出现，我们将会采取一切我们认为必要的手段，这一点还请各位投票者注意。<br />
@@ -77,8 +87,12 @@
       </div>
 
       <!-- Copyright -->
-      <div class="quicksand w-full text-center my-6">
-        <div>&copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.</div>
+      <div class="w-full text-center my-6">
+        <div>
+          <a target="_blank" rel="noopener noreferrer" href="https://jq.qq.com/?k=0BnkgDKx">反馈问题</a>&ensp;
+          <a rel="noopener noreferrer" href="/nav">往届结果</a>
+        </div>
+        <div class="quicksand">&copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.</div>
       </div>
     </div>
   </div>
@@ -86,9 +100,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, onBeforeUnmount } from 'vue'
-import { screenSizes } from '@/tailwindcss'
 import LoginBox from './components/LoginBox.vue'
+import { ref, computed } from 'vue'
+import { useIntervalFn } from '@vueuse/core'
+import { screenSizes } from '@/tailwindcss'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { deadlineWithTimezoneOffset } from '@/end-page/lib/voteEnded'
 
@@ -117,7 +132,7 @@ function SupplementZero(num: number): string {
   return stringNumber.substr(stringNumber.length - 2)
 }
 
-let timer = setInterval(() => {
+useIntervalFn(() => {
   let ddlTime = deadlineWithTimezoneOffset - Date.now()
   if (ddlTime < 0) return
   days.value = Math.floor(ddlTime / 1000 / 60 / 60 / 24)
@@ -125,9 +140,4 @@ let timer = setInterval(() => {
   minutes.value = Math.floor(ddlTime / 1000 / 60) % 60
   seconds.value = Math.floor(ddlTime / 1000) % 60
 }, 1000)
-onBeforeUnmount(() => {
-  if (timer) {
-    clearInterval(timer)
-  }
-})
 </script>

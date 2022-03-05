@@ -3,7 +3,7 @@
 <p align="center">
   <img alt="Commit activity" src="https://img.shields.io/github/commit-activity/m/PatchyVideo/Touhou-Vote" />
   <img alt="Version" src="https://img.shields.io/github/package-json/v/PatchyVideo/Touhou-Vote">
-  <img alt="Code size" src="https://img.shields.io/github/languages/code-size/PatchyVideo/Touhou-Vote">
+  <img alt="Lines of code" src="https://tokei.rs/b1/github/PatchyVideo/Touhou-Vote?category=code">
   <img alt="Contributors" src="https://img.shields.io/github/contributors/PatchyVideo/Touhou-Vote" />
   <img alt="License" src="https://img.shields.io/github/license/PatchyVideo/Touhou-Vote" />
 </p>

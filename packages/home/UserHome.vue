@@ -306,7 +306,9 @@
         </div>
         <!-- Copyright -->
         <div class="quicksand text-sm text-gray-600 text-center">
-          &copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.
+          &copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.&ensp;
+          <a target="_blank" rel="noopener noreferrer" href="https://jq.qq.com/?k=0BnkgDKx">反馈问题</a>&ensp;
+        <a rel="noopener noreferrer" href="/nav">往届结果</a>
         </div>
       </div>
     </div>
