@@ -1,5 +1,12 @@
-import { ref } from 'vue'
-export const ruleMessageBoxOpen = ref(false)
-export function openRuleMessageBox(): void {
-  ruleMessageBoxOpen.value = true
-}
+import { computed } from 'vue'
+import { useLocalStorage } from '@vueuse/core'
+
+export const confirmedQuestionnaireNotice = useLocalStorage('confirmedQuestionnaireNotice', false)
+export const ruleMessageBoxOpen = computed<boolean>({
+  get() {
+    return !confirmedQuestionnaireNotice.value
+  },
+  set(value) {
+    confirmedQuestionnaireNotice.value = !value
+  },
+})

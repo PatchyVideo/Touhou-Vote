@@ -3,12 +3,6 @@
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
       <div
-        class="text-accent-color-600 text-lg text-right underline cursor-pointer transition transition-colors hover:text-accent-color-900"
-        @click="openRuleMessageBox()"
-      >
-        ！问卷填写规则
-      </div>
-      <div
         v-for="(questionaire, index) in questionnaireKeyToName"
         :key="index"
         class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2"
@@ -39,36 +33,25 @@
           </div>
         </div>
       </div>
-      <button
-        v-if="props.deskTopReturn"
-        class="w-full py-2 text-sm rounded text-white bg-accent-color-600"
-        @click="returnBack()"
+      <div
+        class="text-accent-color-600 text-lg text-right underline cursor-pointer transition transition-colors hover:text-accent-color-900"
+        @click="OpenConfirmedNotice()"
       >
-        返回
-      </button>
+        ！问卷填写规则
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { openRuleMessageBox } from '@/home/lib/questionnaireRule'
-import { useRoute, useRouter } from 'vue-router'
+import { ruleMessageBoxOpen } from '@/home/lib/questionnaireRule'
+import { useRouter } from 'vue-router'
 import { questionnaireKeyToName, IsQuestionnaireDone } from '@/questionnaire/lib/questionnaireData'
 
-const props = defineProps({
-  deskTopReturn: {
-    type: Boolean,
-    default: false,
-  },
-})
-
-const route = useRoute()
 const router = useRouter()
 
-function returnBack(): void {
-  const query = JSON.parse(JSON.stringify(route.query))
-  query.open = 0
-  router.push({ path: route.path, query })
+function OpenConfirmedNotice() {
+  ruleMessageBoxOpen.value = true
 }
 
 function gotoQuestionnaire(bigQuestionnaire: string, smallQuestionnaire: string): void {

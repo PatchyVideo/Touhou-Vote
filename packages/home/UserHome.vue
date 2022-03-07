@@ -153,7 +153,7 @@
               <div class="w-full text-right">
                 <button
                   class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600"
-                  :class="{ 'bg-accent-color-300': !voteDoujinComplete }"
+                  :class="{ 'bg-accent-color-300': !IsQuestionnaireAllDone }"
                   @click="IsQuestionnaireAllDone && gotoDoujinSystem()"
                 >
                   {{ IsQuestionnaireAllDone ? (voteDoujinComplete ? '修改提名' : '前往提名') : '请先填写问卷哦' }}
@@ -308,7 +308,7 @@
         <div class="quicksand text-sm text-gray-600 text-center">
           &copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.&ensp;
           <a target="_blank" rel="noopener noreferrer" href="https://jq.qq.com/?k=0BnkgDKx">反馈问题</a>&ensp;
-        <a rel="noopener noreferrer" href="/nav">往届结果</a>
+          <a rel="noopener noreferrer" href="/nav">往届结果</a>
         </div>
       </div>
     </div>
@@ -341,7 +341,7 @@
         </div>
       </div> -->
   </div>
-  <VoteMessageBox v-model:open="ruleMessageBoxOpen" title="问卷填写规则：">
+  <VoteMessageBox v-model:open="QuestionnaireruleMessageBoxOpen" title="问卷填写规则：">
     <div class="p-2">
       <div class="space-y-2">
         <div>
@@ -389,6 +389,16 @@ const router = useRouter()
 
 /* User lists Operation */
 const userListOpen = ref(false)
+
+/* Questionnaire rule message box open */
+const QuestionnaireruleMessageBoxOpen = computed<boolean>({
+  get() {
+    return ruleMessageBoxOpen.value && systemListIsOpen.value === 1 && systemListOpenName.value === 'questionnaire'
+  },
+  set(value) {
+    ruleMessageBoxOpen.value = value
+  },
+})
 
 /* System List Operation */
 const systemListIsOpen = computed<number>(() => {

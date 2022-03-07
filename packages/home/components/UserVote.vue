@@ -86,29 +86,14 @@
           </div>
         </div>
       </div>
-      <button
-        v-if="props.deskTopReturn"
-        class="w-full py-2 text-sm rounded text-white bg-accent-color-600"
-        @click="returnBack()"
-      >
-        返回
-      </button>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { voteCharacterComplete, voteMusicComplete, voteCoupleComplete } from '@/home/lib/user'
 
-const props = defineProps({
-  deskTopReturn: {
-    type: Boolean,
-    default: false,
-  },
-})
-
-const route = useRoute()
 const router = useRouter()
 
 function voteCharacter(): void {
@@ -119,11 +104,5 @@ function voteMusic(): void {
 }
 function voteCouple(): void {
   router.push('/vote/couple')
-}
-
-function returnBack(): void {
-  const query = JSON.parse(JSON.stringify(route.query))
-  query.open = 0
-  router.push({ path: route.path, query })
 }
 </script>
