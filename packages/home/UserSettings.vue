@@ -1,5 +1,6 @@
 <template>
-  <div class="w-full min-h-100vh page flex flex-col space-y-2 md:space-y-0 md:z-50">
+  <div class="page"></div>
+  <div class="w-full min-h-100vh flex flex-col space-y-2 md:space-y-0 md:z-50">
     <!-- Top Nav -->
     <div
       class="w-full h-11 py-1 bg-white bg-opacity-80 shadow flex items-center space-x-2"

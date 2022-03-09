@@ -1,5 +1,6 @@
 <template>
-  <div class="page w-full min-h-100vh flex flex-col overflow-hidden">
+  <div class="page"></div>
+  <div class="w-full min-h-100vh flex flex-col overflow-hidden">
     <div class="p-2 shadow flex items-center justify-between bg-white">
       <div class="flex items-center">
         <BackToHome :show="true" :saveable="true" />
