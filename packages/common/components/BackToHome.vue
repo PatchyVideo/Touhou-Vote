@@ -1,7 +1,7 @@
 <template>
-  <div v-if="props.show" class="w-8 h-8 pr-2 lg:w-0 lg:pr-0">
+  <div v-if="props.show" class="w-8 h-8 pr-2 md:w-0 md:pr-0">
     <icon-uil-angle-left-b
-      v-if="screenSizes['<lg']"
+      v-if="screenSizes['<md']"
       class="w-full h-full cursor-pointer"
       @click="backToHome()"
     ></icon-uil-angle-left-b>

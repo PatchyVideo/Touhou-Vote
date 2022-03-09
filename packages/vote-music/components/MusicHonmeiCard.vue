@@ -1,6 +1,6 @@
 <template>
   <div class="relative w-full p-1 rounded shadow bg-white flex">
-    <div class="w-2/5 max-w-32">
+    <div class="w-2/5 max-w-32 md:max-w-none">
       <div class="border rounded aspect-ratio-1/1 overflow-hidden">
         <img class="object-contain" :src="musicHonmei.image ? musicHonmei.image : MusicImages" />
       </div>
