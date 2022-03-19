@@ -158,7 +158,7 @@ import { gql, useMutation } from '@/graphql'
 import type { Mutation } from '@/graphql'
 import { voteToken } from '@/home/lib/user'
 import { screenSizes } from '@/tailwindcss'
-import { popMessageText } from '@/common/lib/popMessage'
+import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
 
 setSiteTitle('调查问卷 - 第⑩回 中文东方人气投票')
 
@@ -332,10 +332,10 @@ const questionnaireDone = computed<boolean>(() => {
   return IsQuestionnaireDone(bigQuestionnaire.value, smallQuestionnaire.value)
 })
 
-function submitQuestionnire() {
+async function submitQuestionnire() {
   changeQuestion('no')
   if (submiting.value) return
-  if (window.confirm('确认提交' + questionnaireName.value + '吗？')) {
+  if (await popConfirmText('确认提交' + questionnaireName.value + '吗？')) {
     mutate({ content: { voteToken: voteToken.value, paperJson: JSON.stringify(questionnaireData.value) } })
   }
 }

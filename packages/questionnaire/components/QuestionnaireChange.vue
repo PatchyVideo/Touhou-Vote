@@ -1,23 +1,6 @@
 <template>
   <div
-    class="
-      fixed
-      top-0
-      inset-x-0
-      max-h-100vh
-      z-51
-      p-3
-      md:p-10
-      rounded-b
-      shadow
-      bg-white
-      overflow-auto
-      transform-gpu
-      transition-transform
-      duration-200
-      ease-in-out
-      flex flex-col
-    "
+    class="fixed top-0 inset-x-0 max-h-100vh z-51 p-3 md:p-10 rounded-b shadow bg-white overflow-auto transform-gpu transition-transform duration-200 ease-in-out flex flex-col"
     :class="{ '-translate-y-full': !open }"
   >
     <div v-for="(questionnaire, index) in questionnaireKeyToName" :key="index" class="w-full rounded shadow mb-2">
@@ -39,18 +22,7 @@
       <div
         :id="questionnaire.smallQuestionnaire"
         name="questionnaire"
-        class="
-          flex flex-wrap
-          shadow-inner
-          m-1
-          rounded
-          transform
-          transition-all
-          duration-200
-          ease-in-out
-          h-0
-          overflow-hidden
-        "
+        class="flex flex-wrap shadow-inner m-1 rounded transform transition-all duration-200 ease-in-out h-0 overflow-hidden"
       >
         <div
           v-for="(answer, index2) in questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire]
@@ -70,10 +42,10 @@
     <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-50" @touchmove.stop.prevent @click="close()"></div>
   </Transition>
 </template>
+
 <script lang="ts" setup>
-import { ref } from 'vue'
 import { questionDone, questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
-import { onMounted, watch, watchEffect } from 'vue'
+import { onMounted, ref, watch, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useRoute, useRouter } from 'vue-router'
 

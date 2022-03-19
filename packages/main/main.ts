@@ -33,7 +33,7 @@ const app = createApp(
 const appPromises: Promise<unknown>[] = []
 
 /* Login authentication & user data filling */
-import { checkLoginStatus } from '@/home/lib/user'
+import { checkLoginStatus, isLogin } from '@/home/lib/user'
 const checkLoginStatusPromise = checkLoginStatus(true)
 appPromises.push(checkLoginStatusPromise)
 
@@ -90,7 +90,6 @@ const router = createRouter({
   ],
 })
 
-import { isLogin } from '@/home/lib/user'
 import { voteEnded } from '@/end-page/lib/voteEnded'
 let pendingNProgress: number | undefined
 router.beforeEach(async (to, from, next) => {

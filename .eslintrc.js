@@ -49,6 +49,7 @@ module.exports = {
           'error',
           { prefer: 'type-imports', disallowTypeAnnotations: false },
         ],
+        '@typescript-eslint/no-duplicate-imports': 'error',
         'sort-imports': [
           'error',
           {
@@ -84,6 +85,7 @@ module.exports = {
           'error',
           { prefer: 'type-imports', disallowTypeAnnotations: false },
         ],
+        '@typescript-eslint/no-duplicate-imports': 'error',
         'sort-imports': [
           'error',
           {

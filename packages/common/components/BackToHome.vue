@@ -19,6 +19,8 @@
 <script lang="ts" setup>
 import { screenSizes } from '@/tailwindcss'
 import { useRouter } from 'vue-router'
+import { popConfirmText } from '../lib/popMessage'
+
 const router = useRouter()
 
 const props = defineProps({
@@ -32,9 +34,9 @@ const props = defineProps({
   },
 })
 
-function backToHome() {
+async function backToHome() {
   if (
-    window.confirm(
+    await popConfirmText(
       props.saveable
         ? '你确定要回到主页吗？（未提交的内容会暂存本地哦）'
         : '你确定要回到主页吗？（会失去未提交的内容哦！）'

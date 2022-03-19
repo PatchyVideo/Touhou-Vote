@@ -200,7 +200,7 @@ import { doujinValid } from '@/vote-doujin/lib/doujinList'
 import { doujins, setVoteDataDoujins } from '@/vote-doujin/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
-import { popMessageText } from '@/common/lib/popMessage'
+import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
 
 const props = defineProps({
   open: {
@@ -417,16 +417,16 @@ function submitDoujinData(): void {
   doujinData.imageUrl = doujinImageUrl.value
   doujins.value[props.index] = doujinData
 }
-function deleteEdit(): void {
-  if (confirm('你确定要删除该提名吗？')) {
+async function deleteEdit(): Promise<void> {
+  if (await popConfirmText('你确定要删除该提名吗？')) {
     doujins.value.splice(props.index, 1)
     doujins.value.push(new Doujin())
     setVoteDataDoujins()
     close()
   }
 }
-function cancelEdit(): void {
-  if (confirm('你确定要取消修改吗？')) {
+async function cancelEdit(): Promise<void> {
+  if (await popConfirmText('你确定要取消修改吗？')) {
     clearDoujinData()
     close()
   }

@@ -5,7 +5,7 @@ import { ApolloClient, HttpLink, InMemoryCache, disableFragmentWarnings, from } 
 import type { SafeReadonly } from '@apollo/client/cache/core/types/common'
 import { mergeDeep } from '@apollo/client/utilities'
 import RawObjectID from 'bson-objectid'
-import { DefaultApolloClient } from '@vue/apollo-composable'
+import { DefaultApolloClient, useQuery as vUseQuery } from '@vue/apollo-composable'
 import { logErrorMessages } from '@vue/apollo-util'
 
 import scalarTypePolicies from './__generated__/typePolicies'
@@ -19,7 +19,6 @@ export type Subscription = schema.Subscription
 
 export { gql } from '@apollo/client/core'
 
-import { useQuery as vUseQuery } from '@vue/apollo-composable'
 export * from '@vue/apollo-composable'
 
 disableFragmentWarnings()

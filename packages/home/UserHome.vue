@@ -354,7 +354,7 @@
       </div>
     </div>
   </VoteMessageBox>
-  <VoteMessageBox v-model:open="resetTabMessageBoxOpen" title="提示" confirm>
+  <VoteMessageBox v-model:open="resetTabMessageBoxOpen" title="提示" close-button>
     <div class="p-2">需要先完成调查问卷才能开始投票哦！</div>
   </VoteMessageBox>
 </template>

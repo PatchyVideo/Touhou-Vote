@@ -10,7 +10,7 @@
       </div>
       <slot></slot>
       <div class="flex justify-center" @click="() => (open = false)">
-        <button v-if="confirm" class="px-4 py-1 rounded text-white bg-accent-color-600">确定</button>
+        <button v-if="closeButton" class="px-4 py-1 rounded text-white bg-accent-color-600" @click="close">确定</button>
       </div>
     </div>
   </transition>
@@ -18,6 +18,7 @@
     <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-50" @touchmove.stop.prevent></div>
   </Transition>
 </template>
+
 <script lang="ts" setup>
 import { watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
@@ -26,12 +27,12 @@ const props = withDefaults(
   defineProps<{
     open?: boolean
     title?: string
-    confirm?: boolean
+    closeButton?: boolean
   }>(),
   {
     open: false,
     title: '',
-    confirm: false,
+    closeButton: false,
   }
 )
 
