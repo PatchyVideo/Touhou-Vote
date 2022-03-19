@@ -1,22 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { provide, inject } from 'vue'
-import {
-  ApolloClient,
-  InMemoryCache,
-  NormalizedCacheObject,
-  from,
-  HttpLink,
-  disableFragmentWarnings,
-  FieldFunctionOptions,
-} from '@apollo/client/core'
+import type { NormalizedCacheObject, FieldFunctionOptions } from '@apollo/client/core'
+import { ApolloClient, InMemoryCache, from, HttpLink, disableFragmentWarnings } from '@apollo/client/core'
 import type { SafeReadonly } from '@apollo/client/cache/core/types/common'
-import { offsetLimitPagination } from '@apollo/client/utilities'
-import ObjectID from 'bson-objectid'
+import { mergeDeep } from '@apollo/client/utilities'
+import RawObjectID from 'bson-objectid'
 import { DefaultApolloClient } from '@vue/apollo-composable'
+import { logErrorMessages } from '@vue/apollo-util'
 
-import { withScalars } from 'apollo-link-scalars'
-import { buildClientSchema, IntrospectionQuery } from 'graphql'
-import jsonSchema from './__generated__/graphql.schema.json'
+import scalarTypePolicies from './__generated__/typePolicies'
 import generatedIntrospection from './__generated__/graphql.fragment'
 
 import type * as schema from './__generated__/graphql'
@@ -32,27 +24,15 @@ export * from '@vue/apollo-composable'
 
 disableFragmentWarnings()
 
-export function createApollo(): ApolloClient<NormalizedCacheObject> {
-  const typesMap = {
-    DateTimeUtc: {
-      serialize: (parsed: Date) => parsed.toISOString(),
-      parseValue: (raw: string | null): Date | null => (raw ? new Date(raw) : null),
-    },
-    UtcDateTime: {
-      serialize: (parsed: Date) => parsed.toISOString(),
-      parseValue: (raw: string | null): Date | null => (raw ? new Date(raw) : null),
-    },
-    ObjectId: {
-      serialize: (parsed: ObjectID) => parsed.toHexString(),
-      parseValue: (raw: string) => new ObjectID(raw),
-    },
+export class ObjectID extends RawObjectID {
+  toJSON() {
+    return this.toHexString()
   }
+}
+
+export function createApollo(): ApolloClient<NormalizedCacheObject> {
   const link = from([
     // Backend Server
-    withScalars({
-      schema: buildClientSchema(jsonSchema as unknown as IntrospectionQuery),
-      typesMap,
-    }),
     new HttpLink({
       uri: '/v10-be/graphql',
       credentials: 'include',
@@ -108,11 +88,7 @@ export function createApollo(): ApolloClient<NormalizedCacheObject> {
   })
   const cache = new InMemoryCache({
     possibleTypes: generatedIntrospection.possibleTypes,
-    typePolicies: {
-      Query: {
-        fields: {},
-      },
-    },
+    typePolicies: mergeDeep(scalarTypePolicies, {}),
   })
   const client = new ApolloClient({
     link,
@@ -138,23 +114,15 @@ export function useApollo(): ApolloClient<NormalizedCacheObject> {
 export const useQuery = function useQuery(this: never, ...args: never) {
   const query = vUseQuery.apply(this, args)
 
-  // `fetchMore` doesn't automatically change loading state, but changing it makes more sense
-  const fetchMore = query.fetchMore
-  query.fetchMore = function (this: never, ...args: never) {
-    query.loading.value = true
-    const fm = fetchMore.apply(this, args)
-    if (fm) {
-      fm.then(() => (query.loading.value = false))
-    } else {
-      query.loading.value = false
-    }
-    return fm
-  } as typeof query.fetchMore
-
   // force refetch new queries
   query.result.value = undefined
   query.loading.value = true
   query.restart()
+
+  // log all errors
+  query.onError((error) => {
+    logErrorMessages(error)
+  })
 
   return query
 } as typeof vUseQuery

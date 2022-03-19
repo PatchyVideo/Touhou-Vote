@@ -12,13 +12,18 @@ generates:
       scalars:
         DateTimeUtc: Date
         UtcDateTime: Date
-        ObjectId: 'bson-objectid#default as ObjectId'
-  packages/graphql/__generated__/graphql.schema.json:
-    plugins:
-      - introspection
+        ObjectId: '../index#ObjectID as ObjectId'
   packages/graphql/__generated__/graphql.fragment.ts:
     plugins:
       - fragment-matcher
   packages/graphql/__generated__/schema.graphql:
     plugins:
       - schema-ast
+  packages/graphql/__generated__/typePolicies.ts:
+    plugins:
+      - packages/graphql/scripts/codegenPluginTypePolicy.js
+    config:
+      scalarTypePolicies:
+        DateTimeUtc: '../typePolicies#dateTypePolicy'
+        UtcDateTime: '../typePolicies#dateTypePolicy'
+        ObjectId: '../typePolicies#objectIdTypePolicy'

@@ -867,18 +867,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/introspection@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "@graphql-codegen/introspection@npm:2.1.1"
-  dependencies:
-    "@graphql-codegen/plugin-helpers": ^2.3.2
-    tslib: ~2.3.0
-  peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 58f862805ade270242a6dc2294bdce22b12a80105420642f05fc44032de1bc10a9d212fd189138c7e594d420b3821da0b2ecebb4417e8f69a0d38c89c972c3a7
-  languageName: node
-  linkType: hard
-
 "@graphql-codegen/plugin-helpers@npm:^2.3.2, @graphql-codegen/plugin-helpers@npm:^2.4.0":
   version: 2.4.0
   resolution: "@graphql-codegen/plugin-helpers@npm:2.4.0"
@@ -1848,13 +1836,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/zen-observable@npm:0.8.3":
-  version: 0.8.3
-  resolution: "@types/zen-observable@npm:0.8.3"
-  checksum: 08c88354abcf03a2176a2ec32e07da1f25fdad94fbc2f419bea53d77deb04ad4759518b4fe3fc695e61065dd4bdf7c8bd26b5211a6cd5be2233872806bdee48d
-  languageName: node
-  linkType: hard
-
 "@typescript-eslint/eslint-plugin@npm:^5.15.0":
   version: 5.15.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.15.0"
@@ -1998,6 +1979,13 @@ __metadata:
     "@vue/composition-api":
       optional: true
   checksum: 5b9ab147746e12894466b36ef4e1bfc5b5a7c84a1fcd4fca48ea81a0395ba1b52a2f67f367114ae67ba96717218cbe4935a97cdbf170cd7366b0261c08c6beb4
+  languageName: node
+  linkType: hard
+
+"@vue/apollo-util@npm:^4.0.0-alpha.16":
+  version: 4.0.0-alpha.16
+  resolution: "@vue/apollo-util@npm:4.0.0-alpha.16"
+  checksum: d929fbd433d0bbb434770fa3c597c3ee95e96f2a7af09c838bd4911597a964a4a64534f6811cdd0d02a26575893f27c8dfdf264c5735773d61bc5b248dd1019c
   languageName: node
   linkType: hard
 
@@ -2409,33 +2397,6 @@ __metadata:
     normalize-path: ^3.0.0
     picomatch: ^2.0.4
   checksum: 985163db2292fac9e5a1e072bf99f1b5baccf196e4de25a0b0b81865ebddeb3b3eb4480734ef0a2ac8c002845396b91aa89121f5b84f93981a4658164a9ec6e9
-  languageName: node
-  linkType: hard
-
-"apollo-link-scalars@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "apollo-link-scalars@npm:4.0.1"
-  dependencies:
-    lodash.clonedeep: ^4.5.0
-    lodash.every: ^4.6.0
-    lodash.flatmap: ^4.5.0
-    lodash.frompairs: ^4.0.1
-    lodash.has: ^4.5.2
-    lodash.isnull: ^3.0.0
-    lodash.isnumber: ^3.0.3
-    lodash.isobject: ^3.0.2
-    lodash.isstring: ^4.0.1
-    lodash.isundefined: ^3.0.1
-    lodash.mapvalues: ^4.6.0
-    lodash.omit: ^4.5.0
-    lodash.pickby: ^4.6.0
-    lodash.reduce: ^4.6.0
-    lodash.uniqby: ^4.7.0
-    zen-observable-ts: ^1.0.0
-  peerDependencies:
-    "@apollo/client": 3.x
-    graphql: 16.x
-  checksum: 479cbf2a019bed3d0aea3f62d099f058629bb4fd0ba6517501ded5e16a112f7a46cb201badb753acd1fb300284d3679237071f3190a816cd8d00a9155a7f78a7
   languageName: node
   linkType: hard
 
@@ -5346,45 +5307,10 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"lodash.clonedeep@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "lodash.clonedeep@npm:4.5.0"
-  checksum: 92c46f094b064e876a23c97f57f81fbffd5d760bf2d8a1c61d85db6d1e488c66b0384c943abee4f6af7debf5ad4e4282e74ff83177c9e63d8ff081a4837c3489
-  languageName: node
-  linkType: hard
-
-"lodash.every@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "lodash.every@npm:4.6.0"
-  checksum: bfb96426ccdf05ef230339ba57400c59a60a16ce6a4f41f50eb89e7ba612686900fcaf1c3a28f907a8ba993b96da681303bd622cdcadfc7d60e1f0f098384aa4
-  languageName: node
-  linkType: hard
-
-"lodash.flatmap@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "lodash.flatmap@npm:4.5.0"
-  checksum: c01a47d32e99f8fce75409f0a4a9bd12fbb2d3a46519a0dde14deedb1e527b5ddccc2bf997705c67bdecb915f47749e8a9ffefa7a91c41f0c448e06348ec81c7
-  languageName: node
-  linkType: hard
-
-"lodash.frompairs@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "lodash.frompairs@npm:4.0.1"
-  checksum: 8ff2d857f0764325dba5825ef8776cfc6992a504d75d668889bdd617c62fc3f179f1590042e127c98ed14d3fb14b71e66697b0fe8b10f73879c3a46e2d1c23d3
-  languageName: node
-  linkType: hard
-
 "lodash.get@npm:^4":
   version: 4.4.2
   resolution: "lodash.get@npm:4.4.2"
   checksum: e403047ddb03181c9d0e92df9556570e2b67e0f0a930fcbbbd779370972368f5568e914f913e93f3b08f6d492abc71e14d4e9b7a18916c31fa04bd2306efe545
-  languageName: node
-  linkType: hard
-
-"lodash.has@npm:^4.5.2":
-  version: 4.5.2
-  resolution: "lodash.has@npm:4.5.2"
-  checksum: b3ec829a86852331d48b3730ff06088a283d128a3965aa521ffd942bcf5c82e06bed3164ff7a7751d11e768d88f0d7bab316192091489caf20f452d42f7055d5
   languageName: node
   linkType: hard
 
@@ -5409,24 +5335,10 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"lodash.isnull@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "lodash.isnull@npm:3.0.0"
-  checksum: bf6ea0a0062bb720de0439a574b6db8b224cac6cc1f85500c584a99a3007194b12b8deee4968ed95d37fd0f72ded7ad1c9dd2f9869ae1cf602c4e3803568943b
-  languageName: node
-  linkType: hard
-
 "lodash.isnumber@npm:^3.0.3":
   version: 3.0.3
   resolution: "lodash.isnumber@npm:3.0.3"
   checksum: 913784275b565346255e6ae6a6e30b760a0da70abc29f3e1f409081585875105138cda4a429ff02577e1bc0a7ae2a90e0a3079a37f3a04c3d6c5aaa532f4cab2
-  languageName: node
-  linkType: hard
-
-"lodash.isobject@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "lodash.isobject@npm:3.0.2"
-  checksum: 6c1667cbc4494d0a13a3617a4b23278d6d02dac520311f2bbb43f16f2cf71d2e6eb9dec8057315b77459df4890c756a256a087d3f4baa44a79ab5d6c968b060e
   languageName: node
   linkType: hard
 
@@ -5444,31 +5356,10 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"lodash.isundefined@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "lodash.isundefined@npm:3.0.1"
-  checksum: 52b4d99a47bd41daa4e2860200258f56b1f2c99263c11a5f607fbbd91d6447fe674bdafc172735d099908a09136d4a0f98cf79715e38ca4b490fdda7162be289
-  languageName: node
-  linkType: hard
-
-"lodash.mapvalues@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "lodash.mapvalues@npm:4.6.0"
-  checksum: 0ff1b252fda318fc36e47c296984925e98fbb0fc5a2ecc4ef458f3c739a9476d47e40c95ac653e8314d132aa59c746d4276527b99d6e271940555c6e12d2babd
-  languageName: node
-  linkType: hard
-
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
   checksum: ad580b4bdbb7ca1f7abf7e1bce63a9a0b98e370cf40194b03380a46b4ed799c9573029599caebc1b14e3f24b111aef72b96674a56cfa105e0f5ac70546cdc005
-  languageName: node
-  linkType: hard
-
-"lodash.omit@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "lodash.omit@npm:4.5.0"
-  checksum: 434645e49fe84ab315719bd5a9a3a585a0f624aa4160bc09157dd041a414bcc287c15840365c1379476a3f3eda41fbe838976c3f7bdecbbf4c5478e86c471a30
   languageName: node
   linkType: hard
 
@@ -5479,28 +5370,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"lodash.pickby@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "lodash.pickby@npm:4.6.0"
-  checksum: a554d898c15bcd3218e4005b95b5146210bd862010c7d242d17106ee36aed9b9209a858ce974136ab1faadd86a82297761c206fda7f1886278bac827145c5536
-  languageName: node
-  linkType: hard
-
-"lodash.reduce@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "lodash.reduce@npm:4.6.0"
-  checksum: 81f2a1045440554f8427f895ef479f1de5c141edd7852dde85a894879312801efae0295116e5cf830c531c1a51cdab8f3628c3ad39fa21a9874bb9158d9ea075
-  languageName: node
-  linkType: hard
-
-"lodash.uniqby@npm:^4.7.0":
-  version: 4.7.0
-  resolution: "lodash.uniqby@npm:4.7.0"
-  checksum: 659264545a95726d1493123345aad8cbf56e17810fa9a0b029852c6d42bc80517696af09d99b23bef1845d10d95e01b8b4a1da578f22aeba7a30d3e0022a4938
-  languageName: node
-  linkType: hard
-
-"lodash@npm:4.17.21, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:~4.17.0":
+"lodash@npm:4.17.21, lodash@npm:^4.17.15, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:~4.17.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -6518,7 +6388,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.6.0":
+"prettier@npm:^2.5.1, prettier@npm:^2.6.0":
   version: 2.6.0
   resolution: "prettier@npm:2.6.0"
   bin:
@@ -7538,7 +7408,6 @@ resolve@^1.1.7:
     "@formatjs/intl-localematcher": ^0.2.24
     "@graphql-codegen/cli": ^2.6.2
     "@graphql-codegen/fragment-matcher": ^3.2.1
-    "@graphql-codegen/introspection": ^2.1.1
     "@graphql-codegen/schema-ast": ^2.4.1
     "@graphql-codegen/typescript": ^2.4.8
     "@iconify/json": ^2.1.17
@@ -7552,10 +7421,10 @@ resolve@^1.1.7:
     "@typescript-eslint/parser": ^5.15.0
     "@vitejs/plugin-vue": ^2.2.4
     "@vue/apollo-composable": ^4.0.0-alpha.16
+    "@vue/apollo-util": ^4.0.0-alpha.16
     "@vueuse/components": ^8.1.2
     "@vueuse/core": ^8.1.2
     "@windicss/plugin-animations": ^1.0.9
-    apollo-link-scalars: ^4.0.1
     autoprefixer: ^10.4.4
     bson-objectid: ^2.0.3
     eslint: ^8.11.0
@@ -7570,6 +7439,7 @@ resolve@^1.1.7:
     postcss-nested: ^5.0.6
     prettier: ^2.6.0
     rollup-plugin-visualizer: ^5.6.0
+    ts-poet: ^4.10.0
     typescript: ^4.6.2
     unplugin-icons: ^0.13.4
     unplugin-vue-components: ^0.18.1
@@ -7631,6 +7501,16 @@ resolve@^1.1.7:
     ts-node-transpile-only: dist/bin-transpile.js
     ts-script: dist/bin-script-deprecated.js
   checksum: 356e2647b8b1e6ab00380c0537fa569b63bd9b6f006cc40fd650f81fae1817bd8fecc075300036950d8f45c1d85b95be33cd1e48a1a424a7d86c3dbb42bf60e5
+  languageName: node
+  linkType: hard
+
+"ts-poet@npm:^4.10.0":
+  version: 4.10.0
+  resolution: "ts-poet@npm:4.10.0"
+  dependencies:
+    lodash: ^4.17.15
+    prettier: ^2.5.1
+  checksum: ffb3890a429f7ab59d96a7a17d9cc161bce786695af0fd77156e5779cfaeda92eaae4f15995a8c71a83cfb528d61bd2518bae19c4adec147bff8dce6f27c57d3
   languageName: node
   linkType: hard
 
@@ -8324,16 +8204,6 @@ resolve@^1.1.7:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: f77b3d8d00310def622123df93d4ee654fc6a0096182af8bd60679ddcdfb3474c56c6c7190817c84a2785648cdee9d721c0154eb45698c62176c322fb46fc700
-  languageName: node
-  linkType: hard
-
-"zen-observable-ts@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "zen-observable-ts@npm:1.1.0"
-  dependencies:
-    "@types/zen-observable": 0.8.3
-    zen-observable: 0.8.15
-  checksum: 1772727f2c96af228c52b008260e1e4ae512782abc9d4f4a78d1a61913aa3b55ae672ad343ecf6895d9b968b5e3f4a41b5a317702cdc6cd5f6f93bc0dacf8103
   languageName: node
   linkType: hard
 
