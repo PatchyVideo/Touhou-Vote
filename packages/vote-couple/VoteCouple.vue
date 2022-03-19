@@ -97,20 +97,22 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, watch, watchEffect } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { couples, updateVotecouple } from '@/vote-couple/lib/voteData'
-import { couplesValid, coupleHonmei, couplesValidWithoutHonmei } from '@/vote-couple/lib/coupleList'
+import { coupleHonmei, couplesValid, couplesValidWithoutHonmei } from '@/vote-couple/lib/coupleList'
 import CoupleCard from '@/vote-couple/components/CoupleCard.vue'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import BackToHome from '@/common/components/BackToHome.vue'
-import { Character, character0 } from '@/vote-character/lib/character'
-import { useMutation, useQuery, gql, useResult } from '@/graphql'
+import type { Character } from '@/vote-character/lib/character'
+import { character0 } from '@/vote-character/lib/character'
+import { gql, useMutation, useQuery, useResult } from '@/graphql'
 import type { Mutation, Query, schema } from '@/graphql'
-import { voteToken, voteCoupleComplete } from '@/home/lib/user'
+import { voteCoupleComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import NProgress from 'nprogress'
+import { popMessageText } from '@/common/lib/popMessage'
 
 setSiteTitle('CP部门 - 第⑩回 中文东方人气投票')
 
@@ -154,8 +156,8 @@ watchEffect(() => {
 })
 getSubmitCPVoteError((err) => {
   console.log(err.message)
-  if (err.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('获取投票信息失败！失败原因：' + err.message)
+  if (err.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
 
 const coupleHonmeiOptions = computed(() =>
@@ -197,7 +199,7 @@ function checkVote(): void {
   if (coupleHonmeiNumber.value.value != -1) couples.value[coupleHonmeiNumber.value.value].honmei = true
   for (let i = 0; i < couplesValid.value.length; i++)
     if (computeCharactersValid(couplesValid.value[i].characters).length < 2) {
-      alert('投票位' + (i + 1) + '选择的角色数量小于两个！')
+      popMessageText('投票位' + (i + 1) + '选择的角色数量小于两个！')
       return
     }
   for (let i = 0; i < couplesValid.value.length; i++)
@@ -215,7 +217,7 @@ function checkVote(): void {
           couplesValid.value[i].characters[couplesValid.value[i].seme].name ===
             couplesValid.value[j].characters[couplesValid.value[j].seme].name
         ) {
-          alert('投票位' + (i + 1) + '投票位' + (j + 1) + '重复！')
+          popMessageText('投票位' + (i + 1) + '投票位' + (j + 1) + '重复！')
           return
         }
     }
@@ -269,14 +271,14 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   `
 )
 onDone((result) => {
-  alert('投票成功！')
+  popMessageText('投票成功！')
   voteCoupleComplete.value = true
   router.push({ path: '/' })
 })
 onError((error) => {
   console.log(error.graphQLErrors[0].extensions)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
 })
 </script>
 

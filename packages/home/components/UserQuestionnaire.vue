@@ -46,7 +46,7 @@
 <script lang="ts" setup>
 import { ruleMessageBoxOpen } from '@/home/lib/questionnaireRule'
 import { useRouter } from 'vue-router'
-import { questionnaireKeyToName, IsQuestionnaireDone } from '@/questionnaire/lib/questionnaireData'
+import { IsQuestionnaireDone, questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
 
 const router = useRouter()
 

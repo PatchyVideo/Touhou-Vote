@@ -65,10 +65,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watchEffect, PropType, computed } from 'vue'
+import type { PropType} from 'vue';
+import { computed, ref, watchEffect } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
-import { musicListLeftWithFilter, musicHonmeiListLeft, order, orderOptions } from '@/vote-music/lib/musicList'
+import { musicHonmeiListLeft, musicListLeftWithFilter, order, orderOptions } from '@/vote-music/lib/musicList'
 import { musics } from '@/vote-music/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import AdvancedFilter from './AdvancedFilter.vue'

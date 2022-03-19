@@ -92,7 +92,7 @@
 
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
-import { voteCharacterComplete, voteMusicComplete, voteCoupleComplete } from '@/home/lib/user'
+import { voteCharacterComplete, voteCoupleComplete, voteMusicComplete } from '@/home/lib/user'
 
 const router = useRouter()
 

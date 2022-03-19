@@ -1,7 +1,7 @@
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 import { Couple } from '@/vote-couple/lib/couple'
 import { characterList } from '@/vote-character/lib/characterList'
-import { CpSubmitQuery } from '@/graphql/__generated__/graphql'
+import type { CpSubmitQuery } from '@/graphql/__generated__/graphql'
 import { Character } from '@/vote-character/lib/character'
 
 export const couples = ref<Couple[]>(

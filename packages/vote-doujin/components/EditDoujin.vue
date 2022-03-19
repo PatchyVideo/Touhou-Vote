@@ -192,13 +192,15 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, Ref, ref, watch } from 'vue'
+import type { Ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useEventListener, useLocalStorage, useThrottle, useVModel } from '@vueuse/core'
 import { Doujin, Doujin0, Doujin0NoImageUrl, doujinTypes } from '@/vote-doujin/lib/doujin'
 import { doujinValid } from '@/vote-doujin/lib/doujinList'
 import { doujins, setVoteDataDoujins } from '@/vote-doujin/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import { popMessageText } from '@/common/lib/popMessage'
 
 const props = defineProps({
   open: {
@@ -301,12 +303,12 @@ async function fetchMsg(): Promise<void> {
       } else {
         console.log(res.status, res.msg)
         doujinImageUrl.value = Doujin0NoImageUrl
-        alert('未找到可以获取的内容！')
+        popMessageText('未找到可以获取的内容！')
       }
     })
     .catch((err) => {
       console.log(err)
-      alert('获取失败，请稍后再试！')
+      popMessageText('获取失败，请稍后再试！')
     })
   fetchLoading.value = false
 }

@@ -1,4 +1,5 @@
-import { Character, character0 } from '@/vote-character/lib/character'
+import type { Character} from '@/vote-character/lib/character';
+import { character0 } from '@/vote-character/lib/character'
 import { computed, ref } from 'vue'
 import { characterHonmei, characters } from '@/vote-character/lib/voteData'
 

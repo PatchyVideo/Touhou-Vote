@@ -138,11 +138,12 @@
   </Transition>
 </template>
 <script lang="ts" setup>
-import { ref, computed, watchEffect, shallowRef } from 'vue'
+import { computed, ref, shallowRef, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
-import { useMutation, gql } from '@/graphql'
+import { gql, useMutation } from '@/graphql'
 import type { Mutation } from '@/graphql'
 import { setUserDataToLocalStorage } from '@/home/lib/user'
+import { popMessageText } from '@/common/lib/popMessage'
 
 const props = defineProps({
   open: {
@@ -222,7 +223,8 @@ const { mutate: getPhoneCode, onError: getPhoneCodeError } = useMutation<Mutatio
 )
 getPhoneCodeError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁，请稍后再试！')
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT')
+    popMessageText('请求过于频繁，请稍后再试！')
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
 const { mutate: getEmailCode, onError: getEmailCodeError } = useMutation<Mutation>(
@@ -234,7 +236,8 @@ const { mutate: getEmailCode, onError: getEmailCodeError } = useMutation<Mutatio
 )
 getEmailCodeError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁，请稍后再试！')
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT')
+    popMessageText('请求过于频繁，请稍后再试！')
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
 async function login(): Promise<void> {
@@ -287,7 +290,7 @@ newLoginPhoneNumDone((result) => {
 newLoginPhoneNumError((error) => {
   if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
     verificationCodeError.value = '请输入正确的验证码！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
+  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
   console.log(error.graphQLErrors[0].extensions.error_kind)
 })
@@ -329,7 +332,7 @@ newLoginEmailDone((result) => {
 newLoginEmailError((error) => {
   if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
     verificationCodeError.value = '请输入正确的验证码！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
+  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
   console.log(error.graphQLErrors[0].extensions.error_kind)
 })
@@ -385,7 +388,7 @@ oldLoginDone((result) => {
 oldLoginError((error) => {
   if (error.graphQLErrors[0].extensions.error_kind === 'NOT_FOUND') userNameError.value = '该用户不存在！'
   else if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_PASSWORD') userPasswordError.value = '密码错误！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
+  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else userPasswordError.value = '网络错误！请稍后重试'
   console.log(error.graphQLErrors[0].extensions.error_kind)
 })

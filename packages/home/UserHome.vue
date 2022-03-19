@@ -354,7 +354,7 @@
       </div>
     </div>
   </VoteMessageBox>
-  <VoteMessageBox v-model:open="resetTabMessageBoxOpen" title="提示">
+  <VoteMessageBox v-model:open="resetTabMessageBoxOpen" title="提示" confirm>
     <div class="p-2">需要先完成调查问卷才能开始投票哦！</div>
   </VoteMessageBox>
 </template>
@@ -366,17 +366,17 @@ import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import UserQuestionnaireDp from '@/home/components/UserQuestionnaireDp.vue'
 import UserVoteDp from '@/home/components/UserVoteDp.vue'
 import VoteDoujinDp from '@/vote-doujin/components/VoteDoujinDp.vue'
-import { ref, computed, onMounted, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useEventListener } from '@vueuse/core'
 import { screenSizes } from '@/tailwindcss'
 import {
-  username,
   deleteUserData,
+  username,
   voteCharacterComplete,
-  voteMusicComplete,
   voteCoupleComplete,
   voteDoujinComplete,
+  voteMusicComplete,
 } from '@/home/lib/user'
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
 import { ruleMessageBoxOpen } from '@/home/lib/questionnaireRule'

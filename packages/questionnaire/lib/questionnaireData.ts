@@ -1,5 +1,6 @@
-import { ref, computed } from 'vue'
-import { questionnaire, QuestionnaireALL } from '@/questionnaire/lib/questionnaire'
+import { computed, ref } from 'vue'
+import type { QuestionnaireALL } from '@/questionnaire/lib/questionnaire';
+import { questionnaire } from '@/questionnaire/lib/questionnaire'
 
 interface Answer {
   // 选择的问题ID，默认为改题目序号对应的题库中的第一个题目,ID的含义参考文件“questionnaire.ts”

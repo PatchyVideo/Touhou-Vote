@@ -73,7 +73,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { questionDone, questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
-import { watchEffect, watch, onMounted } from 'vue'
+import { onMounted, watch, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useRoute, useRouter } from 'vue-router'
 

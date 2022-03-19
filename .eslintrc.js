@@ -45,6 +45,20 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          { prefer: 'type-imports', disallowTypeAnnotations: false },
+        ],
+        'sort-imports': [
+          'error',
+          {
+            ignoreCase: false,
+            ignoreDeclarationSort: true,
+            ignoreMemberSort: false,
+            memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+            allowSeparatedGroups: false,
+          },
+        ],
       },
     },
     {
@@ -66,6 +80,20 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          { prefer: 'type-imports', disallowTypeAnnotations: false },
+        ],
+        'sort-imports': [
+          'error',
+          {
+            ignoreCase: false,
+            ignoreDeclarationSort: true,
+            ignoreMemberSort: false,
+            memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+            allowSeparatedGroups: false,
+          },
+        ],
       },
       globals: {
         defineProps: 'readonly',

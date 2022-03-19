@@ -186,12 +186,13 @@
 
 <script lang="ts" setup>
 import { computed, ref, shallowRef, watchEffect } from 'vue'
-import { user, username, createdAt, sessionToken, deleteUserData } from '@/home/lib/user'
-import { useMutation, gql } from '@/graphql'
+import { createdAt, deleteUserData, sessionToken, user, username } from '@/home/lib/user'
+import { gql, useMutation } from '@/graphql'
 import type { Mutation } from '@/graphql'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { voteEnded } from '@/end-page/lib/voteEnded'
+import { popMessageText } from '@/common/lib/popMessage'
 
 setSiteTitle('用户设置 - 第⑩回 中文东方人气投票')
 
@@ -206,7 +207,7 @@ const newUsername = ref('')
 function updateUsername(): void {
   if (updateUsernameLoading.value) return
   if (newUsername.value === '') {
-    alert('请输入新用户名！')
+    popMessageText('请输入新用户名！')
     return
   }
   updateUsernameMutate({
@@ -227,13 +228,13 @@ const {
   `
 )
 updateUsernameDone((result) => {
-  alert('修改成功,请重新登录！')
+  popMessageText('修改成功,请重新登录！')
   logout()
 })
 updateUsernameError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
   updateUsernameOpen.value = false
 })
 
@@ -245,11 +246,11 @@ const passwordNewConfirm = ref('')
 function updatePassword(): void {
   if (updatePasswordLoading.value) return
   if ((user.value.password && !passwordOld.value) || !passwordNew.value || !passwordNewConfirm.value) {
-    alert('请填写完整！')
+    popMessageText('请填写完整！')
     return
   }
   if (passwordNew.value != passwordNewConfirm.value) {
-    alert('输入的两次新密码不一致！')
+    popMessageText('输入的两次新密码不一致！')
     return
   }
   user.value.password
@@ -276,14 +277,14 @@ const {
   `
 )
 updatePasswordDone((result) => {
-  if (result.data?.updatePassword) alert('修改成功！')
-  else alert('旧密码输入错误！')
+  if (result.data?.updatePassword) popMessageText('修改成功！')
+  else popMessageText('旧密码输入错误！')
   changePasswordOpen.value = false
 })
 updatePasswordError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
   changePasswordOpen.value = false
 })
 
@@ -358,7 +359,8 @@ const { mutate: getPhoneCode, onError: getPhoneCodeError } = useMutation<Mutatio
 )
 getPhoneCodeError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁，请稍后再试！')
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT')
+    popMessageText('请求过于频繁，请稍后再试！')
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
 const {
@@ -374,7 +376,7 @@ const {
   `
 )
 updatePhoneDone((result) => {
-  alert('修改成功,请重新登录！')
+  popMessageText('修改成功,请重新登录！')
   logout()
 })
 updatePhoneError((error) => {
@@ -382,7 +384,7 @@ updatePhoneError((error) => {
     verificationCodeError.value = '请输入正确的验证码！'
   else if (error.graphQLErrors[0].extensions.error_kind === 'PHONE_IN_USE')
     verificationCodeError.value = '该手机号已经被使用！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
+  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
   console.log(error.graphQLErrors[0].extensions.error_kind)
 })
@@ -402,7 +404,8 @@ const { mutate: getEmailCode, onError: getEmailCodeError } = useMutation<Mutatio
 )
 getEmailCodeError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁，请稍后再试！')
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT')
+    popMessageText('请求过于频繁，请稍后再试！')
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
 const {
@@ -418,7 +421,7 @@ const {
   `
 )
 updateEmailDone((result) => {
-  alert('修改成功,请重新登录！')
+  popMessageText('修改成功,请重新登录！')
   logout()
 })
 updateEmailError((error) => {
@@ -426,7 +429,7 @@ updateEmailError((error) => {
     verificationCodeError.value = '请输入正确的验证码！'
   else if (error.graphQLErrors[0].extensions.error_kind === 'EMAIL_IN_USE')
     verificationCodeError.value = '该邮箱已经被使用！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
+  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
   console.log(error.graphQLErrors[0].extensions.error_kind)
 })

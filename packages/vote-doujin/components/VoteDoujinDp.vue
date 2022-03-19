@@ -73,10 +73,11 @@ import { useLocalStorage } from '@vueuse/core'
 import NProgress from 'nprogress'
 import { doujins, updateVoteDataDoujins } from '@/vote-doujin/lib/voteData'
 import { doujinValid } from '@/vote-doujin/lib/doujinList'
-import { useMutation, useQuery, gql, useResult } from '@/graphql'
+import { gql, useMutation, useQuery, useResult } from '@/graphql'
 import type { Mutation, Query } from '@/graphql'
-import { voteToken, voteDoujinComplete } from '@/home/lib/user'
+import { voteDoujinComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
+import { popMessageText } from '@/common/lib/popMessage'
 
 setSiteTitle('提名作品 - 第⑩回 中文东方人气投票')
 
@@ -130,8 +131,8 @@ watchEffect(() => {
 })
 getSubmitDojinVoteError((err) => {
   console.log(err.message)
-  if (err.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('获取投票信息失败！失败原因：' + err.message)
+  if (err.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
 
 async function vote(): Promise<void> {
@@ -145,12 +146,12 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   `
 )
 onDone((result) => {
-  alert('投票成功！')
+  popMessageText('投票成功！')
   voteDoujinComplete.value = true
 })
 onError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
 })
 </script>

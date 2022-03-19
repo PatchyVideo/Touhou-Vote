@@ -4,7 +4,7 @@
       问卷填写完成了！你可以继续填写，或在左栏选择“参与投票”开始投票
     </div>
     <div v-else class="text-lg text-gray-800">在开始投票之前，你需要选择一些问卷填写：</div>
-    <div v-for="(children, catogory) in questionnaire">
+    <div v-for="(children, catogory) in questionnaire" :key="catogory">
       <div class="flex flex-nowrap items-end gap-2">
         <h2 class="text-xl" v-text="nameById[catogory].name"></h2>
         <span class="text-gray-700" v-text="nameById[catogory].desc"></span>
@@ -12,6 +12,7 @@
       <div class="flex flex-wrap gap-3 mt-1">
         <RouterLink
           v-for="(_child, childId) in children"
+          :key="childId"
           class="flex flex-row items-center gap-1 px-4 py-2 rounded-xl border-2 border-accent-color-400 cursor-pointer"
           :to="{ path: '/questionnaire', query: { bigQuestionnaire: catogory, smallQuestionnaire: childId } }"
         >

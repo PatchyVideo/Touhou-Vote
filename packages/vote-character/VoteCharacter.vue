@@ -134,16 +134,17 @@ import BackToHome from '@/common/components/BackToHome.vue'
 import CharacterSelect from './components/CharacterSelect.vue'
 import CharacterCard from '@/vote-character/components/CharacterCard.vue'
 import CharacterHonmeiCard from './components/CharacterHonmeiCard.vue'
-import { ref, computed, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { character0 } from '@/vote-character/lib/character'
 import { charactersReverse, charactersReverseWithoutHonmei } from '@/vote-character/lib/characterList'
 import { characterHonmei, characters, updateVotecharacters } from '@/vote-character/lib/voteData'
-import { useMutation, useQuery, gql, useResult } from '@/graphql'
+import { gql, useMutation, useQuery, useResult } from '@/graphql'
 import type { Mutation, Query, schema } from '@/graphql'
-import { voteToken, voteCharacterComplete } from '@/home/lib/user'
+import { voteCharacterComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import NProgress from 'nprogress'
+import { popMessageText } from '@/common/lib/popMessage'
 
 setSiteTitle('角色部门 - 第⑩回 中文东方人气投票')
 
@@ -187,8 +188,8 @@ watchEffect(() => {
 })
 getSubmitCharacterVoteError((err) => {
   console.log(err.message)
-  if (err.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('获取投票信息失败！失败原因：' + err.message)
+  if (err.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
 
 const charactersVotedNumber = computed<number>(() => charactersReverse.value.length)
@@ -220,14 +221,14 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   `
 )
 onDone((result) => {
-  alert('投票成功！')
+  popMessageText('投票成功！')
   voteCharacterComplete.value = true
   router.push({ path: '/' })
 })
 onError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
 })
 </script>
 <style lang="postcss" scoped>

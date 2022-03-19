@@ -75,17 +75,17 @@
 import { watch } from 'vue'
 import { useVModels } from '@vueuse/core'
 import {
-  kinds,
   filterForKindTem,
-  worksListAfterFilterTem,
-  workSelectedTem,
   getFilterForKindTem,
   getWorkSelectedTem,
+  kinds,
   resetFilterForKindTem,
+  resetWorkSelectedTem,
   updateFilterForKind,
   updateFilterForKindTem,
   updateWorkSelected,
-  resetWorkSelectedTem,
+  workSelectedTem,
+  worksListAfterFilterTem,
 } from '@/vote-character/lib/workList'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 

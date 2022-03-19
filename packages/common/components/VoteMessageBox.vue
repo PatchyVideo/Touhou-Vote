@@ -9,6 +9,9 @@
         <icon-uil-times class="w-8 h-8 cursor-pointer" @click="close()"></icon-uil-times>
       </div>
       <slot></slot>
+      <div class="flex justify-center" @click="() => (open = false)">
+        <button v-if="confirm" class="px-4 py-1 rounded text-white bg-accent-color-600">确定</button>
+      </div>
     </div>
   </transition>
   <Transition name="mask">
@@ -19,20 +22,21 @@
 import { watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 
-const props = defineProps({
-  open: {
-    type: Boolean,
-    default: false,
-    requred: true,
-  },
-  title: {
-    type: String,
-    default: '',
-  },
-})
+const props = withDefaults(
+  defineProps<{
+    open?: boolean
+    title?: string
+    confirm?: boolean
+  }>(),
+  {
+    open: false,
+    title: '',
+    confirm: false,
+  }
+)
 
 const emit = defineEmits<{
-  (event: 'update:open', value: string): void
+  (event: 'update:open', value: boolean): void
 }>()
 
 const open = useVModel(props, 'open', emit)

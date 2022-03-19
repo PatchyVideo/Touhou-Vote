@@ -70,13 +70,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watchEffect, PropType, computed } from 'vue'
+import type { PropType} from 'vue';
+import { computed, ref, watchEffect } from 'vue'
 import { useVModels } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
 import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
 import {
-  characterListLeftWithFilter,
   characterHonmeiListLeft,
+  characterListLeftWithFilter,
   order,
   orderOptions,
 } from '@/vote-character/lib/characterList'

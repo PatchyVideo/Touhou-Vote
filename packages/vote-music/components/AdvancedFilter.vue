@@ -49,17 +49,17 @@
 import { watch } from 'vue'
 import { useVModels } from '@vueuse/core'
 import {
-  kinds,
-  filterForKindTem,
-  albumsListAfterFilterTem,
   albumSelectedTem,
-  getFilterForKindTem,
+  albumsListAfterFilterTem,
+  filterForKindTem,
   getAlbumSelectedTem,
+  getFilterForKindTem,
+  kinds,
+  resetAlbumSelectedTem,
   resetFilterForKindTem,
+  updateAlbumSelected,
   updateFilterForKind,
   updateFilterForKindTem,
-  updateAlbumSelected,
-  resetAlbumSelectedTem,
 } from '@/vote-music/lib/albumList'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 

@@ -1,4 +1,5 @@
-import { Music, music0 } from '@/vote-music/lib/music'
+import type { Music} from '@/vote-music/lib/music';
+import { music0 } from '@/vote-music/lib/music'
 import { computed, ref } from 'vue'
 import { musicHonmei, musics } from '@/vote-music/lib/voteData'
 
@@ -6578,7 +6579,7 @@ export const orderOptions = [
 ]
 
 export const order = ref(orderOptions[0])
-import { filterForKind, albumSelected } from '@/vote-music/lib/albumList'
+import { albumSelected, filterForKind } from '@/vote-music/lib/albumList'
 export const keyword = ref('')
 
 export const musicListLeftWithFilter = computed<Music[]>(() => {

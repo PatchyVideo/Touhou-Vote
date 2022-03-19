@@ -21,9 +21,10 @@ NProgress.start()
 
 /* Vue App */
 import AppRouterView from './components/AppRouterView.vue'
+import GlobalMessages from '@/common/components/GlobalMessages.vue'
 const app = createApp(
   defineComponent({
-    render: () => [h(AppRouterView)],
+    render: () => [h(AppRouterView), h(GlobalMessages)],
     setup() {
       provideClient(client)
     },
@@ -119,10 +120,6 @@ router.afterEach((guard) => {
   })
 })
 app.use(router)
-
-/* Vue I18n */
-import i18n from '@/locales'
-app.use(i18n)
 
 const appPromisesFinish = Promise.allSettled(appPromises.map((v) => v.then(incProcess))).then(() => {
   app.mount('#app')

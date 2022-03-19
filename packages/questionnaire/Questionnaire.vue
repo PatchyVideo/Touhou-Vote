@@ -140,13 +140,13 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
 import {
-  questionnaireComputed,
-  computeQuestionnaire,
-  questionnaireData,
-  questionDone,
-  IsQuestionnaireDone,
   IsQuestionnaireAllDone,
+  IsQuestionnaireDone,
+  computeQuestionnaire,
   firstCompleteQuestionnaireAll,
+  questionDone,
+  questionnaireComputed,
+  questionnaireData,
 } from '@/questionnaire/lib/questionnaireData'
 import { useRoute, useRouter } from 'vue-router'
 import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
@@ -154,10 +154,11 @@ import QuestionnaireChange from '@/questionnaire/components/QuestionnaireChange.
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import BackToHome from '@/common/components/BackToHome.vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
-import { useMutation, gql } from '@/graphql'
+import { gql, useMutation } from '@/graphql'
 import type { Mutation } from '@/graphql'
 import { voteToken } from '@/home/lib/user'
 import { screenSizes } from '@/tailwindcss'
+import { popMessageText } from '@/common/lib/popMessage'
 
 setSiteTitle('调查问卷 - 第⑩回 中文东方人气投票')
 
@@ -362,12 +363,12 @@ const {
   `
 )
 onDone((result) => {
-  alert('提交成功！')
+  popMessageText('提交成功！')
   submitCompleteMessageBoxOpen.value = true
 })
 onError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') alert('请求过于频繁！')
-  else alert('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
+  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
 })
 </script>

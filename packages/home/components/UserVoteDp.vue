@@ -7,6 +7,7 @@
     <div class="flex flex-wrap gap-3 mt-1">
       <RouterLink
         v-for="(vote, voteId) in votes"
+        :key="voteId"
         class="flex flex-row items-center gap-1 px-4 py-2 rounded-xl border-2 border-accent-color-400 cursor-pointer"
         :to="'/vote/' + voteId"
       >
@@ -29,7 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import { voteCharacterComplete, voteMusicComplete, voteCoupleComplete } from '../lib/user'
+import { voteCharacterComplete, voteCoupleComplete, voteMusicComplete } from '../lib/user'
 
 const votes = {
   character: {

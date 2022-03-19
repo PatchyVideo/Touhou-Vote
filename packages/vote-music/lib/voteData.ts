@@ -1,7 +1,7 @@
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 import { Music } from '@/vote-music/lib/music'
 import { musicList } from '@/vote-music/lib/musicList'
-import { MusicSubmitQuery } from '@/graphql/__generated__/graphql'
+import type { MusicSubmitQuery } from '@/graphql/__generated__/graphql'
 
 export const musicHonmei = computed<Music>(() => musics.value.find((music) => music.honmei) || new Music())
 
