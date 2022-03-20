@@ -360,15 +360,15 @@
 </template>
 
 <script lang="ts" setup>
+import { computed, onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { useEventListener } from '@vueuse/core'
 import UserQuestionnaire from '@/home/components/UserQuestionnaire.vue'
 import UserVote from '@/home/components/UserVote.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import UserQuestionnaireDp from '@/home/components/UserQuestionnaireDp.vue'
 import UserVoteDp from '@/home/components/UserVoteDp.vue'
 import VoteDoujinDp from '@/vote-doujin/components/VoteDoujinDp.vue'
-import { computed, onMounted, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useEventListener } from '@vueuse/core'
 import { screenSizes } from '@/tailwindcss'
 import {
   deleteUserData,

@@ -1185,8 +1185,8 @@ export const questionnaire: QuestionnaireALL = {
             question: '您最喜欢的官方作品是？（可填无）',
             introduction: '',
             input: '',
-            options: []
-          }
+            options: [],
+          },
         ],
         [
           {
@@ -1195,9 +1195,9 @@ export const questionnaire: QuestionnaireALL = {
             question: '喜欢的理由是？（可填无）',
             introduction: '',
             input: '',
-            options: []
-          }
-        ]
+            options: [],
+          },
+        ],
       ],
     },
     optionalQuestionnaire2: {
@@ -2064,7 +2064,8 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 21051,
             type: 'Input',
-            question: '您认为在创作过程中遇到过的各种困难，可以如何得到改善？（如，印刷生产方面的建议和帮助、更好的同人作品交易平台，等等）',
+            question:
+              '您认为在创作过程中遇到过的各种困难，可以如何得到改善？（如，印刷生产方面的建议和帮助、更好的同人作品交易平台，等等）',
             introduction: '',
             input: '',
             options: [

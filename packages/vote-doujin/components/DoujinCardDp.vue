@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType} from 'vue';
+import type { PropType } from 'vue'
 import { computed } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Doujin, Doujin0, Doujin0NoImageUrl, getDoujinTypeData } from '@/vote-doujin/lib/doujin'

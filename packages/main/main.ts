@@ -1,27 +1,25 @@
 import { createApp, defineComponent, h } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import NProgress from 'nprogress'
+import AppRouterView from './components/AppRouterView.vue'
+import GlobalMessages from '@/common/components/GlobalMessages.vue'
+import { createApollo, provideClient } from '@/graphql'
+import { checkLoginStatus, isLogin } from '@/home/lib/user'
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
-
-/* Tailwind CSS */
+import { voteEnded } from '@/end-page/lib/voteEnded'
+import 'nprogress/css/nprogress.css'
 import '@/tailwindcss'
-
-/* Dark Mode */
 import '@/darkmode'
 
-/* GraphQL */
-import { createApollo, provideClient } from '@/graphql'
-const client = createApollo()
-
-/* NProgress */
-import NProgress from 'nprogress'
-import 'nprogress/css/nprogress.css'
+// start progress bar
 function incProcess() {
   if (NProgress.isStarted()) NProgress.inc()
 }
 NProgress.start()
 
-/* Vue App */
-import AppRouterView from './components/AppRouterView.vue'
-import GlobalMessages from '@/common/components/GlobalMessages.vue'
+// create graphql client
+const client = createApollo()
+// vue app
 const app = createApp(
   defineComponent({
     render: () => [h(AppRouterView), h(GlobalMessages)],
@@ -32,13 +30,11 @@ const app = createApp(
 )
 const appPromises: Promise<unknown>[] = []
 
-/* Login authentication & user data filling */
-import { checkLoginStatus, isLogin } from '@/home/lib/user'
+// check login status
 const checkLoginStatusPromise = checkLoginStatus(true)
 appPromises.push(checkLoginStatusPromise)
 
-/* Vue Router */
-import { createRouter, createWebHistory } from 'vue-router'
+// router config
 declare module 'vue-router' {
   interface RouteMeta {
     requrieQuestionaire?: boolean
@@ -89,8 +85,6 @@ const router = createRouter({
     },
   ],
 })
-
-import { voteEnded } from '@/end-page/lib/voteEnded'
 let pendingNProgress: number | undefined
 router.beforeEach(async (to, from, next) => {
   if (pendingNProgress === undefined)

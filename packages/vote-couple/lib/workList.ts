@@ -47,7 +47,7 @@ const works: Work[] = [
   { name: '东方铃奈庵', kind: 'book' },
   { name: '东方智灵奇传', kind: 'book' },
   { name: '东方醉蝶华', kind: 'book' },
-  { name: '其他', kind: '' },  
+  { name: '其他', kind: '' },
 ]
 
 export const kinds: SelectList[] = [

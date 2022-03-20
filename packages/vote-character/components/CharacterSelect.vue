@@ -70,9 +70,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType} from 'vue';
+import type { PropType } from 'vue'
 import { computed, ref, watchEffect } from 'vue'
 import { useVModels } from '@vueuse/core'
+import AdvancedFilter from './AdvancedFilter.vue'
 import { Character } from '@/vote-character/lib/character'
 import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
 import {
@@ -83,7 +84,6 @@ import {
 } from '@/vote-character/lib/characterList'
 import { characters } from '@/vote-character/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
-import AdvancedFilter from './AdvancedFilter.vue'
 import AutoComplete from '@/common/components/AutoComplete.vue'
 
 const props = defineProps({

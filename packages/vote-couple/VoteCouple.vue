@@ -99,6 +99,7 @@
 <script lang="ts" setup>
 import { computed, ref, watch, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
+import NProgress from 'nprogress'
 import { couples, updateVotecouple } from '@/vote-couple/lib/voteData'
 import { coupleHonmei, couplesValid, couplesValidWithoutHonmei } from '@/vote-couple/lib/coupleList'
 import CoupleCard from '@/vote-couple/components/CoupleCard.vue'
@@ -111,7 +112,6 @@ import { gql, useMutation, useQuery, useResult } from '@/graphql'
 import type { Mutation, Query, schema } from '@/graphql'
 import { voteCoupleComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
-import NProgress from 'nprogress'
 import { popMessageText } from '@/common/lib/popMessage'
 
 setSiteTitle('CP部门 - 第⑩回 中文东方人气投票')

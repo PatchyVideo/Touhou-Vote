@@ -19,6 +19,7 @@ export type Subscription = schema.Subscription
 
 export { gql } from '@apollo/client/core'
 
+// eslint-disable-next-line import/export
 export * from '@vue/apollo-composable'
 
 disableFragmentWarnings()
@@ -110,6 +111,7 @@ export function useApollo(): ApolloClient<NormalizedCacheObject> {
   return client
 }
 
+// eslint-disable-next-line import/export
 export const useQuery = function useQuery(this: never, ...args: never) {
   const query = vUseQuery.apply(this, args)
 

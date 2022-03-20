@@ -37,7 +37,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType} from 'vue';
+import type { PropType } from 'vue'
 import { computed, ref, shallowRef, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'

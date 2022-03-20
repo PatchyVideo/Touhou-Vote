@@ -44,10 +44,10 @@
 </template>
 
 <script lang="ts" setup>
-import { questionDone, questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
 import { onMounted, ref, watch, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useRoute, useRouter } from 'vue-router'
+import { questionDone, questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
 
 const route = useRoute()
 const router = useRouter()

@@ -1,5 +1,5 @@
 import { computed, ref } from 'vue'
-import type { QuestionnaireALL } from '@/questionnaire/lib/questionnaire';
+import type { QuestionnaireALL } from '@/questionnaire/lib/questionnaire'
 import { questionnaire } from '@/questionnaire/lib/questionnaire'
 
 interface Answer {

@@ -42,9 +42,9 @@
 </template>
 
 <script lang="ts" setup>
-import VoteMessageBox from './VoteMessageBox.vue'
 import type { ConfirmMessageInfo, MessageInfo } from '../lib/popMessage'
 import { confirmMessages, messages } from '../lib/popMessage'
+import VoteMessageBox from './VoteMessageBox.vue'
 
 const closeMsg = (msg: MessageInfo) => {
   messages.value = messages.value.filter((v) => v !== msg)

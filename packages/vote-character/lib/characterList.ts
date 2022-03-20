@@ -1,7 +1,8 @@
-import type { Character} from '@/vote-character/lib/character';
-import { character0 } from '@/vote-character/lib/character'
 import { computed, ref } from 'vue'
+import type { Character } from '@/vote-character/lib/character'
+import { character0 } from '@/vote-character/lib/character'
 import { characterHonmei, characters } from '@/vote-character/lib/voteData'
+import { filterForKind, workSelected } from '@/vote-character/lib/workList'
 
 export const characterList: Character[] = [
   {
@@ -3210,7 +3211,6 @@ export const orderOptions = [
   },
 ]
 export const order = ref(orderOptions[0])
-import { filterForKind, workSelected } from '@/vote-character/lib/workList'
 export const keyword = ref('')
 
 export const characterListLeftWithFilter = computed<Character[]>(() => {
@@ -3234,7 +3234,7 @@ export const characterListLeftWithFilter = computed<Character[]>(() => {
     })
   }
   if (keyword.value != '') {
-    const regex = new RegExp(keyword.value,"i")
+    const regex = new RegExp(keyword.value, 'i')
     list = list.filter((item) => {
       if (regex.test(item.name)) return true
       if (regex.test(item.title)) return true

@@ -1,7 +1,8 @@
-import type { Music} from '@/vote-music/lib/music';
-import { music0 } from '@/vote-music/lib/music'
 import { computed, ref } from 'vue'
+import type { Music } from '@/vote-music/lib/music'
+import { music0 } from '@/vote-music/lib/music'
 import { musicHonmei, musics } from '@/vote-music/lib/voteData'
+import { albumSelected, filterForKind } from '@/vote-music/lib/albumList'
 
 export const musicList: Music[] = [
   {
@@ -15,7 +16,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '2',
     name: '永远之巫女',
     album: '东方灵异传',
@@ -26,7 +27,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '3',
     name: 'The Positive and Negative',
     album: '东方灵异传',
@@ -37,7 +38,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '4',
     name: 'Highly Responsive to Prayers',
     album: '东方灵异传',
@@ -48,7 +49,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '5',
     name: '东方怪奇谈',
     album: '东方灵异传',
@@ -59,7 +60,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '6',
     name: '天使传说',
     album: '东方灵异传',
@@ -70,7 +71,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '7',
     name: 'Oriental Magician',
     album: '东方灵异传',
@@ -81,7 +82,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '8',
     name: '破邪的小太刀',
     album: '东方灵异传',
@@ -92,7 +93,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '9',
     name: '魔镜',
     album: '东方灵异传',
@@ -103,7 +104,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '10',
     name: 'the Legend of KAGE',
     album: '东方灵异传',
@@ -114,7 +115,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '11',
     name: '来吧，直到倒地死去的那一刻',
     album: '东方灵异传',
@@ -125,7 +126,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '12',
     name: '同归于尽',
     album: '东方灵异传',
@@ -136,7 +137,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '13',
     name: '星幽剑士',
     album: '东方灵异传',
@@ -147,7 +148,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '14',
     name: '鸢尾花',
     album: '东方灵异传',
@@ -158,7 +159,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '15',
     name: '风之神社',
     album: '东方灵异传',
@@ -169,7 +170,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '16',
     name: '东方封魔录 ～ 净土曼荼罗',
     album: '东方封魔录',
@@ -180,7 +181,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '17',
     name: '博丽 ～ Eastern Wind',
     album: '东方封魔录',
@@ -191,9 +192,9 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '18',
-    name: 'She\'s in a temper!!',
+    name: "She's in a temper!!",
     album: '东方封魔录',
     date: 19970815,
     image: 'https://upload.thwiki.cc/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
@@ -202,7 +203,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '19',
     name: 'End of Daylight',
     album: '东方封魔录',
@@ -213,7 +214,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '20',
     name: '黑暗的力量',
     album: '东方封魔录',
@@ -224,7 +225,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '21',
     name: '幻梦界',
     album: '东方封魔录',
@@ -235,7 +236,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '22',
     name: '以死相赌',
     album: '东方封魔录',
@@ -246,7 +247,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '23',
     name: '神篱，如紫色火焰般燃烧',
     album: '东方封魔录',
@@ -257,7 +258,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '24',
     name: '恋色Magic（恋色Master spark）',
     album: '东方封魔录',
@@ -268,7 +269,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '25',
     name: '东方封魔录 ～ 幽幻乱舞',
     album: '东方封魔录',
@@ -279,7 +280,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '26',
     name: 'Complete Darkness',
     album: '东方封魔录',
@@ -290,7 +291,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '27',
     name: 'Extra Love',
     album: '东方封魔录',
@@ -301,7 +302,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '28',
     name: '战车娘所做的梦',
     album: '东方封魔录',
@@ -312,7 +313,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '29',
     name: '远野之森',
     album: '东方封魔录',
@@ -323,7 +324,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '30',
     name: '传说中的仙境',
     album: '东方封魔录',
@@ -334,7 +335,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '31',
     name: '博丽神社境内',
     album: '东方封魔录',
@@ -345,7 +346,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '32',
     name: '夕阳下落',
     album: '东方封魔录',
@@ -356,7 +357,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '33',
     name: '封魔终演',
     album: '东方封魔录',
@@ -367,7 +368,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '34',
     name: '梦想超越时空',
     album: '东方梦时空',
@@ -378,7 +379,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '35',
     name: 'Selection',
     album: '东方梦时空',
@@ -389,7 +390,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '36',
     name: '东方妖恋谈',
     album: '东方梦时空',
@@ -400,7 +401,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '37',
     name: 'Reincarnation',
     album: '东方梦时空',
@@ -411,7 +412,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '38',
     name: 'Dim. Dream',
     album: '东方梦时空',
@@ -422,7 +423,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '39',
     name: 'Tabula rasa ～ 空白少女',
     album: '东方梦时空',
@@ -433,7 +434,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '40',
     name: 'Maniacal Princess',
     album: '东方梦时空',
@@ -444,7 +445,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '41',
     name: '梦消失 ～ Lost Dream',
     album: '东方梦时空',
@@ -455,7 +456,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '42',
     name: '梦幻游戏 ～ Dream War',
     album: '东方梦时空',
@@ -466,7 +467,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '43',
     name: '魔法决战！ ～ Fight it out!',
     album: '东方梦时空',
@@ -477,7 +478,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '44',
     name: 'Sailor of Time',
     album: '东方梦时空',
@@ -488,7 +489,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '45',
     name: 'Strawberry Crisis!!',
     album: '东方梦时空',
@@ -499,7 +500,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '46',
     name: '非统一魔法世界论',
     album: '东方梦时空',
@@ -510,7 +511,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '47',
     name: '魔法钟爱',
     album: '东方梦时空',
@@ -521,7 +522,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '48',
     name: '久远之梦',
     album: '东方梦时空',
@@ -532,7 +533,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '49',
     name: '东方的蓝色天空',
     album: '东方梦时空',
@@ -543,7 +544,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '50',
     name: '永远的满月',
     album: '东方梦时空',
@@ -554,7 +555,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '51',
     name: 'Maple Dream...',
     album: '东方梦时空',
@@ -565,7 +566,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '52',
     name: '灵人的休息日',
     album: '东方梦时空',
@@ -576,7 +577,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '53',
     name: '胜利的示范',
     album: '东方梦时空',
@@ -587,7 +588,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '54',
     name: 'Game Over',
     album: '东方梦时空',
@@ -598,7 +599,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '55',
     name: '时之风',
     album: '东方梦时空',
@@ -609,7 +610,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '56',
     name: 'Starbow Dream',
     album: '东方梦时空',
@@ -620,7 +621,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '57',
     name: 'Phantasmagoria',
     album: '东方梦时空',
@@ -631,7 +632,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '58',
     name: '幻想乡 ～ Lotus Land Story',
     album: '东方幻想乡',
@@ -642,7 +643,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '59',
     name: 'Witching Dream',
     album: '东方幻想乡',
@@ -653,9 +654,9 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '60',
-    name: 'Selene\'s light',
+    name: "Selene's light",
     album: '东方幻想乡',
     date: 19980814,
     image: 'https://upload.thwiki.cc/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
@@ -664,7 +665,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '61',
     name: '装饰战 ～ Decoration Battle',
     album: '东方幻想乡',
@@ -675,7 +676,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '62',
     name: 'Break the Sabbath',
     album: '东方幻想乡',
@@ -686,7 +687,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '63',
     name: '紅响曲 ～ Scarlet Phoneme',
     album: '东方幻想乡',
@@ -697,7 +698,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '64',
     name: 'Bad Apple!!',
     album: '东方幻想乡',
@@ -708,7 +709,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '65',
     name: '灵战 ～ Perdition crisis',
     album: '东方幻想乡',
@@ -719,7 +720,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '66',
     name: 'Alice Maestra',
     album: '东方幻想乡',
@@ -730,7 +731,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '67',
     name: '少女绮想曲 ～ Capriccio',
     album: '东方幻想乡',
@@ -741,7 +742,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '68',
     name: '星之器 ～ Casket of Star',
     album: '东方幻想乡',
@@ -752,7 +753,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '69',
     name: 'Lotus Love',
     album: '东方幻想乡',
@@ -763,7 +764,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '70',
     name: '能够睡眠的恐怖 ～ Sleeping Terror',
     album: '东方幻想乡',
@@ -774,7 +775,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '71',
     name: 'Dream Land',
     album: '东方幻想乡',
@@ -785,7 +786,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '72',
     name: '幽梦 ～ Inanimate Dream',
     album: '东方幻想乡',
@@ -796,7 +797,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '73',
     name: '不可不禁止的游戏',
     album: '东方幻想乡',
@@ -807,7 +808,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '74',
     name: '女仆幻想 ～ Icemilk Magic',
     album: '东方幻想乡',
@@ -818,7 +819,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '75',
     name: '可爱的恶魔 ～ Innocence',
     album: '东方幻想乡',
@@ -829,7 +830,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '76',
     name: 'Days',
     album: '东方幻想乡',
@@ -840,7 +841,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '77',
     name: 'Peaceful',
     album: '东方幻想乡',
@@ -851,7 +852,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '78',
     name: 'Arcadian Dream',
     album: '东方幻想乡',
@@ -862,7 +863,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '79',
     name: '幻想的居民',
     album: '东方幻想乡',
@@ -873,7 +874,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '80',
     name: 'Lotus Road',
     album: '东方幻想乡',
@@ -884,7 +885,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '81',
     name: 'Dreamy pilot',
     album: '东方幻想乡',
@@ -895,7 +896,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '82',
     name: 'Incomplete Plot',
     album: '东方幻想乡',
@@ -906,7 +907,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '83',
     name: 'Border Land',
     album: '东方幻想乡',
@@ -917,7 +918,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '84',
     name: 'Magic Shop of Raspberry',
     album: '东方幻想乡',
@@ -928,7 +929,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '85',
     name: 'Crescent Dream',
     album: '东方幻想乡',
@@ -939,7 +940,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '86',
     name: '怪绮谈 ～ Mystic Square',
     album: '东方怪绮谈',
@@ -950,7 +951,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '87',
     name: 'Dream Express',
     album: '东方怪绮谈',
@@ -961,7 +962,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '88',
     name: '魔法阵 ～ Magic Square',
     album: '东方怪绮谈',
@@ -972,7 +973,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '89',
     name: '梦想时空',
     album: '东方怪绮谈',
@@ -983,7 +984,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '90',
     name: '灵天 ～ Spiritual Heaven',
     album: '东方怪绮谈',
@@ -994,7 +995,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '91',
     name: 'Romantic Children',
     album: '东方怪绮谈',
@@ -1005,7 +1006,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '92',
     name: 'Plastic Mind',
     album: '东方怪绮谈',
@@ -1016,7 +1017,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '93',
     name: 'Maple Wise',
     album: '东方怪绮谈',
@@ -1027,7 +1028,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '94',
     name: '禁忌的魔法 ～ Forbidden Magic',
     album: '东方怪绮谈',
@@ -1038,7 +1039,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '95',
     name: '绯红的少女 ～ Crimson Dead!!',
     album: '东方怪绮谈',
@@ -1049,7 +1050,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '96',
     name: '背叛的少女 ～ Judas Kiss',
     album: '东方怪绮谈',
@@ -1060,7 +1061,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '97',
     name: 'the Last Judgement',
     album: '东方怪绮谈',
@@ -1071,7 +1072,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '98',
     name: '可悲的人偶 ～ Doll of Misery',
     album: '东方怪绮谈',
@@ -1082,9 +1083,9 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '99',
-    name: '世界的尽头 ～ World\'s End',
+    name: "世界的尽头 ～ World's End",
     album: '东方怪绮谈',
     date: 19981230,
     image: 'https://upload.thwiki.cc/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
@@ -1093,7 +1094,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '100',
     name: '神话幻想 ～ Infinite Being',
     album: '东方怪绮谈',
@@ -1104,7 +1105,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '101',
     name: '不可思议之国的爱丽丝',
     album: '东方怪绮谈',
@@ -1115,7 +1116,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '102',
     name: 'the Grimoire of Alice',
     album: '东方怪绮谈',
@@ -1126,7 +1127,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '103',
     name: '神社',
     album: '东方怪绮谈',
@@ -1137,7 +1138,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '104',
     name: 'Endless',
     album: '东方怪绮谈',
@@ -1148,7 +1149,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '105',
     name: '永远的乐园',
     album: '东方怪绮谈',
@@ -1159,7 +1160,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '106',
     name: 'Mystic Dream',
     album: '东方怪绮谈',
@@ -1170,7 +1171,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '107',
     name: 'Peaceful Romancer',
     album: '东方怪绮谈',
@@ -1181,7 +1182,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '108',
     name: '灵魂安息之所',
     album: '东方怪绮谈',
@@ -1192,7 +1193,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '109',
     name: '比赤色更红的梦',
     album: '东方红魔乡',
@@ -1203,7 +1204,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '110',
     name: '如鬼灯般的红色之魂',
     album: '东方红魔乡',
@@ -1214,7 +1215,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '111',
     name: '妖魔夜行',
     album: '东方红魔乡',
@@ -1225,7 +1226,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '112',
     name: 'Lunate Elf',
     album: '东方红魔乡',
@@ -1236,7 +1237,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '113',
     name: '活泼的纯情小姑娘（活泼纯情小姑娘的冒险）',
     album: '东方红魔乡',
@@ -1247,7 +1248,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '114',
     name: '上海红茶馆　～ Chinese Tea',
     album: '东方红魔乡',
@@ -1258,7 +1259,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '115',
     name: '明治十七年的上海爱丽丝',
     album: '东方红魔乡',
@@ -1269,7 +1270,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '116',
     name: '巴瓦鲁魔法图书馆',
     album: '东方红魔乡',
@@ -1280,7 +1281,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '117',
     name: 'Locked Girl　～ 少女密室',
     album: '东方红魔乡',
@@ -1291,7 +1292,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '118',
     name: '女仆与血之怀表',
     album: '东方红魔乡',
@@ -1302,7 +1303,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '119',
     name: '月时计　～ Luna Dial',
     album: '东方红魔乡',
@@ -1313,7 +1314,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '120',
     name: '特佩斯的年幼末裔',
     album: '东方红魔乡',
@@ -1324,7 +1325,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '121',
     name: '献给已逝公主的七重奏',
     album: '东方红魔乡',
@@ -1335,7 +1336,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '122',
     name: '魔法少女们的百年祭',
     album: '东方红魔乡',
@@ -1346,7 +1347,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '123',
     name: 'U.N.OWEN就是她吗？',
     album: '东方红魔乡',
@@ -1357,7 +1358,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '124',
     name: '比红色更虚无的永远',
     album: '东方红魔乡',
@@ -1368,7 +1369,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '125',
     name: '红楼 ～ Eastern Dream…',
     album: '东方红魔乡',
@@ -1379,7 +1380,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '126',
     name: '妖妖梦 ～ Snow or Cherry Petal',
     album: '东方妖妖梦',
@@ -1390,7 +1391,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '127',
     name: '无何有之乡',
     album: '东方妖妖梦',
@@ -1401,7 +1402,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '128',
     name: 'Crystallize Silver',
     album: '东方妖妖梦',
@@ -1412,7 +1413,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '129',
     name: '远野幻想物语',
     album: '东方妖妖梦',
@@ -1423,7 +1424,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '130',
     name: '凋叶棕（withered leaf）',
     album: '东方妖妖梦',
@@ -1434,7 +1435,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '131',
     name: '布加勒斯特的人偶师',
     album: '东方妖妖梦',
@@ -1445,7 +1446,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '132',
     name: '人偶裁判 ～ 玩弄人形的少女',
     album: '东方妖妖梦',
@@ -1456,7 +1457,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '133',
     name: '天空的花都',
     album: '东方妖妖梦',
@@ -1467,7 +1468,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '134',
     name: '幽灵乐团 ～ Phantom Ensemble',
     album: '东方妖妖梦',
@@ -1478,7 +1479,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '135',
     name: '东方妖妖梦 ～ Ancient Temple',
     album: '东方妖妖梦',
@@ -1489,7 +1490,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '136',
     name: '广有射怪鸟事 ～ Till When?',
     album: '东方妖妖梦',
@@ -1500,7 +1501,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '137',
     name: 'Ultimate Truth',
     album: '东方妖妖梦',
@@ -1511,7 +1512,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '138',
     name: '幽雅地绽放吧，墨染的樱花　～ Border of Life',
     album: '东方妖妖梦',
@@ -1522,7 +1523,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '139',
     name: 'Border of Life',
     album: '东方妖妖梦',
@@ -1533,7 +1534,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '140',
     name: '妖妖跋扈',
     album: '东方妖妖梦',
@@ -1544,7 +1545,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '141',
     name: '少女幻葬 ～ Necro-Fantasy',
     album: '东方妖妖梦',
@@ -1555,7 +1556,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '142',
     name: '妖妖跋扈 ～ Who done it!',
     album: '东方妖妖梦',
@@ -1566,7 +1567,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '143',
     name: 'Necro-Fantasia',
     album: '东方妖妖梦',
@@ -1577,7 +1578,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '144',
     name: '春风之梦',
     album: '东方妖妖梦',
@@ -1588,7 +1589,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '145',
     name: '樱花樱花 ～ Japanize Dream...',
     album: '东方妖妖梦',
@@ -1599,7 +1600,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '146',
     name: '萃梦想',
     album: '幻想曲拔萃',
@@ -1610,7 +1611,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '147',
     name: 'Demystify Feast',
     album: '幻想曲拔萃',
@@ -1621,7 +1622,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '148',
     name: '夜幕降临 ～ Evening Star',
     album: '幻想曲拔萃',
@@ -1632,7 +1633,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '149',
     name: '御伽之国的鬼岛 ～ Missing Power',
     album: '幻想曲拔萃',
@@ -1643,7 +1644,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '150',
     name: '夏明',
     album: '幻想曲拔萃',
@@ -1654,7 +1655,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '151',
     name: '东方萃梦想',
     album: '幻想曲拔萃',
@@ -1665,7 +1666,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '152',
     name: '魔所',
     album: '幻想曲拔萃',
@@ -1676,7 +1677,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '153',
     name: '月轮',
     album: '幻想曲拔萃',
@@ -1687,7 +1688,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '154',
     name: '遍参',
     album: '幻想曲拔萃',
@@ -1698,7 +1699,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '155',
     name: '内心',
     album: '幻想曲拔萃',
@@ -1709,7 +1710,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '156',
     name: '间奏曲',
     album: '幻想曲拔萃',
@@ -1720,7 +1721,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '157',
     name: '东风',
     album: '幻想曲拔萃',
@@ -1731,7 +1732,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '158',
     name: '森闲',
     album: '幻想曲拔萃',
@@ -1742,7 +1743,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '159',
     name: '仰空',
     album: '幻想曲拔萃',
@@ -1753,7 +1754,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '160',
     name: '幽境',
     album: '幻想曲拔萃',
@@ -1764,7 +1765,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '161',
     name: '稀客',
     album: '幻想曲拔萃',
@@ -1775,7 +1776,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '162',
     name: '红夜',
     album: '幻想曲拔萃',
@@ -1786,7 +1787,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '163',
     name: '战迅',
     album: '幻想曲拔萃',
@@ -1797,7 +1798,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '164',
     name: '祸机',
     album: '幻想曲拔萃',
@@ -1808,7 +1809,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '165',
     name: '碎月',
     album: '幻想曲拔萃',
@@ -1819,7 +1820,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '166',
     name: '永夜抄　～ Eastern Night.',
     album: '东方永夜抄',
@@ -1830,7 +1831,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '167',
     name: '幻视之夜　～ Ghostly Eyes',
     album: '东方永夜抄',
@@ -1841,7 +1842,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '168',
     name: '蠢蠢的秋月　～ Mooned Insect',
     album: '东方永夜抄',
@@ -1852,7 +1853,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '169',
     name: '夜雀的歌声　～ Night Bird',
     album: '东方永夜抄',
@@ -1863,7 +1864,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '170',
     name: '已经只能听见歌声了',
     album: '东方永夜抄',
@@ -1874,7 +1875,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '171',
     name: '令人怀念的东方之血　～ Old World',
     album: '东方永夜抄',
@@ -1885,7 +1886,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '172',
     name: 'Plain Asia',
     album: '东方永夜抄',
@@ -1896,7 +1897,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '173',
     name: '永夜的报应　～ Imperishable Night（Pipes and Fiddle）',
     album: '东方永夜抄',
@@ -1907,7 +1908,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '174',
     name: '灰姑娘的笼子　～ Kagome-Kagome',
     album: '东方永夜抄',
@@ -1918,7 +1919,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '175',
     name: '狂气之瞳　～ Invisible Full Moon',
     album: '东方永夜抄',
@@ -1929,7 +1930,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '176',
     name: 'Voyage1969',
     album: '东方永夜抄',
@@ -1940,7 +1941,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '177',
     name: '千年幻想乡　～ History of the Moon',
     album: '东方永夜抄',
@@ -1951,7 +1952,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '178',
     name: '竹取飞翔　～ Lunatic Princess',
     album: '东方永夜抄',
@@ -1962,7 +1963,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '179',
     name: 'Voyage1970',
     album: '东方永夜抄',
@@ -1973,7 +1974,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '180',
     name: 'Extend Ash　～ 蓬莱人',
     album: '东方永夜抄',
@@ -1984,7 +1985,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '181',
     name: '飘上月球，不死之烟',
     album: '东方永夜抄',
@@ -1995,7 +1996,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '182',
     name: '月见草',
     album: '东方永夜抄',
@@ -2006,7 +2007,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '183',
     name: 'Eternal Dream　～ 幽玄的枫树',
     album: '东方永夜抄',
@@ -2017,7 +2018,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '184',
     name: '东方妖怪小町',
     album: '东方永夜抄',
@@ -2028,7 +2029,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '185',
     name: '花映塚　～ Higan Retour',
     album: '东方花映塚',
@@ -2039,7 +2040,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '186',
     name: '春色小径　～ Colorful Path',
     album: '东方花映塚',
@@ -2050,7 +2051,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '187',
     name: 'Oriental Dark Flight',
     album: '东方花映塚',
@@ -2061,7 +2062,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '188',
     name: 'Flowering Night',
     album: '东方花映塚',
@@ -2072,7 +2073,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '189',
     name: '宇佐大人的白旗',
     album: '东方花映塚',
@@ -2083,7 +2084,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '190',
     name: '剧毒身体　～ Forsaken Doll',
     album: '东方花映塚',
@@ -2094,7 +2095,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '191',
     name: '今昔幻想乡　～ Flower Land',
     album: '东方花映塚',
@@ -2105,7 +2106,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '192',
     name: '彼岸归航　～ Riverside View',
     album: '东方花映塚',
@@ -2116,7 +2117,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '193',
     name: '第六十年的东方审判　～ Fate of Sixty Years',
     album: '东方花映塚',
@@ -2127,7 +2128,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '194',
     name: '映花之塚',
     album: '东方花映塚',
@@ -2138,7 +2139,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '195',
     name: '此岸之塚',
     album: '东方花映塚',
@@ -2149,7 +2150,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '196',
     name: '花如幻想一般',
     album: '东方花映塚',
@@ -2160,7 +2161,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '197',
     name: '魂之花 ～ Another Dream...',
     album: '东方花映塚',
@@ -2171,7 +2172,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '198',
     name: '天狗的笔记 ～ Mysterious Note',
     album: '东方文花帖',
@@ -2182,7 +2183,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '199',
     name: '风的循环 ～ Wind Tour',
     album: '东方文花帖',
@@ -2193,7 +2194,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '200',
     name: '天狗正凝视着 ～ Black Eyes',
     album: '东方文花帖',
@@ -2204,7 +2205,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '201',
     name: '东之国的不眠夜',
     album: '东方文花帖',
@@ -2215,7 +2216,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '202',
     name: '回忆京都',
     album: '东方文花帖',
@@ -2226,7 +2227,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '203',
     name: '被封印的众神',
     album: '东方风神录',
@@ -2237,7 +2238,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '204',
     name: '眷爱众生之神　～ Romantic Fall',
     album: '东方风神录',
@@ -2248,7 +2249,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '205',
     name: '会受稻田姬的斥责啦',
     album: '东方风神录',
@@ -2259,7 +2260,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '206',
     name: '厄神降临之路　～ Dark Road',
     album: '东方风神录',
@@ -2270,7 +2271,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '207',
     name: '命运的阴暗面',
     album: '东方风神录',
@@ -2281,7 +2282,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '208',
     name: '众神眷恋的幻想乡',
     album: '东方风神录',
@@ -2292,7 +2293,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '209',
     name: '芥川龙之介的河童 ～ Candid Friend',
     album: '东方风神录',
@@ -2303,7 +2304,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '210',
     name: 'Fall of Fall ～ 秋意渐浓之瀑',
     album: '东方风神录',
@@ -2314,7 +2315,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '211',
     name: '妖怪之山 ～ Mysterious Mountain',
     album: '东方风神录',
@@ -2325,7 +2326,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '212',
     name: '少女曾见的日本原风景',
     album: '东方风神录',
@@ -2336,7 +2337,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '213',
     name: '信仰是为了虚幻之人',
     album: '东方风神录',
@@ -2347,7 +2348,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '214',
     name: '御柱的墓场 ～ Grave of Being',
     album: '东方风神录',
@@ -2358,7 +2359,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '215',
     name: '神圣庄严的古战场 ～ Suwa Foughten Field',
     album: '东方风神录',
@@ -2369,7 +2370,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '216',
     name: '明日之盛，昨日之俗',
     album: '东方风神录',
@@ -2380,7 +2381,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '217',
     name: 'Native Faith',
     album: '东方风神录',
@@ -2391,7 +2392,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '218',
     name: '山脚的神社',
     album: '东方风神录',
@@ -2402,7 +2403,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '219',
     name: '神明降下恩惠之雨 ～ Sylphid Dream',
     album: '东方风神录',
@@ -2413,9 +2414,9 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '220',
-    name: 'Player\'s Score',
+    name: "Player's Score",
     album: '东方风神录',
     date: 20070817,
     image: 'https://upload.thwiki.cc/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
@@ -2424,205 +2425,223 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '221',
     name: '绯想天',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c0/TFM-003O_01.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '222',
     name: '日常坐卧',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/53/TFM-003O_02.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '223',
     name: '地之色乃黄色（地之色乃黄色　～ Primrose）',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4d/TFM-003O_03.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '224',
     name: '甲论乙驳',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e8/TFM-003O_04.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '225',
     name: '风光明媚',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f6/TFM-003O_05.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '226',
     name: '散发着香气的树叶花',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e0/TFM-003O_06.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '227',
     name: '飞舞的水飞沫',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/77/TFM-003O_07.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '228',
     name: '以鱼驱蝇',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/ab/TFM-003O_08.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '229',
     name: '放纵不羁',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/dd/TFM-003O_11.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '230',
     name: '嘲讽的游戏',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/59/TFM-003O_10.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '231',
     name: '冷吟闲醉',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/6b/TFM-003O_09.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '232',
     name: '云外苍天',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8a/TFM-003O_12.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '233',
     name: '黑海中的绯红 ～ Legendary Fish',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/65/TFM-003O_13.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '234',
     name: '天衣无缝（天衣无缝　～ Yellow Lily）',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/61/TFM-003O_14.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '235',
     name: '有顶天变 ～ Wonderful Heaven',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/10/TFM-003O_15.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '236',
     name: '幼小的有顶天',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/78/TFM-003O_16.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '237',
     name: '暮色苍然',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fc/TFM-003O_17.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '238',
     name: '东方绯想天',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/29/TFM-003O_18.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '239',
     name: '地灵们的起床',
     album: '东方地灵殿',
@@ -2633,7 +2652,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '240',
     name: '昏暗的风穴',
     album: '东方地灵殿',
@@ -2644,7 +2663,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '241',
     name: '被封印的妖怪　～ Lost Place',
     album: '东方地灵殿',
@@ -2655,7 +2674,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '242',
     name: '阻绝人迹之桥',
     album: '东方地灵殿',
@@ -2666,7 +2685,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '243',
     name: '绿眼的嫉妒',
     album: '东方地灵殿',
@@ -2677,7 +2696,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '244',
     name: '漫游旧地狱街道',
     album: '东方地灵殿',
@@ -2688,7 +2707,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '245',
     name: '大江山的花之酒宴',
     album: '东方地灵殿',
@@ -2699,7 +2718,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '246',
     name: 'Heartfelt Fancy',
     album: '东方地灵殿',
@@ -2710,7 +2729,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '247',
     name: '少女觉 ～ 3rd eye',
     album: '东方地灵殿',
@@ -2721,7 +2740,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '248',
     name: '废狱摇篮曲',
     album: '东方地灵殿',
@@ -2732,7 +2751,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '249',
     name: '尸体旅行　～ Be of good cheer!',
     album: '东方地灵殿',
@@ -2743,7 +2762,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '250',
     name: '业火地幔',
     album: '东方地灵殿',
@@ -2754,7 +2773,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '251',
     name: '灵知的太阳信仰 ～ Nuclear Fusion',
     album: '东方地灵殿',
@@ -2765,7 +2784,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '252',
     name: 'Last Remote',
     album: '东方地灵殿',
@@ -2776,7 +2795,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '253',
     name: '哈德曼的妖怪少女',
     album: '东方地灵殿',
@@ -2787,7 +2806,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '254',
     name: '地灵们的归家',
     album: '东方地灵殿',
@@ -2798,7 +2817,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '255',
     name: '能源黎明 ～ Future Dream...',
     album: '东方地灵殿',
@@ -2809,7 +2828,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '256',
     name: '青空之影',
     album: '东方星莲船',
@@ -2820,7 +2839,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '257',
     name: '春之岸边',
     album: '东方星莲船',
@@ -2831,7 +2850,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '258',
     name: '小小的贤将',
     album: '东方星莲船',
@@ -2842,7 +2861,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '259',
     name: '封闭的云中通路',
     album: '东方星莲船',
@@ -2853,7 +2872,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '260',
     name: '请注意万年备用伞',
     album: '东方星莲船',
@@ -2864,7 +2883,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '261',
     name: 'Sky Ruin',
     album: '东方星莲船',
@@ -2875,7 +2894,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '262',
     name: '守旧老爹与前卫少女',
     album: '东方星莲船',
@@ -2886,7 +2905,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '263',
     name: '幽灵客船的时空穿越之旅',
     album: '东方星莲船',
@@ -2897,7 +2916,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '264',
     name: 'Captain Murasa',
     album: '东方星莲船',
@@ -2908,7 +2927,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '265',
     name: '魔界地方都市秘境',
     album: '东方星莲船',
@@ -2919,7 +2938,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '266',
     name: '虎纹的毘沙门天',
     album: '东方星莲船',
@@ -2930,7 +2949,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '267',
     name: '法界之火',
     album: '东方星莲船',
@@ -2941,7 +2960,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '268',
     name: '感情的摩天楼　～ Cosmic Mind',
     album: '东方星莲船',
@@ -2952,7 +2971,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '269',
     name: '夜空中的UFO恋曲',
     album: '东方星莲船',
@@ -2963,7 +2982,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '270',
     name: '平安时代的外星人',
     album: '东方星莲船',
@@ -2974,7 +2993,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '271',
     name: '妖怪寺',
     album: '东方星莲船',
@@ -2985,7 +3004,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '272',
     name: '空中的归路　～ Sky Dream',
     album: '东方星莲船',
@@ -2996,95 +3015,103 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '273',
     name: '你见到了那个影子吗',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/74/TFM-004_01.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '274',
     name: '传说的巨神',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5c/TFM-004_14.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '275',
     name: '我们的非想天则',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/71/TFM-004_15.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '276',
     name: '人偶存在的风景',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/54/TFM-004_16.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '277',
     name: '悠久的蒸汽机关',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/6b/TFM-004_17.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '278',
     name: '未知物Ｘ　～ Unfound Adventure（未知物X　～ Occultly Madness）',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/bb/TFM-004_08.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '279',
     name: '空中飘浮的物体Ｘ',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/27/TFM-004_09.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '280',
     name: '巨大的影子与渺小的结局',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/9d/TFM-004_20.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '281',
     name: 'Newshound',
     album: '东方文花帖DS',
@@ -3095,7 +3122,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '282',
     name: '你所在之城的怪事',
     album: '东方文花帖DS',
@@ -3106,7 +3133,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '283',
     name: '现代妖怪殖民地',
     album: '东方文花帖DS',
@@ -3117,7 +3144,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '284',
     name: '复仇女神的要塞',
     album: '东方文花帖DS',
@@ -3128,7 +3155,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '285',
     name: '无间之钟 ～ Infinite Nightmare',
     album: '东方文花帖DS',
@@ -3139,7 +3166,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '286',
     name: '曲名不详',
     album: '东方文花帖DS',
@@ -3150,7 +3177,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '287',
     name: '春之冰精',
     album: '妖精大战争',
@@ -3161,7 +3188,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '288',
     name: '赌上性命去恶作剧',
     album: '妖精大战争',
@@ -3172,7 +3199,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '289',
     name: 'Loose Rain',
     album: '妖精大战争',
@@ -3183,7 +3210,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '290',
     name: 'Magus Night',
     album: '妖精大战争',
@@ -3194,7 +3221,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '291',
     name: '春之冰精 -静-',
     album: '妖精大战争',
@@ -3205,7 +3232,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '292',
     name: '欲望深重的灵魂',
     album: '东方神灵庙',
@@ -3216,7 +3243,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '293',
     name: '死灵的夜樱',
     album: '东方神灵庙',
@@ -3227,7 +3254,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '294',
     name: 'Ghost Lead',
     album: '东方神灵庙',
@@ -3238,7 +3265,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '295',
     name: '欢迎来到妖怪寺',
     album: '东方神灵庙',
@@ -3249,7 +3276,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '296',
     name: '门前的妖怪小姑娘',
     album: '东方神灵庙',
@@ -3260,7 +3287,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '297',
     name: '在美妙的墓地里住下吧',
     album: '东方神灵庙',
@@ -3271,7 +3298,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '298',
     name: 'Rigid Paradise',
     album: '东方神灵庙',
@@ -3282,7 +3309,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '299',
     name: 'Desire Drive',
     album: '东方神灵庙',
@@ -3293,7 +3320,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '300',
     name: '古老的元神',
     album: '东方神灵庙',
@@ -3304,7 +3331,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '301',
     name: '梦殿大祀庙',
     album: '东方神灵庙',
@@ -3315,7 +3342,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '302',
     name: '大神神话传',
     album: '东方神灵庙',
@@ -3326,7 +3353,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '303',
     name: '小小欲望的星空',
     album: '东方神灵庙',
@@ -3337,7 +3364,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '304',
     name: '圣德传说 ～ True Administrator',
     album: '东方神灵庙',
@@ -3348,7 +3375,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '305',
     name: '妖怪里参道',
     album: '东方神灵庙',
@@ -3359,7 +3386,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '306',
     name: '佐渡的二岩',
     album: '东方神灵庙',
@@ -3370,7 +3397,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '307',
     name: '神社的新风',
     album: '东方神灵庙',
@@ -3381,7 +3408,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '308',
     name: 'Desire Dream',
     album: '东方神灵庙',
@@ -3392,117 +3419,127 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '309',
     name: '幻想乡的二岩',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c4/TFM-006a_14.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '310',
     name: '亡失的情感',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/11/TFM-006a_16.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '311',
     name: '尘世不变的悲观主义',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/54/TFM-006a_01.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '312',
     name: '心绮楼囃子',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/63/TFM-006a_19.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '313',
     name: '有人气的场所',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a6/TFM-006a_02.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '314',
     name: '无人气的场所',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e6/TFM-006a_11.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '315',
     name: '丑时三刻的村庄',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/ed/TFM-006a_15.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '316',
     name: '本日的头版头条',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/df/TFM-006a_13.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '317',
     name: '晓云',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f0/TFM-006a_17.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '318',
     name: '官板黄昏新闻',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f4/TFM-006a_18.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '319',
     name: '不可思议的驱魔棒',
     album: '东方辉针城',
@@ -3513,7 +3550,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '320',
     name: 'Mist Lake',
     album: '东方辉针城',
@@ -3524,7 +3561,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '321',
     name: '秘境的人鱼',
     album: '东方辉针城',
@@ -3535,7 +3572,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '322',
     name: '往来于运河的人与妖',
     album: '东方辉针城',
@@ -3546,7 +3583,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '323',
     name: '柳树下的杜拉罕',
     album: '东方辉针城',
@@ -3557,7 +3594,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '324',
     name: '满月的竹林',
     album: '东方辉针城',
@@ -3568,7 +3605,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '325',
     name: '孤独的狼人',
     album: '东方辉针城',
@@ -3579,7 +3616,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '326',
     name: 'Magical Storm',
     album: '东方辉针城',
@@ -3590,7 +3627,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '327',
     name: '幻想净琉璃',
     album: '东方辉针城',
@@ -3601,7 +3638,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '328',
     name: '沉向空中的辉针城',
     album: '东方辉针城',
@@ -3612,7 +3649,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '329',
     name: 'Reverse Ideology',
     album: '东方辉针城',
@@ -3623,7 +3660,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '330',
     name: '针小棒大的天守阁',
     album: '东方辉针城',
@@ -3634,7 +3671,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '331',
     name: '辉光之针的小人族　～ Little Princess',
     album: '东方辉针城',
@@ -3645,7 +3682,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '332',
     name: '魔力的雷云',
     album: '东方辉针城',
@@ -3656,7 +3693,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '333',
     name: '原初的节拍　～ Pristine Beat',
     album: '东方辉针城',
@@ -3667,7 +3704,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '334',
     name: '小槌的魔力',
     album: '东方辉针城',
@@ -3678,7 +3715,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '335',
     name: '非常非常神奇的道具们',
     album: '东方辉针城',
@@ -3689,7 +3726,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '336',
     name: '燃起犯规的狼烟',
     album: '弹幕天邪鬼',
@@ -3700,7 +3737,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '337',
     name: '以犯规对不可能的弹幕',
     album: '弹幕天邪鬼',
@@ -3711,7 +3748,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '338',
     name: 'Midnight Spell Card',
     album: '弹幕天邪鬼',
@@ -3722,7 +3759,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '339',
     name: '浪漫逃飞行',
     album: '弹幕天邪鬼',
@@ -3733,7 +3770,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '340',
     name: '永远的三日天下',
     album: '弹幕天邪鬼',
@@ -3744,7 +3781,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '341',
     name: '震撼心灵的都市传说',
     album: '深秘乐曲集',
@@ -3755,7 +3792,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '342',
     name: '幻想乡不可思议发现',
     album: '深秘乐曲集',
@@ -3766,7 +3803,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '343',
     name: '有珠子的日常',
     album: '深秘乐曲集',
@@ -3777,7 +3814,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '344',
     name: '显现的传承形态',
     album: '深秘乐曲集',
@@ -3788,7 +3825,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '345',
     name: '时代风潮的造访',
     album: '深秘乐曲集',
@@ -3799,7 +3836,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '346',
     name: '价值不明',
     album: '深秘乐曲集',
@@ -3810,7 +3847,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '347',
     name: '相信可能性',
     album: '深秘乐曲集',
@@ -3821,7 +3858,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '348',
     name: '知晓真相之人',
     album: '深秘乐曲集',
@@ -3832,7 +3869,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '349',
     name: '外界民俗',
     album: '深秘乐曲集',
@@ -3843,7 +3880,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '350',
     name: '各自的结局',
     album: '深秘乐曲集',
@@ -3854,7 +3891,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '351',
     name: '被揭晓的深秘',
     album: '深秘乐曲集',
@@ -3865,7 +3902,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '352',
     name: '灵异任你选（Occult Attract）',
     album: '深秘乐曲集',
@@ -3876,7 +3913,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '353',
     name: '七玉搜集大摊牌',
     album: '深秘乐曲集',
@@ -3887,7 +3924,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '354',
     name: '公正的争夺',
     album: '深秘乐曲集',
@@ -3898,7 +3935,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '355',
     name: '对跖点之钟',
     album: '深秘乐曲集',
@@ -3909,7 +3946,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '356',
     name: '竹林大火',
     album: '深秘乐曲集',
@@ -3920,7 +3957,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '357',
     name: '华狭间的战场',
     album: '深秘乐曲集',
@@ -3931,7 +3968,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '358',
     name: 'Last Occultism ~现世的秘术师',
     album: '深秘乐曲集',
@@ -3942,62 +3979,67 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '359',
     name: '新竹林大火',
     album: '深秘乐曲集·补',
     date: 20161208,
-    image: 'https://upload.thwiki.cc/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/51/TFM-008_02.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '360',
     name: '亿万劫之钟',
     album: '深秘乐曲集·补',
     date: 20161208,
-    image: 'https://upload.thwiki.cc/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d8/TFM-008_03.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '361',
     name: 'Occult Attract',
     album: '深秘乐曲集·补',
     date: 20161208,
-    image: 'https://upload.thwiki.cc/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a0/TFM-008_04.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '362',
     name: '境界民俗',
     album: '深秘乐曲集·补',
     date: 20161208,
-    image: 'https://upload.thwiki.cc/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b9/TFM-008_05.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '363',
     name: '容貌错乱　～ Horrible Night',
     album: '深秘乐曲集·补',
     date: 20161208,
-    image: 'https://upload.thwiki.cc/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/3e/TFM-008_07.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '364',
     name: '宇宙巫女现身',
     album: '东方绀珠传',
@@ -4008,7 +4050,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '365',
     name: '忘不了，那曾依藉的绿意',
     album: '东方绀珠传',
@@ -4019,7 +4061,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '366',
     name: '兔已着陆',
     album: '东方绀珠传',
@@ -4030,7 +4072,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '367',
     name: '湖上倒映着洁净的月光',
     album: '东方绀珠传',
@@ -4041,7 +4083,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '368',
     name: '九月的南瓜',
     album: '东方绀珠传',
@@ -4052,7 +4094,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '369',
     name: '飞翔于宇宙的不可思议巫女',
     album: '东方绀珠传',
@@ -4063,7 +4105,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '370',
     name: '永远的春梦',
     album: '东方绀珠传',
@@ -4074,7 +4116,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '371',
     name: '冻结的永远之都',
     album: '东方绀珠传',
@@ -4085,7 +4127,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '372',
     name: '逆转的命运之轮',
     album: '东方绀珠传',
@@ -4096,7 +4138,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '373',
     name: '遥遥38万公里的航程',
     album: '东方绀珠传',
@@ -4107,7 +4149,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '374',
     name: '星条旗的小丑',
     album: '东方绀珠传',
@@ -4118,7 +4160,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '375',
     name: '故乡之星倒映之海',
     album: '东方绀珠传',
@@ -4129,7 +4171,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '376',
     name: 'Pure Furies　～ 心之所在',
     album: '东方绀珠传',
@@ -4140,7 +4182,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '377',
     name: '前所未见的噩梦世界',
     album: '东方绀珠传',
@@ -4151,7 +4193,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '378',
     name: 'Pandemonic Planet',
     album: '东方绀珠传',
@@ -4162,7 +4204,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '379',
     name: '从神社所见之月',
     album: '东方绀珠传',
@@ -4173,7 +4215,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '380',
     name: '宇宙巫女归还',
     album: '东方绀珠传',
@@ -4184,51 +4226,55 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '381',
     name: '心绮楼祭囃子',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0d/TFM-006b_01.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '382',
     name: '出演者选择',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/87/TFM-006b_02.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '383',
     name: '没用上的场所',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/18/TFM-006b_03.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '384',
     name: 'Lastword发动',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/51/TFM-006b_14.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '385',
     name: '樱花舞落的天空',
     album: '东方天空璋',
@@ -4239,7 +4285,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '386',
     name: '希望之星直升青霄',
     album: '东方天空璋',
@@ -4250,7 +4296,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '387',
     name: '仲夏的妖精梦',
     album: '东方天空璋',
@@ -4261,7 +4307,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '388',
     name: '妖怪山间无色风',
     album: '东方天空璋',
@@ -4272,7 +4318,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '389',
     name: '深山的遭遇',
     album: '东方天空璋',
@@ -4283,7 +4329,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '390',
     name: '泳于樱色之海',
     album: '东方天空璋',
@@ -4294,7 +4340,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '391',
     name: '一对的神兽',
     album: '东方天空璋',
@@ -4305,7 +4351,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '392',
     name: '幻想的White Traveler',
     album: '东方天空璋',
@@ -4316,7 +4362,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '393',
     name: '魔法的笠地藏',
     album: '东方天空璋',
@@ -4327,7 +4373,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '394',
     name: '禁断之门对面，是此世还是彼世',
     album: '东方天空璋',
@@ -4338,7 +4384,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '395',
     name: 'Crazy Back Dancers',
     album: '东方天空璋',
@@ -4349,7 +4395,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '396',
     name: 'Into Backdoor',
     album: '东方天空璋',
@@ -4360,7 +4406,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '397',
     name: '被秘匿的四个季节',
     album: '东方天空璋',
@@ -4371,7 +4417,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '398',
     name: '门再也进不去了',
     album: '东方天空璋',
@@ -4382,7 +4428,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '399',
     name: '秘神摩多罗　～ Hidden Star in All Seasons.',
     album: '东方天空璋',
@@ -4393,7 +4439,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '400',
     name: '不自然的自然',
     album: '东方天空璋',
@@ -4404,7 +4450,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '401',
     name: '白色旅人',
     album: '东方天空璋',
@@ -4415,381 +4461,415 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '402',
     name: '圣辇船飞向天空',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c6/TFM-009a_06.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '403',
     name: '凭投依合',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/bb/TFM-009a_02.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '404',
     name: 'Mushroom·Waltz',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/71/TFM-009a_04.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '405',
     name: '不灭的赤魂',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/53/TFM-009b_02.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '406',
     name: '法力之下的平等',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/30/TFM-009a_07.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '407',
     name: '恒常不变的参庙祀',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/08/TFM-009a_10.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '408',
     name: '光辉的天球仪',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e9/TFM-009a_11.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '409',
     name: '泽之河童的技术力',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/55/TFM-009a_13.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '410',
     name: '地底绽放的蔷薇',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/05/TFM-009a_14.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '411',
     name: '在深绿的狸森里',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/04/TFM-009a_15.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '412',
     name: '心绮楼演舞',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f5/TFM-009b_06.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '413',
     name: '落日映照下的逆城',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/36/TFM-009b_05.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '414',
     name: '克服万千之试炼',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/13/TFM-009b_12.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '415',
     name: '梦世界民俗',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/13/TFM-009b_08.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '416',
     name: '永远延续的回廊',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/ef/TFM-009b_03.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '417',
     name: 'Sleep Sheep·Parade',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5e/TFM-009b_09.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '418',
     name: '到达有顶天',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/61/TFM-009b_11.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '419',
     name: '凭坐处于梦与现实之间　～ Necro-Fantasia',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8f/TFM-009a_17.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '420',
     name: '今宵是飘逸的自我主义者(Live ver)　～ Egoistic Flowers.',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/69/TFM-009b_14.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '421',
     name: '连带责人',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/34/TFM-009a_05.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '422',
     name: '合缘奇缘',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f4/TFM-009a_09.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '423',
     name: '异心同体',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5b/TFM-009a_12.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '424',
     name: '豪言壮语',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a4/TFM-009b_04.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '425',
     name: '智略纵横',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/86/TFM-009a_16.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '426',
     name: '意气洋洋',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/29/TFM-009b_07.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '427',
     name: '开演间近',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/39/TFM-009b_13.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '428',
     name: '行云流水',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2b/TFM-009a_18.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '429',
     name: '异变的种子',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/63/TFM-009a_01.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '430',
     name: '疑惑的萌芽',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4b/TFM-009a_08.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '431',
     name: '含苞待放的凭依华',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/54/TFM-009a_19.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '432',
     name: '通往真相的枝叶',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/98/TFM-009b_01.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '433',
     name: '争奇斗艳的凭依华',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a8/TFM-009b_15.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '434',
     name: '飞舞飘散的凭依华吹雪',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/cd/TFM-009b_16.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '435',
     name: '凭依华',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/dc/TFM-009c_01.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '436',
     name: '噩梦日记',
     album: '秘封噩梦日记',
@@ -4800,7 +4880,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '437',
     name: 'Lucid Dreamer',
     album: '秘封噩梦日记',
@@ -4811,7 +4891,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '438',
     name: 'Lunatic Dreamer',
     album: '秘封噩梦日记',
@@ -4822,7 +4902,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '439',
     name: 'Nightmare Diary',
     album: '秘封噩梦日记',
@@ -4833,7 +4913,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '440',
     name: '沉默的兽灵',
     album: '东方鬼形兽',
@@ -4844,7 +4924,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '441',
     name: '只有地藏知晓的哀叹',
     album: '东方鬼形兽',
@@ -4855,7 +4935,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '442',
     name: 'Jelly Stone',
     album: '东方鬼形兽',
@@ -4866,7 +4946,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '443',
     name: 'Lost River',
     album: '东方鬼形兽',
@@ -4877,7 +4957,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '444',
     name: '石之婴儿与水中牛',
     album: '东方鬼形兽',
@@ -4888,7 +4968,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '445',
     name: '不朽的曼珠沙华',
     album: '东方鬼形兽',
@@ -4899,7 +4979,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '446',
     name: 'Seraphic Chicken',
     album: '东方鬼形兽',
@@ -4910,7 +4990,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '447',
     name: 'Unlocated Hell',
     album: '东方鬼形兽',
@@ -4921,7 +5001,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '448',
     name: 'Tortoise Dragon　～ 幸运与不幸',
     album: '东方鬼形兽',
@@ -4932,7 +5012,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '449',
     name: 'Beast Metropolis',
     album: '东方鬼形兽',
@@ -4943,7 +5023,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '450',
     name: '陶瓷的杖刀人',
     album: '东方鬼形兽',
@@ -4954,7 +5034,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '451',
     name: 'Electric Heritage',
     album: '东方鬼形兽',
@@ -4965,7 +5045,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '452',
     name: '寄世界于偶像　～ Idoratrize World',
     album: '东方鬼形兽',
@@ -4976,7 +5056,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '453',
     name: '闪耀的弱肉强食法则',
     album: '东方鬼形兽',
@@ -4987,7 +5067,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '454',
     name: '圣德太子的天马　～ Dark Pegasus',
     album: '东方鬼形兽',
@@ -4998,7 +5078,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '455',
     name: '畜生们的休息',
     album: '东方鬼形兽',
@@ -5009,7 +5089,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '456',
     name: '从地下的归还',
     album: '东方鬼形兽',
@@ -5020,73 +5100,79 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '457',
     name: '被水淹没的沉愁地狱',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4a/th175_01.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '458',
     name: '大地之底，刚欲之海',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/14/th175_09.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '459',
     name: '贪欲之兽的记忆',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/20/th175_23.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '460',
     name: '全有机体的记忆　～ Memory of Fossil Energy.',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/ae/th175_24.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '461',
     name: '天理人欲',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2b/th175_03.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '462',
     name: '东方刚欲异闻',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fb/th175_02.ogg',
     reason: '',
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '463',
     name: '架起虹桥的幻想乡',
     album: '东方虹龙洞',
@@ -5097,7 +5183,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '464',
     name: '妖异们的骤雨',
     album: '东方虹龙洞',
@@ -5108,7 +5194,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '465',
     name: '大吉猫咪',
     album: '东方虹龙洞',
@@ -5119,7 +5205,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '466',
     name: '深绿掩映的断崖',
     album: '东方虹龙洞',
@@ -5130,7 +5216,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '467',
     name: 'Banditry Technology',
     album: '东方虹龙洞',
@@ -5141,7 +5227,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '468',
     name: '驹草盛开的万年积雪',
     album: '东方虹龙洞',
@@ -5152,7 +5238,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '469',
     name: 'Smoking Dragon',
     album: '东方虹龙洞',
@@ -5163,7 +5249,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '470',
     name: '日渐荒废的工业遗址',
     album: '东方虹龙洞',
@@ -5174,7 +5260,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '471',
     name: '神代矿石',
     album: '东方虹龙洞',
@@ -5185,7 +5271,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '472',
     name: '渴盼已久的逢魔之刻',
     album: '东方虹龙洞',
@@ -5196,7 +5282,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '473',
     name: '天魔之山漫天星',
     album: '东方虹龙洞',
@@ -5207,7 +5293,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '474',
     name: 'Lunar Rainbow',
     album: '东方虹龙洞',
@@ -5218,7 +5304,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '475',
     name: '熙攘市场今何在　～ Immemorial Marketeers',
     album: '东方虹龙洞',
@@ -5229,7 +5315,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '476',
     name: '幻想地下大轨道网',
     album: '东方虹龙洞',
@@ -5240,7 +5326,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '477',
     name: '灭杀龙王的公主',
     album: '东方虹龙洞',
@@ -5251,7 +5337,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '478',
     name: '风暴过后的星期日',
     album: '东方虹龙洞',
@@ -5262,7 +5348,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '479',
     name: '虹色的世界',
     album: '东方虹龙洞',
@@ -5273,7 +5359,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '480',
     name: '蓬莱传说',
     album: '蓬莱人形',
@@ -5284,7 +5370,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '481',
     name: '人偶之森',
     album: '蓬莱人形',
@@ -5295,7 +5381,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '482',
     name: '空中飞翔的巫女不可思议的每天',
     album: '蓬莱人形',
@@ -5306,7 +5392,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '483',
     name: '走在夜晚的莲台野',
     album: '莲台野夜行',
@@ -5317,7 +5403,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '484',
     name: '少女秘封俱乐部',
     album: '莲台野夜行',
@@ -5328,7 +5414,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '485',
     name: '古老的冥界寺',
     album: '莲台野夜行',
@@ -5339,7 +5425,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '486',
     name: '魔术师梅莉',
     album: '莲台野夜行',
@@ -5350,7 +5436,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '487',
     name: '月之妖鸟、化猫之幻',
     album: '莲台野夜行',
@@ -5361,7 +5447,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '488',
     name: '过去的花 ～ Fairy of Flower',
     album: '莲台野夜行',
@@ -5372,7 +5458,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '489',
     name: '幻想的永远祭',
     album: '莲台野夜行',
@@ -5383,7 +5469,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '490',
     name: '童祭 ～ Innocent Treasures',
     album: '梦违科学世纪',
@@ -5394,7 +5480,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '491',
     name: '华胥之梦',
     album: '梦违科学世纪',
@@ -5405,7 +5491,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '492',
     name: '科学世纪的少年少女',
     album: '梦违科学世纪',
@@ -5416,7 +5502,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '493',
     name: '梦境与现实的境界',
     album: '梦违科学世纪',
@@ -5427,7 +5513,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '494',
     name: '广重36号 ～ Neo Super-Express',
     album: '卯酉东海道',
@@ -5438,7 +5524,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '495',
     name: '53分钟的蓝色大海',
     album: '卯酉东海道',
@@ -5449,7 +5535,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '496',
     name: '青木原的传说',
     album: '卯酉东海道',
@@ -5460,7 +5546,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '497',
     name: '最澄澈的空与海',
     album: '卯酉东海道',
@@ -5471,7 +5557,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '498',
     name: '欢迎来到月面旅行团',
     album: '大空魔术',
@@ -5482,7 +5568,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '499',
     name: '天空的格林尼治',
     album: '大空魔术',
@@ -5493,7 +5579,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '500',
     name: '轮椅上的未来宇宙',
     album: '大空魔术',
@@ -5504,7 +5590,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '501',
     name: '卫星露天咖啡屋',
     album: '大空魔术',
@@ -5515,7 +5601,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '502',
     name: 'G Free',
     album: '大空魔术',
@@ -5526,7 +5612,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '503',
     name: '大空魔术 ～ Magical Astronomy',
     album: '大空魔术',
@@ -5537,7 +5623,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '504',
     name: '月的另一侧',
     album: '大空魔术',
@@ -5548,18 +5634,19 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '505',
     name: '未知之花 魅知之旅',
     album: '未知之花 魅知之旅',
     date: 20110508,
-    image: 'https://upload.thwiki.cc/c/cf/%E6%9C%AA%E7%9F%A5%E4%B9%8B%E8%8A%B1%E9%AD%85%E7%9F%A5%E4%B9%8B%E6%97%85disc.jpg',
+    image:
+      'https://upload.thwiki.cc/c/cf/%E6%9C%AA%E7%9F%A5%E4%B9%8B%E8%8A%B1%E9%AD%85%E7%9F%A5%E4%B9%8B%E6%97%85disc.jpg',
     music: 'https://upload.thwiki.cc/7/7b/hr06_01.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '506',
     name: '卫星鸟船',
     album: '鸟船遗迹',
@@ -5570,7 +5657,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '507',
     name: '特洛伊群的密林',
     album: '鸟船遗迹',
@@ -5581,7 +5668,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '508',
     name: '天鸟船神社',
     album: '鸟船遗迹',
@@ -5592,7 +5679,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '509',
     name: '天鸟船神社的结界',
     album: '鸟船遗迹',
@@ -5603,7 +5690,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '510',
     name: '漂浮于宇宙之中的幻想乡',
     album: '鸟船遗迹',
@@ -5614,7 +5701,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '511',
     name: '绿意盎然的疗养院',
     album: '伊奘诺物质',
@@ -5625,7 +5712,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '512',
     name: '被牛引到善光寺',
     album: '伊奘诺物质',
@@ -5636,7 +5723,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '513',
     name: '阿加尔塔之风',
     album: '伊奘诺物质',
@@ -5647,7 +5734,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '514',
     name: '伊奘诺物质',
     album: '伊奘诺物质',
@@ -5658,7 +5745,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '515',
     name: '收集日本各地的不可思议',
     album: '伊奘诺物质',
@@ -5669,18 +5756,19 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '516',
     name: 'Theme of Eastern Story',
     album: '幺乐团的历史',
     date: 20060521,
-    image: 'https://upload.thwiki.cc/c/c8/%E5%B9%BA%E4%B9%90%E5%9B%A2%E7%9A%84%E5%8E%86%E5%8F%B25%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/c8/%E5%B9%BA%E4%B9%90%E5%9B%A2%E7%9A%84%E5%8E%86%E5%8F%B25%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/62/ha05_15.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '517',
     name: '天真无邪的二人的博物志',
     album: '燕石博物志',
@@ -5691,7 +5779,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '518',
     name: 'Dr. Latency的令人不眠之瞳',
     album: '燕石博物志',
@@ -5702,7 +5790,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '519',
     name: '比普朗克更短的须臾',
     album: '燕石博物志',
@@ -5713,7 +5801,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '520',
     name: '薛定谔的怪猫',
     album: '燕石博物志',
@@ -5724,7 +5812,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '521',
     name: '禁忌的膜壁',
     album: '燕石博物志',
@@ -5735,7 +5823,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '522',
     name: 'Bar·Old Adam',
     album: '旧约酒馆',
@@ -5746,7 +5834,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '523',
     name: '燕石博物志所带来的黑暗',
     album: '旧约酒馆',
@@ -5757,7 +5845,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '524',
     name: 'Outsider Cocktail',
     album: '旧约酒馆',
@@ -5768,7 +5856,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '525',
     name: '旧世界的冒险酒吧',
     album: '旧约酒馆',
@@ -5779,7 +5867,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '526',
     name: '宿醉者的同床异梦',
     album: '旧约酒馆',
@@ -5790,18 +5878,19 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '527',
     name: '七石之狼、登天吞云',
     album: '虹色的北斗七星',
     date: 20211231,
-    image: 'https://upload.thwiki.cc/b/b4/%E8%99%B9%E8%89%B2%E7%9A%84%E5%8C%97%E6%96%97%E4%B8%83%E6%98%9F%E5%8D%9A%E5%AE%A2%E5%9B%BE.jpg',
+    image:
+      'https://upload.thwiki.cc/b/b4/%E8%99%B9%E8%89%B2%E7%9A%84%E5%8C%97%E6%96%97%E4%B8%83%E6%98%9F%E5%8D%9A%E5%AE%A2%E5%9B%BE.jpg',
     music: 'https://upload.thwiki.cc/b/b1/hr11_01.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '528',
     name: 'Japanese Saga',
     album: '东方求闻史纪',
@@ -5812,7 +5901,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '529',
     name: '阿礼的孩子',
     album: '东方求闻史纪',
@@ -5823,7 +5912,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '530',
     name: '飞翔夜晚的鸠山 - Power MIX',
     album: '东方求闻史纪',
@@ -5834,51 +5923,55 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '531',
     name: '妖怪宇宙旅行',
     album: '东方儚月抄',
     date: 20091225,
-    image: 'https://upload.thwiki.cc/2/2e/%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/2/2e/%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5a/SSiB_01.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '532',
     name: '绵月的符卡 ～ Lunatic Blue',
     album: '东方儚月抄',
     date: 20091225,
-    image: 'https://upload.thwiki.cc/2/2e/%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/2/2e/%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2e/SSiB_02.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '533',
     name: '风神少女',
     album: '东方文花帖（书籍）',
     date: 20050811,
-    image: 'https://upload.thwiki.cc/6/6b/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/6/6b/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/47/BAiJR_01.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '534',
     name: '花映塚 ～ after Higan Retour',
     album: '东方文花帖（书籍）',
     date: 20050811,
-    image: 'https://upload.thwiki.cc/6/6b/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/6/6b/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/72/BAiJR_03.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '535',
     name: '魔法使的忧郁',
     album: 'The Grimoire of Marisa',
@@ -5889,7 +5982,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '536',
     name: 'Sunny Rutile Flection',
     album: '东方三月精',
@@ -5900,7 +5993,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '537',
     name: '因夜失眠',
     album: '东方三月精',
@@ -5911,7 +6004,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '538',
     name: '妖精灿烂的样子',
     album: '东方三月精',
@@ -5922,7 +6015,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '539',
     name: '桑尼米尔克的红雾异变',
     album: '东方三月精',
@@ -5933,7 +6026,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '540',
     name: '雪月樱花之国',
     album: '东方三月精',
@@ -5944,7 +6037,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '541',
     name: 'Star Voyage2008',
     album: '东方三月精',
@@ -5955,7 +6048,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '542',
     name: '可爱的大战争叠奏曲',
     album: '东方三月精',
@@ -5966,7 +6059,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '543',
     name: '妖精冒险谭',
     album: '东方三月精',
@@ -5977,7 +6070,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '544',
     name: '两个世界',
     album: '东方三月精',
@@ -5988,7 +6081,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '545',
     name: '神域的捉迷藏生活',
     album: '东方三月精',
@@ -5999,7 +6092,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '546',
     name: '时刻旺盛的好奇心',
     album: '东方三月精',
@@ -6010,7 +6103,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '547',
     name: '午夜中的妖精舞会',
     album: '东方三月精',
@@ -6021,7 +6114,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '548',
     name: '妖精大战争 ～Faily Wars',
     album: '东方三月精',
@@ -6032,18 +6125,19 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '549',
     name: '识文解意的爱书人',
     album: '东方铃奈庵',
     date: 20130326,
-    image: 'https://upload.thwiki.cc/7/7c/%E4%B8%9C%E6%96%B9%E9%93%83%E5%A5%88%E5%BA%B51%E5%8D%B7%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/7/7c/%E4%B8%9C%E6%96%B9%E9%93%83%E5%A5%88%E5%BA%B51%E5%8D%B7%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e5/FS01_01.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
   },
-{
+  {
     id: '550',
     name: '秋霜玉　～ Clockworks',
     album: '秋霜玉',
@@ -6054,7 +6148,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '551',
     name: 'False Strawberry',
     album: '秋霜玉',
@@ -6065,7 +6159,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '552',
     name: 'Primrose Shiver',
     album: '秋霜玉',
@@ -6076,7 +6170,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '553',
     name: '幻想帝都',
     album: '秋霜玉',
@@ -6087,7 +6181,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '554',
     name: 'Disastrous Gemini',
     album: '秋霜玉',
@@ -6098,7 +6192,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '555',
     name: '华之幻想 红梦之宙',
     album: '秋霜玉',
@@ -6109,7 +6203,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '556',
     name: '天空军团',
     album: '秋霜玉',
@@ -6120,7 +6214,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '557',
     name: '斯普特尼克幻夜',
     album: '秋霜玉',
@@ -6131,7 +6225,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '558',
     name: '机械马戏团　～ Reverie（Circus Reverie）',
     album: '秋霜玉',
@@ -6142,7 +6236,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '559',
     name: '卡纳维拉尔角的梦幻少女',
     album: '秋霜玉',
@@ -6153,7 +6247,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '560',
     name: '魔法少女十字军',
     album: '秋霜玉',
@@ -6164,7 +6258,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '561',
     name: 'Antique Terror',
     album: '秋霜玉',
@@ -6175,7 +6269,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '562',
     name: '梦机械　～ Innocent Power',
     album: '秋霜玉',
@@ -6186,9 +6280,9 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '563',
-    name: '幻想科学　～ Doll\'s Phantom',
+    name: "幻想科学　～ Doll's Phantom",
     album: '秋霜玉',
     date: 20001230,
     image: 'https://upload.thwiki.cc/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
@@ -6197,9 +6291,9 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '564',
-    name: '少女神性　～ Pandora\'s Box',
+    name: "少女神性　～ Pandora's Box",
     album: '秋霜玉',
     date: 20001230,
     image: 'https://upload.thwiki.cc/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
@@ -6208,7 +6302,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '565',
     name: 'Silk Road Alice',
     album: '秋霜玉',
@@ -6219,7 +6313,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '566',
     name: '魔女们的舞会　～ Magus',
     album: '秋霜玉',
@@ -6230,7 +6324,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '567',
     name: '二色莲花蝶　～ Ancients（二色莲花蝶　～ Red and White）',
     album: '秋霜玉',
@@ -6241,7 +6335,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '568',
     name: 'Herselves',
     album: '秋霜玉',
@@ -6252,7 +6346,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '569',
     name: 'Titled Maid',
     album: '秋霜玉',
@@ -6263,7 +6357,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '570',
     name: '稀翁玉　～ Fairy Dance',
     album: '稀翁玉',
@@ -6274,7 +6368,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '571',
     name: '天鹅绒少女战　～ Velvet Battle',
     album: '稀翁玉',
@@ -6285,7 +6379,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '572',
     name: 'Castle Explorer -in the Sky-',
     album: '稀翁玉',
@@ -6296,7 +6390,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '573',
     name: '俄耳甫斯的诗　～ Pseudoclassic',
     album: '稀翁玉',
@@ -6307,7 +6401,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '574',
     name: '新幻想　～ New Fantasy',
     album: '稀翁玉',
@@ -6318,7 +6412,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '575',
     name: '奥尔良的圣骑士',
     album: '稀翁玉',
@@ -6329,7 +6423,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '576',
     name: 'My Maid',
     album: '稀翁玉',
@@ -6340,7 +6434,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '577',
     name: '樱花之恋塚　～ Flower of Japan',
     album: '稀翁玉',
@@ -6351,7 +6445,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '578',
     name: '少女战士　～ Heart of Valkyrie',
     album: '稀翁玉',
@@ -6362,7 +6456,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '579',
     name: '神秘的人偶　～ God Knows',
     album: '稀翁玉',
@@ -6373,7 +6467,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '580',
     name: 'Witch of Love Potion',
     album: 'Torte Le Magic',
@@ -6384,7 +6478,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '581',
     name: 'Magical and Hopeless',
     album: 'Torte Le Magic',
@@ -6395,7 +6489,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '582',
     name: 'Sacred Battle',
     album: 'Torte Le Magic',
@@ -6406,7 +6500,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '583',
     name: '酒鬼的雷姆利亚',
     album: '黄昏酒场',
@@ -6417,18 +6511,19 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '584',
     name: 'AN ORDEAL FROM GOD',
     album: '神魔讨绮传',
     date: 20080525,
-    image: 'https://upload.thwiki.cc/a/ae/%E7%A5%9E%E9%AD%94%E8%A8%8E%E7%B6%BA%E4%BC%9D_%EF%BD%9E_Magus_in_Mystic_Geometries.%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/a/ae/%E7%A5%9E%E9%AD%94%E8%A8%8E%E7%B6%BA%E4%BC%9D_%EF%BD%9E_Magus_in_Mystic_Geometries.%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/46/DNAS-MJST_29.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '585',
     name: '好奇的上海古牌',
     album: '东方幻想麻将',
@@ -6439,18 +6534,19 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['game'],
   },
-{
+  {
     id: '586',
     name: '妖妖跋扈　～ Speed Fox!',
     album: 'Cradle - 东方幻乐祀典',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/3/3a/Cradle_-_%E6%9D%B1%E6%96%B9%E5%B9%BB%E6%A8%82%E7%A5%80%E5%85%B8%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/3/3a/Cradle_-_%E6%9D%B1%E6%96%B9%E5%B9%BB%E6%A8%82%E7%A5%80%E5%85%B8%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1f/SEPR-0001_17.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '587',
     name: 'Mysterious Shrine',
     album: '8BIT MUSIC POWER FINAL',
@@ -6461,7 +6557,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '588',
     name: '独一无二的投影',
     album: 'INDIE Live Expo',
@@ -6472,18 +6568,19 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['others'],
   },
-{
+  {
     id: '589',
     name: '日日是红日 ～ Folksy Touhou days.',
     album: '东方音焰火',
     date: 20210814,
-    image: 'https://upload.thwiki.cc/c/cb/%E6%9D%B1%E6%96%B9%E3%82%AA%E3%83%88%E3%83%8F%E3%83%8A%E3%83%93%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/c/cb/%E6%9D%B1%E6%96%B9%E3%82%AA%E3%83%88%E3%83%8F%E3%83%8A%E3%83%93%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/76/Folksy_Touhou_days.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
   },
-{
+  {
     id: '590',
     name: '黄昏的魔术师',
     album: '其他',
@@ -6494,7 +6591,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['others'],
   },
-{
+  {
     id: '591',
     name: 'Magic of Life',
     album: '其他',
@@ -6505,7 +6602,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['others'],
   },
-{
+  {
     id: '592',
     name: 'Plastic Space',
     album: '其他',
@@ -6516,7 +6613,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['others'],
   },
-{
+  {
     id: '593',
     name: 'Inventive City',
     album: '其他',
@@ -6527,7 +6624,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['others'],
   },
-{
+  {
     id: '594',
     name: '梦幻回廊',
     album: '其他',
@@ -6538,7 +6635,7 @@ export const musicList: Music[] = [
     honmei: false,
     kind: ['others'],
   },
-{
+  {
     id: '595',
     name: '蓬莱幻想 ～ far East',
     album: '其他',
@@ -6579,7 +6676,6 @@ export const orderOptions = [
 ]
 
 export const order = ref(orderOptions[0])
-import { albumSelected, filterForKind } from '@/vote-music/lib/albumList'
 export const keyword = ref('')
 
 export const musicListLeftWithFilter = computed<Music[]>(() => {
@@ -6603,7 +6699,7 @@ export const musicListLeftWithFilter = computed<Music[]>(() => {
     })
   }
   if (keyword.value != '') {
-    const regex = new RegExp(keyword.value,"i")
+    const regex = new RegExp(keyword.value, 'i')
     list = list.filter((item) => {
       if (regex.test(item.name)) return true
       if (regex.test(item.album)) return true

@@ -139,6 +139,7 @@
 
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import {
   IsQuestionnaireAllDone,
   IsQuestionnaireDone,
@@ -148,7 +149,6 @@ import {
   questionnaireComputed,
   questionnaireData,
 } from '@/questionnaire/lib/questionnaireData'
-import { useRoute, useRouter } from 'vue-router'
 import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
 import QuestionnaireChange from '@/questionnaire/components/QuestionnaireChange.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'

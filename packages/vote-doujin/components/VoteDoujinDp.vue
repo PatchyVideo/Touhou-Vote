@@ -66,11 +66,11 @@
 </template>
 
 <script lang="ts" setup>
-import DoujinCardDp from '@/vote-doujin/components/DoujinCardDp.vue'
-import EditDoujin from '@/vote-doujin/components/EditDoujin.vue'
 import { ref, watchEffect } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import NProgress from 'nprogress'
+import EditDoujin from '@/vote-doujin/components/EditDoujin.vue'
+import DoujinCardDp from '@/vote-doujin/components/DoujinCardDp.vue'
 import { doujins, updateVoteDataDoujins } from '@/vote-doujin/lib/voteData'
 import { doujinValid } from '@/vote-doujin/lib/doujinList'
 import { gql, useMutation, useQuery, useResult } from '@/graphql'

@@ -17,9 +17,9 @@
 </template>
 
 <script lang="ts" setup>
-import { screenSizes } from '@/tailwindcss'
 import { useRouter } from 'vue-router'
 import { popConfirmText } from '../lib/popMessage'
+import { screenSizes } from '@/tailwindcss'
 
 const router = useRouter()
 

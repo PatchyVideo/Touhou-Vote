@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType} from 'vue';
+import type { PropType } from 'vue'
 import { ref, shallowRef, watch } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'

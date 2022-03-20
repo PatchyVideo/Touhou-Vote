@@ -126,13 +126,14 @@
 </template>
 
 <script lang="ts" setup>
-import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
-import BackToHome from '@/common/components/BackToHome.vue'
-import MusicSelect from './components/MusicSelect.vue'
-import MusicCard from '@/vote-music/components/MusicCard.vue'
-import MusicHonmeiCard from './components/MusicHonmeiCard.vue'
 import { computed, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
+import NProgress from 'nprogress'
+import MusicSelect from './components/MusicSelect.vue'
+import MusicHonmeiCard from './components/MusicHonmeiCard.vue'
+import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import BackToHome from '@/common/components/BackToHome.vue'
+import MusicCard from '@/vote-music/components/MusicCard.vue'
 import { music0 } from '@/vote-music/lib/music'
 import { musicsReverse, musicsReverseWithoutHonmei } from '@/vote-music/lib/musicList'
 import { musicHonmei, musics, updateVotemusics } from '@/vote-music/lib/voteData'
@@ -140,7 +141,6 @@ import { gql, useMutation, useQuery, useResult } from '@/graphql'
 import type { Mutation, Query, schema } from '@/graphql'
 import { voteMusicComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
-import NProgress from 'nprogress'
 import { popMessageText } from '@/common/lib/popMessage'
 
 setSiteTitle('音乐部门 - 第⑩回 中文东方人气投票')

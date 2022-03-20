@@ -129,13 +129,14 @@
 </template>
 
 <script lang="ts" setup>
-import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
-import BackToHome from '@/common/components/BackToHome.vue'
-import CharacterSelect from './components/CharacterSelect.vue'
-import CharacterCard from '@/vote-character/components/CharacterCard.vue'
-import CharacterHonmeiCard from './components/CharacterHonmeiCard.vue'
 import { computed, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
+import NProgress from 'nprogress'
+import CharacterSelect from './components/CharacterSelect.vue'
+import CharacterHonmeiCard from './components/CharacterHonmeiCard.vue'
+import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import BackToHome from '@/common/components/BackToHome.vue'
+import CharacterCard from '@/vote-character/components/CharacterCard.vue'
 import { character0 } from '@/vote-character/lib/character'
 import { charactersReverse, charactersReverseWithoutHonmei } from '@/vote-character/lib/characterList'
 import { characterHonmei, characters, updateVotecharacters } from '@/vote-character/lib/voteData'
@@ -143,7 +144,6 @@ import { gql, useMutation, useQuery, useResult } from '@/graphql'
 import type { Mutation, Query, schema } from '@/graphql'
 import { voteCharacterComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
-import NProgress from 'nprogress'
 import { popMessageText } from '@/common/lib/popMessage'
 
 setSiteTitle('角色部门 - 第⑩回 中文东方人气投票')

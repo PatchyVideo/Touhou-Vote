@@ -59,14 +59,16 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType} from 'vue';
+import type { PropType } from 'vue'
 import { computed, ref, watchEffect } from 'vue'
 import { useVModels } from '@vueuse/core'
+import AdvancedFilter from './AdvancedFilter.vue'
 import { Character } from '@/vote-character/lib/character'
 import { characterList } from '@/vote-character/lib/characterList'
 import { Couple } from '@/vote-couple/lib/couple'
 import VoteSelect from '@/common/components/VoteSelect.vue'
-import AdvancedFilter from './AdvancedFilter.vue'
+
+import { filterForKind, workSelected } from '@/vote-couple/lib/workList'
 
 const props = defineProps({
   open: {
@@ -132,8 +134,6 @@ function search(): void {
   searchContent.value = searchContent.value.trim()
   keyword.value = searchContent.value
 }
-
-import { filterForKind, workSelected } from '@/vote-couple/lib/workList'
 const characterListLeftWithFilter = computed<Character[]>(() => {
   let list: Character[] = JSON.parse(JSON.stringify(characterListLeft.value))
   list.sort((a, b) =>

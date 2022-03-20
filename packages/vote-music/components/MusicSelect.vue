@@ -65,14 +65,14 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType} from 'vue';
+import type { PropType } from 'vue'
 import { computed, ref, watchEffect } from 'vue'
 import { useVModels } from '@vueuse/core'
+import AdvancedFilter from './AdvancedFilter.vue'
 import { Music } from '@/vote-music/lib/music'
 import { musicHonmeiListLeft, musicListLeftWithFilter, order, orderOptions } from '@/vote-music/lib/musicList'
 import { musics } from '@/vote-music/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
-import AdvancedFilter from './AdvancedFilter.vue'
 import AutoComplete from '@/common/components/AutoComplete.vue'
 import MusicImages from '@/vote-music/assets/defaultMusicImage.jpg?url'
 

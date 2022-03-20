@@ -96,9 +96,9 @@
 </template>
 
 <script lang="ts" setup>
-import LoginBox from './components/LoginBox.vue'
 import { computed, ref } from 'vue'
 import { useIntervalFn } from '@vueuse/core'
+import LoginBox from './components/LoginBox.vue'
 import { screenSizes } from '@/tailwindcss'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { deadlineWithTimezoneOffset } from '@/end-page/lib/voteEnded'
