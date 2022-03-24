@@ -27,7 +27,11 @@
           class="p-1 rounded shadow bg-white flex ring"
           :style="'--tw-ring-color:' + item.color"
         >
-          <img class="w-1/3 rounded border" loading="lazy" :src="item.image" />
+          <div class="w-1/3 max-w-32">
+            <div class="aspect-ratio-1/1 rounded border">
+              <img loading="lazy" :src="item.image ? item.image : characterImages" />
+            </div>
+          </div>
           <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">
               <div class="truncate opacity-60" :style="'color:' + item.color">{{ item.title }}</div>
@@ -67,6 +71,7 @@ import { Character } from '@/vote-character/lib/character'
 import { characterList } from '@/vote-character/lib/characterList'
 import { Couple } from '@/vote-couple/lib/couple'
 import VoteSelect from '@/common/components/VoteSelect.vue'
+import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
 
 import { filterForKind, workSelected } from '@/vote-couple/lib/workList'
 

@@ -363,7 +363,6 @@ const {
   `
 )
 onDone((result) => {
-  popMessageText('提交成功！')
   submitCompleteMessageBoxOpen.value = true
 })
 onError((error) => {
