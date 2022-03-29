@@ -11,7 +11,7 @@ import animation from '@windicss/plugin-animations'
  */
 export default defineConfig({
   extract: {
-    include: ['packages/**/*.{html,vue,ts,tsx,js,jsx,css}'],
+    include: ['src/**/*.{html,vue,ts,tsx,js,jsx,css}'],
   },
   darkMode: 'class',
   theme: {

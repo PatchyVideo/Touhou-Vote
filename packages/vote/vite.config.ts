@@ -1,6 +1,6 @@
 // @ts-check
-import fs, { promises as fsp } from 'fs'
-import path from 'path'
+import { promises as fsp } from 'fs'
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import windicss from 'vite-plugin-windicss'
@@ -20,16 +20,16 @@ export default defineConfig(async ({ command, mode }) => {
   {
     const list = ['dts']
     const promises = []
-    for (const dir of list) promises.push(fsp.mkdir(path.resolve(__dirname, `./packages/${dir}/__generated__`)))
+    for (const dir of list) promises.push(fsp.mkdir(resolve(__dirname, `./src/${dir}/__generated__`)))
     await Promise.allSettled(promises)
   }
 
   return {
     resolve: {
-      alias: [
-        { find: '@', replacement: path.resolve(__dirname, './packages/') },
-        { find: '@@', replacement: path.resolve(__dirname, './') },
-      ],
+      alias: {
+        '@/': `${resolve(__dirname, './src/')}/`,
+        '@@/': `${resolve(__dirname, './')}/`,
+      },
     },
     plugins: [
       yaml(),
@@ -42,7 +42,7 @@ export default defineConfig(async ({ command, mode }) => {
             componentPrefix: 'icon',
           }),
         ],
-        dts: 'packages/dts/__generated__/viteComponents.d.ts',
+        dts: resolve(__dirname, './src/dts/__generated__/viteComponents.d.ts'),
       }),
       icons(),
       {

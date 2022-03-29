@@ -2,7 +2,7 @@ overwrite: true
 schema:
   - https://touhou-vote.vercel.app/v10-be/graphql
 generates:
-  packages/graphql/__generated__/graphql.ts:
+  src/graphql/__generated__/graphql.ts:
     plugins:
       - typescript
     config:
@@ -13,15 +13,15 @@ generates:
         DateTimeUtc: Date
         UtcDateTime: Date
         ObjectId: '../index#ObjectID as ObjectId'
-  packages/graphql/__generated__/graphql.fragment.ts:
+  src/graphql/__generated__/graphql.fragment.ts:
     plugins:
       - fragment-matcher
-  packages/graphql/__generated__/schema.graphql:
+  src/graphql/__generated__/schema.graphql:
     plugins:
       - schema-ast
-  packages/graphql/__generated__/typePolicies.ts:
+  src/graphql/__generated__/typePolicies.ts:
     plugins:
-      - packages/graphql/scripts/codegenPluginTypePolicy.js
+      - src/graphql/scripts/codegenPluginTypePolicy.js
     config:
       scalarTypePolicies:
         DateTimeUtc: '../typePolicies#dateTypePolicy'

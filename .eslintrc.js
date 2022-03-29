@@ -15,6 +15,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
+    'import/named': 'off',
     'import/no-unresolved': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
@@ -32,44 +33,12 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['./*.config.js', './*rc.js', '**/scripts/**/*.js', './public/**/*.js'],
+      files: ['**/*.config.js', '**/*rc.js', '**/scripts/**/*.js', '**/public/**/*.js'],
       env: {
         node: true,
       },
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
-      },
-    },
-    {
-      files: ['*.js', '*.jsx'],
-      env: {
-        es2020: true,
-        browser: true,
-      },
-    },
-    {
-      files: ['*.ts', '*.tsx'],
-      env: {
-        es2020: true,
-        browser: true,
-      },
-      parser: '@typescript-eslint/parser',
-    },
-    {
-      files: ['*.vue'],
-      env: {
-        es2020: true,
-        browser: true,
-      },
-      parser: 'vue-eslint-parser',
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-      },
-      globals: {
-        defineProps: 'readonly',
-        defineEmits: 'readonly',
-        defineExpose: 'readonly',
-        withDefaults: 'readonly',
       },
     },
   ],

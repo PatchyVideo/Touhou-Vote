@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "exclude": ["dist", "node_modules", "**/__tests__"],
+  "compilerOptions": {
+    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
+    "types": ["vite/client"],
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@@/*": ["./*"]
+    }
+  }
+}

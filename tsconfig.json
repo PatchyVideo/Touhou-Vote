@@ -1,23 +1,16 @@
 {
-  "include": ["packages"],
-  "exclude": ["**/__tests__"],
+  "exclude": ["dist", "node_modules", "./packages/vote/**", "./packages/navigator/**"],
   "compilerOptions": {
     "module": "ESNext",
     "moduleResolution": "Node",
-    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
-    "types": ["vite/client"],
-    "jsx": "preserve",
+    "lib": ["ESNext", "ESNext.AsyncIterable"],
+    "types": [],
     "target": "ES2018",
     "sourceMap": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "strict": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./packages/*"],
-      "@@/*": ["./*"]
-    }
+    "esModuleInterop": true
   }
 }

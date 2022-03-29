@@ -1,9 +1,9 @@
 {
-  "i18n-ally.localesPaths": "./packages/locales",
-  "i18n-ally.keystyle": "nested",
-  "i18n-ally.sourceLanguage": "zh-Hans-CN",
   "volar.tsPlugin": false,
   "windicss.enableCodeFolding": false,
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "conventionalCommits.scopes": []
+  "conventionalCommits.scopes": [],
+  "files.associations": {
+    "*.css": "postcss"
+  },
 }
