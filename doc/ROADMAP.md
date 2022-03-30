@@ -25,7 +25,7 @@
 
 ## 开发框架
 
-前端：Vite & Tailwind（WindiCSS）
+前端：Vite & UnoCSS
 
 ## 日常工作
 
