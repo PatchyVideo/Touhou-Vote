@@ -76,8 +76,8 @@
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
-                <div class="text-xl truncate">
-                  填写问卷
+                <div class="w-full flex items-center space-x-2">
+                  <div class="text-xl truncate">填写问卷</div>
                   <label v-if="IsQuestionnaireAllDone" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
                     >完成</label
                   >
@@ -106,8 +106,8 @@
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
-                <div class="text-xl truncate">
-                  参与投票
+                <div class="w-full flex items-center space-x-2">
+                  <div class="text-xl truncate">参与投票</div>
                   <label
                     v-if="voteCharacterComplete && voteMusicComplete && voteCoupleComplete"
                     class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
@@ -142,8 +142,8 @@
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
-                <div class="text-xl truncate">
-                  <label class="text-accent-color-600">（NEW）</label>提名系统
+                <div class="w-full flex items-center space-x-2">
+                  <div class="text-xl truncate"><label class="text-accent-color-600">（NEW）</label>提名系统</div>
                   <label v-if="voteDoujinComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
                     >完成</label
                   >
@@ -341,19 +341,6 @@
         </div>
       </div> -->
   </div>
-  <VoteMessageBox v-model:open="QuestionnaireruleMessageBoxOpen" title="问卷填写规则：">
-    <div class="p-2">
-      <div class="space-y-2">
-        <div>
-          需要完成调查问卷才能开始投票哦，本次投票将投票问卷拆分成了8份，分成主问卷和额外问卷两个大类，填写规则如下：
-        </div>
-        <div>• 主问卷中必填问卷需要填写</div>
-        <div>• 主问卷中可选问卷选择至少一个填写</div>
-        <div>• 额外中必填问卷选择至少一个填写</div>
-        <div>那么，祝各位投票愉快啦！</div>
-      </div>
-    </div>
-  </VoteMessageBox>
   <VoteMessageBox v-model:open="resetTabMessageBoxOpen" title="提示" close-button>
     <div class="p-2">需要先完成调查问卷才能开始投票哦！</div>
   </VoteMessageBox>
@@ -379,7 +366,6 @@ import {
   voteMusicComplete,
 } from '@/home/lib/user'
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
-import { ruleMessageBoxOpen } from '@/home/lib/questionnaireRule'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 
 setSiteTitle(username.value + ' - 第⑩回 中文东方人气投票')
@@ -389,16 +375,6 @@ const router = useRouter()
 
 /* User lists Operation */
 const userListOpen = ref(false)
-
-/* Questionnaire rule message box open */
-const QuestionnaireruleMessageBoxOpen = computed<boolean>({
-  get() {
-    return ruleMessageBoxOpen.value && systemListIsOpen.value === 1 && systemListOpenName.value === 'questionnaire'
-  },
-  set(value) {
-    ruleMessageBoxOpen.value = value
-  },
-})
 
 /* System List Operation */
 const systemListIsOpen = computed<number>(() => {
