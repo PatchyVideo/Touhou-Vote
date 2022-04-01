@@ -63,7 +63,7 @@ export interface QuestionnaireALL {
   [key: string]: MainQuestionnaire | ExtraQuestionnaire
 }
 
-// 问卷的大致分类参见文件：TOUHOU-VOTE/doc/QUESTIONAIREROADMAP.png
+// 问卷的大致分类参见文件：TOUHOU-VOTE/doc/questionnaireROADMAP.png
 export const questionnaire: QuestionnaireALL = {
   mainQuestionnaire: {
     requiredQuestionnaire: {

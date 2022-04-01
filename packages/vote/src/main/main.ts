@@ -37,7 +37,7 @@ appPromises.push(checkLoginStatusPromise)
 // router config
 declare module 'vue-router' {
   interface RouteMeta {
-    requrieQuestionaire?: boolean
+    requriequestionnaire?: boolean
     availableAfterVoteEnded?: boolean
   }
 }
@@ -62,22 +62,22 @@ const router = createRouter({
     {
       path: '/vote/character',
       component: () => import('@/vote-character/VoteCharacter.vue'),
-      meta: { requrieQuestionaire: true },
+      meta: { requriequestionnaire: true },
     },
     {
       path: '/vote/music',
       component: () => import('@/vote-music/VoteMusic.vue'),
-      meta: { requrieQuestionaire: true },
+      meta: { requriequestionnaire: true },
     },
     {
       path: '/vote/couple',
       component: () => import('@/vote-couple/VoteCouple.vue'),
-      meta: { requrieQuestionaire: true },
+      meta: { requriequestionnaire: true },
     },
     {
       path: '/doujin',
       component: () => import('@/vote-doujin/VoteDoujin.vue'),
-      meta: { requrieQuestionaire: true },
+      meta: { requriequestionnaire: true },
     },
     {
       path: '/test',
@@ -97,7 +97,7 @@ router.beforeEach(async (to, from, next) => {
   if (to.path != '/' && !isLogin.value) next({ path: '/' })
   else if (to.meta.availableAfterVoteEnded && voteEnded()) next()
   else if (voteEnded()) next({ path: '/' })
-  else if (to.meta.requrieQuestionaire && !IsQuestionnaireAllDone.value) next({ path: '/' })
+  else if (to.meta.requriequestionnaire && !IsQuestionnaireAllDone.value) next({ path: '/' })
   else next()
 })
 router.afterEach((guard) => {
