@@ -582,31 +582,31 @@ export const questionnaire: QuestionnaireALL = {
                 id: 1107101,
                 related: [],
                 mutex: [],
-                content: '半年以内（2021年4月及以后）',
+                content: '半年以内（2022年10月及以后）',
               },
               {
                 id: 1107102,
                 related: [],
                 mutex: [],
-                content: '半年至一年（2020年10月及以后）',
+                content: '半年至一年（2021年4月及以后）',
               },
               {
                 id: 1107103,
                 related: [],
                 mutex: [],
-                content: '一年至三年（2018年10月及以后）',
+                content: '一年至三年（2019年4月及以后）',
               },
               {
                 id: 1107104,
                 related: [],
                 mutex: [],
-                content: '三年至五年（2016年10月及以后）',
+                content: '三年至五年（2017年4月及以后）',
               },
               {
                 id: 1107105,
                 related: [],
                 mutex: [],
-                content: '五年至七年（2014年10月及以后）',
+                content: '五年至七年（2015年4月及以后）',
               },
               {
                 id: 1107106,
@@ -1887,7 +1887,7 @@ export const questionnaire: QuestionnaireALL = {
   extraQuestionnaire: {
     exQuestionnaire1: {
       id: 21,
-      name: '额外问卷 - 二创深入了解问卷',
+      name: '额外问卷 - 二创作者深入了解',
       introduction: '该部分问卷涉及投票者官作游玩的具体情况。投票者可以选择是否填写该问卷',
       questions: [
         [
