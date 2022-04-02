@@ -1,4 +1,4 @@
-<h3 align="center">第十回 国内东方人气投票</h3>
+<h3 align="center">第十回 中文东方人气投票</h3>
 
 <p align="center">
   <img alt="Commit activity" src="https://img.shields.io/github/commit-activity/m/PatchyVideo/Touhou-Vote" />
