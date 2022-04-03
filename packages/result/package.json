@@ -1,5 +1,5 @@
 {
-  "name": "touhou-vote-navigator",
+  "name": "touhou-vote-result",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -9,12 +9,15 @@
   },
   "dependencies": {
     "@vueuse/core": "^8.2.3",
+    "d3": "^7.4.1",
     "date-fns": "^2.28.0",
+    "touhou-vote-result-codegen": "workspace:*",
     "vue": "^3.2.31",
     "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.1",
+    "@types/d3": "^7.1.0",
     "@unocss/reset": "^0.30.11",
     "@vitejs/plugin-vue": "^2.3.1",
     "unocss": "^0.30.11",

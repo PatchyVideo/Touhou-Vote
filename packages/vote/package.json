@@ -15,8 +15,8 @@
     "@formatjs/intl-localematcher": "^0.2.24",
     "@vue/apollo-composable": "^4.0.0-alpha.16",
     "@vue/apollo-util": "^4.0.0-alpha.16",
-    "@vueuse/components": "^8.1.2",
-    "@vueuse/core": "^8.2.0",
+    "@vueuse/components": "^8.2.3",
+    "@vueuse/core": "^8.2.3",
     "bson-objectid": "^2.0.3",
     "graphql": "^16.3.0",
     "nprogress": "1.0.0-1",
@@ -28,10 +28,10 @@
     "@graphql-codegen/fragment-matcher": "^3.2.1",
     "@graphql-codegen/schema-ast": "^2.4.1",
     "@graphql-codegen/typescript": "^2.4.8",
-    "@iconify/json": "^2.1.19",
+    "@iconify/json": "^2.1.23",
     "@rollup/plugin-yaml": "^3.1.0",
     "@types/nprogress": "^0",
-    "@vitejs/plugin-vue": "^2.3.0-beta.0",
+    "@vitejs/plugin-vue": "^2.3.1",
     "@windicss/plugin-animations": "^1.0.9",
     "autoprefixer": "^10.4.4",
     "postcss": "^8.4.12",
@@ -42,7 +42,8 @@
     "ts-poet": "^4.10.0",
     "unplugin-icons": "^0.14.1",
     "unplugin-vue-components": "^0.18.5",
-    "vite": "^2.9.0-beta.7",
-    "vite-plugin-windicss": "^1.8.3"
+    "vite": "^2.9.1",
+    "vite-plugin-windicss": "^1.8.3",
+    "windicss": "^3.5.1"
   }
 }

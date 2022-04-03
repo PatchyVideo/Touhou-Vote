@@ -1,0 +1,16 @@
+{
+  "name": "touhou-vote-result-codegen",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen": "esmo src/main.ts"
+  },
+  "devDependencies": {
+    "@types/rimraf": "^3.0.2",
+    "@types/sqlite3": "^3.1.8",
+    "sqlite3": "^5.0.2"
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
