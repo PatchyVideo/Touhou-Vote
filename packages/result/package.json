@@ -4,8 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "lint": "eslint . --fix"
+    "serve": "vite preview"
   },
   "dependencies": {
     "@vueuse/core": "^8.2.4",

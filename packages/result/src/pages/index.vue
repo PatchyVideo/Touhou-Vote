@@ -11,7 +11,7 @@ const charasRendered = Object.fromEntries(
   Object.entries(charas)
     .map(([name, votesByYear]) => {
       const checked: ([number, number] | null)[] = votesByYear.map(([total, first]) =>
-        total && first && total > 50 && first > 10 ? ([total, first] as [number, number]) : null
+        total > 50 && first > 10 ? ([total, first] as [number, number]) : null
       )
       if (checked.filter(Boolean).length < 2) return null!
       return [name, checked] as const

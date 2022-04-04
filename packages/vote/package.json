@@ -6,8 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "codegen": "node ./scripts/codegen.js",
-    "lint": "eslint --ignore-path .gitignore --fix ."
+    "codegen": "node ./scripts/codegen.js"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",

@@ -2,8 +2,8 @@
   "volar.tsPlugin": false,
   "windicss.enableCodeFolding": false,
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "conventionalCommits.scopes": [],
+  "conventionalCommits.scopes": ["vote", "nav", "result", "resgen"],
   "files.associations": {
     "*.css": "postcss"
-  },
+  }
 }
