@@ -1,6 +1,6 @@
 import { readFile } from 'fs/promises'
-import type { Statement } from 'sqlite3'
-import sqlite3_ from 'sqlite3'
+import type { Statement } from '@vscode/sqlite3'
+import sqlite3_ from '@vscode/sqlite3'
 import { promisify } from 'util'
 
 const { Database } = sqlite3_.verbose()

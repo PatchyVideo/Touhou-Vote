@@ -103,11 +103,13 @@ importers:
   packages/result-codegen:
     specifiers:
       '@types/rimraf': ^3.0.2
+      '@vscode/sqlite3': ^5.0.8
       rimraf: ^3.0.2
     dependencies:
       rimraf: 3.0.2
     devDependencies:
       '@types/rimraf': 3.0.2
+      '@vscode/sqlite3': 5.0.8
 
   packages/vote:
     specifiers:
@@ -1981,6 +1983,13 @@ packages:
     dependencies:
       vite: 2.9.1
       vue: 3.2.31
+    dev: true
+
+  /@vscode/sqlite3/5.0.8:
+    resolution: {integrity: sha512-6wvQdMjpi1kwYI5mfzm98siEQb2mlBKX4xdNtJFj/uNqb6wqd3JOhk+5FL7geR0hduXE5lHjv+q69jtsEtUJDA==}
+    requiresBuild: true
+    dependencies:
+      node-addon-api: 4.3.0
     dev: true
 
   /@vue/apollo-composable/4.0.0-alpha.16_419eedcba8b03e8266c34069edbc0663:
@@ -5361,6 +5370,10 @@ packages:
     dependencies:
       lower-case: 2.0.2
       tslib: 2.3.1
+    dev: true
+
+  /node-addon-api/4.3.0:
+    resolution: {integrity: sha512-73sE9+3UaLYYFmDsFZnqCInzPyh3MqIwZO9cw58yIqAZhONrrabrYyYe3TuIqtIiOuTXVhsGau8hcrhhwSsDIQ==}
     dev: true
 
   /node-domexception/1.0.0:
