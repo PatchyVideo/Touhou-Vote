@@ -38,10 +38,11 @@ importers:
 
   packages/navigator:
     specifiers:
-      '@iconify-json/carbon': ^1.1.1
+      '@iconify-json/carbon': ^1.1.3
       '@unocss/reset': ^0.30.11
       '@vitejs/plugin-vue': ^2.3.1
-      '@vueuse/core': ^8.2.3
+      '@vue/compiler-sfc': ^3.2.31
+      '@vueuse/core': ^8.2.4
       date-fns: ^2.28.0
       unocss: ^0.30.11
       unplugin-auto-import: ^0.6.9
@@ -51,28 +52,30 @@ importers:
       vue: ^3.2.31
       vue-router: ^4.0.13
     dependencies:
-      '@vueuse/core': 8.2.3_vue@3.2.31
+      '@vueuse/core': 8.2.4_vue@3.2.31
       date-fns: 2.28.0
       vue: 3.2.31
       vue-router: 4.0.14_vue@3.2.31
     devDependencies:
-      '@iconify-json/carbon': 1.1.2
+      '@iconify-json/carbon': 1.1.3
       '@unocss/reset': 0.30.11
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.1+vue@3.2.31
+      '@vue/compiler-sfc': 3.2.31
       unocss: 0.30.11
-      unplugin-auto-import: 0.6.9_@vueuse+core@8.2.3+vite@2.9.1
+      unplugin-auto-import: 0.6.9_@vueuse+core@8.2.4+vite@2.9.1
       unplugin-vue-components: 0.18.5_vite@2.9.1+vue@3.2.31
       vite: 2.9.1
-      vite-plugin-pages: 0.22.0_vite@2.9.1
+      vite-plugin-pages: 0.22.0_8d0fc691400edae0d0bd7a997b66fb5e
 
   packages/result:
     specifiers:
-      '@iconify-json/carbon': ^1.1.1
+      '@iconify-json/carbon': ^1.1.3
       '@types/d3': ^7.1.0
       '@unocss/reset': ^0.30.11
       '@vitejs/plugin-vue': ^2.3.1
-      '@vueuse/core': ^8.2.3
-      d3: ^7.4.1
+      '@vue/compiler-sfc': ^3.2.31
+      '@vueuse/core': ^8.2.4
+      d3: ^7.4.2
       date-fns: ^2.28.0
       touhou-vote-result-codegen: workspace:*
       unocss: ^0.30.11
@@ -83,22 +86,23 @@ importers:
       vue: ^3.2.31
       vue-router: ^4.0.13
     dependencies:
-      '@vueuse/core': 8.2.3_vue@3.2.31
-      d3: 7.4.1
+      '@vueuse/core': 8.2.4_vue@3.2.31
+      d3: 7.4.2
       date-fns: 2.28.0
       touhou-vote-result-codegen: link:../result-codegen
       vue: 3.2.31
       vue-router: 4.0.14_vue@3.2.31
     devDependencies:
-      '@iconify-json/carbon': 1.1.2
+      '@iconify-json/carbon': 1.1.3
       '@types/d3': 7.1.0
       '@unocss/reset': 0.30.11
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.1+vue@3.2.31
+      '@vue/compiler-sfc': 3.2.31
       unocss: 0.30.11
-      unplugin-auto-import: 0.6.9_@vueuse+core@8.2.3+vite@2.9.1
+      unplugin-auto-import: 0.6.9_@vueuse+core@8.2.4+vite@2.9.1
       unplugin-vue-components: 0.18.5_vite@2.9.1+vue@3.2.31
       vite: 2.9.1
-      vite-plugin-pages: 0.22.0_vite@2.9.1
+      vite-plugin-pages: 0.22.0_8d0fc691400edae0d0bd7a997b66fb5e
 
   packages/result-codegen:
     specifiers:
@@ -120,14 +124,14 @@ importers:
       '@graphql-codegen/fragment-matcher': ^3.2.1
       '@graphql-codegen/schema-ast': ^2.4.1
       '@graphql-codegen/typescript': ^2.4.8
-      '@iconify/json': ^2.1.23
+      '@iconify/json': ^2.1.24
       '@rollup/plugin-yaml': ^3.1.0
       '@types/nprogress': ^0
       '@vitejs/plugin-vue': ^2.3.1
       '@vue/apollo-composable': ^4.0.0-alpha.16
       '@vue/apollo-util': ^4.0.0-alpha.16
-      '@vueuse/components': ^8.2.3
-      '@vueuse/core': ^8.2.3
+      '@vueuse/components': ^8.2.4
+      '@vueuse/core': ^8.2.4
       '@windicss/plugin-animations': ^1.0.9
       autoprefixer: ^10.4.4
       bson-objectid: ^2.0.3
@@ -150,21 +154,21 @@ importers:
       '@apollo/client': 3.5.10_graphql@16.3.0
       '@formatjs/intl-locale': 2.4.47
       '@formatjs/intl-localematcher': 0.2.25
-      '@vue/apollo-composable': 4.0.0-alpha.16_419eedcba8b03e8266c34069edbc0663
+      '@vue/apollo-composable': 4.0.0-alpha.16_de8f387c9804e761c2b1f1395149cc64
       '@vue/apollo-util': 4.0.0-alpha.16
-      '@vueuse/components': 8.2.3_vue@3.2.31
-      '@vueuse/core': 8.2.3_vue@3.2.31
+      '@vueuse/components': 8.2.4_vue@3.2.31
+      '@vueuse/core': 8.2.4_vue@3.2.31
       bson-objectid: 2.0.3
       graphql: 16.3.0
       nprogress: 1.0.0-1
       vue: 3.2.31
       vue-router: 4.0.14_vue@3.2.31
     devDependencies:
-      '@graphql-codegen/cli': 2.6.2_2f0047565365577e619d9f1acc6688df
+      '@graphql-codegen/cli': 2.6.2_graphql@16.3.0
       '@graphql-codegen/fragment-matcher': 3.2.1_graphql@16.3.0
       '@graphql-codegen/schema-ast': 2.4.1_graphql@16.3.0
       '@graphql-codegen/typescript': 2.4.8_graphql@16.3.0
-      '@iconify/json': 2.1.23
+      '@iconify/json': 2.1.24
       '@rollup/plugin-yaml': 3.1.0
       '@types/nprogress': 0.2.0
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.1+vue@3.2.31
@@ -792,7 +796,7 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@endemolshinegroup/cosmiconfig-typescript-loader/3.0.2_ec5c0ebd3030a0a5109338876648df1b:
+  /@endemolshinegroup/cosmiconfig-typescript-loader/3.0.2_cosmiconfig@7.0.1:
     resolution: {integrity: sha512-QRVtqJuS1mcT56oHpVegkKBlgtWjXw/gHNWO3eL9oyB5Sc7HBoc2OLG/nYpVfT/Jejvo3NUrD0Udk7XgoyDKkA==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
@@ -801,7 +805,7 @@ packages:
       cosmiconfig: 7.0.1
       lodash.get: 4.4.2
       make-error: 1.3.6
-      ts-node: 9.1.1_typescript@4.6.3
+      ts-node: 9.1.1
       tslib: 2.3.1
     transitivePeerDependencies:
       - typescript
@@ -851,7 +855,7 @@ packages:
       tslib: 2.3.1
     dev: false
 
-  /@graphql-codegen/cli/2.6.2_2f0047565365577e619d9f1acc6688df:
+  /@graphql-codegen/cli/2.6.2_graphql@16.3.0:
     resolution: {integrity: sha512-UO75msoVgvLEvfjCezM09cQQqp32+mR8Ma1ACsBpr7nroFvHbgcu2ulx1cMovg4sxDBCsvd9Eq/xOOMpARUxtw==}
     hasBin: true
     peerDependencies:
@@ -866,8 +870,8 @@ packages:
       '@graphql-tools/graphql-file-loader': 7.3.7_graphql@16.3.0
       '@graphql-tools/json-file-loader': 7.3.7_graphql@16.3.0
       '@graphql-tools/load': 7.5.5_graphql@16.3.0
-      '@graphql-tools/prisma-loader': 7.1.6_b25b267fd681c0fb5135ef60d8c587a0
-      '@graphql-tools/url-loader': 7.9.7_b25b267fd681c0fb5135ef60d8c587a0
+      '@graphql-tools/prisma-loader': 7.1.6_graphql@16.3.0
+      '@graphql-tools/url-loader': 7.9.7_graphql@16.3.0
       '@graphql-tools/utils': 8.6.5_graphql@16.3.0
       ansi-escapes: 4.3.2
       chalk: 4.1.2
@@ -881,7 +885,7 @@ packages:
       glob: 7.2.0
       globby: 11.1.0
       graphql: 16.3.0
-      graphql-config: 4.1.0_2f0047565365577e619d9f1acc6688df
+      graphql-config: 4.1.0_graphql@16.3.0
       inquirer: 8.2.2
       is-glob: 4.0.3
       json-to-pretty-yaml: 1.2.2
@@ -1162,12 +1166,12 @@ packages:
       tslib: 2.3.1
     dev: true
 
-  /@graphql-tools/prisma-loader/7.1.6_b25b267fd681c0fb5135ef60d8c587a0:
+  /@graphql-tools/prisma-loader/7.1.6_graphql@16.3.0:
     resolution: {integrity: sha512-RR/V3kgkgdch6uENxNfYwlMDXBkVQFqpfHpfKuyBX8jmXy59m5f+9Ie4N97kQ0PAcoaw5r0gWLiIk5twn+FcjA==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
-      '@graphql-tools/url-loader': 7.9.7_b25b267fd681c0fb5135ef60d8c587a0
+      '@graphql-tools/url-loader': 7.9.7_graphql@16.3.0
       '@graphql-tools/utils': 8.6.5_graphql@16.3.0
       '@types/js-yaml': 4.0.5
       '@types/json-stable-stringify': 1.0.34
@@ -1222,7 +1226,7 @@ packages:
       value-or-promise: 1.0.11
     dev: true
 
-  /@graphql-tools/url-loader/7.9.7_b25b267fd681c0fb5135ef60d8c587a0:
+  /@graphql-tools/url-loader/7.9.7_graphql@16.3.0:
     resolution: {integrity: sha512-cJoZcv6oJrhArRPmSnw8wcqnz7F8p+HzwvjoJyHbs0ne2jTXazD+LOHaXMAa1L7lKK2YmH2Txy8pOI76JnvUiQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -1240,7 +1244,7 @@ packages:
       graphql-sse: 1.1.0_graphql@16.3.0
       graphql-ws: 5.6.4_graphql@16.3.0
       isomorphic-ws: 4.0.1_ws@8.5.0
-      meros: 1.2.0_@types+node@17.0.23
+      meros: 1.2.0
       subscriptions-transport-ws: 0.11.0_graphql@16.3.0
       sync-fetch: 0.3.1
       tslib: 2.3.1
@@ -1302,14 +1306,14 @@ packages:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
     dev: true
 
-  /@iconify-json/carbon/1.1.2:
-    resolution: {integrity: sha512-kopcVYOmKM1e6u7B8XugmiNV+7lDcK5hJR2XLVpYPfwJSw5M6jGTFe4ZD+SbWfxavOt67ufQtczWKwd9o7gN9Q==}
+  /@iconify-json/carbon/1.1.3:
+    resolution: {integrity: sha512-jbxBsk4YfeVyT/OkIYN6W9AJci3g5BMWzp1q4r3OsHMH2qhfGpxulRPm9kaYP5hGi8m3ZPNmzpewh87YoZ81fw==}
     dependencies:
       '@iconify/types': 1.1.0
     dev: true
 
-  /@iconify/json/2.1.23:
-    resolution: {integrity: sha512-HwsCjNyppcr19VdzoA/PmNUdJ1mxn8WblAos+BBCzVXiW7T9iCjDsuIIKqSNpwLiau26M7Yvw0VSXchJoJVVBg==}
+  /@iconify/json/2.1.24:
+    resolution: {integrity: sha512-95t2iGcRXddPpijHgrODtMlu9PYi+KGZHmEWH5PzU6tyq90W1ihCOwfesaSBajgJLvwmDDNA2Bb4TGfjNceYlQ==}
     dependencies:
       '@iconify/types': 1.1.0
       pathe: 0.2.0
@@ -1992,7 +1996,7 @@ packages:
       node-addon-api: 4.3.0
     dev: true
 
-  /@vue/apollo-composable/4.0.0-alpha.16_419eedcba8b03e8266c34069edbc0663:
+  /@vue/apollo-composable/4.0.0-alpha.16_de8f387c9804e761c2b1f1395149cc64:
     resolution: {integrity: sha512-P0Zxip0idW7HAkLAmvtso+UNdTNCm+mwAKvw9Nup4MzESDvfuvhXfOxYPZCKtd4Y8fS1FZ0dBGbOrxeQHYyfwQ==}
     peerDependencies:
       '@apollo/client': ^3.4.13
@@ -2006,7 +2010,7 @@ packages:
       '@apollo/client': 3.5.10_graphql@16.3.0
       graphql: 16.3.0
       throttle-debounce: 3.0.1
-      ts-essentials: 9.1.2_typescript@4.6.3
+      ts-essentials: 9.1.2
       vue: 3.2.31
       vue-demi: 0.12.4_vue@3.2.31
     transitivePeerDependencies:
@@ -2024,14 +2028,12 @@ packages:
       '@vue/shared': 3.2.31
       estree-walker: 2.0.2
       source-map: 0.6.1
-    dev: false
 
   /@vue/compiler-dom/3.2.31:
     resolution: {integrity: sha512-60zIlFfzIDf3u91cqfqy9KhCKIJgPeqxgveH2L+87RcGU/alT6BRrk5JtUso0OibH3O7NXuNOQ0cDc9beT0wrg==}
     dependencies:
       '@vue/compiler-core': 3.2.31
       '@vue/shared': 3.2.31
-    dev: false
 
   /@vue/compiler-sfc/3.2.31:
     resolution: {integrity: sha512-748adc9msSPGzXgibHiO6T7RWgfnDcVQD+VVwYgSsyyY8Ans64tALHZANrKtOzvkwznV/F4H7OAod/jIlp/dkQ==}
@@ -2046,14 +2048,12 @@ packages:
       magic-string: 0.25.9
       postcss: 8.4.12
       source-map: 0.6.1
-    dev: false
 
   /@vue/compiler-ssr/3.2.31:
     resolution: {integrity: sha512-mjN0rqig+A8TVDnsGPYJM5dpbjlXeHUm2oZHZwGyMYiGT/F4fhJf/cXy8QpjnLQK4Y9Et4GWzHn9PS8AHUnSkw==}
     dependencies:
       '@vue/compiler-dom': 3.2.31
       '@vue/shared': 3.2.31
-    dev: false
 
   /@vue/devtools-api/6.1.3:
     resolution: {integrity: sha512-79InfO2xHv+WHIrH1bHXQUiQD/wMls9qBk6WVwGCbdwP7/3zINtvqPNMtmSHXsIKjvUAHc8L0ouOj6ZQQRmcXg==}
@@ -2067,7 +2067,6 @@ packages:
       '@vue/shared': 3.2.31
       estree-walker: 2.0.2
       magic-string: 0.25.9
-    dev: false
 
   /@vue/reactivity/3.2.31:
     resolution: {integrity: sha512-HVr0l211gbhpEKYr2hYe7hRsV91uIVGFYNHj73njbARVGHQvIojkImKMaZNDdoDZOIkMsBc9a1sMqR+WZwfSCw==}
@@ -2102,21 +2101,20 @@ packages:
 
   /@vue/shared/3.2.31:
     resolution: {integrity: sha512-ymN2pj6zEjiKJZbrf98UM2pfDd6F2H7ksKw7NDt/ZZ1fh5Ei39X5tABugtT03ZRlWd9imccoK0hE8hpjpU7irQ==}
-    dev: false
 
-  /@vueuse/components/8.2.3_vue@3.2.31:
-    resolution: {integrity: sha512-JBtHmocS5LhT5t6vVk7WsyY+vvsQ0UZIPfvtD0kqHkj2eaxcAipsCP5QwSLC1M6cQwFLcqD2CJeVPzSd0lIAJA==}
+  /@vueuse/components/8.2.4_vue@3.2.31:
+    resolution: {integrity: sha512-+pjCAA8eWrwkKcJClX68WohX+i5mC7aCFLJfaHtGHdNM338T+F68rpjFniBtRy+wjBgm35Qah84XNK26HY4k9Q==}
     dependencies:
-      '@vueuse/core': 8.2.3_vue@3.2.31
-      '@vueuse/shared': 8.2.3_vue@3.2.31
+      '@vueuse/core': 8.2.4_vue@3.2.31
+      '@vueuse/shared': 8.2.4_vue@3.2.31
       vue-demi: 0.12.5_vue@3.2.31
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
     dev: false
 
-  /@vueuse/core/8.2.3_vue@3.2.31:
-    resolution: {integrity: sha512-bz6XroFRFOIGzhAHcnTfjtAQNkNcSELKPoSSUGROwYfOgTnaVyq7iKhgwdeRNom3y9q+a60RlhD35oJaGsXDHA==}
+  /@vueuse/core/8.2.4_vue@3.2.31:
+    resolution: {integrity: sha512-K8DbVLErlHMnEOqy67BrRbDmWCd4Z9X0a1dL6fQdhABLXBydy69Tm7uF5ZUotAqib9sskItYFsAnLhvGSue6bg==}
     peerDependencies:
       '@vue/composition-api': ^1.1.0
       vue: ^2.6.0 || ^3.2.0
@@ -2126,18 +2124,18 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@vueuse/metadata': 8.2.3
-      '@vueuse/shared': 8.2.3_vue@3.2.31
+      '@vueuse/metadata': 8.2.4
+      '@vueuse/shared': 8.2.4_vue@3.2.31
       vue: 3.2.31
       vue-demi: 0.12.5_vue@3.2.31
     dev: false
 
-  /@vueuse/metadata/8.2.3:
-    resolution: {integrity: sha512-xH5256Bn6hBYvQWoaCBagpeCrzJmeEeWnyDDkwVFhx7+pLOe4I6gsMHie3yJoowK9AN/D7JLTtEBbWvvBi5TOA==}
+  /@vueuse/metadata/8.2.4:
+    resolution: {integrity: sha512-mn4FLULZAHd6r6vo5hLz+99xzwlVDP9qeVtZGV2Ik40m0zETe2okUr3O1Yoz6FReUoc7KAPrf0/GFpWEXVDAnQ==}
     dev: false
 
-  /@vueuse/shared/8.2.3_vue@3.2.31:
-    resolution: {integrity: sha512-4Cd3s+x8ZwzzAf7o8jS7mEj9pQ1Zsf9aiNBAFg4rHcWeDY0S3XMgvN4ae2hBul7jmi+Ab4REAqiqYWyYqU86qg==}
+  /@vueuse/shared/8.2.4_vue@3.2.31:
+    resolution: {integrity: sha512-sLkuZMEumsmEDYie3m6/nrk7SrLGlyUgtVn/0EJZ8Chaj1YfSmBQuLxNE0ruQ/6VZlqkx44jEZxcgbU7qPyAiw==}
     peerDependencies:
       '@vue/composition-api': ^1.1.0
       vue: ^2.6.0 || ^3.2.0
@@ -2846,8 +2844,8 @@ packages:
     resolution: {integrity: sha512-/WwNkdXfckNgw6S5R125rrW8ez139lBHWouiBvX8dfMFtcn6V81REDqnH7+CRpRipfYlyU1CmOnOxrmGcFOjeA==}
     dev: false
 
-  /d3-array/3.1.3:
-    resolution: {integrity: sha512-qwW+3phQqmogYyRDI9hC8AWNeTdyYexazuq/dDM7QgujVDVexwNOxVMUJt+0BRpCw/4S4+byuYTV51kttK/Bzw==}
+  /d3-array/3.1.4:
+    resolution: {integrity: sha512-H8lM97Gr9+LAR4WVHETCMt6LlWtLJVMCKsz1ojors+/PvAs2QqdLa20BuYvU11/DU+nLF0GVWL5Rv3jSgo2KmA==}
     engines: {node: '>=12'}
     dependencies:
       internmap: 2.0.3
@@ -2885,7 +2883,7 @@ packages:
     resolution: {integrity: sha512-0Oc4D0KyhwhM7ZL0RMnfGycLN7hxHB8CMmwZ3+H26PWAG0ozNuYG5hXSDNgmP1SgJkQMrlG6cP20HoaSbvcJTQ==}
     engines: {node: '>=12'}
     dependencies:
-      d3-array: 3.1.3
+      d3-array: 3.1.4
     dev: false
 
   /d3-delaunay/6.0.2:
@@ -2948,7 +2946,7 @@ packages:
     resolution: {integrity: sha512-Wt23xBych5tSy9IYAM1FR2rWIBFWa52B/oF/GYe5zbdHrg08FU8+BuI6X4PvTwPDdqdAdq04fuWJpELtsaEjeA==}
     engines: {node: '>=12'}
     dependencies:
-      d3-array: 3.1.3
+      d3-array: 3.1.4
     dev: false
 
   /d3-hierarchy/3.1.2:
@@ -2995,7 +2993,7 @@ packages:
     resolution: {integrity: sha512-GZW464g1SH7ag3Y7hXjf8RoUuAFIqklOAq3MRl4OaWabTFJY9PN/E1YklhXLh+OQ3fM9yS2nOkCoS+WLZ6kvxQ==}
     engines: {node: '>=12'}
     dependencies:
-      d3-array: 3.1.3
+      d3-array: 3.1.4
       d3-format: 3.1.0
       d3-interpolate: 3.0.1
       d3-time: 3.0.0
@@ -3025,7 +3023,7 @@ packages:
     resolution: {integrity: sha512-zmV3lRnlaLI08y9IMRXSDshQb5Nj77smnfpnd2LrBa/2K281Jijactokeak14QacHs/kKq0AQ121nidNYlarbQ==}
     engines: {node: '>=12'}
     dependencies:
-      d3-array: 3.1.3
+      d3-array: 3.1.4
     dev: false
 
   /d3-timer/3.0.1:
@@ -3058,11 +3056,11 @@ packages:
       d3-transition: 3.0.1_d3-selection@3.0.0
     dev: false
 
-  /d3/7.4.1:
-    resolution: {integrity: sha512-Qch6FQJTiC8w0ys/Ouex5CofkHBKvFSWa0M7wYWuZIkVeLIukJ0G8pAUmV/EEwAXZrs3xxNXOzCbtSBDC8hRxw==}
+  /d3/7.4.2:
+    resolution: {integrity: sha512-7VK+QBAWtNDbP2EU/ThkXgjd0u1MsXYYgCK2ElQ4BBWh0usE75tHVVeYx47m2pqQEy4isYKAA0tAFSln0l+9EQ==}
     engines: {node: '>=12'}
     dependencies:
-      d3-array: 3.1.3
+      d3-array: 3.1.4
       d3-axis: 3.0.0
       d3-brush: 3.0.0
       d3-chord: 3.0.1
@@ -4357,18 +4355,18 @@ packages:
       url-parse-lax: 3.0.0
     dev: true
 
-  /graphql-config/4.1.0_2f0047565365577e619d9f1acc6688df:
+  /graphql-config/4.1.0_graphql@16.3.0:
     resolution: {integrity: sha512-Myqay6pmdcmX3KqoH+bMbeKZ1cTODpHS2CxF1ZzNnfTE+YUpGTcp01bOw6LpzamRb0T/WTYtGFbZeXGo9Hab2Q==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
       graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
-      '@endemolshinegroup/cosmiconfig-typescript-loader': 3.0.2_ec5c0ebd3030a0a5109338876648df1b
+      '@endemolshinegroup/cosmiconfig-typescript-loader': 3.0.2_cosmiconfig@7.0.1
       '@graphql-tools/graphql-file-loader': 7.3.7_graphql@16.3.0
       '@graphql-tools/json-file-loader': 7.3.7_graphql@16.3.0
       '@graphql-tools/load': 7.5.5_graphql@16.3.0
       '@graphql-tools/merge': 8.2.6_graphql@16.3.0
-      '@graphql-tools/url-loader': 7.9.7_b25b267fd681c0fb5135ef60d8c587a0
+      '@graphql-tools/url-loader': 7.9.7_graphql@16.3.0
       '@graphql-tools/utils': 8.6.5_graphql@16.3.0
       cosmiconfig: 7.0.1
       cosmiconfig-toml-loader: 1.0.0
@@ -5253,7 +5251,7 @@ packages:
     engines: {node: '>= 8'}
     dev: true
 
-  /meros/1.2.0_@types+node@17.0.23:
+  /meros/1.2.0:
     resolution: {integrity: sha512-3QRZIS707pZQnijHdhbttXRWwrHhZJ/gzolneoxKVz9N/xmsvY/7Ls8lpnI9gxbgxjcHsAVEW3mgwiZCo6kkJQ==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -5261,8 +5259,6 @@ packages:
     peerDependenciesMeta:
       '@types/node':
         optional: true
-    dependencies:
-      '@types/node': 17.0.23
     dev: true
 
   /micromatch/4.0.5:
@@ -6461,12 +6457,10 @@ packages:
     resolution: {integrity: sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=}
     dev: true
 
-  /ts-essentials/9.1.2_typescript@4.6.3:
+  /ts-essentials/9.1.2:
     resolution: {integrity: sha512-EaSmXsAhEiirrTY1Oaa7TSpei9dzuCuFPmjKRJRPamERYtfaGS8/KpOSbjergLz/Y76/aZlV9i/krgzsuWEBbg==}
     peerDependencies:
       typescript: '>=4.1.0'
-    dependencies:
-      typescript: 4.6.3
     dev: false
 
   /ts-invariant/0.9.4:
@@ -6480,7 +6474,7 @@ packages:
     resolution: {integrity: sha512-DEQrfv6l7IvN2jlzc/VTdZJYsWUnQNCsueYjMkC/iXoEoi5fNan6MjeDqkvhfzbmHgdz9UxDUluX3V5HdjTydQ==}
     dev: true
 
-  /ts-node/9.1.1_typescript@4.6.3:
+  /ts-node/9.1.1:
     resolution: {integrity: sha512-hPlt7ZACERQGf03M253ytLY3dHbGNGrAq9qIHWUY9XHYl1z7wYngSr3OQ5xmui8o2AaxsONxIzjafLUiWBo1Fg==}
     engines: {node: '>=10.0.0'}
     hasBin: true
@@ -6492,7 +6486,6 @@ packages:
       diff: 4.0.2
       make-error: 1.3.6
       source-map-support: 0.5.21
-      typescript: 4.6.3
       yn: 3.1.1
     dev: true
 
@@ -6612,7 +6605,7 @@ packages:
       - supports-color
     dev: true
 
-  /unplugin-auto-import/0.6.9_@vueuse+core@8.2.3+vite@2.9.1:
+  /unplugin-auto-import/0.6.9_@vueuse+core@8.2.4+vite@2.9.1:
     resolution: {integrity: sha512-IqgT7AoRrNQwNhiF/wDH3sMEDX8SqCYBEgJzwdg5441b5aiC5VwZz0J0wYqkaKu89YkZE9DG6rQ2JpFfZv1iiQ==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -6623,7 +6616,7 @@ packages:
     dependencies:
       '@antfu/utils': 0.5.0
       '@rollup/pluginutils': 4.2.0
-      '@vueuse/core': 8.2.3_vue@3.2.31
+      '@vueuse/core': 8.2.4_vue@3.2.31
       local-pkg: 0.4.1
       magic-string: 0.26.1
       resolve: 1.22.0
@@ -6786,7 +6779,7 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /vite-plugin-pages/0.22.0_vite@2.9.1:
+  /vite-plugin-pages/0.22.0_8d0fc691400edae0d0bd7a997b66fb5e:
     resolution: {integrity: sha512-OeCtSKoQNjrjtlNgkF4JTU0UdiZsa0cSQJKFyRoUz5KMbGoXR8O29BB2fZx9tMSBPyQJgGvIpzdoofLDaRNcQQ==}
     peerDependencies:
       '@vue/compiler-sfc': '>=3'
@@ -6795,6 +6788,7 @@ packages:
       '@vue/compiler-sfc':
         optional: true
     dependencies:
+      '@vue/compiler-sfc': 3.2.31
       debug: 4.3.4
       deep-equal: 2.0.5
       fast-glob: 3.2.11
