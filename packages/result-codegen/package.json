@@ -6,7 +6,8 @@
     "gen": "esmo src/main.ts"
   },
   "devDependencies": {
-    "@types/rimraf": "^3.0.2"
+    "@types/rimraf": "^3.0.2",
+    "node-gyp": "^9.0.0"
   },
   "dependencies": {
     "@vscode/sqlite3": "^5.0.8",
