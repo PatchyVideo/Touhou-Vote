@@ -1,12 +1,12 @@
 <template>
   <div class="relative w-full p-1 rounded shadow bg-white flex">
-    <div class="w-2/5 max-w-32 md:max-w-none">
+    <div class="w-2/5 max-w-32 md:max-w-64">
       <div class="border rounded aspect-ratio-1/1 overflow-hidden">
         <img class="object-contain" :src="musicHonmei.image ? musicHonmei.image : MusicImages" />
       </div>
     </div>
     <icon-uil-times class="absolute right-1 top-1 cursor-pointer" @click="closeCard()"></icon-uil-times>
-    <div class="w-3/5 p-1 flex flex-wrap content-between md:p-2">
+    <div class="flex-1 p-1 flex flex-wrap content-between md:p-2">
       <div class="w-full">
         <div class="truncate opacity-60">{{ musicHonmei.album }}</div>
         <div class="font-semibold text-xl line-clamp-2 whitespace-pre-wrap">

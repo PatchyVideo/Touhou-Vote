@@ -6,6 +6,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { watchThrottled } from '@vueuse/core'
 import { keyword as keywordCharacter } from '@/vote-character/lib/characterList'
 import { keyword as keywordMusic } from '@/vote-music/lib/musicList'
 
@@ -27,4 +28,5 @@ function search(): void {
     ? (keywordCharacter.value = searchContent.value)
     : (keywordMusic.value = searchContent.value)
 }
+watchThrottled(searchContent, search, { throttle: 100 })
 </script>

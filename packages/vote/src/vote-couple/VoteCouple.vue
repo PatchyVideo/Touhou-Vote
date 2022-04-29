@@ -113,6 +113,7 @@ import type { Mutation, Query, schema } from '@/graphql'
 import { voteCoupleComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
+import type { Couple } from './lib/couple'
 
 setSiteTitle('CP部门 - 第⑩回 中文东方人气投票')
 
@@ -160,18 +161,32 @@ getSubmitCPVoteError((err) => {
   else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
 
+const coupleDisplayName = (item: Couple, index: number) =>
+  '投票位' +
+  (index + 1) +
+  ': ' +
+  item.characters
+    .filter((v) => v.id)
+    .map((v) => v.name)
+    .join(' & ')
 const coupleHonmeiOptions = computed(() =>
-  new Array(couplesValid.value.length).fill(null).map((item, index) => {
-    return {
-      name: '投票位' + (index + 1),
-      value: index,
-    }
-  })
+  couplesValid.value.map((item, index) => ({
+    name: coupleDisplayName(item, index),
+    value: index,
+  }))
 )
 const coupleHonmeiNumber = ref(updateCoupleHonmeiNumber())
 function updateCoupleHonmeiNumber() {
   const honmeiIndex = couplesValid.value.findIndex((couple) => couple.honmei)
-  return honmeiIndex === -1 ? { name: '', value: -1 } : { name: '投票位' + (honmeiIndex + 1), value: honmeiIndex }
+  return honmeiIndex === -1
+    ? {
+        name: '',
+        value: -1,
+      }
+    : {
+        name: coupleDisplayName(couplesValid.value[honmeiIndex], honmeiIndex),
+        value: honmeiIndex,
+      }
 }
 // Note: 'couples.value[coupleHonmeiNumber.value.value].honmei = true' has been moved to function vote() to avoid infinite call bug.
 watch(

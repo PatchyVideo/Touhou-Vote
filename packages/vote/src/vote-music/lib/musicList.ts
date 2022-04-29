@@ -1,4 +1,5 @@
 import { computed, ref } from 'vue'
+import PinIn, { CachedSearcher, SearchLogicContain, defaultDict } from 'pinin'
 import type { Music } from '@/vote-music/lib/music'
 import { music0 } from '@/vote-music/lib/music'
 import { musicHonmei, musics } from '@/vote-music/lib/voteData'
@@ -6678,33 +6679,35 @@ export const orderOptions = [
 export const order = ref(orderOptions[0])
 export const keyword = ref('')
 
+const p = new PinIn({ dict: defaultDict, fCh2C: true, fSh2S: true, fZh2Z: true })
+const searcher = computed(() => {
+  const s = new CachedSearcher<Music>(SearchLogicContain, p)
+
+  let list = [...musicList]
+
+  if (filterForKind.value.length) {
+    list = list.filter((music) => filterForKind.value.find((k1) => music.kind.find((k2) => k2 === k1.value)))
+  }
+
+  if (albumSelected.value.name !== '') {
+    list = list.filter((music) => music.album === albumSelected.value.name)
+  }
+
+  for (const music of list) {
+    s.put(music.name, music)
+    s.put(music.album, music)
+  }
+
+  return s
+})
 export const musicListLeftWithFilter = computed<Music[]>(() => {
-  let list: Music[] = JSON.parse(JSON.stringify(musicListLeft.value))
-  list.sort((a, b) =>
-    order.value.name === orderOptions[0].name ? Number(a.date) - Number(b.date) : Number(b.date) - Number(a.date)
-  )
-  if (filterForKind.value.length)
-    list = list.filter((item) => {
-      for (const album of filterForKind.value) {
-        if (item.kind.find((item2) => item2 === album.value)) {
-          return true
-        }
-      }
-      return false
-    })
-  if (albumSelected.value.name != '') {
-    list = list.filter((item) => {
-      if (item.album === albumSelected.value.name) return true
-      else return false
-    })
+  const res = keyword.value ? [...new Set(searcher.value.search(keyword.value))] : musicListLeft.value
+
+  if (order.value.name === orderOptions[0].name) {
+    res.sort((a, b) => a.date - b.date)
+  } else {
+    res.sort((a, b) => b.date - a.date)
   }
-  if (keyword.value != '') {
-    const regex = new RegExp(keyword.value, 'i')
-    list = list.filter((item) => {
-      if (regex.test(item.name)) return true
-      if (regex.test(item.album)) return true
-      else return false
-    })
-  }
-  return list
+
+  return res
 })

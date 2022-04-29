@@ -69,7 +69,7 @@
                 <div
                   v-for="(music, index) in musicsReverseWithoutHonmei"
                   :key="music.id"
-                  class="inline-block transition transition-all duration-200 mr-3 w-3/10"
+                  class="inline-block transition transition-all duration-200 mr-3 w-3/10 max-w-52"
                 >
                   <MusicCard v-model:music="musicsReverseWithoutHonmei[index]" />
                 </div>

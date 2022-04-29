@@ -6,7 +6,11 @@
     </div>
     <div class="p-1 flex space-x-4 overflow-auto">
       <transition-group name="characterList">
-        <div v-for="(character, index) in charactersValid" :key="index" class="relative w-3/10 p-1 pt-5 shadow rounded">
+        <div
+          v-for="(character, index) in charactersValid"
+          :key="index"
+          class="relative w-3/10 max-w-48 p-1 pt-5 shadow rounded"
+        >
           <icon-uil-times
             class="absolute right-0 top-0 cursor-pointer"
             @click="deleteCharacter(index)"
@@ -103,6 +107,7 @@ function closeCard(): void {
   couples.value.push(new Couple())
 }
 </script>
+
 <style lang="postcss" scoped>
 .character-image::before {
   content: '攻';

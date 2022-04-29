@@ -74,7 +74,7 @@
                 <div
                   v-for="(character, index) in charactersReverseWithoutHonmei"
                   :key="character.id"
-                  class="inline-block transition transition-all duration-200 mr-3 w-3/10"
+                  class="inline-block transition transition-all duration-200 mr-3 w-3/10 max-w-52"
                 >
                   <CharacterCard v-model:character="charactersReverseWithoutHonmei[index]" />
                 </div>
