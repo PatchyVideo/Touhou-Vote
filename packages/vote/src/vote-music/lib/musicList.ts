@@ -6694,14 +6694,14 @@ const searcher = computed(() => {
   }
 
   for (const music of list) {
-    s.put(music.name, music)
-    s.put(music.album, music)
+    s.put(music.name.toLowerCase(), music)
+    s.put(music.album.toLowerCase(), music)
   }
 
   return s
 })
 export const musicListLeftWithFilter = computed<Music[]>(() => {
-  const res = keyword.value ? [...new Set(searcher.value.search(keyword.value))] : musicListLeft.value
+  const res = keyword.value ? [...new Set(searcher.value.search(keyword.value.toLowerCase()))] : musicListLeft.value
 
   if (order.value.name === orderOptions[0].name) {
     res.sort((a, b) => a.date - b.date)

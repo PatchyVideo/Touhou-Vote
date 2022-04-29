@@ -23,7 +23,6 @@ const props = defineProps({
 const searchContent = ref<string>(props.type === 'character' ? keywordCharacter.value : keywordMusic.value)
 
 function search(): void {
-  searchContent.value = searchContent.value.trim()
   props.type === 'character'
     ? (keywordCharacter.value = searchContent.value)
     : (keywordMusic.value = searchContent.value)

@@ -137,7 +137,6 @@ const characterListLeft = computed<Character[]>(() =>
 const keyword = ref('')
 const searchContent = ref<string>(keyword.value)
 function search(): void {
-  searchContent.value = searchContent.value.trim()
   keyword.value = searchContent.value
 }
 watchThrottled(searchContent, search, { throttle: 100 })
@@ -156,19 +155,19 @@ const searcher = computed(() => {
   }
 
   for (const c of charaList) {
-    s.put(c.name, c)
+    s.put(c.name.toLowerCase(), c)
     for (const altname of c.altnames) {
-      s.put(altname, c)
+      s.put(altname.toLowerCase(), c)
     }
     for (const work of c.work) {
-      s.put(work, c)
+      s.put(work.toLowerCase(), c)
     }
   }
 
   return s
 })
 const characterListLeftWithFilter = computed<Character[]>(() => {
-  const res = keyword.value ? [...new Set(searcher.value.search(keyword.value))] : characterListLeft.value
+  const res = keyword.value ? [...new Set(searcher.value.search(keyword.value.toLowerCase()))] : characterListLeft.value
 
   if (order.value.name === orderOptions[0].name) {
     res.sort((a, b) => a.date - b.date)
