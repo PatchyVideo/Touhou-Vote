@@ -32,7 +32,7 @@
               <img loading="lazy" :src="item.image ? item.image : characterImages" />
             </div>
           </div>
-          <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
+          <div class="flex-1 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">
               <div class="truncate opacity-60" :style="'color:' + item.color">{{ item.title }}</div>
               <div
@@ -65,7 +65,8 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import { computed, ref, watchEffect } from 'vue'
-import { useVModels } from '@vueuse/core'
+import { useVModels, watchThrottled } from '@vueuse/core'
+import PinIn, { CachedSearcher, defaultDict, SearchLogicContain } from 'pinin'
 import AdvancedFilter from './AdvancedFilter.vue'
 import { Character } from '@/vote-character/lib/character'
 import { characterList } from '@/vote-character/lib/characterList'
@@ -139,40 +140,43 @@ function search(): void {
   searchContent.value = searchContent.value.trim()
   keyword.value = searchContent.value
 }
+watchThrottled(searchContent, search, { throttle: 100 })
+const p = new PinIn({ dict: defaultDict, fCh2C: true, fSh2S: true, fZh2Z: true })
+const searcher = computed(() => {
+  const s = new CachedSearcher<Character>(SearchLogicContain, p)
+
+  let charaList = [...characterList]
+
+  if (filterForKind.value.length) {
+    charaList = charaList.filter((chara) => filterForKind.value.find((k1) => chara.kind.find((k2) => k2 === k1.value)))
+  }
+
+  if (workSelected.value.name) {
+    charaList = charaList.filter((chara) => chara.work.find((work) => work === workSelected.value.name))
+  }
+
+  for (const c of charaList) {
+    s.put(c.name, c)
+    for (const altname of c.altnames) {
+      s.put(altname, c)
+    }
+    for (const work of c.work) {
+      s.put(work, c)
+    }
+  }
+
+  return s
+})
 const characterListLeftWithFilter = computed<Character[]>(() => {
-  let list: Character[] = JSON.parse(JSON.stringify(characterListLeft.value))
-  list.sort((a, b) =>
-    order.value.name === orderOptions[0].name ? Number(a.date) - Number(b.date) : Number(b.date) - Number(a.date)
-  )
-  if (filterForKind.value.length)
-    list = list.filter((item) => {
-      for (const work of filterForKind.value) {
-        if (item.kind.find((item2) => item2 === work.value)) {
-          return true
-        }
-      }
-      return false
-    })
-  if (workSelected.value.name != '') {
-    list = list.filter((item) => {
-      if (item.work.find((item2) => item2 === workSelected.value.name)) return true
-      else return false
-    })
+  const res = keyword.value ? [...new Set(searcher.value.search(keyword.value))] : characterListLeft.value
+
+  if (order.value.name === orderOptions[0].name) {
+    res.sort((a, b) => a.date - b.date)
+  } else {
+    res.sort((a, b) => b.date - a.date)
   }
-  if (keyword.value != '') {
-    const regex = new RegExp(keyword.value)
-    list = list.filter((item) => {
-      if (regex.test(item.name)) return true
-      if (regex.test(item.title)) return true
-      else if (item.altnames.length) {
-        for (const item2 of item.altnames) {
-          if (regex.test(item2)) return true
-        }
-        return false
-      }
-    })
-  }
-  return list
+
+  return res
 })
 
 function characterSelect(id: string): void {
