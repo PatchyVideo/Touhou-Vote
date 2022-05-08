@@ -17,7 +17,7 @@
           </div>
         </div>
         <div v-if="screenSizes['<md']" class="text-gray-600 text-lg">
-          这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
+          这是一个为了调查东方Project系列在中文社群的大致情况而举办的一次调查活动。在举办期间，我们同往届一样接受来自中文社群的东方爱好者们的投票。并将在投票结束后择日公布本次投票的结果。期待您的参与。
         </div>
         <a class="float-arrow-box space-x-3 flex items-center w-3/5 md:w-1/2" tabindex="0" @click="loginBoxOpen = true"
           ><img class="w-3/5" src="@/common/assets/login.svg" /><img
@@ -56,16 +56,16 @@
         <p>投票的举办地点与结果的发布地点均为本站。</p>
         <p>
           本次投票的规则与上一届相同。 <strong>角色票为8个，音乐票为12个，CP票为4个。</strong><br />
-          此外，本届新增加了作品提名，<strong>每人有提名5个作品的机会</strong>。<br />
-          投票过程为黑箱投票，即在投票过程中不显示当前总体投票情况，而是在投票结束后计算出结果进行展示。
+          此外，本届新增加了作品提名部门，<strong>每人有提名5个作品的机会</strong>。<br />
+          投票过程为黑箱投票，即在投票过程中不显示实时投票统计，而是在投票结束后计算出结果进行展示。
         </p>
         <p>
-          如果想了解投票活动的最新动态的话，请关注<strong>东方人气投票组委会</strong>：<a
+          如果想了解投票活动的最新动态的话，请关注<strong>THBWiki官方账户</strong>：<a
             class="ani-link px-1"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://weibo.com/touhouvote"
-            >新浪微博</a
+            href="https://space.bilibili.com/362841475"
+            >Bilibili</a
           >，或者收藏本站。<br />
           若投票中遇到问题或有建议想要反馈，请<a
             class="ani-link px-1"
@@ -77,7 +77,7 @@
         </p>
         <p>
           为了防止刷票等影响公平的行为出现，我们将会采取一切我们认为必要的手段，这一点还请各位投票者注意。<br />
-          希望大家能够在公平公正的原则下，为你所喜欢的项目投上属于你的一票。
+          希望大家能够在公平公正的原则下，为您所喜欢的项目投上属于您的一票。
         </p>
         <!-- ... -->
       </article>
@@ -86,8 +86,8 @@
     <!-- Copyright -->
     <div class="w-full text-center my-6">
       <div>
-        <a target="_blank" rel="noopener noreferrer" href="https://jq.qq.com/?k=0BnkgDKx">反馈问题</a>&ensp;
-        <a rel="noopener noreferrer" href="/nav">往届结果</a>
+        <a rel="noopener noreferrer" href="/nav">往届人气投票结果</a>&ensp;
+        <a target="_blank" rel="noopener noreferrer" href="https://jq.qq.com/?k=0BnkgDKx">反馈问题</a>
       </div>
       <div class="quicksand">&copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.</div>
     </div>

@@ -1,7 +1,11 @@
 <template>
   <div class="shadow rounded h-7 w-full flex justify-start items-center">
     <icon-uil-search class="flex-shrink-0 inline ml-2 mr-1" />
-    <input v-model="searchContent" class="nline-block h-full outline-none w-full rounded" @keydown.enter="search()" />
+    <input v-model="searchContent"
+      class="nline-block h-full outline-none w-full rounded"
+      @keydown.enter="search()" 
+      :placeholder="props.type === 'character' ? '输入关键词搜索角色' : '输入关键词搜索音乐'"
+    />
   </div>
 </template>
 <script lang="ts" setup>

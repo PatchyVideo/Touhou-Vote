@@ -15,6 +15,7 @@
         <VoteSelect v-model:selected="order" :item-list="orderOptions" />
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
       </div>
+      <div v-if="!musicHonmeiIsSelected"><small>可通过名称、所属作品来搜索，支持部分匹配和拼音匹配。</small></div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <!-- eslint-disable vue/no-v-html -->
         <div
@@ -22,7 +23,7 @@
           class="text-center text-gray-400 py-10"
           v-html="
             musicHonmeiIsSelected
-              ? '只能从喜欢的曲目中选择自己的本命哦<br />先选择一首自己喜欢的曲目吧！'
+              ? '只能从喜欢的曲目中选择自己的本命哦<br />请回到上一个界面，点击<strong> + </strong>按钮<br />选择一位自己喜欢的曲目吧！'
               : '没有符合条件的曲目QAQ'
           "
         ></div>

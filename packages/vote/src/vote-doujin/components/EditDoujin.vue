@@ -418,7 +418,7 @@ function submitDoujinData(): void {
   doujins.value[props.index] = doujinData
 }
 async function deleteEdit(): Promise<void> {
-  if (await popConfirmText('你确定要删除该提名吗？')) {
+  if (await popConfirmText('您确定要删除该提名吗？')) {
     doujins.value.splice(props.index, 1)
     doujins.value.push(new Doujin())
     setVoteDataDoujins()
@@ -426,7 +426,7 @@ async function deleteEdit(): Promise<void> {
   }
 }
 async function cancelEdit(): Promise<void> {
-  if (await popConfirmText('你确定要取消修改吗？')) {
+  if (await popConfirmText('您确定要取消修改吗？')) {
     clearDoujinData()
     close()
   }

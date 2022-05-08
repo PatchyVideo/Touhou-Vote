@@ -112,12 +112,14 @@
   <VoteMessageBox v-model:open="submitCompleteMessageBoxOpen" title="提交成功！">
     <div class="p-2 space-y-2">
       <div v-if="IsQuestionnaireAllDone && firstCompleteQuestionnaireAll">
-        <div>感谢您完成了调查问卷的填写！,您可以进行投票了！</div>
+        <div>感谢您完成了调查问卷的填写！您可以进行投票了！</div>
         <div>您是希望进行投票，还是继续填写/修改其他问卷呢？</div>
+        <div>可以通过页面顶部的下拉菜单快速切换问卷或问题。</div>
       </div>
       <div v-else>
-        <div>{{ '感谢您完成了' + questionnaireName + '的填写！' }}</div>
+        <div>感谢您完成了<strong>{{ questionnaireName }}</strong>的填写！</div>
         <div>您是希望休息一下，还是继续填写/修改其他问卷呢？</div>
+        <div>提示：可以通过页面顶部的下拉菜单快速切换问卷或问题。</div>
       </div>
       <div class="flex justify-between space-x-2">
         <button
@@ -335,7 +337,7 @@ const questionnaireDone = computed<boolean>(() => {
 async function submitQuestionnire() {
   changeQuestion('no')
   if (submiting.value) return
-  if (await popConfirmText('确认提交' + questionnaireName.value + '吗？')) {
+  if (await popConfirmText('确认提交' + questionnaireName.value + '吗？（您之后还可以修改）')) {
     mutate({ content: { voteToken: voteToken.value, paperJson: JSON.stringify(questionnaireData.value) } })
   }
 }

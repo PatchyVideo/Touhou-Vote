@@ -114,7 +114,7 @@
                     >完成</label
                   >
                 </div>
-                <div class="text-xs">为你喜爱的角色/曲目/CP投上一票吧！</div>
+                <div class="text-xs">为您喜爱的角色/曲目/CP投上一票吧！</div>
               </div>
               <div class="w-full text-right">
                 <button
@@ -307,8 +307,8 @@
         <!-- Copyright -->
         <div class="quicksand text-sm text-gray-600 text-center">
           &copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.&ensp;
-          <a target="_blank" rel="noopener noreferrer" href="https://jq.qq.com/?k=0BnkgDKx">反馈问题</a>&ensp;
-          <a rel="noopener noreferrer" href="/nav">往届结果</a>
+          <a rel="noopener noreferrer" href="/nav">往届人气投票结果</a>&ensp;
+          <a target="_blank" rel="noopener noreferrer" href="https://jq.qq.com/?k=0BnkgDKx">反馈问题</a>
         </div>
       </div>
     </div>
@@ -332,7 +332,7 @@
         </div>
         <div class="w-full space-y-2">
           <div class="text-xl text-center truncate">查看往届数据（100%）</div>
-          <div class="text-gray-600">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
+          <div class="text-gray-600">需要先完成<strong>必填问卷</strong>才能开始投票哦！</div>
         </div>
         <div class="w-full text-center">
           <button class="w-full p-2 rounded text-white bg-accent-color-600" @click="systemListOpen('vote')">
@@ -342,7 +342,7 @@
       </div> -->
   </div>
   <VoteMessageBox v-model:open="resetTabMessageBoxOpen" title="提示" close-button>
-    <div class="p-2">需要先完成调查问卷才能开始投票哦！</div>
+    <div class="p-2">需要先完成<strong>必填问卷</strong>才能开始投票哦！</div>
   </VoteMessageBox>
 </template>
 

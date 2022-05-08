@@ -15,11 +15,13 @@
             v-model="searchContent"
             class="inline-block h-full outline-none w-full rounded"
             @keydown.enter="search()"
+            :placeholder="'输入关键词搜索角色'"
           />
         </div>
         <VoteSelect v-model:selected="order" :item-list="orderOptions" />
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
       </div>
+      <div><small>可通过名称、外号、所属作品来搜索，支持部分匹配和拼音匹配。</small></div>
       <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <div
           v-for="item in characterListLeftWithFilter"

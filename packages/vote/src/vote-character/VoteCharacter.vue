@@ -37,7 +37,7 @@
                   }
                 "
               >
-                把Ta选为你的本命票哦
+                <strong>点击这里把Ta选为您的本命票哦</strong>
               </div>
             </div>
           </transition>
@@ -80,7 +80,7 @@
                 </div>
               </transition-group>
             </div>
-            <div v-else class="w-full text-center text-gray-400 py-15">请为您喜爱的角色投上一票吧!</div>
+            <div v-else class="w-full text-center text-gray-400 py-15">请为您喜爱的角色投上一票吧!<br />点击右上方的<strong> + </strong>按钮添加角色</div>
           </transition>
         </div>
       </div>
@@ -113,7 +113,7 @@
           </div>
           <div class="text-sm">{{ '投票理由：' + (character.reason ? character.reason : '无') }}</div>
         </div>
-        <div class="text-gray-500 italic">*票位序号仅给用户参考，不影响加权<br />*投票期间可随时更改投票内容哦</div>
+        <div class="text-gray-500 italic">*票位序号仅用于核对投票内容，不影响权重<br />*投票期间可随时更改投票内容哦</div>
       </div>
       <button
         class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
@@ -193,6 +193,7 @@ getSubmitCharacterVoteError((err) => {
 })
 
 const charactersVotedNumber = computed<number>(() => charactersReverse.value.length)
+
 
 const characterSelectOpen = ref(false)
 const characterHonmeiIsSelected = ref(false)

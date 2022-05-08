@@ -17,7 +17,7 @@
       :style="'background-color:' + character.color"
       @click="openReasonBox()"
     >
-      投票理由
+      编辑投票理由
     </button>
   </div>
   <VoteMessageBox v-model:open="reasonBoxOpen" :title="reasonTitle">

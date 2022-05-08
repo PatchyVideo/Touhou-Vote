@@ -19,7 +19,7 @@
               class="w-full text-center text-gray-400 py-10 space-y-2"
             >
               <div>请点击下方的按钮</div>
-              <div>选择一对你喜欢的CP吧!</div>
+              <div>选择一对您喜欢的CP吧!</div>
             </div>
             <div v-else key="selecting">
               <transition-group name="coupleList" tag="div">
@@ -67,7 +67,7 @@
             <label>本命CP：</label>
             <label v-for="(character, index) in computeCharactersValid(coupleHonmei.characters)" :key="character.id"
               >{{ character.name
-              }}<label v-if="coupleHonmei.seme === index" class="text-accent-color-600">(攻)</label>，</label
+              }}<label v-if="coupleHonmei.seme === index" class="text-accent-color-600">(主动)</label>，</label
             >
           </div>
         </div>
@@ -76,12 +76,12 @@
             <label>{{ '投票位' + (indexCouple + 1) + '：' }}</label>
             <label v-for="(character, indexCharacter) in computeCharactersValid(couple.characters)" :key="character.id"
               >{{ character.name
-              }}<label v-if="couple.seme === indexCharacter" class="text-accent-color-600">(攻)</label
+              }}<label v-if="couple.seme === indexCharacter" class="text-accent-color-600">(主动)</label
               ><label v-if="indexCharacter != computeCharactersValid(couple.characters).length - 1">，</label></label
             >
           </div>
         </div>
-        <div class="text-gray-500 italic">*票位序号仅给用户参考，不影响加权<br />*投票期间可随时更改投票内容哦</div>
+        <div class="text-gray-500 italic">*票位序号仅用于核对投票内容，不影响权重<br />*投票期间可随时更改投票内容哦</div>
       </div>
       <button
         class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"

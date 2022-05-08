@@ -12,7 +12,7 @@
           <!-- Normal Login -->
           <div class="w-1/2 space-y-2">
             <div class="flex justify-between items-center">
-              <div class="text-lg">请先登陆</div>
+              <div class="text-lg">请先登录您的账号</div>
               <icon-uil-times class="w-8 h-8 cursor-pointer" @click="loading || close()"></icon-uil-times>
             </div>
             <div>
@@ -21,7 +21,7 @@
                 <input
                   v-model="userEmailOrPhoneNum"
                   class="ml-2 w-full bg-transparent focus:outline-none"
-                  placeholder="手机号(国内)或邮箱"
+                  placeholder="手机号(仅限国内)或邮箱"
                   type="text"
                   @keypress.enter="
                     () => {
@@ -62,7 +62,7 @@
             <div class="h-1 w-full"></div>
             <!-- The third party login -->
             <!-- <div class="flex justify-between items-center space-y-1 border-t-2 p-2">
-              <div class="text-gray-600 text-sm">其他方式登陆:</div>
+              <div class="text-gray-600 text-sm">其他方式登录:</div>
               <div class="flex flex-row-reverse">
                 <div class="rounded-full shadow p-0.5 mx-2 border-3 border-accent-color-300">
                   <img
@@ -81,7 +81,7 @@
                   <img
                     class="w-6 h-6 cursor-pointer"
                     src="@/common/assets/logoOldSystem.ico"
-                    title="使用旧版账号密码登陆"
+                    title="使用旧版账号密码登录"
                   />
                 </div>
               </div>
@@ -90,7 +90,7 @@
               class="text-gray-600 text-sm text-right cursor-pointer transition transition-colors hover:text-accent-color-600"
               @click="loading || (useOldSystemLogin = true)"
             >
-              使用旧版账号密码登陆
+              使用旧版账号密码登录
             </div>
           </div>
           <!-- Old System Login -->
@@ -98,7 +98,7 @@
             <div class="flex justify-between items-center">
               <div class="flex items-center space-x-2">
                 <icon-uil-angle-left-b class="w-8 h-8" @click="loading || (useOldSystemLogin = false)" />
-                <div class="text-lg">使用账号密码登陆</div>
+                <div class="text-lg">使用旧版账号密码登录</div>
               </div>
             </div>
             <div class="mt-10">
@@ -125,7 +125,7 @@
                 :class="{ 'bg-accent-color-300': loading }"
                 @click="oldSystemlogin()"
               >
-                <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>登陆</label>
+                <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>登录</label>
               </button>
             </div>
           </div>

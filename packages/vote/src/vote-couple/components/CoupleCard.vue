@@ -29,7 +29,7 @@
             :style="'background-color:' + character.color"
             @click="chooseAsSeme(index)"
           >
-            {{ couple.seme === index ? '撤销' : '选为攻' }}
+            {{ couple.seme === index ? '撤销' : '选为主动' }}
           </button>
         </div>
       </transition-group>
@@ -110,7 +110,7 @@ function closeCard(): void {
 
 <style lang="postcss" scoped>
 .character-image::before {
-  content: '攻';
+  content: '主动';
   @apply absolute -right-9 md:-right-8 transform transform-gpu rotate-45 px-10 md:py-0.5 origin-center bg-accent-color-600 text-white text-xs md:text-base;
 }
 .selectedMore-enter-active,

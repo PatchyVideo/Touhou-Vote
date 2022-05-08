@@ -15,7 +15,7 @@
           <transition name="doujin" mode="out-in">
             <div v-if="!doujinValid.length" key="no-selecting" class="w-full text-center text-gray-400 py-10 space-y-2">
               <div>请点击下方的按钮</div>
-              <div>提名一个对你来说印象最深刻，最想推荐给它人的作品吧!</div>
+              <div>提名一个对您来说印象最深刻，最想推荐给它人的作品吧!</div>
             </div>
             <div v-else key="selecting">
               <transition-group name="coupleList" tag="div">

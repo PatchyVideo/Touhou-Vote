@@ -11,7 +11,7 @@
       class="w-full py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
       @click="openReasonBox()"
     >
-      投票理由
+      编辑投票理由
     </button>
   </div>
   <VoteMessageBox v-model:open="reasonBoxOpen" :title="reasonTitle">

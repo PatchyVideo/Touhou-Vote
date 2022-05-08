@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col gap-4">
     <div v-if="IsQuestionnaireAllDone" class="text-lg text-gray-800">
-      问卷填写完成了！你可以继续填写，或在左栏选择“参与投票”开始投票
+      问卷填写完成了！您可以继续填写，或在左栏选择“参与投票”开始投票
     </div>
-    <div v-else class="text-lg text-gray-800">在开始投票之前，你需要选择一些问卷填写：</div>
+    <div v-else class="text-lg text-gray-800">在开始投票之前，您需要至少填写下列问卷中的3个（2+1）：</div>
     <div v-for="(children, catogory) in questionnaire" :key="catogory">
       <div class="flex flex-nowrap items-end gap-2">
         <h2 class="text-xl" v-text="questionnaireNameById[catogory].name"></h2>
