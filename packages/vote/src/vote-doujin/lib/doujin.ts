@@ -57,17 +57,17 @@ export const doujinTypes: DoujinType[] = [
     color: '#f77194',
   },
   {
-    name: '文学创作',
+    name: '文字创作',
     value: 'ARTICLE',
     color: '#0075c5',
   },
   {
-    name: '手工制品',
+    name: '手工&服饰',
     value: 'CRAFT',
     color: '#6339b5',
   },
   {
-    name: '其他周边',
+    name: '其他',
     value: 'OTHER',
     color: '#733542',
   },

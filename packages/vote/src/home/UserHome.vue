@@ -137,18 +137,20 @@
           <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
-                <img src="https://upload.thwiki.cc/f/f1/ConstructionClock.png" class="object-contain rounded" />
+                <img
+                  src="https://upload.thwiki.cc/f/f7/THBWiki-LOGO-%E5%AE%87%E4%BD%90%E8%A7%81%E5%A0%87%E5%AD%90.png"
+                  class="object-contain rounded" />
               </div>
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
                 <div class="w-full flex items-center space-x-2">
-                  <div class="text-xl truncate"><label class="text-accent-color-600">（NEW）</label>提名系统</div>
+                  <div class="text-xl truncate"><label class="text-accent-color-600">（NEW）</label>作品提名</div>
                   <label v-if="voteDoujinComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
                     >完成</label
                   >
                 </div>
-                <div class="text-xs">新系统，为自己喜爱的同人作品提名！</div>
+                <div class="text-xs">新部门，为自己喜爱的同人作品提名！</div>
               </div>
               <div class="w-full text-right">
                 <button
@@ -463,8 +465,8 @@ const dpTabs = [
     component: UserVoteDp,
   },
   {
-    title: '提名作品',
-    icon: 'https://upload.thwiki.cc/f/f1/ConstructionClock.png',
+    title: '作品提名',
+    icon: 'https://upload.thwiki.cc/f/f7/THBWiki-LOGO-%E5%AE%87%E4%BD%90%E8%A7%81%E5%A0%87%E5%AD%90.png',
     component: VoteDoujinDp,
   },
 ]

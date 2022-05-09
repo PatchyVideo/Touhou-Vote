@@ -40,19 +40,34 @@
   </div>
   <div v-else class="grid place-items-center w-full h-full">
     <div class="flex flex-col overflow-auto max-w-80ch">
-      <h2 class="mx-auto text-2xl">提名须知</h2>
+      <h2 class="mx-auto text-2xl">关于作品提名</h2>
       <div class="space-y-2 p-4">
+        <br />
         <p class="indent-lg">
-          欢迎来到新版中文东方人气投票的提名系统，您可通过本系统的提名页面，对于最近3年内
-          <label class="font-bold"> 印象最深刻，最想推荐给它人 </label>
+          欢迎来到新版中文东方人气投票的作品提名部门。
+        </p>
+        <br />
+        <p class="indent-lg">
+          您可通过本部门的提名页面，对于<strong> 最近3年内发布 </strong>的让您觉得
+          <strong> 印象最深刻，最想推荐给它人 </strong>
           的作品进行提名。
         </p>
         <p class="indent-lg">
-          如果票数足够多，我们会根据大家的投票和不同的分类来选出
-          <label class="font-bold">【年度最受欢迎/最有影响力/最具创意的xx类作品】</label>
-          等奖项，还会邀请行业内专业人士进行点评哦！
+          （由于是第一次举办，故接受最近3年内发布的作品，从下一届开始将仅接受一年内）
         </p>
-        <p class="indent-lg">由于是第一次举办这种活动，所以还有诸多不足之处，还请各位谅解，感谢大家的支持！</p>
+        <br />
+        <p class="indent-lg">
+          如果票数足够多，我们会根据大家的提名投票情况和不同的作品分类来选出
+        </p>
+        <p class="indent-lg">
+          <strong>【年度最受欢迎/最有影响力/最具创意的xx类作品】</strong>等奖项。
+        </p>
+        <p class="indent-lg">
+          根据举办情况，还可能会邀请相应行业的专业人士进行点评哦！
+        </p>
+        <br />
+        <p class="indent-lg">由于是首次举办，尚在摸索阶段，可能会有诸多不足之处，还请各位谅解，感谢大家的支持！</p>
+        <br />
         <p class="italic text-sm">*本活动最终解释权归THBWiki所有</p>
       </div>
       <button

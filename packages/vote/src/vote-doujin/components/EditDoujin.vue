@@ -11,7 +11,7 @@
       <div class="flex-grow overflow-y-auto p-2 flex flex-col gap-y-3">
         <div class="flex flex-col">
           <div class="flex justify-between items-center gap-x-3">
-            <div class="whitespace-nowrap py-0.5">链接</div>
+            <div class="whitespace-nowrap py-0.5"><strong>发布链接</strong></div>
             <input
               v-model="doujinUrl"
               class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
@@ -30,7 +30,7 @@
               <span ref="hintElUrlMaxLength">最长 2048 个字符</span>
             </li>
             <li>
-              *<span ref="hintElUrlInvalid">有效的链接仅能包括以下网站</span
+              *<span ref="hintElUrlInvalid">有效的链接仅支持以下网站</span
               >：Bilibili(仅限视频)、微博、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
                 class="text-gray-800 underline decoration-blue-400 hover:text-blue-600 transition transition-colors"
                 href="https://thvideo.tv/"
@@ -44,17 +44,17 @@
               >)、Twitter、YouTube、Pixiv、Nico静画/动画、Acfun、百度贴吧
             </li>
             <li>
-              *如果在上述网站之外或无特定网站，请前往
+              *如果作品的发布地址在上述网站之外或并未在网络上发布，则请前往
               <a
                 class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
                 href="https://thwiki.cc/"
                 target="_blank"
                 >THBWiki</a
               >
-              创建词条并将词条链接粘贴到此处
+              创建该作品的词条并将词条链接粘贴到此处
             </li>
             <li>
-              *自动获取功能尚处于初级阶段，功能上仅供参考，THBWiki的链接如果遇到错误请尝试使用短链接（在词条页面的右上角）
+              *自动获取功能尚处于早期试用阶段，功能上仅供参考。THBWiki的链接如果遇到错误请尝试使用短链接（在词条页面的右上角）
             </li>
           </ul>
         </div>
@@ -73,7 +73,7 @@
                   *<span ref="hintElTitleEmpty">必填项</span>，
                   <span ref="hintElTitleMaxLength">最长 256 个字符</span>
                 </li>
-                <li>*请尽可能填写原名或较为通用的译名</li>
+                <li>*请尽可能填写原名或较为通用的名称或译名，以方便计票</li>
               </ul>
             </div>
             <div class="flex flex-col">
@@ -89,7 +89,7 @@
                   *<span ref="hintElAuthorEmpty">必填项</span>，
                   <span ref="hintElAuthorMaxLength">最长 128 个字符</span>
                 </li>
-                <li>*请尽可能填写原名或较为通用的译名</li>
+                <li>*请尽可能填写原名或较为通用的名称或译名，以方便计票。若是社团发布请尽量填写社团名。</li>
               </ul>
             </div>
             <div class="flex-grow flex flex-col">
@@ -172,14 +172,24 @@
   <VoteMessageBox v-model:open="noticeOpen" title="提名规则">
     <div class="flex flex-col overflow-auto">
       <ul class="space-y-2 p-2 list-disc list-inside">
-        <li>“最近三年的作品(2019/1/1 0:00:00 ~ 2022/1/1 0:00:00)”以发布日期计算，不考虑是否完结的问题</li>
-        <li>同一个作品在不同网站上发布视为同一作品，其中提名的链接如指向营销号盗用的作品，则不计票</li>
-        <li>
-          可能出现<label class="text-accent-color-600">版权问题或争议话题</label>的 IP
-          联合创作作品（如创价x东方）的提名无效
+        <li>必须是符合上海爱丽丝幻乐团的
+              <a
+                class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
+                href="https://www.bilibili.com/read/cv6364137"
+                target="_blank"
+                ><label class="text-accent-color-600">东方Project使用规定</label></a
+              >
+            的东方Project二次创作作品。
         </li>
-        <li><label class="text-accent-color-600">R18</label> 作品的提名无效</li>
-        <li>单品和组合作品（如同人游戏的 OST 和该同人游戏本身）视为不同的作品</li>
+        <li>“最近三年的作品(2019/6/1 0:00:00 ~ 2022/5/31 23:59:59)”以作品本身的首次发布日期计算，不考虑是否完结的问题</li>
+        <li>同一个作品在不同网站上发布或不同语言版本视为同一作品。提名的链接如指向无授权搬运或营销号盗用的发布，若能识别则计作对于原作品的提名，否则将不计票。考虑到有效性，建议使用原作者的发布地址进行提名。</li>
+        <li>
+          可能出现<label class="text-accent-color-600">版权问题、公序良俗争议或内容触犯法律</label>的作品的提名无效。
+        </li>
+        <li><label class="text-accent-color-600">R18</label> 作品的提名无效。</li>
+        <li>单品和组合作品（如创作合集与其中的单品）、合作作品的单独发布（如游戏的OST和该游戏本身）均可视为不同的作品分别提名。</li>
+        <li>请尽量避免提名作品的宣传或预告，除非该作品在网络上仅发布了宣传或预告。宣传和预告在计票时会被合并到作品本身。</li>
+        <li>上述规则的最终解释权由THBWiki所有。</li>
       </ul>
       <button
         class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
