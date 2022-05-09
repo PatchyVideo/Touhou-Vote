@@ -3041,6 +3041,35 @@ export const questionnaire: QuestionnaireALL = {
             options: [],
           },
         ],
+        [
+          {
+            id: 24121,
+            type: 'Single',
+            question: '您是否了解类似流星计划、因幡帝汉化组这样的同人作品正版引进的组织？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2410101,
+                related: [24111],
+                mutex: [],
+                content: '已购入过引进的作品',
+              },
+              {
+                id: 2410102,
+                related: [24111],
+                mutex: [],
+                content: '听说过',
+              },
+              {
+                id: 2410103,
+                related: [24110],
+                mutex: [],
+                content: '没有听说过',
+              },
+            ],
+          },
+        ],
       ],
     },
     exQuestionnaire5: {
