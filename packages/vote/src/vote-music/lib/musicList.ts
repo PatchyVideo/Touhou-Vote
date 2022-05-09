@@ -6650,14 +6650,24 @@ export const musicList: Music[] = [
 ]
 
 export const musicListLeft = computed<Music[]>(() =>
-  musicList.filter((music) => {
+  {
+    let list = musicList.filter((music) => {
     let musicInMusics = false
     for (let i = 0; i < musics.value.length; i++) {
       if (musics.value[i].id === music.id) musicInMusics = true
     }
     return music.id != musicHonmei.value.id && !musicInMusics
   })
-)
+
+  if (filterForKind.value.length) {
+    list = list.filter((music) => filterForKind.value.find((k1) => music.kind.find((k2) => k2 === k1.value)))
+  }
+
+  if (albumSelected.value.name !== '') {
+    list = list.filter((music) => music.album === albumSelected.value.name)
+  }
+  return list;
+})
 export const musicHonmeiListLeft = computed<Music[]>(() =>
   musicsReverse.value.filter((music) => music.id != musicHonmei.value.id)
 )
@@ -6683,15 +6693,7 @@ const p = new PinIn({ dict: defaultDict, fCh2C: true, fSh2S: true, fZh2Z: true }
 const searcher = computed(() => {
   const s = new CachedSearcher<Music>(SearchLogicContain, p)
 
-  let list = [...musicList]
-
-  if (filterForKind.value.length) {
-    list = list.filter((music) => filterForKind.value.find((k1) => music.kind.find((k2) => k2 === k1.value)))
-  }
-
-  if (albumSelected.value.name !== '') {
-    list = list.filter((music) => music.album === albumSelected.value.name)
-  }
+  let list = [...musicListLeft.value]
 
   for (const music of list) {
     s.put(music.name.toLowerCase(), music)

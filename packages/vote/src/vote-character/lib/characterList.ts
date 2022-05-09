@@ -3234,14 +3234,27 @@ export const characterList: Character[] = [
 ]
 
 export const characterListLeft = computed<Character[]>(() =>
-  characterList.filter((character) => {
+{  
+  let charaList = characterList.filter((character) => {
     let characterInCharacters = false
     for (let i = 0; i < characters.value.length; i++) {
       if (characters.value[i].id === character.id) characterInCharacters = true
     }
     return character.id != characterHonmei.value.id && !characterInCharacters
   })
-)
+
+
+  if (filterForKind.value.length) {
+    charaList = charaList.filter((chara) => filterForKind.value.find((k1) => chara.kind.find((k2) => k2 === k1.value)))
+  }
+
+  if (workSelected.value.name) {
+    charaList = charaList.filter((chara) => chara.work.find((work) => work === workSelected.value.name))
+  }
+
+  return charaList;
+})
+
 export const characterHonmeiListLeft = computed<Character[]>(() => {
   return charactersReverse.value.filter((character) => character.id != characterHonmei.value.id)
 })
@@ -3269,16 +3282,7 @@ export const keyword = ref('')
 const p = new PinIn({ dict: defaultDict, fCh2C: true, fSh2S: true, fZh2Z: true })
 const searcher = computed(() => {
   const s = new CachedSearcher<Character>(SearchLogicContain, p)
-
-  let charaList = [...characterList]
-
-  if (filterForKind.value.length) {
-    charaList = charaList.filter((chara) => filterForKind.value.find((k1) => chara.kind.find((k2) => k2 === k1.value)))
-  }
-
-  if (workSelected.value.name) {
-    charaList = charaList.filter((chara) => chara.work.find((work) => work === workSelected.value.name))
-  }
+  let charaList = [...characterListLeft.value]
 
   for (const c of charaList) {
     s.put(c.name.toLowerCase(), c)

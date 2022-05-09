@@ -126,15 +126,24 @@ const orderOptions = [
 ]
 const order = ref(orderOptions[0])
 
-const characterListLeft = computed<Character[]>(() =>
-  characterList.filter((character) => {
+const characterListLeft = computed<Character[]>(() =>{ 
+   let charaList = characterList.filter((character) => {
     let characterInCharacters = false
     for (let i = 0; i < props.coupleSelected.characters.length; i++) {
       if (props.coupleSelected.characters[i].id === character.id) characterInCharacters = true
     }
     return !characterInCharacters
   })
-)
+
+    if (filterForKind.value.length) {
+    charaList = charaList.filter((chara) => filterForKind.value.find((k1) => chara.kind.find((k2) => k2 === k1.value)))
+  }
+
+  if (workSelected.value.name) {
+    charaList = charaList.filter((chara) => chara.work.find((work) => work === workSelected.value.name))
+  }
+  return charaList;
+})
 
 const keyword = ref('')
 const searchContent = ref<string>(keyword.value)
@@ -146,15 +155,7 @@ const p = new PinIn({ dict: defaultDict, fCh2C: true, fSh2S: true, fZh2Z: true }
 const searcher = computed(() => {
   const s = new CachedSearcher<Character>(SearchLogicContain, p)
 
-  let charaList = [...characterList]
-
-  if (filterForKind.value.length) {
-    charaList = charaList.filter((chara) => filterForKind.value.find((k1) => chara.kind.find((k2) => k2 === k1.value)))
-  }
-
-  if (workSelected.value.name) {
-    charaList = charaList.filter((chara) => chara.work.find((work) => work === workSelected.value.name))
-  }
+  let charaList = [...characterListLeft.value]
 
   for (const c of charaList) {
     s.put(c.name.toLowerCase(), c)
