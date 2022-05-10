@@ -2,11 +2,7 @@ import { ref } from 'vue'
 import { Doujin, Doujin0 } from '@/vote-doujin/lib/doujin'
 import type { DojinSubmitQuery } from '@/graphql/__generated__/graphql'
 
-export const doujins = ref<Doujin[]>(
-  Array(5)
-    .fill(null)
-    .map(() => new Doujin())
-)
+export const doujins = ref<Doujin[]>(new Array(5).fill(null).map(() => new Doujin()))
 export function setVoteDataDoujins(): void {
   localStorage.setItem('doujins', JSON.stringify(doujins.value))
 }

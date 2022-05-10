@@ -2,7 +2,7 @@
   <div class="page"></div>
   <div class="w-full min-h-100vh flex flex-col">
     <div class="p-2 shadow flex items-center bg-white mb-2">
-      <BackToHome :show="true" :saveable="false" />
+      <BackToHome :show="true" :saveable="true" />
       <div class="font-medium">第⑩届 国内东方人气投票 - 提名系统</div>
     </div>
 
