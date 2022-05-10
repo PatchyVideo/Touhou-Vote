@@ -82,7 +82,7 @@
                     >完成</label
                   >
                 </div>
-                <div class="text-xs">投票之前请先完成调查问卷哦</div>
+                <div class="text-sm">投票之前请先完成调查问卷哦</div>
               </div>
               <div class="w-full text-right">
                 <button
@@ -114,7 +114,7 @@
                     >完成</label
                   >
                 </div>
-                <div class="text-xs">为您喜爱的角色/曲目/CP投上一票吧！</div>
+                <div class="text-sm">为您喜爱的角色/曲目/CP投上一票吧！</div>
               </div>
               <div class="w-full text-right">
                 <button
@@ -139,7 +139,8 @@
               <div class="w-full aspect-1/1">
                 <img
                   src="https://upload.thwiki.cc/f/f7/THBWiki-LOGO-%E5%AE%87%E4%BD%90%E8%A7%81%E5%A0%87%E5%AD%90.png"
-                  class="object-contain rounded" />
+                  class="object-contain rounded"
+                />
               </div>
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
@@ -150,7 +151,7 @@
                     >完成</label
                   >
                 </div>
-                <div class="text-xs">新部门，为自己喜爱的同人作品提名！</div>
+                <div class="text-sm">新部门，为自己喜爱的同人作品提名！</div>
               </div>
               <div class="w-full text-right">
                 <button
@@ -180,6 +181,16 @@
               </div>
             </div>
           </div> -->
+
+          <!-- Copyright -->
+          <div class="quicksand flex flex-wrap justify-center gap-x-2 text-sm text-gray-600">
+            <div>&copy; Copyright 2022 THBWiki, VoileLabs.</div>
+            <div>Licensed under GPL-3.0.</div>
+            <div class="flex gap-x-2">
+              <a rel="noopener noreferrer" href="/nav">往届人气投票结果</a>
+              <a target="_blank" rel="noopener noreferrer" href="https://jq.qq.com/?k=0BnkgDKx">反馈问题</a>
+            </div>
+          </div>
         </div>
         <div class="w-1/2">
           <Component
