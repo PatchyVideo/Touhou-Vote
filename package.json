@@ -2,7 +2,7 @@
   "name": "touhou-vote",
   "version": "1.2.0",
   "private": true,
-  "packageManager": "pnpm@6.32.3",
+  "packageManager": "pnpm@7.0.1",
   "scripts": {
     "vote:codegen": "nr -C packages/vote codegen",
     "vote:dev": "nr -C packages/vote dev",
