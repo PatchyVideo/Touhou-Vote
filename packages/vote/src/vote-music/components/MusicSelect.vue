@@ -29,12 +29,12 @@
         ></div>
         <!-- eslint-enable vue/no-v-html -->
         <div v-for="item in musicList" v-else :key="item.id" class="p-1 rounded shadow bg-white flex">
-          <div class="w-1/3 max-w-32">
+          <div class="flex-shrink-0 w-1/3 max-w-32">
             <div class="aspect-ratio-1/1 rounded border overflow-hidden">
               <img class="object-contain" loading="lazy" :src="item.image ? item.image : MusicImages" />
             </div>
           </div>
-          <div class="w-2/3 p-1 flex flex-wrap content-between md:p-2">
+          <div class="flex-1 min-w-0 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">
               <div class="truncate opacity-60 text-sm md:text-base xl:text-lg 2xl:text-xl">{{ item.album }}</div>
               <div class="font-semibold line-clamp-2 whitespace-pre-wrap md:text-lg xl:text-xl 2xl:text-2xl">

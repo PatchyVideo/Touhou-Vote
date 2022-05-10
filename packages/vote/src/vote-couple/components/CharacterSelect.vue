@@ -29,13 +29,13 @@
           class="p-1 rounded shadow bg-white flex ring"
           :style="'--tw-ring-color:' + item.color"
         >
-          <div class="w-1/3 max-w-32">
+          <div class="flex-shrink-0 w-1/3 max-w-32">
             <div class="aspect-ratio-1/1 rounded border">
               <img loading="lazy" :src="item.image ? item.image : characterImages" />
             </div>
           </div>
-          <div class="flex-1 p-1 flex flex-wrap content-between md:p-2">
-            <div class="w-full">
+          <div class="flex-1 min-w-0 p-1 flex flex-col content-between md:p-2">
+            <div class="flex-1">
               <div class="truncate opacity-60" :style="'color:' + item.color">{{ item.title }}</div>
               <div
                 class="font-semibold truncate text-lg md:text-xl xl:text-2xl 2xl:text-3xl"
@@ -44,7 +44,7 @@
                 {{ item.name }}
               </div>
             </div>
-            <div class="w-full flex justify-end">
+            <div class="flex justify-end">
               <button
                 class="px-3 md:px-5 py-1 shadow rounded text-white text-sm md:text-base"
                 :style="'background-color:' + item.color"
