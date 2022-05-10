@@ -141,8 +141,10 @@ const musicLoading = ref(false)
 const musicPlaying = ref<string>('')
 function playAudio(musicSrc: string): void {
   if (musicLoading.value) return
-  if (musicSrc === audio.value.src && !audio.value.paused) audio.value.pause()
-  else {
+  if (musicSrc === audio.value.src && !audio.value.paused) {
+    audio.value.pause()
+    musicPlaying.value = ''
+  } else {
     audio.value.src = musicSrc
     musicPlaying.value = musicSrc
     audio.value.play()
