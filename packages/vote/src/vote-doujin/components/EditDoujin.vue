@@ -24,14 +24,14 @@
               <icon-uil-spinner-alt v-if="fetchLoading" class="animate-spin" />自动获取信息
             </button>
           </div>
-          <ul class="text-xs text-gray-800">
+          <ul class="text-xs text-gray-800 3xl:text-sm">
             <li>
               *<span ref="hintElUrlEmpty">必填项</span>，
               <span ref="hintElUrlMaxLength">最长 2048 个字符</span>
             </li>
             <li>
               *<span ref="hintElUrlInvalid">有效的链接仅支持以下网站</span
-              >：Bilibili(仅限视频)、微博、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
+              >：Bilibili(仅限视频)、微博(仅限移动端链接)、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
                 class="text-gray-800 underline decoration-blue-400 hover:text-blue-600 transition transition-colors"
                 href="https://thvideo.tv/"
                 target="_blank"
@@ -68,7 +68,7 @@
                   class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
                 />
               </div>
-              <ul class="text-xs text-gray-800">
+              <ul class="text-xs text-gray-800 3xl:text-sm">
                 <li>
                   *<span ref="hintElTitleEmpty">必填项</span>，
                   <span ref="hintElTitleMaxLength">最长 256 个字符</span>
@@ -84,7 +84,7 @@
                   class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
                 />
               </div>
-              <ul class="text-xs text-gray-800">
+              <ul class="text-xs text-gray-800 3xl:text-sm">
                 <li>
                   *<span ref="hintElAuthorEmpty">必填项</span>，
                   <span ref="hintElAuthorMaxLength">最长 128 个字符</span>
@@ -99,7 +99,7 @@
                   <VoteSelect v-model:selected="doujinType" class="w-full" :item-list="doujintypesWithoutColor" />
                 </div>
               </div>
-              <ul class="text-xs text-gray-800">
+              <ul class="text-xs text-gray-800 3xl:text-sm">
                 <li>*<span ref="hintElTypeEmpty">必填项</span></li>
               </ul>
             </div>
@@ -107,7 +107,7 @@
           <div class="flex-shrink-0 flex flex-row lg:flex-col flex-wrap justify-between">
             <div class="whitespace-nowrap space-y-0.5">
               <div>作品封面</div>
-              <ul class="text-xs text-gray-800">
+              <ul class="text-xs text-gray-800 3xl:text-sm">
                 <li>*只能由爬虫自动获取</li>
                 <li>*仅供用户参考，对提名无影响</li>
               </ul>
@@ -125,7 +125,7 @@
         <div class="flex flex-col gap-y-1">
           <div>
             <div class="whitespace-nowrap">提名理由</div>
-            <ul class="text-xs text-gray-800">
+            <ul class="text-xs text-gray-800 3xl:text-sm">
               <li>*选填项，<span ref="hintElReasonMaxLength">最长 1024 个字符</span></li>
               <li>*如果写的很长或者很优秀，甚至有可能入选年度最感人推荐感言哦！</li>
             </ul>
@@ -172,23 +172,32 @@
   <VoteMessageBox v-model:open="noticeOpen" title="提名规则">
     <div class="flex flex-col overflow-auto">
       <ul class="space-y-2 p-2 list-disc list-inside">
-        <li>必须是符合上海爱丽丝幻乐团的
-              <a
-                class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
-                href="https://www.bilibili.com/read/cv6364137"
-                target="_blank"
-                ><label class="text-accent-color-600">东方Project使用规定</label></a
-              >
-            的东方Project二次创作作品。
+        <li>
+          必须是符合上海爱丽丝幻乐团的
+          <a
+            class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
+            href="https://www.bilibili.com/read/cv6364137"
+            target="_blank"
+            ><label class="text-accent-color-600">东方Project使用规定</label></a
+          >
+          的东方Project二次创作作品。
         </li>
-        <li>“最近三年的作品(2019/6/1 0:00:00 ~ 2022/5/31 23:59:59)”以作品本身的首次发布日期计算，不考虑是否完结的问题</li>
-        <li>同一个作品在不同网站上发布或不同语言版本视为同一作品。提名的链接如指向无授权搬运或营销号盗用的发布，若能识别则计作对于原作品的提名，否则将不计票。考虑到有效性，建议使用原作者的发布地址进行提名。</li>
+        <li>
+          “最近三年的作品(2019/6/1 0:00:00 ~ 2022/5/31 23:59:59)”以作品本身的首次发布日期计算，不考虑是否完结的问题
+        </li>
+        <li>
+          同一个作品在不同网站上发布或不同语言版本视为同一作品。提名的链接如指向无授权搬运或营销号盗用的发布，若能识别则计作对于原作品的提名，否则将不计票。考虑到有效性，建议使用原作者的发布地址进行提名。
+        </li>
         <li>
           可能出现<label class="text-accent-color-600">版权问题、公序良俗争议或内容触犯法律</label>的作品的提名无效。
         </li>
         <li><label class="text-accent-color-600">R18</label> 作品的提名无效。</li>
-        <li>单品和组合作品（如创作合集与其中的单品）、合作作品的单独发布（如游戏的OST和该游戏本身）均可视为不同的作品分别提名。</li>
-        <li>请尽量避免提名作品的宣传或预告，除非该作品在网络上仅发布了宣传或预告。宣传和预告在计票时会被合并到作品本身。</li>
+        <li>
+          单品和组合作品（如创作合集与其中的单品）、合作作品的单独发布（如游戏的OST和该游戏本身）均可视为不同的作品分别提名。
+        </li>
+        <li>
+          请尽量避免提名作品的宣传或预告，除非该作品在网络上仅发布了宣传或预告。宣传和预告在计票时会被合并到作品本身。
+        </li>
         <li>上述规则的最终解释权由THBWiki所有。</li>
       </ul>
       <button
