@@ -75,7 +75,9 @@
                 </div>
               </transition-group>
             </div>
-            <div v-else class="w-full text-center text-gray-400 py-15">请为您喜爱的曲目投上一票吧!<br />点击右上方的<strong> + </strong>按钮添加曲目</div>
+            <div v-else class="w-full text-center text-gray-400 py-15">
+              请为您喜爱的曲目投上一票吧!<br />点击右上方的<strong> + </strong>按钮添加曲目
+            </div>
           </transition>
         </div>
       </div>
@@ -110,7 +112,9 @@
           <div class="text-sm truncate">{{ '专辑：' + music.album }}</div>
           <div class="text-sm">{{ '投票理由：' + (music.reason ? music.reason : '无') }}</div>
         </div>
-        <div class="text-gray-500 italic">*票位序号仅用于核对投票内容，不影响权重<br />*投票期间可随时更改投票内容哦</div>
+        <div class="text-gray-500 italic">
+          *票位序号仅用于核对投票内容，不影响权重<br />*投票期间可随时更改投票内容哦
+        </div>
       </div>
       <button
         class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
@@ -220,7 +224,7 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
 onDone((result) => {
   popMessageText('投票成功！')
   voteMusicComplete.value = true
-  router.push({ path: '/' })
+  router.push({ path: '/', query: { tab: 1 } })
 })
 onError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)

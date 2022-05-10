@@ -58,9 +58,7 @@
   <VoteMessageBox v-model:open="noticeOpen" title="关于作品提名">
     <div class="flex flex-col overflow-auto">
       <div class="space-y-1 p-2">
-        <p class="indent-lg">
-          欢迎来到新版中文东方人气投票的作品提名部门。
-        </p>
+        <p class="indent-lg">欢迎来到新版中文东方人气投票的作品提名部门。</p>
         <p class="indent-lg">
           您可通过本部门的提名页面，对于<strong> 最近3年内发布 </strong>的让您觉得
           <strong> 印象最深刻，最想推荐给它人 </strong>
@@ -71,9 +69,7 @@
           如果票数足够多，我们会根据大家的提名投票情况和不同的作品分类来选出
           <strong>【年度最受欢迎/最有影响力/最具创意的xx类作品】</strong>等奖项。
         </p>
-        <p class="indent-lg">
-          根据举办情况，还可能会邀请相应行业的专业人士进行点评哦！
-        </p>
+        <p class="indent-lg">根据举办情况，还可能会邀请相应行业的专业人士进行点评哦！</p>
         <p class="indent-lg">由于是首次举办，尚在摸索阶段，可能会有诸多不足之处，还请各位谅解，感谢大家的支持！</p>
         <br />
         <p class="italic text-sm">*本活动最终解释权归THBWiki所有</p>
@@ -184,7 +180,7 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
 onDone((result) => {
   popMessageText('投票成功！')
   voteDoujinComplete.value = true
-  router.push({ path: '/' })
+  router.push({ path: '/', query: { tab: 2 } })
 })
 onError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
