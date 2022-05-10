@@ -68,15 +68,15 @@
 import type { PropType } from 'vue'
 import { computed, ref, watchEffect } from 'vue'
 import { useVModels, watchThrottled } from '@vueuse/core'
-import PinIn, { CachedSearcher, defaultDict, SearchLogicContain } from 'pinin'
+import { CachedSearcher, SearchLogicContain } from 'pinin'
 import AdvancedFilter from './AdvancedFilter.vue'
+import VoteSelect from '@/common/components/VoteSelect.vue'
+import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
 import { Character } from '@/vote-character/lib/character'
 import { characterList } from '@/vote-character/lib/characterList'
 import { Couple } from '@/vote-couple/lib/couple'
-import VoteSelect from '@/common/components/VoteSelect.vue'
-import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
-
 import { filterForKind, workSelected } from '@/vote-couple/lib/workList'
+import { pinin } from '@/common/lib/pinin'
 
 const props = defineProps({
   open: {
@@ -126,8 +126,8 @@ const orderOptions = [
 ]
 const order = ref(orderOptions[0])
 
-const characterListLeft = computed<Character[]>(() =>{ 
-   let charaList = characterList.filter((character) => {
+const characterListLeft = computed<Character[]>(() => {
+  let charaList = characterList.filter((character) => {
     let characterInCharacters = false
     for (let i = 0; i < props.coupleSelected.characters.length; i++) {
       if (props.coupleSelected.characters[i].id === character.id) characterInCharacters = true
@@ -135,14 +135,14 @@ const characterListLeft = computed<Character[]>(() =>{
     return !characterInCharacters
   })
 
-    if (filterForKind.value.length) {
+  if (filterForKind.value.length) {
     charaList = charaList.filter((chara) => filterForKind.value.find((k1) => chara.kind.find((k2) => k2 === k1.value)))
   }
 
   if (workSelected.value.name) {
     charaList = charaList.filter((chara) => chara.work.find((work) => work === workSelected.value.name))
   }
-  return charaList;
+  return charaList
 })
 
 const keyword = ref('')
@@ -151,13 +151,10 @@ function search(): void {
   keyword.value = searchContent.value
 }
 watchThrottled(searchContent, search, { throttle: 100 })
-const p = new PinIn({ dict: defaultDict, fCh2C: true, fSh2S: true, fZh2Z: true })
 const searcher = computed(() => {
-  const s = new CachedSearcher<Character>(SearchLogicContain, p)
+  const s = new CachedSearcher<Character>(SearchLogicContain, pinin)
 
-  let charaList = [...characterListLeft.value]
-
-  for (const c of charaList) {
+  for (const c of characterListLeft.value) {
     s.put(c.name.toLowerCase(), c)
     for (const altname of c.altnames) {
       s.put(altname.toLowerCase(), c)

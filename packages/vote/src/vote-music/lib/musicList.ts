@@ -1,9 +1,10 @@
 import { computed, ref } from 'vue'
-import PinIn, { CachedSearcher, SearchLogicContain, defaultDict } from 'pinin'
+import { CachedSearcher, SearchLogicContain } from 'pinin'
 import type { Music } from '@/vote-music/lib/music'
 import { music0 } from '@/vote-music/lib/music'
 import { musicHonmei, musics } from '@/vote-music/lib/voteData'
 import { albumSelected, filterForKind } from '@/vote-music/lib/albumList'
+import { pinin } from '@/common/lib/pinin'
 
 export const musicList: Music[] = [
   {
@@ -6649,9 +6650,8 @@ export const musicList: Music[] = [
   },
 ]
 
-export const musicListLeft = computed<Music[]>(() =>
-  {
-    let list = musicList.filter((music) => {
+export const musicListLeft = computed<Music[]>(() => {
+  let list = musicList.filter((music) => {
     let musicInMusics = false
     for (let i = 0; i < musics.value.length; i++) {
       if (musics.value[i].id === music.id) musicInMusics = true
@@ -6666,7 +6666,7 @@ export const musicListLeft = computed<Music[]>(() =>
   if (albumSelected.value.name !== '') {
     list = list.filter((music) => music.album === albumSelected.value.name)
   }
-  return list;
+  return list
 })
 export const musicHonmeiListLeft = computed<Music[]>(() =>
   musicsReverse.value.filter((music) => music.id != musicHonmei.value.id)
@@ -6689,13 +6689,10 @@ export const orderOptions = [
 export const order = ref(orderOptions[0])
 export const keyword = ref('')
 
-const p = new PinIn({ dict: defaultDict, fCh2C: true, fSh2S: true, fZh2Z: true })
 const searcher = computed(() => {
-  const s = new CachedSearcher<Music>(SearchLogicContain, p)
+  const s = new CachedSearcher<Music>(SearchLogicContain, pinin)
 
-  let list = [...musicListLeft.value]
-
-  for (const music of list) {
+  for (const music of musicListLeft.value) {
     s.put(music.name.toLowerCase(), music)
     s.put(music.album.toLowerCase(), music)
   }

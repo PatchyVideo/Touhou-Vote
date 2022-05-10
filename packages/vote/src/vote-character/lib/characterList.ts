@@ -1,9 +1,10 @@
 import { computed, ref } from 'vue'
-import PinIn, { CachedSearcher, SearchLogicContain, defaultDict } from 'pinin'
+import { CachedSearcher, SearchLogicContain } from 'pinin'
 import type { Character } from '@/vote-character/lib/character'
 import { character0 } from '@/vote-character/lib/character'
 import { characterHonmei, characters } from '@/vote-character/lib/voteData'
 import { filterForKind, workSelected } from '@/vote-character/lib/workList'
+import { pinin } from '@/common/lib/pinin'
 
 export const characterList: Character[] = [
   {
@@ -3233,8 +3234,7 @@ export const characterList: Character[] = [
   },
 ]
 
-export const characterListLeft = computed<Character[]>(() =>
-{  
+export const characterListLeft = computed<Character[]>(() => {
   let charaList = characterList.filter((character) => {
     let characterInCharacters = false
     for (let i = 0; i < characters.value.length; i++) {
@@ -3242,7 +3242,6 @@ export const characterListLeft = computed<Character[]>(() =>
     }
     return character.id != characterHonmei.value.id && !characterInCharacters
   })
-
 
   if (filterForKind.value.length) {
     charaList = charaList.filter((chara) => filterForKind.value.find((k1) => chara.kind.find((k2) => k2 === k1.value)))
@@ -3252,7 +3251,7 @@ export const characterListLeft = computed<Character[]>(() =>
     charaList = charaList.filter((chara) => chara.work.find((work) => work === workSelected.value.name))
   }
 
-  return charaList;
+  return charaList
 })
 
 export const characterHonmeiListLeft = computed<Character[]>(() => {
@@ -3279,12 +3278,10 @@ export const orderOptions = [
 export const order = ref(orderOptions[0])
 export const keyword = ref('')
 
-const p = new PinIn({ dict: defaultDict, fCh2C: true, fSh2S: true, fZh2Z: true })
 const searcher = computed(() => {
-  const s = new CachedSearcher<Character>(SearchLogicContain, p)
-  let charaList = [...characterListLeft.value]
+  const s = new CachedSearcher<Character>(SearchLogicContain, pinin)
 
-  for (const c of charaList) {
+  for (const c of characterListLeft.value) {
     s.put(c.name.toLowerCase(), c)
     for (const altname of c.altnames) {
       s.put(altname.toLowerCase(), c)
