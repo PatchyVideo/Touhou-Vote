@@ -77,9 +77,7 @@
           :class="{ 'bg-accent-color-300': submiting || !questionnaireDone }"
           @click="questionnaireDone && submitQuestionnire()"
         >
-          <icon-uil-spinner-alt v-if="submiting" class="animate-spin" /><label>{{
-            submiting ? '提交中' : '提交'
-          }}</label>
+          <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />{{ submiting ? '提交中' : '提交' }}
         </button>
       </div>
       <button
@@ -91,7 +89,7 @@
         :class="{ 'bg-accent-color-300': submiting }"
         @click="submitQuestionnire()"
       >
-        <icon-uil-spinner-alt v-if="submiting" class="animate-spin" /><label>{{ submiting ? '提交中' : '提交' }}</label>
+        <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />{{ submiting ? '提交中' : '提交' }}
       </button>
     </div>
   </div>
@@ -117,7 +115,10 @@
         <div>可以通过页面顶部的下拉菜单快速切换问卷或问题。</div>
       </div>
       <div v-else>
-        <div>感谢您完成了<strong>{{ questionnaireName }}</strong>的填写！</div>
+        <div>
+          感谢您完成了<strong>{{ questionnaireName }}</strong
+          >的填写！
+        </div>
         <div>您是希望休息一下，还是继续填写/修改其他问卷呢？</div>
         <div>提示：可以通过页面顶部的下拉菜单快速切换问卷或问题。</div>
       </div>
