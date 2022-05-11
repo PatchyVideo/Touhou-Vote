@@ -163,14 +163,7 @@ getSubmitCPVoteError((err) => {
   else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
 
-const coupleDisplayName = (item: Couple, index: number) =>
-  '投票位' +
-  (index + 1) +
-  ': ' +
-  item.characters
-    .filter((v) => v.id)
-    .map((v) => v.name)
-    .join(' & ')
+const coupleDisplayName = (item: Couple, index: number) => '投票位' + (index + 1)
 const coupleHonmeiOptions = computed(() =>
   couplesValid.value.map((item, index) => ({
     name: coupleDisplayName(item, index),
@@ -290,7 +283,7 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
 onDone((result) => {
   popMessageText('投票成功！')
   voteCoupleComplete.value = true
-  router.push({ path: '/', query: { tab: 1 } })
+  router.push({ path: '/', query: { tab: 1, openList: 'vote', open: 1 } })
 })
 onError((error) => {
   console.log(error.graphQLErrors[0].extensions)

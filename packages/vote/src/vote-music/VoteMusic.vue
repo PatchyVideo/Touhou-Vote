@@ -224,7 +224,7 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
 onDone((result) => {
   popMessageText('投票成功！')
   voteMusicComplete.value = true
-  router.push({ path: '/', query: { tab: 1 } })
+  router.push({ path: '/', query: { tab: 1, openList: 'vote', open: 1 } })
 })
 onError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
