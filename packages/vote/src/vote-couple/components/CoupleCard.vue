@@ -4,12 +4,12 @@
       <div>{{ '投票位' + (indexOfCouple + 1) }}</div>
       <icon-uil-times class="cursor-pointer" @click="closeCard()"></icon-uil-times>
     </div>
-    <div class="p-1 flex space-x-4 overflow-auto">
+    <div class="p-1 flex space-x-4 overflow-hidden">
       <transition-group name="characterList">
         <div
           v-for="(character, index) in charactersValid"
           :key="index"
-          class="relative w-3/10 max-w-48 p-1 pt-5 shadow rounded"
+          class="relative w-3/10 min-h-30 md:min-h-40 3xl:min-h-50 p-1 pt-5 shadow rounded"
         >
           <icon-uil-times
             class="absolute right-0 top-0 cursor-pointer"
@@ -19,7 +19,7 @@
             class="character-image relative w-full overflow-hidden"
             :class="{ 'before:hidden': couple.seme != index }"
           >
-            <img class="w-full rounded border" :src="character.image" />
+            <img class="w-full rounded border" :src="character.image ? character.image : characterImages" />
           </div>
           <div class="p-1 truncate text-center text-xs md:text-base" :style="'color:' + character.color">
             {{ character.name }}
@@ -36,7 +36,7 @@
       <transition name="selectedMore" mode="out-in">
         <div
           v-if="moreCharacterCanBeSelected"
-          class="min-w-3/10 min-h-30 md:min-h-40 3xl:min-h-50 p-1 shadow rounded flex flex-col cursor-pointer"
+          class="w-3/10 min-h-30 md:min-h-40 3xl:min-h-50 p-1 shadow rounded flex flex-col cursor-pointer"
           @click="characterSelectOpen = true"
         >
           <icon-uil-plus class="w-1/2 mx-auto flex-grow" />
@@ -60,6 +60,7 @@ import { Couple } from '@/vote-couple/lib/couple'
 import { couples } from '@/vote-couple/lib/voteData'
 import CharacterSelect from '@/vote-couple/components/CharacterSelect.vue'
 import { Character, character0 } from '@/vote-character/lib/character'
+import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
 
 const props = defineProps({
   indexOfCouple: {
