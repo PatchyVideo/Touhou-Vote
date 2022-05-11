@@ -421,8 +421,9 @@ function gotoDoujinSystem(): void {
   router.push({ path: '/doujin' })
 }
 
-function logout(): void {
+async function logout(): Promise<void> {
   deleteUserData()
+  await router.push({ path: route.path, query: {} })
   location.reload()
 }
 
