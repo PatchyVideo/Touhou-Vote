@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { watchEffect } from 'vue'
+import { onBeforeUnmount, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 
 const props = withDefaults(
@@ -48,6 +48,9 @@ watchEffect(() => {
 function close(): void {
   open.value = false
 }
+onBeforeUnmount(() => {
+  document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:auto')
+})
 </script>
 <style lang="postcss" scoped>
 .messageBox-enter-active,
