@@ -1,12 +1,8 @@
 <template>
-  <div v-if="props.show" class="w-8 h-8 pr-2 md:w-0 md:pr-0">
-    <icon-uil-angle-left-b
-      v-if="screenSizes['<md']"
-      class="w-full h-full cursor-pointer"
-      @click="backToHome()"
-    ></icon-uil-angle-left-b>
+  <div v-if="props.show" class="w-8 h-8 pr-2">
+    <icon-uil-angle-left-b class="w-full h-full cursor-pointer" @click="backToHome()"></icon-uil-angle-left-b>
     <button
-      v-else
+      v-if="screenSizes['md']"
       class="fixed flex items-center bottom-5 right-5 px-3 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
       @click="backToHome()"
     >
