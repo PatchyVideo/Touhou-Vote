@@ -1,9 +1,9 @@
 import { computed, ref } from 'vue'
 import { CachedSearcher, SearchLogicContain } from 'pinin'
-import type { Character } from '@/vote-character/lib/character'
-import { character0 } from '@/vote-character/lib/character'
-import { characterHonmei, characters } from '@/vote-character/lib/voteData'
-import { filterForKind, workSelected } from '@/vote-character/lib/workList'
+import type { Character } from './character'
+import { character0 } from './character'
+import { characterHonmei, characters } from './voteData'
+import { filterForKind, workSelected } from './workList'
 import { pinin } from '@/common/lib/pinin'
 
 export const characterList: Character[] = [

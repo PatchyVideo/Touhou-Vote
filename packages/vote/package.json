@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.2",
-    "@formatjs/intl-locale": "^2.4.46",
-    "@formatjs/intl-localematcher": "^0.2.24",
     "@vue/apollo-composable": "4.0.0-alpha.17",
     "@vue/apollo-util": "4.0.0-alpha.17",
     "@vueuse/components": "^8.4.2",

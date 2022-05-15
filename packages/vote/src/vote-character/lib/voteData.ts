@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue'
-import { Character } from '@/vote-character/lib/character'
-import { characterList } from '@/vote-character/lib/characterList'
+import { Character } from './character'
+import { characterList } from './characterList'
 import type { CharacterSubmitQuery } from '@/graphql/__generated__/graphql'
 
 export const characterHonmei = computed<Character>(

@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "gen": "esmo src/main.ts"
+    "gen": "tsx src/main.ts"
   },
   "devDependencies": {
     "@types/rimraf": "^3.0.2",
