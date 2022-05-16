@@ -82,7 +82,7 @@
                     >完成</label
                   >
                 </div>
-                <div class="text-sm">投票之前请先完成调查问卷哦</div>
+                <div class="text-sm text-gray-700">投票之前请先完成调查问卷哦</div>
               </div>
               <div class="w-full text-right">
                 <button
@@ -114,7 +114,7 @@
                     >完成</label
                   >
                 </div>
-                <div class="text-sm">为您喜爱的角色/曲目/CP投上一票吧！</div>
+                <div class="text-sm text-gray-700">为您喜爱的角色/曲目/CP投上一票吧！</div>
               </div>
               <div class="w-full text-right">
                 <button
@@ -146,12 +146,12 @@
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
                 <div class="w-full flex items-center space-x-2">
-                  <div class="text-xl truncate"><label class="text-accent-color-600">（NEW）</label>作品提名</div>
+                  <div class="text-xl truncate"><label class="text-accent-color-600">(NEW)</label>作品提名</div>
                   <label v-if="voteDoujinComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
                     >完成</label
                   >
                 </div>
-                <div class="text-sm">新部门，为自己喜爱的同人作品提名！</div>
+                <div class="text-sm text-gray-700">新部门，为自己喜爱的同人作品提名！</div>
               </div>
               <div class="w-full text-right">
                 <button
@@ -183,7 +183,9 @@
           </div> -->
 
           <!-- Copyright -->
-          <div class="quicksand flex flex-wrap justify-center gap-x-2 text-sm text-gray-600">
+          <div
+            class="quicksand flex flex-wrap justify-center gap-x-2 text-sm text-gray-600 absolute w-100vw left-0 bottom-1"
+          >
             <div>&copy; Copyright 2022 THBWiki, VoileLabs.</div>
             <div>Licensed under GPL-3.0.</div>
             <div class="flex gap-x-2">

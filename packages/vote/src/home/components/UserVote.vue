@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-100vh md:min-h-0">
+  <div class="min-h-[calc(100vh-44px)] md:min-h-0">
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
       <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
@@ -19,7 +19,7 @@
                 >完成</label
               >
             </div>
-            <div class="text-xs"></div>
+            <div class="text-sm text-gray-700">为喜欢的角色投票</div>
           </div>
           <div class="w-full text-right">
             <button
@@ -47,7 +47,7 @@
               音乐部门
               <label v-if="voteMusicComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white">完成</label>
             </div>
-            <div class="text-xs"></div>
+            <div class="text-sm text-gray-700">为喜欢的音乐投票</div>
           </div>
           <div class="w-full text-right">
             <button
@@ -74,7 +74,7 @@
               CP部门
               <label v-if="voteCoupleComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white">完成</label>
             </div>
-            <div class="text-xs"></div>
+            <div class="text-sm text-gray-700">为喜欢的角色组合投票</div>
           </div>
           <div class="w-full text-right">
             <button

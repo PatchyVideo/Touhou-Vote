@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-auto max-h-100vh">
+  <div class="overflow-auto max-h-[calc(100vh-44px)]">
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
       <div v-for="(children, catogory) in questionnaire" :key="catogory">
