@@ -604,14 +604,20 @@ export function computeQuestionnaire(): QuestionnaireALL {
           const questionOption = questionTarget.options.find((item) => item.id === option)
           if (!questionOption) continue
           for (const relatedQuestionID of questionOption.related) {
-            // 如果选择的选项有相关问题（related属性里的题目ID），则将相关问题所在题库中的所有不相关的题目删除掉
+            // 如果选择的选项有相关问题（related属性里的题目ID），则将其放在数组最前方
             questionnaireReturn[IDToBigQuestionnaire(relatedQuestionID)][
               IDToSmallQuestionnaire(relatedQuestionID)
             ].questions[IDToQuestionLibrary(relatedQuestionID)] = questionnaireReturn[
               IDToBigQuestionnaire(relatedQuestionID)
-            ][IDToSmallQuestionnaire(relatedQuestionID)].questions[IDToQuestionLibrary(relatedQuestionID)].filter(
-              (question) => question.id === relatedQuestionID
-            )
+            ][IDToSmallQuestionnaire(relatedQuestionID)].questions[IDToQuestionLibrary(relatedQuestionID)]
+              .filter((question) => question.id === relatedQuestionID)
+              .concat(
+                questionnaireReturn[IDToBigQuestionnaire(relatedQuestionID)][
+                  IDToSmallQuestionnaire(relatedQuestionID)
+                ].questions[IDToQuestionLibrary(relatedQuestionID)].filter(
+                  (question) => question.id != relatedQuestionID
+                )
+              )
             // 如果不相关的题目已经回答过了，则重置回答的数据
             const indexOfRelatedQuestionID = questionnaireData.value[bigQuestionnaire][
               smallQuestionnaire
