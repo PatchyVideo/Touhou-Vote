@@ -13,8 +13,8 @@
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
-            <div class="text-xl">
-              角色部门
+            <div class="w-full flex items-center space-x-2">
+              <div class="text-xl truncate">角色部门</div>
               <label v-if="voteCharacterComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
                 >完成</label
               >
@@ -43,8 +43,8 @@
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
-            <div class="text-xl">
-              音乐部门
+            <div class="w-full flex items-center space-x-2">
+              <div class="text-xl truncate">音乐部门</div>
               <label v-if="voteMusicComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white">完成</label>
             </div>
             <div class="text-sm text-gray-700">为喜欢的音乐投票</div>
@@ -70,8 +70,8 @@
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
           <div class="w-full space-y-0.5">
-            <div class="text-xl">
-              CP部门
+            <div class="w-full flex items-center space-x-2">
+              <div class="text-xl truncate">CP部门</div>
               <label v-if="voteCoupleComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white">完成</label>
             </div>
             <div class="text-sm text-gray-700">为喜欢的角色组合投票</div>

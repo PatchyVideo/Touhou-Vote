@@ -4,8 +4,8 @@
     <div class="w-full p-3 space-y-2">
       <div v-for="(children, catogory) in questionnaire" :key="catogory">
         <div class="flex flex-nowrap items-end border-b-1 border-gray-700 space-x-2">
-          <h2 class="text-base font-bold">{{ questionnaireNameById[catogory].name }}</h2>
-          <span class="text-sm text-gray-700">{{ questionnaireNameById[catogory].desc }}</span>
+          <h2 class="text-base font-bold whitespace-nowrap">{{ questionnaireNameById[catogory].name }}</h2>
+          <span class="text-sm text-gray-700 truncate">{{ questionnaireNameById[catogory].desc }}</span>
         </div>
         <div
           v-for="(_child, childId) in children"
@@ -20,7 +20,7 @@
           <div class="w-2/3 p-0.5 flex flex-wrap content-between">
             <div class="w-full space-y-0.5">
               <div class="w-full flex items-center space-x-2">
-                <div class="text-base">
+                <div class="text-xl truncate">
                   {{ questionnaireNameById[catogory].children[childId].name }}
                 </div>
                 <label
