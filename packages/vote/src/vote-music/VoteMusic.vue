@@ -7,22 +7,22 @@
     </div>
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
-      <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
-        <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
-          <div>本命曲目</div>
-          <icon-uil-arrows-h
-            v-show="musicHonmei.id != music0.id"
-            class="cursor-pointer"
-            @click="
-              () => {
-                musicHonmeiIsSelected = true
-                musicSelectOpen = true
-              }
-            "
-          />
-        </div>
-        <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50">
-          <transition name="musicHonmei" mode="out-in">
+      <transition name="musicHonmei" mode="out-in">
+        <div v-if="musicsReverse.length" class="p-1 rounded w-full shadow bg-white bg-opacity-80">
+          <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
+            <div>本命曲目</div>
+            <icon-uil-arrows-h
+              v-show="musicHonmei.id != music0.id"
+              class="cursor-pointer"
+              @click="
+                () => {
+                  musicHonmeiIsSelected = true
+                  musicSelectOpen = true
+                }
+              "
+            />
+          </div>
+          <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50">
             <div v-if="musicHonmei.honmei" key="selecting">
               <MusicHonmeiCard v-model:music-honmei="musicHonmei" class="opacity-80" />
             </div>
@@ -40,9 +40,9 @@
                 <strong>点击这里把它选为您的本命曲哦</strong>
               </div>
             </div>
-          </transition>
+          </div>
         </div>
-      </div>
+      </transition>
 
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl®">
