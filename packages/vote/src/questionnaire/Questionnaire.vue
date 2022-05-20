@@ -315,7 +315,7 @@ function changeQuestion(direction: 'forward' | 'back' | 'no'): void {
 function changeQuestionnaireData(): void {
   questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
     indexOfAnswerInQuestionnaireData.value
-  ].options = answerData.value
+  ].options = answerData.value.sort()
   questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
     indexOfAnswerInQuestionnaireData.value
   ].input = answerContent.value
