@@ -1,9 +1,7 @@
 <template>
   <transition name="editDoujin">
-    <div
-      v-if="open"
-      class="fixed top-1/10 left-0 right-0 mx-auto w-19/20 max-w-105ch max-h-4/5 flex flex-col p-3 z-40 space-y-2 bg-white rounded"
-    >
+    <div v-if="open"
+      class="fixed top-1/10 left-0 right-0 mx-auto w-19/20 max-w-105ch max-h-4/5 flex flex-col p-3 z-40 space-y-2 bg-white rounded">
       <div class="flex justify-between">
         <div class="md:text-base xl:text-xl 2xl:text-2xl">编辑提名</div>
         <icon-uil-times class="text-xl xl:text-2xl 2xl:text-3xl cursor-pointer" @click="cancelEdit()"></icon-uil-times>
@@ -12,15 +10,11 @@
         <div class="flex flex-col">
           <div class="flex justify-between items-center gap-x-3">
             <div class="whitespace-nowrap py-0.5"><strong>发布链接</strong></div>
-            <input
-              v-model="doujinUrl"
-              class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
-            />
-            <button
-              class="whitespace-nowrap px-1 py-0.5 text-xs rounded border lg:text-sm"
+            <input v-model="doujinUrl"
+              class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full" />
+            <button class="whitespace-nowrap px-1 py-0.5 text-xs rounded border lg:text-sm"
               :class="{ 'text-gray-300': fetchLoading || !validUrlInvalid }"
-              @click="!fetchLoading && validUrlInvalid && fetchMsg()"
-            >
+              @click="!fetchLoading && validUrlInvalid && fetchMsg()">
               <icon-uil-spinner-alt v-if="fetchLoading" class="animate-spin" />自动获取信息
             </button>
           </div>
@@ -30,27 +24,17 @@
               <span ref="hintElUrlMaxLength">最长 2048 个字符</span>
             </li>
             <li>
-              *<span ref="hintElUrlInvalid">有效的链接仅支持以下网站</span
-              >：Bilibili(仅限视频)、微博(仅限移动端链接)、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
+              *<span
+                ref="hintElUrlInvalid">有效的链接仅支持以下网站</span>：Bilibili(仅限视频)、微博(仅限移动端链接)、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
                 class="text-gray-800 underline decoration-blue-400 hover:text-blue-600 transition transition-colors"
-                href="https://thvideo.tv/"
-                target="_blank"
-                >旧页面</a
-              >和<a
+                href="https://thvideo.tv/" target="_blank">旧页面</a>和<a
                 class="text-gray-800 underline decoration-blue-400 hover:text-blue-600 transition transition-colors"
-                href="https://platinum.vercel.app/"
-                target="_blank"
-                >新页面</a
-              >)、Twitter、YouTube、Pixiv、Nico静画/动画、Acfun、百度贴吧
+                href="https://platinum.vercel.app/" target="_blank">新页面</a>)、Twitter、YouTube、Pixiv、Nico静画/动画、Acfun、百度贴吧
             </li>
             <li>
               *如果作品的发布地址在上述网站之外或并未在网络上发布，则请前往
-              <a
-                class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
-                href="https://thwiki.cc/"
-                target="_blank"
-                >THBWiki</a
-              >
+              <a class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
+                href="https://thwiki.cc/" target="_blank">THBWiki</a>
               创建该作品的词条并将词条链接粘贴到此处
             </li>
             <li>
@@ -63,10 +47,8 @@
             <div class="flex flex-col">
               <div class="flex justify-between items-center gap-x-3">
                 <div class="whitespace-nowrap py-0.5">标题</div>
-                <input
-                  v-model="doujinTitle"
-                  class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
-                />
+                <input v-model="doujinTitle"
+                  class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full" />
               </div>
               <ul class="text-xs text-gray-800 3xl:text-sm">
                 <li>
@@ -79,10 +61,8 @@
             <div class="flex flex-col">
               <div class="flex justify-between items-center gap-x-3">
                 <div class="whitespace-nowrap py-0.5">作者</div>
-                <input
-                  v-model="doujinAuthor"
-                  class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
-                />
+                <input v-model="doujinAuthor"
+                  class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full" />
               </div>
               <ul class="text-xs text-gray-800 3xl:text-sm">
                 <li>
@@ -131,12 +111,8 @@
             </ul>
           </div>
           <div>
-            <textarea
-              v-model="doujinReason"
-              maxlength="1024"
-              rows="8"
-              class="inline-block outline-none border border-gray-300 focus:border-accent-color-400 transition-colors w-full p-1 rounded"
-            />
+            <textarea v-model="doujinReason" maxlength="1024" rows="8"
+              class="inline-block outline-none border border-gray-300 focus:border-accent-color-400 transition-colors w-full p-1 rounded" />
           </div>
         </div>
       </div>
@@ -154,11 +130,9 @@
       </div>
       <!-- Mask for fetching messages  -->
       <Transition name="mask">
-        <div
-          v-if="fetchLoading"
+        <div v-if="fetchLoading"
           class="absolute top-0 bottom-0 left-0 right-0 rounded flex justify-center filter drop-shadow-md backdrop-filter backdrop-blur-sm"
-          @touchmove.stop.prevent
-        >
+          @touchmove.stop.prevent>
           <div class="flex items-center text-accent-color-600 font-bold text-lg">
             <icon-uil-spinner-alt class="animate-spin" />少女祈祷中...
           </div>
@@ -174,12 +148,9 @@
       <ul class="space-y-2 p-2 list-disc list-inside">
         <li>
           必须是符合上海爱丽丝幻乐团的
-          <a
-            class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
-            href="https://www.bilibili.com/read/cv6364137"
-            target="_blank"
-            ><label class="text-accent-color-600">东方Project使用规定</label></a
-          >
+          <a class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
+            href="https://www.bilibili.com/read/cv6364137" target="_blank"><label
+              class="text-accent-color-600">东方Project使用规定</label></a>
           的东方Project二次创作作品。
         </li>
         <li>
@@ -200,10 +171,8 @@
         </li>
         <li>上述规则的最终解释权由THBWiki所有。</li>
       </ul>
-      <button
-        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
-        @click="noticeOpen = false"
-      >
+      <button class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        @click="noticeOpen = false">
         <label>我知道了</label>
       </button>
     </div>
@@ -310,8 +279,10 @@ async function fetchMsg(): Promise<void> {
     credentials: 'include',
   })
     .then((data) => data.json())
-    .then((res) => {
-      if (res.status === 'ok') {
+    .then(async (res) => {
+      if (res.status === 'ok' || res.status === 'warning' || res.status === 'r18') {
+        if (res.status === 'warning' && !await popConfirmText("检测到内容可能为非东方作品，确定继续吗？")) return
+        if (res.status === 'r18' && !await popConfirmText("检测到r18作品，会导致该票无效，确定继续吗？")) return
         if (res.data.title) doujinTitle.value = res.data.title
         if (res.data.author_name[0]) doujinAuthor.value = res.data.author_name[0]
         if (doujinType.value === doujintypesWithoutColor.value[0] && res.data.tname)
@@ -319,10 +290,14 @@ async function fetchMsg(): Promise<void> {
             doujintypesWithoutColor.value.find((item) => item.value === res.data.tname) ||
             doujintypesWithoutColor.value[0]
         doujinImageUrl.value = res.data.cover || Doujin0NoImageUrl
+      } else if (res.status === 'err' || res.status === 'parsererr' || res.status === 'apierr') {
+        console.log(res.status, res.msg)
+        doujinImageUrl.value = Doujin0NoImageUrl
+        popMessageText((res.status === 'parsererr' || res.status === 'apierr') ? '功能出现问题，请从投票主页下方链接反馈' : '未找到可以获取的内容！')
       } else {
         console.log(res.status, res.msg)
         doujinImageUrl.value = Doujin0NoImageUrl
-        popMessageText('未找到可以获取的内容！')
+        popMessageText('未知错误' + res.status === 'except' ? (':' + res.msg) : '!')
       }
     })
     .catch((err) => {
@@ -470,10 +445,12 @@ function comfirmEdit(): void {
 .editDoujin-leave-to {
   @apply opacity-0;
 }
+
 .mask-enter-active,
 .mask-leave-active {
   @apply transition-all duration-200;
 }
+
 .mask-enter-from,
 .mask-leave-to {
   @apply bg-opacity-0;
