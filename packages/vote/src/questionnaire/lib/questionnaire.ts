@@ -1221,7 +1221,7 @@ export const questionnaire: QuestionnaireALL = {
                 id: 1301101,
                 related: [],
                 mutex: [],
-                content: '音乐',
+                content: '音乐/音声',
               },
               {
                 id: 1301102,
@@ -1399,7 +1399,7 @@ export const questionnaire: QuestionnaireALL = {
                 id: 1305101,
                 related: [],
                 mutex: [],
-                content: '音乐类',
+                content: '音乐/音声类',
               },
               {
                 id: 1305102,
@@ -1605,7 +1605,7 @@ export const questionnaire: QuestionnaireALL = {
                 id: 1309101,
                 related: [],
                 mutex: [],
-                content: '音乐类',
+                content: '音乐/音声类',
               },
               {
                 id: 1309102,
@@ -1930,7 +1930,7 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2101101,
                 related: [],
                 mutex: [],
-                content: '音乐类',
+                content: '音乐/音声类',
               },
               {
                 id: 2101102,
@@ -2904,27 +2904,21 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 24061,
             type: 'Single',
-            question: '您是否使用过盗版官作游戏？（注：网络上免费下载的完整官作游戏均为盗版）',
+            question: '您是否支持继续以目前的模式（保持现在的引进速度及质量）引进官中出版物？',
             introduction: '',
             input: '',
             options: [
               {
                 id: 2406101,
-                related: [24071],
+                related: [24070],
                 mutex: [],
-                content: '是，并且购买了对应的正版',
+                content: '支持',
               },
               {
                 id: 2406102,
                 related: [24071],
                 mutex: [],
-                content: '是，并且没有购买对应的正版',
-              },
-              {
-                id: 2406103,
-                related: [24070],
-                mutex: [],
-                content: '否',
+                content: '不支持',
               },
             ],
           },
@@ -2941,7 +2935,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 24071,
             type: 'Input',
-            question: '您使用盗版官作游戏的理由是？',
+            question: '您不支持的理由是？',
             introduction: '',
             input: '',
             options: [],
@@ -2951,7 +2945,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 24081,
             type: 'Single',
-            question: '您是否了解过盗版的二创作品（盗版CD、盗版漫画等）？',
+            question: '您是否使用过盗版官作游戏？（注：网络上免费下载的完整官作游戏均为盗版）',
             introduction: '',
             input: '',
             options: [
@@ -2959,19 +2953,19 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2408101,
                 related: [24091],
                 mutex: [],
-                content: '（有意或无意地）购买过',
+                content: '是，并且购买了对应的正版',
               },
               {
                 id: 2408102,
                 related: [24091],
                 mutex: [],
-                content: '听说过',
+                content: '是，并且没有购买对应的正版',
               },
               {
                 id: 2408103,
                 related: [24090],
                 mutex: [],
-                content: '没有听说过',
+                content: '否',
               },
             ],
           },
@@ -2988,7 +2982,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 24091,
             type: 'Input',
-            question: '您如何看待盗版的二创作品（盗版CD、盗版漫画等）？',
+            question: '您使用盗版官作游戏的理由是？',
             introduction: '',
             input: '',
             options: [],
@@ -2998,7 +2992,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 24101,
             type: 'Single',
-            question: '您是否了解在同人创作中存在的盗用（如盗视频，挪用换皮，抄袭剽窃等）？',
+            question: '您是否了解过盗版的二创作品（盗版CD、盗版漫画等）？',
             introduction: '',
             input: '',
             options: [
@@ -3006,7 +3000,7 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2410101,
                 related: [24111],
                 mutex: [],
-                content: '见到过相关的盗用情况',
+                content: '（有意或无意地）购买过',
               },
               {
                 id: 2410102,
@@ -3035,7 +3029,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 24111,
             type: 'Input',
-            question: '您如何看待同人创作中出现的盗版作品？',
+            question: '您如何看待盗版的二创作品（盗版CD、盗版漫画等）？',
             introduction: '',
             input: '',
             options: [],
@@ -3045,25 +3039,72 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 24121,
             type: 'Single',
+            question: '您是否了解在同人创作中存在的盗用（如盗视频，挪用换皮，抄袭剽窃等）？',
+            introduction: '',
+            input: '',
+            options: [
+              {
+                id: 2412101,
+                related: [24131],
+                mutex: [],
+                content: '见到过相关的盗用情况',
+              },
+              {
+                id: 2412102,
+                related: [24131],
+                mutex: [],
+                content: '听说过',
+              },
+              {
+                id: 2412103,
+                related: [24130],
+                mutex: [],
+                content: '没有听说过',
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: 24130,
+            type: 'Input',
+            question: '被遗忘的问题 ～ Error Occured',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+          {
+            id: 24131,
+            type: 'Input',
+            question: '您如何看待同人创作中出现的盗版作品？',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+        ],
+        [
+          {
+            id: 24141,
+            type: 'Single',
             question: '您是否了解类似流星计划、因幡帝汉化组这样的同人作品正版引进的组织？',
             introduction: '',
             input: '',
             options: [
               {
-                id: 2410101,
-                related: [24111],
+                id: 2414101,
+                related: [],
                 mutex: [],
                 content: '已购入过引进的作品',
               },
               {
-                id: 2410102,
-                related: [24111],
+                id: 2414102,
+                related: [],
                 mutex: [],
                 content: '听说过',
               },
               {
-                id: 2410103,
-                related: [24110],
+                id: 2414103,
+                related: [],
                 mutex: [],
                 content: '没有听说过',
               },
@@ -3074,7 +3115,7 @@ export const questionnaire: QuestionnaireALL = {
     },
     exQuestionnaire5: {
       id: 25,
-      name: '额外问卷 - 主办方附加问卷',
+      name: '额外问卷 - 社群相关/主办方附加',
       introduction: '该部分问卷涉及投票者对主办方了解的具体情况。投票者可以选择是否填写该问卷',
       questions: [
         [
@@ -3541,7 +3582,27 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 25111,
             type: 'Input',
+            question: '您对于国内现有的平台有何建议和看法？',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+        ],
+        [
+          {
+            id: 25112,
+            type: 'Input',
             question: '您认为除了现有平台，还可以搭建什么样的平台来帮助创作者与观众？',
+            introduction: '',
+            input: '',
+            options: [],
+          },
+        ],
+        [
+          {
+            id: 25113,
+            type: 'Input',
+            question: '您对于本次投票有何意见或建议呢？',
             introduction: '',
             input: '',
             options: [],

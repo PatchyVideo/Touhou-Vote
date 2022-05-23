@@ -59,7 +59,7 @@ export const questionnaireNameById: Record<
         image: 'https://upload.thwiki.cc/7/7e/%E6%82%94%E6%82%9F%E6%A3%92.png',
       },
       exQuestionnaire5: {
-        name: '主办方附加问卷',
+        name: '社群相关/主办方附加',
         desc: '适合对东方相关信息感兴趣的人填写',
         image: 'https://upload.thwiki.cc/c/c1/Wiki%E6%97%A0%E5%AD%97.png',
       },
