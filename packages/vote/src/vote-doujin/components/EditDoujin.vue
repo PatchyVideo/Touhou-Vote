@@ -314,7 +314,7 @@ async function fetchMsg(): Promise<void> {
       if (res.status === 'ok' || res.status === 'warning') {
         if (res.status === 'warning' && !(await popConfirmText('检测到内容可能为非东方作品，确定继续吗？'))) return
         if (res.data.title) doujinTitle.value = res.data.title
-        if (res.data.author_name[0]) doujinAuthor.value = res.data.author_name[0]
+        if (res.data.author_name[0]) doujinAuthor.value = res.data.author_name.join(' ')
         if (res.data.tname)
           doujinType.value =
             doujintypesWithoutColor.value.find((item) => item.value === res.data.tname) ||
