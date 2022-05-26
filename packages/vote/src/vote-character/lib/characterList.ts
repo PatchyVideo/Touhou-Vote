@@ -66,7 +66,8 @@ export const characterList: Character[] = [
     name: '菊理',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E8%8F%8A%E7%90%86#/media/%E6%96%87%E4%BB%B6:%E8%8F%8A%E7%90%86%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -79,7 +80,8 @@ export const characterList: Character[] = [
     name: '矜羯罗',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E7%9F%9C%E7%BE%AF%E7%BD%97#/media/%E6%96%87%E4%BB%B6:%E7%9F%9C%E7%BE%AF%E7%BD%97%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -92,7 +94,8 @@ export const characterList: Character[] = [
     name: '幽幻魔眼',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E5%B9%BD%E5%B9%BB%E9%AD%94%E7%9C%BC#/media/%E6%96%87%E4%BB%B6:%E5%B9%BD%E5%B9%BB%E9%AD%94%E7%9C%BC%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -105,7 +108,8 @@ export const characterList: Character[] = [
     name: '依莉斯',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E4%BE%9D%E8%8E%89%E6%96%AF#/media/%E6%96%87%E4%BB%B6:%E4%BE%9D%E8%8E%89%E4%B8%9D%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -118,7 +122,8 @@ export const characterList: Character[] = [
     name: '萨丽爱尔',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E8%90%A8%E4%B8%BD%E7%88%B1%E5%B0%94#/media/%E6%96%87%E4%BB%B6:%E8%90%A8%E4%B8%BD%E8%89%BE%E5%B0%94%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -131,7 +136,8 @@ export const characterList: Character[] = [
     name: '玄爷',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E7%8E%84%E7%88%B7#/media/%E6%96%87%E4%BB%B6:%E7%8E%84%E7%88%B7%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -144,7 +150,8 @@ export const characterList: Character[] = [
     name: '里香',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E9%87%8C%E9%A6%99#/media/%E6%96%87%E4%BB%B6:%E9%87%8C%E9%A6%99%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -157,7 +164,8 @@ export const characterList: Character[] = [
     name: '明罗',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E6%98%8E%E7%BD%97#/media/%E6%96%87%E4%BB%B6:%E6%98%8E%E7%BD%97%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -170,7 +178,8 @@ export const characterList: Character[] = [
     name: 'Flower～战车',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E9%87%8C%E9%A6%99#/media/%E6%96%87%E4%BB%B6:Flower%EF%BD%9E%E6%88%98%E8%BD%A6%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -183,7 +192,8 @@ export const characterList: Character[] = [
     name: '邪眼西格玛',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E9%87%8C%E9%A6%99#/media/%E6%96%87%E4%BB%B6:%E9%82%AA%E7%9C%BC%E8%A5%BF%E6%A0%BC%E7%8E%9B%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -196,7 +206,8 @@ export const characterList: Character[] = [
     name: '爱莲',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E7%88%B1%E8%8E%B2#/media/%E6%96%87%E4%BB%B6:%E7%88%B1%E8%8E%B2%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -209,7 +220,8 @@ export const characterList: Character[] = [
     name: '小兔姬',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E5%B0%8F%E5%85%94%E5%A7%AC#/media/%E6%96%87%E4%BB%B6:%E5%B0%8F%E5%85%94%E5%A7%AC%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -222,7 +234,8 @@ export const characterList: Character[] = [
     name: '卡娜·安娜贝拉尔',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E5%8D%A1%E5%A8%9C%C2%B7%E5%AE%89%E5%A8%9C%E8%B4%9D%E6%8B%89%E5%B0%94#/media/%E6%96%87%E4%BB%B6:%E5%8D%A1%E5%A8%9C%C2%B7%E5%AE%89%E5%A8%9C%E8%B4%9D%E6%8B%89%E5%B0%94%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -235,7 +248,8 @@ export const characterList: Character[] = [
     name: '朝仓理香子',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E6%9C%9D%E4%BB%93%E7%90%86%E9%A6%99%E5%AD%90#/media/%E6%96%87%E4%BB%B6:%E6%9C%9D%E4%BB%93%E7%90%86%E9%A6%99%E5%AD%90%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -248,7 +262,8 @@ export const characterList: Character[] = [
     name: '北白河千百合',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E5%8C%97%E7%99%BD%E6%B2%B3%E5%8D%83%E7%99%BE%E5%90%88#/media/%E6%96%87%E4%BB%B6:%E5%8C%97%E7%99%BD%E6%B2%B3%E5%8D%83%E7%99%BE%E5%90%88%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -261,7 +276,8 @@ export const characterList: Character[] = [
     name: '冈崎梦美',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E5%86%88%E5%B4%8E%E6%A2%A6%E7%BE%8E#/media/%E6%96%87%E4%BB%B6:%E5%86%88%E5%B4%8E%E6%A2%A6%E7%BE%8E%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -274,7 +290,8 @@ export const characterList: Character[] = [
     name: '咪咪号',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E5%92%AA%E5%92%AA%E5%8F%B7#/media/%E6%96%87%E4%BB%B6:%E5%92%AA%E5%92%AA%E5%8F%B7%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -287,7 +304,8 @@ export const characterList: Character[] = [
     name: '留琴',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E7%95%99%E7%90%B4#/media/%E6%96%87%E4%BB%B6:%E7%95%99%E7%90%B4%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -300,7 +318,8 @@ export const characterList: Character[] = [
     name: '玛○奇',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E7%8E%9B%E2%97%8B%E5%A5%87#/media/%E6%96%87%E4%BB%B6:%E7%8E%9B%E2%97%8B%E5%A5%87%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -313,7 +332,8 @@ export const characterList: Character[] = [
     name: '苏格拉底',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E8%8B%8F%E6%A0%BC%E6%8B%89%E5%BA%95#/media/%E6%96%87%E4%BB%B6:%E8%8B%8F%E6%A0%BC%E6%8B%89%E5%BA%95%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -326,7 +346,8 @@ export const characterList: Character[] = [
     name: '奥莲姬',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E5%A5%A5%E8%8E%B2%E5%A7%AC#/media/%E6%96%87%E4%BB%B6:%E5%A5%A5%E8%8E%B2%E5%A7%AC%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -339,7 +360,8 @@ export const characterList: Character[] = [
     name: '胡桃',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E8%83%A1%E6%A1%83#/media/%E6%96%87%E4%BB%B6:%E8%83%A1%E6%A1%83%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E6%88%98%E6%96%97%E5%9B%BE%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -352,7 +374,8 @@ export const characterList: Character[] = [
     name: '艾丽',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E8%89%BE%E4%B8%BD#/media/%E6%96%87%E4%BB%B6:%E8%89%BE%E4%B8%BD%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -365,7 +388,8 @@ export const characterList: Character[] = [
     name: '梦月',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E6%A2%A6%E6%9C%88#/media/%E6%96%87%E4%BB%B6:%E6%A2%A6%E6%9C%88%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -378,7 +402,8 @@ export const characterList: Character[] = [
     name: '幻月',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E5%B9%BB%E6%9C%88#/media/%E6%96%87%E4%BB%B6:%E5%B9%BB%E6%9C%88%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -391,7 +416,8 @@ export const characterList: Character[] = [
     name: '萨拉',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E8%90%A8%E6%8B%89#/media/%E6%96%87%E4%BB%B6:%E8%90%A8%E6%8B%89%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -404,7 +430,8 @@ export const characterList: Character[] = [
     name: '露易兹',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E9%9C%B2%E6%98%93%E5%85%B9#/media/%E6%96%87%E4%BB%B6:%E9%9C%B2%E6%98%93%E5%85%B9%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -417,7 +444,8 @@ export const characterList: Character[] = [
     name: '雪',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E9%9B%AA#/media/%E6%96%87%E4%BB%B6:%E9%9B%AA%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -430,7 +458,8 @@ export const characterList: Character[] = [
     name: '舞',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E8%88%9E#/media/%E6%96%87%E4%BB%B6:%E8%88%9E%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -443,7 +472,8 @@ export const characterList: Character[] = [
     name: '梦子',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E6%A2%A6%E5%AD%90#/media/%E6%96%87%E4%BB%B6:%E6%A2%A6%E5%AD%90%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -456,7 +486,8 @@ export const characterList: Character[] = [
     name: '神绮',
     altnames: [],
     title: '',
-    image: '',
+    image:
+      'https://thwiki.cc/%E7%A5%9E%E7%BB%AE#/media/%E6%96%87%E4%BB%B6:%E7%A5%9E%E7%BB%AE%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
