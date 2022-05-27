@@ -30,7 +30,10 @@
 </template>
 
 <script lang="ts" setup>
-import { voteCharacterComplete, voteCoupleComplete, voteMusicComplete } from '../lib/user'
+import { voteCharacterComplete, voteCoupleComplete, voteMusicComplete, username } from '../lib/user'
+import { setSiteTitle } from '@/common/lib/setSiteTitle'
+
+setSiteTitle(username.value + ' - 第⑩回 中文东方人气投票')
 
 const votes = {
   character: {
