@@ -3251,7 +3251,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 25051,
             type: 'Single',
-            question: '您平时是否会主动关注东方信息？',
+            question: '您平时是否会“主动”关注东方信息？',
             introduction: '',
             input: '',
             options: [
@@ -3339,7 +3339,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 25071,
             type: 'Multiple',
-            question: '您主动关注的信息类型有哪些？',
+            question: '您“主动”关注的信息类型有哪些？',
             introduction: '',
             input: '',
             options: [
@@ -3386,7 +3386,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 25081,
             type: 'Multiple',
-            question: '您被动关注的信息类型有哪些？',
+            question: '您平时被动接触到的信息类型有哪些？',
             introduction: '',
             input: '',
             options: [
