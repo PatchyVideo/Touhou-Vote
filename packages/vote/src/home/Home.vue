@@ -62,12 +62,15 @@
             投票过程为黑箱投票，即在投票过程中不显示实时投票统计，而是在投票结束后计算出结果进行展示。
           </p>
           <p>
-            如果想了解投票活动的最新动态的话，请关注<strong>THBWiki官方账户</strong>：<a
+            如果想了解投票活动的最新动态的话，请关注<strong>中文东方人气投票组委会</strong>：<a
               class="ani-link px-1"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://space.bilibili.com/362841475"
-              >Bilibili</a
+              href="https://space.bilibili.com/548871707"
+              >bilibili</a
+            >，
+            <a class="ani-link px-1" target="_blank" rel="noopener noreferrer" href="https://weibo.com/touhouvote"
+              >新浪微博</a
             >，或者收藏本站。<br />
             若投票中遇到问题或有建议想要反馈，请<a
               class="ani-link px-1"
