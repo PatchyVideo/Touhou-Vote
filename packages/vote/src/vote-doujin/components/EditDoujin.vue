@@ -41,8 +41,7 @@
                 href="https://platinum.vercel.app/"
                 target="_blank"
                 >新页面</a
-              >)、Twitter、YouTube、Pixiv、Nico静画/动画、Acfun、百度贴吧、Steam、dizzylab、DLsite
-              <!-- 、Melonbooks -->
+              >)、Twitter、YouTube、Pixiv、Nico静画/动画、Acfun、百度贴吧、Steam、dizzylab、DLsite、Melonbooks
             </li>
             <li>
               *如果作品的发布地址在上述网站之外或并未在网络上发布，则请前往
@@ -371,9 +370,10 @@ const dizzylabRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?dizzylab\\.net\\/d\\
 const dlsiteRegExp = new RegExp(
   '^(https:\\/\\/)?(www\\.)?dlsite\\.com\\/home\\/work\\/=\\/product_id\\/[a-zA-Z0-9]+\\.html'
 )
-// const melonbooksRegExp = new RegExp(
-//   '^(https:\\/\\/)?(www\\.)?melonbooks.co.jp\\/detail\\/detail.php\\?product_id=[\\d]+'
-// )
+// https://www.melonbooks.co.jp/detail/detail.php?product_id=XXX
+const melonbooksRegExp = new RegExp(
+  '^(https:\\/\\/)?(www\\.)?melonbooks.co.jp\\/detail\\/detail.php\\?product_id=[\\d]+'
+)
 const hintError = ref(0)
 function useValidation<T>(el: Ref<HTMLElement | null>, value: Ref<T>, valCb: (value: T) => boolean) {
   const throttled = useThrottle(value, 200, true, false)
@@ -422,7 +422,7 @@ const validUrlInvalid = useValidation(hintElUrlInvalid, doujinUrl, (value) =>
     steamRegExp,
     dizzylabRegExp,
     dlsiteRegExp,
-    // melonbooksRegExp,
+    melonbooksRegExp,
   ].some((reg) => reg.test(value))
 )
 const hintElTitleEmpty = ref<HTMLElement | null>(null)
