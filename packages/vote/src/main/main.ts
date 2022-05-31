@@ -6,6 +6,7 @@ import GlobalMessages from '@/common/components/GlobalMessages.vue'
 import { createApollo, provideClient } from '@/graphql'
 import { checkLoginStatus, isLogin } from '@/home/lib/user'
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
+import { voteNotStart } from '@/start-page/lib/voteStart'
 import { voteEnded } from '@/end-page/lib/voteEnded'
 import 'nprogress/css/nprogress.css'
 import '@/tailwindcss'
@@ -94,7 +95,8 @@ router.beforeEach(async (to, from, next) => {
     }, 150)
 
   await checkLoginStatusPromise
-  if (to.path != '/' && !isLogin.value) next({ path: '/' })
+  if (to.path != '/' && voteNotStart()) next({ path: '/' })
+  else if (to.path != '/' && !isLogin.value) next({ path: '/' })
   else if (to.meta.availableAfterVoteEnded && voteEnded()) next()
   else if (voteEnded()) next({ path: '/' })
   else if (to.meta.requriequestionnaire && !IsQuestionnaireAllDone.value) next({ path: '/' })

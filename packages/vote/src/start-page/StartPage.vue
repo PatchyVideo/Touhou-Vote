@@ -16,11 +16,7 @@
       </div>
       <div>
         <div>
-          投票已经结束，请耐心等待投票结果。如果您想修改自己的账户信息，请点击<a
-            class="underline underline-accent-color-600 transition transition-colors px-2 text-lg"
-            @click="loginBoxOpen = true"
-            >这里</a
-          >登录
+          {{ '距开始还有 ' + daysWith0 + '天' + hoursWith0 + '时' + minutesWith0 + '分' + secondsWith0 + '秒' }}
         </div>
       </div>
     </div>
@@ -29,20 +25,40 @@
     <div class="fixed bottom-0 left-0 quicksand w-full text-center my-6">
       &copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.&ensp;
       <a target="_blank" rel="noopener noreferrer" href="https://jq.qq.com/?k=0BnkgDKx">反馈问题</a>&ensp;
-      <a rel="noopener noreferrer" href="/nav">往届结果</a>
     </div>
   </div>
-  <LoginBox v-model:open="loginBoxOpen" />
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useIntervalFn } from '@vueuse/core'
 import { screenSizes } from '@/tailwindcss'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
-import LoginBox from '@/home/components/LoginBox.vue'
+import { startTimeWithTimezoneOffset } from '@/start-page/lib/voteStart'
 
-setSiteTitle('已结束 - 第⑩回 中文东方人气投票')
+setSiteTitle('未开始 - 第⑩回 中文东方人气投票')
 
-const loginBoxOpen = ref(false)
+// Calculate Time Remains
+const days = ref<number>(0)
+const daysWith0 = computed<string>(() => SupplementZero(days.value))
+const hours = ref<number>(0)
+const hoursWith0 = computed<string>(() => SupplementZero(hours.value))
+const minutes = ref<number>(0)
+const minutesWith0 = computed<string>(() => SupplementZero(minutes.value))
+const seconds = ref<number>(0)
+const secondsWith0 = computed<string>(() => SupplementZero(seconds.value))
+function SupplementZero(num: number): string {
+  let stringNumber = '00' + String(num)
+  return stringNumber.substr(stringNumber.length - 2)
+}
+
+useIntervalFn(() => {
+  let startTime = startTimeWithTimezoneOffset - Date.now()
+  if (startTime < 0) return
+  days.value = Math.floor(startTime / 1000 / 60 / 60 / 24)
+  hours.value = Math.floor(startTime / 1000 / 60 / 60) % 24
+  minutes.value = Math.floor(startTime / 1000 / 60) % 60
+  seconds.value = Math.floor(startTime / 1000) % 60
+}, 1000)
 </script>
 <style lang="postcss" scoped></style>
