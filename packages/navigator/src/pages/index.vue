@@ -111,15 +111,14 @@ const resultListRaw: [string, string, string, string][] = [
     'v10',
     '⑩',
     'https://upload.thwiki.cc/c/cf/%E5%A4%A9%E5%BC%93%E5%8D%83%E4%BA%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
-    '',
+    '2022/06/17 ~ 07/03',
   ],
 ]
 const resultList = resultListRaw.reverse()
 const latest = resultList[0]
 const [latestLink, latestTitle, latestIcon, latestTime] = latest
 
-// Deadline: 2021/4/1 00:00:00 UTC+8
-const votingEnd = new Date('2022-03-31T16:00:00.000Z')
+const votingEnd = new Date('2022-07-03T16:00:00.000Z')
 const now = useNow({
   interval: 1000,
 })
