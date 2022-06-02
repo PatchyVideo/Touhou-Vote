@@ -3122,7 +3122,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 25011,
             type: 'Single',
-            question: '请问您是否知道本活动所属的主网站“THBWiki”？',
+            question: '请问您是否知道“THBWiki”？',
             introduction: '',
             input: '',
             options: [
@@ -3163,7 +3163,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 25021,
             type: 'Single',
-            question: '请问您是否知道协办本活动的网站“PatchyVideo”？',
+            question: '请问您是否知道VoileLabs的下属网站“PatchyVideo（帕琪站）”？',
             introduction: '',
             input: '',
             options: [

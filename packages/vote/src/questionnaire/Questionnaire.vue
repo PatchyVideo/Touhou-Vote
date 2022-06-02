@@ -77,7 +77,9 @@
           :class="{ 'bg-accent-color-300': submiting || !questionnaireDone }"
           @click="questionnaireDone && submitQuestionnire()"
         >
-          <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />{{ submiting ? '提交中' : '提交' }}
+          <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />{{
+            submiting ? '提交中' : '提交'
+          }}
         </button>
       </div>
       <button
@@ -89,7 +91,9 @@
         :class="{ 'bg-accent-color-300': submiting }"
         @click="submitQuestionnire()"
       >
-        <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />{{ submiting ? '提交中' : '提交' }}
+        <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />{{
+          submiting ? '提交中' : '提交'
+        }}
       </button>
     </div>
   </div>
@@ -239,7 +243,7 @@ const question = computed<Question>(() => {
 const TypeToChinese = {
   Single: '单选',
   Multiple: '多选',
-  Input: '输入',
+  Input: '输入，没有可填“无”',
 }
 interface Option {
   content: string
