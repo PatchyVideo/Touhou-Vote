@@ -9,16 +9,16 @@
     "codegen": "node ./scripts/codegen.js"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.2",
+    "@apollo/client": "^3.6.6",
     "@vue/apollo-composable": "4.0.0-alpha.17",
     "@vue/apollo-util": "4.0.0-alpha.17",
-    "@vueuse/components": "^8.4.2",
-    "@vueuse/core": "^8.4.2",
+    "@vueuse/components": "^8.6.0",
+    "@vueuse/core": "^8.6.0",
     "bson-objectid": "^2.0.3",
     "graphql": "^16.5.0",
     "nprogress": "1.0.0-1",
     "pinin": "^0.2.0",
-    "vue": "^3.2.33",
+    "vue": "^3.2.37",
     "vue-router": "4.0.15"
   },
   "devDependencies": {
@@ -26,22 +26,22 @@
     "@graphql-codegen/fragment-matcher": "^3.2.1",
     "@graphql-codegen/schema-ast": "^2.4.1",
     "@graphql-codegen/typescript": "^2.4.11",
-    "@iconify/json": "^2.1.39",
+    "@iconify/json": "^2.1.57",
     "@rollup/plugin-yaml": "^3.1.0",
     "@types/nprogress": "^0",
-    "@vitejs/plugin-vue": "^2.3.2",
+    "@vitejs/plugin-vue": "^2.3.3",
     "@windicss/plugin-animations": "^1.0.9",
     "autoprefixer": "^10.4.7",
-    "postcss": "^8.4.13",
+    "postcss": "^8.4.14",
     "postcss-import": "^14.1.0",
     "postcss-mixins": "^9.0.2",
     "postcss-nested": "^5.0.6",
     "rollup-plugin-visualizer": "^5.6.0",
     "ts-poet": "^4.10.0",
     "unplugin-icons": "^0.14.3",
-    "unplugin-vue-components": "^0.19.5",
-    "vite": "^2.9.8",
+    "unplugin-vue-components": "^0.19.6",
+    "vite": "^2.9.9",
     "vite-plugin-windicss": "^1.8.4",
-    "windicss": "^3.5.2"
+    "windicss": "^3.5.4"
   }
 }
