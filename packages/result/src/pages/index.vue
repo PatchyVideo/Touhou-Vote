@@ -21,7 +21,7 @@
         <div
           v-for="item in departments"
           :key="item.title"
-          class="grid grid-cols-5 grid-rows-2 gap-1 rounded border-1 border-accent-600 p-1 shadow cursor-pointer"
+          class="grid grid-cols-5 grid-rows-2 gap-1 rounded ring ring-accent-600 p-1 opacity-80 bg-white shadow cursor-pointer"
         >
           <img :src="item.icon" class="col-span-1 row-span-2 rounded" />
 
