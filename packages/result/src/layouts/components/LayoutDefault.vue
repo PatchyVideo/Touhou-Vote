@@ -2,7 +2,7 @@
   <div class="page"></div>
   <div class="w-full backdrop-filter backdrop-blur-1 min-h-100vh flex flex-col content-between">
     <NavTop />
-    <div class="grow"><slot /></div>
+    <div class="grow" :class="{ 'grid grid-cols-1 content-center': props.contentCenter }"><slot /></div>
     <div class="w-full text-center">
       <div>
         <a rel="noopener noreferrer" href="/nav">历届人气投票结果</a>&ensp;
@@ -15,4 +15,11 @@
 
 <script lang="ts" setup>
 import NavTop from '@/components/NavTop.vue'
+
+const props = defineProps({
+  contentCenter: {
+    type: Boolean,
+    default: false,
+  },
+})
 </script>

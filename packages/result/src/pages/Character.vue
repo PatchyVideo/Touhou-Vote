@@ -1,8 +1,8 @@
 <template>
-  <LayoutDefault>
+  <LayoutDefault contentCenter="true">
     <div class="mx-1 my-3 rounded shadow md:shadow-transparent">
       <div
-        class="mb-0 md:m-5 p-3 space-y-3 bg-white bg-opacity-80 rounded-t md:bg-opacity-0 md:rounded md:w1/2 md:mx-auto md:flex md:justify-between md:items-center"
+        class="mb-0 md:m-5 p-3 space-y-3 bg-white bg-opacity-80 rounded-t md:bg-opacity-0 md:rounded md:w-1/2 md:mx-auto md:flex md:justify-between md:items-center"
       >
         <div class="text-4xl align-bottom">角色部门<label class="text-xl ml-3">目录</label></div>
         <div class="grid grid-cols-3 grid-rows-2 gap-1 text-center">
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div
-        class="md:m-5 px-3 py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700 md:w1/2 md:mx-auto"
+        class="md:m-5 px-3 py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700 md:w-1/2 md:mx-auto"
       >
         *本页面为人气投票角色部门的结果目录，请点击上面的对应项目查看详细数据。<br />
         *本届与上一届相同，数据展示的结构和层次均进行了重新的设计，本届的结果都在一个页面内集中展示。
