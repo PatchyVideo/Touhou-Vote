@@ -1,5 +1,5 @@
 <template>
-  <div class="z-51 p-2 space-x-2 shadow flex items-center fixed inset-x-0 bg-white border-b border-accent-200">
+  <div class="z-51 p-2 space-x-2 shadow flex items-center fixed inset-x-0 border-b border-accent-200 bg-white">
     <div class="w-6 h-6" :class="drawerOpen ? 'i-uil:times' : 'i-uil:list-ul'" @click="drawerOpen = !drawerOpen" />
     <div class="font-medium">投票结果 - 第⑩回 国内东方人气投票</div>
   </div>
@@ -8,7 +8,7 @@
 
   <!-- Drawer -->
   <div
-    class="w-1/2 max-w-50 z-52 shadow fixed flex top-10 bottom-0 backdrop-filter backdrop-blur-3 transform transition-transform ease-in-out"
+    class="w-1/2 max-w-50 z-52 shadow fixed flex top-10 bottom-0 transform transition-transform ease-in-out"
     :class="{ '-translate-x-full': !drawerOpen }"
   >
     <div class="w-full flex flex-col gap-3 p-3 rounded-r overflow-y-auto border border-accent-200 bg-white">
