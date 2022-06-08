@@ -33,4 +33,7 @@ export default defineConfig({
     sourcemap: true,
     assetsDir: 'nav/assets',
   },
+  esbuild: {
+    charset: 'utf8',
+  },
 })
