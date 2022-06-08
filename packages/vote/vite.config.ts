@@ -69,5 +69,8 @@ export default defineConfig(async ({ command, mode }) => {
       sourcemap: true,
       assetsDir: 'v10/assets',
     },
+    esbuild: {
+      charset: 'utf8',
+    },
   }
 })
