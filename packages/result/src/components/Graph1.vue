@@ -5,7 +5,7 @@
 <script lang="ts" setup>
 import type { D3ZoomEvent } from 'd3'
 import { axisBottom, axisLeft, format, scaleLinear, scaleLog, select, zoom, zoomIdentity } from 'd3'
-import { charas, sum, sumFirst } from 'touhou-vote-result-codegen/gen/charaCountByYear.json'
+import { charas, sum, sumFirst } from '@touhou-vote/result-codegen/gen/charaCountByYear.json'
 
 const charasRendered = Object.fromEntries(
   Object.entries(charas)
