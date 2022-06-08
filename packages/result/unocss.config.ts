@@ -11,7 +11,7 @@ export default defineConfig({
   transformers: [transformerDirectives()],
   theme: {
     colors: {
-      // accent-color-600 is the default accent color of the project
+      // accent-600 is the default accent color of the project
       accent: {
         100: '#FCECEC',
         200: '#F8DAD8',
