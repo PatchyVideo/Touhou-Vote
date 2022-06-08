@@ -26,6 +26,7 @@ export default defineConfig({
     }),
     // https://github.com/antfu/vite-plugin-components
     components({
+      dirs: ['src/layouts/components'],
       dts: true,
     }),
     // https://github.com/antfu/unocss
