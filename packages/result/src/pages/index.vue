@@ -27,7 +27,7 @@
             :key="item.title"
             class="max-w-100 mx-auto grid grid-cols-5 grid-rows-2 gap-1 rounded ring ring-accent-600 p-1 opacity-80 bg-white shadow cursor-pointer transition transition-all md:hover:-translate-1 md:hover:bg-accent-100 active:translate-1"
           >
-            <img :src="item.icon" class="col-span-1 row-span-2 rounded" />
+            <img :src="item.icon" class="w-full col-span-1 row-span-2 rounded" />
             <div class="col-span-4 text-black text-xl font-bold">{{ item.title }}</div>
             <div class="col-span-4 text-gray-700">{{ '有效票数：' + item.count }}</div>
           </router-link>
@@ -46,34 +46,37 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { setSiteTitle } from '@touhou-vote/shared/data/setSiteTitle'
+setSiteTitle('投票结果 - 第⑩回 中文东方人气投票')
+
 const departments = ref([
   {
     title: '角色部门',
-    icon: 'https://thwiki.cc/-/3og1#/media/%E6%96%87%E4%BB%B6:%E6%AD%A3%E4%BD%9CSTG%E9%81%93%E5%85%B7-%E5%A4%A7P.png',
+    icon: 'https://upload.thwiki.cc/a/a6/THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png',
     count: 0,
     to: '/character',
   },
   {
     title: '音乐部门',
-    icon: 'https://thwiki.cc/-/3og1#/media/%E6%96%87%E4%BB%B6:%E6%AD%A3%E4%BD%9CSTG%E9%81%93%E5%85%B7-%E5%A4%A7%E8%93%9D%E7%82%B9.png',
+    icon: 'https://upload.thwiki.cc/4/49/THBWiki-LOGO-%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85.png',
     count: 0,
     to: '/character',
   },
   {
     title: 'CP部门',
-    icon: 'https://thwiki.cc/-/3og1#/media/%E6%96%87%E4%BB%B6:%E6%AD%A3%E4%BD%9CSTG%E9%81%93%E5%85%B7-%E5%A4%A7F.png',
+    icon: 'https://upload.thwiki.cc/0/02/THBWiki-LOGO-%E4%B8%89%E6%9C%88%E7%B2%BE.png',
     count: 0,
     to: '/character',
   },
   {
     title: '提名部门',
-    icon: 'https://thwiki.cc/-/3og1#/media/%E6%96%87%E4%BB%B6:%E6%AD%A3%E4%BD%9CSTG%E9%81%93%E5%85%B7-1UP.png',
+    icon: 'https://upload.thwiki.cc/f/f7/THBWiki-LOGO-%E5%AE%87%E4%BD%90%E8%A7%81%E5%A0%87%E5%AD%90.png',
     count: 0,
     to: '/character',
   },
   {
     title: '调查问卷',
-    icon: 'https://thwiki.cc/-/3og1#/media/%E6%96%87%E4%BB%B6:%E6%AD%A3%E4%BD%9CSTG%E9%81%93%E5%85%B7-1B.png',
+    icon: 'https://upload.thwiki.cc/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png',
     count: 0,
     to: '/character',
   },
