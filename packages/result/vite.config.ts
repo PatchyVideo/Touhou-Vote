@@ -8,7 +8,7 @@ import unocss from 'unocss/vite'
 
 export default defineConfig({
   optimizeDeps: {
-    exclude: ['touhou-vote-result-codegen'],
+    exclude: ['@touhou-vote/result-codegen', '@touhou-vote/shared'],
   },
   resolve: {
     alias: {

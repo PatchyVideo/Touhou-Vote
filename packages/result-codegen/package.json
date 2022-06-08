@@ -1,5 +1,5 @@
 {
-  "name": "touhou-vote-result-codegen",
+  "name": "@touhou-vote/result-codegen",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,6 +13,6 @@
     "@vscode/sqlite3": "^5.0.8",
     "bson": "^4.6.4",
     "rimraf": "^3.0.2",
-    "touhou-vote-vote": "workspace:*"
+    "@touhou-vote/vote": "workspace:*"
   }
 }
