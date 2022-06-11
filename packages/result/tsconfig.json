@@ -3,7 +3,7 @@
   "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "lib": ["ESNext", "ESNext.AsyncIterable", "DOM", "WebWorker"],
-    "types": ["vite/client", "vite-plugin-pages/client"],
+    "types": ["vite/client", "vue/ref-macros", "vite-plugin-pages/client", "vite-plugin-vue-layouts/client"],
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {

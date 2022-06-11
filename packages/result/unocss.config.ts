@@ -1,4 +1,4 @@
-import { defineConfig, presetIcons, presetUno, transformerDirectives } from 'unocss'
+import { defineConfig, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -8,7 +8,7 @@ export default defineConfig({
       warn: true,
     }),
   ],
-  transformers: [transformerDirectives()],
+  transformers: [transformerVariantGroup(), transformerDirectives()],
   theme: {
     colors: {
       // accent-600 is the default accent color of the project
