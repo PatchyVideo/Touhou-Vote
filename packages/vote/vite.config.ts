@@ -25,6 +25,9 @@ export default defineConfig(async ({ command, mode }) => {
   }
 
   return {
+    optimizeDeps: {
+      exclude: ['@touhou-vote/shared'],
+    },
     resolve: {
       alias: {
         '@/': `${resolve(__dirname, './src/')}/`,

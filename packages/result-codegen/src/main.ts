@@ -5,10 +5,10 @@ import type { DeserializeOptions, Document } from 'bson'
 import { deserialize } from 'bson'
 import type { ImportedDB } from './db'
 import { importDB } from './db'
-import type { Character } from 'touhou-vote-vote/src/vote-character/lib/character'
+import type { Character } from '@touhou-vote/vote/src/vote-character/lib/character'
 
 import charasV9 from '../data/chara.json'
-import { characterList as charasV10 } from 'touhou-vote-vote/src/vote-character/lib/characterList'
+import { characterList as charasV10 } from '@touhou-vote/vote/src/vote-character/lib/characterList'
 
 const charasV10ByName = Object.fromEntries(charasV10.map((v: Character) => [v.name, v]))
 const charasV10ByID = Object.fromEntries(charasV10.map((v: Character) => [v.id, v]))

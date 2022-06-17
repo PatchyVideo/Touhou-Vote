@@ -638,6 +638,21 @@ export function computeQuestionnaire(): QuestionnaireALL {
                   (question) => question.id != relatedQuestionID
                 )
               )
+            // 如果选择的选项里有“其他”选项("其他"选项必须是最后一个)且选项本身不是“其他”，“其他”的related和选择的选项中的related属于同一个问题，则暂缓重置
+            if (
+              questionTarget.options.find((item) => item.id === answerTarget.options[answerTarget.options.length - 1])
+                ?.content === '其他' &&
+              questionTarget.options.find((item) => item.id === option)?.content != '其他'
+            )
+              if (
+                IsInSameQuestionLibrary(
+                  questionTarget.options.find(
+                    (item) => item.id === answerTarget.options[answerTarget.options.length - 1]
+                  )?.related[0] || 90000,
+                  relatedQuestionID
+                )
+              )
+                continue
             // 如果不相关的题目已经回答过了，则重置回答的数据
             const indexOfRelatedQuestionID = questionnaireData.value[bigQuestionnaire][
               smallQuestionnaire

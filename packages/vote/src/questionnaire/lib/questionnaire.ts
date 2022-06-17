@@ -2904,7 +2904,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 24061,
             type: 'Single',
-            question: '您是否支持继续以目前的模式（保持现在的引进速度及质量）引进官中出版物？',
+            question: '您对于目前引进的官中出版物质量是否满意？',
             introduction: '',
             input: '',
             options: [
@@ -2912,13 +2912,13 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2406101,
                 related: [24070],
                 mutex: [],
-                content: '支持',
+                content: '满意',
               },
               {
                 id: 2406102,
                 related: [24071],
                 mutex: [],
-                content: '不支持',
+                content: '不满意',
               },
             ],
           },
@@ -2935,7 +2935,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 24071,
             type: 'Input',
-            question: '您不支持的理由是？',
+            question: '您不满意的原因是？',
             introduction: '',
             input: '',
             options: [],
