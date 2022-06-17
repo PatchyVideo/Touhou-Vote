@@ -143,7 +143,7 @@ export const characterList: Character[] = [
     altnames: ['乌龟'],
     title: '',
     image:
-      'https://upload.thwiki.cc/thumb/9/90/%E7%8E%84%E7%88%B7%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E7%8E%84%E7%88%B7%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+      'https://upload.thwiki.cc/thumb/9/90/%E7%8E%84%E7%88%B7%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -157,7 +157,7 @@ export const characterList: Character[] = [
     altnames: ['战车少女'],
     title: '',
     image:
-      'https://upload.thwiki.cc/thumb/b/b2/%E9%87%8C%E9%A6%99%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E9%87%8C%E9%A6%99%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+      'https://upload.thwiki.cc/thumb/b/b2/%E9%87%8C%E9%A6%99%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -171,7 +171,7 @@ export const characterList: Character[] = [
     altnames: [],
     title: '',
     image:
-      'https://upload.thwiki.cc/thumb/c/cd/%E6%98%8E%E7%BD%97%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E6%98%8E%E7%BD%97%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+      'https://upload.thwiki.cc/thumb/c/cd/%E6%98%8E%E7%BD%97%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -325,7 +325,7 @@ export const characterList: Character[] = [
     altnames: ['玛露奇', '家务机器人'],
     title: '',
     image:
-      'https://upload.thwiki.cc/thumb/4/44/%E7%8E%9B%E2%97%8B%E5%A5%87%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E7%8E%9B%E2%97%8B%E5%A5%87%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+      'https://upload.thwiki.cc/thumb/4/44/%E7%8E%9B%E2%97%8B%E5%A5%87%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
