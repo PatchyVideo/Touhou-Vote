@@ -57,6 +57,7 @@
   <CharacterSelect
     v-model:open="characterSelectOpen"
     v-model:characterSelected="characterSelected"
+    v-model:flag="flag"
     :couple-selected="couple"
   ></CharacterSelect>
 </template>
@@ -94,7 +95,8 @@ const charactersValid = computed<Character[]>(() =>
   couple.value.characters.filter((character) => character.id != character0.id)
 )
 const characterSelected = ref(couple.value.characters[charactersValid.value.length])
-watch(characterSelected, () => {
+const flag = ref(0)
+watch(flag, () => {
   if (characterSelected.value.id != character0.id)
     couple.value.characters[charactersValid.value.length] = characterSelected.value
 })

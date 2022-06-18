@@ -97,12 +97,19 @@ const props = defineProps({
       return new Character()
     },
   },
+  // flag is used to judge whether user selected same character or just close the window
+  flag: {
+    type: Number,
+    requred: true,
+    default: 0,
+  },
 })
 const emit = defineEmits<{
   (event: 'update:open', value: boolean): void
   (event: 'update:characterSelected', value: string): void
+  (event: 'update:flag', value: number): void
 }>()
-const { open, characterSelected } = useVModels(props, emit)
+const { open, characterSelected, flag } = useVModels(props, emit)
 function close(): void {
   open.value = false
 }
@@ -127,13 +134,15 @@ const orderOptions = [
 const order = ref(orderOptions[0])
 
 const characterListLeft = computed<Character[]>(() => {
-  let charaList = characterList.filter((character) => {
-    let characterInCharacters = false
-    for (let i = 0; i < props.coupleSelected.characters.length; i++) {
-      if (props.coupleSelected.characters[i].id === character.id) characterInCharacters = true
-    }
-    return !characterInCharacters
-  })
+  let charaList = characterList
+  // delete repeated characters, somebody think it is not needed
+  // .filter((character) => {
+  //   let characterInCharacters = false
+  //   for (let i = 0; i < props.coupleSelected.characters.length; i++) {
+  //     if (props.coupleSelected.characters[i].id === character.id) characterInCharacters = true
+  //   }
+  //   return !characterInCharacters
+  // })
 
   if (filterForKind.value.length) {
     charaList = charaList.filter((chara) => filterForKind.value.find((k1) => chara.kind.find((k2) => k2 === k1.value)))
@@ -181,6 +190,7 @@ const characterListLeftWithFilter = computed<Character[]>(() => {
 function characterSelect(id: string): void {
   characterSelected.value =
     characterListLeftWithFilter.value.find((character) => character.id === id) || new Character()
+  flag.value++
   close()
 }
 </script>

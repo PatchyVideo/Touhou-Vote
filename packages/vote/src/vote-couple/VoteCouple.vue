@@ -218,8 +218,10 @@ function checkVote(): void {
       let characterOverlapNumber = 0
       for (let m = 0; m < couplesValid.value[i].characters.length; m++)
         for (let n = 0; n < couplesValid.value[j].characters.length; n++) {
-          if (couplesValid.value[i].characters[m].id === couplesValid.value[j].characters[n].id)
+          if (couplesValid.value[i].characters[m].id === couplesValid.value[j].characters[n].id) {
             characterOverlapNumber++
+            break
+          }
         }
       if (
         characterOverlapNumber ===
