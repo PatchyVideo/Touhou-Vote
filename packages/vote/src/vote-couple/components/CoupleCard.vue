@@ -101,7 +101,10 @@ watch(flag, () => {
     couple.value.characters[charactersValid.value.length] = characterSelected.value
 })
 const moreCharacterCanBeSelected = computed<boolean>(() =>
-  couple.value.characters.find((character) => character.id === character0.id) ? true : false
+  couple.value.characters.find((character) => character.id === character0.id) &&
+  couple.value.characters[0] != couple.value.characters[1]
+    ? true
+    : false
 )
 
 function chooseAsSeme(index: number): void {
