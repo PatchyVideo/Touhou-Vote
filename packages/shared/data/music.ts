@@ -45,7 +45,7 @@ export const albumList: Album[] = [
   { name: '东方天空璋', kind: 'game' },
   { name: '秘封噩梦日记', kind: 'game' },
   { name: '东方鬼形兽', kind: 'game' },
-  { name: '贪欲之兽的音乐', kind: 'CD' },
+  { name: '贪欲之兽的音乐', kind: 'game' },
   { name: '东方虹龙洞', kind: 'game' },
   { name: '蓬莱人形', kind: 'CD' },
   { name: '莲台野夜行', kind: 'CD' },
@@ -5561,7 +5561,7 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/4a/th175_01.mp3',
     reason: '',
     honmei: false,
-    kind: ['CD'],
+    kind: ['game'],
   },
   {
     id: '458',
@@ -5573,7 +5573,7 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/14/th175_09.mp3',
     reason: '',
     honmei: false,
-    kind: ['CD'],
+    kind: ['game'],
   },
   {
     id: '459',
@@ -5585,7 +5585,7 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/2/20/th175_23.mp3',
     reason: '',
     honmei: false,
-    kind: ['CD'],
+    kind: ['game'],
   },
   {
     id: '460',
@@ -5597,7 +5597,7 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/ae/th175_24.mp3',
     reason: '',
     honmei: false,
-    kind: ['CD'],
+    kind: ['game'],
   },
   {
     id: '461',
@@ -5609,7 +5609,7 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/2/2b/th175_03.mp3',
     reason: '',
     honmei: false,
-    kind: ['CD'],
+    kind: ['game'],
   },
   {
     id: '462',
@@ -5621,7 +5621,7 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/f/fb/th175_02.ogg',
     reason: '',
     honmei: false,
-    kind: ['CD'],
+    kind: ['game'],
   },
   {
     id: '463',
