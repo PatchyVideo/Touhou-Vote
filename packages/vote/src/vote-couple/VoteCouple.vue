@@ -133,6 +133,7 @@ const {
           nameC
           active
           first
+          reason
         }
       }
     }
@@ -240,12 +241,14 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
           nameB: computeCharactersValid(item.characters)[1].name,
           nameC: computeCharactersValid(item.characters)[2].name,
           first: item.honmei,
+          reason: item.reason,
         }
       else
         return {
           nameA: computeCharactersValid(item.characters)[0].name,
           nameB: computeCharactersValid(item.characters)[1].name,
           first: item.honmei,
+          reason: item.reason,
         }
     else {
       if (computeCharactersValid(item.characters).length === 3)
@@ -255,6 +258,7 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
           nameC: computeCharactersValid(item.characters)[2].name,
           active: item.characters[item.seme].name,
           first: item.honmei,
+          reason: item.reason,
         }
       else
         return {
@@ -262,6 +266,7 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
           nameB: computeCharactersValid(item.characters)[1].name,
           active: item.characters[item.seme].name,
           first: item.honmei,
+          reason: item.reason,
         }
     }
   })

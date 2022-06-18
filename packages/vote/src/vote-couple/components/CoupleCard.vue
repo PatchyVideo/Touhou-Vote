@@ -44,6 +44,15 @@
         </div>
       </transition>
     </div>
+    <div class="p-2 pt-0">
+      <input
+        ref="reasonInput"
+        v-model="couple.reason"
+        placeholder="点此填写理由（可选）"
+        class="truncate w-full rounded ring ring-accent-color-300"
+        type="text"
+      />
+    </div>
   </div>
   <CharacterSelect
     v-model:open="characterSelectOpen"
