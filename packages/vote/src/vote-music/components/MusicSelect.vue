@@ -2,7 +2,7 @@
   <transition name="selectBox">
     <div
       v-if="open"
-      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-white rounded w-9/10 mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
+      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-white rounded w-[calc(100%-1rem)] mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>请选择曲目</div>
@@ -16,7 +16,7 @@
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
       </div>
       <div v-if="!musicHonmeiIsSelected"><small>可通过名称、所属作品来搜索，支持部分匹配和拼音匹配。</small></div>
-      <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
+      <div class="flex-grow overflow-y-auto p-2 pr-0 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <!-- eslint-disable vue/no-v-html -->
         <div
           v-if="!musicList.length"
@@ -29,8 +29,8 @@
         ></div>
         <!-- eslint-enable vue/no-v-html -->
         <div v-for="item in musicList" v-else :key="item.id" class="p-1 rounded shadow bg-white flex">
-          <div class="flex-shrink-0 w-1/3 max-w-32 flex items-center">
-            <div class="w-full aspect-ratio-1/1 rounded border overflow-hidden">
+          <div class="flex-shrink-0 w-1/3 max-w-32">
+            <div class="aspect-ratio-1/1 rounded border overflow-hidden">
               <img class="object-contain" loading="lazy" :src="item.image ? item.image : MusicImages" />
             </div>
           </div>
@@ -42,13 +42,15 @@
               >
                 {{ item.name }}
               </div>
-              <div v-if="item.include.length && !musicHonmeiIsSelected" class="italic text-xs md:text-sm opacity-60">
+              <div v-if="item.include.length && !musicHonmeiIsSelected" class="text-xs md:text-sm opacity-60">
                 {{
-                  '*包含收录于' +
-                  (item.include.length <= 2
-                    ? '专辑' + item.include.join('，')
-                    : item.include[0] + '，' + item.include[1] + '等专辑') +
-                  '的改编曲'
+                  screenSizes['md']
+                    ? '*包含收录于' +
+                      (item.include.length <= 2
+                        ? '专辑「' + item.include.join('」,「') + '」'
+                        : '「' + item.include[0] + '」,「' + item.include[1] + '」等专辑') +
+                      '的改编曲'
+                    : '*包含收录于其他专辑的改编曲'
                 }}
               </div>
             </div>
@@ -81,6 +83,7 @@ import type { PropType } from 'vue'
 import { computed, ref, watchEffect } from 'vue'
 import { useVModels } from '@vueuse/core'
 import AdvancedFilter from './AdvancedFilter.vue'
+import { screenSizes } from '@/tailwindcss'
 import { Music } from '@/vote-music/lib/music'
 import { musicHonmeiListLeft, musicListLeftWithFilter, order, orderOptions } from '@/vote-music/lib/musicList'
 import { musics } from '@/vote-music/lib/voteData'
