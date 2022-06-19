@@ -8,6 +8,7 @@ export class Music {
   reason: string
   honmei: boolean
   kind: ('game' | 'book' | 'CD' | 'others' | '')[]
+  include: string[]
   constructor(
     id = '',
     name = 'UNDEFINED',
@@ -17,7 +18,8 @@ export class Music {
     music = '',
     reason = '梦的彼岸，能听到大家的欢笑声吗？',
     honmei = false,
-    kind: ('game' | 'book' | 'CD' | 'others' | '')[] = ['others']
+    kind: ('game' | 'book' | 'CD' | 'others' | '')[] = ['others'],
+    include =  [],
   ) {
     this.id = id
     this.name = name
@@ -28,6 +30,7 @@ export class Music {
     this.reason = reason
     this.honmei = honmei
     this.kind = kind
+    this.include = include
   }
 }
 export const music0 = new Music()

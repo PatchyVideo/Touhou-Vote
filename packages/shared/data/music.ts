@@ -12,7 +12,8 @@ export interface Music {
   music: string
   reason: string
   honmei: boolean
-  kind: ('game' | 'book' | 'CD' | 'others' | '')[]
+  kind: ('game' | 'book' | 'CD' | 'others' | '')[],
+  include: string[]
 }
 
 export const albumList: Album[] = [
@@ -61,10 +62,12 @@ export const albumList: Album[] = [
   { name: '虹色的北斗七星', kind: 'CD' },
   { name: '东方求闻史纪', kind: 'book' },
   { name: '东方三月精', kind: 'book' },
+  { name: '东方紫香花', kind: 'book' },
   { name: '东方儚月抄', kind: 'book' },
   { name: '东方铃奈庵', kind: 'book' },
   { name: '东方文花帖（书籍）', kind: 'book' },
   { name: 'The Grimoire of Marisa', kind: 'book' },
+  { name: '东方外来韦编', kind: 'book' },
   { name: '秋霜玉', kind: 'game' },
   { name: '稀翁玉', kind: 'game' },
   { name: 'Torte Le Magic', kind: 'game' },
@@ -89,7 +92,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/3/32/ha05_01.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '2',
@@ -101,7 +105,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/06/ha05_02.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['蓬莱人形', '幺乐团的历史'],
   },
   {
     id: '3',
@@ -113,7 +118,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/16/ha05_03.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '4',
@@ -125,7 +131,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/7b/ha05_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '5',
@@ -137,7 +144,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/72/ha05_05.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['蓬莱人形', '幺乐团的历史'],
   },
   {
     id: '6',
@@ -149,7 +157,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/f/f4/ha05_06.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '7',
@@ -161,7 +170,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/5/50/ha05_07.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '8',
@@ -173,7 +183,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/16/ha05_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '9',
@@ -185,7 +196,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/1d/ha05_09.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '10',
@@ -197,7 +209,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/f/fb/ha05_10.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '11',
@@ -209,7 +222,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/9/97/ha05_11.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: [],
   },
   {
     id: '12',
@@ -221,7 +235,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/4c/ha05_12.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '13',
@@ -233,7 +248,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/02/ha05_13.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '14',
@@ -245,7 +261,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/d/df/ha05_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '15',
@@ -257,7 +274,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/77/th01_99.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '16',
@@ -269,7 +287,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/3/39/ha03_01.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '17',
@@ -281,7 +300,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/c/ca/ha03_02.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '18',
@@ -293,7 +313,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/3/3c/ha03_03.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '19',
@@ -305,7 +326,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/1a/ha03_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '20',
@@ -317,7 +339,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/b3/ha03_05.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '21',
@@ -329,7 +352,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/f/f8/ha03_06.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '22',
@@ -341,7 +365,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/9/95/ha03_07.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '23',
@@ -353,7 +378,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/d/da/ha03_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '24',
@@ -365,7 +391,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/e6/ha03_09.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['东方永夜抄', '幻想曲拔萃', '核热造神非想天则', '深秘乐曲集', '幺乐团的历史', '完全凭依唱片名录', '贪欲之兽的音乐'],
   },
   {
     id: '25',
@@ -377,7 +404,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/be/ha03_10.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '26',
@@ -389,7 +417,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/d/db/ha03_11.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '27',
@@ -401,7 +430,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/2/2a/ha03_12.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '28',
@@ -413,7 +443,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/d/d4/ha03_13.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '29',
@@ -425,7 +456,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/e1/ha03_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '30',
@@ -437,7 +469,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/f/f8/ha03_15.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '31',
@@ -449,7 +482,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/c/ca/ha03_16.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '32',
@@ -461,7 +495,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/2/2a/ha03_17.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '33',
@@ -473,7 +508,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/c/c5/ha03_18.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '34',
@@ -485,7 +521,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/04/ha04_01.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '35',
@@ -497,7 +534,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/9/99/ha04_02.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '36',
@@ -509,7 +547,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/01/ha04_03.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['东方怪绮谈', '幻想曲拔萃', '全人类的天乐录', '核热造神非想天则', '幺乐团的历史'],
   },
   {
     id: '37',
@@ -521,7 +560,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/43/ha04_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['蓬莱人形', '幺乐团的历史'],
   },
   {
     id: '38',
@@ -533,7 +573,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/5/59/ha04_05.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '39',
@@ -545,7 +586,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/e3/ha04_06.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '40',
@@ -557,7 +599,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/78/ha04_07.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '41',
@@ -569,7 +612,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/d/d9/ha04_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '42',
@@ -581,7 +625,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/0f/ha04_09.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '43',
@@ -593,7 +638,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a1/ha04_11.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '44',
@@ -605,7 +651,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/6/60/ha04_13.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '45',
@@ -617,7 +664,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/6/66/ha04_15.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '46',
@@ -629,7 +677,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/05/ha04_12.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '47',
@@ -641,7 +690,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/77/ha04_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '48',
@@ -653,7 +703,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/16/ha04_16.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '49',
@@ -665,7 +716,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/5/5a/ha04_17.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '50',
@@ -677,7 +729,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/16/ha04_18.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '51',
@@ -689,7 +742,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/c/c5/ha04_19.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '52',
@@ -701,7 +755,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/d/da/ha04_21.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '53',
@@ -713,7 +768,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a8/ha04_10.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '54',
@@ -725,7 +781,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/8/8d/ha04_20.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '55',
@@ -737,7 +794,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/b1/ha04_22.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '56',
@@ -749,7 +807,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/f/f3/ha04_23.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '57',
@@ -761,7 +820,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/8/84/ha04_24.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '58',
@@ -773,7 +833,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/f/f7/ha01a_01.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '59',
@@ -785,7 +846,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/44/ha01a_02.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '60',
@@ -797,7 +859,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/d/df/ha01a_03.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '61',
@@ -809,7 +872,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/2/28/ha01a_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '62',
@@ -821,7 +885,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/09/ha01a_05.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '63',
@@ -833,7 +898,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/0f/ha01a_06.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '64',
@@ -845,7 +911,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/70/ha01a_07.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '65',
@@ -857,7 +924,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/9/95/ha01a_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '66',
@@ -869,7 +937,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/ab/ha01a_09.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '67',
@@ -881,7 +950,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/2/2e/ha01a_10.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['东方永夜抄', '幻想曲拔萃', '幺乐团的历史', '贪欲之兽的音乐'],
   },
   {
     id: '68',
@@ -893,7 +963,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/16/ha01a_11.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['东方怪绮谈', '全人类的天乐录', '幺乐团的历史'],
   },
   {
     id: '69',
@@ -905,7 +976,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/3/37/ha01a_12.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '70',
@@ -917,7 +989,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/01/ha01a_13.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '71',
@@ -929,7 +1002,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/bd/ha01a_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '72',
@@ -941,7 +1015,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/6/63/ha01a_15.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '73',
@@ -953,7 +1028,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/76/ha01b_01.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '74',
@@ -965,7 +1041,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/6/6d/ha01b_02.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '75',
@@ -977,7 +1054,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/47/ha01b_03.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '76',
@@ -989,7 +1067,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/bb/ha01b_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '77',
@@ -1001,7 +1080,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/e6/ha01b_05.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '78',
@@ -1013,7 +1093,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/d/d6/ha01b_06.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '79',
@@ -1025,7 +1106,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/ef/ha01b_07.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '80',
@@ -1037,7 +1119,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/3/30/ha01b_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '81',
@@ -1049,7 +1132,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/b5/ha01b_09.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '82',
@@ -1061,7 +1145,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/19/ha01b_10.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '83',
@@ -1073,7 +1158,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/76/ha01b_11.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '84',
@@ -1085,7 +1171,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/6/6f/ha01b_12.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '85',
@@ -1097,7 +1184,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/19/ha01b_13.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '86',
@@ -1109,7 +1197,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/eb/ha02_01.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '87',
@@ -1121,7 +1210,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/b9/ha02_02.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '88',
@@ -1133,7 +1223,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/c/c8/ha02_03.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '89',
@@ -1145,7 +1236,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/8/8d/ha02_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '90',
@@ -1157,7 +1249,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/5/50/ha02_05.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '91',
@@ -1169,7 +1262,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/d/d4/ha02_06.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '92',
@@ -1181,7 +1275,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/16/ha02_07.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '93',
@@ -1193,7 +1288,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/2/2a/ha02_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '94',
@@ -1205,7 +1301,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/76/ha02_09.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '95',
@@ -1217,7 +1314,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/f/f0/ha02_10.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '96',
@@ -1229,7 +1327,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/e0/ha02_11.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '97',
@@ -1241,7 +1340,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/f/f1/ha02_12.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '98',
@@ -1253,7 +1353,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/b4/ha02_13.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '99',
@@ -1265,7 +1366,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/9/98/ha02_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '100',
@@ -1277,7 +1379,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/b5/ha02_15.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '101',
@@ -1289,7 +1392,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/47/ha02_16.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '102',
@@ -1301,7 +1405,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/8/8d/ha02_17.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['核热造神非想天则', '幺乐团的历史'],
   },
   {
     id: '103',
@@ -1313,7 +1418,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/74/ha02_18.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '104',
@@ -1325,7 +1431,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a9/ha02_19.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '105',
@@ -1337,7 +1444,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/b1/ha02_20.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '106',
@@ -1349,7 +1457,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/00/ha02_21.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '107',
@@ -1361,7 +1470,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a3/ha02_23.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '108',
@@ -1373,7 +1483,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/c/c7/ha02_22.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幺乐团的历史'],
   },
   {
     id: '109',
@@ -1386,6 +1497,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '110',
@@ -1398,6 +1510,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '111',
@@ -1410,6 +1523,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '112',
@@ -1422,6 +1536,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '113',
@@ -1434,6 +1549,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['东方花映塚', '东方文花帖', '核热造神非想天则'],
   },
   {
     id: '114',
@@ -1445,7 +1561,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a9/th06_06.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['核热造神非想天则', '梦违科学世纪'],
   },
   {
     id: '115',
@@ -1457,7 +1574,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/2/24/th06_07.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['蓬莱人形'],
   },
   {
     id: '116',
@@ -1470,6 +1588,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['幻想曲拔萃', '核热造神非想天则'],
   },
   {
     id: '117',
@@ -1482,6 +1601,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['幻想曲拔萃', '全人类的天乐录', '卯酉东海道'],
   },
   {
     id: '118',
@@ -1494,6 +1614,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['幻想曲拔萃'],
   },
   {
     id: '119',
@@ -1506,6 +1627,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['幻想曲拔萃'],
   },
   {
     id: '120',
@@ -1518,6 +1640,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '121',
@@ -1530,6 +1653,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['幻想曲拔萃', '全人类的天乐录'],
   },
   {
     id: '122',
@@ -1542,6 +1666,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '123',
@@ -1553,7 +1678,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a4/th06_15.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['蓬莱人形', '贪欲之兽的音乐'],
   },
   {
     id: '124',
@@ -1566,6 +1692,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '125',
@@ -1578,6 +1705,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '126',
@@ -1590,6 +1718,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '127',
@@ -1602,6 +1731,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '128',
@@ -1614,6 +1744,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '129',
@@ -1626,6 +1757,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '130',
@@ -1638,6 +1770,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '131',
@@ -1650,6 +1783,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['幻想曲拔萃', '全人类的天乐录'],
   },
   {
     id: '132',
@@ -1661,7 +1795,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a1/th07_07.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幻想曲拔萃', '梦违科学世纪'],
   },
   {
     id: '133',
@@ -1674,6 +1809,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '134',
@@ -1686,6 +1822,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['东方花映塚'],
   },
   {
     id: '135',
@@ -1697,7 +1834,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/72/th07_10.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['幻想曲拔萃', '东方花映塚', '莲台野夜行'],
   },
   {
     id: '136',
@@ -1710,6 +1848,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['幻想曲拔萃', '全人类的天乐录'],
   },
   {
     id: '137',
@@ -1722,6 +1861,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['幻想曲拔萃', '全人类的天乐录'],
   },
   {
     id: '138',
@@ -1734,6 +1874,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '139',
@@ -1746,6 +1887,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '140',
@@ -1758,6 +1900,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '141',
@@ -1769,7 +1912,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/9/96/th07_16.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['莲台野夜行'],
   },
   {
     id: '142',
@@ -1782,6 +1926,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '143',
@@ -1793,7 +1938,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/04/th07_18.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['大空魔术'],
   },
   {
     id: '144',
@@ -1806,6 +1952,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '145',
@@ -1818,6 +1965,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '146',
@@ -1830,6 +1978,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['核热造神非想天则'],
   },
   {
     id: '147',
@@ -1841,7 +1990,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a3/TFM-001b_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['大空魔术'],
   },
   {
     id: '148',
@@ -1853,7 +2003,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/2/29/TFM-001b_16.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['全人类的天乐录', '梦违科学世纪', '完全凭依唱片名录'],
   },
   {
     id: '149',
@@ -1866,6 +2017,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '150',
@@ -1878,6 +2030,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '151',
@@ -1890,6 +2043,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '152',
@@ -1902,6 +2056,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '153',
@@ -1914,6 +2069,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '154',
@@ -1926,6 +2082,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '155',
@@ -1938,6 +2095,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '156',
@@ -1950,6 +2108,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '157',
@@ -1962,6 +2121,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '158',
@@ -1974,6 +2134,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '159',
@@ -1986,6 +2147,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '160',
@@ -1998,6 +2160,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '161',
@@ -2010,6 +2173,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '162',
@@ -2022,6 +2186,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '163',
@@ -2034,6 +2199,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '164',
@@ -2046,6 +2212,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '165',
@@ -2058,6 +2225,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['全人类的天乐录'],
   },
   {
     id: '166',
@@ -2070,6 +2238,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '167',
@@ -2081,7 +2250,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/d/d2/th08_02.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['莲台野夜行'],
   },
   {
     id: '168',
@@ -2094,6 +2264,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '169',
@@ -2106,6 +2277,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '170',
@@ -2118,6 +2290,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['东方花映塚'],
   },
   {
     id: '171',
@@ -2130,6 +2303,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '172',
@@ -2142,6 +2316,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '173',
@@ -2153,7 +2328,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/9/9c/th08_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD', 'book'],
+    include: ['梦违科学世纪', '东方外来韦编'],
   },
   {
     id: '174',
@@ -2165,7 +2341,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/9/93/th08_11.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['Cradle - 东方幻乐祀典'],
   },
   {
     id: '175',
@@ -2178,6 +2355,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['东方花映塚', '全人类的天乐录', '深秘乐曲集·补', '完全凭依唱片名录'],
   },
   {
     id: '176',
@@ -2189,7 +2367,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/2/2d/th08_13.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['梦违科学世纪'],
   },
   {
     id: '177',
@@ -2201,7 +2380,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/e3/th08_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','CD'],
+    include: ['卯酉东海道'],
   },
   {
     id: '178',
@@ -2213,7 +2393,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/c/c8/th08_15.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','CD'],
+    include: ['卯酉东海道'],
   },
   {
     id: '179',
@@ -2226,6 +2407,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '180',
@@ -2238,6 +2420,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '181',
@@ -2249,7 +2432,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/bc/th08_18.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','CD'],
+    include: ['卯酉东海道', '深秘乐曲集', '完全凭依唱片名录'],
   },
   {
     id: '182',
@@ -2262,6 +2446,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '183',
@@ -2273,7 +2458,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/0d/th08_20.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['梦违科学世纪'],
   },
   {
     id: '184',
@@ -2286,6 +2472,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '185',
@@ -2298,6 +2485,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '186',
@@ -2310,6 +2498,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['暗黑能乐集心绮楼'],
   },
   {
     id: '187',
@@ -2322,6 +2511,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '188',
@@ -2334,6 +2524,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['全人类的天乐录'],
   },
   {
     id: '189',
@@ -2345,7 +2536,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/9/99/th09_10.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','CD'],
+    include: ['卯酉东海道'],
   },
   {
     id: '190',
@@ -2358,6 +2550,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '191',
@@ -2370,6 +2563,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '192',
@@ -2381,7 +2575,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a8/th09_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','CD'],
+    include: ['全人类的天乐录', '卯酉东海道'],
   },
   {
     id: '193',
@@ -2393,7 +2588,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/12/th09_15.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','book','CD'],
+    include: ['东方紫香花', '伊奘诺物质'],
   },
   {
     id: '194',
@@ -2406,6 +2602,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '195',
@@ -2418,6 +2615,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '196',
@@ -2430,6 +2628,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '197',
@@ -2442,6 +2641,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '198',
@@ -2454,6 +2654,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '199',
@@ -2466,6 +2667,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '200',
@@ -2478,6 +2680,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '201',
@@ -2489,7 +2692,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a2/th09.5_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['大空魔术'],
   },
   {
     id: '202',
@@ -2501,7 +2705,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/f/fb/th09.5_05.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['卯酉东海道'],
   },
   {
     id: '203',
@@ -2514,6 +2719,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '204',
@@ -2526,6 +2732,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '205',
@@ -2538,6 +2745,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '206',
@@ -2550,6 +2758,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '207',
@@ -2562,6 +2771,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '208',
@@ -2574,6 +2784,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '209',
@@ -2586,6 +2797,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['暗黑能乐集心绮楼', '深秘乐曲集', '完全凭依唱片名录'],
   },
   {
     id: '210',
@@ -2598,6 +2810,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '211',
@@ -2610,6 +2823,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['东方文花帖DS', '弹幕天邪鬼'],
   },
   {
     id: '212',
@@ -2622,6 +2836,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '213',
@@ -2634,6 +2849,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['核热造神非想天则'],
   },
   {
     id: '214',
@@ -2646,6 +2862,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '215',
@@ -2658,6 +2875,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '216',
@@ -2669,7 +2887,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/70/th10_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['核热造神非想天则', '未知之花 魅知之旅'],
   },
   {
     id: '217',
@@ -2682,6 +2901,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '218',
@@ -2694,6 +2914,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '219',
@@ -2706,6 +2927,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '220',
@@ -2718,6 +2940,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['东方地灵殿', '东方星莲船', '妖精大战争', '东方神灵庙', '东方辉针城'],
   },
   {
     id: '221',
@@ -2730,6 +2953,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '222',
@@ -2742,6 +2966,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '223',
@@ -2754,6 +2979,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['完全凭依唱片名录'],
   },
   {
     id: '224',
@@ -2766,6 +2992,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '225',
@@ -2778,6 +3005,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '226',
@@ -2790,6 +3018,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '227',
@@ -2802,6 +3031,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '228',
@@ -2814,6 +3044,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '229',
@@ -2826,6 +3057,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '230',
@@ -2838,6 +3070,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '231',
@@ -2850,6 +3083,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '232',
@@ -2862,6 +3096,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '233',
@@ -2874,6 +3109,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '234',
@@ -2886,6 +3122,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['完全凭依唱片名录'],
   },
   {
     id: '235',
@@ -2898,6 +3135,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['完全凭依唱片名录'],
   },
   {
     id: '236',
@@ -2910,6 +3148,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '237',
@@ -2922,6 +3161,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '238',
@@ -2934,6 +3174,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '239',
@@ -2946,6 +3187,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '240',
@@ -2958,6 +3200,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '241',
@@ -2970,6 +3213,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '242',
@@ -2982,6 +3226,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '243',
@@ -2994,6 +3239,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '244',
@@ -3006,6 +3252,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '245',
@@ -3018,6 +3265,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '246',
@@ -3029,7 +3277,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/42/th11_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','CD'],
+    include: ['伊奘诺物质'],
   },
   {
     id: '247',
@@ -3042,6 +3291,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '248',
@@ -3054,6 +3304,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '249',
@@ -3066,6 +3317,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '250',
@@ -3078,6 +3330,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '251',
@@ -3090,6 +3343,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['核热造神非想天则', '贪欲之兽的音乐'],
   },
   {
     id: '252',
@@ -3102,6 +3356,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '253',
@@ -3113,7 +3368,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/70/th11_15.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','CD'],
+    include: ['鸟船遗迹', '暗黑能乐集心绮楼', '深秘乐曲集', '完全凭依唱片名录'],
   },
   {
     id: '254',
@@ -3126,6 +3382,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '255',
@@ -3138,6 +3395,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '256',
@@ -3150,6 +3408,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '257',
@@ -3162,6 +3421,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '258',
@@ -3174,6 +3434,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '259',
@@ -3186,6 +3447,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '260',
@@ -3198,6 +3460,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '261',
@@ -3210,6 +3473,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '262',
@@ -3222,6 +3486,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['暗黑能乐集心绮楼', '深秘乐曲集', '完全凭依唱片名录'],
   },
   {
     id: '263',
@@ -3234,6 +3499,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '264',
@@ -3246,6 +3512,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '265',
@@ -3257,7 +3524,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/6/6a/th12_10.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['旧约酒馆'],
   },
   {
     id: '266',
@@ -3270,6 +3538,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '267',
@@ -3282,6 +3551,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '268',
@@ -3294,6 +3564,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['鸟船遗迹', '暗黑能乐集心绮楼', '深秘乐曲集', '完全凭依唱片名录'],
   },
   {
     id: '269',
@@ -3305,7 +3576,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/5/58/th12_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','CD'],
+    include: ['鸟船遗迹'],
   },
   {
     id: '270',
@@ -3318,6 +3590,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '271',
@@ -3330,6 +3603,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '272',
@@ -3342,6 +3616,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '273',
@@ -3354,6 +3629,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '274',
@@ -3366,6 +3642,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '275',
@@ -3378,6 +3655,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '276',
@@ -3390,6 +3668,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '277',
@@ -3402,6 +3681,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['完全凭依唱片名录'],
   },
   {
     id: '278',
@@ -3413,7 +3693,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/bb/TFM-004_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['伊奘诺物质', '深秘乐曲集·补', '完全凭依唱片名录'],
   },
   {
     id: '279',
@@ -3426,6 +3707,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '280',
@@ -3438,6 +3720,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '281',
@@ -3450,6 +3733,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '282',
@@ -3462,6 +3746,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '283',
@@ -3473,7 +3758,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a5/th12.5_03.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'book'],
+    include: ['东方三月精'],
   },
   {
     id: '284',
@@ -3486,6 +3772,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '285',
@@ -3497,7 +3784,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/6/6e/th12.5_05.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['未知之花 魅知之旅'],
   },
   {
     id: '286',
@@ -3510,6 +3798,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '287',
@@ -3522,6 +3811,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '288',
@@ -3533,7 +3823,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/e5/th12.8_03.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'book'],
+    include: ['东方三月精'],
   },
   {
     id: '289',
@@ -3546,6 +3837,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '290',
@@ -3557,7 +3849,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/3/33/th12.8_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'book'],
+    include: ['东方三月精', '暗黑能乐集心绮楼'],
   },
   {
     id: '291',
@@ -3570,6 +3863,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '292',
@@ -3582,6 +3876,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '293',
@@ -3594,6 +3889,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '294',
@@ -3606,6 +3902,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '295',
@@ -3618,6 +3915,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '296',
@@ -3630,6 +3928,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '297',
@@ -3641,7 +3940,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/3/3c/th13_06.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','CD'],
+    include: ['伊奘诺物质'],
   },
   {
     id: '298',
@@ -3654,6 +3954,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '299',
@@ -3665,7 +3966,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/4a/th13_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['鸟船遗迹'],
   },
   {
     id: '300',
@@ -3677,7 +3979,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/d/dc/th13_09.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'book'],
+    include: ['东方三月精'],
   },
   {
     id: '301',
@@ -3690,6 +3993,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '302',
@@ -3701,7 +4005,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/c/cc/th13_11.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['暗黑能乐集心绮楼', '深秘乐曲集', '旧约酒馆', '完全凭依唱片名录'],
   },
   {
     id: '303',
@@ -3714,6 +4019,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '304',
@@ -3726,6 +4032,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['暗黑能乐集心绮楼', '深秘乐曲集', '完全唱片名录'],
   },
   {
     id: '305',
@@ -3737,7 +4044,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/6/60/th13_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['伊奘诺物质'],
   },
   {
     id: '306',
@@ -3750,6 +4058,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['暗黑能乐集心绮楼'],
   },
   {
     id: '307',
@@ -3762,6 +4071,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '308',
@@ -3774,6 +4084,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '309',
@@ -3786,6 +4097,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['深秘乐曲集', '完全凭依唱片名录'],
   },
   {
     id: '310',
@@ -3797,7 +4109,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/11/TFM-006a_16.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['深秘乐曲集', '旧约酒馆', '完全凭依唱片名录'],
   },
   {
     id: '311',
@@ -3810,6 +4123,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '312',
@@ -3822,6 +4136,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '313',
@@ -3834,6 +4149,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '314',
@@ -3846,6 +4162,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '315',
@@ -3858,6 +4175,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '316',
@@ -3870,6 +4188,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '317',
@@ -3882,6 +4201,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '318',
@@ -3894,6 +4214,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '319',
@@ -3906,6 +4227,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '320',
@@ -3918,6 +4240,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '321',
@@ -3930,6 +4253,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['弹幕天邪鬼'],
   },
   {
     id: '322',
@@ -3941,7 +4265,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/f/f1/th14_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'book'],
+    include: ['东方铃奈庵'],
   },
   {
     id: '323',
@@ -3954,6 +4279,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '324',
@@ -3966,6 +4292,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '325',
@@ -3978,6 +4305,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '326',
@@ -3990,6 +4318,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '327',
@@ -4002,6 +4331,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['弹幕天邪鬼'],
   },
   {
     id: '328',
@@ -4013,7 +4343,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/5/55/th14_10.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['燕石博物志'],
   },
   {
     id: '329',
@@ -4025,7 +4356,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/49/th14_11.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['弹幕天邪鬼', '旧约酒馆'],
   },
   {
     id: '330',
@@ -4038,6 +4370,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '331',
@@ -4050,6 +4383,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['深秘乐曲集', '完全凭依唱片名录'],
   },
   {
     id: '332',
@@ -4062,6 +4396,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '333',
@@ -4074,6 +4409,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '334',
@@ -4086,6 +4422,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '335',
@@ -4098,6 +4435,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '336',
@@ -4110,6 +4448,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '337',
@@ -4122,6 +4461,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '338',
@@ -4134,6 +4474,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '339',
@@ -4146,6 +4487,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '340',
@@ -4157,7 +4499,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/8/83/th14.3_05.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['燕石博物志'],
   },
   {
     id: '341',
@@ -4170,6 +4513,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '342',
@@ -4182,6 +4526,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '343',
@@ -4194,6 +4539,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '344',
@@ -4206,6 +4552,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '345',
@@ -4218,6 +4565,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '346',
@@ -4230,6 +4578,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '347',
@@ -4242,6 +4591,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '348',
@@ -4254,6 +4604,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '349',
@@ -4266,6 +4617,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '350',
@@ -4278,6 +4630,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '351',
@@ -4290,6 +4643,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '352',
@@ -4301,7 +4655,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/1f/TFM-007a_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','book'],
+    include: ['东方外来韦编', '完全凭依唱片名录'],
   },
   {
     id: '353',
@@ -4314,6 +4669,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '354',
@@ -4326,6 +4682,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '355',
@@ -4338,6 +4695,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '356',
@@ -4350,6 +4708,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '357',
@@ -4362,6 +4721,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['完全凭依唱片名录'],
   },
   {
     id: '358',
@@ -4373,7 +4733,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a5/TFM-007a_16.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','book'],
+    include: ['东方外来韦编', '完全凭依唱片名录'],
   },
   {
     id: '359',
@@ -4386,6 +4747,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['完全凭依唱片名录'],
   },
   {
     id: '360',
@@ -4398,6 +4760,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['完全凭依唱片名录'],
   },
   {
     id: '361',
@@ -4409,7 +4772,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a0/TFM-008_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','book'],
+    include: ['东方外来韦编'],
   },
   {
     id: '362',
@@ -4422,6 +4786,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '363',
@@ -4434,6 +4799,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '364',
@@ -4446,6 +4812,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '365',
@@ -4458,6 +4825,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '366',
@@ -4469,7 +4837,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/6/61/th15_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'book'],
+    include: ['东方铃奈庵'],
   },
   {
     id: '367',
@@ -4482,6 +4851,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '368',
@@ -4493,7 +4863,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/b7/th15_05.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['燕石博物志'],
   },
   {
     id: '369',
@@ -4506,6 +4877,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '370',
@@ -4518,6 +4890,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['完全凭依唱片名录', '秘封噩梦日记'],
   },
   {
     id: '371',
@@ -4529,7 +4902,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/ed/th15_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['燕石博物志'],
   },
   {
     id: '372',
@@ -4542,6 +4916,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '373',
@@ -4554,6 +4929,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '374',
@@ -4566,6 +4942,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '375',
@@ -4577,7 +4954,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a5/th15_12.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['燕石博物志'],
   },
   {
     id: '376',
@@ -4589,7 +4967,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/5/57/th15_13.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['燕石博物志'],
   },
   {
     id: '377',
@@ -4602,6 +4981,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '378',
@@ -4613,7 +4993,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/c/c1/th15_17.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['旧约酒馆'],
   },
   {
     id: '379',
@@ -4626,6 +5007,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '380',
@@ -4638,6 +5020,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '381',
@@ -4650,6 +5033,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '382',
@@ -4662,6 +5046,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '383',
@@ -4674,6 +5059,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '384',
@@ -4686,6 +5072,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '385',
@@ -4698,6 +5085,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '386',
@@ -4710,6 +5098,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '387',
@@ -4722,6 +5111,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '388',
@@ -4734,6 +5124,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '389',
@@ -4746,6 +5137,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '390',
@@ -4758,6 +5150,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '391',
@@ -4770,6 +5163,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '392',
@@ -4781,7 +5175,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a4/th16_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['虹色的北斗七星'],
   },
   {
     id: '393',
@@ -4794,6 +5189,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '394',
@@ -4806,6 +5202,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '395',
@@ -4818,6 +5215,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '396',
@@ -4830,6 +5228,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '397',
@@ -4842,6 +5241,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['秘封噩梦日记'],
   },
   {
     id: '398',
@@ -4854,6 +5254,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '399',
@@ -4866,6 +5267,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '400',
@@ -4878,6 +5280,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '401',
@@ -4890,6 +5293,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '402',
@@ -4902,6 +5306,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '403',
@@ -4914,6 +5319,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '404',
@@ -4926,6 +5332,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '405',
@@ -4938,6 +5345,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '406',
@@ -4950,6 +5358,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '407',
@@ -4962,6 +5371,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '408',
@@ -4974,6 +5384,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '409',
@@ -4986,6 +5397,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '410',
@@ -4998,6 +5410,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '411',
@@ -5010,6 +5423,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '412',
@@ -5022,6 +5436,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '413',
@@ -5034,6 +5449,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '414',
@@ -5046,6 +5462,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '415',
@@ -5058,6 +5475,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '416',
@@ -5070,6 +5488,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '417',
@@ -5082,6 +5501,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '418',
@@ -5094,6 +5514,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '419',
@@ -5106,6 +5527,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '420',
@@ -5118,6 +5540,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '421',
@@ -5130,6 +5553,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '422',
@@ -5142,6 +5566,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '423',
@@ -5154,6 +5579,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '424',
@@ -5166,6 +5592,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '425',
@@ -5178,6 +5605,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '426',
@@ -5190,6 +5618,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '427',
@@ -5202,6 +5631,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '428',
@@ -5214,6 +5644,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '429',
@@ -5226,6 +5657,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '430',
@@ -5238,6 +5670,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '431',
@@ -5250,6 +5683,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '432',
@@ -5262,6 +5696,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '433',
@@ -5274,6 +5709,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '434',
@@ -5286,6 +5722,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '435',
@@ -5298,6 +5735,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '436',
@@ -5310,6 +5748,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '437',
@@ -5322,6 +5761,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '438',
@@ -5334,6 +5774,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '439',
@@ -5346,6 +5787,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '440',
@@ -5358,6 +5800,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '441',
@@ -5370,6 +5813,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '442',
@@ -5382,6 +5826,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '443',
@@ -5394,6 +5839,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '444',
@@ -5406,6 +5852,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '445',
@@ -5418,6 +5865,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '446',
@@ -5430,6 +5878,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '447',
@@ -5442,6 +5891,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '448',
@@ -5454,6 +5904,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '449',
@@ -5466,6 +5917,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '450',
@@ -5478,6 +5930,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '451',
@@ -5490,6 +5943,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '452',
@@ -5502,6 +5956,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '453',
@@ -5514,6 +5969,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '454',
@@ -5526,6 +5982,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '455',
@@ -5538,6 +5995,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '456',
@@ -5550,6 +6008,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '457',
@@ -5562,6 +6021,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '458',
@@ -5574,6 +6034,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '459',
@@ -5586,6 +6047,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '460',
@@ -5598,6 +6060,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '461',
@@ -5610,6 +6073,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '462',
@@ -5622,6 +6086,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '463',
@@ -5634,6 +6099,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '464',
@@ -5646,6 +6112,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '465',
@@ -5658,6 +6125,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '466',
@@ -5670,6 +6138,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '467',
@@ -5682,6 +6151,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '468',
@@ -5694,6 +6164,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '469',
@@ -5706,6 +6177,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '470',
@@ -5718,6 +6190,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '471',
@@ -5730,6 +6203,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '472',
@@ -5742,6 +6216,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '473',
@@ -5754,6 +6229,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '474',
@@ -5766,6 +6242,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '475',
@@ -5777,7 +6254,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/b/bd/th18_13.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['虹色的北斗七星'],
   },
   {
     id: '476',
@@ -5790,6 +6268,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '477',
@@ -5802,6 +6281,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '478',
@@ -5814,6 +6294,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '479',
@@ -5826,6 +6307,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '480',
@@ -5838,6 +6320,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '481',
@@ -5850,6 +6333,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '482',
@@ -5862,6 +6346,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '483',
@@ -5874,6 +6359,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '484',
@@ -5886,6 +6372,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '485',
@@ -5898,6 +6385,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '486',
@@ -5910,6 +6398,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '487',
@@ -5922,6 +6411,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '488',
@@ -5934,6 +6424,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '489',
@@ -5946,6 +6437,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '490',
@@ -5958,6 +6450,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '491',
@@ -5970,6 +6463,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '492',
@@ -5982,6 +6476,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '493',
@@ -5994,6 +6489,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '494',
@@ -6006,6 +6502,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '495',
@@ -6018,6 +6515,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '496',
@@ -6030,6 +6528,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '497',
@@ -6042,6 +6541,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '498',
@@ -6054,6 +6554,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '499',
@@ -6066,6 +6567,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '500',
@@ -6078,6 +6580,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '501',
@@ -6090,6 +6593,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '502',
@@ -6102,6 +6606,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '503',
@@ -6114,6 +6619,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '504',
@@ -6126,6 +6632,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '505',
@@ -6138,6 +6645,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '506',
@@ -6150,6 +6658,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '507',
@@ -6162,6 +6671,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '508',
@@ -6174,6 +6684,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '509',
@@ -6186,6 +6697,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '510',
@@ -6198,6 +6710,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '511',
@@ -6210,6 +6723,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '512',
@@ -6222,6 +6736,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '513',
@@ -6234,6 +6749,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '514',
@@ -6246,6 +6762,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '515',
@@ -6258,6 +6775,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '516',
@@ -6270,6 +6788,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '517',
@@ -6282,6 +6801,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '518',
@@ -6294,6 +6814,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '519',
@@ -6306,6 +6827,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '520',
@@ -6318,6 +6840,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '521',
@@ -6330,6 +6853,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '522',
@@ -6342,6 +6866,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: ['秘封噩梦日记'],
   },
   {
     id: '523',
@@ -6354,6 +6879,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '524',
@@ -6366,6 +6892,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '525',
@@ -6378,6 +6905,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '526',
@@ -6390,6 +6918,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '527',
@@ -6402,6 +6931,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '528',
@@ -6414,6 +6944,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '529',
@@ -6426,6 +6957,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '530',
@@ -6438,6 +6970,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '531',
@@ -6450,6 +6983,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '532',
@@ -6462,6 +6996,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '533',
@@ -6473,7 +7008,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/47/BAiJR_01.mp3',
     reason: '',
     honmei: false,
-    kind: ['book'],
+    kind: ['book', 'game'],
+    include: ['东方花映塚', '东方文花帖', '全人类的天乐录'],
   },
   {
     id: '534',
@@ -6485,7 +7021,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/7/72/BAiJR_03.mp3',
     reason: '',
     honmei: false,
-    kind: ['book'],
+    kind: ['book', 'game'],
+    include: ['东方文花帖'],
   },
   {
     id: '535',
@@ -6497,7 +7034,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/47/GoM_01.mp3',
     reason: '',
     honmei: false,
-    kind: ['book'],
+    kind: ['book', 'game'],
+    include: ['贪欲之兽的音乐'],
   },
   {
     id: '536',
@@ -6510,6 +7048,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '537',
@@ -6522,6 +7061,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '538',
@@ -6534,6 +7074,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '539',
@@ -6546,6 +7087,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '540',
@@ -6558,6 +7100,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '541',
@@ -6570,6 +7113,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '542',
@@ -6581,7 +7125,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/c/cb/SaBND02_01.mp3',
     reason: '',
     honmei: false,
-    kind: ['book'],
+    kind: ['book', 'game'],
+    include: ['妖精大战争'],
   },
   {
     id: '543',
@@ -6594,6 +7139,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '544',
@@ -6606,6 +7152,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '545',
@@ -6618,6 +7165,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '546',
@@ -6629,7 +7177,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/e8/th12.8_04.mp3',
     reason: '',
     honmei: false,
-    kind: ['book'],
+    kind: ['book', 'game'],
+    include: ['妖精大战争'],
   },
   {
     id: '547',
@@ -6641,7 +7190,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/e/e2/th12.8_05.mp3',
     reason: '',
     honmei: false,
-    kind: ['book'],
+    kind: ['book', 'game'],
+    include: ['妖精大战争'],
   },
   {
     id: '548',
@@ -6653,7 +7203,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/4a/th12.8_06.mp3',
     reason: '',
     honmei: false,
-    kind: ['book'],
+    kind: ['book', 'game'],
+    include: ['妖精大战争'],
   },
   {
     id: '549',
@@ -6666,6 +7217,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['book'],
+    include: [],
   },
   {
     id: '550',
@@ -6678,6 +7230,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '551',
@@ -6690,6 +7243,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '552',
@@ -6702,6 +7256,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '553',
@@ -6714,6 +7269,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '554',
@@ -6726,6 +7282,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '555',
@@ -6738,6 +7295,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '556',
@@ -6750,6 +7308,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '557',
@@ -6761,7 +7320,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/40/SE01_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','book'],
+    include: ['the Grimoire of Marisa'],
   },
   {
     id: '558',
@@ -6773,7 +7333,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/a8/SE01_09.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['蓬莱人形'],
   },
   {
     id: '559',
@@ -6786,6 +7347,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '560',
@@ -6797,7 +7359,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/4/47/SE01_11.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['莲台野夜行'],
   },
   {
     id: '561',
@@ -6810,6 +7373,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '562',
@@ -6822,6 +7386,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '563',
@@ -6833,7 +7398,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/1f/SE01_14.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['梦违科学世纪'],
   },
   {
     id: '564',
@@ -6846,6 +7412,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '565',
@@ -6858,6 +7425,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '566',
@@ -6870,6 +7438,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['幻想曲拔萃'],
   },
   {
     id: '567',
@@ -6881,7 +7450,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/3/31/SE01_18.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['蓬莱人形', '核热造神非想天则', '深秘乐曲集', '完全凭依唱片名录'],
   },
   {
     id: '568',
@@ -6894,6 +7464,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '569',
@@ -6906,6 +7477,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '570',
@@ -6918,6 +7490,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '571',
@@ -6930,6 +7503,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '572',
@@ -6942,6 +7516,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '573',
@@ -6954,6 +7529,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '574',
@@ -6966,6 +7542,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '575',
@@ -6978,6 +7555,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '576',
@@ -6990,6 +7568,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '577',
@@ -7001,7 +7580,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/6/64/SE02_08.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['蓬莱人形'],
   },
   {
     id: '578',
@@ -7014,6 +7594,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '579',
@@ -7025,7 +7606,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/1/15/SE02_10.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['蓬莱人形'],
   },
   {
     id: '580',
@@ -7037,7 +7619,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/a/aa/trt_00.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game', 'CD'],
+    include: ['蓬莱人形'],
   },
   {
     id: '581',
@@ -7050,6 +7633,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '582',
@@ -7062,6 +7646,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '583',
@@ -7073,7 +7658,8 @@ export const musicList: Music[] = [
     music: 'https://upload.thwiki.cc/0/0d/SSiB_03.mp3',
     reason: '',
     honmei: false,
-    kind: ['game'],
+    kind: ['game','book'],
+    include: ['东方儚月抄'],
   },
   {
     id: '584',
@@ -7086,6 +7672,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: ['东方幻想麻将'],
   },
   {
     id: '585',
@@ -7098,6 +7685,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game'],
+    include: [],
   },
   {
     id: '586',
@@ -7110,6 +7698,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '587',
@@ -7122,6 +7711,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '588',
@@ -7133,6 +7723,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['others'],
+    include: [],
   },
   {
     id: '589',
@@ -7145,6 +7736,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['CD'],
+    include: [],
   },
   {
     id: '590',
@@ -7156,6 +7748,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['others'],
+    include: [],
   },
   {
     id: '591',
@@ -7167,6 +7760,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['others'],
+    include: [],
   },
   {
     id: '592',
@@ -7178,6 +7772,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['others'],
+    include: [],
   },
   {
     id: '593',
@@ -7189,6 +7784,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['others'],
+    include: [],
   },
   {
     id: '594',
@@ -7200,6 +7796,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['others'],
+    include: [],
   },
   {
     id: '595',
@@ -7211,5 +7808,6 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['others'],
+    include: [],
   },
 ]

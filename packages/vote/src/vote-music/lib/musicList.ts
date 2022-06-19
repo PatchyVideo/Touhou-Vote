@@ -23,7 +23,7 @@ export const musicListLeft = computed<Music[]>(() => {
   }
 
   if (albumSelected.value.name !== '') {
-    list = list.filter((music) => music.album === albumSelected.value.name)
+    list = list.filter((music) => music.album === albumSelected.value.name || music.include.includes(albumSelected.value.name))
   }
   return list
 })
