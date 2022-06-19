@@ -7118,7 +7118,7 @@ export const musicList: Music[] = [
     date: 20170406,
     image:
       'https://upload.thwiki.cc/thumb/c/c8/8BIT_MUSIC_POWER_FINAL%E5%B0%81%E9%9D%A2.jpg/100px-8BIT_MUSIC_POWER_FINAL%E5%B0%81%E9%9D%A2.jpg',
-    music: 'https://upload.thwiki.cc/3/3c/8MPN_07.mp3',
+    music: 'https://upload.thwiki.cc/9/92/8MPF_12.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
