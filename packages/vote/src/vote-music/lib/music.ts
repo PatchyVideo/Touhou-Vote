@@ -19,7 +19,7 @@ export class Music {
     reason = '梦的彼岸，能听到大家的欢笑声吗？',
     honmei = false,
     kind: ('game' | 'book' | 'CD' | 'others' | '')[] = ['others'],
-    include =  [],
+    include = []
   ) {
     this.id = id
     this.name = name
