@@ -47,8 +47,8 @@
                   screenSizes['md']
                     ? '*包含收录于' +
                       (item.include.length <= 2
-                        ? '专辑「' + item.include.join('」,「') + '」'
-                        : '「' + item.include[0] + '」,「' + item.include[1] + '」等专辑') +
+                        ? '专辑「' + item.include.join('」、「') + '」'
+                        : '「' + item.include[0] + '」、「' + item.include[1] + '」等专辑') +
                       '的改编曲'
                     : '*包含收录于其他专辑的改编曲'
                 }}

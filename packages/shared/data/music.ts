@@ -223,7 +223,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
-    include: [],
+    include: ['幺乐团的历史'],
   },
   {
     id: '12',
@@ -7321,7 +7321,7 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game','book'],
-    include: ['the Grimoire of Marisa'],
+    include: ['The Grimoire of Marisa'],
   },
   {
     id: '558',
