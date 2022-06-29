@@ -8,12 +8,12 @@
     "codegen": "node ./scripts/codegen.js"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.7",
+    "@apollo/client": "^3.6.9",
     "@touhou-vote/shared": "workspace:*",
-    "@vue/apollo-composable": "4.0.0-alpha.17",
-    "@vue/apollo-util": "4.0.0-alpha.17",
-    "@vueuse/components": "^8.6.0",
-    "@vueuse/core": "^8.6.0",
+    "@vue/apollo-composable": "4.0.0-alpha.18",
+    "@vue/apollo-util": "4.0.0-alpha.18",
+    "@vueuse/components": "^8.7.5",
+    "@vueuse/core": "^8.7.5",
     "bson-objectid": "^2.0.3",
     "graphql": "^16.5.0",
     "nprogress": "1.0.0-1",
@@ -26,7 +26,7 @@
     "@graphql-codegen/fragment-matcher": "^3.2.1",
     "@graphql-codegen/schema-ast": "^2.4.1",
     "@graphql-codegen/typescript": "^2.5.1",
-    "@iconify/json": "^2.1.59",
+    "@iconify/json": "^2.1.69",
     "@rollup/plugin-yaml": "^3.1.0",
     "@types/nprogress": "^0",
     "@vitejs/plugin-vue": "^2.3.3",
@@ -34,14 +34,14 @@
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
     "postcss-import": "^14.1.0",
-    "postcss-mixins": "^9.0.2",
+    "postcss-mixins": "^9.0.3",
     "postcss-nested": "^5.0.6",
     "rollup-plugin-visualizer": "^5.6.0",
-    "ts-poet": "^4.10.0",
-    "unplugin-icons": "^0.14.3",
-    "unplugin-vue-components": "^0.19.6",
-    "vite": "^2.9.12",
-    "vite-plugin-windicss": "^1.8.4",
-    "windicss": "^3.5.4"
+    "ts-poet": "^4.14.0",
+    "unplugin-icons": "^0.14.6",
+    "unplugin-vue-components": "^0.20.1",
+    "vite": "^2.9.13",
+    "vite-plugin-windicss": "^1.8.5",
+    "windicss": "^3.5.5"
   }
 }

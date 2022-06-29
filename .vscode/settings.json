@@ -5,6 +5,5 @@
   "conventionalCommits.scopes": ["vote", "nav", "result", "resgen"],
   "files.associations": {
     "*.css": "postcss"
-  },
-  "unocss.root": "packages/result"
+  }
 }

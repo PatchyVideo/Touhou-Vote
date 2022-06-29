@@ -1,5 +1,5 @@
 <template>
-  <div class="z-50 fixed w-full md:sticky" :class="{ '-top-px': !noTop, 'top-0': noTop }">
+  <div class="z-50 fixed w-full md:sticky bg-white" :class="{ '-top-px': !noTop, 'top-0': noTop }">
     <div v-if="!noTop" class="w-full h-px bg-accent-400"></div>
 
     <div class="flex p-1 justify-between md:hidden transition-colors" :class="{ 'bg-white': !showSummary }">
@@ -58,7 +58,7 @@
               'font-medium': route.meta.navid === 'character',
             }"
           >
-            角色部门
+            角色相关
           </div>
         </RouterLink>
 
@@ -128,7 +128,7 @@
               'font-medium': route.meta.navid === 'character',
             }"
           >
-            提名部门
+            作品提名
           </div>
         </RouterLink>
 
@@ -143,7 +143,7 @@
               'font-medium': route.meta.navid === 'character',
             }"
           >
-            调查问卷
+            问卷数据
           </div>
         </RouterLink>
       </div>
