@@ -118,7 +118,7 @@ const resultList = resultListRaw.reverse()
 const latest = resultList[0]
 const [latestLink, latestTitle, latestIcon, latestTime] = latest
 
-const votingEnd = new Date('2022-07-03T16:00:00.000Z')
+const votingEnd = new Date('2022-07-04T16:00:00.000Z')
 const now = useNow({
   interval: 1000,
 })
