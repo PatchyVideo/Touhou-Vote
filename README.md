@@ -7,9 +7,9 @@
   <img alt="License" src="https://img.shields.io/github/license/PatchyVideo/Touhou-Vote" />
 </p>
 
-由 [THBWiki](https://thwiki.cc) 与 [VoileLabs](https://github.com/PatchyVideo) 共同开发的 “第十回 国内东方人气投票” 前端部分。为全新搭建的系统。
+由 [THBWiki](https://thwiki.cc) 与 [VoileLabs](https://github.com/PatchyVideo) 共同开发的 “第十回 中文东方人气投票” 前端部分。为全新搭建的系统。
 
-开发进度: V1.2.0
+开发进度: V1.3.1
 
 ## 新功能
 
