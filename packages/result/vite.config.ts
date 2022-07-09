@@ -9,7 +9,8 @@ import unocss from 'unocss/vite'
 
 export default defineConfig({
   optimizeDeps: {
-    exclude: ['@touhou-vote/result-codegen', '@touhou-vote/shared'],
+    include: ['@apollo/client/core', '@apollo/client/utilities'],
+    exclude: ['@apollo/client', '@touhou-vote/result-codegen', '@touhou-vote/shared'],
   },
   resolve: {
     alias: {
@@ -26,6 +27,7 @@ export default defineConfig({
     layouts(),
     // https://github.com/antfu/unplugin-auto-import
     autoImport({
+      dirs: ['src/composables'],
       imports: ['vue', 'vue/macros', 'vue-router', '@vueuse/core'],
       dts: true,
     }),
