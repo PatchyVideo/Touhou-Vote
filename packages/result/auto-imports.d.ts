@@ -89,6 +89,7 @@ declare global {
   const resolveComponent: typeof import('vue')['resolveComponent']
   const screenSizes: typeof import('./src/composables/style')['screenSizes']
   const screens: typeof import('./src/composables/style')['screens']
+  const setSiteTitle: typeof import('@touhou-vote/shared/composables/setSiteTitle')['setSiteTitle']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']

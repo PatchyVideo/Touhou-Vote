@@ -28,7 +28,15 @@ export default defineConfig({
     // https://github.com/antfu/unplugin-auto-import
     autoImport({
       dirs: ['src/composables'],
-      imports: ['vue', 'vue/macros', 'vue-router', '@vueuse/core'],
+      imports: [
+        'vue',
+        'vue/macros',
+        'vue-router',
+        '@vueuse/core',
+        {
+          '@touhou-vote/shared/composables/setSiteTitle': ['setSiteTitle'],
+        },
+      ],
       dts: true,
     }),
     // https://github.com/antfu/vite-plugin-components

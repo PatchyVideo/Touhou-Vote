@@ -32,6 +32,7 @@
     <div v-if="drawerOpen" class="fixed inset-0 z-50" @click="drawerOpen = false"></div>
   </Transition>
 </template>
+
 <script lang="ts" setup>
 const drawerOpen = ref(false)
 

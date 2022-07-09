@@ -53,11 +53,9 @@
 </template>
 
 <script lang="ts" setup>
-import { setSiteTitle } from '@touhou-vote/shared/data/setSiteTitle'
+const titleEl = shallowRef<HTMLDivElement | null>(null)
 
 setSiteTitle('投票结果 - 第⑩回 中文东方人气投票')
-
-const titleEl = shallowRef<HTMLDivElement | null>(null)
 
 const isTitleVisible = useElementVisibility(titleEl)
 </script>
