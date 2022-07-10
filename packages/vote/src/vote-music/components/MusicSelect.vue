@@ -2,7 +2,7 @@
   <transition name="selectBox">
     <div
       v-if="open"
-      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-white rounded w-9/10 mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
+      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-white rounded w-[calc(100%-1rem)] mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>请选择曲目</div>
@@ -16,7 +16,7 @@
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
       </div>
       <div v-if="!musicHonmeiIsSelected"><small>可通过名称、所属作品来搜索，支持部分匹配和拼音匹配。</small></div>
-      <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
+      <div class="flex-grow overflow-y-auto p-2 pr-0 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <!-- eslint-disable vue/no-v-html -->
         <div
           v-if="!musicList.length"
@@ -36,9 +36,22 @@
           </div>
           <div class="flex-1 min-w-0 p-1 flex flex-wrap content-between md:p-2">
             <div class="w-full">
-              <div class="truncate opacity-60 text-sm md:text-base xl:text-lg 2xl:text-xl">{{ item.album }}</div>
-              <div class="font-semibold line-clamp-2 whitespace-pre-wrap md:text-lg xl:text-xl 2xl:text-2xl">
+              <div class="truncate opacity-60 text-xs md:text-base xl:text-lg 2xl:text-xl">{{ item.album }}</div>
+              <div
+                class="font-semibold truncate md:line-clamp-2 md:whitespace-pre-wrap md:text-lg xl:text-xl 2xl:text-2xl"
+              >
                 {{ item.name }}
+              </div>
+              <div v-if="item.include.length && !musicHonmeiIsSelected" class="text-xs md:text-sm opacity-60">
+                {{
+                  screenSizes['md']
+                    ? '*包含收录于' +
+                      (item.include.length <= 2
+                        ? '专辑「' + item.include.join('」、「') + '」'
+                        : '「' + item.include[0] + '」、「' + item.include[1] + '」等专辑') +
+                      '的改编曲'
+                    : '*包含收录于其他专辑的改编曲'
+                }}
               </div>
             </div>
             <div class="w-full flex justify-between">
@@ -70,6 +83,7 @@ import type { PropType } from 'vue'
 import { computed, ref, watchEffect } from 'vue'
 import { useVModels } from '@vueuse/core'
 import AdvancedFilter from './AdvancedFilter.vue'
+import { screenSizes } from '@/tailwindcss'
 import { Music } from '@/vote-music/lib/music'
 import { musicHonmeiListLeft, musicListLeftWithFilter, order, orderOptions } from '@/vote-music/lib/musicList'
 import { musics } from '@/vote-music/lib/voteData'

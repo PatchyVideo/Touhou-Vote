@@ -1,7 +1,7 @@
 <template>
   <!-- Cover -->
   <div class="flex justify-center">
-    <div class="flex h-100vh md:h-90vh flex-col">
+    <div class="flex w-full h-100vh flex-col">
       <div class="flex-1"></div>
 
       <div ref="titleEl" class="flex-1 flex mx-2 my-auto max-h-32 justify-center items-center">
@@ -27,14 +27,9 @@
           <span class="text-sm italic text-gray-700">*请注意，一切在本站之外发表的排行、分析、视频均为非官方性质</span>
         </div>
 
-        <div class="flex md:hidden w-full items-center text-gray-600 text-sm">
+        <div class="flex w-full items-center text-gray-600 text-sm">
           <div class="i-uil:arrow-down"></div>
           继续向下滚动查看结果总览
-        </div>
-        <div class="hidden md:flex items-center text-gray-600 text-sm">
-          <div class="i-uil:arrow-down"></div>
-          点击栏目跳转到部门详情，或继续向下滚动查看结果总览
-          <div class="i-uil:arrow-down"></div>
         </div>
       </div>
     </div>
@@ -43,7 +38,7 @@
   <!-- Nav -->
   <Nav no-padding :show-summary="isTitleVisible" />
 
-  <div class="mx-auto max-w-screen-lg">
+  <div class="mx-auto max-w-screen-lg min-h-100vh">
     <SummaryCharacter />
   </div>
 
@@ -58,11 +53,9 @@
 </template>
 
 <script lang="ts" setup>
-import { setSiteTitle } from '@touhou-vote/shared/data/setSiteTitle'
+const titleEl = shallowRef<HTMLDivElement | null>(null)
 
 setSiteTitle('投票结果 - 第⑩回 中文东方人气投票')
-
-const titleEl = shallowRef<HTMLDivElement | null>(null)
 
 const isTitleVisible = useElementVisibility(titleEl)
 </script>

@@ -6,7 +6,7 @@
         <div class="w-1/3 p-0.5 overflow-hidden rounded">
           <div class="w-full aspect-1/1">
             <img
-              src="https://upload.thwiki.cc/a/a6/THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png"
+              src="https://upload.thwiki.cc/thumb/a/a6/THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png/100px-THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png"
               class="object-cover rounded"
             />
           </div>
@@ -36,7 +36,7 @@
         <div class="w-1/3 p-0.5 overflow-hidden rounded">
           <div class="w-full aspect-1/1">
             <img
-              src="https://upload.thwiki.cc/4/49/THBWiki-LOGO-%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85.png"
+              src="https://upload.thwiki.cc/thumb/4/49/THBWiki-LOGO-%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85.png/100px-THBWiki-LOGO-%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85.png"
               class="object-cover rounded"
             />
           </div>
@@ -63,7 +63,7 @@
         <div class="w-1/3 p-0.5 overflow-hidden rounded">
           <div class="w-full aspect-1/1">
             <img
-              src="https://upload.thwiki.cc/0/02/THBWiki-LOGO-%E4%B8%89%E6%9C%88%E7%B2%BE.png"
+              src="https://upload.thwiki.cc/thumb/0/02/THBWiki-LOGO-%E4%B8%89%E6%9C%88%E7%B2%BE.png/100px-THBWiki-LOGO-%E4%B8%89%E6%9C%88%E7%B2%BE.png"
               class="object-cover rounded"
             />
           </div>

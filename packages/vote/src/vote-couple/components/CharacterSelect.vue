@@ -2,7 +2,7 @@
   <transition name="selectBox">
     <div
       v-if="open"
-      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-white rounded w-9/10 mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
+      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-white rounded w-[calc(100%-1rem)] mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>请选择角色</div>
@@ -22,7 +22,7 @@
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
       </div>
       <div><small>可通过名称、外号、所属作品来搜索，支持部分匹配和拼音匹配。</small></div>
-      <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
+      <div class="flex-grow overflow-y-auto p-2 pr-0 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <div
           v-for="item in characterListLeftWithFilter"
           :key="item.id"
@@ -97,12 +97,19 @@ const props = defineProps({
       return new Character()
     },
   },
+  // flag is used to judge whether user selected same character or just close the window
+  flag: {
+    type: Number,
+    requred: true,
+    default: 0,
+  },
 })
 const emit = defineEmits<{
   (event: 'update:open', value: boolean): void
   (event: 'update:characterSelected', value: string): void
+  (event: 'update:flag', value: number): void
 }>()
-const { open, characterSelected } = useVModels(props, emit)
+const { open, characterSelected, flag } = useVModels(props, emit)
 function close(): void {
   open.value = false
 }
@@ -127,13 +134,15 @@ const orderOptions = [
 const order = ref(orderOptions[0])
 
 const characterListLeft = computed<Character[]>(() => {
-  let charaList = characterList.filter((character) => {
-    let characterInCharacters = false
-    for (let i = 0; i < props.coupleSelected.characters.length; i++) {
-      if (props.coupleSelected.characters[i].id === character.id) characterInCharacters = true
-    }
-    return !characterInCharacters
-  })
+  let charaList = characterList
+  // delete repeated characters, somebody think it is not needed
+  // .filter((character) => {
+  //   let characterInCharacters = false
+  //   for (let i = 0; i < props.coupleSelected.characters.length; i++) {
+  //     if (props.coupleSelected.characters[i].id === character.id) characterInCharacters = true
+  //   }
+  //   return !characterInCharacters
+  // })
 
   if (filterForKind.value.length) {
     charaList = charaList.filter((chara) => filterForKind.value.find((k1) => chara.kind.find((k2) => k2 === k1.value)))
@@ -181,6 +190,7 @@ const characterListLeftWithFilter = computed<Character[]>(() => {
 function characterSelect(id: string): void {
   characterSelected.value =
     characterListLeftWithFilter.value.find((character) => character.id === id) || new Character()
+  flag.value++
   close()
 }
 </script>

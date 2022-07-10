@@ -133,6 +133,7 @@ const {
           nameC
           active
           first
+          reason
         }
       }
     }
@@ -213,33 +214,31 @@ function checkVote(): void {
       return
     }
   for (let i = 0; i < couplesValid.value.length; i++)
+    if (
+      computeCharactersValid(couplesValid.value[i].characters).length === 3 &&
+      (couplesValid.value[i].characters[2].name === couplesValid.value[i].characters[0].name ||
+        couplesValid.value[i].characters[2].name === couplesValid.value[i].characters[1].name)
+    ) {
+      popMessageText('投票位' + (i + 1) + '不能填写两个相同的角色！（相同的角色只允许二人CP）')
+      return
+    }
+  for (let i = 0; i < couplesValid.value.length; i++)
     for (let j = i + 1; j < couplesValid.value.length; j++) {
       let characterOverlapNumber = 0
       for (let m = 0; m < couplesValid.value[i].characters.length; m++)
         for (let n = 0; n < couplesValid.value[j].characters.length; n++) {
-          if (couplesValid.value[i].characters[m].id === couplesValid.value[j].characters[n].id)
+          if (couplesValid.value[i].characters[m].id === couplesValid.value[j].characters[n].id) {
             characterOverlapNumber++
+            break
+          }
         }
-      // Both have seme
-      if (couplesValid.value[i].seme != -1 && couplesValid.value[j].seme != -1)
-        if (
-          characterOverlapNumber ===
-            Math.min(couplesValid.value[i].characters.length, couplesValid.value[j].characters.length) &&
-          couplesValid.value[i].characters[couplesValid.value[i].seme].name ===
-            couplesValid.value[j].characters[couplesValid.value[j].seme].name
-        ) {
-          popMessageText('投票位' + (i + 1) + '投票位' + (j + 1) + '重复！')
-          return
-        }
-      // Neither have seme
-      if (couplesValid.value[i].seme === -1 && couplesValid.value[j].seme === -1)
-        if (
-          characterOverlapNumber ===
-          Math.min(couplesValid.value[i].characters.length, couplesValid.value[j].characters.length)
-        ) {
-          popMessageText('投票位' + (i + 1) + '投票位' + (j + 1) + '重复！')
-          return
-        }
+      if (
+        characterOverlapNumber ===
+        Math.min(couplesValid.value[i].characters.length, couplesValid.value[j].characters.length)
+      ) {
+        popMessageText('投票位' + (i + 1) + '投票位' + (j + 1) + '重复！')
+        return
+      }
     }
   confirmBoxOpen.value = true
 }
@@ -253,12 +252,14 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
           nameB: computeCharactersValid(item.characters)[1].name,
           nameC: computeCharactersValid(item.characters)[2].name,
           first: item.honmei,
+          reason: item.reason,
         }
       else
         return {
           nameA: computeCharactersValid(item.characters)[0].name,
           nameB: computeCharactersValid(item.characters)[1].name,
           first: item.honmei,
+          reason: item.reason,
         }
     else {
       if (computeCharactersValid(item.characters).length === 3)
@@ -268,6 +269,7 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
           nameC: computeCharactersValid(item.characters)[2].name,
           active: item.characters[item.seme].name,
           first: item.honmei,
+          reason: item.reason,
         }
       else
         return {
@@ -275,6 +277,7 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
           nameB: computeCharactersValid(item.characters)[1].name,
           active: item.characters[item.seme].name,
           first: item.honmei,
+          reason: item.reason,
         }
     }
   })

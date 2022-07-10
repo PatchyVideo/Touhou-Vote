@@ -19,6 +19,7 @@ export function updateVotecouple(coupleVoteData: CpSubmitQuery[]): void {
     if (coupleVoteData[i].active)
       coupleData.seme = coupleData.characters.findIndex((item) => item.name === coupleVoteData[i].active)
     if (coupleVoteData[i].first) coupleData.honmei = true
+    if (coupleVoteData[i].reason) coupleData.reason = coupleVoteData[i].reason || ''
     coupleData.valid = true
     couples.value[i] = coupleData
   }

@@ -44,10 +44,20 @@
         </div>
       </transition>
     </div>
+    <div class="p-2 pt-0">
+      <input
+        ref="reasonInput"
+        v-model="couple.reason"
+        placeholder="点此填写理由（可选）"
+        class="truncate w-full rounded ring ring-accent-color-300"
+        type="text"
+      />
+    </div>
   </div>
   <CharacterSelect
     v-model:open="characterSelectOpen"
     v-model:characterSelected="characterSelected"
+    v-model:flag="flag"
     :couple-selected="couple"
   ></CharacterSelect>
 </template>
@@ -85,12 +95,16 @@ const charactersValid = computed<Character[]>(() =>
   couple.value.characters.filter((character) => character.id != character0.id)
 )
 const characterSelected = ref(couple.value.characters[charactersValid.value.length])
-watch(characterSelected, () => {
+const flag = ref(0)
+watch(flag, () => {
   if (characterSelected.value.id != character0.id)
     couple.value.characters[charactersValid.value.length] = characterSelected.value
 })
 const moreCharacterCanBeSelected = computed<boolean>(() =>
-  couple.value.characters.find((character) => character.id === character0.id) ? true : false
+  couple.value.characters.find((character) => character.id === character0.id) &&
+  couple.value.characters[0] != couple.value.characters[1]
+    ? true
+    : false
 )
 
 function chooseAsSeme(index: number): void {

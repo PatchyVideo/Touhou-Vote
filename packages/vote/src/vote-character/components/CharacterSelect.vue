@@ -2,7 +2,7 @@
   <transition name="selectBox">
     <div
       v-if="open"
-      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-white rounded w-9/10 mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
+      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-white rounded w-[calc(100%-1rem)] mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>请选择角色</div>
@@ -15,8 +15,10 @@
         <VoteSelect v-model:selected="order" :item-list="orderOptions" />
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
       </div>
-      <div v-if="!characterHonmeiIsSelected"><small>可通过名称、外号、所属作品来搜索，支持部分匹配和拼音匹配</small></div>
-      <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
+      <div v-if="!characterHonmeiIsSelected">
+        <small>可通过名称、外号、所属作品来搜索，支持部分匹配和拼音匹配</small>
+      </div>
+      <div class="flex-grow overflow-y-auto p-2 pr-0 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <!-- eslint-disable vue/no-v-html -->
         <div
           v-if="!characterList.length"

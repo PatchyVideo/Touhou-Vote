@@ -56,61 +56,61 @@ const resultListRaw: [string, string, string, string][] = [
   [
     'v1',
     '一',
-    'https://upload.thwiki.cc/8/8d/%E4%B8%B0%E8%81%AA%E8%80%B3%E7%A5%9E%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    'https://upload.thwiki.cc/thumb/8/8d/%E4%B8%B0%E8%81%AA%E8%80%B3%E7%A5%9E%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E4%B8%B0%E8%81%AA%E8%80%B3%E7%A5%9E%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     '2012/7/23 ~ 7/30',
   ],
   [
     'v2',
     '二',
-    'https://upload.thwiki.cc/9/92/%E7%A7%A6%E5%BF%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    'https://upload.thwiki.cc/thumb/9/92/%E7%A7%A6%E5%BF%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E7%A7%A6%E5%BF%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     '2013/10/1 ~ 10/7',
   ],
   [
     'v3',
     '三',
-    'https://upload.thwiki.cc/f/ff/%E4%BA%8C%E5%B2%A9%E7%8C%AF%E8%97%8F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    'https://upload.thwiki.cc/thumb/f/ff/%E4%BA%8C%E5%B2%A9%E7%8C%AF%E8%97%8F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E4%BA%8C%E5%B2%A9%E7%8C%AF%E8%97%8F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     '2014/8/22 ~ 8/28',
   ],
   [
     'v4',
     '四',
-    'https://upload.thwiki.cc/9/99/%E7%BA%AF%E7%8B%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    'https://upload.thwiki.cc/thumb/9/99/%E7%BA%AF%E7%8B%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E7%BA%AF%E7%8B%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     '2015/10/1 ~ 10/15',
   ],
   [
     'v5',
     '五',
-    'https://upload.thwiki.cc/a/ac/%E8%B5%AB%E5%8D%A1%E6%8F%90%E4%BA%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    'https://upload.thwiki.cc/thumb/a/ac/%E8%B5%AB%E5%8D%A1%E6%8F%90%E4%BA%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E8%B5%AB%E5%8D%A1%E6%8F%90%E4%BA%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     '2016/10/1 ~ 10/15',
   ],
   [
     'v6',
     '六',
-    'https://upload.thwiki.cc/1/1a/%E6%91%A9%E5%A4%9A%E7%BD%97%E9%9A%90%E5%B2%90%E5%A5%88%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    'https://upload.thwiki.cc/thumb/1/1a/%E6%91%A9%E5%A4%9A%E7%BD%97%E9%9A%90%E5%B2%90%E5%A5%88%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E6%91%A9%E5%A4%9A%E7%BD%97%E9%9A%90%E5%B2%90%E5%A5%88%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     '2017/10/1 ~ 10/15',
   ],
   [
     'v7',
     '七',
-    'https://upload.thwiki.cc/9/9a/%E4%BE%9D%E7%A5%9E%E5%A5%B3%E8%8B%91%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    'https://upload.thwiki.cc/thumb/9/9a/%E4%BE%9D%E7%A5%9E%E5%A5%B3%E8%8B%91%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E4%BE%9D%E7%A5%9E%E5%A5%B3%E8%8B%91%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     '2018/09/30 ~ 10/14',
   ],
   [
     'v8',
     '八',
-    'https://upload.thwiki.cc/4/4a/%E5%9F%B4%E5%AE%89%E7%A5%9E%E8%A2%BF%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    'https://upload.thwiki.cc/thumb/4/4a/%E5%9F%B4%E5%AE%89%E7%A5%9E%E8%A2%BF%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E5%9F%B4%E5%AE%89%E7%A5%9E%E8%A2%BF%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     '2019/09/30 ~ 10/14',
   ],
   [
     'v9',
     '⑨',
-    'https://upload.thwiki.cc/8/82/%E5%A5%A5%E9%87%8E%E7%94%B0%E7%BE%8E%E5%AE%B5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    'https://upload.thwiki.cc/thumb/8/82/%E5%A5%A5%E9%87%8E%E7%94%B0%E7%BE%8E%E5%AE%B5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E5%A5%A5%E9%87%8E%E7%94%B0%E7%BE%8E%E5%AE%B5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     '2020/12/18 ~ 12/31',
   ],
   [
     'v10',
     '⑩',
-    'https://upload.thwiki.cc/c/cf/%E5%A4%A9%E5%BC%93%E5%8D%83%E4%BA%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    'https://upload.thwiki.cc/thumb/c/cf/%E5%A4%A9%E5%BC%93%E5%8D%83%E4%BA%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png/100px-%E5%A4%A9%E5%BC%93%E5%8D%83%E4%BA%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     '2022/06/17 ~ 07/03',
   ],
 ]
@@ -118,7 +118,7 @@ const resultList = resultListRaw.reverse()
 const latest = resultList[0]
 const [latestLink, latestTitle, latestIcon, latestTime] = latest
 
-const votingEnd = new Date('2022-07-03T16:00:00.000Z')
+const votingEnd = new Date('2022-07-04T16:00:00.000Z')
 const now = useNow({
   interval: 1000,
 })

@@ -11,7 +11,7 @@ export class Doujin {
     title = '新版中文东方人气投票',
     author = '东方众们',
     reason = '只要大家齐心协力，就能向着崭新的明天展翅飞翔，前进吧！',
-    imageUrl = 'https://upload.thwiki.cc/b/b3/Cover.png'
+    imageUrl = 'https://upload.thwiki.cc/thumb/b/b3/Cover.png/100px-Cover.png'
   ) {
     this.dojinType = dojinType
     this.url = url
@@ -23,7 +23,7 @@ export class Doujin {
 }
 export const Doujin0 = new Doujin()
 
-export const Doujin0NoImageUrl = 'https://upload.thwiki.cc/5/51/NoImage.png'
+export const Doujin0NoImageUrl = 'https://upload.thwiki.cc/thumb/5/51/NoImage.png/100px-NoImage.png'
 
 interface DoujinType {
   name: string
