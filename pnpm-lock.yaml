@@ -78,7 +78,6 @@ importers:
       '@touhou-vote/result-codegen': workspace:*
       '@touhou-vote/shared': workspace:*
       '@types/d3': ^7.4.0
-      '@types/nprogress': ^0
       '@unocss/reset': ^0.41.2
       '@vitejs/plugin-vue': ^2.3.3
       '@vue/apollo-composable': 4.0.0-alpha.18
@@ -89,7 +88,6 @@ importers:
       d3: ^7.5.0
       date-fns: ^2.28.0
       graphql: ^16.5.0
-      nprogress: 1.0.0-1
       ts-poet: ^4.14.0
       unocss: ^0.41.2
       unplugin-auto-import: ^0.9.2
@@ -110,7 +108,6 @@ importers:
       d3: 7.5.0
       date-fns: 2.28.0
       graphql: 16.5.0
-      nprogress: 1.0.0-1
       vue: 3.2.37
       vue-router: 4.0.16_vue@3.2.37
     devDependencies:
@@ -120,7 +117,6 @@ importers:
       '@graphql-codegen/typescript': 2.5.1_graphql@16.5.0
       '@iconify-json/carbon': 1.1.6
       '@types/d3': 7.4.0
-      '@types/nprogress': 0.2.0
       '@unocss/reset': 0.41.2
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.13+vue@3.2.37
       '@vue/compiler-sfc': 3.2.37
