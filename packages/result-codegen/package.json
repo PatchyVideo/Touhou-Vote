@@ -7,12 +7,12 @@
   },
   "devDependencies": {
     "@types/rimraf": "^3.0.2",
-    "node-gyp": "^9.0.0"
+    "node-gyp": "^9.1.0"
   },
   "dependencies": {
+    "@touhou-vote/vote": "workspace:*",
     "@vscode/sqlite3": "^5.0.8",
-    "bson": "^4.6.4",
-    "rimraf": "^3.0.2",
-    "@touhou-vote/vote": "workspace:*"
+    "bson": "^4.6.5",
+    "rimraf": "^3.0.2"
   }
 }
