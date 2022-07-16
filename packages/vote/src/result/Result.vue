@@ -1,7 +1,7 @@
 <template>
   <div class="page"></div>
   <!-- Character -->
-  <div class="mt-1 mb-10 mx-1 max-w-250 md:mx-auto">
+  <div class="mt-1 mb-10 mx-1 max-w-260 md:mx-auto">
     <!-- Overview -->
     <div
       class="mb-2 md:mb-5 p-3 space-y-3 bg-white bg-opacity-80 rounded-t md:bg-opacity-0 md:rounded md:flex md:justify-between md:items-center"
@@ -55,11 +55,23 @@
             </div>
           </div>
         </div>
+        <!-- Reason -->
+        <div>
+          <div class="py-1 px-3 whitespace-nowrap border-b border-accent-color-600">投票理由</div>
+          <div v-for="item2 in resultCharacter" :key="item2.rank">
+            <div
+              class="py-1 px-3 truncate border-t border-accent-color-600 cursor-pointer text-accent-color-600 hover:text-accent-color-300 transition transition-colors"
+              @click="openReason(item2.name, item2.reasons)"
+            >
+              点击查看
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <!-- Music -->
-  <div class="mb-10 mx-1 max-w-250 md:mx-auto">
+  <div class="mb-10 mx-1 max-w-260 md:mx-auto">
     <!-- Overview -->
     <div
       class="mb-2 md:mb-5 p-3 space-y-3 bg-white bg-opacity-80 rounded-t md:bg-opacity-0 md:rounded md:flex md:justify-between md:items-center"
@@ -113,11 +125,23 @@
             </div>
           </div>
         </div>
+        <!-- Reason -->
+        <div>
+          <div class="py-1 px-3 whitespace-nowrap border-b border-accent-color-600">投票理由</div>
+          <div v-for="item2 in resultMusic" :key="item2.rank">
+            <div
+              class="py-1 px-3 truncate border-t border-accent-color-600 cursor-pointer text-accent-color-600 hover:text-accent-color-300 transition transition-colors"
+              @click="openReason(item2.name, item2.reasons)"
+            >
+              点击查看
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <!-- Couple -->
-  <div class="mb-10 mx-1 max-w-350 md:mx-auto">
+  <div class="mb-10 mx-1 max-w-380 md:mx-auto">
     <!-- Overview -->
     <div
       class="mb-2 md:mb-5 p-3 space-y-3 bg-white bg-opacity-80 rounded-t md:bg-opacity-0 md:rounded md:flex md:justify-between md:items-center"
@@ -172,9 +196,29 @@
             </div>
           </div>
         </div>
+        <!-- Reason -->
+        <div>
+          <div class="py-1 px-3 whitespace-nowrap border-b border-accent-color-600">投票理由</div>
+          <div v-for="item2 in resultCouple" :key="item2.rank">
+            <div
+              class="py-1 px-3 truncate border-t border-accent-color-600 cursor-pointer text-accent-color-600 hover:text-accent-color-300 transition transition-colors"
+              @click="openReason(item2.cp, item2.reasons)"
+            >
+              点击查看
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <VoteMessageBox v-model:open="reasonBoxOpen" :title="reasonTitle">
+    <div class="overflow-auto">
+      <div class="divide-y p-2">
+        <div v-if="!reasonList.length">没有人填写投票理由QAQ</div>
+        <div v-for="item in reasonList" :key="item" class="break-words">{{ item }}</div>
+      </div>
+    </div>
+  </VoteMessageBox>
 </template>
 
 <script lang="ts" setup>
@@ -183,6 +227,7 @@ import NProgress from 'nprogress'
 import { gql, useQuery, useResult } from '@/graphql'
 import type { Query } from '@/graphql'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
+import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 
 setSiteTitle('结果速报 - 第⑩回 中文东方人气投票')
 
@@ -210,6 +255,7 @@ const resultCharacter = ref<
     voteCount: number
     firstVoteCount: number
     firstVotePercentage: string
+    reasons: string[]
   }[]
 >([])
 const headerMusic: Header[] = [
@@ -231,6 +277,7 @@ const resultMusic = ref<
     voteCount: number
     firstVoteCount: number
     firstVotePercentage: string
+    reasons: string[]
   }[]
 >([])
 const headerCouple: Header[] = [
@@ -258,6 +305,7 @@ const resultCouple = ref<
     bActive: string
     cActive: string
     noneActive: string
+    reasons: string[]
   }[]
 >([])
 const {
@@ -281,6 +329,7 @@ const {
           voteCount
           firstVoteCount
           firstVotePercentage
+          reasons
         }
       }
       queryMusicRanking(voteStart: $voteStart, voteYear: $voteYear) {
@@ -297,6 +346,7 @@ const {
           voteCount
           firstVoteCount
           firstVotePercentage
+          reasons
         }
       }
       queryCPRanking(voteStart: $voteStart, voteYear: $voteYear) {
@@ -321,6 +371,7 @@ const {
           bActive
           cActive
           noneActive
+          reasons
         }
       }
     }
@@ -385,6 +436,14 @@ watchEffect(() => {
 })
 queryRankingError((err) => {
   console.log(err.message)
-  alert(err.message)
 })
+
+const reasonBoxOpen = ref(false)
+const reasonTitle = ref<string>('')
+const reasonList = ref<string[]>([])
+function openReason(name: string, reasons: string[]) {
+  reasonTitle.value = name + '的投票理由：'
+  reasonList.value = reasons
+  reasonBoxOpen.value = true
+}
 </script>
