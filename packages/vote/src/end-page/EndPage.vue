@@ -16,11 +16,18 @@
       </div>
       <div>
         <div>
-          投票已经结束，请耐心等待投票结果。如果您想修改自己的账户信息，请点击<a
+          投票已经结束,如果您想修改自己的账户信息，请点击<a
             class="underline underline-accent-color-600 transition transition-colors px-2 text-lg"
             @click="loginBoxOpen = true"
             >这里</a
           >登录
+        </div>
+        <div>
+          新版的投票结果页面尚处于开发中，如果您想查看结果速报，请点击<a
+            class="underline underline-accent-color-600 transition transition-colors px-2 text-lg"
+            @click="jumpToResultPage()"
+            >这里</a
+          >查看
         </div>
       </div>
     </div>
@@ -37,12 +44,22 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { screenSizes } from '@/tailwindcss'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import LoginBox from '@/home/components/LoginBox.vue'
 
+const route = useRoute()
+const router = useRouter()
+
 setSiteTitle('已结束 - 第⑩回 中文东方人气投票')
 
 const loginBoxOpen = ref(false)
+async function jumpToResultPage() {
+  const query = JSON.parse(JSON.stringify(route.query))
+  query.result = true
+  await router.push({ path: route.path, query })
+  location.reload()
+}
 </script>
 <style lang="postcss" scoped></style>
