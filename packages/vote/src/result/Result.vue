@@ -61,7 +61,7 @@
           <div v-for="item2 in resultCharacter" :key="item2.rank">
             <div
               class="py-1 px-3 truncate border-t border-accent-color-600 cursor-pointer text-accent-color-600 hover:text-accent-color-300 transition transition-colors"
-              @click="openReason(item2.name, item2.reasons)"
+              @click="openReason(item2.name, item2.rank, 'CHARACTER')"
             >
               点击查看
             </div>
@@ -102,7 +102,7 @@
           <div>{{ averageVotesPerItemMusic }}</div>
         </div>
         <div>
-          <div>中位角色得票数</div>
+          <div>中位曲目得票数</div>
           <div>{{ medianVotesPerItemMusic }}</div>
         </div>
       </div>
@@ -131,7 +131,7 @@
           <div v-for="item2 in resultMusic" :key="item2.rank">
             <div
               class="py-1 px-3 truncate border-t border-accent-color-600 cursor-pointer text-accent-color-600 hover:text-accent-color-300 transition transition-colors"
-              @click="openReason(item2.name, item2.reasons)"
+              @click="openReason(item2.name, item2.rank, 'MUSIC')"
             >
               点击查看
             </div>
@@ -202,7 +202,7 @@
           <div v-for="item2 in resultCouple" :key="item2.rank">
             <div
               class="py-1 px-3 truncate border-t border-accent-color-600 cursor-pointer text-accent-color-600 hover:text-accent-color-300 transition transition-colors"
-              @click="openReason(item2.cp, item2.reasons)"
+              @click="openReason(item2.cp, item2.rank, 'COUPLE')"
             >
               点击查看
             </div>
@@ -214,8 +214,13 @@
   <VoteMessageBox v-model:open="reasonBoxOpen" :title="reasonTitle">
     <div class="overflow-auto">
       <div class="divide-y p-2">
-        <div v-if="!reasonList.length">没有人填写投票理由QAQ</div>
-        <div v-for="item in reasonList" :key="item" class="break-words">{{ item }}</div>
+        <div v-if="queryCharacterReasonLoading || queryMusicReasonLoading || queryCoupleReasonLoading">
+          投票理由加载中...
+        </div>
+        <div v-else>
+          <div v-if="!reasonList.length">没有人填写投票理由QAQ</div>
+          <div v-for="item in reasonList" :key="item" class="break-words">{{ item }}</div>
+        </div>
       </div>
     </div>
   </VoteMessageBox>
@@ -224,19 +229,27 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from 'vue'
 import NProgress from 'nprogress'
-import { gql, useQuery, useResult } from '@/graphql'
+import { gql, useQuery, useLazyQuery } from '@/graphql'
 import type { Query } from '@/graphql'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 
 setSiteTitle('结果速报 - 第⑩回 中文东方人气投票')
 
-interface Header {
+interface HeaderCharacter {
   name: string
-  key: string
+  key: 'rank' | 'name' | 'voteCount' | 'firstVoteCount' | 'firstVotePercentage'
+}
+interface HeaderMusic {
+  name: string
+  key: 'rank' | 'name' | 'voteCount' | 'firstVoteCount' | 'firstVotePercentage'
+}
+interface HeaderCouple {
+  name: string
+  key: 'rank' | 'cp' | 'voteCount' | 'firstVoteCount' | 'aActive' | 'bActive' | 'cActive' | 'noneActive'
 }
 
-const headerCharacter: Header[] = [
+const headerCharacter: HeaderCharacter[] = [
   { name: '名次', key: 'rank' },
   { name: '角色名', key: 'name' },
   { name: '票数（不含加权）', key: 'voteCount' },
@@ -255,10 +268,9 @@ const resultCharacter = ref<
     voteCount: number
     firstVoteCount: number
     firstVotePercentage: string
-    reasons: string[]
   }[]
 >([])
-const headerMusic: Header[] = [
+const headerMusic: HeaderMusic[] = [
   { name: '名次', key: 'rank' },
   { name: '曲目名', key: 'name' },
   { name: '票数（不含加权）', key: 'voteCount' },
@@ -277,10 +289,9 @@ const resultMusic = ref<
     voteCount: number
     firstVoteCount: number
     firstVotePercentage: string
-    reasons: string[]
   }[]
 >([])
-const headerCouple: Header[] = [
+const headerCouple: HeaderCouple[] = [
   { name: '名次', key: 'rank' },
   { name: 'CP名', key: 'cp' },
   { name: '票数（不含加权）', key: 'voteCount' },
@@ -305,7 +316,6 @@ const resultCouple = ref<
     bActive: string
     cActive: string
     noneActive: string
-    reasons: string[]
   }[]
 >([])
 const {
@@ -329,7 +339,6 @@ const {
           voteCount
           firstVoteCount
           firstVotePercentage
-          reasons
         }
       }
       queryMusicRanking(voteStart: $voteStart, voteYear: $voteYear) {
@@ -346,7 +355,6 @@ const {
           voteCount
           firstVoteCount
           firstVotePercentage
-          reasons
         }
       }
       queryCPRanking(voteStart: $voteStart, voteYear: $voteYear) {
@@ -371,7 +379,6 @@ const {
           bActive
           cActive
           noneActive
-          reasons
         }
       }
     }
@@ -391,38 +398,40 @@ watchEffect(() => {
     if (NProgress.isStarted()) NProgress.done()
   }
 })
-const resultData = useResult(result, null, (data) => data)
 watchEffect(() => {
-  if (resultData.value) {
-    if (resultData.value.queryCharacterRanking) {
-      totalUniqueItemsCharacter.value = resultData.value.queryCharacterRanking.global.totalUniqueItems
-      totalFirstCharacter.value = resultData.value.queryCharacterRanking.global.totalFirst
-      totalVotesCharacter.value = resultData.value.queryCharacterRanking.global.totalVotes
-      averageVotesPerItemCharacter.value = Math.round(resultData.value.queryCharacterRanking.global.averageVotesPerItem)
-      medianVotesPerItemCharacter.value = resultData.value.queryCharacterRanking.global.medianVotesPerItem
-      resultCharacter.value = JSON.parse(JSON.stringify(resultData.value.queryCharacterRanking.entries)).map((item) => {
+  if (result.value) {
+    if (result.value.queryCharacterRanking) {
+      totalUniqueItemsCharacter.value = result.value.queryCharacterRanking.global.totalUniqueItems
+      totalFirstCharacter.value = result.value.queryCharacterRanking.global.totalFirst
+      totalVotesCharacter.value = result.value.queryCharacterRanking.global.totalVotes
+      averageVotesPerItemCharacter.value = Math.round(result.value.queryCharacterRanking.global.averageVotesPerItem)
+      medianVotesPerItemCharacter.value = result.value.queryCharacterRanking.global.medianVotesPerItem
+      // @ts-ignore:参数“item”隐式具有“any”类型
+      resultCharacter.value = JSON.parse(JSON.stringify(result.value.queryCharacterRanking.entries)).map((item) => {
         item.firstVotePercentage = (item.firstVotePercentage * 100).toFixed(2) + '%'
         return item
       })
     }
-    if (resultData.value.queryMusicRanking) {
-      totalUniqueItemsMusic.value = resultData.value.queryMusicRanking.global.totalUniqueItems
-      totalFirstMusic.value = resultData.value.queryMusicRanking.global.totalFirst
-      totalVotesMusic.value = resultData.value.queryMusicRanking.global.totalVotes
-      averageVotesPerItemMusic.value = Math.round(resultData.value.queryMusicRanking.global.averageVotesPerItem)
-      medianVotesPerItemMusic.value = resultData.value.queryMusicRanking.global.medianVotesPerItem
-      resultMusic.value = JSON.parse(JSON.stringify(resultData.value.queryMusicRanking.entries)).map((item) => {
+    if (result.value.queryMusicRanking) {
+      totalUniqueItemsMusic.value = result.value.queryMusicRanking.global.totalUniqueItems
+      totalFirstMusic.value = result.value.queryMusicRanking.global.totalFirst
+      totalVotesMusic.value = result.value.queryMusicRanking.global.totalVotes
+      averageVotesPerItemMusic.value = Math.round(result.value.queryMusicRanking.global.averageVotesPerItem)
+      medianVotesPerItemMusic.value = result.value.queryMusicRanking.global.medianVotesPerItem
+      // @ts-ignore:参数“item”隐式具有“any”类型
+      resultMusic.value = JSON.parse(JSON.stringify(result.value.queryMusicRanking.entries)).map((item) => {
         item.firstVotePercentage = (item.firstVotePercentage * 100).toFixed(2) + '%'
         return item
       })
     }
-    if (resultData.value.queryCPRanking) {
-      totalUniqueItemsCouple.value = resultData.value.queryCPRanking.global.totalUniqueItems
-      totalFirstCouple.value = resultData.value.queryCPRanking.global.totalFirst
-      totalVotesCouple.value = resultData.value.queryCPRanking.global.totalVotes
-      averageVotesPerItemCouple.value = Math.round(resultData.value.queryCPRanking.global.averageVotesPerItem)
-      medianVotesPerItemCouple.value = resultData.value.queryCPRanking.global.medianVotesPerItem
-      resultCouple.value = JSON.parse(JSON.stringify(resultData.value.queryCPRanking.entries)).map((item) => {
+    if (result.value.queryCPRanking) {
+      totalUniqueItemsCouple.value = result.value.queryCPRanking.global.totalUniqueItems
+      totalFirstCouple.value = result.value.queryCPRanking.global.totalFirst
+      totalVotesCouple.value = result.value.queryCPRanking.global.totalVotes
+      averageVotesPerItemCouple.value = Math.round(result.value.queryCPRanking.global.averageVotesPerItem)
+      medianVotesPerItemCouple.value = result.value.queryCPRanking.global.medianVotesPerItem
+      // @ts-ignore:参数“item”隐式具有“any”类型
+      resultCouple.value = JSON.parse(JSON.stringify(result.value.queryCPRanking.entries)).map((item) => {
         item.cp = item.cp.a + ' x ' + item.cp.b + (item.cp.c ? ' x ' + item.cp.c : '')
         item.firstVotePercentage = (item.firstVotePercentage * 100).toFixed(2) + '%'
         item.aActive = (item.aActive * 100).toFixed(2) + '%'
@@ -440,10 +449,168 @@ queryRankingError((err) => {
 
 const reasonBoxOpen = ref(false)
 const reasonTitle = ref<string>('')
+const reasonRank = ref<number>(1)
 const reasonList = ref<string[]>([])
-function openReason(name: string, reasons: string[]) {
+function openReason(name: string, rank: number, type: 'CHARACTER' | 'MUSIC' | 'COUPLE') {
   reasonTitle.value = name + '的投票理由：'
-  reasonList.value = reasons
+  reasonRank.value = rank
+  if (type === 'CHARACTER') {
+    if (queryCharacterReasonforceDisabled.value) {
+      loadCharacterReason(undefined, {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        rank: reasonRank.value,
+      })
+    } else
+      queryCharacterReasonMore({
+        variables: {
+          voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+          voteYear: 10,
+          rank: reasonRank.value,
+        },
+        updateQuery(previousQueryResult, { fetchMoreResult }) {
+          if (!fetchMoreResult) return previousQueryResult
+          return fetchMoreResult
+        },
+      })
+  } else if (type === 'MUSIC') {
+    if (queryMusicReasonforceDisabled.value) {
+      loadMusicReason(undefined, {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        rank: reasonRank.value,
+      })
+    } else
+      queryMusicReasonMore({
+        variables: {
+          voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+          voteYear: 10,
+          rank: reasonRank.value,
+        },
+        updateQuery(previousQueryResult, { fetchMoreResult }) {
+          if (!fetchMoreResult) return previousQueryResult
+          return fetchMoreResult
+        },
+      })
+  } else if (type === 'COUPLE') {
+    if (queryCoupleReasonforceDisabled.value) {
+      loadCoupleReason(undefined, {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        rank: reasonRank.value,
+      })
+    } else
+      queryCoupleReasonMore({
+        variables: {
+          voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+          voteYear: 10,
+          rank: reasonRank.value,
+        },
+        updateQuery(previousQueryResult, { fetchMoreResult }) {
+          if (!fetchMoreResult) return previousQueryResult
+          return fetchMoreResult
+        },
+      })
+  }
   reasonBoxOpen.value = true
 }
+const {
+  result: resultCharacterReason,
+  load: loadCharacterReason,
+  loading: queryCharacterReasonLoading,
+  onError: queryCharacterReasonError,
+  fetchMore: queryCharacterReasonMore,
+  forceDisabled: queryCharacterReasonforceDisabled,
+} = useLazyQuery<Query>(
+  gql`
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
+      queryCharacterReasons(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
+        reasons
+      }
+    }
+  `,
+  {
+    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+    voteYear: 10,
+    rank: reasonRank.value,
+  },
+  {
+    fetchPolicy: 'network-only',
+  }
+)
+watchEffect(() => {
+  if (resultCharacterReason.value) {
+    reasonList.value = resultCharacterReason.value.queryCharacterReasons.reasons
+  }
+})
+queryCharacterReasonError((err) => {
+  console.log(err.message)
+  alert('理由加载失败！')
+})
+const {
+  result: resultMusicReason,
+  load: loadMusicReason,
+  loading: queryMusicReasonLoading,
+  onError: queryMusicReasonError,
+  fetchMore: queryMusicReasonMore,
+  forceDisabled: queryMusicReasonforceDisabled,
+} = useLazyQuery<Query>(
+  gql`
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
+      queryMusicReasons(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
+        reasons
+      }
+    }
+  `,
+  {
+    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+    voteYear: 10,
+    rank: reasonRank.value,
+  },
+  {
+    fetchPolicy: 'network-only',
+  }
+)
+watchEffect(() => {
+  if (resultMusicReason.value) {
+    reasonList.value = resultMusicReason.value.queryMusicReasons.reasons
+  }
+})
+queryMusicReasonError((err) => {
+  console.log(err.message)
+  alert('理由加载失败！')
+})
+const {
+  result: resultCoupleReason,
+  load: loadCoupleReason,
+  loading: queryCoupleReasonLoading,
+  onError: queryCoupleReasonError,
+  fetchMore: queryCoupleReasonMore,
+  forceDisabled: queryCoupleReasonforceDisabled,
+} = useLazyQuery<Query>(
+  gql`
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
+      queryCPReasons(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
+        reasons
+      }
+    }
+  `,
+  {
+    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+    voteYear: 10,
+    rank: reasonRank.value,
+  },
+  {
+    fetchPolicy: 'network-only',
+  }
+)
+watchEffect(() => {
+  if (resultCoupleReason.value) {
+    reasonList.value = resultCoupleReason.value.queryCPReasons.reasons
+  }
+})
+queryCoupleReasonError((err) => {
+  console.log(err.message)
+  alert('理由加载失败！')
+})
 </script>
