@@ -13,7 +13,7 @@ export interface Music {
   music: string
   reason: string
   honmei: boolean
-  kind: ('game' | 'book' | 'CD' | 'others' | '')[],
+  kind: ('game' | 'book' | 'CD' | 'others' | '')[]
   include: string[]
 }
 
@@ -89,7 +89,8 @@ export const musicList: Music[] = [
     origname: 'A Sacred Lot',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/32/ha05_01.mp3',
     reason: '',
     honmei: false,
@@ -102,7 +103,8 @@ export const musicList: Music[] = [
     origname: '永遠の巫女',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/06/ha05_02.mp3',
     reason: '',
     honmei: false,
@@ -115,7 +117,8 @@ export const musicList: Music[] = [
     origname: 'The Positive and Negative',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/16/ha05_03.mp3',
     reason: '',
     honmei: false,
@@ -128,7 +131,8 @@ export const musicList: Music[] = [
     origname: 'Highly Responsive to Prayers',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/7b/ha05_04.mp3',
     reason: '',
     honmei: false,
@@ -141,7 +145,8 @@ export const musicList: Music[] = [
     origname: '東方怪奇談',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/72/ha05_05.mp3',
     reason: '',
     honmei: false,
@@ -154,7 +159,8 @@ export const musicList: Music[] = [
     origname: '天使伝説',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f4/ha05_06.mp3',
     reason: '',
     honmei: false,
@@ -167,7 +173,8 @@ export const musicList: Music[] = [
     origname: 'Oriental Magician',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/50/ha05_07.mp3',
     reason: '',
     honmei: false,
@@ -180,7 +187,8 @@ export const musicList: Music[] = [
     origname: '破邪の小太刀',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/16/ha05_08.mp3',
     reason: '',
     honmei: false,
@@ -193,7 +201,8 @@ export const musicList: Music[] = [
     origname: '魔鏡',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1d/ha05_09.mp3',
     reason: '',
     honmei: false,
@@ -206,7 +215,8 @@ export const musicList: Music[] = [
     origname: 'the Legend of KAGE',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fb/ha05_10.mp3',
     reason: '',
     honmei: false,
@@ -219,7 +229,8 @@ export const musicList: Music[] = [
     origname: 'いざ、倒れ逝くその時まで',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/97/ha05_11.mp3',
     reason: '',
     honmei: false,
@@ -232,7 +243,8 @@ export const musicList: Music[] = [
     origname: '死なばもろとも',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4c/ha05_12.mp3',
     reason: '',
     honmei: false,
@@ -245,7 +257,8 @@ export const musicList: Music[] = [
     origname: '星幽剣士',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/02/ha05_13.mp3',
     reason: '',
     honmei: false,
@@ -258,7 +271,8 @@ export const musicList: Music[] = [
     origname: 'アイリス',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/df/ha05_14.mp3',
     reason: '',
     honmei: false,
@@ -271,7 +285,8 @@ export const musicList: Music[] = [
     origname: '風の神社',
     album: '东方灵异传',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a9/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/77/th01_99.mp3',
     reason: '',
     honmei: false,
@@ -284,7 +299,8 @@ export const musicList: Music[] = [
     origname: '東方封魔録 ～ 浄土曼荼羅',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/39/ha03_01.mp3',
     reason: '',
     honmei: false,
@@ -297,7 +313,8 @@ export const musicList: Music[] = [
     origname: '博麗 ～ Eastern Wind',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/ca/ha03_02.mp3',
     reason: '',
     honmei: false,
@@ -310,7 +327,8 @@ export const musicList: Music[] = [
     origname: "She's in a temper!!",
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/3c/ha03_03.mp3',
     reason: '',
     honmei: false,
@@ -323,7 +341,8 @@ export const musicList: Music[] = [
     origname: 'End of Daylight',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1a/ha03_04.mp3',
     reason: '',
     honmei: false,
@@ -336,7 +355,8 @@ export const musicList: Music[] = [
     origname: 'やみのちから',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b3/ha03_05.mp3',
     reason: '',
     honmei: false,
@@ -349,7 +369,8 @@ export const musicList: Music[] = [
     origname: '幻夢界',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f8/ha03_06.mp3',
     reason: '',
     honmei: false,
@@ -362,7 +383,8 @@ export const musicList: Music[] = [
     origname: '死を賭して',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/95/ha03_07.mp3',
     reason: '',
     honmei: false,
@@ -375,7 +397,8 @@ export const musicList: Music[] = [
     origname: 'ひもろぎ、むらさきにもえ',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/da/ha03_08.mp3',
     reason: '',
     honmei: false,
@@ -388,12 +411,21 @@ export const musicList: Music[] = [
     origname: '恋色マジック',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e6/ha03_09.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
-    include: ['东方永夜抄', '幻想曲拔萃', '核热造神非想天则', '深秘乐曲集', '幺乐团的历史', '完全凭依唱片名录', '贪欲之兽的音乐'],
+    include: [
+      '东方永夜抄',
+      '幻想曲拔萃',
+      '核热造神非想天则',
+      '深秘乐曲集',
+      '幺乐团的历史',
+      '完全凭依唱片名录',
+      '贪欲之兽的音乐',
+    ],
   },
   {
     id: '25',
@@ -401,7 +433,8 @@ export const musicList: Music[] = [
     origname: '東方封魔録 ～ 幽幻乱舞',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/be/ha03_10.mp3',
     reason: '',
     honmei: false,
@@ -414,7 +447,8 @@ export const musicList: Music[] = [
     origname: 'Complete Darkness',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/db/ha03_11.mp3',
     reason: '',
     honmei: false,
@@ -427,7 +461,8 @@ export const musicList: Music[] = [
     origname: 'Extra Love',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2a/ha03_12.mp3',
     reason: '',
     honmei: false,
@@ -440,7 +475,8 @@ export const musicList: Music[] = [
     origname: '戦車むすめのみるゆめ',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d4/ha03_13.mp3',
     reason: '',
     honmei: false,
@@ -453,7 +489,8 @@ export const musicList: Music[] = [
     origname: '遠野の森',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e1/ha03_14.mp3',
     reason: '',
     honmei: false,
@@ -466,7 +503,8 @@ export const musicList: Music[] = [
     origname: '昔話わんだーらんど',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f8/ha03_15.mp3',
     reason: '',
     honmei: false,
@@ -479,7 +517,8 @@ export const musicList: Music[] = [
     origname: '博麗神社境内',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/ca/ha03_16.mp3',
     reason: '',
     honmei: false,
@@ -492,7 +531,8 @@ export const musicList: Music[] = [
     origname: '陽落ちて',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2a/ha03_17.mp3',
     reason: '',
     honmei: false,
@@ -505,7 +545,8 @@ export const musicList: Music[] = [
     origname: '封魔終演',
     album: '东方封魔录',
     date: 19970815,
-    image: 'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f5/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c5/ha03_18.mp3',
     reason: '',
     honmei: false,
@@ -518,7 +559,8 @@ export const musicList: Music[] = [
     origname: '夢は時空を越えて',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/04/ha04_01.mp3',
     reason: '',
     honmei: false,
@@ -531,7 +573,8 @@ export const musicList: Music[] = [
     origname: 'Selection',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/99/ha04_02.mp3',
     reason: '',
     honmei: false,
@@ -544,7 +587,8 @@ export const musicList: Music[] = [
     origname: '東方妖恋談',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/01/ha04_03.mp3',
     reason: '',
     honmei: false,
@@ -557,7 +601,8 @@ export const musicList: Music[] = [
     origname: 'Reincarnation',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/43/ha04_04.mp3',
     reason: '',
     honmei: false,
@@ -570,7 +615,8 @@ export const musicList: Music[] = [
     origname: 'Dim. Dream',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/59/ha04_05.mp3',
     reason: '',
     honmei: false,
@@ -583,7 +629,8 @@ export const musicList: Music[] = [
     origname: 'Tabula rasa ～ 空白少女',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e3/ha04_06.mp3',
     reason: '',
     honmei: false,
@@ -596,7 +643,8 @@ export const musicList: Music[] = [
     origname: 'Maniacal Princess',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/78/ha04_07.mp3',
     reason: '',
     honmei: false,
@@ -609,7 +657,8 @@ export const musicList: Music[] = [
     origname: '夢消失 ～ Lost Dream',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d9/ha04_08.mp3',
     reason: '',
     honmei: false,
@@ -622,7 +671,8 @@ export const musicList: Music[] = [
     origname: '夢幻遊戯 ～ Dream War',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0f/ha04_09.mp3',
     reason: '',
     honmei: false,
@@ -635,7 +685,8 @@ export const musicList: Music[] = [
     origname: '魔法決戦！ ～ Fight it out!',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a1/ha04_11.mp3',
     reason: '',
     honmei: false,
@@ -648,7 +699,8 @@ export const musicList: Music[] = [
     origname: 'Sailor of Time',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/60/ha04_13.mp3',
     reason: '',
     honmei: false,
@@ -661,7 +713,8 @@ export const musicList: Music[] = [
     origname: 'Strawberry Crisis!!',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/66/ha04_15.mp3',
     reason: '',
     honmei: false,
@@ -674,7 +727,8 @@ export const musicList: Music[] = [
     origname: '非統一魔法世界論',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/05/ha04_12.mp3',
     reason: '',
     honmei: false,
@@ -687,7 +741,8 @@ export const musicList: Music[] = [
     origname: '魔法鐘愛',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/77/ha04_14.mp3',
     reason: '',
     honmei: false,
@@ -700,7 +755,8 @@ export const musicList: Music[] = [
     origname: '久遠の夢',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/16/ha04_16.mp3',
     reason: '',
     honmei: false,
@@ -713,7 +769,8 @@ export const musicList: Music[] = [
     origname: '東方の青い空',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5a/ha04_17.mp3',
     reason: '',
     honmei: false,
@@ -726,7 +783,8 @@ export const musicList: Music[] = [
     origname: '永遠の満月',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/16/ha04_18.mp3',
     reason: '',
     honmei: false,
@@ -739,7 +797,8 @@ export const musicList: Music[] = [
     origname: 'Maple Dream...',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c5/ha04_19.mp3',
     reason: '',
     honmei: false,
@@ -752,7 +811,8 @@ export const musicList: Music[] = [
     origname: '霊人の休日',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/da/ha04_21.mp3',
     reason: '',
     honmei: false,
@@ -765,7 +825,8 @@ export const musicList: Music[] = [
     origname: '勝利デモ',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a8/ha04_10.mp3',
     reason: '',
     honmei: false,
@@ -778,7 +839,8 @@ export const musicList: Music[] = [
     origname: 'ゲームオーバー',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8d/ha04_20.mp3',
     reason: '',
     honmei: false,
@@ -791,7 +853,8 @@ export const musicList: Music[] = [
     origname: '時の風',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b1/ha04_22.mp3',
     reason: '',
     honmei: false,
@@ -804,7 +867,8 @@ export const musicList: Music[] = [
     origname: 'スターボウドリーム',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f3/ha04_23.mp3',
     reason: '',
     honmei: false,
@@ -817,7 +881,8 @@ export const musicList: Music[] = [
     origname: 'Phantasmagoria',
     album: '东方梦时空',
     date: 19971229,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/84/ha04_24.mp3',
     reason: '',
     honmei: false,
@@ -830,7 +895,8 @@ export const musicList: Music[] = [
     origname: '幻想郷 ～ Lotus Land Story',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f7/ha01a_01.mp3',
     reason: '',
     honmei: false,
@@ -843,7 +909,8 @@ export const musicList: Music[] = [
     origname: 'Witching Dream',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/44/ha01a_02.mp3',
     reason: '',
     honmei: false,
@@ -852,11 +919,12 @@ export const musicList: Music[] = [
   },
   {
     id: '60',
-    name: 'Selene's light',
-		origname: 'Selene's light',
-		album: '东方幻想乡',
+    name: "Selene's light",
+    origname: "Selene's light",
+    album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/df/ha01a_03.mp3',
     reason: '',
     honmei: false,
@@ -869,7 +937,8 @@ export const musicList: Music[] = [
     origname: '装飾戦 ～ Decoration Battle',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/28/ha01a_04.mp3',
     reason: '',
     honmei: false,
@@ -882,7 +951,8 @@ export const musicList: Music[] = [
     origname: 'Break the Sabbath',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/09/ha01a_05.mp3',
     reason: '',
     honmei: false,
@@ -895,7 +965,8 @@ export const musicList: Music[] = [
     origname: '紅響曲 ～ Scarlet Phoneme',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0f/ha01a_06.mp3',
     reason: '',
     honmei: false,
@@ -908,7 +979,8 @@ export const musicList: Music[] = [
     origname: 'Bad Apple!!',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/70/ha01a_07.mp3',
     reason: '',
     honmei: false,
@@ -921,7 +993,8 @@ export const musicList: Music[] = [
     origname: '霊戦 ～ Perdition crisis',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/95/ha01a_08.mp3',
     reason: '',
     honmei: false,
@@ -934,7 +1007,8 @@ export const musicList: Music[] = [
     origname: 'アリスマエステラ',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/ab/ha01a_09.mp3',
     reason: '',
     honmei: false,
@@ -947,7 +1021,8 @@ export const musicList: Music[] = [
     origname: '少女綺想曲 ～ Capriccio',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2e/ha01a_10.mp3',
     reason: '',
     honmei: false,
@@ -960,7 +1035,8 @@ export const musicList: Music[] = [
     origname: '星の器 ～ Casket of Star',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/16/ha01a_11.mp3',
     reason: '',
     honmei: false,
@@ -973,7 +1049,8 @@ export const musicList: Music[] = [
     origname: 'Lotus Love',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/37/ha01a_12.mp3',
     reason: '',
     honmei: false,
@@ -986,7 +1063,8 @@ export const musicList: Music[] = [
     origname: '眠れる恐怖 ～ Sleeping Terror',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/01/ha01a_13.mp3',
     reason: '',
     honmei: false,
@@ -999,7 +1077,8 @@ export const musicList: Music[] = [
     origname: 'Dream Land',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/bd/ha01a_14.mp3',
     reason: '',
     honmei: false,
@@ -1012,7 +1091,8 @@ export const musicList: Music[] = [
     origname: '幽夢 ～ Inanimate Dream',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/63/ha01a_15.mp3',
     reason: '',
     honmei: false,
@@ -1025,7 +1105,8 @@ export const musicList: Music[] = [
     origname: '禁じざるをえない遊戯',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/76/ha01b_01.mp3',
     reason: '',
     honmei: false,
@@ -1038,7 +1119,8 @@ export const musicList: Music[] = [
     origname: 'メイド幻想 ～ Icemilk Magic',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/6d/ha01b_02.mp3',
     reason: '',
     honmei: false,
@@ -1051,7 +1133,8 @@ export const musicList: Music[] = [
     origname: 'かわいい悪魔 ～ Innocence',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/47/ha01b_03.mp3',
     reason: '',
     honmei: false,
@@ -1064,7 +1147,8 @@ export const musicList: Music[] = [
     origname: 'Days',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/bb/ha01b_04.mp3',
     reason: '',
     honmei: false,
@@ -1077,7 +1161,8 @@ export const musicList: Music[] = [
     origname: 'Peaceful',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e6/ha01b_05.mp3',
     reason: '',
     honmei: false,
@@ -1090,7 +1175,8 @@ export const musicList: Music[] = [
     origname: 'Arcadian Dream',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d6/ha01b_06.mp3',
     reason: '',
     honmei: false,
@@ -1103,7 +1189,8 @@ export const musicList: Music[] = [
     origname: '幻想の住人',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/ef/ha01b_07.mp3',
     reason: '',
     honmei: false,
@@ -1116,7 +1203,8 @@ export const musicList: Music[] = [
     origname: 'Lotus Road',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/30/ha01b_08.mp3',
     reason: '',
     honmei: false,
@@ -1129,7 +1217,8 @@ export const musicList: Music[] = [
     origname: 'Dreamy pilot',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b5/ha01b_09.mp3',
     reason: '',
     honmei: false,
@@ -1142,7 +1231,8 @@ export const musicList: Music[] = [
     origname: 'Incomplete Plot',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/19/ha01b_10.mp3',
     reason: '',
     honmei: false,
@@ -1155,7 +1245,8 @@ export const musicList: Music[] = [
     origname: 'Border Land',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/76/ha01b_11.mp3',
     reason: '',
     honmei: false,
@@ -1168,7 +1259,8 @@ export const musicList: Music[] = [
     origname: 'Magic Shop of Raspberry',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/6f/ha01b_12.mp3',
     reason: '',
     honmei: false,
@@ -1181,7 +1273,8 @@ export const musicList: Music[] = [
     origname: 'Crescent Dream',
     album: '东方幻想乡',
     date: 19980814,
-    image: 'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1a/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/19/ha01b_13.mp3',
     reason: '',
     honmei: false,
@@ -1194,7 +1287,8 @@ export const musicList: Music[] = [
     origname: '怪綺談 ～ Mystic Square',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/eb/ha02_01.mp3',
     reason: '',
     honmei: false,
@@ -1207,7 +1301,8 @@ export const musicList: Music[] = [
     origname: 'Dream Express',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b9/ha02_02.mp3',
     reason: '',
     honmei: false,
@@ -1220,7 +1315,8 @@ export const musicList: Music[] = [
     origname: '魔法陣 ～ Magic Square',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c8/ha02_03.mp3',
     reason: '',
     honmei: false,
@@ -1233,7 +1329,8 @@ export const musicList: Music[] = [
     origname: '夢想時空',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8d/ha02_04.mp3',
     reason: '',
     honmei: false,
@@ -1246,7 +1343,8 @@ export const musicList: Music[] = [
     origname: '霊天 ～ Spiritual Heaven',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/50/ha02_05.mp3',
     reason: '',
     honmei: false,
@@ -1259,7 +1357,8 @@ export const musicList: Music[] = [
     origname: 'Romantic Children',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d4/ha02_06.mp3',
     reason: '',
     honmei: false,
@@ -1272,7 +1371,8 @@ export const musicList: Music[] = [
     origname: 'プラスチックマインド',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/16/ha02_07.mp3',
     reason: '',
     honmei: false,
@@ -1285,7 +1385,8 @@ export const musicList: Music[] = [
     origname: 'メイプルワイズ',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2a/ha02_08.mp3',
     reason: '',
     honmei: false,
@@ -1298,7 +1399,8 @@ export const musicList: Music[] = [
     origname: '禁断の魔法 ～ Forbidden Magic',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/76/ha02_09.mp3',
     reason: '',
     honmei: false,
@@ -1311,7 +1413,8 @@ export const musicList: Music[] = [
     origname: '真紅の少女 ～ Crimson Dead!!',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f0/ha02_10.mp3',
     reason: '',
     honmei: false,
@@ -1324,7 +1427,8 @@ export const musicList: Music[] = [
     origname: '裏切りの少女 ～ Judas Kiss',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e0/ha02_11.mp3',
     reason: '',
     honmei: false,
@@ -1337,7 +1441,8 @@ export const musicList: Music[] = [
     origname: 'the Last Judgement',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f1/ha02_12.mp3',
     reason: '',
     honmei: false,
@@ -1350,7 +1455,8 @@ export const musicList: Music[] = [
     origname: '悲しき人形 ～ Doll of Misery',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b4/ha02_13.mp3',
     reason: '',
     honmei: false,
@@ -1359,11 +1465,12 @@ export const musicList: Music[] = [
   },
   {
     id: '99',
-    name: '世界的尽头 ～ World's End',
-		origname: '世界の果て ～ World's End',
-		album: '东方怪绮谈',
+    name: "世界的尽头 ～ World's End",
+    origname: "世界の果て ～ World's End",
+    album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/98/ha02_14.mp3',
     reason: '',
     honmei: false,
@@ -1376,7 +1483,8 @@ export const musicList: Music[] = [
     origname: '神話幻想 ～ Infinite Being',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b5/ha02_15.mp3',
     reason: '',
     honmei: false,
@@ -1389,7 +1497,8 @@ export const musicList: Music[] = [
     origname: '不思議の国のアリス',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/47/ha02_16.mp3',
     reason: '',
     honmei: false,
@@ -1402,7 +1511,8 @@ export const musicList: Music[] = [
     origname: 'the Grimoire of Alice',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8d/ha02_17.mp3',
     reason: '',
     honmei: false,
@@ -1415,7 +1525,8 @@ export const musicList: Music[] = [
     origname: '神社',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/74/ha02_18.mp3',
     reason: '',
     honmei: false,
@@ -1428,7 +1539,8 @@ export const musicList: Music[] = [
     origname: 'Endless',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a9/ha02_19.mp3',
     reason: '',
     honmei: false,
@@ -1441,7 +1553,8 @@ export const musicList: Music[] = [
     origname: '久遠の楽園',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b1/ha02_20.mp3',
     reason: '',
     honmei: false,
@@ -1454,7 +1567,8 @@ export const musicList: Music[] = [
     origname: 'Mystic Dream',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/00/ha02_21.mp3',
     reason: '',
     honmei: false,
@@ -1467,7 +1581,8 @@ export const musicList: Music[] = [
     origname: 'Peaceful Romancer',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a3/ha02_23.mp3',
     reason: '',
     honmei: false,
@@ -1480,7 +1595,8 @@ export const musicList: Music[] = [
     origname: '魂の休らむ所',
     album: '东方怪绮谈',
     date: 19981230,
-    image: 'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b5/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c7/ha02_22.mp3',
     reason: '',
     honmei: false,
@@ -1493,7 +1609,8 @@ export const musicList: Music[] = [
     origname: '赤より紅い夢',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/11/th06_01.mp3',
     reason: '',
     honmei: false,
@@ -1506,7 +1623,8 @@ export const musicList: Music[] = [
     origname: 'ほおずきみたいに紅い魂',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/46/th06_02.mp3',
     reason: '',
     honmei: false,
@@ -1519,7 +1637,8 @@ export const musicList: Music[] = [
     origname: '妖魔夜行',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/34/th06_03.mp3',
     reason: '',
     honmei: false,
@@ -1532,7 +1651,8 @@ export const musicList: Music[] = [
     origname: 'ルーネイトエルフ',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/17/th06_04.mp3',
     reason: '',
     honmei: false,
@@ -1545,7 +1665,8 @@ export const musicList: Music[] = [
     origname: 'おてんば恋娘（おてんば恋娘の冒険）',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/df/th06_05.mp3',
     reason: '',
     honmei: false,
@@ -1558,7 +1679,8 @@ export const musicList: Music[] = [
     origname: '上海紅茶館　～ Chinese Tea',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a9/th06_06.mp3',
     reason: '',
     honmei: false,
@@ -1571,7 +1693,8 @@ export const musicList: Music[] = [
     origname: '明治十七年の上海アリス',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/24/th06_07.mp3',
     reason: '',
     honmei: false,
@@ -1584,7 +1707,8 @@ export const musicList: Music[] = [
     origname: 'ヴワル魔法図書館',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/87/th06_08.mp3',
     reason: '',
     honmei: false,
@@ -1597,7 +1721,8 @@ export const musicList: Music[] = [
     origname: 'ラクトガール　～ 少女密室',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/66/th06_09.mp3',
     reason: '',
     honmei: false,
@@ -1610,7 +1735,8 @@ export const musicList: Music[] = [
     origname: 'メイドと血の懐中時計',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/06/th06_10.mp3',
     reason: '',
     honmei: false,
@@ -1623,7 +1749,8 @@ export const musicList: Music[] = [
     origname: '月時計　～ ルナ・ダイアル',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/cc/th06_11.mp3',
     reason: '',
     honmei: false,
@@ -1636,7 +1763,8 @@ export const musicList: Music[] = [
     origname: 'ツェペシュの幼き末裔',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/9d/th06_12.mp3',
     reason: '',
     honmei: false,
@@ -1649,7 +1777,8 @@ export const musicList: Music[] = [
     origname: '亡き王女の為のセプテット',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b3/th06_13.mp3',
     reason: '',
     honmei: false,
@@ -1662,7 +1791,8 @@ export const musicList: Music[] = [
     origname: '魔法少女達の百年祭',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b7/th06_14.mp3',
     reason: '',
     honmei: false,
@@ -1675,7 +1805,8 @@ export const musicList: Music[] = [
     origname: 'U.N.オーエンは彼女なのか？',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a4/th06_15.mp3',
     reason: '',
     honmei: false,
@@ -1688,7 +1819,8 @@ export const musicList: Music[] = [
     origname: '紅より儚い永遠',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/80/th06_16.mp3',
     reason: '',
     honmei: false,
@@ -1701,7 +1833,8 @@ export const musicList: Music[] = [
     origname: '紅楼　～ Eastern Dream...',
     album: '东方红魔乡',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/de/th06_17.mp3',
     reason: '',
     honmei: false,
@@ -1714,7 +1847,8 @@ export const musicList: Music[] = [
     origname: '妖々夢 ～ Snow or Cherry Petal',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/98/th07_01.mp3',
     reason: '',
     honmei: false,
@@ -1727,7 +1861,8 @@ export const musicList: Music[] = [
     origname: '無何有の郷 ～ Deep Mountain',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/9c/th07_02.mp3',
     reason: '',
     honmei: false,
@@ -1740,7 +1875,8 @@ export const musicList: Music[] = [
     origname: 'クリスタライズシルバー',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/6a/th07_03.mp3',
     reason: '',
     honmei: false,
@@ -1753,7 +1889,8 @@ export const musicList: Music[] = [
     origname: '遠野幻想物語',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/72/th07_04.mp3',
     reason: '',
     honmei: false,
@@ -1766,7 +1903,8 @@ export const musicList: Music[] = [
     origname: 'ティアオイエツォン(withered leaf)',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/04/th07_05.mp3',
     reason: '',
     honmei: false,
@@ -1779,7 +1917,8 @@ export const musicList: Music[] = [
     origname: 'ブクレシュティの人形師',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0d/th07_06.mp3',
     reason: '',
     honmei: false,
@@ -1792,7 +1931,8 @@ export const musicList: Music[] = [
     origname: '人形裁判　～ 人の形弄びし少女',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a1/th07_07.mp3',
     reason: '',
     honmei: false,
@@ -1805,7 +1945,8 @@ export const musicList: Music[] = [
     origname: '天空の花の都',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/19/th07_08.mp3',
     reason: '',
     honmei: false,
@@ -1818,7 +1959,8 @@ export const musicList: Music[] = [
     origname: '幽霊楽団　～ Phantom Ensemble',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a2/th07_09.mp3',
     reason: '',
     honmei: false,
@@ -1831,7 +1973,8 @@ export const musicList: Music[] = [
     origname: '東方妖々夢　～ Ancient Temple',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/72/th07_10.mp3',
     reason: '',
     honmei: false,
@@ -1844,7 +1987,8 @@ export const musicList: Music[] = [
     origname: '広有射怪鳥事　～ Till When?',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f7/th07_11.mp3',
     reason: '',
     honmei: false,
@@ -1857,7 +2001,8 @@ export const musicList: Music[] = [
     origname: 'アルティメットトゥルース',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/05/th07_12.mp3',
     reason: '',
     honmei: false,
@@ -1870,7 +2015,8 @@ export const musicList: Music[] = [
     origname: '幽雅に咲かせ、墨染の桜　～ Border of Life',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/de/th07_13.mp3',
     reason: '',
     honmei: false,
@@ -1883,7 +2029,8 @@ export const musicList: Music[] = [
     origname: 'ボーダーオブライフ',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/27/th07_14.mp3',
     reason: '',
     honmei: false,
@@ -1896,7 +2043,8 @@ export const musicList: Music[] = [
     origname: '妖々跋扈',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/ff/th07_15.mp3',
     reason: '',
     honmei: false,
@@ -1909,7 +2057,8 @@ export const musicList: Music[] = [
     origname: '少女幻葬～ Necro-Fantasy',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/96/th07_16.mp3',
     reason: '',
     honmei: false,
@@ -1922,7 +2071,8 @@ export const musicList: Music[] = [
     origname: '妖々跋扈　～ Who done it!',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a6/th07_17.mp3',
     reason: '',
     honmei: false,
@@ -1935,7 +2085,8 @@ export const musicList: Music[] = [
     origname: 'ネクロファンタジア',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/04/th07_18.mp3',
     reason: '',
     honmei: false,
@@ -1948,7 +2099,8 @@ export const musicList: Music[] = [
     origname: '春風の夢',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b8/th07_19.mp3',
     reason: '',
     honmei: false,
@@ -1961,7 +2113,8 @@ export const musicList: Music[] = [
     origname: 'さくらさくら　～ Japanize Dream...',
     album: '东方妖妖梦',
     date: 20030817,
-    image: 'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a7/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b0/th07_20.mp3',
     reason: '',
     honmei: false,
@@ -1974,7 +2127,8 @@ export const musicList: Music[] = [
     origname: '萃夢想',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/2/26/TFM-001b_01.mp3',
     reason: '',
     honmei: false,
@@ -1987,7 +2141,8 @@ export const musicList: Music[] = [
     origname: 'Demystify Feast',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/a/a3/TFM-001b_14.mp3',
     reason: '',
     honmei: false,
@@ -2000,7 +2155,8 @@ export const musicList: Music[] = [
     origname: '夜が降りてくる ～ Evening Star',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/2/29/TFM-001b_16.mp3',
     reason: '',
     honmei: false,
@@ -2013,7 +2169,8 @@ export const musicList: Music[] = [
     origname: '御伽の国の鬼が島 ～ Missing Power',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/9/96/TFM-001b_18.mp3',
     reason: '',
     honmei: false,
@@ -2026,7 +2183,8 @@ export const musicList: Music[] = [
     origname: '夏明き',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/1/14/TFM-001a_15.mp3',
     reason: '',
     honmei: false,
@@ -2039,7 +2197,8 @@ export const musicList: Music[] = [
     origname: '東方萃夢想',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/0/03/TFM-001b_19.mp3',
     reason: '',
     honmei: false,
@@ -2052,7 +2211,8 @@ export const musicList: Music[] = [
     origname: '魔所',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/3/3b/TFM-001a_09.mp3',
     reason: '',
     honmei: false,
@@ -2065,7 +2225,8 @@ export const musicList: Music[] = [
     origname: '月輪',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/d/d4/TFM-001a_03.mp3',
     reason: '',
     honmei: false,
@@ -2078,7 +2239,8 @@ export const musicList: Music[] = [
     origname: '遍参',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/3/31/TFM-001a_01.mp3',
     reason: '',
     honmei: false,
@@ -2091,7 +2253,8 @@ export const musicList: Music[] = [
     origname: '裏心',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/9/92/TFM-001a_11.mp3',
     reason: '',
     honmei: false,
@@ -2104,7 +2267,8 @@ export const musicList: Music[] = [
     origname: 'Intermezzo',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/8/8c/TFM-001a_07.mp3',
     reason: '',
     honmei: false,
@@ -2117,7 +2281,8 @@ export const musicList: Music[] = [
     origname: 'あゆのかぜ',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/3/38/TFM-001a_05.mp3',
     reason: '',
     honmei: false,
@@ -2130,7 +2295,8 @@ export const musicList: Music[] = [
     origname: '森閑',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/8/86/TFM-001b_03.mp3',
     reason: '',
     honmei: false,
@@ -2143,7 +2309,8 @@ export const musicList: Music[] = [
     origname: '仰空',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/7/78/TFM-001b_13.mp3',
     reason: '',
     honmei: false,
@@ -2156,7 +2323,8 @@ export const musicList: Music[] = [
     origname: '幽境',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/a/ae/TFM-001b_07.mp3',
     reason: '',
     honmei: false,
@@ -2169,7 +2337,8 @@ export const musicList: Music[] = [
     origname: '珍客',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/0/02/TFM-001b_09.mp3',
     reason: '',
     honmei: false,
@@ -2182,7 +2351,8 @@ export const musicList: Music[] = [
     origname: '紅夜',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/f/f9/TFM-001b_05.mp3',
     reason: '',
     honmei: false,
@@ -2195,7 +2365,8 @@ export const musicList: Music[] = [
     origname: '戦迅',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/6/69/TFM-001b_15.mp3',
     reason: '',
     honmei: false,
@@ -2208,7 +2379,8 @@ export const musicList: Music[] = [
     origname: '禍機',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/5/5d/TFM-001b_11.mp3',
     reason: '',
     honmei: false,
@@ -2221,7 +2393,8 @@ export const musicList: Music[] = [
     origname: '砕月',
     album: '幻想曲拔萃',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/40/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg/100px-%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83booklet1.jpg',
     music: 'https://upload.thwiki.cc/0/0c/TFM-001b_17.mp3',
     reason: '',
     honmei: false,
@@ -2234,7 +2407,8 @@ export const musicList: Music[] = [
     origname: '永夜抄　～ Eastern Night.',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e2/th08_01.mp3',
     reason: '',
     honmei: false,
@@ -2247,7 +2421,8 @@ export const musicList: Music[] = [
     origname: '幻視の夜　～ Ghostly Eyes',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d2/th08_02.mp3',
     reason: '',
     honmei: false,
@@ -2260,7 +2435,8 @@ export const musicList: Music[] = [
     origname: '蠢々秋月　～ Mooned Insect',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/66/th08_03.mp3',
     reason: '',
     honmei: false,
@@ -2273,7 +2449,8 @@ export const musicList: Music[] = [
     origname: '夜雀の歌声　～ Night Bird',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/62/th08_04.mp3',
     reason: '',
     honmei: false,
@@ -2286,7 +2463,8 @@ export const musicList: Music[] = [
     origname: 'もう歌しか聞こえない',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b4/th08_05.mp3',
     reason: '',
     honmei: false,
@@ -2299,7 +2477,8 @@ export const musicList: Music[] = [
     origname: '懐かしき東方の血　～ Old World',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/61/th08_06.mp3',
     reason: '',
     honmei: false,
@@ -2312,7 +2491,8 @@ export const musicList: Music[] = [
     origname: 'プレインエイジア',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e4/th08_07.mp3',
     reason: '',
     honmei: false,
@@ -2325,7 +2505,8 @@ export const musicList: Music[] = [
     origname: '永夜の報い　～ Imperishable Night',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/9c/th08_08.mp3',
     reason: '',
     honmei: false,
@@ -2338,7 +2519,8 @@ export const musicList: Music[] = [
     origname: 'シンデレラケージ　～ Kagome-Kagome',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/93/th08_11.mp3',
     reason: '',
     honmei: false,
@@ -2351,7 +2533,8 @@ export const musicList: Music[] = [
     origname: '狂気の瞳　～ Invisible Full Moon',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/79/th08_12.mp3',
     reason: '',
     honmei: false,
@@ -2364,7 +2547,8 @@ export const musicList: Music[] = [
     origname: 'ヴォヤージュ1969',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2d/th08_13.mp3',
     reason: '',
     honmei: false,
@@ -2377,7 +2561,8 @@ export const musicList: Music[] = [
     origname: '千年幻想郷　～ History of the Moon',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e3/th08_14.mp3',
     reason: '',
     honmei: false,
@@ -2390,7 +2575,8 @@ export const musicList: Music[] = [
     origname: '竹取飛翔　～ Lunatic Princess',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c8/th08_15.mp3',
     reason: '',
     honmei: false,
@@ -2403,7 +2589,8 @@ export const musicList: Music[] = [
     origname: 'ヴォヤージュ1970',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c6/th08_16.mp3',
     reason: '',
     honmei: false,
@@ -2416,7 +2603,8 @@ export const musicList: Music[] = [
     origname: 'エクステンドアッシュ　～ 蓬莱人',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2c/th08_17.mp3',
     reason: '',
     honmei: false,
@@ -2429,7 +2617,8 @@ export const musicList: Music[] = [
     origname: '月まで届け、不死の煙',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/bc/th08_18.mp3',
     reason: '',
     honmei: false,
@@ -2442,7 +2631,8 @@ export const musicList: Music[] = [
     origname: '月見草',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2c/th08_19.mp3',
     reason: '',
     honmei: false,
@@ -2455,7 +2645,8 @@ export const musicList: Music[] = [
     origname: 'Eternal Dream　～ 幽玄の槭樹',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0d/th08_20.mp3',
     reason: '',
     honmei: false,
@@ -2468,7 +2659,8 @@ export const musicList: Music[] = [
     origname: '東方妖怪小町',
     album: '东方永夜抄',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/e/ee/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fd/th08_21.mp3',
     reason: '',
     honmei: false,
@@ -2481,7 +2673,8 @@ export const musicList: Music[] = [
     origname: '花映塚　～ Higan Retour',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/67/th09_01.mp3',
     reason: '',
     honmei: false,
@@ -2494,7 +2687,8 @@ export const musicList: Music[] = [
     origname: '春色小径　～ Colorful Path',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/69/th09_02.mp3',
     reason: '',
     honmei: false,
@@ -2507,7 +2701,8 @@ export const musicList: Music[] = [
     origname: 'オリエンタルダークフライト',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/31/th09_03.mp3',
     reason: '',
     honmei: false,
@@ -2520,7 +2715,8 @@ export const musicList: Music[] = [
     origname: 'フラワリングナイト',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e6/th09_04.mp3',
     reason: '',
     honmei: false,
@@ -2533,7 +2729,8 @@ export const musicList: Music[] = [
     origname: 'お宇佐さまの素い幡',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/99/th09_10.mp3',
     reason: '',
     honmei: false,
@@ -2546,7 +2743,8 @@ export const musicList: Music[] = [
     origname: 'ポイズンボディ　～ Forsaken Doll',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/92/th09_12.mp3',
     reason: '',
     honmei: false,
@@ -2559,7 +2757,8 @@ export const musicList: Music[] = [
     origname: '今昔幻想郷　～ Flower Land',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d8/th09_13.mp3',
     reason: '',
     honmei: false,
@@ -2572,7 +2771,8 @@ export const musicList: Music[] = [
     origname: '彼岸帰航　～ Riverside View',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a8/th09_14.mp3',
     reason: '',
     honmei: false,
@@ -2585,7 +2785,8 @@ export const musicList: Music[] = [
     origname: '六十年目の東方裁判　～ Fate of Sixty Years',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/12/th09_15.mp3',
     reason: '',
     honmei: false,
@@ -2598,7 +2799,8 @@ export const musicList: Music[] = [
     origname: '花の映る塚',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fa/th09_16.mp3',
     reason: '',
     honmei: false,
@@ -2611,7 +2813,8 @@ export const musicList: Music[] = [
     origname: '此岸の塚',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/49/th09_17.mp3',
     reason: '',
     honmei: false,
@@ -2624,7 +2827,8 @@ export const musicList: Music[] = [
     origname: '花は幻想のままに',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/80/th09_18.mp3',
     reason: '',
     honmei: false,
@@ -2637,7 +2841,8 @@ export const musicList: Music[] = [
     origname: '魂の花　～ Another Dream...',
     album: '东方花映塚',
     date: 20050814,
-    image: 'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/67/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/20/th09_19.mp3',
     reason: '',
     honmei: false,
@@ -2650,7 +2855,8 @@ export const musicList: Music[] = [
     origname: '天狗の手帖　～ Mysterious Note',
     album: '东方文花帖',
     date: 20051230,
-    image: 'https://upload.thwiki.cc/thumb/4/43/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/43/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/ed/th09.5_01.mp3',
     reason: '',
     honmei: false,
@@ -2663,7 +2869,8 @@ export const musicList: Music[] = [
     origname: '風の循環　～ Wind Tour',
     album: '东方文花帖',
     date: 20051230,
-    image: 'https://upload.thwiki.cc/thumb/4/43/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/43/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b8/th09.5_02.mp3',
     reason: '',
     honmei: false,
@@ -2676,7 +2883,8 @@ export const musicList: Music[] = [
     origname: '天狗が見ている　～ Black Eyes',
     album: '东方文花帖',
     date: 20051230,
-    image: 'https://upload.thwiki.cc/thumb/4/43/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/43/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fb/th09.5_03.mp3',
     reason: '',
     honmei: false,
@@ -2689,7 +2897,8 @@ export const musicList: Music[] = [
     origname: '東の国の眠らない夜',
     album: '东方文花帖',
     date: 20051230,
-    image: 'https://upload.thwiki.cc/thumb/4/43/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/43/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a2/th09.5_04.mp3',
     reason: '',
     honmei: false,
@@ -2702,7 +2911,8 @@ export const musicList: Music[] = [
     origname: 'レトロスペクティブ京都',
     album: '东方文花帖',
     date: 20051230,
-    image: 'https://upload.thwiki.cc/thumb/4/43/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/43/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fb/th09.5_05.mp3',
     reason: '',
     honmei: false,
@@ -2715,7 +2925,8 @@ export const musicList: Music[] = [
     origname: '封印されし神々',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/84/th10_01.mp3',
     reason: '',
     honmei: false,
@@ -2728,7 +2939,8 @@ export const musicList: Music[] = [
     origname: '人恋し神様　～ Romantic Fall',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/60/th10_02.mp3',
     reason: '',
     honmei: false,
@@ -2741,7 +2953,8 @@ export const musicList: Music[] = [
     origname: '稲田姫様に叱られるから',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d2/th10_03.mp3',
     reason: '',
     honmei: false,
@@ -2754,7 +2967,8 @@ export const musicList: Music[] = [
     origname: '厄神様の通り道　～ Dark Road',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/33/th10_04.mp3',
     reason: '',
     honmei: false,
@@ -2767,7 +2981,8 @@ export const musicList: Music[] = [
     origname: '運命のダークサイド',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b6/th10_05.mp3',
     reason: '',
     honmei: false,
@@ -2780,7 +2995,8 @@ export const musicList: Music[] = [
     origname: '神々が恋した幻想郷',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1e/th10_06.mp3',
     reason: '',
     honmei: false,
@@ -2793,7 +3009,8 @@ export const musicList: Music[] = [
     origname: '芥川龍之介の河童　～ Candid Friend',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4e/th10_07.mp3',
     reason: '',
     honmei: false,
@@ -2806,7 +3023,8 @@ export const musicList: Music[] = [
     origname: 'フォールオブフォール　～ 秋めく滝',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/08/th10_08.mp3',
     reason: '',
     honmei: false,
@@ -2819,7 +3037,8 @@ export const musicList: Music[] = [
     origname: '妖怪の山　～ Mysterious Mountain',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e4/th10_09.mp3',
     reason: '',
     honmei: false,
@@ -2832,7 +3051,8 @@ export const musicList: Music[] = [
     origname: '少女が見た日本の原風景',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0f/th10_10.mp3',
     reason: '',
     honmei: false,
@@ -2845,7 +3065,8 @@ export const musicList: Music[] = [
     origname: '信仰は儚き人間の為に',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/24/th10_11.mp3',
     reason: '',
     honmei: false,
@@ -2858,7 +3079,8 @@ export const musicList: Music[] = [
     origname: '御柱の墓場　～ Grave of Being',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/bc/th10_12.mp3',
     reason: '',
     honmei: false,
@@ -2871,7 +3093,8 @@ export const musicList: Music[] = [
     origname: '神さびた古戦場　～ Suwa Foughten Field',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/ce/th10_13.mp3',
     reason: '',
     honmei: false,
@@ -2884,7 +3107,8 @@ export const musicList: Music[] = [
     origname: '明日ハレの日、ケの昨日',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/70/th10_14.mp3',
     reason: '',
     honmei: false,
@@ -2897,7 +3121,8 @@ export const musicList: Music[] = [
     origname: 'ネイティブフェイス',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/ec/th10_15.mp3',
     reason: '',
     honmei: false,
@@ -2910,7 +3135,8 @@ export const musicList: Music[] = [
     origname: '麓の神社',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/02/th10_16.mp3',
     reason: '',
     honmei: false,
@@ -2923,7 +3149,8 @@ export const musicList: Music[] = [
     origname: '神は恵みの雨を降らす　～ Sylphid Dream',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5f/th10_17.mp3',
     reason: '',
     honmei: false,
@@ -2932,11 +3159,12 @@ export const musicList: Music[] = [
   },
   {
     id: '220',
-    name: 'Player's Score',
-		origname: 'プレイヤーズスコア',
+    name: "Player's Score",
+    origname: 'プレイヤーズスコア',
     album: '东方风神录',
     date: 20070817,
-    image: 'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/49/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/59/th10_18.mp3',
     reason: '',
     honmei: false,
@@ -2949,7 +3177,8 @@ export const musicList: Music[] = [
     origname: '緋想天',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c0/TFM-003O_01.mp3',
     reason: '',
     honmei: false,
@@ -2962,7 +3191,8 @@ export const musicList: Music[] = [
     origname: '日常坐臥',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/53/TFM-003O_02.mp3',
     reason: '',
     honmei: false,
@@ -2975,7 +3205,8 @@ export const musicList: Music[] = [
     origname: '地の色は黄色',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4d/TFM-003O_03.mp3',
     reason: '',
     honmei: false,
@@ -2988,7 +3219,8 @@ export const musicList: Music[] = [
     origname: '甲論乙駁',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e8/TFM-003O_04.mp3',
     reason: '',
     honmei: false,
@@ -3001,7 +3233,8 @@ export const musicList: Music[] = [
     origname: '風光明媚',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f6/TFM-003O_05.mp3',
     reason: '',
     honmei: false,
@@ -3014,7 +3247,8 @@ export const musicList: Music[] = [
     origname: '香る樹葉花',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e0/TFM-003O_06.mp3',
     reason: '',
     honmei: false,
@@ -3027,7 +3261,8 @@ export const musicList: Music[] = [
     origname: '踊る水飛沫',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/77/TFM-003O_07.mp3',
     reason: '',
     honmei: false,
@@ -3040,7 +3275,8 @@ export const musicList: Music[] = [
     origname: '以魚駆蠅',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/ab/TFM-003O_08.mp3',
     reason: '',
     honmei: false,
@@ -3053,7 +3289,8 @@ export const musicList: Music[] = [
     origname: '放縦不羈',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/dd/TFM-003O_11.mp3',
     reason: '',
     honmei: false,
@@ -3066,7 +3303,8 @@ export const musicList: Music[] = [
     origname: '嘲りの遊戯',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/59/TFM-003O_10.mp3',
     reason: '',
     honmei: false,
@@ -3079,7 +3317,8 @@ export const musicList: Music[] = [
     origname: '冷吟閑酔',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/6b/TFM-003O_09.mp3',
     reason: '',
     honmei: false,
@@ -3092,7 +3331,8 @@ export const musicList: Music[] = [
     origname: '雲外蒼天',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8a/TFM-003O_12.mp3',
     reason: '',
     honmei: false,
@@ -3105,7 +3345,8 @@ export const musicList: Music[] = [
     origname: '黒い海に紅く ～ Legendary Fish',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/65/TFM-003O_13.mp3',
     reason: '',
     honmei: false,
@@ -3118,7 +3359,8 @@ export const musicList: Music[] = [
     origname: '天衣無縫',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/61/TFM-003O_14.mp3',
     reason: '',
     honmei: false,
@@ -3131,7 +3373,8 @@ export const musicList: Music[] = [
     origname: '有頂天変 ～ Wonderful Heaven',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/10/TFM-003O_15.mp3',
     reason: '',
     honmei: false,
@@ -3144,7 +3387,8 @@ export const musicList: Music[] = [
     origname: '幼心地の有頂天',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/78/TFM-003O_16.mp3',
     reason: '',
     honmei: false,
@@ -3157,7 +3401,8 @@ export const musicList: Music[] = [
     origname: '暮色蒼然',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fc/TFM-003O_17.mp3',
     reason: '',
     honmei: false,
@@ -3170,7 +3415,8 @@ export const musicList: Music[] = [
     origname: '東方緋想天',
     album: '全人类的天乐录',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bc/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/29/TFM-003O_18.mp3',
     reason: '',
     honmei: false,
@@ -3183,7 +3429,8 @@ export const musicList: Music[] = [
     origname: '地霊達の起床',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5a/th11_01.mp3',
     reason: '',
     honmei: false,
@@ -3196,7 +3443,8 @@ export const musicList: Music[] = [
     origname: '暗闇の風穴',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/41/th11_02.mp3',
     reason: '',
     honmei: false,
@@ -3209,7 +3457,8 @@ export const musicList: Music[] = [
     origname: '封じられた妖怪 ～ Lost Place',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b5/th11_03.mp3',
     reason: '',
     honmei: false,
@@ -3222,7 +3471,8 @@ export const musicList: Music[] = [
     origname: '渡る者の途絶えた橋',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/7f/th11_04.mp3',
     reason: '',
     honmei: false,
@@ -3235,7 +3485,8 @@ export const musicList: Music[] = [
     origname: '緑眼のジェラシー',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/25/th11_05.mp3',
     reason: '',
     honmei: false,
@@ -3248,7 +3499,8 @@ export const musicList: Music[] = [
     origname: '旧地獄街道を行く',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/99/th11_06.mp3',
     reason: '',
     honmei: false,
@@ -3261,7 +3513,8 @@ export const musicList: Music[] = [
     origname: '華のさかづき大江山',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8e/th11_07.mp3',
     reason: '',
     honmei: false,
@@ -3274,7 +3527,8 @@ export const musicList: Music[] = [
     origname: 'ハートフェルトファンシー',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/42/th11_08.mp3',
     reason: '',
     honmei: false,
@@ -3287,7 +3541,8 @@ export const musicList: Music[] = [
     origname: '少女さとり ～ 3rd eye',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a1/th11_09.mp3',
     reason: '',
     honmei: false,
@@ -3300,7 +3555,8 @@ export const musicList: Music[] = [
     origname: '廃獄ララバイ',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/24/th11_10.mp3',
     reason: '',
     honmei: false,
@@ -3313,7 +3569,8 @@ export const musicList: Music[] = [
     origname: '死体旅行～Be of good cheer!',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0d/th11_11.mp3',
     reason: '',
     honmei: false,
@@ -3326,7 +3583,8 @@ export const musicList: Music[] = [
     origname: '業火マントル',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/91/th11_12.mp3',
     reason: '',
     honmei: false,
@@ -3339,7 +3597,8 @@ export const musicList: Music[] = [
     origname: '霊知の太陽信仰　～ Nuclear Fusion',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/ca/th11_13.mp3',
     reason: '',
     honmei: false,
@@ -3352,7 +3611,8 @@ export const musicList: Music[] = [
     origname: 'ラストリモート',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e1/th11_14.mp3',
     reason: '',
     honmei: false,
@@ -3365,7 +3625,8 @@ export const musicList: Music[] = [
     origname: 'ハルトマンの妖怪少女',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/70/th11_15.mp3',
     reason: '',
     honmei: false,
@@ -3378,7 +3639,8 @@ export const musicList: Music[] = [
     origname: '地霊達の帰宅',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/01/th11_16.mp3',
     reason: '',
     honmei: false,
@@ -3391,7 +3653,8 @@ export const musicList: Music[] = [
     origname: 'エネルギー黎明 ～ Future Dream...',
     album: '东方地灵殿',
     date: 20080816,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e0/th11_17.mp3',
     reason: '',
     honmei: false,
@@ -3404,7 +3667,8 @@ export const musicList: Music[] = [
     origname: '青空の影',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/96/th12_01.mp3',
     reason: '',
     honmei: false,
@@ -3417,7 +3681,8 @@ export const musicList: Music[] = [
     origname: '春の湊に',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/28/th12_02.mp3',
     reason: '',
     honmei: false,
@@ -3430,7 +3695,8 @@ export const musicList: Music[] = [
     origname: '小さな小さな賢将',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f7/th12_03.mp3',
     reason: '',
     honmei: false,
@@ -3443,7 +3709,8 @@ export const musicList: Music[] = [
     origname: '閉ざせし雲の通い路',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/aa/th12_04.mp3',
     reason: '',
     honmei: false,
@@ -3456,7 +3723,8 @@ export const musicList: Music[] = [
     origname: '万年置き傘にご注意を',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/9f/th12_05.mp3',
     reason: '',
     honmei: false,
@@ -3469,7 +3737,8 @@ export const musicList: Music[] = [
     origname: 'スカイルーイン',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/df/th12_06.mp3',
     reason: '',
     honmei: false,
@@ -3482,7 +3751,8 @@ export const musicList: Music[] = [
     origname: '時代親父とハイカラ少女',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b6/th12_07.mp3',
     reason: '',
     honmei: false,
@@ -3495,7 +3765,8 @@ export const musicList: Music[] = [
     origname: '幽霊客船の時空を越えた旅',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d1/th12_08.mp3',
     reason: '',
     honmei: false,
@@ -3508,7 +3779,8 @@ export const musicList: Music[] = [
     origname: 'キャプテン·ムラサ',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/75/th12_09.mp3',
     reason: '',
     honmei: false,
@@ -3521,7 +3793,8 @@ export const musicList: Music[] = [
     origname: '魔界地方都市エソテリア',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/6a/th12_10.mp3',
     reason: '',
     honmei: false,
@@ -3534,7 +3807,8 @@ export const musicList: Music[] = [
     origname: '虎柄の毘沙門天',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e0/th12_11.mp3',
     reason: '',
     honmei: false,
@@ -3547,7 +3821,8 @@ export const musicList: Music[] = [
     origname: '法界の火',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1d/th12_12.mp3',
     reason: '',
     honmei: false,
@@ -3560,7 +3835,8 @@ export const musicList: Music[] = [
     origname: '感情の摩天楼　～ Cosmic Mind',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/67/th12_13.mp3',
     reason: '',
     honmei: false,
@@ -3573,7 +3849,8 @@ export const musicList: Music[] = [
     origname: '夜空のユーフォーロマンス',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/58/th12_14.mp3',
     reason: '',
     honmei: false,
@@ -3586,7 +3863,8 @@ export const musicList: Music[] = [
     origname: '平安のエイリアン',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4c/th12_15.mp3',
     reason: '',
     honmei: false,
@@ -3599,7 +3877,8 @@ export const musicList: Music[] = [
     origname: '妖怪寺',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c2/th12_16.mp3',
     reason: '',
     honmei: false,
@@ -3612,7 +3891,8 @@ export const musicList: Music[] = [
     origname: '空の帰り道　～ Sky Dream',
     album: '东方星莲船',
     date: 20090815,
-    image: 'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/0d/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b6/th12_17.mp3',
     reason: '',
     honmei: false,
@@ -3625,7 +3905,8 @@ export const musicList: Music[] = [
     origname: '君はあの影を見たか',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/74/TFM-004_01.mp3',
     reason: '',
     honmei: false,
@@ -3638,7 +3919,8 @@ export const musicList: Music[] = [
     origname: '伝説の巨神',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5c/TFM-004_14.mp3',
     reason: '',
     honmei: false,
@@ -3651,7 +3933,8 @@ export const musicList: Music[] = [
     origname: 'ぼくらの非想天則',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/71/TFM-004_15.mp3',
     reason: '',
     honmei: false,
@@ -3664,7 +3947,8 @@ export const musicList: Music[] = [
     origname: '人形のある風景',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/54/TFM-004_16.mp3',
     reason: '',
     honmei: false,
@@ -3677,7 +3961,8 @@ export const musicList: Music[] = [
     origname: '悠久の蒸気機関',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/6b/TFM-004_17.mp3',
     reason: '',
     honmei: false,
@@ -3690,7 +3975,8 @@ export const musicList: Music[] = [
     origname: 'アンノウンＸ　～ Unfound Adventure',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/bb/TFM-004_08.mp3',
     reason: '',
     honmei: false,
@@ -3703,7 +3989,8 @@ export const musicList: Music[] = [
     origname: '空に浮かぶ物体Ｘ',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/27/TFM-004_09.mp3',
     reason: '',
     honmei: false,
@@ -3716,7 +4003,8 @@ export const musicList: Music[] = [
     origname: '巨大な影と小さな結末',
     album: '核热造神非想天则',
     date: 20091231,
-    image: 'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/ce/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg/100px-%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/9d/TFM-004_20.mp3',
     reason: '',
     honmei: false,
@@ -3729,7 +4017,8 @@ export const musicList: Music[] = [
     origname: 'ニュースハウンド',
     album: '东方文花帖DS',
     date: 20100314,
-    image: 'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/67/th12.5_01.mp3',
     reason: '',
     honmei: false,
@@ -3742,7 +4031,8 @@ export const musicList: Music[] = [
     origname: 'あなたの町の怪事件',
     album: '东方文花帖DS',
     date: 20100314,
-    image: 'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/41/th12.5_02.mp3',
     reason: '',
     honmei: false,
@@ -3755,7 +4045,8 @@ export const musicList: Music[] = [
     origname: '妖怪モダンコロニー',
     album: '东方文花帖DS',
     date: 20100314,
-    image: 'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a5/th12.5_03.mp3',
     reason: '',
     honmei: false,
@@ -3768,7 +4059,8 @@ export const musicList: Music[] = [
     origname: 'ネメシスの要塞',
     album: '东方文花帖DS',
     date: 20100314,
-    image: 'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1b/th12.5_04.mp3',
     reason: '',
     honmei: false,
@@ -3781,7 +4073,8 @@ export const musicList: Music[] = [
     origname: '無間の鐘　～ Infinite Nightmare',
     album: '东方文花帖DS',
     date: 20100314,
-    image: 'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/6e/th12.5_05.mp3',
     reason: '',
     honmei: false,
@@ -3794,7 +4087,8 @@ export const musicList: Music[] = [
     origname: '曲名不详',
     album: '东方文花帖DS',
     date: 20100314,
-    image: 'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f2/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e5/th12.5_07.mp3',
     reason: '',
     honmei: false,
@@ -3807,7 +4101,8 @@ export const musicList: Music[] = [
     origname: '春の氷精',
     album: '妖精大战争',
     date: 20100814,
-    image: 'https://upload.thwiki.cc/thumb/3/36/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg/100px-%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/36/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg/100px-%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d4/th12.8_01.mp3',
     reason: '',
     honmei: false,
@@ -3820,7 +4115,8 @@ export const musicList: Music[] = [
     origname: 'いたずらに命をかけて',
     album: '妖精大战争',
     date: 20100814,
-    image: 'https://upload.thwiki.cc/thumb/3/36/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg/100px-%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/36/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg/100px-%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e5/th12.8_03.mp3',
     reason: '',
     honmei: false,
@@ -3833,7 +4129,8 @@ export const musicList: Music[] = [
     origname: 'ルーズレイン',
     album: '妖精大战争',
     date: 20100814,
-    image: 'https://upload.thwiki.cc/thumb/3/36/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg/100px-%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/36/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg/100px-%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c9/th12.8_07.mp3',
     reason: '',
     honmei: false,
@@ -3846,7 +4143,8 @@ export const musicList: Music[] = [
     origname: 'メイガスナイト',
     album: '妖精大战争',
     date: 20100814,
-    image: 'https://upload.thwiki.cc/thumb/3/36/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg/100px-%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/36/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg/100px-%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/33/th12.8_08.mp3',
     reason: '',
     honmei: false,
@@ -3859,7 +4157,8 @@ export const musicList: Music[] = [
     origname: '春の氷精　- 静 -',
     album: '妖精大战争',
     date: 20100814,
-    image: 'https://upload.thwiki.cc/thumb/3/36/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg/100px-%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/36/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg/100px-%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c9/th12.8_09.mp3',
     reason: '',
     honmei: false,
@@ -3872,7 +4171,8 @@ export const musicList: Music[] = [
     origname: '欲深き霊魂',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c2/th13_01.mp3',
     reason: '',
     honmei: false,
@@ -3885,7 +4185,8 @@ export const musicList: Music[] = [
     origname: '死霊の夜桜',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/12/th13_02.mp3',
     reason: '',
     honmei: false,
@@ -3898,7 +4199,8 @@ export const musicList: Music[] = [
     origname: 'ゴーストリード',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/ee/th13_03.mp3',
     reason: '',
     honmei: false,
@@ -3911,7 +4213,8 @@ export const musicList: Music[] = [
     origname: '妖怪寺へようこそ',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/41/th13_04.mp3',
     reason: '',
     honmei: false,
@@ -3924,7 +4227,8 @@ export const musicList: Music[] = [
     origname: '門前の妖怪小娘',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/29/th13_05.mp3',
     reason: '',
     honmei: false,
@@ -3937,7 +4241,8 @@ export const musicList: Music[] = [
     origname: '素敵な墓場で暮しましょ',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/3c/th13_06.mp3',
     reason: '',
     honmei: false,
@@ -3950,7 +4255,8 @@ export const musicList: Music[] = [
     origname: 'リジッドパラダイス',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/82/th13_07.mp3',
     reason: '',
     honmei: false,
@@ -3963,7 +4269,8 @@ export const musicList: Music[] = [
     origname: 'デザイアドライブ',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4a/th13_08.mp3',
     reason: '',
     honmei: false,
@@ -3976,7 +4283,8 @@ export const musicList: Music[] = [
     origname: '古きユアンシェン',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/dc/th13_09.mp3',
     reason: '',
     honmei: false,
@@ -3989,7 +4297,8 @@ export const musicList: Music[] = [
     origname: '夢殿大祀廟',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a1/th13_10.mp3',
     reason: '',
     honmei: false,
@@ -4002,7 +4311,8 @@ export const musicList: Music[] = [
     origname: '大神神話伝',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/cc/th13_11.mp3',
     reason: '',
     honmei: false,
@@ -4015,7 +4325,8 @@ export const musicList: Music[] = [
     origname: '小さな欲望の星空',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2f/th13_12.mp3',
     reason: '',
     honmei: false,
@@ -4028,7 +4339,8 @@ export const musicList: Music[] = [
     origname: '聖徳伝説 ～ True Administrator',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/66/th13_13.mp3',
     reason: '',
     honmei: false,
@@ -4041,7 +4353,8 @@ export const musicList: Music[] = [
     origname: '妖怪裏参道',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/60/th13_14.mp3',
     reason: '',
     honmei: false,
@@ -4054,7 +4367,8 @@ export const musicList: Music[] = [
     origname: '佐渡の二ッ岩',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/cc/th13_15.mp3',
     reason: '',
     honmei: false,
@@ -4067,7 +4381,8 @@ export const musicList: Music[] = [
     origname: '神社の新しい風',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/9b/th13_16.mp3',
     reason: '',
     honmei: false,
@@ -4080,7 +4395,8 @@ export const musicList: Music[] = [
     origname: 'デザイアドリーム',
     album: '东方神灵庙',
     date: 20110813,
-    image: 'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/74/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/12/th13_17.mp3',
     reason: '',
     honmei: false,
@@ -4093,7 +4409,8 @@ export const musicList: Music[] = [
     origname: '幻想郷の二ッ岩',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c4/TFM-006a_14.mp3',
     reason: '',
     honmei: false,
@@ -4106,7 +4423,8 @@ export const musicList: Music[] = [
     origname: '亡失のエモーション',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/11/TFM-006a_16.mp3',
     reason: '',
     honmei: false,
@@ -4119,7 +4437,8 @@ export const musicList: Music[] = [
     origname: '塵界不変のペシミズム',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/54/TFM-006a_01.mp3',
     reason: '',
     honmei: false,
@@ -4132,7 +4451,8 @@ export const musicList: Music[] = [
     origname: '心綺楼囃子',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/63/TFM-006a_19.mp3',
     reason: '',
     honmei: false,
@@ -4145,7 +4465,8 @@ export const musicList: Music[] = [
     origname: '人気のある場所',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a6/TFM-006a_02.mp3',
     reason: '',
     honmei: false,
@@ -4158,7 +4479,8 @@ export const musicList: Music[] = [
     origname: '人気のない場所',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e6/TFM-006a_11.mp3',
     reason: '',
     honmei: false,
@@ -4171,7 +4493,8 @@ export const musicList: Music[] = [
     origname: '丑三つ時の里',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/ed/TFM-006a_15.mp3',
     reason: '',
     honmei: false,
@@ -4184,7 +4507,8 @@ export const musicList: Music[] = [
     origname: '本日の一面記事',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/df/TFM-006a_13.mp3',
     reason: '',
     honmei: false,
@@ -4197,7 +4521,8 @@ export const musicList: Music[] = [
     origname: '暁雲',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f0/TFM-006a_17.mp3',
     reason: '',
     honmei: false,
@@ -4210,7 +4535,8 @@ export const musicList: Music[] = [
     origname: '官板黄昏新聞',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f4/TFM-006a_18.mp3',
     reason: '',
     honmei: false,
@@ -4223,7 +4549,8 @@ export const musicList: Music[] = [
     origname: '不思議なお祓い棒',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/58/th14_01.mp3',
     reason: '',
     honmei: false,
@@ -4236,7 +4563,8 @@ export const musicList: Music[] = [
     origname: 'ミストレイク',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/29/th14_02.mp3',
     reason: '',
     honmei: false,
@@ -4249,7 +4577,8 @@ export const musicList: Music[] = [
     origname: '秘境のマーメイド',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0a/th14_03.mp3',
     reason: '',
     honmei: false,
@@ -4262,7 +4591,8 @@ export const musicList: Music[] = [
     origname: '運河を行き交う人妖',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f1/th14_04.mp3',
     reason: '',
     honmei: false,
@@ -4275,7 +4605,8 @@ export const musicList: Music[] = [
     origname: '柳の下のデュラハン',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2d/th14_05.mp3',
     reason: '',
     honmei: false,
@@ -4288,7 +4619,8 @@ export const musicList: Music[] = [
     origname: '満月の竹林',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/50/th14_06.mp3',
     reason: '',
     honmei: false,
@@ -4301,7 +4633,8 @@ export const musicList: Music[] = [
     origname: '孤独なウェアウルフ',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0b/th14_07.mp3',
     reason: '',
     honmei: false,
@@ -4314,7 +4647,8 @@ export const musicList: Music[] = [
     origname: 'マジカルストーム',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b0/th14_08.mp3',
     reason: '',
     honmei: false,
@@ -4327,7 +4661,8 @@ export const musicList: Music[] = [
     origname: '幻想浄瑠璃',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5b/th14_09.mp3',
     reason: '',
     honmei: false,
@@ -4340,7 +4675,8 @@ export const musicList: Music[] = [
     origname: '空中に沈む輝針城',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/55/th14_10.mp3',
     reason: '',
     honmei: false,
@@ -4353,7 +4689,8 @@ export const musicList: Music[] = [
     origname: 'リバースイデオロギー',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/49/th14_11.mp3',
     reason: '',
     honmei: false,
@@ -4366,7 +4703,8 @@ export const musicList: Music[] = [
     origname: '針小棒大の天守閣',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e8/th14_12.mp3',
     reason: '',
     honmei: false,
@@ -4379,7 +4717,8 @@ export const musicList: Music[] = [
     origname: '輝く針の小人族　～ Little Princess',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0c/th14_13.mp3',
     reason: '',
     honmei: false,
@@ -4392,7 +4731,8 @@ export const musicList: Music[] = [
     origname: '魔力の雷雲',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/45/th14_14.mp3',
     reason: '',
     honmei: false,
@@ -4405,7 +4745,8 @@ export const musicList: Music[] = [
     origname: '始原のビート　～ Pristine Beat',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a3/th14_15.mp3',
     reason: '',
     honmei: false,
@@ -4418,7 +4759,8 @@ export const musicList: Music[] = [
     origname: '小槌の魔力',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/83/th14_16.mp3',
     reason: '',
     honmei: false,
@@ -4431,7 +4773,8 @@ export const musicList: Music[] = [
     origname: '不思議な不思議な道具達',
     album: '东方辉针城',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/a5/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c5/th14_17.mp3',
     reason: '',
     honmei: false,
@@ -4444,7 +4787,8 @@ export const musicList: Music[] = [
     origname: '反則の狼煙を上げろ',
     album: '弹幕天邪鬼',
     date: 20140511,
-    image: 'https://upload.thwiki.cc/thumb/4/47/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/47/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/cb/th14.3_01.mp3',
     reason: '',
     honmei: false,
@@ -4457,7 +4801,8 @@ export const musicList: Music[] = [
     origname: '不可能弾幕には反則を',
     album: '弹幕天邪鬼',
     date: 20140511,
-    image: 'https://upload.thwiki.cc/thumb/4/47/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/47/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8c/th14.3_02.mp3',
     reason: '',
     honmei: false,
@@ -4470,7 +4815,8 @@ export const musicList: Music[] = [
     origname: 'ミッドナイトスペルカード',
     album: '弹幕天邪鬼',
     date: 20140511,
-    image: 'https://upload.thwiki.cc/thumb/4/47/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/47/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/cb/th14.3_03.mp3',
     reason: '',
     honmei: false,
@@ -4483,7 +4829,8 @@ export const musicList: Music[] = [
     origname: 'ロマンチック逃飛行',
     album: '弹幕天邪鬼',
     date: 20140511,
-    image: 'https://upload.thwiki.cc/thumb/4/47/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/47/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1a/th14.3_04.mp3',
     reason: '',
     honmei: false,
@@ -4496,7 +4843,8 @@ export const musicList: Music[] = [
     origname: '永遠の三日天下',
     album: '弹幕天邪鬼',
     date: 20140511,
-    image: 'https://upload.thwiki.cc/thumb/4/47/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/47/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/83/th14.3_05.mp3',
     reason: '',
     honmei: false,
@@ -4509,7 +4857,8 @@ export const musicList: Music[] = [
     origname: '心揺さぶる都市伝説',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/db/TFM-007a_01.mp3',
     reason: '',
     honmei: false,
@@ -4522,7 +4871,8 @@ export const musicList: Music[] = [
     origname: '幻想郷ふしぎ発見',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/21/TFM-007a_02.mp3',
     reason: '',
     honmei: false,
@@ -4535,7 +4885,8 @@ export const musicList: Music[] = [
     origname: 'ボールのある日常',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/71/TFM-007a_03.mp3',
     reason: '',
     honmei: false,
@@ -4548,7 +4899,8 @@ export const musicList: Music[] = [
     origname: '顕現した伝承の形',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e6/TFM-007a_05.mp3',
     reason: '',
     honmei: false,
@@ -4561,7 +4913,8 @@ export const musicList: Music[] = [
     origname: '時代の風の訪れ',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e0/TFM-007a_11.mp3',
     reason: '',
     honmei: false,
@@ -4574,7 +4927,8 @@ export const musicList: Music[] = [
     origname: '価値がわからない',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/be/TFM-007a_07.mp3',
     reason: '',
     honmei: false,
@@ -4587,7 +4941,8 @@ export const musicList: Music[] = [
     origname: '可能性を信じて',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b0/TFM-007a_09.mp3',
     reason: '',
     honmei: false,
@@ -4600,7 +4955,8 @@ export const musicList: Music[] = [
     origname: '真実を知る者',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/46/TFM-007a_13.mp3',
     reason: '',
     honmei: false,
@@ -4613,7 +4969,8 @@ export const musicList: Music[] = [
     origname: '外界フォークロア',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/57/TFM-007a_15.mp3',
     reason: '',
     honmei: false,
@@ -4626,7 +4983,8 @@ export const musicList: Music[] = [
     origname: '各々の結末',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b5/TFM-007a_17.mp3',
     reason: '',
     honmei: false,
@@ -4639,7 +4997,8 @@ export const musicList: Music[] = [
     origname: '明かされる深秘',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4a/TFM-007a_18.mp3',
     reason: '',
     honmei: false,
@@ -4652,7 +5011,8 @@ export const musicList: Music[] = [
     origname: 'オカルトアラカルト',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1f/TFM-007a_04.mp3',
     reason: '',
     honmei: false,
@@ -4665,7 +5025,8 @@ export const musicList: Music[] = [
     origname: '七玉蒐集ショウダウン',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4b/TFM-007a_06.mp3',
     reason: '',
     honmei: false,
@@ -4678,7 +5039,8 @@ export const musicList: Music[] = [
     origname: '公正なる奪い合い',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/39/TFM-007a_08.mp3',
     reason: '',
     honmei: false,
@@ -4691,7 +5053,8 @@ export const musicList: Music[] = [
     origname: '対蹠地の鐘',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/59/TFM-007a_10.mp3',
     reason: '',
     honmei: false,
@@ -4704,7 +5067,8 @@ export const musicList: Music[] = [
     origname: '竹林インフレイム',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b9/TFM-007a_12.mp3',
     reason: '',
     honmei: false,
@@ -4717,7 +5081,8 @@ export const musicList: Music[] = [
     origname: '華狭間のバトルフィールド',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/61/TFM-007a_14.mp3',
     reason: '',
     honmei: false,
@@ -4730,7 +5095,8 @@ export const musicList: Music[] = [
     origname: 'ラストオカルティズム　～現し世の秘術師',
     album: '深秘乐曲集',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c4/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a5/TFM-007a_16.mp3',
     reason: '',
     honmei: false,
@@ -4743,7 +5109,8 @@ export const musicList: Music[] = [
     origname: 'ネオ竹林インフレイム',
     album: '深秘乐曲集·补',
     date: 20161208,
-    image: 'https://upload.thwiki.cc/thumb/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/51/TFM-008_02.mp3',
     reason: '',
     honmei: false,
@@ -4756,7 +5123,8 @@ export const musicList: Music[] = [
     origname: '億万劫の鐘',
     album: '深秘乐曲集·补',
     date: 20161208,
-    image: 'https://upload.thwiki.cc/thumb/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d8/TFM-008_03.mp3',
     reason: '',
     honmei: false,
@@ -4769,7 +5137,8 @@ export const musicList: Music[] = [
     origname: 'オカルトアトラクト',
     album: '深秘乐曲集·补',
     date: 20161208,
-    image: 'https://upload.thwiki.cc/thumb/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a0/TFM-008_04.mp3',
     reason: '',
     honmei: false,
@@ -4782,7 +5151,8 @@ export const musicList: Music[] = [
     origname: '境界フォークロア',
     album: '深秘乐曲集·补',
     date: 20161208,
-    image: 'https://upload.thwiki.cc/thumb/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b9/TFM-008_05.mp3',
     reason: '',
     honmei: false,
@@ -4795,7 +5165,8 @@ export const musicList: Music[] = [
     origname: '相貌の狂い　～ Horrible Night',
     album: '深秘乐曲集·补',
     date: 20161208,
-    image: 'https://upload.thwiki.cc/thumb/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/d/d3/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg/100px-%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/3e/TFM-008_07.mp3',
     reason: '',
     honmei: false,
@@ -4808,7 +5179,8 @@ export const musicList: Music[] = [
     origname: '宇宙巫女現る',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b5/th15_01.mp3',
     reason: '',
     honmei: false,
@@ -4821,7 +5193,8 @@ export const musicList: Music[] = [
     origname: '忘れがたき、よすがの緑',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1b/th15_02.mp3',
     reason: '',
     honmei: false,
@@ -4834,7 +5207,8 @@ export const musicList: Music[] = [
     origname: '兎は舞い降りた',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/61/th15_04.mp3',
     reason: '',
     honmei: false,
@@ -4847,7 +5221,8 @@ export const musicList: Music[] = [
     origname: '湖は浄めの月光を映して',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e1/th15_03.mp3',
     reason: '',
     honmei: false,
@@ -4860,7 +5235,8 @@ export const musicList: Music[] = [
     origname: '九月のパンプキン',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b7/th15_05.mp3',
     reason: '',
     honmei: false,
@@ -4873,7 +5249,8 @@ export const musicList: Music[] = [
     origname: '宇宙を飛ぶ不思議な巫女',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f4/th15_06.mp3',
     reason: '',
     honmei: false,
@@ -4886,7 +5263,8 @@ export const musicList: Music[] = [
     origname: '永遠の春夢',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/54/th15_07.mp3',
     reason: '',
     honmei: false,
@@ -4899,7 +5277,8 @@ export const musicList: Music[] = [
     origname: '凍り付いた永遠の都',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/ed/th15_08.mp3',
     reason: '',
     honmei: false,
@@ -4912,7 +5291,8 @@ export const musicList: Music[] = [
     origname: '逆転するホイールオブフォーチュン',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/de/th15_09.mp3',
     reason: '',
     honmei: false,
@@ -4925,7 +5305,8 @@ export const musicList: Music[] = [
     origname: '遥か３８万キロのボヤージュ',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/61/th15_10.mp3',
     reason: '',
     honmei: false,
@@ -4938,7 +5319,8 @@ export const musicList: Music[] = [
     origname: '星条旗のピエロ',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/3a/th15_11.mp3',
     reason: '',
     honmei: false,
@@ -4951,7 +5333,8 @@ export const musicList: Music[] = [
     origname: '故郷の星が映る海',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a5/th15_12.mp3',
     reason: '',
     honmei: false,
@@ -4964,7 +5347,8 @@ export const musicList: Music[] = [
     origname: 'ピュアヒューリーズ　～ 心の在処',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/57/th15_13.mp3',
     reason: '',
     honmei: false,
@@ -4977,7 +5361,8 @@ export const musicList: Music[] = [
     origname: '見た事も無い悪夢の世界',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d3/th15_16.mp3',
     reason: '',
     honmei: false,
@@ -4990,7 +5375,8 @@ export const musicList: Music[] = [
     origname: 'パンデモニックプラネット',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c1/th15_17.mp3',
     reason: '',
     honmei: false,
@@ -5003,7 +5389,8 @@ export const musicList: Music[] = [
     origname: '神社から見える月',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/85/th15_14.mp3',
     reason: '',
     honmei: false,
@@ -5016,7 +5403,8 @@ export const musicList: Music[] = [
     origname: '宇宙巫女帰還する',
     album: '东方绀珠传',
     date: 20150814,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/df/th15_15.mp3',
     reason: '',
     honmei: false,
@@ -5029,7 +5417,8 @@ export const musicList: Music[] = [
     origname: '心綺楼祭囃子',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0d/TFM-006b_01.mp3',
     reason: '',
     honmei: false,
@@ -5042,7 +5431,8 @@ export const musicList: Music[] = [
     origname: '演者選択',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/87/TFM-006b_02.mp3',
     reason: '',
     honmei: false,
@@ -5055,7 +5445,8 @@ export const musicList: Music[] = [
     origname: '使われなかった場所',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/18/TFM-006b_03.mp3',
     reason: '',
     honmei: false,
@@ -5068,7 +5459,8 @@ export const musicList: Music[] = [
     origname: 'ラストワード発動',
     album: '暗黑能乐集心绮楼',
     date: 20130812,
-    image: 'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/9c/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/51/TFM-006b_14.mp3',
     reason: '',
     honmei: false,
@@ -5081,7 +5473,8 @@ export const musicList: Music[] = [
     origname: '桜舞い散る天空',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/20/th16_01.mp3',
     reason: '',
     honmei: false,
@@ -5094,7 +5487,8 @@ export const musicList: Music[] = [
     origname: '希望の星は青霄に昇る',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/63/th16_02.mp3',
     reason: '',
     honmei: false,
@@ -5107,7 +5501,8 @@ export const musicList: Music[] = [
     origname: '真夏の妖精の夢',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/00/th16_03.mp3',
     reason: '',
     honmei: false,
@@ -5120,7 +5515,8 @@ export const musicList: Music[] = [
     origname: '色無き風は妖怪の山に',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/10/th16_04.mp3',
     reason: '',
     honmei: false,
@@ -5133,7 +5529,8 @@ export const musicList: Music[] = [
     origname: '山奥のエンカウンター',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/37/th16_05.mp3',
     reason: '',
     honmei: false,
@@ -5146,7 +5543,8 @@ export const musicList: Music[] = [
     origname: '桜色の海を泳いで',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/86/th16_06.mp3',
     reason: '',
     honmei: false,
@@ -5159,7 +5557,8 @@ export const musicList: Music[] = [
     origname: '一対の神獣',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8b/th16_07.mp3',
     reason: '',
     honmei: false,
@@ -5172,7 +5571,8 @@ export const musicList: Music[] = [
     origname: '幻想のホワイトトラベラー',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a4/th16_08.mp3',
     reason: '',
     honmei: false,
@@ -5185,7 +5585,8 @@ export const musicList: Music[] = [
     origname: '魔法の笠地蔵',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c9/th16_09.mp3',
     reason: '',
     honmei: false,
@@ -5198,7 +5599,8 @@ export const musicList: Music[] = [
     origname: '禁断の扉の向こうは、この世かあの世か',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a1/th16_10.mp3',
     reason: '',
     honmei: false,
@@ -5211,7 +5613,8 @@ export const musicList: Music[] = [
     origname: 'クレイジーバックダンサーズ',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/39/th16_11.mp3',
     reason: '',
     honmei: false,
@@ -5224,7 +5627,8 @@ export const musicList: Music[] = [
     origname: 'イントゥ・バックドア',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/32/th16_12.mp3',
     reason: '',
     honmei: false,
@@ -5237,7 +5641,8 @@ export const musicList: Music[] = [
     origname: '秘匿されたフォーシーズンズ',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8c/th16_13.mp3',
     reason: '',
     honmei: false,
@@ -5250,7 +5655,8 @@ export const musicList: Music[] = [
     origname: 'もうドアには入れない',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/97/th16_14.mp3',
     reason: '',
     honmei: false,
@@ -5263,7 +5669,8 @@ export const musicList: Music[] = [
     origname: '秘神マターラ　～ Hidden Star in All Seasons.',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b0/th16_15.mp3',
     reason: '',
     honmei: false,
@@ -5276,7 +5683,8 @@ export const musicList: Music[] = [
     origname: '不自然な自然',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/50/th16_16.mp3',
     reason: '',
     honmei: false,
@@ -5289,7 +5697,8 @@ export const musicList: Music[] = [
     origname: '白い旅人',
     album: '东方天空璋',
     date: 20170811,
-    image: 'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/52/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/72/th16_17.mp3',
     reason: '',
     honmei: false,
@@ -5302,7 +5711,8 @@ export const musicList: Music[] = [
     origname: '聖輦船空を往く',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c6/TFM-009a_06.mp3',
     reason: '',
     honmei: false,
@@ -5315,7 +5725,8 @@ export const musicList: Music[] = [
     origname: '憑依投合',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/bb/TFM-009a_02.mp3',
     reason: '',
     honmei: false,
@@ -5328,7 +5739,8 @@ export const musicList: Music[] = [
     origname: 'マッシュルーム・ワルツ',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/71/TFM-009a_04.mp3',
     reason: '',
     honmei: false,
@@ -5341,7 +5753,8 @@ export const musicList: Music[] = [
     origname: '不滅のレッドソウル',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/53/TFM-009b_02.mp3',
     reason: '',
     honmei: false,
@@ -5354,7 +5767,8 @@ export const musicList: Music[] = [
     origname: '法力の下の平等',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/30/TFM-009a_07.mp3',
     reason: '',
     honmei: false,
@@ -5367,7 +5781,8 @@ export const musicList: Music[] = [
     origname: '恒常不変の参廟祀',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/08/TFM-009a_10.mp3',
     reason: '',
     honmei: false,
@@ -5380,7 +5795,8 @@ export const musicList: Music[] = [
     origname: '光輝く天球儀',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e9/TFM-009a_11.mp3',
     reason: '',
     honmei: false,
@@ -5393,7 +5809,8 @@ export const musicList: Music[] = [
     origname: '沢の河童の技術力',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/55/TFM-009a_13.mp3',
     reason: '',
     honmei: false,
@@ -5406,7 +5823,8 @@ export const musicList: Music[] = [
     origname: '地底に咲く薔薇',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/05/TFM-009a_14.mp3',
     reason: '',
     honmei: false,
@@ -5419,7 +5837,8 @@ export const musicList: Music[] = [
     origname: '深緑の狸森にて',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/04/TFM-009a_15.mp3',
     reason: '',
     honmei: false,
@@ -5432,7 +5851,8 @@ export const musicList: Music[] = [
     origname: '心綺楼演舞',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f5/TFM-009b_06.mp3',
     reason: '',
     honmei: false,
@@ -5445,7 +5865,8 @@ export const musicList: Music[] = [
     origname: '落日に映える逆さ城',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/36/TFM-009b_05.mp3',
     reason: '',
     honmei: false,
@@ -5458,7 +5879,8 @@ export const musicList: Music[] = [
     origname: '千の試練を超えて',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/13/TFM-009b_12.mp3',
     reason: '',
     honmei: false,
@@ -5471,7 +5893,8 @@ export const musicList: Music[] = [
     origname: '夢世界フォークロア',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/13/TFM-009b_08.mp3',
     reason: '',
     honmei: false,
@@ -5484,7 +5907,8 @@ export const musicList: Music[] = [
     origname: '永遠に続く回廊',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/ef/TFM-009b_03.mp3',
     reason: '',
     honmei: false,
@@ -5497,7 +5921,8 @@ export const musicList: Music[] = [
     origname: 'スリープシープ・パレード',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5e/TFM-009b_09.mp3',
     reason: '',
     honmei: false,
@@ -5510,7 +5935,8 @@ export const musicList: Music[] = [
     origname: '至る有頂天',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/61/TFM-009b_11.mp3',
     reason: '',
     honmei: false,
@@ -5523,7 +5949,8 @@ export const musicList: Music[] = [
     origname: '憑坐は夢と現の間に　～ Necro-Fantasia',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8f/TFM-009a_17.mp3',
     reason: '',
     honmei: false,
@@ -5536,7 +5963,8 @@ export const musicList: Music[] = [
     origname: '今宵は飄逸なエゴイスト(Live ver)　～ Egoistic Flowers.',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/69/TFM-009b_14.mp3',
     reason: '',
     honmei: false,
@@ -5549,7 +5977,8 @@ export const musicList: Music[] = [
     origname: '連帯責人',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/34/TFM-009a_05.mp3',
     reason: '',
     honmei: false,
@@ -5562,7 +5991,8 @@ export const musicList: Music[] = [
     origname: '合縁奇縁',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f4/TFM-009a_09.mp3',
     reason: '',
     honmei: false,
@@ -5575,7 +6005,8 @@ export const musicList: Music[] = [
     origname: '異心同体',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5b/TFM-009a_12.mp3',
     reason: '',
     honmei: false,
@@ -5588,7 +6019,8 @@ export const musicList: Music[] = [
     origname: '壮言大語',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a4/TFM-009b_04.mp3',
     reason: '',
     honmei: false,
@@ -5601,7 +6033,8 @@ export const musicList: Music[] = [
     origname: '知略縦横',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/86/TFM-009a_16.mp3',
     reason: '',
     honmei: false,
@@ -5614,7 +6047,8 @@ export const musicList: Music[] = [
     origname: '意気揚々',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/29/TFM-009b_07.mp3',
     reason: '',
     honmei: false,
@@ -5627,7 +6061,8 @@ export const musicList: Music[] = [
     origname: '開演間近',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/39/TFM-009b_13.mp3',
     reason: '',
     honmei: false,
@@ -5640,7 +6075,8 @@ export const musicList: Music[] = [
     origname: '行雲流水',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2b/TFM-009a_18.mp3',
     reason: '',
     honmei: false,
@@ -5653,7 +6089,8 @@ export const musicList: Music[] = [
     origname: '異変の種子',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/63/TFM-009a_01.mp3',
     reason: '',
     honmei: false,
@@ -5666,7 +6103,8 @@ export const musicList: Music[] = [
     origname: '疑惑の芽生え',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4b/TFM-009a_08.mp3',
     reason: '',
     honmei: false,
@@ -5679,7 +6117,8 @@ export const musicList: Music[] = [
     origname: '未だ蕾む憑依華',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/54/TFM-009a_19.mp3',
     reason: '',
     honmei: false,
@@ -5692,7 +6131,8 @@ export const musicList: Music[] = [
     origname: '真相へ繋がる枝葉',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/98/TFM-009b_01.mp3',
     reason: '',
     honmei: false,
@@ -5705,7 +6145,8 @@ export const musicList: Music[] = [
     origname: '咲き誇る憑依華',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a8/TFM-009b_15.mp3',
     reason: '',
     honmei: false,
@@ -5718,7 +6159,8 @@ export const musicList: Music[] = [
     origname: '舞い散る憑依華吹雪',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/cd/TFM-009b_16.mp3',
     reason: '',
     honmei: false,
@@ -5731,7 +6173,8 @@ export const musicList: Music[] = [
     origname: '憑依華',
     album: '完全凭依唱片名录',
     date: 20180506,
-    image: 'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c1/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg/100px-%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/dc/TFM-009c_01.mp3',
     reason: '',
     honmei: false,
@@ -5744,7 +6187,8 @@ export const musicList: Music[] = [
     origname: '悪夢日記',
     album: '秘封噩梦日记',
     date: 20180810,
-    image: 'https://upload.thwiki.cc/thumb/3/3e/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/3e/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/3d/th16.5_01.mp3',
     reason: '',
     honmei: false,
@@ -5757,7 +6201,8 @@ export const musicList: Music[] = [
     origname: 'ルーシッドドリーマー',
     album: '秘封噩梦日记',
     date: 20180810,
-    image: 'https://upload.thwiki.cc/thumb/3/3e/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/3e/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2f/th16.5_02.mp3',
     reason: '',
     honmei: false,
@@ -5770,7 +6215,8 @@ export const musicList: Music[] = [
     origname: 'ルナティックドリーマー',
     album: '秘封噩梦日记',
     date: 20180810,
-    image: 'https://upload.thwiki.cc/thumb/3/3e/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/3e/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8f/th16.5_03.mp3',
     reason: '',
     honmei: false,
@@ -5783,7 +6229,8 @@ export const musicList: Music[] = [
     origname: 'ナイトメアダイアリー',
     album: '秘封噩梦日记',
     date: 20180810,
-    image: 'https://upload.thwiki.cc/thumb/3/3e/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/3e/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/49/th16.5_04.mp3',
     reason: '',
     honmei: false,
@@ -5796,7 +6243,8 @@ export const musicList: Music[] = [
     origname: '物言わぬ獣の霊',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/88/th17_01.mp3',
     reason: '',
     honmei: false,
@@ -5809,7 +6257,8 @@ export const musicList: Music[] = [
     origname: '地蔵だけが知る哀嘆',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8f/th17_02.mp3',
     reason: '',
     honmei: false,
@@ -5822,7 +6271,8 @@ export const musicList: Music[] = [
     origname: 'ジェリーストーン',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f2/th17_03.mp3',
     reason: '',
     honmei: false,
@@ -5835,7 +6285,8 @@ export const musicList: Music[] = [
     origname: 'ロストリバー',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a0/th17_04.mp3',
     reason: '',
     honmei: false,
@@ -5848,7 +6299,8 @@ export const musicList: Music[] = [
     origname: '石の赤子と水中の牛',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/cd/th17_05.mp3',
     reason: '',
     honmei: false,
@@ -5861,7 +6313,8 @@ export const musicList: Music[] = [
     origname: '不朽の曼珠沙華',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c2/th17_06.mp3',
     reason: '',
     honmei: false,
@@ -5874,7 +6327,8 @@ export const musicList: Music[] = [
     origname: 'セラフィックチキン',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2a/th17_07.mp3',
     reason: '',
     honmei: false,
@@ -5887,7 +6341,8 @@ export const musicList: Music[] = [
     origname: 'アンロケイテッドヘル',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/92/th17_08.mp3',
     reason: '',
     honmei: false,
@@ -5900,7 +6355,8 @@ export const musicList: Music[] = [
     origname: 'トータスドラゴン　～ 幸運と不運',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/89/th17_09.mp3',
     reason: '',
     honmei: false,
@@ -5913,7 +6369,8 @@ export const musicList: Music[] = [
     origname: 'ビーストメトロポリス',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/55/th17_10.mp3',
     reason: '',
     honmei: false,
@@ -5926,7 +6383,8 @@ export const musicList: Music[] = [
     origname: 'セラミックスの杖刀人',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/75/th17_11.mp3',
     reason: '',
     honmei: false,
@@ -5939,7 +6397,8 @@ export const musicList: Music[] = [
     origname: 'エレクトリックヘリテージ',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/7f/th17_12.mp3',
     reason: '',
     honmei: false,
@@ -5952,7 +6411,8 @@ export const musicList: Music[] = [
     origname: '偶像に世界を委ねて　～ Idoratrize World',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/94/th17_13.mp3',
     reason: '',
     honmei: false,
@@ -5965,7 +6425,8 @@ export const musicList: Music[] = [
     origname: '輝かしき弱肉強食の掟',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/bd/th17_14.mp3',
     reason: '',
     honmei: false,
@@ -5978,7 +6439,8 @@ export const musicList: Music[] = [
     origname: '聖徳太子のペガサス　～ Dark Pegasus',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/90/th17_15.mp3',
     reason: '',
     honmei: false,
@@ -5991,7 +6453,8 @@ export const musicList: Music[] = [
     origname: '畜生達の休息',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5a/th17_16.mp3',
     reason: '',
     honmei: false,
@@ -6004,7 +6467,8 @@ export const musicList: Music[] = [
     origname: '地下からの帰還',
     album: '东方鬼形兽',
     date: 20190812,
-    image: 'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/99/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fd/th17_17.mp3',
     reason: '',
     honmei: false,
@@ -6017,7 +6481,8 @@ export const musicList: Music[] = [
     origname: '水没した沈愁地獄',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4a/th175_01.mp3',
     reason: '',
     honmei: false,
@@ -6030,7 +6495,8 @@ export const musicList: Music[] = [
     origname: '大地の底、剛欲の海',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/14/th175_09.mp3',
     reason: '',
     honmei: false,
@@ -6043,7 +6509,8 @@ export const musicList: Music[] = [
     origname: '強欲な獣のメメント',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/20/th175_23.mp3',
     reason: '',
     honmei: false,
@@ -6056,7 +6523,8 @@ export const musicList: Music[] = [
     origname: '有機体全てのメメント　～ Memory of Fossil Energy.',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/ae/th175_24.mp3',
     reason: '',
     honmei: false,
@@ -6069,7 +6537,8 @@ export const musicList: Music[] = [
     origname: '天理人欲',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2b/th175_03.mp3',
     reason: '',
     honmei: false,
@@ -6082,7 +6551,8 @@ export const musicList: Music[] = [
     origname: '東方剛欲異聞',
     album: '贪欲之兽的音乐',
     date: 20211128,
-    image: 'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/f/f6/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg/100px-%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fb/th175_02.ogg',
     reason: '',
     honmei: false,
@@ -6095,7 +6565,8 @@ export const musicList: Music[] = [
     origname: '虹の架かる幻想郷',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4a/th18_01.mp3',
     reason: '',
     honmei: false,
@@ -6108,7 +6579,8 @@ export const musicList: Music[] = [
     origname: '妖異達の通り雨',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d5/th18_02.mp3',
     reason: '',
     honmei: false,
@@ -6121,7 +6593,8 @@ export const musicList: Music[] = [
     origname: '大吉キトゥン',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/ba/th18_03.mp3',
     reason: '',
     honmei: false,
@@ -6134,7 +6607,8 @@ export const musicList: Music[] = [
     origname: '深緑に隠された断崖',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d8/th18_04.mp3',
     reason: '',
     honmei: false,
@@ -6147,7 +6621,8 @@ export const musicList: Music[] = [
     origname: 'バンデットリィテクノロジー',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a8/th18_05.mp3',
     reason: '',
     honmei: false,
@@ -6160,7 +6635,8 @@ export const musicList: Music[] = [
     origname: '駒草咲くパーペチュアルスノー',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c9/th18_06.mp3',
     reason: '',
     honmei: false,
@@ -6173,7 +6649,8 @@ export const musicList: Music[] = [
     origname: 'スモーキングドラゴン',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4b/th18_07.mp3',
     reason: '',
     honmei: false,
@@ -6186,7 +6663,8 @@ export const musicList: Music[] = [
     origname: '廃れゆく産業遺構',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/96/th18_08.mp3',
     reason: '',
     honmei: false,
@@ -6199,7 +6677,8 @@ export const musicList: Music[] = [
     origname: '神代鉱石',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/44/th18_09.mp3',
     reason: '',
     honmei: false,
@@ -6212,7 +6691,8 @@ export const musicList: Music[] = [
     origname: '待ちわびた逢魔が時',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f9/th18_10.mp3',
     reason: '',
     honmei: false,
@@ -6225,7 +6705,8 @@ export const musicList: Music[] = [
     origname: '星降る天魔の山',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/55/th18_11.mp3',
     reason: '',
     honmei: false,
@@ -6238,7 +6719,8 @@ export const musicList: Music[] = [
     origname: 'ルナレインボー',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/03/th18_12.mp3',
     reason: '',
     honmei: false,
@@ -6251,7 +6733,8 @@ export const musicList: Music[] = [
     origname: 'あの賑やかな市場は今どこに　～ Immemorial Marketeers',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/bd/th18_13.mp3',
     reason: '',
     honmei: false,
@@ -6264,7 +6747,8 @@ export const musicList: Music[] = [
     origname: '幻想の地下大線路網',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d8/th18_14.mp3',
     reason: '',
     honmei: false,
@@ -6277,7 +6761,8 @@ export const musicList: Music[] = [
     origname: '龍王殺しのプリンセス',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/88/th18_15.mp3',
     reason: '',
     honmei: false,
@@ -6290,7 +6775,8 @@ export const musicList: Music[] = [
     origname: '嵐の後の日曜日',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/da/th18_16.mp3',
     reason: '',
     honmei: false,
@@ -6303,7 +6789,8 @@ export const musicList: Music[] = [
     origname: '虹色の世界',
     album: '东方虹龙洞',
     date: 20210504,
-    image: 'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/48/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e9/th18_17.mp3',
     reason: '',
     honmei: false,
@@ -6316,7 +6803,8 @@ export const musicList: Music[] = [
     origname: '蓬莱伝説',
     album: '蓬莱人形',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/c/ce/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg/100px-%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/ce/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg/100px-%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/dc/hr01_01.mp3',
     reason: '',
     honmei: false,
@@ -6329,7 +6817,8 @@ export const musicList: Music[] = [
     origname: '人形の森',
     album: '蓬莱人形',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/c/ce/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg/100px-%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/ce/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg/100px-%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/08/hr01_08.mp3',
     reason: '',
     honmei: false,
@@ -6342,7 +6831,8 @@ export const musicList: Music[] = [
     origname: '空飛ぶ巫女の不思議な毎日',
     album: '蓬莱人形',
     date: 20020811,
-    image: 'https://upload.thwiki.cc/thumb/c/ce/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg/100px-%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/ce/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg/100px-%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d7/hr01_13.mp3',
     reason: '',
     honmei: false,
@@ -6355,7 +6845,8 @@ export const musicList: Music[] = [
     origname: '夜のデンデラ野を逝く',
     album: '莲台野夜行',
     date: 20031230,
-    image: 'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
     music: 'https://upload.thwiki.cc/9/99/hr02_01.mp3',
     reason: '',
     honmei: false,
@@ -6368,7 +6859,8 @@ export const musicList: Music[] = [
     origname: '少女秘封倶楽部',
     album: '莲台野夜行',
     date: 20031230,
-    image: 'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
     music: 'https://upload.thwiki.cc/d/dd/hr02_02.mp3',
     reason: '',
     honmei: false,
@@ -6381,7 +6873,8 @@ export const musicList: Music[] = [
     origname: '古の冥界寺',
     album: '莲台野夜行',
     date: 20031230,
-    image: 'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
     music: 'https://upload.thwiki.cc/5/52/hr02_04.mp3',
     reason: '',
     honmei: false,
@@ -6394,7 +6887,8 @@ export const musicList: Music[] = [
     origname: '魔術師メリー',
     album: '莲台野夜行',
     date: 20031230,
-    image: 'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
     music: 'https://upload.thwiki.cc/6/6c/hr02_06.mp3',
     reason: '',
     honmei: false,
@@ -6407,7 +6901,8 @@ export const musicList: Music[] = [
     origname: '月の妖鳥、化猫の幻',
     album: '莲台野夜行',
     date: 20031230,
-    image: 'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
     music: 'https://upload.thwiki.cc/2/27/hr02_07.mp3',
     reason: '',
     honmei: false,
@@ -6420,7 +6915,8 @@ export const musicList: Music[] = [
     origname: '過去の花　～ Fairy of Flower',
     album: '莲台野夜行',
     date: 20031230,
-    image: 'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
     music: 'https://upload.thwiki.cc/a/ad/hr02_08.mp3',
     reason: '',
     honmei: false,
@@ -6433,7 +6929,8 @@ export const musicList: Music[] = [
     origname: '幻想の永遠祭',
     album: '莲台野夜行',
     date: 20031230,
-    image: 'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/1f/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg/100px-%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8Ccover1.jpg',
     music: 'https://upload.thwiki.cc/1/19/hr02_11.mp3',
     reason: '',
     honmei: false,
@@ -6446,7 +6943,8 @@ export const musicList: Music[] = [
     origname: '童祭 ～ Innocent Treasures',
     album: '梦违科学世纪',
     date: 20041230,
-    image: 'https://upload.thwiki.cc/thumb/9/94/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg/100px-%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/94/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg/100px-%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg',
     music: 'https://upload.thwiki.cc/6/66/hr03_01.mp3',
     reason: '',
     honmei: false,
@@ -6459,7 +6957,8 @@ export const musicList: Music[] = [
     origname: '華胥の夢',
     album: '梦违科学世纪',
     date: 20041230,
-    image: 'https://upload.thwiki.cc/thumb/9/94/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg/100px-%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/94/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg/100px-%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg',
     music: 'https://upload.thwiki.cc/7/7d/hr03_02.mp3',
     reason: '',
     honmei: false,
@@ -6472,7 +6971,8 @@ export const musicList: Music[] = [
     origname: '科学世紀の少年少女',
     album: '梦违科学世纪',
     date: 20041230,
-    image: 'https://upload.thwiki.cc/thumb/9/94/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg/100px-%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/94/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg/100px-%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg',
     music: 'https://upload.thwiki.cc/e/ef/hr03_05.mp3',
     reason: '',
     honmei: false,
@@ -6485,7 +6985,8 @@ export const musicList: Music[] = [
     origname: '夢と現の境界',
     album: '梦违科学世纪',
     date: 20041230,
-    image: 'https://upload.thwiki.cc/thumb/9/94/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg/100px-%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/94/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg/100px-%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AAbooklet1.jpg',
     music: 'https://upload.thwiki.cc/e/e1/hr03_09.mp3',
     reason: '',
     honmei: false,
@@ -6498,7 +6999,8 @@ export const musicList: Music[] = [
     origname: 'ヒロシゲ36号　～ Neo Super-Express',
     album: '卯酉东海道',
     date: 20060521,
-    image: 'https://upload.thwiki.cc/thumb/2/26/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg/100px-%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/26/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg/100px-%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg',
     music: 'https://upload.thwiki.cc/9/97/hr04_01.mp3',
     reason: '',
     honmei: false,
@@ -6511,7 +7013,8 @@ export const musicList: Music[] = [
     origname: '53ミニッツの青い海',
     album: '卯酉东海道',
     date: 20060521,
-    image: 'https://upload.thwiki.cc/thumb/2/26/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg/100px-%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/26/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg/100px-%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg',
     music: 'https://upload.thwiki.cc/2/21/hr04_02.mp3',
     reason: '',
     honmei: false,
@@ -6524,7 +7027,8 @@ export const musicList: Music[] = [
     origname: '青木ヶ原の伝説',
     album: '卯酉东海道',
     date: 20060521,
-    image: 'https://upload.thwiki.cc/thumb/2/26/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg/100px-%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/26/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg/100px-%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg',
     music: 'https://upload.thwiki.cc/0/05/hr04_05.mp3',
     reason: '',
     honmei: false,
@@ -6537,7 +7041,8 @@ export const musicList: Music[] = [
     origname: '最も澄みわたる空と海',
     album: '卯酉东海道',
     date: 20060521,
-    image: 'https://upload.thwiki.cc/thumb/2/26/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg/100px-%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/26/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg/100px-%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93booklet1.jpg',
     music: 'https://upload.thwiki.cc/8/8d/hr04_11.mp3',
     reason: '',
     honmei: false,
@@ -6550,7 +7055,8 @@ export const musicList: Music[] = [
     origname: '月面ツアーへようこそ',
     album: '大空魔术',
     date: 20060813,
-    image: 'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
     music: 'https://upload.thwiki.cc/9/94/hr05_01.mp3',
     reason: '',
     honmei: false,
@@ -6563,7 +7069,8 @@ export const musicList: Music[] = [
     origname: '天空のグリニッジ',
     album: '大空魔术',
     date: 20060813,
-    image: 'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
     music: 'https://upload.thwiki.cc/a/ae/hr05_02.mp3',
     reason: '',
     honmei: false,
@@ -6576,7 +7083,8 @@ export const musicList: Music[] = [
     origname: '車椅子の未来宇宙',
     album: '大空魔术',
     date: 20060813,
-    image: 'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
     music: 'https://upload.thwiki.cc/0/02/hr05_04.mp3',
     reason: '',
     honmei: false,
@@ -6589,7 +7097,8 @@ export const musicList: Music[] = [
     origname: '衛星カフェテラス',
     album: '大空魔术',
     date: 20060813,
-    image: 'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
     music: 'https://upload.thwiki.cc/a/a6/hr05_06.mp3',
     reason: '',
     honmei: false,
@@ -6602,7 +7111,8 @@ export const musicList: Music[] = [
     origname: 'G Free',
     album: '大空魔术',
     date: 20060813,
-    image: 'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
     music: 'https://upload.thwiki.cc/3/3d/hr05_07.mp3',
     reason: '',
     honmei: false,
@@ -6615,7 +7125,8 @@ export const musicList: Music[] = [
     origname: '大空魔術　～ Magical Astronomy',
     album: '大空魔术',
     date: 20060813,
-    image: 'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
     music: 'https://upload.thwiki.cc/8/88/hr05_08.mp3',
     reason: '',
     honmei: false,
@@ -6628,7 +7139,8 @@ export const musicList: Music[] = [
     origname: '向こう側の月',
     album: '大空魔术',
     date: 20060813,
-    image: 'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/9/92/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg/100px-%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AFbooklet1.jpg',
     music: 'https://upload.thwiki.cc/a/a9/hr05_10.mp3',
     reason: '',
     honmei: false,
@@ -6641,7 +7153,8 @@ export const musicList: Music[] = [
     origname: '未知の花 魅知の旅',
     album: '未知之花 魅知之旅',
     date: 20110508,
-    image: 'https://upload.thwiki.cc/thumb/c/cf/%E6%9C%AA%E7%9F%A5%E4%B9%8B%E8%8A%B1%E9%AD%85%E7%9F%A5%E4%B9%8B%E6%97%85disc.jpg/100px-%E6%9C%AA%E7%9F%A5%E4%B9%8B%E8%8A%B1%E9%AD%85%E7%9F%A5%E4%B9%8B%E6%97%85disc.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/cf/%E6%9C%AA%E7%9F%A5%E4%B9%8B%E8%8A%B1%E9%AD%85%E7%9F%A5%E4%B9%8B%E6%97%85disc.jpg/100px-%E6%9C%AA%E7%9F%A5%E4%B9%8B%E8%8A%B1%E9%AD%85%E7%9F%A5%E4%B9%8B%E6%97%85disc.jpg',
     music: 'https://upload.thwiki.cc/7/7b/hr06_01.mp3',
     reason: '',
     honmei: false,
@@ -6654,7 +7167,8 @@ export const musicList: Music[] = [
     origname: '衛星トリフネ',
     album: '鸟船遗迹',
     date: 20120430,
-    image: 'https://upload.thwiki.cc/thumb/3/34/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg/100px-%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/34/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg/100px-%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg',
     music: 'https://upload.thwiki.cc/5/5f/hr07_01.mp3',
     reason: '',
     honmei: false,
@@ -6667,7 +7181,8 @@ export const musicList: Music[] = [
     origname: 'トロヤ群の密林',
     album: '鸟船遗迹',
     date: 20120430,
-    image: 'https://upload.thwiki.cc/thumb/3/34/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg/100px-%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/34/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg/100px-%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg',
     music: 'https://upload.thwiki.cc/c/c6/hr07_02.mp3',
     reason: '',
     honmei: false,
@@ -6680,7 +7195,8 @@ export const musicList: Music[] = [
     origname: '天鳥船神社',
     album: '鸟船遗迹',
     date: 20120430,
-    image: 'https://upload.thwiki.cc/thumb/3/34/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg/100px-%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/34/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg/100px-%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg',
     music: 'https://upload.thwiki.cc/4/47/hr07_05.mp3',
     reason: '',
     honmei: false,
@@ -6693,7 +7209,8 @@ export const musicList: Music[] = [
     origname: '天鳥船神社の結界',
     album: '鸟船遗迹',
     date: 20120430,
-    image: 'https://upload.thwiki.cc/thumb/3/34/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg/100px-%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/34/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg/100px-%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg',
     music: 'https://upload.thwiki.cc/5/59/hr07_08.mp3',
     reason: '',
     honmei: false,
@@ -6706,7 +7223,8 @@ export const musicList: Music[] = [
     origname: '宇宙に浮かぶ幻想郷',
     album: '鸟船遗迹',
     date: 20120430,
-    image: 'https://upload.thwiki.cc/thumb/3/34/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg/100px-%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/34/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg/100px-%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9booklet1.jpg',
     music: 'https://upload.thwiki.cc/1/14/hr07_10.mp3',
     reason: '',
     honmei: false,
@@ -6719,7 +7237,8 @@ export const musicList: Music[] = [
     origname: '緑のサナトリウム',
     album: '伊奘诺物质',
     date: 20120811,
-    image: 'https://upload.thwiki.cc/thumb/1/13/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg/100px-%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/13/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg/100px-%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/3f/hr08_01.mp3',
     reason: '',
     honmei: false,
@@ -6732,7 +7251,8 @@ export const musicList: Music[] = [
     origname: '牛に引かれて善光寺参り',
     album: '伊奘诺物质',
     date: 20120811,
-    image: 'https://upload.thwiki.cc/thumb/1/13/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg/100px-%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/13/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg/100px-%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a0/hr08_02.mp3',
     reason: '',
     honmei: false,
@@ -6745,7 +7265,8 @@ export const musicList: Music[] = [
     origname: 'アガルタの風',
     album: '伊奘诺物质',
     date: 20120811,
-    image: 'https://upload.thwiki.cc/thumb/1/13/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg/100px-%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/13/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg/100px-%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/7f/hr08_05.mp3',
     reason: '',
     honmei: false,
@@ -6758,7 +7279,8 @@ export const musicList: Music[] = [
     origname: 'イザナギオブジェクト',
     album: '伊奘诺物质',
     date: 20120811,
-    image: 'https://upload.thwiki.cc/thumb/1/13/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg/100px-%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/13/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg/100px-%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a2/hr08_06.mp3',
     reason: '',
     honmei: false,
@@ -6771,7 +7293,8 @@ export const musicList: Music[] = [
     origname: '日本中の不思議を集めて',
     album: '伊奘诺物质',
     date: 20120811,
-    image: 'https://upload.thwiki.cc/thumb/1/13/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg/100px-%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/13/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg/100px-%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/3d/hr08_09.mp3',
     reason: '',
     honmei: false,
@@ -6784,7 +7307,8 @@ export const musicList: Music[] = [
     origname: 'テーマ·オブ·イースタンストーリー',
     album: '幺乐团的历史',
     date: 20060521,
-    image: 'https://upload.thwiki.cc/thumb/c/c8/%E5%B9%BA%E4%B9%90%E5%9B%A2%E7%9A%84%E5%8E%86%E5%8F%B25%E5%B0%81%E9%9D%A2.jpg/100px-%E5%B9%BA%E4%B9%90%E5%9B%A2%E7%9A%84%E5%8E%86%E5%8F%B25%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c8/%E5%B9%BA%E4%B9%90%E5%9B%A2%E7%9A%84%E5%8E%86%E5%8F%B25%E5%B0%81%E9%9D%A2.jpg/100px-%E5%B9%BA%E4%B9%90%E5%9B%A2%E7%9A%84%E5%8E%86%E5%8F%B25%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/62/ha05_15.mp3',
     reason: '',
     honmei: false,
@@ -6797,7 +7321,8 @@ export const musicList: Music[] = [
     origname: '他愛も無い二人の博物誌',
     album: '燕石博物志',
     date: 20160508,
-    image: 'https://upload.thwiki.cc/thumb/0/00/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg/100px-%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/00/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg/100px-%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/73/hr09_01.mp3',
     reason: '',
     honmei: false,
@@ -6810,7 +7335,8 @@ export const musicList: Music[] = [
     origname: 'Dr.レイテンシーの眠れなくなる瞳',
     album: '燕石博物志',
     date: 20160508,
-    image: 'https://upload.thwiki.cc/thumb/0/00/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg/100px-%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/00/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg/100px-%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fb/hr09_03.mp3',
     reason: '',
     honmei: false,
@@ -6823,7 +7349,8 @@ export const musicList: Music[] = [
     origname: '須臾はプランクを超えて',
     album: '燕石博物志',
     date: 20160508,
-    image: 'https://upload.thwiki.cc/thumb/0/00/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg/100px-%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/00/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg/100px-%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1e/hr09_05.mp3',
     reason: '',
     honmei: false,
@@ -6836,7 +7363,8 @@ export const musicList: Music[] = [
     origname: 'シュレディンガーの化猫',
     album: '燕石博物志',
     date: 20160508,
-    image: 'https://upload.thwiki.cc/thumb/0/00/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg/100px-%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/00/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg/100px-%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2b/hr09_06.mp3',
     reason: '',
     honmei: false,
@@ -6849,7 +7377,8 @@ export const musicList: Music[] = [
     origname: '禁忌の膜壁',
     album: '燕石博物志',
     date: 20160508,
-    image: 'https://upload.thwiki.cc/thumb/0/00/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg/100px-%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/0/00/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg/100px-%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/ce/hr09_08.mp3',
     reason: '',
     honmei: false,
@@ -6862,7 +7391,8 @@ export const musicList: Music[] = [
     origname: 'バー・オールドアダム',
     album: '旧约酒馆',
     date: 20160813,
-    image: 'https://upload.thwiki.cc/thumb/1/19/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/19/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4c/hr10_01.mp3',
     reason: '',
     honmei: false,
@@ -6875,7 +7405,8 @@ export const musicList: Music[] = [
     origname: '燕石博物誌が連れてきた闇',
     album: '旧约酒馆',
     date: 20160813,
-    image: 'https://upload.thwiki.cc/thumb/1/19/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/19/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e4/hr10_02.mp3',
     reason: '',
     honmei: false,
@@ -6888,7 +7419,8 @@ export const musicList: Music[] = [
     origname: 'アウトサイダーカクテル',
     album: '旧约酒馆',
     date: 20160813,
-    image: 'https://upload.thwiki.cc/thumb/1/19/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/19/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/57/hr10_04.mp3',
     reason: '',
     honmei: false,
@@ -6901,7 +7433,8 @@ export const musicList: Music[] = [
     origname: '旧世界の冒険酒場',
     album: '旧约酒馆',
     date: 20160813,
-    image: 'https://upload.thwiki.cc/thumb/1/19/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/19/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/39/hr10_07.mp3',
     reason: '',
     honmei: false,
@@ -6914,7 +7447,8 @@ export const musicList: Music[] = [
     origname: '二日酔いの同床異夢',
     album: '旧约酒馆',
     date: 20160813,
-    image: 'https://upload.thwiki.cc/thumb/1/19/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/1/19/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg/100px-%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/75/hr10_10.mp3',
     reason: '',
     honmei: false,
@@ -6927,7 +7461,8 @@ export const musicList: Music[] = [
     origname: '七ツ石の狼、雲を取りに駆ける',
     album: '虹色的北斗七星',
     date: 20211231,
-    image: 'https://upload.thwiki.cc/thumb/b/b4/%E8%99%B9%E8%89%B2%E7%9A%84%E5%8C%97%E6%96%97%E4%B8%83%E6%98%9F%E5%8D%9A%E5%AE%A2%E5%9B%BE.jpg/100px-%E8%99%B9%E8%89%B2%E7%9A%84%E5%8C%97%E6%96%97%E4%B8%83%E6%98%9F%E5%8D%9A%E5%AE%A2%E5%9B%BE.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b4/%E8%99%B9%E8%89%B2%E7%9A%84%E5%8C%97%E6%96%97%E4%B8%83%E6%98%9F%E5%8D%9A%E5%AE%A2%E5%9B%BE.jpg/100px-%E8%99%B9%E8%89%B2%E7%9A%84%E5%8C%97%E6%96%97%E4%B8%83%E6%98%9F%E5%8D%9A%E5%AE%A2%E5%9B%BE.jpg',
     music: 'https://upload.thwiki.cc/b/b1/hr11_01.mp3',
     reason: '',
     honmei: false,
@@ -6940,7 +7475,8 @@ export const musicList: Music[] = [
     origname: 'ジャパニーズサーガ',
     album: '东方求闻史纪',
     date: 20061227,
-    image: 'https://upload.thwiki.cc/thumb/4/4f/%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/4f/%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/91/PMiSS_01.mp3',
     reason: '',
     honmei: false,
@@ -6953,7 +7489,8 @@ export const musicList: Music[] = [
     origname: '阿礼の子供',
     album: '东方求闻史纪',
     date: 20061227,
-    image: 'https://upload.thwiki.cc/thumb/4/4f/%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/4f/%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/3f/PMiSS_02.mp3',
     reason: '',
     honmei: false,
@@ -6966,7 +7503,8 @@ export const musicList: Music[] = [
     origname: '夜の鳩山を飛ぶ -Power MIX',
     album: '东方求闻史纪',
     date: 20061227,
-    image: 'https://upload.thwiki.cc/thumb/4/4f/%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/4f/%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/8d/PMiSS_03.mp3',
     reason: '',
     honmei: false,
@@ -6979,7 +7517,8 @@ export const musicList: Music[] = [
     origname: '妖怪宇宙旅行',
     album: '东方儚月抄',
     date: 20091225,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/5a/SSiB_01.mp3',
     reason: '',
     honmei: false,
@@ -6992,7 +7531,8 @@ export const musicList: Music[] = [
     origname: '綿月のスペルカード　～ Lunatic Blue',
     album: '东方儚月抄',
     date: 20091225,
-    image: 'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/2/2e/%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84%EF%BC%88%E5%B0%8F%E8%AF%B4%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2e/SSiB_02.mp3',
     reason: '',
     honmei: false,
@@ -7005,7 +7545,8 @@ export const musicList: Music[] = [
     origname: '風神少女',
     album: '东方文花帖（书籍）',
     date: 20050811,
-    image: 'https://upload.thwiki.cc/thumb/6/6b/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/6b/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/47/BAiJR_01.mp3',
     reason: '',
     honmei: false,
@@ -7018,7 +7559,8 @@ export const musicList: Music[] = [
     origname: '花映塚 ～ after Higan Retour',
     album: '东方文花帖（书籍）',
     date: 20050811,
-    image: 'https://upload.thwiki.cc/thumb/6/6b/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/6/6b/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/72/BAiJR_03.mp3',
     reason: '',
     honmei: false,
@@ -7031,7 +7573,8 @@ export const musicList: Music[] = [
     origname: '魔法使いの憂鬱',
     album: 'The Grimoire of Marisa',
     date: 20090728,
-    image: 'https://upload.thwiki.cc/thumb/5/53/The_Grimoire_of_Marisa%E5%B0%81%E9%9D%A2.jpg/100px-The_Grimoire_of_Marisa%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/5/53/The_Grimoire_of_Marisa%E5%B0%81%E9%9D%A2.jpg/100px-The_Grimoire_of_Marisa%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/47/GoM_01.mp3',
     reason: '',
     honmei: false,
@@ -7044,7 +7587,8 @@ export const musicList: Music[] = [
     origname: 'サニールチルフレクション',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/44/EaLND_01.mp3',
     reason: '',
     honmei: false,
@@ -7057,7 +7601,8 @@ export const musicList: Music[] = [
     origname: '夜だから眠れない',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/f9/EaLND_02.mp3',
     reason: '',
     honmei: false,
@@ -7070,7 +7615,8 @@ export const musicList: Music[] = [
     origname: '妖精燦々として',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/af/EaLND_03.mp3',
     reason: '',
     honmei: false,
@@ -7083,7 +7629,8 @@ export const musicList: Music[] = [
     origname: 'サニーミルクの紅霧異変',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/28/SaBND01_01.mp3',
     reason: '',
     honmei: false,
@@ -7096,7 +7643,8 @@ export const musicList: Music[] = [
     origname: '雪月桜花の国',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/38/SaBND01_02.mp3',
     reason: '',
     honmei: false,
@@ -7109,7 +7657,8 @@ export const musicList: Music[] = [
     origname: 'スターヴォヤージュ2008',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c6/SaBND01_03.mp3',
     reason: '',
     honmei: false,
@@ -7122,7 +7671,8 @@ export const musicList: Music[] = [
     origname: '可愛い大戦争のリフレーン',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/cb/SaBND02_01.mp3',
     reason: '',
     honmei: false,
@@ -7135,7 +7685,8 @@ export const musicList: Music[] = [
     origname: 'フェアリー冒険譚',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e1/SaBND03_01.mp3',
     reason: '',
     honmei: false,
@@ -7148,7 +7699,8 @@ export const musicList: Music[] = [
     origname: '二つの世界',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/b1/SaBND03_02.mp3',
     reason: '',
     honmei: false,
@@ -7161,7 +7713,8 @@ export const musicList: Music[] = [
     origname: '神域のかくれんぼ暮らし',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4f/OSP01_01.mp3',
     reason: '',
     honmei: false,
@@ -7174,7 +7727,8 @@ export const musicList: Music[] = [
     origname: '年中夢中の好奇心',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e8/th12.8_04.mp3',
     reason: '',
     honmei: false,
@@ -7187,7 +7741,8 @@ export const musicList: Music[] = [
     origname: '真夜中のフェアリーダンス',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e2/th12.8_05.mp3',
     reason: '',
     honmei: false,
@@ -7200,7 +7755,8 @@ export const musicList: Music[] = [
     origname: '妖精大戦争　～ Fairy Wars',
     album: '东方三月精',
     date: 20070126,
-    image: 'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/b2/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BEE%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/4a/th12.8_06.mp3',
     reason: '',
     honmei: false,
@@ -7213,7 +7769,8 @@ export const musicList: Music[] = [
     origname: '判読眼のビブロフィリア',
     album: '东方铃奈庵',
     date: 20130326,
-    image: 'https://upload.thwiki.cc/thumb/7/7c/%E4%B8%9C%E6%96%B9%E9%93%83%E5%A5%88%E5%BA%B51%E5%8D%B7%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%93%83%E5%A5%88%E5%BA%B51%E5%8D%B7%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/7c/%E4%B8%9C%E6%96%B9%E9%93%83%E5%A5%88%E5%BA%B51%E5%8D%B7%E5%B0%81%E9%9D%A2.jpg/100px-%E4%B8%9C%E6%96%B9%E9%93%83%E5%A5%88%E5%BA%B51%E5%8D%B7%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e5/FS01_01.mp3',
     reason: '',
     honmei: false,
@@ -7226,7 +7783,8 @@ export const musicList: Music[] = [
     origname: '秋霜玉　～ Clockworks',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/8/86/SE01_01.mp3',
     reason: '',
     honmei: false,
@@ -7239,7 +7797,8 @@ export const musicList: Music[] = [
     origname: 'フォルスストロベリー',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/e1/SE01_02.mp3',
     reason: '',
     honmei: false,
@@ -7252,7 +7811,8 @@ export const musicList: Music[] = [
     origname: 'プリムローズシヴァ',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/b/ba/SE01_03.mp3',
     reason: '',
     honmei: false,
@@ -7265,7 +7825,8 @@ export const musicList: Music[] = [
     origname: '幻想帝都',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/90/SE01_04.mp3',
     reason: '',
     honmei: false,
@@ -7278,7 +7839,8 @@ export const musicList: Music[] = [
     origname: 'ディザストラスジェミニ',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/27/SE01_05.mp3',
     reason: '',
     honmei: false,
@@ -7291,7 +7853,8 @@ export const musicList: Music[] = [
     origname: '華の幻想　紅夢の宙',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c4/SE01_06.mp3',
     reason: '',
     honmei: false,
@@ -7304,7 +7867,8 @@ export const musicList: Music[] = [
     origname: '天空アーミー',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d2/SE01_07.mp3',
     reason: '',
     honmei: false,
@@ -7317,7 +7881,8 @@ export const musicList: Music[] = [
     origname: 'スプートニク幻夜',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/40/SE01_08.mp3',
     reason: '',
     honmei: false,
@@ -7330,7 +7895,8 @@ export const musicList: Music[] = [
     origname: '機械サーカス　～ Reverie',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a8/SE01_09.mp3',
     reason: '',
     honmei: false,
@@ -7343,7 +7909,8 @@ export const musicList: Music[] = [
     origname: 'カナベラルの夢幻少女',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0c/SE01_10.mp3',
     reason: '',
     honmei: false,
@@ -7356,7 +7923,8 @@ export const musicList: Music[] = [
     origname: '魔法少女十字軍',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/47/SE01_11.mp3',
     reason: '',
     honmei: false,
@@ -7369,7 +7937,8 @@ export const musicList: Music[] = [
     origname: 'アンティークテラー',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/5/54/SE01_12.mp3',
     reason: '',
     honmei: false,
@@ -7382,7 +7951,8 @@ export const musicList: Music[] = [
     origname: '夢機械　～ Innocent Power',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/a5/SE01_13.mp3',
     reason: '',
     honmei: false,
@@ -7391,11 +7961,12 @@ export const musicList: Music[] = [
   },
   {
     id: '563',
-    name: '幻想科学　～ Doll's Phantom',
-		origname: '幻想科学　～ Doll's Phantom',
-		album: '秋霜玉',
+    name: "幻想科学　～ Doll's Phantom",
+    origname: "幻想科学　～ Doll's Phantom",
+    album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1f/SE01_14.mp3',
     reason: '',
     honmei: false,
@@ -7404,11 +7975,12 @@ export const musicList: Music[] = [
   },
   {
     id: '564',
-    name: '少女神性　～ Pandora's Box',
-		origname: '少女神性　～ Pandora's Box',
-		album: '秋霜玉',
+    name: "少女神性　～ Pandora's Box",
+    origname: "少女神性　～ Pandora's Box",
+    album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/e/ee/SE01_15.mp3',
     reason: '',
     honmei: false,
@@ -7421,7 +7993,8 @@ export const musicList: Music[] = [
     origname: 'シルクロードアリス',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/d/d9/SE01_16.mp3',
     reason: '',
     honmei: false,
@@ -7434,7 +8007,8 @@ export const musicList: Music[] = [
     origname: '魔女達の舞踏会　～ Magus',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/f/fc/SE01_17.mp3',
     reason: '',
     honmei: false,
@@ -7447,7 +8021,8 @@ export const musicList: Music[] = [
     origname: '二色蓮花蝶　～ Ancients',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/31/SE01_18.mp3',
     reason: '',
     honmei: false,
@@ -7460,7 +8035,8 @@ export const musicList: Music[] = [
     origname: 'ハーセルヴズ',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/47/SE01_19.mp3',
     reason: '',
     honmei: false,
@@ -7473,7 +8049,8 @@ export const musicList: Music[] = [
     origname: 'タイトルドメイド',
     album: '秋霜玉',
     date: 20001230,
-    image: 'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/37/%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A7%8B%E9%9C%9C%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/79/SE01_20.mp3',
     reason: '',
     honmei: false,
@@ -7486,7 +8063,8 @@ export const musicList: Music[] = [
     origname: '稀翁玉　～ Fairy Dance',
     album: '稀翁玉',
     date: 20011230,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/62/SE02_01.mp3',
     reason: '',
     honmei: false,
@@ -7499,7 +8077,8 @@ export const musicList: Music[] = [
     origname: '天鵝絨少女戰　～ Velvet Battle',
     album: '稀翁玉',
     date: 20011230,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/c/c5/SE02_02.mp3',
     reason: '',
     honmei: false,
@@ -7512,7 +8091,8 @@ export const musicList: Music[] = [
     origname: 'Castle Explorer -in the Sky-',
     album: '稀翁玉',
     date: 20011230,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/3/3c/SE02_03.mp3',
     reason: '',
     honmei: false,
@@ -7525,7 +8105,8 @@ export const musicList: Music[] = [
     origname: 'オルフェの詩　～ Pseudoclassic',
     album: '稀翁玉',
     date: 20011230,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/66/SE02_04.mp3',
     reason: '',
     honmei: false,
@@ -7538,7 +8119,8 @@ export const musicList: Music[] = [
     origname: '新幻想　～ New Fantasy',
     album: '稀翁玉',
     date: 20011230,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/16/SE02_05.mp3',
     reason: '',
     honmei: false,
@@ -7551,7 +8133,8 @@ export const musicList: Music[] = [
     origname: 'オルレアンの聖騎士',
     album: '稀翁玉',
     date: 20011230,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1c/SE02_06.mp3',
     reason: '',
     honmei: false,
@@ -7564,7 +8147,8 @@ export const musicList: Music[] = [
     origname: ' Sweet Maid',
     album: '稀翁玉',
     date: 20011230,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/77/SE02_07.mp3',
     reason: '',
     honmei: false,
@@ -7577,7 +8161,8 @@ export const musicList: Music[] = [
     origname: '櫻花之戀塚　～ Flower of Japan',
     album: '稀翁玉',
     date: 20011230,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/6/64/SE02_08.mp3',
     reason: '',
     honmei: false,
@@ -7590,7 +8175,8 @@ export const musicList: Music[] = [
     origname: '乙女戰士 ～ Heart of Valkyrie',
     album: '稀翁玉',
     date: 20011230,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/42/SE02_09.mp3',
     reason: '',
     honmei: false,
@@ -7603,7 +8189,8 @@ export const musicList: Music[] = [
     origname: 'エニグマティクドール ～ God Knows',
     album: '稀翁玉',
     date: 20011230,
-    image: 'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/7/79/%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A8%80%E7%BF%81%E7%8E%89%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/15/SE02_10.mp3',
     reason: '',
     honmei: false,
@@ -7616,7 +8203,8 @@ export const musicList: Music[] = [
     origname: 'Witch of Love Potion',
     album: 'Torte Le Magic',
     date: 20010504,
-    image: 'https://upload.thwiki.cc/thumb/b/bf/Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg/100px-Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bf/Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg/100px-Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/a/aa/trt_00.mp3',
     reason: '',
     honmei: false,
@@ -7629,7 +8217,8 @@ export const musicList: Music[] = [
     origname: 'Magical and Hopeless',
     album: 'Torte Le Magic',
     date: 20010504,
-    image: 'https://upload.thwiki.cc/thumb/b/bf/Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg/100px-Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bf/Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg/100px-Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/0a/trt_01.mp3',
     reason: '',
     honmei: false,
@@ -7642,7 +8231,8 @@ export const musicList: Music[] = [
     origname: 'Sacred Battle',
     album: 'Torte Le Magic',
     date: 20010504,
-    image: 'https://upload.thwiki.cc/thumb/b/bf/Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg/100px-Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/b/bf/Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg/100px-Torte_Le_Magic%E8%8F%9C%E5%8D%95%E7%95%8C%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/2/2f/trt_02.mp3',
     reason: '',
     honmei: false,
@@ -7655,7 +8245,8 @@ export const musicList: Music[] = [
     origname: '呑んべぇのレムリア',
     album: '黄昏酒场',
     date: 20071229,
-    image: 'https://upload.thwiki.cc/thumb/1/11/%E9%BB%84%E6%98%8F%E9%85%92%E5%9C%BA%E5%B0%81%E9%9D%A2.png/100px-%E9%BB%84%E6%98%8F%E9%85%92%E5%9C%BA%E5%B0%81%E9%9D%A2.png',
+    image:
+      'https://upload.thwiki.cc/thumb/1/11/%E9%BB%84%E6%98%8F%E9%85%92%E5%9C%BA%E5%B0%81%E9%9D%A2.png/100px-%E9%BB%84%E6%98%8F%E9%85%92%E5%9C%BA%E5%B0%81%E9%9D%A2.png',
     music: 'https://upload.thwiki.cc/0/0d/SSiB_03.mp3',
     reason: '',
     honmei: false,
@@ -7668,7 +8259,8 @@ export const musicList: Music[] = [
     origname: 'AN ORDEAL FROM GOD',
     album: '神魔讨绮传',
     date: 20080525,
-    image: 'https://upload.thwiki.cc/thumb/a/ae/%E7%A5%9E%E9%AD%94%E8%A8%8E%E7%B6%BA%E4%BC%9D_%EF%BD%9E_Magus_in_Mystic_Geometries.%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A5%9E%E9%AD%94%E8%A8%8E%E7%B6%BA%E4%BC%9D_%EF%BD%9E_Magus_in_Mystic_Geometries.%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/a/ae/%E7%A5%9E%E9%AD%94%E8%A8%8E%E7%B6%BA%E4%BC%9D_%EF%BD%9E_Magus_in_Mystic_Geometries.%E5%B0%81%E9%9D%A2.jpg/100px-%E7%A5%9E%E9%AD%94%E8%A8%8E%E7%B6%BA%E4%BC%9D_%EF%BD%9E_Magus_in_Mystic_Geometries.%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/4/46/DNAS-MJST_29.mp3',
     reason: '',
     honmei: false,
@@ -7681,7 +8273,8 @@ export const musicList: Music[] = [
     origname: 'キュアリアス上海古牌',
     album: '东方幻想麻将',
     date: 20090308,
-    image: 'https://upload.thwiki.cc/thumb/4/4f/%E6%9D%B1%E6%96%B9%E5%B9%BB%E6%83%B3%E9%BA%BB%E9%9B%80%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9D%B1%E6%96%B9%E5%B9%BB%E6%83%B3%E9%BA%BB%E9%9B%80%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/4/4f/%E6%9D%B1%E6%96%B9%E5%B9%BB%E6%83%B3%E9%BA%BB%E9%9B%80%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9D%B1%E6%96%B9%E5%B9%BB%E6%83%B3%E9%BA%BB%E9%9B%80%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/0/01/DNAS-MJST_17.mp3',
     reason: '',
     honmei: false,
@@ -7694,7 +8287,8 @@ export const musicList: Music[] = [
     origname: '妖々跋扈　～ Speed Fox!',
     album: 'Cradle - 东方幻乐祀典',
     date: 20040815,
-    image: 'https://upload.thwiki.cc/thumb/3/3a/Cradle_-_%E6%9D%B1%E6%96%B9%E5%B9%BB%E6%A8%82%E7%A5%80%E5%85%B8%E5%B0%81%E9%9D%A2.jpg/100px-Cradle_-_%E6%9D%B1%E6%96%B9%E5%B9%BB%E6%A8%82%E7%A5%80%E5%85%B8%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/3/3a/Cradle_-_%E6%9D%B1%E6%96%B9%E5%B9%BB%E6%A8%82%E7%A5%80%E5%85%B8%E5%B0%81%E9%9D%A2.jpg/100px-Cradle_-_%E6%9D%B1%E6%96%B9%E5%B9%BB%E6%A8%82%E7%A5%80%E5%85%B8%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/1/1f/SEPR-0001_17.mp3',
     reason: '',
     honmei: false,
@@ -7707,7 +8301,8 @@ export const musicList: Music[] = [
     origname: 'Mysterious Shrine',
     album: '8BIT MUSIC POWER FINAL',
     date: 20170406,
-    image: 'https://upload.thwiki.cc/thumb/c/c8/8BIT_MUSIC_POWER_FINAL%E5%B0%81%E9%9D%A2.jpg/100px-8BIT_MUSIC_POWER_FINAL%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/c8/8BIT_MUSIC_POWER_FINAL%E5%B0%81%E9%9D%A2.jpg/100px-8BIT_MUSIC_POWER_FINAL%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/9/92/8MPF_12.mp3',
     reason: '',
     honmei: false,
@@ -7733,7 +8328,8 @@ export const musicList: Music[] = [
     origname: '日々是紅日　～ Folksy Touhou days.',
     album: '东方音焰火',
     date: 20210814,
-    image: 'https://upload.thwiki.cc/thumb/c/cb/%E6%9D%B1%E6%96%B9%E3%82%AA%E3%83%88%E3%83%8F%E3%83%8A%E3%83%93%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9D%B1%E6%96%B9%E3%82%AA%E3%83%88%E3%83%8F%E3%83%8A%E3%83%93%E5%B0%81%E9%9D%A2.jpg',
+    image:
+      'https://upload.thwiki.cc/thumb/c/cb/%E6%9D%B1%E6%96%B9%E3%82%AA%E3%83%88%E3%83%8F%E3%83%8A%E3%83%93%E5%B0%81%E9%9D%A2.jpg/100px-%E6%9D%B1%E6%96%B9%E3%82%AA%E3%83%88%E3%83%8F%E3%83%8A%E3%83%93%E5%B0%81%E9%9D%A2.jpg',
     music: 'https://upload.thwiki.cc/7/76/Folksy_Touhou_days.mp3',
     reason: '',
     honmei: false,
