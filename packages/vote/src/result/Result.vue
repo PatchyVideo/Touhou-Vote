@@ -37,6 +37,10 @@
         </div>
       </div>
     </div>
+    <div class="md:m-5 px-3 py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700">
+      *本页面为角色部门的票数排行简表。页面打开时已按票数排序，本命加权是指1本命票计算为2票。<br />
+      *同票数名次相同，相同名次的先后顺序以本命票数量、投票ID依次作为参考<br />
+    </div>
     <!-- Form -->
     <div class="shadow rounded border border-accent-color-600 bg-white bg-opacity-80">
       <div class="flex flex-nowrap overflow-auto">
@@ -106,6 +110,10 @@
           <div>{{ medianVotesPerItemMusic }}</div>
         </div>
       </div>
+    </div>
+    <div class="md:m-5 px-3 py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700">
+      *本页面为音乐部门的票数排行简表。页面打开时已按票数排序，本命加权是指1本命票计算为2票。<br />
+      *同票数名次相同，相同名次的先后顺序以本命票数量、投票ID依次作为参考<br />
     </div>
     <!-- Form -->
     <div class="shadow rounded border border-accent-color-600 bg-white bg-opacity-80">
@@ -178,6 +186,11 @@
         </div>
       </div>
     </div>
+    <div class="md:m-5 px-3 py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700">
+      *本页面为CP部门的票数排行简表。页面打开时已按票数排序，本命加权是指1本命票计算为2票。<br />
+      *同票数名次相同，相同名次的先后顺序以本命票数量、投票ID依次作为参考<br />
+      *票数为1的CP不计入投票结果
+    </div>
     <!-- Form -->
     <div class="shadow rounded border border-accent-color-600 bg-white bg-opacity-80">
       <div class="flex flex-nowrap overflow-auto">
@@ -239,19 +252,19 @@ setSiteTitle('结果速报 - 第⑩回 中文东方人气投票')
 
 interface HeaderCharacter {
   name: string
-  key: 'rank' | 'name' | 'voteCount' | 'firstVoteCount' | 'firstVotePercentage'
+  key: 'displayRank' | 'name' | 'voteCount' | 'firstVoteCount' | 'firstVotePercentage'
 }
 interface HeaderMusic {
   name: string
-  key: 'rank' | 'name' | 'voteCount' | 'firstVoteCount' | 'firstVotePercentage'
+  key: 'displayRank' | 'name' | 'voteCount' | 'firstVoteCount' | 'firstVotePercentage'
 }
 interface HeaderCouple {
   name: string
-  key: 'rank' | 'cp' | 'voteCount' | 'firstVoteCount' | 'aActive' | 'bActive' | 'cActive' | 'noneActive'
+  key: 'displayRank' | 'cp' | 'voteCount' | 'firstVoteCount' | 'aActive' | 'bActive' | 'cActive' | 'noneActive'
 }
 
 const headerCharacter: HeaderCharacter[] = [
-  { name: '名次', key: 'rank' },
+  { name: '名次', key: 'displayRank' },
   { name: '角色名', key: 'name' },
   { name: '票数（不含加权）', key: 'voteCount' },
   { name: '本命票数', key: 'firstVoteCount' },
@@ -265,6 +278,7 @@ const medianVotesPerItemCharacter = ref(0)
 const resultCharacter = ref<
   {
     rank: number
+    displayRank: number
     name: string
     voteCount: number
     firstVoteCount: number
@@ -272,7 +286,7 @@ const resultCharacter = ref<
   }[]
 >([])
 const headerMusic: HeaderMusic[] = [
-  { name: '名次', key: 'rank' },
+  { name: '名次', key: 'displayRank' },
   { name: '曲目名', key: 'name' },
   { name: '票数（不含加权）', key: 'voteCount' },
   { name: '本命票数', key: 'firstVoteCount' },
@@ -286,6 +300,7 @@ const medianVotesPerItemMusic = ref(0)
 const resultMusic = ref<
   {
     rank: number
+    displayRank: number
     name: string
     voteCount: number
     firstVoteCount: number
@@ -293,7 +308,7 @@ const resultMusic = ref<
   }[]
 >([])
 const headerCouple: HeaderCouple[] = [
-  { name: '名次', key: 'rank' },
+  { name: '名次', key: 'displayRank' },
   { name: 'CP名', key: 'cp' },
   { name: '票数（不含加权）', key: 'voteCount' },
   { name: '本命票数', key: 'firstVoteCount' },
@@ -310,6 +325,7 @@ const medianVotesPerItemCouple = ref(0)
 const resultCouple = ref<
   {
     rank: number
+    displayRank: number
     cp: string
     voteCount: number
     firstVoteCount: number
@@ -336,6 +352,7 @@ const {
         }
         entries {
           rank
+          displayRank
           name
           voteCount
           firstVoteCount
@@ -352,6 +369,7 @@ const {
         }
         entries {
           rank
+          displayRank
           name
           voteCount
           firstVoteCount
@@ -368,6 +386,7 @@ const {
         }
         entries {
           rank
+          displayRank
           cp {
             a
             b
