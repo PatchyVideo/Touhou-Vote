@@ -217,6 +217,7 @@
         <div v-if="queryCharacterReasonLoading || queryMusicReasonLoading || queryCoupleReasonLoading">
           投票理由加载中...
         </div>
+        <div v-else-if="reasonError">理由加载失败了QAQ</div>
         <div v-else>
           <div v-if="!reasonList.length">没有人填写投票理由QAQ</div>
           <div v-for="item in reasonList" :key="item" class="break-words">{{ item }}</div>
@@ -451,7 +452,9 @@ const reasonBoxOpen = ref(false)
 const reasonTitle = ref<string>('')
 const reasonRank = ref<number>(1)
 const reasonList = ref<string[]>([])
+const reasonError = ref(false)
 function openReason(name: string, rank: number, type: 'CHARACTER' | 'MUSIC' | 'COUPLE') {
+  reasonError.value = false
   reasonTitle.value = name + '的投票理由：'
   reasonRank.value = rank
   if (type === 'CHARACTER') {
@@ -544,6 +547,7 @@ watchEffect(() => {
   }
 })
 queryCharacterReasonError((err) => {
+  reasonError.value = true
   console.log(err.message)
   alert('理由加载失败！')
 })
@@ -577,6 +581,7 @@ watchEffect(() => {
   }
 })
 queryMusicReasonError((err) => {
+  reasonError.value = true
   console.log(err.message)
   alert('理由加载失败！')
 })
@@ -610,6 +615,7 @@ watchEffect(() => {
   }
 })
 queryCoupleReasonError((err) => {
+  reasonError.value = true
   console.log(err.message)
   alert('理由加载失败！')
 })
