@@ -3,6 +3,8 @@
 // Read more: https://github.com/vuejs/core/pull/3399
 import '@vue/runtime-core'
 
+export {}
+
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CharacterDetailSearch: typeof import('./src/components/characterDetailSearch.vue')['default']
@@ -14,5 +16,3 @@ declare module '@vue/runtime-core' {
     SummaryCharacter: typeof import('./src/components/summary/Character.vue')['default']
   }
 }
-
-export {}
