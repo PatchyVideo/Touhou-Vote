@@ -36,10 +36,18 @@
       </div>
     </div>
     <div class="md:m-5 px-3 py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700">
-      *本页面为角色部门的票数排行简表。页面打开时已按票数排序，本命加权是指1本命票计算为2票。<br />
-      *点击表头可进行其他类型的排序，点 + 号或者表格行本身可展开详情，点击详情链接可以查看更加详尽的角色投票数据。<br />
-      *更高级的搜索功能可以点击右下角的图标展开高级搜索框。<br />
-      *如果在移动端觉得表格过于拥挤可以尝试打开浏览器的“电脑UA（桌面端网站）”功能
+      * 本页面为角色部门的票数排行简表。页面打开时已按票数排序，本命加权是指1本命票计算为2票。<br />
+      * 更高级的搜索功能可以点击右下角的图标展开高级搜索框。<br />
+      * 如果在移动端觉得表格过于拥挤可以尝试打开浏览器的“电脑UA（桌面端网站）”功能<br />
+      * 点 + 号或者表格行本身可展开详情，点击详情链接可以查看更加详尽的角色投票数据<br />
+      * 点击表头可进行其他类型的排序，排序规则如下：<br />
+      <div class="pl-4">
+        1. 同票数的都是同一个名次<br />
+        2. 同一个名次时，靠本命票数决定先后顺序<br />
+        3. 当有并列名次时，占据虚位，下一个名次要顺位递推（如 3,3,5 或 10,10,10,13 ）<br />
+        4. 同一个名次，本命票也一样的情况下，靠角色的系统ID排序<br />
+        5. 对于0票的对象，参照第4条排序在列表最后
+      </div>
     </div>
     <!-- Form -->
     <div class="md:mx-5 flex bg-white shadow rounded border border-accent-600">
@@ -56,14 +64,14 @@
             <div>{{ item.name }}</div>
           </div>
           <!-- Content -->
-          <div v-for="(item2, index) in resultCharacter" :key="item2.rank" class="relative">
+          <div v-for="(item2, index) in resultCharacters" :key="item2.rank" class="relative">
             <div
               class="p-1 max-w-30 md:max-w-none border-t border-accent-600 flex flex-nowrap items-center"
               :class="{ 'pb-66': lineExpanded[index] }"
             >
               <div
-                v-if="item.key === 'displayRank'"
-                class="min-w-8"
+                v-if="item.key === headerFixed[0].key"
+                class="min-w-8 cursor-pointer"
                 :class="lineExpanded[index] ? 'i-uil:minus' : 'i-uil:plus'"
                 @click="lineExpanded[index] = !lineExpanded[index]"
               ></div>
@@ -71,7 +79,7 @@
             </div>
             <!-- Folder -->
             <div
-              v-if="lineExpanded[index] && item.key === 'displayRank'"
+              v-if="lineExpanded[index] && item.key === headerFixed[0].key"
               class="absolute bottom-0 w-[calc(100vw-0.6rem)] md:w-[calc(100vw-4.1rem)] p-2 bg-white rounded shadow-inner border border-accent-600 space-y-2"
             >
               <div class="p-1 rounded border border-accent-600 divide-y divide-accent-300">
@@ -92,11 +100,19 @@
             class="p-1 whitespace-nowrap border-b border-accent-600 flex flex-nowrap justify-between items-center space-x-1"
           >
             <div>{{ item.name }}</div>
-            <div v-if="sortHeader.key === item.key" class="i-uil:sort-amount-down"></div>
-            <div v-else class="i-uil:arrows-v transition transition-colors text-white hover:text-black"></div>
+            <div @click="updateSortHeader(item.key)" class="cursor-pointer">
+              <div
+                v-if="sortHeader.key === item.key"
+                :class="sortHeader.forward ? 'i-uil:sort-amount-down' : 'i-uil:sort-amount-up'"
+              ></div>
+              <div
+                v-else
+                class="i-uil:arrows-v transition transition-colors text-white hover:text-black cursor-pointer"
+              ></div>
+            </div>
           </div>
           <!-- Content -->
-          <div v-for="(item2, index) in resultCharacter" :key="item2.rank" class="relative">
+          <div v-for="(item2, index) in resultCharacters" :key="item2.rank" class="relative">
             <div
               class="py-1 px-3 truncate max-w-30 md:max-w-none border-t border-accent-600"
               :class="{ 'pb-66': lineExpanded[index] }"
@@ -126,29 +142,31 @@ import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
 import characterDetailSearch from '@/components/characterDetailSearch.vue'
 
+type HeaderKey =
+  | 'rank'
+  | 'displayRank'
+  | 'name'
+  | 'voteCount'
+  | 'firstVoteCount'
+  | 'firstVotePercentage'
+  | 'firstVoteCountWeighted'
+  | 'votePercentage'
+  | 'firstPercentage'
+  | 'maleVoteCount'
+  | 'malePercentagePerChar'
+  | 'femaleVoteCount'
+  | 'femalePercentagePerChar'
+  | 'nameJpn'
+  | 'characterType'
+  | 'characterOrigin'
+  | 'firstAppearance'
+  | 'malePercentagePerTotal'
+  | 'femalePercentagePerTotal'
 interface Header {
   name: string
-  key:
-    | 'rank'
-    | 'displayRank'
-    | 'name'
-    | 'voteCount'
-    | 'firstVoteCount'
-    | 'firstVotePercentage'
-    | 'firstVoteCountWeighted'
-    | 'votePercentage'
-    | 'firstPercentage'
-    | 'maleVoteCount'
-    | 'malePercentagePerChar'
-    | 'femaleVoteCount'
-    | 'femalePercentagePerChar'
-    | 'nameJpn'
-    | 'characterType'
-    | 'characterOrigin'
-    | 'firstAppearance'
-    | 'malePercentagePerTotal'
-    | 'femalePercentagePerTotal'
+  key: HeaderKey
 }
+
 const header: Header[] = [
   { name: '名次', key: 'displayRank' },
   { name: '角色名', key: 'name' },
@@ -188,72 +206,81 @@ const headerWithoutFixed = computed<Header[]>(() =>
   )
 )
 const sortHeader = ref<{
-  key:
-    | 'rank'
-    | 'displayRank'
-    | 'name'
-    | 'voteCount'
-    | 'firstVoteCount'
-    | 'firstVotePercentage'
-    | 'firstVoteCountWeighted'
-    | 'votePercentage'
-    | 'firstPercentage'
-    | 'maleVoteCount'
-    | 'malePercentagePerChar'
-    | 'femaleVoteCount'
-    | 'femalePercentagePerChar'
-    | 'nameJpn'
-    | 'characterType'
-    | 'characterOrigin'
-    | 'firstAppearance'
-    | 'malePercentagePerTotal'
-    | 'femalePercentagePerTotal'
+  key: HeaderKey
   forward: boolean
 }>({
   key: 'rank',
   forward: true,
 })
-
+function updateSortHeader(key: HeaderKey) {
+  if (sortHeader.value.key === key) {
+    sortHeader.value.forward = !sortHeader.value.forward
+  } else {
+    sortHeader.value.key = key
+    sortHeader.value.forward = true
+  }
+}
 watch(
   sortHeader,
   () => {
-    resultCharacter.value.sort((a, b) => {
-      if (sortHeader.value.key === 'firstVoteCount')
-        if (sortHeader.value.forward) return a[sortHeader.value.key] - b[sortHeader.value.key]
-        else return b[sortHeader.value.key] - a[sortHeader.value.key]
-      else return 0
+    resultCharacters.value.sort((a, b) => {
+      if (percentageToNumber(b[sortHeader.value.key]) - percentageToNumber(a[sortHeader.value.key])) {
+        if (sortHeader.value.forward)
+          return percentageToNumber(b[sortHeader.value.key]) - percentageToNumber(a[sortHeader.value.key])
+        else return percentageToNumber(a[sortHeader.value.key]) - percentageToNumber(b[sortHeader.value.key])
+      } else {
+        if (sortHeader.value.forward) return percentageToNumber(b.firstVoteCount) - percentageToNumber(a.firstVoteCount)
+        else return percentageToNumber(a.firstVoteCount) - percentageToNumber(b.firstVoteCount)
+      }
     })
+    updateDisplayName()
   },
   { deep: true }
 )
+function percentageToNumber(key: string | number): number {
+  if (typeof key === 'number') return key
+  else {
+    return Number(key.substring(0, key.length - 1)) || 0
+  }
+}
+function updateDisplayName() {
+  resultCharacters.value.map((item, index) => {
+    let i = index
+    for (i; i >= 0; i--) {
+      if (resultCharacters.value[i][sortHeader.value.key] != item[sortHeader.value.key]) break
+    }
+    item.displayRank = i + 1
+    return item
+  })
+}
+
 const totalUniqueItemsCharacter = ref(0)
 const totalFirstCharacter = ref(0)
 const totalVotesCharacter = ref(0)
 const averageVotesPerItemCharacter = ref(0)
 const medianVotesPerItemCharacter = ref(0)
-const resultCharacter = ref<
-  {
-    rank: number
-    displayRank: number
-    name: string
-    voteCount: number
-    firstVoteCount: number
-    firstVotePercentage: string
-    firstVoteCountWeighted: number
-    votePercentage: number
-    firstPercentage: number
-    maleVoteCount: number
-    malePercentagePerChar: number
-    femaleVoteCount: number
-    femalePercentagePerChar: number
-    nameJpn: string
-    characterType: string
-    characterOrigin: string
-    firstAppearance: string
-    malePercentagePerTotal: number
-    femalePercentagePerTotal: number
-  }[]
->([])
+interface ResultCharacter {
+  rank: number
+  displayRank: number
+  name: string
+  voteCount: number
+  firstVoteCount: number
+  firstVotePercentage: string
+  firstVoteCountWeighted: number
+  votePercentage: number
+  firstPercentage: number
+  maleVoteCount: number
+  malePercentagePerChar: number
+  femaleVoteCount: number
+  femalePercentagePerChar: number
+  nameJpn: string
+  characterType: string
+  characterOrigin: string
+  firstAppearance: string
+  malePercentagePerTotal: number
+  femalePercentagePerTotal: number
+}
+const resultCharacters = ref<ResultCharacter[]>([])
 const lineExpanded = ref<boolean[]>([])
 
 const {
@@ -319,7 +346,7 @@ watchEffect(() => {
       averageVotesPerItemCharacter.value = Math.round(result.value.queryCharacterRanking.global.averageVotesPerItem)
       medianVotesPerItemCharacter.value = result.value.queryCharacterRanking.global.medianVotesPerItem
       // @ts-ignore:参数“item”隐式具有“any”类型
-      resultCharacter.value = JSON.parse(JSON.stringify(result.value.queryCharacterRanking.entries)).map((item) => {
+      resultCharacters.value = JSON.parse(JSON.stringify(result.value.queryCharacterRanking.entries)).map((item) => {
         item.firstVotePercentage = toPercentageString(item.firstVotePercentage)
         item.votePercentage = toPercentageString(item.votePercentage)
         item.firstPercentage = toPercentageString(item.firstPercentage)
@@ -329,7 +356,7 @@ watchEffect(() => {
         item.femalePercentagePerTotal = toPercentageString(item.femalePercentagePerTotal)
         return item
       })
-      lineExpanded.value = new Array(resultCharacter.value.length).fill(null).map(() => false)
+      lineExpanded.value = new Array(resultCharacters.value.length).fill(null).map(() => false)
     }
   }
 })
