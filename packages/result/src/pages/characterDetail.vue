@@ -98,16 +98,17 @@
           <!-- Header -->
           <div
             class="p-1 whitespace-nowrap border-b border-accent-600 flex flex-nowrap justify-between items-center space-x-1"
+            @click="updateSortHeader(item.key)"
           >
             <div>{{ item.name }}</div>
-            <div @click="updateSortHeader(item.key)" class="cursor-pointer">
+            <div class="cursor-pointer">
               <div
                 v-if="sortHeader.key === item.key"
                 :class="sortHeader.forward ? 'i-uil:sort-amount-down' : 'i-uil:sort-amount-up'"
               ></div>
               <div
                 v-else
-                class="i-uil:arrows-v transition transition-colors text-white hover:text-black cursor-pointer"
+                class="i-uil:arrows-v transition transition-colors text-gray-300 md:text-white hover:text-black cursor-pointer"
               ></div>
             </div>
           </div>

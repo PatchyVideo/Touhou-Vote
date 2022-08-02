@@ -14,5 +14,6 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SummaryCharacter: typeof import('./src/components/summary/Character.vue')['default']
+    VoteSelect: typeof import('./src/components/VoteSelect.vue')['default']
   }
 }
