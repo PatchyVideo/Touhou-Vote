@@ -10,7 +10,7 @@
       </div>
       <div class="i-uil:times text-2xl transition-colors" @click="open = false" />
     </div>
-    <div class="divide-y-1">
+    <div v-if="GUIMode" class="divide-y-1">
       <!-- Filter by result -->
       <div class="space-y-2 py-1">
         <div>从投票结果中筛选：</div>
@@ -174,10 +174,96 @@
         </div>
       </div>
     </div>
+    <div v-else class="py-1 space-y-2">
+      <div>
+        <div class="whitespace-nowrap">查询指令：</div>
+        <textarea
+          v-model="queryword"
+          class="focus:outline-none border rounded border-accent-300 px-1 py-0.5 shadow-inner w-full"
+          placeholder="请输入指令"
+        />
+      </div>
+      <div>
+        <div>查询规则：</div>
+        <div class="text-sm space-y-2">
+          <div>
+            <div class="font-bold">问卷内容：</div>
+            <div class="pl-4">
+              • q+问卷题目ID = 选项ID
+              <div class="pl-4">示例：q11011 = 1101110</div>
+              <div>
+                问卷ID相关内容请参阅<a
+                  class="transition transition-colors underline p-1"
+                  href="https://github.com/PatchyVideo/Touhou-Vote/blob/dev/packages/shared/data/questionnaire.ts#L67"
+                  target="_blank"
+                  >这里</a
+                >
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="font-bold">角色部门投票结果：</div>
+            <div class="pl-4">
+              • chars：角色名称数组
+              <div class="pl-4">
+                示例：chars: ["东风谷早苗", "博丽灵梦"]
+                <div class="text-xs italic">
+                  【注意】数组里的结果是以或的形式查询的，即示例中，查询的结果是角色部门中投了“东风谷早苗”或“博丽灵梦”的票中，各角色的投票结果
+                </div>
+              </div>
+              • chars_first = 角色名
+              <div class="pl-4">示例：chars_first="东风谷早苗"</div>
+            </div>
+          </div>
+          <div>
+            <div class="font-bold">音乐部门投票结果：</div>
+            <div class="pl-4">
+              • musics：曲目名称数组
+              <div class="pl-4">
+                示例：musics: ["信仰是为了虚幻之人", "Native Faith"]
+                <div class="text-xs italic">
+                  【注意】数组里的结果是以或的形式查询的，即示例中，查询的结果是音乐部门中投了“信仰是为了虚幻之人”或“Native
+                  Faith”的票中，各曲目的投票结果
+                </div>
+              </div>
+              • musics_first = 曲目名
+              <div class="pl-4">示例：chars_first="信仰是为了虚幻之人"</div>
+            </div>
+          </div>
+          <div>
+            <div class="font-bold">规则间的逻辑关系：</div>
+            <div class="pl-4">
+              • 不同规则相互叠加的情况，使用 AND 关键字连接
+              <div class="pl-4">
+                示例：q11011 = 1101110 AND chars: ["东风谷早苗"] AND chars: ["博丽灵梦"]
+                <div class="text-xs italic">
+                  【注意】同一规则也可以使用 AND 关键字进行并列，如示例中，查询的结果是
+                  [问题id11011回答的结果是1101110，且同时在角色部门投了“东风谷早苗”和“博丽灵梦”]
+                  的票中，各角色的投票结果
+                </div>
+              </div>
+              • 不同规则并列的情况，使用 OR 关键字连接
+              <div class="pl-4">示例：q11011 = 1101110 OR chars: ["东风谷早苗"]</div>
+              • 上述两种逻辑关系可以使用“(”或“)”调整优先级
+              <div class="pl-4">
+                示例：(q11011 = 1101110 AND chars: ["东风谷早苗"]) OR chars_first="信仰是为了虚幻之人"
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Reset or search -->
     <div class="flex justify-around border-t pt-3">
       <button class="px-10 py-2 rounded-xl text-white bg-accent-600 justify-center" @click="reset()">重置</button>
       <button class="px-10 py-2 rounded-xl text-white bg-accent-600 justify-center" @click="search()">搜索</button>
+    </div>
+    <div
+      class="my-1 text-sm text-accent-600 transition transition-colors hover:text-black cursor-pointer flex justify-end items-center"
+      @click="GUIMode = !GUIMode"
+    >
+      <div class="i-uil:arrow-right text-2xl transition-colors" />
+      {{ GUIMode ? '更多功能请切换到指令模式' : '返回图形用户界面模式' }}
     </div>
   </div>
   <!-- Mask -->
@@ -517,17 +603,25 @@ function deleteQuestion(ansId: string) {
   )
 }
 
+// Cli model
+const GUIMode = ref(true)
+const queryword = ref(route.query.q ? (Array.isArray(route.query.q) ? route.query.q[0] : route.query.q) : '')
+
 // Reset
 function reset() {
-  maxCount.value = 99999
-  minCount.value = 0
-  keyword.value = ''
-  searchRange.value = ['work', 'name', 'jpnName']
-  characters.value = []
-  charactersFirst.value = null
-  musics.value = []
-  musicsFirst.value = null
-  questionnaires.value = []
+  if (GUIMode.value) {
+    maxCount.value = 99999
+    minCount.value = 0
+    keyword.value = ''
+    searchRange.value = ['work', 'name', 'jpnName']
+    characters.value = []
+    charactersFirst.value = null
+    musics.value = []
+    musicsFirst.value = null
+    questionnaires.value = []
+  } else {
+    queryword.value = ''
+  }
 }
 
 // Search
@@ -555,14 +649,17 @@ const additionalConstraintBase64 = computed(() => {
     )
   )
 })
+
 function search(): void {
-  if (!checkSubmitContent()) return
+  if (!checkSubmitContent() && GUIMode.value) return
   const query = {
     maxCount: maxCount.value,
     minCount: minCount.value,
     keyword: keyword.value,
     searchRange: convertSearchRangeToNumber(),
+    gui: GUIMode.value ? 1 : 0,
     a: additionalConstraintBase64.value,
+    q: queryword.value,
   }
   router.push({ path: route.path, query })
   open.value = false
