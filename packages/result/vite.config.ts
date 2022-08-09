@@ -27,7 +27,7 @@ export default defineConfig({
     layouts(),
     // https://github.com/antfu/unplugin-auto-import
     autoImport({
-      dirs: ['src/composables'],
+      dirs: ['src/composables/*/index.{js,ts,jsx,tsx}'],
       imports: [
         'vue',
         'vue/macros',
