@@ -281,6 +281,7 @@
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useVModel } from '@vueuse/core'
+import { compressToEncodedURIComponent } from 'lz-string'
 import { characterList } from '@touhou-vote/shared/data/character'
 import { musicList } from '@touhou-vote/shared/data/music'
 import { questionnaire, Question } from '@touhou-vote/shared/data/questionnaire'
@@ -605,7 +606,7 @@ function deleteQuestion(ansId: string) {
 
 // Cli model
 const GUIMode = ref(true)
-const queryword = ref(route.query.q ? (Array.isArray(route.query.q) ? route.query.q[0] : route.query.q) : '')
+const queryword = ref(String(route.query.q ? (Array.isArray(route.query.q) ? route.query.q[0] : route.query.q) : ''))
 
 // Reset
 function reset() {
@@ -643,7 +644,7 @@ const additionalConstraintBase64 = computed(() => {
         characters: characters.value,
         charactersFirst: charactersFirst.value,
         musics: musics.value,
-        musicsFirst: musicsFirst,
+        musicsFirst: musicsFirst.value,
         questionnaire: questionnaires.value,
       })
     )

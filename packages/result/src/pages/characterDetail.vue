@@ -138,10 +138,14 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
+import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import NProgress from 'nprogress'
 import characterDetailSearch from '@/components/characterDetailSearch.vue'
+
+const route = useRoute()
 
 type HeaderKey =
   | 'rank'
@@ -284,14 +288,42 @@ interface ResultCharacter {
 const resultCharacters = ref<ResultCharacter[]>([])
 const lineExpanded = ref<boolean[]>([])
 
+const additionalConstraint = computed(() =>
+  String(route.query.a ? (Array.isArray(route.query.a) ? route.query.a[0] : route.query.a) : '')
+)
+
+const additionalConstraintQuery = computed(() =>
+  String(route.query.a ? (Array.isArray(route.query.a) ? route.query.a[0] : route.query.a) : '')
+)
+watch(additionalConstraintQuery, () => {
+  queryRankingFetchMore({
+    variables:
+      getAdditionalConstraintString(additionalConstraint.value) === ''
+        ? {
+            voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+            voteYear: 10,
+          }
+        : {
+            query: getAdditionalConstraintString(additionalConstraint.value),
+            voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+            voteYear: 10,
+          },
+    updateQuery(previousQueryResult, { fetchMoreResult }) {
+      if (!fetchMoreResult) return previousQueryResult
+      return fetchMoreResult
+    },
+  })
+})
+
 const {
   result,
   loading: queryRankingLoading,
   onError: queryRankingError,
+  fetchMore: queryRankingFetchMore,
 } = useQuery<Query>(
   gql`
-    query ($voteStart: DateTimeUtc!, $voteYear: Int!) {
-      queryCharacterRanking(voteStart: $voteStart, voteYear: $voteYear) {
+    query ($query: String, $voteStart: DateTimeUtc!, $voteYear: Int!) {
+      queryCharacterRanking(query: $query, voteStart: $voteStart, voteYear: $voteYear) {
         global {
           totalUniqueItems
           totalFirst
@@ -323,10 +355,16 @@ const {
       }
     }
   `,
-  {
-    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-    voteYear: 10,
-  },
+  getAdditionalConstraintString(additionalConstraint.value) === ''
+    ? {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+      }
+    : {
+        query: getAdditionalConstraintString(additionalConstraint.value),
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+      },
   {
     fetchPolicy: 'network-only',
   }
