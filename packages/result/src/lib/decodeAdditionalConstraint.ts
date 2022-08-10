@@ -1,6 +1,8 @@
+import { decompressFromEncodedURIComponent } from 'lz-string'
+
 export function getAdditionalConstraintString(additionalConstraintUrl: string): string {
-  if (additionalConstraintUrl === '') return ''
-  const additionalConstraintObject = JSON.parse(decodeURI(window.atob(additionalConstraintUrl)))
+  const additionalConstraintObject = JSON.parse(decompressFromEncodedURIComponent(additionalConstraintUrl) || '{}')
+  if (additionalConstraintUrl === '' || JSON.stringify(additionalConstraintObject) === '{}') return ''
   let additionalConstraintString = ''
   if (additionalConstraintObject.charactersFirst)
     additionalConstraintString += `chars_first="${additionalConstraintObject.charactersFirst}" `

@@ -281,7 +281,7 @@
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useVModel } from '@vueuse/core'
-import { compressToEncodedURIComponent } from 'lz-string'
+import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 import { characterList } from '@touhou-vote/shared/data/character'
 import { musicList } from '@touhou-vote/shared/data/music'
 import { questionnaire, Question } from '@touhou-vote/shared/data/questionnaire'
@@ -327,7 +327,7 @@ const additionalConstraintObject = ref<{
         musicsFirst: null,
         questionnaire: [],
       }
-    : JSON.parse(decodeURI(window.atob(additionalConstraintUrl.value)))
+    : JSON.parse(decompressFromEncodedURIComponent(additionalConstraintUrl.value) || '{}')
 )
 
 // Count range
@@ -637,17 +637,15 @@ function checkSubmitContent(): boolean {
   }
   return true
 }
-const additionalConstraintBase64 = computed(() => {
-  return window.btoa(
-    encodeURI(
-      JSON.stringify({
-        characters: characters.value,
-        charactersFirst: charactersFirst.value,
-        musics: musics.value,
-        musicsFirst: musicsFirst.value,
-        questionnaire: questionnaires.value,
-      })
-    )
+const additionalConstraintCompressed = computed(() => {
+  return compressToEncodedURIComponent(
+    JSON.stringify({
+      characters: characters.value,
+      charactersFirst: charactersFirst.value,
+      musics: musics.value,
+      musicsFirst: musicsFirst.value,
+      questionnaire: questionnaires.value,
+    })
   )
 })
 
@@ -659,7 +657,7 @@ function search(): void {
     keyword: keyword.value,
     searchRange: convertSearchRangeToNumber(),
     gui: GUIMode.value ? 1 : 0,
-    a: additionalConstraintBase64.value,
+    a: additionalConstraintCompressed.value,
     q: queryword.value,
   }
   router.push({ path: route.path, query })
