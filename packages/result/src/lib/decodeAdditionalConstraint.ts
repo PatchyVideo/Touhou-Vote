@@ -5,7 +5,7 @@ export function getAdditionalConstraintString(additionalConstraintUrl: string): 
   if (additionalConstraintUrl === '' || JSON.stringify(additionalConstraintObject) === '{}') return ''
   let additionalConstraintString = ''
   if (additionalConstraintObject.charactersFirst)
-    additionalConstraintString += `chars_first="${additionalConstraintObject.charactersFirst}" `
+    additionalConstraintString += `AND chars_first="${additionalConstraintObject.charactersFirst}" `
   if (additionalConstraintObject.characters.length) {
     for (let i = 0; i < additionalConstraintObject.characters.length; i++)
       additionalConstraintString += `AND chars:["${additionalConstraintObject.characters[i]}"] `
@@ -20,5 +20,5 @@ export function getAdditionalConstraintString(additionalConstraintUrl: string): 
     for (let i = 0; i < additionalConstraintObject.questionnaire.length; i++)
       additionalConstraintString += `AND q${additionalConstraintObject.questionnaire[i].questionID}=${additionalConstraintObject.questionnaire[i].answerID}`
   }
-  return additionalConstraintString.trim()
+  return additionalConstraintString.trim().slice(4).trim()
 }
