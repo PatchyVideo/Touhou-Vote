@@ -190,7 +190,7 @@
             <div class="font-bold">问卷内容：</div>
             <div class="pl-4">
               • q+问卷题目ID = 选项ID
-              <div class="pl-4">示例：q11011 = 1101110</div>
+              <div class="pl-4">示例：q11011 = 1101101</div>
               <div>
                 问卷ID相关内容请参阅<a
                   class="transition transition-colors underline p-1"
@@ -235,18 +235,18 @@
             <div class="pl-4">
               • 不同规则相互叠加的情况，使用 AND 关键字连接
               <div class="pl-4">
-                示例：q11011 = 1101110 AND chars: ["东风谷早苗"] AND chars: ["博丽灵梦"]
+                示例：q11011 = 1101101 AND chars: ["东风谷早苗"] AND chars: ["博丽灵梦"]
                 <div class="text-xs italic">
                   【注意】同一规则也可以使用 AND 关键字进行并列，如示例中，查询的结果是
-                  [问题id11011回答的结果是1101110，且同时在角色部门投了“东风谷早苗”和“博丽灵梦”]
+                  [问题id11011回答的结果是1101101，且同时在角色部门投了“东风谷早苗”和“博丽灵梦”]
                   的票中，各角色的投票结果
                 </div>
               </div>
               • 不同规则并列的情况，使用 OR 关键字连接
-              <div class="pl-4">示例：q11011 = 1101110 OR chars: ["东风谷早苗"]</div>
+              <div class="pl-4">示例：q11011 = 1101101 OR chars: ["东风谷早苗"]</div>
               • 上述两种逻辑关系可以使用“(”或“)”调整优先级
               <div class="pl-4">
-                示例：(q11011 = 1101110 AND chars: ["东风谷早苗"]) OR chars_first="信仰是为了虚幻之人"
+                示例：(q11011 = 1101101 AND chars: ["东风谷早苗"]) OR chars_first="信仰是为了虚幻之人"
               </div>
             </div>
           </div>
@@ -350,34 +350,34 @@ const minCount = ref(
 const keyword = ref(
   String(route.query.keyword ? (Array.isArray(route.query.keyword) ? route.query.keyword[0] : route.query.keyword) : '')
 )
-type SearchRange = 'work' | 'name' | 'jpnName'
+type SearchRange = 'characterOrigin' | 'name' | 'nameJpn'
 const searchRangeDisplay: {
   name: string
   key: SearchRange
 }[] = [
-  { name: '所属作品', key: 'work' },
+  { name: '所属作品', key: 'characterOrigin' },
   { name: '角色名', key: 'name' },
-  { name: '日文名', key: 'jpnName' },
+  { name: '日文名', key: 'nameJpn' },
 ]
 const searchRangeToNumber: { is: SearchRange[]; value: number }[] = [
   {
-    is: ['work', 'name', 'jpnName'],
+    is: ['characterOrigin', 'name', 'nameJpn'],
     value: 7,
   },
   {
-    is: ['work', 'name'],
+    is: ['characterOrigin', 'name'],
     value: 6,
   },
   {
-    is: ['work', 'jpnName'],
+    is: ['characterOrigin', 'nameJpn'],
     value: 5,
   },
   {
-    is: ['work'],
+    is: ['characterOrigin'],
     value: 4,
   },
   {
-    is: ['name', 'jpnName'],
+    is: ['name', 'nameJpn'],
     value: 3,
   },
   {
@@ -385,8 +385,12 @@ const searchRangeToNumber: { is: SearchRange[]; value: number }[] = [
     value: 2,
   },
   {
-    is: ['jpnName'],
+    is: ['nameJpn'],
     value: 1,
+  },
+  {
+    is: [],
+    value: -1,
   },
 ]
 const searchRange = ref<SearchRange[]>(
@@ -402,7 +406,7 @@ const searchRange = ref<SearchRange[]>(
                 : route.query.searchRange
               : 7
           )
-      )?.is || ['work', 'name', 'jpnName']
+      )?.is || ['characterOrigin', 'name', 'nameJpn']
     )
   )
 )
@@ -614,7 +618,7 @@ function reset() {
     maxCount.value = 99999
     minCount.value = 0
     keyword.value = ''
-    searchRange.value = ['work', 'name', 'jpnName']
+    searchRange.value = ['characterOrigin', 'name', 'nameJpn']
     characters.value = []
     charactersFirst.value = null
     musics.value = []
@@ -633,6 +637,10 @@ function checkSubmitContent(): boolean {
   }
   if (isNaN(minCount.value) || !Number.isSafeInteger(minCount.value) || minCount.value < 0) {
     alert('请检查最小得票数的填写是否正确！')
+    return false
+  }
+  if (convertSearchRangeToNumber() === -1) {
+    alert('搜索种类不能为空！')
     return false
   }
   return true

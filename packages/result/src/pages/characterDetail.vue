@@ -14,19 +14,19 @@
       </div>
       <div class="grid grid-cols-3 md:grid-cols-5 gap-1 text-sm md:text-base text-center">
         <div>
-          <div>参投角色总数</div>
+          <div>角色数</div>
           <div>{{ totalUniqueItemsCharacter }}</div>
         </div>
         <div>
-          <div>总本命票数</div>
+          <div>本命票数</div>
           <div>{{ totalFirstCharacter }}</div>
         </div>
         <div>
-          <div>总有效票数</div>
+          <div>有效票数</div>
           <div>{{ totalVotesCharacter }}</div>
         </div>
         <div>
-          <div>全角色平均得票数</div>
+          <div>平均得票数</div>
           <div>{{ averageVotesPerItemCharacter }}</div>
         </div>
         <div>
@@ -64,7 +64,7 @@
             <div>{{ item.name }}</div>
           </div>
           <!-- Content -->
-          <div v-for="(item2, index) in resultCharacters" :key="item2.rank" class="relative">
+          <div v-for="(item2, index) in resultCharactersForDisplay" :key="item2.rank" class="relative">
             <div
               class="p-1 max-w-30 md:max-w-none border-t border-accent-600 flex flex-nowrap items-center"
               :class="{ 'pb-66': lineExpanded[index] }"
@@ -113,7 +113,7 @@
             </div>
           </div>
           <!-- Content -->
-          <div v-for="(item2, index) in resultCharacters" :key="item2.rank" class="relative">
+          <div v-for="(item2, index) in resultCharactersForDisplay" :key="item2.rank" class="relative">
             <div
               class="py-1 px-3 truncate max-w-30 md:max-w-none border-t border-accent-600"
               :class="{ 'pb-66': lineExpanded[index] }"
@@ -171,7 +171,6 @@ interface Header {
   name: string
   key: HeaderKey
 }
-
 const header: Header[] = [
   { name: '名次', key: 'displayRank' },
   { name: '角色名', key: 'name' },
@@ -214,7 +213,7 @@ const sortHeader = ref<{
   key: HeaderKey
   forward: boolean
 }>({
-  key: 'rank',
+  key: 'voteCount',
   forward: true,
 })
 function updateSortHeader(key: HeaderKey) {
@@ -225,40 +224,6 @@ function updateSortHeader(key: HeaderKey) {
     sortHeader.value.forward = true
   }
 }
-watch(
-  sortHeader,
-  () => {
-    resultCharacters.value.sort((a, b) => {
-      if (percentageToNumber(b[sortHeader.value.key]) - percentageToNumber(a[sortHeader.value.key])) {
-        if (sortHeader.value.forward)
-          return percentageToNumber(b[sortHeader.value.key]) - percentageToNumber(a[sortHeader.value.key])
-        else return percentageToNumber(a[sortHeader.value.key]) - percentageToNumber(b[sortHeader.value.key])
-      } else {
-        if (sortHeader.value.forward) return percentageToNumber(b.firstVoteCount) - percentageToNumber(a.firstVoteCount)
-        else return percentageToNumber(a.firstVoteCount) - percentageToNumber(b.firstVoteCount)
-      }
-    })
-    updateDisplayName()
-  },
-  { deep: true }
-)
-function percentageToNumber(key: string | number): number {
-  if (typeof key === 'number') return key
-  else {
-    return Number(key.substring(0, key.length - 1)) || 0
-  }
-}
-function updateDisplayName() {
-  resultCharacters.value.map((item, index) => {
-    let i = index
-    for (i; i >= 0; i--) {
-      if (resultCharacters.value[i][sortHeader.value.key] != item[sortHeader.value.key]) break
-    }
-    item.displayRank = i + 1
-    return item
-  })
-}
-
 const totalUniqueItemsCharacter = ref(0)
 const totalFirstCharacter = ref(0)
 const totalVotesCharacter = ref(0)
@@ -286,16 +251,101 @@ interface ResultCharacter {
   femalePercentagePerTotal: number
 }
 const resultCharacters = ref<ResultCharacter[]>([])
+const resultCharactersForDisplay = computed<ResultCharacter[]>(() => {
+  return resultCharacters.value
+    .filter((item) => item.voteCount <= maxCount.value && item.voteCount >= minCount.value)
+    .filter((item) => {
+      if (keyword.value != '') {
+        for (const item2 of searchRange.value) {
+          if (item[item2].match(new RegExp(keyword.value, 'i'))) {
+            return true
+          }
+        }
+        return false
+      } else return true
+    })
+    .sort((a, b) => {
+      if (percentageToNumber(b[sortHeader.value.key]) - percentageToNumber(a[sortHeader.value.key])) {
+        if (sortHeader.value.forward)
+          return percentageToNumber(b[sortHeader.value.key]) - percentageToNumber(a[sortHeader.value.key])
+        else return percentageToNumber(a[sortHeader.value.key]) - percentageToNumber(b[sortHeader.value.key])
+      } else {
+        if (sortHeader.value.forward) return percentageToNumber(b.firstVoteCount) - percentageToNumber(a.firstVoteCount)
+        else return percentageToNumber(a.firstVoteCount) - percentageToNumber(b.firstVoteCount)
+      }
+    })
+    .map((item, index, arr) => {
+      let i = index
+      for (i; i >= 0; i--) {
+        if (arr[i][sortHeader.value.key] != item[sortHeader.value.key]) break
+      }
+      item.displayRank = i + 2
+      return item
+    })
+})
+function percentageToNumber(key: string | number): number {
+  if (typeof key === 'number') return key
+  else {
+    return Number(key.substring(0, key.length - 1)) || 0
+  }
+}
 const lineExpanded = ref<boolean[]>([])
+watch(
+  resultCharactersForDisplay.value,
+  () => {
+    lineExpanded.value = new Array(resultCharacters.value.length).fill(null).map(() => false)
+  },
+  { deep: true }
+)
 
+const maxCount = computed<number>(() =>
+  Number(
+    route.query.maxCount
+      ? Array.isArray(route.query.maxCount)
+        ? route.query.maxCount[0]
+        : route.query.maxCount
+      : 99999
+  )
+)
+const minCount = computed<number>(() =>
+  Number(
+    route.query.minCount ? (Array.isArray(route.query.minCount) ? route.query.minCount[0] : route.query.minCount) : 0
+  )
+)
+const keyword = computed<string>(() =>
+  String(route.query.keyword ? (Array.isArray(route.query.keyword) ? route.query.keyword[0] : route.query.keyword) : '')
+)
+const searchRange = computed<('characterOrigin' | 'name' | 'nameJpn')[]>(() => {
+  const searchRangeNumber = Number(
+    route.query.searchRange
+      ? Array.isArray(route.query.searchRange)
+        ? route.query.searchRange[0]
+        : route.query.searchRange
+      : 7
+  )
+  switch (searchRangeNumber) {
+    case 1:
+      return ['nameJpn']
+    case 2:
+      return ['name']
+    case 3:
+      return ['nameJpn', 'name']
+    case 4:
+      return ['characterOrigin']
+    case 5:
+      return ['characterOrigin', 'nameJpn']
+    case 6:
+      return ['characterOrigin', 'name']
+    case 7:
+      return ['characterOrigin', 'name', 'nameJpn']
+    default:
+      return ['characterOrigin', 'name', 'nameJpn']
+  }
+})
 const additionalConstraint = computed(() =>
   String(route.query.a ? (Array.isArray(route.query.a) ? route.query.a[0] : route.query.a) : '')
 )
-
-const additionalConstraintQuery = computed(() =>
-  String(route.query.a ? (Array.isArray(route.query.a) ? route.query.a[0] : route.query.a) : '')
-)
-watch(additionalConstraintQuery, () => {
+watch(additionalConstraint, () => {
   queryRankingFetchMore({
     variables:
       getAdditionalConstraintString(additionalConstraint.value) === ''
@@ -314,6 +364,69 @@ watch(additionalConstraintQuery, () => {
     },
   })
 })
+const queryword = computed(() =>
+  String(route.query.q ? (Array.isArray(route.query.q) ? route.query.q[0] : route.query.q) : '')
+)
+watch(queryword, () => {
+  queryRankingFetchMore({
+    variables:
+      queryword.value === ''
+        ? {
+            voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+            voteYear: 10,
+          }
+        : {
+            query: queryword.value,
+            voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+            voteYear: 10,
+          },
+    updateQuery(previousQueryResult, { fetchMoreResult }) {
+      if (!fetchMoreResult) return previousQueryResult
+      return fetchMoreResult
+    },
+  })
+})
+const GUIMode = computed(() =>
+  Number(route.query.gui ? (Array.isArray(route.query.gui) ? route.query.gui[0] : route.query.gui) : 1)
+)
+watch(GUIMode, () => {
+  queryRankingFetchMore({
+    variables: GUIMode.value
+      ? getAdditionalConstraintString(additionalConstraint.value) === ''
+        ? {
+            voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+            voteYear: 10,
+          }
+        : {
+            query: getAdditionalConstraintString(additionalConstraint.value),
+            voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+            voteYear: 10,
+          }
+      : queryword.value === ''
+      ? {
+          voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+          voteYear: 10,
+        }
+      : {
+          query: queryword.value,
+          voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+          voteYear: 10,
+        },
+    updateQuery(previousQueryResult, { fetchMoreResult }) {
+      if (!fetchMoreResult) return previousQueryResult
+      return fetchMoreResult
+    },
+  })
+})
+const URLQuery = computed(() => route.query)
+watch(
+  URLQuery,
+  () => {
+    updateSortHeader('voteCount')
+    sortHeader.value.forward = true
+  },
+  { deep: true }
+)
 
 const {
   result,
@@ -355,13 +468,24 @@ const {
       }
     }
   `,
-  getAdditionalConstraintString(additionalConstraint.value) === ''
+  GUIMode.value
+    ? getAdditionalConstraintString(additionalConstraint.value) === ''
+      ? {
+          voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+          voteYear: 10,
+        }
+      : {
+          query: getAdditionalConstraintString(additionalConstraint.value),
+          voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+          voteYear: 10,
+        }
+    : queryword.value === ''
     ? {
         voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
         voteYear: 10,
       }
     : {
-        query: getAdditionalConstraintString(additionalConstraint.value),
+        query: queryword.value,
         voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
         voteYear: 10,
       },
@@ -384,7 +508,7 @@ watchEffect(() => {
       totalVotesCharacter.value = result.value.queryCharacterRanking.global.totalVotes
       averageVotesPerItemCharacter.value = Math.round(result.value.queryCharacterRanking.global.averageVotesPerItem)
       medianVotesPerItemCharacter.value = result.value.queryCharacterRanking.global.medianVotesPerItem
-      // @ts-ignore:参数“item”隐式具有“any”类型
+      // @ts-expect-error
       resultCharacters.value = JSON.parse(JSON.stringify(result.value.queryCharacterRanking.entries)).map((item) => {
         item.firstVotePercentage = toPercentageString(item.firstVotePercentage)
         item.votePercentage = toPercentageString(item.votePercentage)
@@ -395,11 +519,11 @@ watchEffect(() => {
         item.femalePercentagePerTotal = toPercentageString(item.femalePercentagePerTotal)
         return item
       })
-      lineExpanded.value = new Array(resultCharacters.value.length).fill(null).map(() => false)
     }
   }
 })
 queryRankingError((err) => {
+  alert(err.message)
   console.log(err.message)
 })
 function toPercentageString(num: number): string {
