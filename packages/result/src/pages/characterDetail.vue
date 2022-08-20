@@ -253,17 +253,6 @@ interface ResultCharacter {
 const resultCharacters = ref<ResultCharacter[]>([])
 const resultCharactersForDisplay = computed<ResultCharacter[]>(() => {
   return resultCharacters.value
-    .filter((item) => item.voteCount <= maxCount.value && item.voteCount >= minCount.value)
-    .filter((item) => {
-      if (keyword.value != '') {
-        for (const item2 of searchRange.value) {
-          if (item[item2].match(new RegExp(keyword.value, 'i'))) {
-            return true
-          }
-        }
-        return false
-      } else return true
-    })
     .sort((a, b) => {
       if (percentageToNumber(b[sortHeader.value.key]) - percentageToNumber(a[sortHeader.value.key])) {
         if (sortHeader.value.forward)
@@ -281,6 +270,17 @@ const resultCharactersForDisplay = computed<ResultCharacter[]>(() => {
       }
       item.displayRank = i + 2
       return item
+    })
+    .filter((item) => item.voteCount <= maxCount.value && item.voteCount >= minCount.value)
+    .filter((item) => {
+      if (keyword.value != '') {
+        for (const item2 of searchRange.value) {
+          if (item[item2].match(new RegExp(keyword.value, 'i'))) {
+            return true
+          }
+        }
+        return false
+      } else return true
     })
 })
 function percentageToNumber(key: string | number): number {
