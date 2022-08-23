@@ -145,6 +145,8 @@ import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import NProgress from 'nprogress'
 import characterDetailSearch from '@/components/characterDetailSearch.vue'
 
+setSiteTitle('角色部门结果 - 第⑩回 中文东方人气投票')
+
 const route = useRoute()
 
 type HeaderKey =
