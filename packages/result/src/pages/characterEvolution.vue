@@ -63,30 +63,40 @@
           </div>
         </div>
         <div
-          class="px-3 py-2 mt-2 md:mt-0 w-full md:w-auto rounded-xl bg-accent-600 text-sm text-white text-center cursor-pointer"
+          class="px-3 py-2 md:py-0 mt-2 md:mt-0 w-full md:w-auto rounded-xl text-sm text-white text-center md:flex md:items-center cursor-pointer"
+          :class="charactersForEvolution.length ? 'bg-accent-600' : 'bg-accent-300'"
+          @click="getCharacterEvolution()"
         >
           提交图标申请请求
         </div>
       </div>
     </div>
     <!-- Evolution result -->
-    <div class="md:mx-5 px-3 pt-3 md:pt-1 text-xl border-b border-accent-600">投票演进</div>
-    <div
-      class="md:mx-5 md:my-1 px-3 py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700"
-    >
-      * 该图表表示该角色随着投票进程的票数变化情况<br />
-      * 其中减少的票数是因为投票人修改自己的投票去掉该角色而导致<br />
-      * 投票时间：2022-06-17 18:00:00 至 2022-07-05 00:00:00
-    </div>
-    <div class="md:mx-5 px-3 pt-3 md:pt-1 text-lg border-b border-accent-300">总票数演进</div>
-    <!-- Graph for vote evolution -->
-    <div class="md:mx-5 px-3 pt-3 md:pt-1 text-lg border-b border-accent-300">总本命票数演进</div>
-    <!-- Graph for vote evolution -->
+    <transition name="characterEvolutionGraph" mode="out-in">
+      <div class="md:mx-5" v-if="showEvolutionGraph">
+        <div class="px-3 pt-3 md:pt-1 text-xl border-b border-accent-600">投票演进</div>
+        <div class="md:my-1 px-3 py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700">
+          * 该图表表示该角色随着投票进程的票数变化情况<br />
+          * 其中减少的票数是因为投票人修改自己的投票去掉该角色而导致<br />
+          * 投票时间：2022-06-17 18:00:00 至 2022-07-05 00:00:00
+        </div>
+        <div class="px-3 pt-3 md:pt-1 text-lg border-b border-accent-300">总票数演进</div>
+        <!-- Graph for vote evolution -->
+        <div class="px-3 pt-3 md:pt-1 text-lg border-b border-accent-300">总本命票数演进</div>
+        <!-- Graph for vote evolution -->
+      </div>
+    </transition>
   </div>
 </template>
 <script lang="ts" setup>
+import { watchEffect } from 'vue'
+import NProgress from 'nprogress'
+import { gql, useLazyQuery } from '@/composables/graphql'
+import type { Query } from '@/composables/graphql'
 import { characterList } from '@touhou-vote/shared/data/character'
 import VoteSelect from '@/components/VoteSelect.vue'
+
+setSiteTitle('角色投票演进 - 第⑩回 中文东方人气投票')
 
 const totalUniqueItemsCharacter = ref(0)
 const totalFirstCharacter = ref(0)
@@ -125,4 +135,69 @@ function deleteCharacter(character: string) {
     )
   }
 }
+
+const showEvolutionGraph = ref(false)
+function getCharacterEvolution(): void {
+  if (!charactersForEvolution.value.length) return
+  showEvolutionGraph.value = true
+  if (queryCharacterEbvolutionForceDisabled.value)
+    loadCharacterEbvolution(undefined, {
+      voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+    })
+  else
+    queryCharacterEbvolutionMore({
+      variables: { voteStart: new Date(Date.UTC(2022, 5, 17, 10)) },
+      updateQuery(previousQueryResult, { fetchMoreResult }) {
+        if (!fetchMoreResult) return previousQueryResult
+        return fetchMoreResult
+      },
+    })
+}
+const {
+  result: resultCharacterEbvolution,
+  load: loadCharacterEbvolution,
+  loading: queryCharacterEbvolutionLoading,
+  onError: queryCharacterEbvolutionError,
+  fetchMore: queryCharacterEbvolutionMore,
+  forceDisabled: queryCharacterEbvolutionForceDisabled,
+} = useLazyQuery<Query>(
+  gql`
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
+      queryCharacterReasons(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
+        reasons
+      }
+    }
+  `,
+  {
+    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+  },
+  {
+    fetchPolicy: 'network-only',
+  }
+)
+watchEffect(() => {
+  if (queryCharacterEbvolutionLoading.value) {
+    if (!NProgress.isStarted()) NProgress.start()
+  } else {
+    if (NProgress.isStarted()) NProgress.done()
+  }
+})
+watchEffect(() => {
+  if (resultCharacterEbvolution.value) {
+  }
+})
+queryCharacterEbvolutionError((err) => {
+  console.log(err.message)
+  alert('加载失败！')
+})
 </script>
+<style lang="postcss" scoped>
+.characterEvolutionGraph-enter-active,
+.characterEvolutionGraph-leave-active {
+  @apply transition-all duration-200;
+}
+.characterEvolutionGraph-enter-from,
+.characterEvolutionGraph-leave-to {
+  @apply opacity-0;
+}
+</style>
