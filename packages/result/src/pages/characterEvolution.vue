@@ -12,7 +12,7 @@
         <h2 class="text-4xl font-light">角色部门</h2>
         <span class="ml-3 text-xl">投票演进对比</span>
       </div>
-      <div class="grid grid-cols-3 md:grid-cols-5 gap-1 text-sm md:text-base text-center">
+      <div class="grid grid-cols-3 gap-1 text-sm md:text-base text-center">
         <div>
           <div>总有效票数</div>
           <div>{{ totalVotesCharacter }}</div>
