@@ -56,7 +56,7 @@
         </div>
       </div>
       <!-- Filter by vote -->
-      <div class="space-y-2 py-1">
+      <div class="space-y-2 py-1" v-if="props.querymode">
         <div>从投票中筛选：</div>
         <div>角色部门投了以下角色：</div>
         <div class="rounded border border-dashed border-accent-600 p-1">
@@ -259,6 +259,7 @@
       <button class="px-10 py-2 rounded-xl text-white bg-accent-600 justify-center" @click="search()">搜索</button>
     </div>
     <div
+      v-if="props.querymode"
       class="my-1 text-sm text-accent-600 transition transition-colors hover:text-black cursor-pointer flex justify-end items-center"
       @click="GUIMode = !GUIMode"
     >
@@ -292,6 +293,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
     requred: true,
+  },
+  querymode: {
+    type: Boolean,
+    default: false,
   },
 })
 const emit = defineEmits<{

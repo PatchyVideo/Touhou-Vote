@@ -133,7 +133,7 @@
   >
     <div class="i-uil:file-search-alt text-2xl" />
   </div>
-  <characterDetailSearch v-model:open="search" />
+  <characterDetailSearch v-model:open="search" :querymode="true" />
 </template>
 
 <script lang="ts" setup>
