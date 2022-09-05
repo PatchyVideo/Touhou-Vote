@@ -143,6 +143,10 @@ const characterTrend = ref<
       hrs: number
       cnt: number
     }[]
+    trendFirst: {
+      hrs: number
+      cnt: number
+    }[]
   }[]
 >([])
 const showEvolutionGraph = ref(false)
@@ -179,6 +183,10 @@ const {
     query ($voteStart: DateTimeUtc!, $voteYear: Int!, $names: [String!]!) {
       queryCharacterTrend(voteStart: $voteStart, voteYear: $voteYear, names: $names) {
         trend {
+          hrs
+          cnt
+        }
+        trendFirst {
           hrs
           cnt
         }
