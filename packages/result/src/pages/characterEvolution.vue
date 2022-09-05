@@ -139,14 +139,15 @@ function deleteCharacter(character: string) {
 /* TODO: Complete the chart with this data */
 const characterTrend = ref<
   {
-    hrs: number
-    cnt: number
+    trend: {
+      hrs: number
+      cnt: number
+    }[]
   }[]
 >([])
 const showEvolutionGraph = ref(false)
-function getCharacterEvolution(): void {
+async function getCharacterEvolution(): Promise<void> {
   if (!charactersForEvolution.value.length) return
-  showEvolutionGraph.value = true
   if (queryCharacterEbvolutionForceDisabled.value)
     loadCharacterEbvolution(undefined, {
       voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
@@ -202,8 +203,9 @@ watchEffect(() => {
 })
 watchEffect(() => {
   if (resultCharacterEbvolution.value) {
-    if (resultCharacterEbvolution.value.queryCharacterTrend.trend) {
-      characterTrend.value = resultCharacterEbvolution.value.queryCharacterTrend.trend
+    if (resultCharacterEbvolution.value.queryCharacterTrend) {
+      characterTrend.value = resultCharacterEbvolution.value.queryCharacterTrend
+      showEvolutionGraph.value = true
     }
   }
 })
