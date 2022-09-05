@@ -67,7 +67,7 @@
           :class="charactersForEvolution.length ? 'bg-accent-600' : 'bg-accent-300'"
           @click="getCharacterEvolution()"
         >
-          提交图标申请请求
+          提交图表申请请求
         </div>
       </div>
     </div>
@@ -91,7 +91,7 @@
 <script lang="ts" setup>
 import { watchEffect } from 'vue'
 import NProgress from 'nprogress'
-import { gql, useLazyQuery } from '@/composables/graphql'
+import { gql, useQuery, useLazyQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { characterList } from '@touhou-vote/shared/data/character'
 import VoteSelect from '@/components/VoteSelect.vue'
@@ -136,6 +136,13 @@ function deleteCharacter(character: string) {
   }
 }
 
+/* TODO: Complete the chart with this data */
+const characterTrend = ref<
+  {
+    hrs: number
+    cnt: number
+  }[]
+>([])
 const showEvolutionGraph = ref(false)
 function getCharacterEvolution(): void {
   if (!charactersForEvolution.value.length) return
@@ -143,10 +150,16 @@ function getCharacterEvolution(): void {
   if (queryCharacterEbvolutionForceDisabled.value)
     loadCharacterEbvolution(undefined, {
       voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+      voteYear: 10,
+      names: charactersForEvolution.value,
     })
   else
     queryCharacterEbvolutionMore({
-      variables: { voteStart: new Date(Date.UTC(2022, 5, 17, 10)) },
+      variables: {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        names: charactersForEvolution.value,
+      },
       updateQuery(previousQueryResult, { fetchMoreResult }) {
         if (!fetchMoreResult) return previousQueryResult
         return fetchMoreResult
@@ -162,14 +175,19 @@ const {
   forceDisabled: queryCharacterEbvolutionForceDisabled,
 } = useLazyQuery<Query>(
   gql`
-    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
-      queryCharacterReasons(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
-        reasons
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $names: [String!]!) {
+      queryCharacterTrend(voteStart: $voteStart, voteYear: $voteYear, names: $names) {
+        trend {
+          hrs
+          cnt
+        }
       }
     }
   `,
   {
     voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+    voteYear: 10,
+    names: charactersForEvolution.value,
   },
   {
     fetchPolicy: 'network-only',
@@ -184,11 +202,59 @@ watchEffect(() => {
 })
 watchEffect(() => {
   if (resultCharacterEbvolution.value) {
+    if (resultCharacterEbvolution.value.queryCharacterTrend.trend) {
+      characterTrend.value = resultCharacterEbvolution.value.queryCharacterTrend.trend
+    }
   }
 })
 queryCharacterEbvolutionError((err) => {
   console.log(err.message)
-  alert('加载失败！')
+  alert('获取图表失败！')
+})
+
+const {
+  result: queryRankingResult,
+  loading: queryRankingLoading,
+  onError: queryRankingError,
+} = useQuery<Query>(
+  gql`
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!) {
+      queryCharacterRanking(voteStart: $voteStart, voteYear: $voteYear) {
+        global {
+          totalUniqueItems
+          totalFirst
+          totalVotes
+        }
+      }
+    }
+  `,
+  {
+    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+    voteYear: 10,
+  },
+  {
+    fetchPolicy: 'network-only',
+  }
+)
+watchEffect(() => {
+  if (queryRankingLoading.value) {
+    if (!NProgress.isStarted()) NProgress.start()
+  } else {
+    if (NProgress.isStarted()) NProgress.done()
+  }
+})
+watchEffect(() => {
+  if (queryRankingResult.value) {
+    if (queryRankingResult.value.queryCharacterRanking.global) {
+      totalUniqueItemsCharacter.value = queryRankingResult.value.queryCharacterRanking.global.totalUniqueItems
+      totalFirstCharacter.value = queryRankingResult.value.queryCharacterRanking.global.totalFirst
+      totalVotesCharacter.value = queryRankingResult.value.queryCharacterRanking.global.totalVotes
+    }
+  }
+})
+queryRankingError((err) => {
+  alert(err.message)
+  console.log('获取投票元信息失败！')
 })
 </script>
 <style lang="postcss" scoped>
