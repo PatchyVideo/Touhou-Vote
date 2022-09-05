@@ -32,7 +32,7 @@ export function createApollo(): ApolloClient<NormalizedCacheObject> {
   const link = from([
     // Backend Server
     new HttpLink({
-      uri: 'https://touhou-vote.vercel.app/v10-be/graphql',
+      uri: 'https://touhou.vote/v10-be/graphql',
       credentials: 'include',
     }),
   ])

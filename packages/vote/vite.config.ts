@@ -60,7 +60,7 @@ export default defineConfig(async ({ command, mode }) => {
     server: {
       proxy: {
         '/v10-be': {
-          target: 'https://touhou-vote.vercel.app',
+          target: 'https://touhou.vote',
           changeOrigin: true,
         },
       },
