@@ -298,6 +298,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  cpSearchRange: {
+    type: Boolean,
+    default: false,
+  },
 })
 const emit = defineEmits<{
   (event: 'update:open', value: boolean): void
@@ -359,11 +363,17 @@ type SearchRange = 'characterOrigin' | 'name' | 'nameJpn'
 const searchRangeDisplay: {
   name: string
   key: SearchRange
-}[] = [
-  { name: '所属作品', key: 'characterOrigin' },
-  { name: '角色名', key: 'name' },
-  { name: '日文名', key: 'nameJpn' },
-]
+}[] = props.cpSearchRange
+  ? [
+      { name: '角色1', key: 'characterOrigin' },
+      { name: '角色2', key: 'name' },
+      { name: '角色3', key: 'nameJpn' },
+    ]
+  : [
+      { name: '所属作品', key: 'characterOrigin' },
+      { name: '角色名', key: 'name' },
+      { name: '日文名', key: 'nameJpn' },
+    ]
 const searchRangeToNumber: { is: SearchRange[]; value: number }[] = [
   {
     is: ['characterOrigin', 'name', 'nameJpn'],
