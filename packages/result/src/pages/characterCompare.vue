@@ -44,7 +44,7 @@
     <!-- Form -->
     <div class="md:mx-5 flex bg-white shadow rounded border border-accent-600">
       <!-- Fixed Header -->
-      <div class="flex-grow flex">
+      <div class="flex">
         <div
           v-for="item in headerFixed"
           :key="item.key"
@@ -93,8 +93,13 @@
         </div>
       </div>
       <!-- Header not Fixed -->
-      <div class="flex flex-nowrap overflow-auto">
-        <div v-for="item in headerWithoutFixed" :key="item.key" class="border-r border-accent-600 min-w-25">
+      <div class="flex flex-grow flex-nowrap overflow-auto">
+        <div
+          v-for="item in headerWithoutFixed"
+          :key="item.key"
+          class="border-r border-accent-600 min-w-25"
+          :class="{ 'flex-grow': item.key === 'name' }"
+        >
           <!-- Header -->
           <div
             class="p-1 whitespace-nowrap border-b border-accent-600 flex flex-nowrap justify-between items-center space-x-1"
