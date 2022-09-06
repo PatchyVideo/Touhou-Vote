@@ -133,7 +133,7 @@
   >
     <div class="i-uil:file-search-alt text-2xl" />
   </div>
-  <characterDetailSearch v-model:open="search" :querymode="true" />
+  <CharacterDetailSearch v-model:open="search" :querymode="true" />
 </template>
 
 <script lang="ts" setup>
@@ -143,7 +143,7 @@ import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import NProgress from 'nprogress'
-import characterDetailSearch from '@/components/characterDetailSearch.vue'
+import CharacterDetailSearch from '@/components/CharacterDetailSearch.vue'
 
 setSiteTitle('角色部门结果 - 第⑩回 中文东方人气投票')
 

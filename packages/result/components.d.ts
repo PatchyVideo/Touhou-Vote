@@ -7,7 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    CharacterDetailSearch: typeof import('./src/components/characterDetailSearch.vue')['default']
+    CharacterDetailSearch: typeof import('./src/components/CharacterDetailSearch.vue')['default']
     Graph1: typeof import('./src/components/Graph1.vue')['default']
     Nav: typeof import('./src/components/Nav.vue')['default']
     NavTop: typeof import('./src/components/NavTop.vue')['default']

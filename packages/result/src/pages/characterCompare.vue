@@ -130,7 +130,7 @@
   >
     <div class="i-uil:file-search-alt text-2xl" />
   </div>
-  <characterDetailSearch v-model:open="search" />
+  <CharacterDetailSearch v-model:open="search" />
 </template>
 
 <script lang="ts" setup>
@@ -139,9 +139,9 @@ import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
-import characterDetailSearch from '@/components/characterDetailSearch.vue'
+import CharacterDetailSearch from '@/components/CharacterDetailSearch.vue'
 
-setSiteTitle('角色部门结果 - 第⑩回 中文东方人气投票')
+setSiteTitle('往届结果对比 - 第⑩回 中文东方人气投票')
 
 const route = useRoute()
 
