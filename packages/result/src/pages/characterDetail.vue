@@ -94,7 +94,7 @@
       </div>
       <!-- Header not Fixed -->
       <div class="flex flex-nowrap overflow-auto">
-        <div v-for="item in headerWithoutFixed" :key="item.key" class="border-r border-accent-600 min-w-25">
+        <div v-for="item in headerWithoutFixed" :key="item.key" class="border-r border-accent-600 min-w-26">
           <!-- Header -->
           <div
             class="p-1 whitespace-nowrap border-b border-accent-600 flex flex-nowrap justify-between items-center space-x-1"

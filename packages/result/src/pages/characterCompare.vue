@@ -97,7 +97,7 @@
         <div
           v-for="item in headerWithoutFixed"
           :key="item.key"
-          class="border-r border-accent-600 min-w-25"
+          class="border-r border-accent-600 min-w-26"
           :class="{ 'flex-grow': item.key === 'name' }"
         >
           <!-- Header -->

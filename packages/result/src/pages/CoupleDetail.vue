@@ -86,7 +86,7 @@
         <div
           v-for="item in headerWithoutFixed"
           :key="item.key"
-          class="border-r border-accent-600 min-w-25"
+          class="border-r border-accent-600 min-w-26"
           :class="{ 'flex-grow': item.key === 'aName' || item.key === 'bName' || item.key === 'cName' }"
         >
           <!-- Header -->
@@ -138,7 +138,7 @@ import type { Query } from '@/composables/graphql'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import NProgress from 'nprogress'
 
-setSiteTitle('角色部门结果 - 第⑩回 中文东方人气投票')
+setSiteTitle('CP部门结果 - 第⑩回 中文东方人气投票')
 
 const route = useRoute()
 
@@ -148,11 +148,11 @@ type HeaderKey =
   | 'aName'
   | 'bName'
   | 'cName'
+  | 'voteCount'
   | 'aActive'
   | 'bActive'
   | 'cActive'
   | 'noneActive'
-  | 'voteCount'
   | 'firstVoteCount'
   | 'firstVotePercentage'
   | 'firstVoteCountWeighted'
@@ -174,11 +174,11 @@ const header: Header[] = [
   { name: '角色名A', key: 'aName', sortable: false },
   { name: '角色名B', key: 'bName', sortable: false },
   { name: '角色名C', key: 'cName', sortable: false },
+  { name: '票数', key: 'voteCount', sortable: true },
   { name: 'A主动率', key: 'aActive', sortable: true },
   { name: 'B主动率', key: 'bActive', sortable: true },
   { name: 'C主动率', key: 'cActive', sortable: true },
-  { name: '无本命率', key: 'noneActive', sortable: true },
-  { name: '票数', key: 'voteCount', sortable: true },
+  { name: '无主动率', key: 'noneActive', sortable: true },
   { name: '本命数', key: 'firstVoteCount', sortable: true },
   { name: '总本命率', key: 'firstVotePercentage', sortable: true },
   { name: '本命加权', key: 'firstVoteCountWeighted', sortable: true },
