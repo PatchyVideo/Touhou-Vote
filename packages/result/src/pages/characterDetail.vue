@@ -39,6 +39,7 @@
       * 本页面为角色部门的票数排行简表。页面打开时已按票数排序，本命加权是指1本命票计算为2票<br />
       * 更高级的搜索功能可以点击右下角的图标展开高级搜索框<br />
       * 如果在移动端觉得表格过于拥挤可以尝试打开浏览器的“电脑UA（桌面端网站）”功能<br />
+      * 往届结果页面中的“同投率”一栏与“投票比例”合并<br />
       * 点 + 号或者表格行本身可展开详情，点击详情链接可以查看更加详尽的角色投票数据<br />
       * 点击表头可进行其他类型的排序，排序规则如下：<br />
       <div class="pl-4">
@@ -80,13 +81,17 @@
             <!-- Folder -->
             <div
               v-if="lineExpanded[index] && item.key === headerFixed[0].key"
-              class="absolute bottom-0 w-[calc(100vw-0.6rem)] md:w-[calc(100vw-4.1rem)] p-2 bg-white rounded shadow-inner border border-accent-600 space-y-2"
+              class="absolute z-10 bottom-0 w-[calc(100vw-0.6rem)] md:w-[calc(100vw-4.1rem)] p-2 bg-white rounded shadow-inner border border-accent-600 space-y-2"
             >
               <div class="p-1 rounded border border-accent-600 divide-y divide-accent-300">
                 <div v-for="item3 in headerFolded" class="truncate py-1">
                   {{ item3.name + ': ' + item2[item3.key] }}
                 </div>
-                <div class="py-1">角色详情：<router-link class="cursor-pointer" to="/">点击这里</router-link></div>
+                <div class="py-1">
+                  角色详情：<router-link class="cursor-pointer" :to="'/CharacterSingleDetail?name=' + item2.name"
+                    >点击这里</router-link
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -172,26 +177,28 @@ interface Header {
   name: string
   key: HeaderKey
 }
-const header: Header[] = [
-  { name: '名次', key: 'displayRank' },
-  { name: '角色名', key: 'name' },
-  { name: '票数', key: 'voteCount' },
-  { name: '本命数', key: 'firstVoteCount' },
-  { name: '本命率', key: 'firstVotePercentage' },
-  { name: '本命加权', key: 'firstVoteCountWeighted' },
-  { name: '票数占比', key: 'votePercentage' },
-  { name: '本命占比', key: 'firstPercentage' },
-  { name: '男性数', key: 'maleVoteCount' },
-  { name: '男性比例', key: 'malePercentagePerChar' },
-  { name: '女性数', key: 'femaleVoteCount' },
-  { name: '女性比例', key: 'femalePercentagePerChar' },
-  { name: '日文名', key: 'nameJpn' },
-  { name: '所属作品类型', key: 'characterType' },
-  { name: '所属作品', key: 'characterOrigin' },
-  { name: '初登场时间', key: 'firstAppearance' },
-  { name: '占总体男性比例', key: 'malePercentagePerTotal' },
-  { name: '占总体女性比例', key: 'femalePercentagePerTotal' },
-]
+const header = computed<Header[]>(() => {
+  return [
+    { name: '名次', key: 'displayRank' },
+    { name: '角色名', key: 'name' },
+    { name: '票数', key: 'voteCount' },
+    { name: '本命数', key: 'firstVoteCount' },
+    { name: '本命率', key: 'firstVotePercentage' },
+    { name: '本命加权', key: 'firstVoteCountWeighted' },
+    { name: additionalConstraint.value ? '同投率' : '票数占比', key: 'votePercentage' },
+    { name: '本命占比', key: 'firstPercentage' },
+    { name: '男性数', key: 'maleVoteCount' },
+    { name: '男性比例', key: 'malePercentagePerChar' },
+    { name: '女性数', key: 'femaleVoteCount' },
+    { name: '女性比例', key: 'femalePercentagePerChar' },
+    { name: '日文名', key: 'nameJpn' },
+    { name: '所属作品类型', key: 'characterType' },
+    { name: '所属作品', key: 'characterOrigin' },
+    { name: '初登场时间', key: 'firstAppearance' },
+    { name: '占总体男性比例', key: 'malePercentagePerTotal' },
+    { name: '占总体女性比例', key: 'femalePercentagePerTotal' },
+  ]
+})
 const headerFixed: Header[] = [
   { name: '名次', key: 'displayRank' },
   { name: '角色名', key: 'name' },
@@ -205,7 +212,7 @@ const headerFolded: Header[] = [
   { name: '占总体女性比例', key: 'femalePercentagePerTotal' },
 ]
 const headerWithoutFixed = computed<Header[]>(() =>
-  header.filter(
+  header.value.filter(
     (item) =>
       !headerFixed.find((item2) => item2.key === item.key) && !headerFolded.find((item2) => item2.key === item.key)
   )

@@ -661,15 +661,28 @@ function checkSubmitContent(): boolean {
   return true
 }
 const additionalConstraintCompressed = computed(() => {
-  return compressToEncodedURIComponent(
-    JSON.stringify({
-      characters: characters.value,
-      charactersFirst: charactersFirst.value,
-      musics: musics.value,
-      musicsFirst: musicsFirst.value,
-      questionnaire: questionnaires.value,
-    })
-  )
+  if (
+    GUIMode.value &&
+    !characters.value.length &&
+    charactersFirst.value === null &&
+    !musics.value.length &&
+    musicsFirst.value === null &&
+    !questionnaires.value.length
+  ) {
+    return ''
+  } else if (!GUIMode.value && queryword.value === '') {
+    return ''
+  } else {
+    return compressToEncodedURIComponent(
+      JSON.stringify({
+        characters: characters.value,
+        charactersFirst: charactersFirst.value,
+        musics: musics.value,
+        musicsFirst: musicsFirst.value,
+        questionnaire: questionnaires.value,
+      })
+    )
+  }
 })
 
 function search(): void {
