@@ -1,5 +1,6 @@
 <template>
   <!-- Cover -->
+  <div class="page"></div>
   <div class="flex justify-center">
     <div class="flex w-full h-100vh flex-col">
       <div class="flex-1"></div>
