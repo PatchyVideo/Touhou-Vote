@@ -548,3 +548,7 @@ function openSearch() {
   search.value = true
 }
 </script>
+<route lang="yaml">
+meta:
+  navid: couple
+</route>

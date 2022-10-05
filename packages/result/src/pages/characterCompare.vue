@@ -541,3 +541,7 @@ function openSearch() {
   search.value = true
 }
 </script>
+<route lang="yaml">
+meta:
+  navid: character
+</route>

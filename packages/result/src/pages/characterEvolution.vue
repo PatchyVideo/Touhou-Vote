@@ -277,3 +277,7 @@ queryRankingError((err) => {
   @apply opacity-0;
 }
 </style>
+<route lang="yaml">
+meta:
+  navid: character
+</route>

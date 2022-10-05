@@ -102,3 +102,7 @@ onError((err) => {
   console.log('获取信息失败！')
 })
 </script>
+<route lang="yaml">
+meta:
+  navid: questionnaire
+</route>
