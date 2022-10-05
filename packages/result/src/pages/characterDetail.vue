@@ -81,14 +81,14 @@
             <!-- Folder -->
             <div
               v-if="lineExpanded[index] && item.key === headerFixed[0].key"
-              class="absolute z-10 bottom-0 w-[calc(100vw-1.6rem)] md:w-[calc(100vw-4.1rem)] p-2 bg-white rounded shadow-inner border border-accent-600 space-y-2 font-medium"
+              class="absolute z-10 bottom-0 w-[calc(100vw-0.6rem)] md:w-[calc(100vw-4.1rem)] p-2 bg-white rounded shadow-inner border border-accent-600 space-y-2 font-medium"
             >
               <div class="p-1 rounded border border-accent-600 divide-y divide-accent-300">
                 <div v-for="item3 in headerFolded" class="truncate py-1">
                   {{ item3.name + ': ' + item2[item3.key] }}
                 </div>
                 <div class="py-1">
-                  角色详情：<router-link class="cursor-pointer" :to="'/characterSingleDetail?name=' + item2.name"
+                  角色详情：<router-link class="cursor-pointer" :to="'/haracterSingleDetail?name=' + item2.name"
                     >点击这里</router-link
                   >
                 </div>
@@ -232,11 +232,11 @@ function updateSortHeader(key: HeaderKey) {
     sortHeader.value.forward = true
   }
 }
-const totalUniqueItemsCharacter = ref(-1)
-const totalFirstCharacter = ref(-1)
-const totalVotesCharacter = ref(-1)
-const averageVotesPerItemCharacter = ref(-1)
-const medianVotesPerItemCharacter = ref(-1)
+const totalUniqueItemsCharacter = ref(0)
+const totalFirstCharacter = ref(0)
+const totalVotesCharacter = ref(0)
+const averageVotesPerItemCharacter = ref(0)
+const medianVotesPerItemCharacter = ref(0)
 interface ResultCharacter {
   rank: number
   displayRank: number
