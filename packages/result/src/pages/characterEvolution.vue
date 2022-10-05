@@ -98,9 +98,9 @@ import VoteSelect from '@/components/VoteSelect.vue'
 
 setSiteTitle('角色投票演进 - 第⑩回 中文东方人气投票')
 
-const totalUniqueItemsCharacter = ref(0)
-const totalFirstCharacter = ref(0)
-const totalVotesCharacter = ref(0)
+const totalUniqueItemsCharacter = ref(-1)
+const totalFirstCharacter = ref(-1)
+const totalVotesCharacter = ref(-1)
 const charactersForEvolution = ref<string[]>([])
 const ifMoreCharacterCanAdd = computed<boolean>(() => charactersForEvolution.value.length < 10)
 

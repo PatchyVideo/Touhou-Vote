@@ -5,24 +5,24 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.thwiki.cc/thumb/a/a6/THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png/100px-THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png"
+          src="https://upload.thwiki.cc/thumb/4/49/THBWiki-LOGO-%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85.png/100px-THBWiki-LOGO-%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
-        <h2 class="text-4xl font-light">角色部门</h2>
+        <h2 class="text-4xl font-light">音乐部门</h2>
         <span class="ml-3 text-xl">目录</span>
       </div>
       <div class="grid grid-cols-3 grid-rows-2 gap-1 text-center">
-        <div>参投角色总数</div>
+        <div>参投曲目总数</div>
         <div>总本命票数</div>
         <div>总有效票数</div>
-        <div>{{ totalUniqueItemsCharacter }}</div>
-        <div>{{ totalFirstCharacter }}</div>
-        <div>{{ totalVotesCharacter }}</div>
+        <div>{{ totalUniqueItemsMusic }}</div>
+        <div>{{ totalFirstMusic }}</div>
+        <div>{{ totalVotesMusic }}</div>
       </div>
     </div>
 
     <div class="md:m-5 px-3 py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700">
-      *本页面为人气投票角色部门的结果目录，请点击上面的对应项目查看详细数据。<br />
+      *本页面为人气投票音乐部门的结果目录，请点击上面的对应项目查看详细数据。<br />
       *本届与上一届相同，数据展示的结构和层次均进行了重新的设计，本届的结果都在一个页面内集中展示。
     </div>
 
@@ -50,28 +50,28 @@ import NProgress from 'nprogress'
 const pages = [
   {
     title: '本届投票结果',
-    desc: '本届的所有角色投票信息均整理在该页面',
-    to: '/characterDetail',
+    desc: '本届的所有曲目投票信息均整理在该页面',
+    to: '/musicDetail',
   },
   {
     title: '上届对比结果',
-    desc: '与上一届的角色投票信息进行比对的页面',
-    to: '/characterCompare',
+    desc: '与上一届的曲目投票信息进行比对的页面',
+    to: '/musicCompare',
   },
   {
     title: '投票演进比对',
-    desc: '选择角色并对比其投票演进与变化的情况',
-    to: '/characterEvolution',
+    desc: '选择曲目并对比其投票演进与变化的情况',
+    to: '/musicEvolution',
   },
   {
     title: '同投关系可视化',
-    desc: '角色的同投率关系可视化',
-    to: '/characterConnect',
+    desc: '曲目的同投率关系可视化',
+    to: '/musicConnect',
   },
 ]
-const totalUniqueItemsCharacter = ref(-1)
-const totalFirstCharacter = ref(-1)
-const totalVotesCharacter = ref(-1)
+const totalUniqueItemsMusic = ref(-1)
+const totalFirstMusic = ref(-1)
+const totalVotesMusic = ref(-1)
 const {
   result,
   loading: queryRankingLoading,
@@ -79,7 +79,7 @@ const {
 } = useQuery<Query>(
   gql`
     query ($query: String, $voteStart: DateTimeUtc!, $voteYear: Int!) {
-      queryCharacterRanking(query: $query, voteStart: $voteStart, voteYear: $voteYear) {
+      queryMusicRanking(query: $query, voteStart: $voteStart, voteYear: $voteYear) {
         global {
           totalUniqueItems
           totalFirst
@@ -106,10 +106,10 @@ watchEffect(() => {
 })
 watchEffect(() => {
   if (result.value) {
-    if (result.value.queryCharacterRanking.global) {
-      totalUniqueItemsCharacter.value = result.value.queryCharacterRanking.global.totalUniqueItems
-      totalFirstCharacter.value = result.value.queryCharacterRanking.global.totalFirst
-      totalVotesCharacter.value = result.value.queryCharacterRanking.global.totalVotes
+    if (result.value.queryMusicRanking.global) {
+      totalUniqueItemsMusic.value = result.value.queryMusicRanking.global.totalUniqueItems
+      totalFirstMusic.value = result.value.queryMusicRanking.global.totalFirst
+      totalVotesMusic.value = result.value.queryMusicRanking.global.totalVotes
     }
   }
 })

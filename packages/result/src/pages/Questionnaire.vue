@@ -6,10 +6,10 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.thwiki.cc/a/a6/THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png"
+          src="https://upload.thwiki.cc/thumb/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png/100px-THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
-        <h2 class="text-4xl font-light">问卷部门</h2>
+        <h2 class="text-4xl font-light">调查问卷</h2>
         <span class="ml-3 text-xl">结果信息</span>
       </div>
       <div class="grid grid-cols-3 md:grid-cols-5 gap-1 text-sm md:text-base text-center">
@@ -54,13 +54,13 @@ import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
 
-setSiteTitle('问卷部门结果 - 第⑩回 中文东方人气投票')
+setSiteTitle('调查问卷结果 - 第⑩回 中文东方人气投票')
 
-const numVote = ref(0)
-const numChar = ref(0)
-const numMusic = ref(0)
-const numCp = ref(0)
-const numDoujin = ref(0)
+const numVote = ref(-1)
+const numChar = ref(-1)
+const numMusic = ref(-1)
+const numCp = ref(-1)
+const numDoujin = ref(-1)
 
 const { result, loading, onError } = useQuery<Query>(
   gql`

@@ -184,5 +184,13 @@ defineProps<{
 
 const route = useRoute()
 
+watch(
+  route,
+  () => {
+    drawerOpen = false
+  },
+  { deep: true }
+)
+
 const drawerOpen = $ref(false)
 </script>

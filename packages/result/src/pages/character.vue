@@ -1,5 +1,5 @@
 <template>
-  <!-- TODO -->
+  <summaryCharacter class="min-h-80vh"></summaryCharacter>
 </template>
 
 <script lang="ts" setup>

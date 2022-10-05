@@ -88,7 +88,7 @@
                   {{ item3.name + ': ' + item2[item3.key] }}
                 </div>
                 <div class="py-1">
-                  角色详情：<router-link class="cursor-pointer" :to="'/CharacterSingleDetail?name=' + item2.name"
+                  角色详情：<router-link class="cursor-pointer" :to="'/characterSingleDetail?name=' + item2.name"
                     >点击这里</router-link
                   >
                 </div>
@@ -232,11 +232,11 @@ function updateSortHeader(key: HeaderKey) {
     sortHeader.value.forward = true
   }
 }
-const totalUniqueItemsCharacter = ref(0)
-const totalFirstCharacter = ref(0)
-const totalVotesCharacter = ref(0)
-const averageVotesPerItemCharacter = ref(0)
-const medianVotesPerItemCharacter = ref(0)
+const totalUniqueItemsCharacter = ref(-1)
+const totalFirstCharacter = ref(-1)
+const totalVotesCharacter = ref(-1)
+const averageVotesPerItemCharacter = ref(-1)
+const medianVotesPerItemCharacter = ref(-1)
 interface ResultCharacter {
   rank: number
   displayRank: number

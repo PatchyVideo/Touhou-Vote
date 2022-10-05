@@ -6,7 +6,7 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.thwiki.cc/a/a6/THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png"
+          src="https://upload.thwiki.cc/thumb/a/a6/THBWiki-LOGO-%E7%A7%98%E5%B0%81%E4%BF%B1%E4%B9%90%E9%83%A8.png/100px-THBWiki-LOGO-%E7%A7%98%E5%B0%81%E4%BF%B1%E4%B9%90%E9%83%A8.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <h2 class="text-4xl font-light">CP部门</h2>
@@ -221,11 +221,11 @@ function updateSortHeader(key: HeaderKey) {
     sortHeader.value.forward = true
   }
 }
-const totalUniqueItemsCouple = ref(0)
-const totalFirstCouple = ref(0)
-const totalVotesCouple = ref(0)
-const averageVotesPerItemCouple = ref(0)
-const medianVotesPerItemCouple = ref(0)
+const totalUniqueItemsCouple = ref(-1)
+const totalFirstCouple = ref(-1)
+const totalVotesCouple = ref(-1)
+const averageVotesPerItemCouple = ref(-1)
+const medianVotesPerItemCouple = ref(-1)
 interface ResultCouple {
   rank: number
   displayRank: number

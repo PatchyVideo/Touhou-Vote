@@ -56,3 +56,7 @@ const characterImg = computed(
 )
 setSiteTitle(characterName.value + ' - 第⑩回 中文东方人气投票')
 </script>
+<route lang="yaml">
+meta:
+  navid: character
+</route>

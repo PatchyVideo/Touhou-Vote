@@ -81,12 +81,12 @@ const resultTypeMeta = ref([
   {
     img: 'https://upload.thwiki.cc/thumb/f/f7/THBWiki-LOGO-%E5%AE%87%E4%BD%90%E8%A7%81%E5%A0%87%E5%AD%90.png/100px-THBWiki-LOGO-%E5%AE%87%E4%BD%90%E8%A7%81%E5%A0%87%E5%AD%90.png',
     name: '提名部门',
-    to: 'doujin',
+    to: '/doujin',
   },
   {
     img: 'https://upload.thwiki.cc/thumb/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png/100px-THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png',
     name: '调查问卷',
-    to: 'questionnaire',
+    to: '/questionnaire',
   },
 ])
 </script>
