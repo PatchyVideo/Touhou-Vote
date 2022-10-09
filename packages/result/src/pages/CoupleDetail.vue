@@ -136,6 +136,7 @@ import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
+import { toPercentageString } from '@/lib/numberFormat'
 import NProgress from 'nprogress'
 
 setSiteTitle('CP部门结果 - 第⑩回 中文东方人气投票')
@@ -539,9 +540,6 @@ queryRankingError((err) => {
   alert(err.message)
   console.log(err.message)
 })
-function toPercentageString(num: number): string {
-  return (num * 100).toFixed(2) + '%'
-}
 
 const search = ref(false)
 function openSearch() {

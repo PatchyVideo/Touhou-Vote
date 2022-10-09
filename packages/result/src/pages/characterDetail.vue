@@ -88,7 +88,7 @@
                   {{ item3.name + ': ' + item2[item3.key] }}
                 </div>
                 <div class="py-1">
-                  角色详情：<router-link class="cursor-pointer" :to="'/haracterSingleDetail?name=' + item2.name"
+                  角色详情：<router-link class="cursor-pointer" :to="'/characterSingleDetail?rank=' + item2.rank"
                     >点击这里</router-link
                   >
                 </div>
@@ -147,6 +147,7 @@ import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
+import { toPercentageString, toTimeFormat } from '@/lib/numberFormat'
 import NProgress from 'nprogress'
 
 setSiteTitle('角色部门结果 - 第⑩回 中文东方人气投票')
@@ -535,14 +536,6 @@ queryRankingError((err) => {
   alert(err.message)
   console.log(err.message)
 })
-function toPercentageString(num: number): string {
-  return (num * 100).toFixed(2) + '%'
-}
-function toTimeFormat(time: string): string {
-  time = time.slice(0, 4) + '/' + time.slice(4)
-  time = time.slice(0, 7) + '/' + time.slice(7)
-  return time
-}
 
 const search = ref(false)
 function openSearch() {
