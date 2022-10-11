@@ -4,11 +4,18 @@
     <div
       class="mb-0 md:mx-5 p-3 space-y-3 bg-white bg-opacity-80 rounded-t md:bg-opacity-0 md:rounded md:flex md:flex-wrap md:justify-between md:items-center"
     >
-      <div class="flex items-end">
-        <img :src="characterImg" class="w-10 h-10 col-span-1 row-span-2 rounded" />
-        <h2 class="text-4xl font-light">{{ characterName }}</h2>
-        <span class="ml-3 text-xl">投票理由</span>
+      <div class="flex items-center">
+        <img
+          src="https://upload.thwiki.cc/thumb/a/a6/THBWiki-LOGO-%E7%A7%98%E5%B0%81%E4%BF%B1%E4%B9%90%E9%83%A8.png/100px-THBWiki-LOGO-%E7%A7%98%E5%B0%81%E4%BF%B1%E4%B9%90%E9%83%A8.png"
+          class="w-10 h-10 col-span-1 row-span-2 rounded"
+        />
+        <div>
+          <h2 class="text-3xl font-light">投票理由</h2>
+          <span class="text-xl hidden md:inline-block">{{ coupleName }}</span>
+        </div>
       </div>
+      <span class="text-xl md:hidden">{{ coupleName }}</span>
+
       <div class="grid grid-cols-3 md:grid-cols-6 gap-1 text-sm md:text-base text-center">
         <div>
           <div>票数</div>
@@ -53,19 +60,14 @@ import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
-import { characterList } from '@touhou-vote/shared/data/character'
 import { toPercentageString } from '@/lib/numberFormat'
-import characterImages from '@/assets/defaultCharacterImage.png?url'
 
 const route = useRoute()
 
-const characterRank = ref(
+const coupleRank = ref(
   Number(route.query.rank ? (Array.isArray(route.query.rank) ? route.query.rank[0] : route.query.rank) : 1)
 )
-const characterName = ref('ID：' + characterRank.value)
-const characterImg = computed(
-  () => characterList.find((item) => item.name === characterName.value)?.image || characterImages
-)
+const coupleName = ref('ID：' + coupleRank.value)
 const voteCount = ref(-1)
 const firstVoteCount = ref(-1)
 const firstVotePercentage = ref<number | string>(-1)
@@ -76,8 +78,16 @@ const numReasons = ref(-1)
 const { result, loading, onError } = useQuery<Query>(
   gql`
     query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
-      queryCharacterSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
-        name
+      queryCPSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
+        cp {
+          a
+          b
+          c
+        }
+        aActive
+        bActive
+        cActive
+        noneActive
         voteCount
         firstVoteCount
         firstVotePercentage
@@ -92,7 +102,7 @@ const { result, loading, onError } = useQuery<Query>(
   {
     voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
     voteYear: 10,
-    rank: characterRank.value,
+    rank: coupleRank.value,
   }
 )
 watchEffect(() => {
@@ -104,16 +114,20 @@ watchEffect(() => {
 })
 watchEffect(() => {
   if (result.value) {
-    if (result.value.queryCharacterSingle) {
-      characterName.value = result.value.queryCharacterSingle.name
-      setSiteTitle(characterName.value + '的投票理由 - 第⑩回 中文东方人气投票')
-      voteCount.value = result.value.queryCharacterSingle.voteCount
-      firstVoteCount.value = result.value.queryCharacterSingle.firstVoteCount
-      firstVotePercentage.value = toPercentageString(result.value.queryCharacterSingle.firstVotePercentage)
-      votePercentage.value = toPercentageString(result.value.queryCharacterSingle.votePercentage)
-      firstPercentage.value = toPercentageString(result.value.queryCharacterSingle.firstPercentage)
-      reasons.value = result.value.queryCharacterSingle.reasons
-      numReasons.value = result.value.queryCharacterSingle.numReasons
+    if (result.value.queryCPSingle) {
+      coupleName.value =
+        result.value.queryCPSingle.cp.a +
+        ' x ' +
+        result.value.queryCPSingle.cp.b +
+        (result.value.queryCPSingle.cp.c ? ' x ' + result.value.queryCPSingle.cp.c : '')
+      setSiteTitle(coupleName.value + ' - 第⑩回 中文东方人气投票')
+      voteCount.value = result.value.queryCPSingle.voteCount
+      firstVoteCount.value = result.value.queryCPSingle.firstVoteCount
+      firstVotePercentage.value = toPercentageString(result.value.queryCPSingle.firstVotePercentage)
+      votePercentage.value = toPercentageString(result.value.queryCPSingle.votePercentage)
+      firstPercentage.value = toPercentageString(result.value.queryCPSingle.firstPercentage)
+      reasons.value = result.value.queryCPSingle.reasons
+      numReasons.value = result.value.queryCPSingle.numReasons
     }
   }
 })
@@ -124,5 +138,5 @@ onError((err) => {
 </script>
 <route lang="yaml">
 meta:
-  navid: character
+  navid: couple
 </route>
