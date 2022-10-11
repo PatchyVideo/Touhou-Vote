@@ -69,13 +69,17 @@
             <!-- Folder -->
             <div
               v-if="lineExpanded[index] && item.key === headerFixed[0].key"
-              class="absolute bottom-0 w-[calc(100vw-0.6rem)] md:w-[calc(100vw-4.1rem)] p-2 bg-white rounded shadow-inner border border-accent-600 space-y-2"
+              class="absolute z-10 bottom-0 w-[calc(100vw-0.6rem)] md:w-[calc(100vw-4.1rem)] p-2 bg-white rounded shadow-inner border border-accent-600 space-y-2"
             >
               <div class="p-1 rounded border border-accent-600 divide-y divide-accent-300">
                 <div v-for="item3 in headerFolded" class="truncate py-1">
                   {{ item3.name + ': ' + item2[item3.key] }}
                 </div>
-                <div class="py-1">CP详情：<router-link class="cursor-pointer" to="/">点击这里</router-link></div>
+                <div class="py-1">
+                  CP详情：<router-link class="cursor-pointer" :to="'/coupleSingleDetail?rank=' + item2.rank"
+                    >点击这里</router-link
+                  >
+                </div>
               </div>
             </div>
           </div>
