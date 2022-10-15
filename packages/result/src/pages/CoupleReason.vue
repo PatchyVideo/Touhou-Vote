@@ -47,6 +47,47 @@
       * 本页面列出所有投票的时候用户提交的投票理由<br />
       * 可使用 Ctrl + F 或 ⌘ + F 调出浏览器自带的搜索功能进行搜索
     </div>
+    <div class="md:mx-5 p-3">
+      <div class="text-2xl py-0.5 border-b border-accent-600">角色与主动方倾向信息信息</div>
+      <div class="flex bg-white">
+        <!-- Fixed Header -->
+        <div class="flex-grow flex">
+          <div v-for="item in headerFixed" :key="item.key" :class="{ 'flex-grow': item.key === 'name' }">
+            <!-- Header -->
+            <div class="p-1 whitespace-nowrap border-b border-accent-600">
+              <div>{{ item.name }}</div>
+            </div>
+            <!-- Content -->
+            <div v-for="item2 in coupleMeta" :key="item2.name">
+              <router-link
+                class="block p-1 truncate max-w-30 md:max-w-none"
+                v-if="item.key === 'name' && item2[item.key] != '无主动率'"
+                :to="'/characterSingleDetail?rank=' + item2.rank"
+                >{{ item2.name }}</router-link
+              >
+              <div v-else class="p-1 truncate max-w-30 md:max-w-none">
+                {{ item2[item.key] }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Header not Fixed -->
+        <div class="flex flex-nowrap overflow-auto">
+          <div v-for="item in headerWithoutFixed" :key="item.key" class="min-w-26">
+            <!-- Header -->
+            <div class="p-1 whitespace-nowrap border-b border-accent-600">
+              <div>{{ item.name }}</div>
+            </div>
+            <!-- Content -->
+            <div v-for="item2 in coupleMeta" :key="item2.name">
+              <div class="p-1 truncate max-w-30 md:max-w-none">
+                {{ item2[item.key] }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="md:mx-5 p-3 divide-y-1 divide-accent-300">
       <div class="text-2xl py-0.5 border-b border-accent-600">理由列表</div>
       <div v-for="item in reasons" :key="item" class="py-0.5 break-words">
@@ -96,6 +137,16 @@ const { result, loading, onError } = useQuery<Query>(
         reasons
         numReasons
       }
+      queryCharacterRanking(voteStart: $voteStart, voteYear: $voteYear) {
+        entries {
+          rank
+          displayRank
+          name
+          voteCount
+          firstVoteCount
+          firstVotePercentage
+        }
+      }
     }
   `,
 
@@ -129,12 +180,72 @@ watchEffect(() => {
       reasons.value = result.value.queryCPSingle.reasons
       numReasons.value = result.value.queryCPSingle.numReasons
     }
+    if (result.value.queryCharacterRanking.entries && result.value.queryCPSingle) {
+      const characterIndex: ('a' | 'b' | 'c')[] = ['a', 'b', 'c']
+      for (const i of characterIndex) {
+        const index = result.value.queryCharacterRanking.entries.findIndex(
+          (item) => item.name === (result.value?.queryCPSingle.cp[i] || 'ERROR')
+        )
+        // @ts-ignore:不能将类型“string”分配给类型“"aActive" | "bActive" | "cActive"”
+        const iActive: 'aActive' | 'bActive' | 'cActive' = i + 'Active'
+        coupleMeta.value.push({
+          rank: result.value.queryCharacterRanking.entries[index].rank,
+          name: result.value.queryCPSingle.cp[i] || 'ERROR',
+          active: toPercentageString(result.value.queryCPSingle[iActive]),
+          displayRank: result.value.queryCharacterRanking.entries[index].displayRank,
+          voteCount: result.value.queryCharacterRanking.entries[index].voteCount,
+          firstVoteCount: result.value.queryCharacterRanking.entries[index].firstVoteCount,
+          firstVotePercentage: toPercentageString(
+            result.value.queryCharacterRanking.entries[index].firstVotePercentage
+          ),
+        })
+      }
+      coupleMeta.value.push({
+        name: '无主动率',
+        active: toPercentageString(result.value.queryCPSingle.noneActive),
+        displayRank: '-',
+        voteCount: '-',
+        firstVoteCount: '-',
+        firstVotePercentage: '-',
+      })
+    }
   }
 })
 onError((err) => {
   alert(err.message)
   console.log(err.message)
 })
+type HeaderKey = 'rank' | 'active' | 'displayRank' | 'name' | 'voteCount' | 'firstVoteCount' | 'firstVotePercentage'
+
+interface Header {
+  name: string
+  key: HeaderKey
+}
+const header = computed<Header[]>(() => {
+  return [
+    { name: '主动率', key: 'active' },
+    { name: '名次', key: 'displayRank' },
+    { name: '角色名', key: 'name' },
+    { name: '票数', key: 'voteCount' },
+    { name: '本命数', key: 'firstVoteCount' },
+    { name: '本命率', key: 'firstVotePercentage' },
+  ]
+})
+const headerFixed: Header[] = [{ name: '角色名', key: 'name' }]
+const headerWithoutFixed = computed<Header[]>(() =>
+  header.value.filter((item) => !headerFixed.find((item2) => item2.key === item.key))
+)
+const coupleMeta = ref<
+  {
+    rank?: number
+    name: string
+    active: number | string
+    displayRank: number | string
+    voteCount: number | string
+    firstVoteCount: number | string
+    firstVotePercentage: number | string
+  }[]
+>([])
 </script>
 <route lang="yaml">
 meta:
