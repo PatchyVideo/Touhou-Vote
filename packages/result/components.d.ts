@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AdvancedSearch: typeof import('./src/components/AdvancedSearch.vue')['default']
     Graph1: typeof import('./src/components/Graph1.vue')['default']
+    GraphEvolution: typeof import('./src/components/GraphEvolution.vue')['default']
     Nav: typeof import('./src/components/Nav.vue')['default']
     NavTop: typeof import('./src/components/NavTop.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

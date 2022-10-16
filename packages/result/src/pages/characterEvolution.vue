@@ -64,7 +64,7 @@
         </div>
         <div
           class="px-3 py-2 md:py-0 mt-2 md:mt-0 w-full md:w-auto rounded-xl text-sm text-white text-center md:flex md:items-center cursor-pointer"
-          :class="charactersForEvolution.length ? 'bg-accent-600' : 'bg-accent-300'"
+          :class="charactersForEvolution.length && !queryCharacterEbvolutionLoading ? 'bg-accent-600' : 'bg-accent-300'"
           @click="getCharacterEvolution()"
         >
           提交图表申请请求
@@ -82,8 +82,10 @@
         </div>
         <div class="px-3 pt-3 md:pt-1 text-lg border-b border-accent-300">总票数演进</div>
         <!-- Graph for vote evolution -->
+        <GraphEvolution :x-axis="GraphTimeRange" :data="trend" class="max-w-4xl pt-3" />
         <div class="px-3 pt-3 md:pt-1 text-lg border-b border-accent-300">总本命票数演进</div>
         <!-- Graph for vote evolution -->
+        <GraphEvolution :x-axis="GraphTimeRange" :data="trendFirst" class="max-w-4xl pt-3" />
       </div>
     </transition>
   </div>
@@ -94,7 +96,9 @@ import NProgress from 'nprogress'
 import { gql, useQuery, useLazyQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { characterList } from '@touhou-vote/shared/data/character'
+import { GraphDataLine, GraphTimeRange, getTrendData } from '@/lib/Graph'
 import VoteSelect from '@/components/VoteSelect.vue'
+import GraphEvolution from '@/components/GraphEvolution.vue'
 
 setSiteTitle('角色投票演进 - 第⑩回 中文东方人气投票')
 
@@ -102,7 +106,9 @@ const totalUniqueItemsCharacter = ref(-1)
 const totalFirstCharacter = ref(-1)
 const totalVotesCharacter = ref(-1)
 const charactersForEvolution = ref<string[]>([])
-const ifMoreCharacterCanAdd = computed<boolean>(() => charactersForEvolution.value.length < 10)
+const ifMoreCharacterCanAdd = computed<boolean>(
+  () => charactersForEvolution.value.length < 10 && !queryCharacterEbvolutionLoading.value
+)
 
 const characterItemList = computed(() =>
   characterList
@@ -136,22 +142,15 @@ function deleteCharacter(character: string) {
   }
 }
 
-/* TODO: Complete the chart with this data */
-const characterTrend = ref<
-  {
-    trend: {
-      hrs: number
-      cnt: number
-    }[]
-    trendFirst: {
-      hrs: number
-      cnt: number
-    }[]
-  }[]
->([])
+const trend = ref<GraphDataLine[]>([])
+const trendFirst = ref<GraphDataLine[]>([])
+const trendCharacterNumber = ref(charactersForEvolution.value.length)
 const showEvolutionGraph = ref(false)
 async function getCharacterEvolution(): Promise<void> {
-  if (!charactersForEvolution.value.length) return
+  if (!charactersForEvolution.value.length || queryCharacterEbvolutionLoading.value) return
+  resultCharacterEbvolution.value = undefined
+  showEvolutionGraph.value = false
+  trendCharacterNumber.value = charactersForEvolution.value.length
   if (queryCharacterEbvolutionForceDisabled.value)
     loadCharacterEbvolution(undefined, {
       voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
@@ -212,7 +211,19 @@ watchEffect(() => {
 watchEffect(() => {
   if (resultCharacterEbvolution.value) {
     if (resultCharacterEbvolution.value.queryCharacterTrend) {
-      characterTrend.value = resultCharacterEbvolution.value.queryCharacterTrend
+      trend.value = []
+      trendFirst.value = []
+      for (let i = 0; i < trendCharacterNumber.value; i++) {
+        trend.value.push(
+          getTrendData(charactersForEvolution.value[i], resultCharacterEbvolution.value.queryCharacterTrend[i].trend)
+        )
+        trendFirst.value.push(
+          getTrendData(
+            charactersForEvolution.value[i],
+            resultCharacterEbvolution.value.queryCharacterTrend[i].trendFirst
+          )
+        )
+      }
       showEvolutionGraph.value = true
     }
   }
