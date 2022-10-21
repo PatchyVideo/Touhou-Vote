@@ -131,7 +131,7 @@
         />
         <router-link
           class="py-3 inline-block"
-          :to="'QuestionnaireInputDetail?qid=' + item.questionId"
+          :to="'QuestionnaireInputDetail?qid=' + item.questionId + '&q=chars:[&quot;' + characterName + '&quot;]'"
           v-else-if="item.type === 'Input'"
           >点击这里查看全部回答</router-link
         >
@@ -328,7 +328,7 @@ const {
   {
     voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
     voteYear: 10,
-    query: 'chars:["' + characterList[0].name + '"]',
+    query: 'chars:["' + characterName.value + '"]',
     questionsOfInterest: allQuestionnaireIDList.value,
   }
 )
