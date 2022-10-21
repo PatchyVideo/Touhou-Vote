@@ -1,4 +1,4 @@
-<template><div ref="chartDom" class="w-full aspect-ratio-16/10"></div></template>
+<template><div ref="chartDom" class="w-full aspect-1/1 md:aspect-ratio-16/10"></div></template>
 <script lang="ts" setup>
 import { GraphDataLine } from '@/lib/Graph'
 import * as echarts from 'echarts/core'
@@ -101,21 +101,17 @@ const option = computed<EChartsOption>(() => {
     }),
   }
 })
-watch(
-  props.data,
-  () => {
-    option.value && GraphEvolution.setOption(option.value)
-  },
-  { deep: true }
-)
 
 let GraphEvolution: echarts.ECharts
 const chartDom = ref<HTMLElement>()!
 onMounted(() => {
   if (chartDom.value) {
     GraphEvolution = echarts.init(chartDom.value)
-    window.onresize = () => GraphEvolution.resize()
+    window.addEventListener('resize', () => GraphEvolution.resize())
     option.value && GraphEvolution.setOption(option.value)
+    watchEffect(() => {
+      if (props.xAxis.length) option.value && GraphEvolution.setOption(option.value)
+    })
   }
 })
 </script>
