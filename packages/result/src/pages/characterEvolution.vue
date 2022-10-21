@@ -82,10 +82,10 @@
         </div>
         <div class="px-3 pt-3 md:pt-1 text-lg border-b border-accent-300">总票数演进</div>
         <!-- Graph for vote evolution -->
-        <GraphEvolution :x-axis="GraphTimeRange" :data="trend" class="max-w-4xl pt-3" />
+        <GraphEvolution :x-axis="GraphTimeRange" :data="trend" class="max-w-4xl pt-3 mx-auto" />
         <div class="px-3 pt-3 md:pt-1 text-lg border-b border-accent-300">总本命票数演进</div>
         <!-- Graph for vote evolution -->
-        <GraphEvolution :x-axis="GraphTimeRange" :data="trendFirst" class="max-w-4xl pt-3" />
+        <GraphEvolution :x-axis="GraphTimeRange" :data="trendFirst" class="max-w-4xl pt-3 mx-auto" />
       </div>
     </transition>
   </div>
