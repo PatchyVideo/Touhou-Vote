@@ -14,6 +14,10 @@ export const allQuestionnaireIDList = computed<string[]>(() => {
   return IDList
 })
 
+export function qIDToID(qID: string): string {
+  return qID.substring(1, qID.length)
+}
+
 interface Question {
   id: string
   question: string
@@ -55,13 +59,27 @@ function IDToQuestionLibrary(ID: string): number {
   return Number(ID.substring(2, 4)) - 1
 }
 export function findQuestionWithQuestionID(QuestionID: string): Question {
+  // 💩: fix for wrong question ID in questionnaire list
+  if (QuestionID === '25112')
+    return {
+      id: '25112',
+      question: '您认为除了现有平台，还可以搭建什么样的平台来帮助创作者与观众？',
+      type: 'Input',
+      options: [],
+    }
+  if (QuestionID === '25113')
+    return {
+      id: '25113',
+      question: '您对于本次投票有何意见或建议呢？',
+      type: 'Input',
+      options: [],
+    }
   return {
-    id:
-      String(
-        questionnaire[IDToBigQuestionnaire(QuestionID)][IDToSmallQuestionnaire(QuestionID)].questions[
-          IDToQuestionLibrary(QuestionID)
-        ].find((item) => item.id === Number(QuestionID))?.id
-      ) || '00000',
+    id: String(
+      questionnaire[IDToBigQuestionnaire(QuestionID)][IDToSmallQuestionnaire(QuestionID)].questions[
+        IDToQuestionLibrary(QuestionID)
+      ].find((item) => item.id === Number(QuestionID))?.id || '00000'
+    ),
     question:
       questionnaire[IDToBigQuestionnaire(QuestionID)][IDToSmallQuestionnaire(QuestionID)].questions[
         IDToQuestionLibrary(QuestionID)
@@ -82,4 +100,14 @@ export function findQuestionWithQuestionID(QuestionID: string): Question {
           }
         }) || [],
   }
+}
+
+export function getSmallQuestionnaireChineseName(qID: string): string {
+  const ID = Number(qIDToID(qID))
+  for (const bigQuestionnaire in questionnaire)
+    for (const smallQuestionnaire in questionnaire[bigQuestionnaire]) {
+      if (questionnaire[bigQuestionnaire][smallQuestionnaire].id === ID)
+        return questionnaire[bigQuestionnaire][smallQuestionnaire].name
+    }
+  return ''
 }
