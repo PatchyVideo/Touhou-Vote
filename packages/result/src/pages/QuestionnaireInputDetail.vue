@@ -118,3 +118,7 @@ onError((err) => {
   console.log(err.message)
 })
 </script>
+<route lang="yaml">
+meta:
+  navid: questionnaire
+</route>
