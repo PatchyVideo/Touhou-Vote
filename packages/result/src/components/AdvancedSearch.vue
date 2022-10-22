@@ -298,6 +298,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  musicSearchRange: {
+    type: Boolean,
+    default: false,
+  },
   cpSearchRange: {
     type: Boolean,
     default: false,
@@ -363,7 +367,12 @@ type SearchRange = 'characterOrigin' | 'name' | 'nameJpn'
 const searchRangeDisplay: {
   name: string
   key: SearchRange
-}[] = props.cpSearchRange
+}[] = props.musicSearchRange
+  ? [
+      { name: '曲目名', key: 'characterOrigin' },
+      { name: '日文名', key: 'name' },
+    ]
+  : props.cpSearchRange
   ? [
       { name: '角色1', key: 'characterOrigin' },
       { name: '角色2', key: 'name' },
