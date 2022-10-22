@@ -90,7 +90,16 @@
         </div>
       </div>
     </div>
-    <div class="md:mx-5 p-3"></div>
+    <div class="md:mx-5 p-3">
+      <div class="text-2xl py-0.5 border-b border-accent-600">投票演进</div>
+      <div class="py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700">
+        * 该图表表示该角色随着投票进程的票数变化情况。<br />
+        * 投票日期：{{ startTimeString + ' ~ ' + deadlineString }}。<br />
+        * 通过拖动底部和右侧的滑柄或在图表上缩放（鼠标或手指）可以筛选数据范围，也可以点击顶部的图例开关某个数据的显示。
+      </div>
+      <GraphEvolution :x-axis="GraphTimeRange" :data="trend" class="max-w-4xl pt-3 mx-auto" />
+    </div>
+    <Questionnaire class="md:mx-5" :q="q" />
   </div>
 </template>
 <script lang="ts" setup>
@@ -99,6 +108,8 @@ import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
 import { toPercentageString } from '@/lib/numberFormat'
+import { GraphDataLine, GraphTimeRange, getTrendData, getAddedTrendData } from '@/lib/Graph'
+import { startTimeString, deadlineString } from '@touhou-vote/shared/data/time'
 
 const route = useRoute()
 
@@ -112,9 +123,11 @@ const firstVotePercentage = ref<number | string>(-1)
 const votePercentage = ref<number | string>(-1)
 const firstPercentage = ref<number | string>(-1)
 const numReasons = ref(-1)
+const trend = ref<GraphDataLine[]>([])
+const q = ref<string>('NONE')
 const { result, loading, onError } = useQuery<Query>(
   gql`
-    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!, $ranks: [Int!]!) {
       queryCPSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
         cp {
           a
@@ -132,6 +145,16 @@ const { result, loading, onError } = useQuery<Query>(
         firstPercentage
         numReasons
       }
+      queryCPTrend(voteStart: $voteStart, voteYear: $voteYear, ranks: $ranks) {
+        trend {
+          hrs
+          cnt
+        }
+        trendFirst {
+          hrs
+          cnt
+        }
+      }
       queryCharacterRanking(voteStart: $voteStart, voteYear: $voteYear) {
         entries {
           rank
@@ -148,6 +171,7 @@ const { result, loading, onError } = useQuery<Query>(
     voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
     voteYear: 10,
     rank: coupleRank.value,
+    ranks: [coupleRank.value],
   }
 )
 watchEffect(() => {
@@ -166,6 +190,13 @@ watchEffect(() => {
         result.value.queryCPSingle.cp.b +
         (result.value.queryCPSingle.cp.c ? ' x ' + result.value.queryCPSingle.cp.c : '')
       setSiteTitle(coupleName.value + ' - 第⑩回 中文东方人气投票')
+      q.value =
+        'cp=("' +
+        result.value.queryCPSingle.cp.a +
+        '","' +
+        result.value.queryCPSingle.cp.b +
+        (result.value.queryCPSingle.cp.c ? '","' + result.value.queryCPSingle.cp.c : '') +
+        '")'
       voteCount.value = result.value.queryCPSingle.voteCount
       firstVoteCount.value = result.value.queryCPSingle.firstVoteCount
       firstVotePercentage.value = toPercentageString(result.value.queryCPSingle.firstVotePercentage)
@@ -202,6 +233,14 @@ watchEffect(() => {
         firstVoteCount: '-',
         firstVotePercentage: '-',
       })
+    }
+    if (result.value.queryCPTrend) {
+      trend.value.push(
+        getTrendData('总票数', result.value.queryCPTrend[0].trend),
+        getAddedTrendData('新增票数', result.value.queryCPTrend[0].trend),
+        getTrendData('总本命票数', result.value.queryCPTrend[0].trendFirst),
+        getAddedTrendData('新增本命票', result.value.queryCPTrend[0].trendFirst)
+      )
     }
   }
 })
