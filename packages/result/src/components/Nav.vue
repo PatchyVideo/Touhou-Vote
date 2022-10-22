@@ -147,7 +147,7 @@
           </div>
         </RouterLink>
 
-        <RouterLink to="/questionnaire" class="flex py-1 items-center gap-1 md:flex-1 md:justify-center">
+        <RouterLink to="/questionnaireDetail" class="flex py-1 items-center gap-1 md:flex-1 md:justify-center">
           <img
             src="https://upload.thwiki.cc/thumb/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png/100px-THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png"
             class="w-10 h-10 col-span-1 row-span-2 rounded"

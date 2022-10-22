@@ -86,7 +86,7 @@ const resultTypeMeta = ref([
   {
     img: 'https://upload.thwiki.cc/thumb/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png/100px-THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png',
     name: '调查问卷',
-    to: '/questionnaire',
+    to: '/questionnaireDetail',
   },
 ])
 </script>
