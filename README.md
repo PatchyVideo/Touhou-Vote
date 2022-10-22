@@ -25,6 +25,8 @@
 
 需求文档: <https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/VoileLabs-人气投票项目-需求文档.docx>
 
+需求文档（投票结果页面）:<https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/VoileLabs-人气投票项目-需求文档-投票结果页面>
+
 路线图: <https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/ROADMAP.md>
 
 调查问卷大纲: <https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/OUTLINE-Questionnaire.md>
