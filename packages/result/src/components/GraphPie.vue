@@ -57,6 +57,7 @@ const option = computed<EChartsOption>(() => {
         option: {
           series: [
             {
+              radius: '50%',
               center: ['50%', '70%'],
             },
           ],

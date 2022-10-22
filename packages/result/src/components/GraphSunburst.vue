@@ -38,7 +38,7 @@ const option = computed<EChartsOption>(() => {
     series: [
       {
         type: 'pie',
-        radius: ['0%', '40%'],
+        radius: ['0%', '60%'],
         label: {
           position: 'outside',
         },
@@ -49,7 +49,7 @@ const option = computed<EChartsOption>(() => {
       },
       {
         type: 'pie',
-        radius: ['40%', '50%'],
+        radius: ['60%', '70%'],
         label: {
           show: false,
         },
@@ -67,10 +67,12 @@ const option = computed<EChartsOption>(() => {
         option: {
           series: [
             {
-              center: ['50%', '70%'],
+              radius: ['0%', '40%'],
+              center: ['50%', '75%'],
             },
             {
-              center: ['50%', '70%'],
+              radius: ['40%', '50%'],
+              center: ['50%', '75%'],
             },
           ],
         },
