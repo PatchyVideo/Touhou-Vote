@@ -122,7 +122,7 @@
           <div v-for="(item2, index) in resultCharactersForDisplay" :key="item2.rank" class="relative">
             <div
               class="py-1 px-3 truncate max-w-30 md:max-w-none border-t border-accent-600"
-              :class="{ 'pb-66': lineExpanded[index] }"
+              :class="{ 'pb-48': lineExpanded[index] }"
             >
               {{ item2[item.key] }}
             </div>
