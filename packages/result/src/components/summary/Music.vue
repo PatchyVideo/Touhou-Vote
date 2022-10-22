@@ -63,11 +63,11 @@ const pages = [
     desc: '选择曲目并对比其投票演进与变化的情况',
     to: '/musicEvolution',
   },
-  {
-    title: '同投关系可视化',
-    desc: '曲目的同投率关系可视化',
-    to: '/musicConnect',
-  },
+  // {
+  //   title: '同投关系可视化',
+  //   desc: '曲目的同投率关系可视化',
+  //   to: '/musicConnect',
+  // },
 ]
 const totalUniqueItemsMusic = ref(-1)
 const totalFirstMusic = ref(-1)

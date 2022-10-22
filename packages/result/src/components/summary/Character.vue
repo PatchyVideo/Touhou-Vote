@@ -63,11 +63,11 @@ const pages = [
     desc: '选择角色并对比其投票演进与变化的情况',
     to: '/characterEvolution',
   },
-  {
-    title: '同投关系可视化',
-    desc: '角色的同投率关系可视化',
-    to: '/characterConnect',
-  },
+  // {
+  //   title: '同投关系可视化',
+  //   desc: '角色的同投率关系可视化',
+  //   to: '/characterConnect',
+  // },
 ]
 const totalUniqueItemsCharacter = ref(-1)
 const totalFirstCharacter = ref(-1)
