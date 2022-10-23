@@ -7,5 +7,5 @@ export const deadline = new Date(2022, 6, 5).getTime()
 export function timeFormat(date: Date): string {
   return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ': 00'
 }
-export const startTimeString = computed<string>(() => timeFormat(new Date(startTime)))
-export const deadlineString = computed<string>(() => timeFormat(new Date(deadline)))
+export const startTimeString = timeFormat(new Date(startTime))
+export const deadlineString = timeFormat(new Date(deadline))
