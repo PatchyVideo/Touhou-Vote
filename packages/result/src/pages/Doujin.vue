@@ -6,5 +6,5 @@ setSiteTitle('提名部门结果 - 第⑩回 中文东方人气投票')
 
 <route lang="yaml">
 meta:
-  navid: music
+  navid: doujin
 </route>
