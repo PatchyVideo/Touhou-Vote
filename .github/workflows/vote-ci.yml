@@ -41,12 +41,12 @@ jobs:
 
       - name: Codegen
         run: pnpm codegen
-        working-directory: ./packages/vote
+        working-directory: ./packages/result
         timeout-minutes: 5
 
       - name: Build
         run: pnpm build
-        working-directory: ./packages/vote
+        working-directory: ./packages/result
         timeout-minutes: 15
 
       - name: Deploy to Vercel
