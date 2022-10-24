@@ -49,6 +49,7 @@ const option = computed<EChartsOption>(() => {
       indicator: props.indicator.map((item) => {
         return {
           name: item,
+          max: maxData.value,
         }
       }),
     },
@@ -63,6 +64,13 @@ const option = computed<EChartsOption>(() => {
 
 let GraphEvolution: echarts.ECharts
 const chartDom = ref<HTMLElement>()!
+const maxData = computed<number>(() => {
+  let max = 200
+  props.data[0].value.map((item) => {
+    if (item > max) max = item
+  })
+  return max * 1.25
+})
 onMounted(() => {
   if (chartDom.value) {
     GraphEvolution = echarts.init(chartDom.value)
