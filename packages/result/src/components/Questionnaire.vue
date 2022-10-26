@@ -154,7 +154,7 @@ function getIndicator(item: QuestionItem): string[] {
 function getDataRadar(item: QuestionItem): GraphDataRadar[] {
   const data = []
   data.push(
-    { name: '总票数2', value: item.answersCat.map((item2) => item2.totalVotes) },
+    { name: '总票数', value: item.answersCat.map((item2) => item2.totalVotes) },
     { name: '男性票数', value: item.answersCat.map((item2) => item2.maleVotes) },
     { name: '女性票数', value: item.answersCat.map((item2) => item2.femaleVotes) }
   )
