@@ -11,6 +11,10 @@
 
 开发进度: V1.3.1
 
+## 网址
+
+[touhou.vote](https://touhou.vote)
+
 ## 新功能
 
 比起前几届的系统，本届多出了以下功能：
@@ -67,4 +71,15 @@ $ pnpm nav:dev
 # 构建 & 运行
 $ pnpm nav:build
 $ pnpm nav:serve
+```
+
+### 结果页
+
+```bash
+# 启动本地调试
+$ pnpm result:dev
+
+# 构建 & 运行
+$ pnpm result:build
+$ pnpm result:serve
 ```
