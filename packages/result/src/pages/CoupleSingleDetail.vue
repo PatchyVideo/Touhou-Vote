@@ -127,7 +127,7 @@ const trend = ref<GraphDataLine[]>([])
 const q = ref<string>('NONE')
 const { result, loading, onError } = useQuery<Query>(
   gql`
-    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!, $ranks: [Int!]!) {
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
       queryCPSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
         cp {
           a
@@ -143,9 +143,6 @@ const { result, loading, onError } = useQuery<Query>(
         firstVotePercentage
         votePercentage
         firstPercentage
-        numReasons
-      }
-      queryCPTrend(voteStart: $voteStart, voteYear: $voteYear, ranks: $ranks) {
         trend {
           hrs
           cnt
@@ -154,6 +151,7 @@ const { result, loading, onError } = useQuery<Query>(
           hrs
           cnt
         }
+        numReasons
       }
       queryCharacterRanking(voteStart: $voteStart, voteYear: $voteYear) {
         entries {
@@ -171,7 +169,6 @@ const { result, loading, onError } = useQuery<Query>(
     voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
     voteYear: 10,
     rank: coupleRank.value,
-    ranks: [coupleRank.value],
   }
 )
 watchEffect(() => {
@@ -203,6 +200,12 @@ watchEffect(() => {
       votePercentage.value = toPercentageString(result.value.queryCPSingle.votePercentage)
       firstPercentage.value = toPercentageString(result.value.queryCPSingle.firstPercentage)
       numReasons.value = result.value.queryCPSingle.numReasons
+      trend.value.push(
+        getTrendData('总票数', result.value.queryCPSingle.trend),
+        getAddedTrendData('新增票数', result.value.queryCPSingle.trend),
+        getTrendData('总本命票数', result.value.queryCPSingle.trendFirst),
+        getAddedTrendData('新增本命票', result.value.queryCPSingle.trendFirst)
+      )
     }
     if (result.value.queryCharacterRanking.entries && result.value.queryCPSingle) {
       const characterIndex: ('a' | 'b' | 'c')[] = ['a', 'b', 'c']
@@ -233,14 +236,6 @@ watchEffect(() => {
         firstVoteCount: '-',
         firstVotePercentage: '-',
       })
-    }
-    if (result.value.queryCPTrend) {
-      trend.value.push(
-        getTrendData('总票数', result.value.queryCPTrend[0].trend),
-        getAddedTrendData('新增票数', result.value.queryCPTrend[0].trend),
-        getTrendData('总本命票数', result.value.queryCPTrend[0].trendFirst),
-        getAddedTrendData('新增本命票', result.value.queryCPTrend[0].trendFirst)
-      )
     }
   }
 })
