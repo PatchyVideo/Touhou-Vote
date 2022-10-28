@@ -227,7 +227,7 @@
                 </div>
               </div>
               • musics_first = 曲目名
-              <div class="pl-4">示例：chars_first="信仰是为了虚幻之人"</div>
+              <div class="pl-4">示例：musics_first="信仰是为了虚幻之人"</div>
             </div>
           </div>
           <div>
@@ -246,7 +246,7 @@
               <div class="pl-4">示例：q11011 = 1101101 OR chars: ["东风谷早苗"]</div>
               • 上述两种逻辑关系可以使用“(”或“)”调整优先级
               <div class="pl-4">
-                示例：(q11011 = 1101101 AND chars: ["东风谷早苗"]) OR chars_first="信仰是为了虚幻之人"
+                示例：(q11011 = 1101101 AND chars: ["东风谷早苗"]) OR musics_first="信仰是为了虚幻之人"
               </div>
             </div>
           </div>
