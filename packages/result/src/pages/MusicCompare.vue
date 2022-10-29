@@ -147,7 +147,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
-import { toPercentageString } from '@/lib/numberFormat'
+import { toPercentageString, toTimeFormat } from '@/lib/numberFormat'
 import NProgress from 'nprogress'
 
 setSiteTitle('往届结果对比 - 第⑩回 中文东方人气投票')
@@ -511,6 +511,7 @@ watchEffect(() => {
         item.votePercentageLast1 = toPercentageString(item.votePercentageLast1)
         item.votePercentageLast2 = toPercentageString(item.votePercentageLast2)
         item.firstPercentage = toPercentageString(item.firstPercentage)
+        item.firstAppearance = toTimeFormat(item.firstAppearance)
         return item
       })
     }
