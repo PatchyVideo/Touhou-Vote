@@ -460,7 +460,7 @@ const {
           firstVoteCountLast2
           firstVotePercentage
           firstVotePercentageLast1
-          firstVotePercentageLast1
+          firstVotePercentageLast2
           votePercentage
           votePercentageLast1
           votePercentageLast2
