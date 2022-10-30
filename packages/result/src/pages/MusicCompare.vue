@@ -147,7 +147,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
-import { toPercentageString, toTimeFormat } from '@/lib/numberFormat'
+import { toPercentageString } from '@/lib/numberFormat'
 import NProgress from 'nprogress'
 
 setSiteTitle('往届结果对比 - 第⑩回 中文东方人气投票')
@@ -174,7 +174,6 @@ type HeaderKey =
   | 'votePercentageLast2'
   | 'firstPercentage'
   | 'nameJpn'
-  | 'firstAppearance'
 interface Header {
   name: string
   key: HeaderKey
@@ -199,13 +198,9 @@ const header: Header[] = [
   { name: '第8届', key: 'votePercentageLast2' },
   { name: '本命占比', key: 'firstPercentage' },
   { name: '日文名', key: 'nameJpn' },
-  { name: '初登场时间', key: 'firstAppearance' },
 ]
 const headerFixed: Header[] = [{ name: '名次', key: 'displayRank' }]
-const headerFolded: Header[] = [
-  { name: '日文名', key: 'nameJpn' },
-  { name: '初登场时间', key: 'firstAppearance' },
-]
+const headerFolded: Header[] = [{ name: '日文名', key: 'nameJpn' }]
 const headerWithoutFixed = computed<Header[]>(() =>
   header.filter(
     (item) =>
@@ -253,7 +248,6 @@ interface ResultMusic {
   votePercentageLast2: number
   firstPercentage: number
   nameJpn: string
-  firstAppearance: string
 }
 const resultMusics = ref<ResultMusic[]>([])
 const resultMusicsForDisplay = computed<ResultMusic[]>(() => {
@@ -502,16 +496,19 @@ watchEffect(() => {
       medianVotesPerItemMusic.value = result.value.queryMusicRanking.global.medianVotesPerItem
       // @ts-expect-error
       resultMusics.value = JSON.parse(JSON.stringify(result.value.queryMusicRanking.entries)).map((item) => {
-        item.displayRankLast1 = 0
-        item.displayRankLast2 = 0
+        item.voteCountLast1 = item.voteCountLast1 < 0 ? '-' : item.voteCountLast1
+        item.voteCountLast2 = item.voteCountLast2 < 0 ? '-' : item.voteCountLast2
+        item.firstVoteCountLast1 = item.firstVoteCountLast1 < 0 ? '-' : item.firstVoteCountLast1
+        item.firstVoteCountLast2 = item.firstVoteCountLast2 < 0 ? '-' : item.firstVoteCountLast2
         item.firstVotePercentage = toPercentageString(item.firstVotePercentage)
-        item.firstVotePercentageLast1 = toPercentageString(item.firstVotePercentageLast1)
-        item.firstVotePercentageLast2 = toPercentageString(item.firstVotePercentageLast2)
+        item.firstVotePercentageLast1 =
+          item.firstVotePercentageLast1 < 0 ? '-' : toPercentageString(item.firstVotePercentageLast1)
+        item.firstVotePercentageLast2 =
+          item.firstVotePercentageLast2 < 0 ? '-' : toPercentageString(item.firstVotePercentageLast2)
         item.votePercentage = toPercentageString(item.votePercentage)
-        item.votePercentageLast1 = toPercentageString(item.votePercentageLast1)
-        item.votePercentageLast2 = toPercentageString(item.votePercentageLast2)
+        item.votePercentageLast1 = item.votePercentageLast1 < 0 ? '-' : toPercentageString(item.votePercentageLast1)
+        item.votePercentageLast2 = item.votePercentageLast2 < 0 ? '-' : toPercentageString(item.votePercentageLast2)
         item.firstPercentage = toPercentageString(item.firstPercentage)
-        item.firstAppearance = toTimeFormat(item.firstAppearance)
         return item
       })
     }

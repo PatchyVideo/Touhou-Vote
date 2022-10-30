@@ -519,14 +519,18 @@ watchEffect(() => {
       medianVotesPerItemCharacter.value = result.value.queryCharacterRanking.global.medianVotesPerItem
       // @ts-expect-error
       resultCharacters.value = JSON.parse(JSON.stringify(result.value.queryCharacterRanking.entries)).map((item) => {
-        item.displayRankLast1 = 0
-        item.displayRankLast2 = 0
+        item.voteCountLast1 = item.voteCountLast1 < 0 ? '-' : item.voteCountLast1
+        item.voteCountLast2 = item.voteCountLast2 < 0 ? '-' : item.voteCountLast2
+        item.firstVoteCountLast1 = item.firstVoteCountLast1 < 0 ? '-' : item.firstVoteCountLast1
+        item.firstVoteCountLast2 = item.firstVoteCountLast2 < 0 ? '-' : item.firstVoteCountLast2
         item.firstVotePercentage = toPercentageString(item.firstVotePercentage)
-        item.firstVotePercentageLast1 = toPercentageString(item.firstVotePercentageLast1)
-        item.firstVotePercentageLast2 = toPercentageString(item.firstVotePercentageLast2)
+        item.firstVotePercentageLast1 =
+          item.firstVotePercentageLast1 < 0 ? '-' : toPercentageString(item.firstVotePercentageLast1)
+        item.firstVotePercentageLast2 =
+          item.firstVotePercentageLast2 < 0 ? '-' : toPercentageString(item.firstVotePercentageLast2)
         item.votePercentage = toPercentageString(item.votePercentage)
-        item.votePercentageLast1 = toPercentageString(item.votePercentageLast1)
-        item.votePercentageLast2 = toPercentageString(item.votePercentageLast2)
+        item.votePercentageLast1 = item.votePercentageLast1 < 0 ? '-' : toPercentageString(item.votePercentageLast1)
+        item.votePercentageLast2 = item.votePercentageLast2 < 0 ? '-' : toPercentageString(item.votePercentageLast2)
         item.firstPercentage = toPercentageString(item.firstPercentage)
         item.firstAppearance = toTimeFormat(item.firstAppearance)
         return item
