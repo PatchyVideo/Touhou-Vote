@@ -28,6 +28,7 @@ const option = computed<EChartsOption>(() => {
   const returnData: EChartsOption = {
     tooltip: {
       trigger: 'item',
+      formatter: '{b0}: {c0}({d0}%)',
     },
     legend: {},
     toolbox: {
@@ -41,6 +42,7 @@ const option = computed<EChartsOption>(() => {
         radius: ['0%', '60%'],
         label: {
           position: 'outside',
+          formatter: '{b}: {c}({d}%)',
         },
         labelLine: {
           length: 50,

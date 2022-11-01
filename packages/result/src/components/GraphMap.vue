@@ -47,6 +47,16 @@ const option = computed<EChartsOption>(() => {
   return {
     tooltip: {
       trigger: 'item',
+      formatter: function (params) {
+        return (
+          params.data.name +
+          ': ' +
+          params.data.value +
+          '(' +
+          (((params.data.value / getTotalData(params.seriesIndex)) * 100).toFixed(2) + '%') +
+          ')'
+        )
+      },
     },
     legend: {
       selectedMode: 'single',
@@ -125,5 +135,25 @@ onMounted(async () => {
     }
   })
 })
+function getTotalData(seriesIndex: number): number {
+  let i = 0
+  switch (seriesIndex) {
+    case 1:
+      props.dataMale.map((item) => {
+        i += item.value
+      })
+      return i
+    case 2:
+      props.dataFemale.map((item) => {
+        i += item.value
+      })
+      return i
+    default:
+      props.dataTotal.map((item) => {
+        i += item.value
+      })
+      return i
+  }
+}
 </script>
 <style lang="postcss" scoped></style>

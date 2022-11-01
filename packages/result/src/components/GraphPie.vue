@@ -26,6 +26,7 @@ const option = computed<EChartsOption>(() => {
   const returnData: EChartsOption = {
     tooltip: {
       trigger: 'item',
+      formatter: '{b}: {c}({d}%)',
     },
     legend: {},
     toolbox: {
@@ -38,6 +39,9 @@ const option = computed<EChartsOption>(() => {
         type: 'pie',
         radius: '70%',
         data: props.data,
+        label: {
+          formatter: '{b}: {c}({d}%)',
+        },
         emphasis: {
           itemStyle: {
             shadowBlur: 10,
