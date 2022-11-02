@@ -156,15 +156,27 @@ function getMaleAndFemaleAnswerNumber(item: QuestionItem): GraphDataSunburst[] {
 function getIndicator(item: QuestionItem): string[] {
   const indicator: string[] = []
   item.answersCat.map((item2) => indicator.push(item2.content))
+  // 囧说要把囧仙粉丝群这个选项去掉，原因未知💩
+  if (item.questionId === 'q25091') indicator.splice(8, 1)
   return indicator
 }
 function getDataRadar(item: QuestionItem): GraphDataRadar[] {
   const data = []
-  data.push(
-    { name: '总票数', value: item.answersCat.map((item2) => item2.totalVotes) },
-    { name: '男性票数', value: item.answersCat.map((item2) => item2.maleVotes) },
-    { name: '女性票数', value: item.answersCat.map((item2) => item2.femaleVotes) }
-  )
+  // 囧说要把囧仙粉丝群这个选项去掉，原因未知💩
+  if (item.questionId === 'q25091') {
+    let valueItem = [...item.answersCat]
+    valueItem.splice(8, 1)
+    data.push(
+      { name: '总票数', value: valueItem.map((item2) => item2.totalVotes) },
+      { name: '男性票数', value: valueItem.map((item2) => item2.maleVotes) },
+      { name: '女性票数', value: valueItem.map((item2) => item2.femaleVotes) }
+    )
+  } else
+    data.push(
+      { name: '总票数', value: item.answersCat.map((item2) => item2.totalVotes) },
+      { name: '男性票数', value: item.answersCat.map((item2) => item2.maleVotes) },
+      { name: '女性票数', value: item.answersCat.map((item2) => item2.femaleVotes) }
+    )
   return data
 }
 const {
