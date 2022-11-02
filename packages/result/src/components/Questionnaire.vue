@@ -160,7 +160,6 @@ function getIndicator(item: QuestionItem): string[] {
   if (item.questionId === 'q25091') {
     indicator.splice(8, 1)
     indicator.splice(10, 1)
-    console.log(indicator)
   }
   return indicator
 }
