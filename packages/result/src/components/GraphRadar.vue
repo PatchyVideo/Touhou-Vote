@@ -15,10 +15,14 @@ import {
 import { RadarChart } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
+import { sum } from 'd3'
 
 const props = defineProps<{
   indicator: string[]
   data: GraphDataRadar[]
+  voteTotal: number
+  voteMale: number
+  voteFamale: number
 }>()
 
 echarts.use([
@@ -38,8 +42,16 @@ const option = computed<EChartsOption>(() => {
   return {
     tooltip: {
       trigger: 'item',
+      formatter: function (params: any): HTMLElement {
+        return getFormatter(params.data.name, params.data.value)
+      },
     },
-    legend: {},
+    legend: {
+      selected: {
+        男性票数: false,
+        女性票数: false,
+      },
+    },
     toolbox: {
       feature: {
         saveAsImage: {},
@@ -56,14 +68,33 @@ const option = computed<EChartsOption>(() => {
     series: [
       {
         type: 'radar',
-        data: props.data,
+        data: dataWithRelativeScale.value,
       },
     ],
   }
 })
 
-let GraphEvolution: echarts.ECharts
+let GraphRadar: echarts.ECharts
 const chartDom = ref<HTMLElement>()!
+const dataWithRelativeScale = computed<GraphDataRadar[]>(() => {
+  let relatedData: GraphDataRadar[] = [
+    {
+      name: '男性相对比例',
+      value: [],
+    },
+    {
+      name: '女性相对比例',
+      value: [],
+    },
+  ]
+  props.data[1].value.map((item) => {
+    relatedData[0].value.push((item * props.voteTotal) / props.voteMale)
+  })
+  props.data[2].value.map((item) => {
+    relatedData[1].value.push((item * props.voteTotal) / props.voteFamale)
+  })
+  return props.data.concat(relatedData)
+})
 const maxData = computed<number>(() => {
   let max = 200
   props.data[0].value.map((item) => {
@@ -73,13 +104,31 @@ const maxData = computed<number>(() => {
 })
 onMounted(() => {
   if (chartDom.value) {
-    GraphEvolution = echarts.init(chartDom.value)
-    window.addEventListener('resize', () => GraphEvolution.resize())
-    option.value && GraphEvolution.setOption(option.value)
+    GraphRadar = echarts.init(chartDom.value)
+    window.addEventListener('resize', () => GraphRadar.resize())
+    option.value && GraphRadar.setOption(option.value)
     watchEffect(() => {
-      if (props.indicator.length) option.value && GraphEvolution.setOption(option.value)
+      if (props.indicator.length) option.value && GraphRadar.setOption(option.value)
     })
   }
 })
+function getFormatter(name: string, value: number[]): HTMLElement {
+  let div = document.createElement('div')
+  let tooltipHTML = '<span>' + name + ':</span>'
+  for (let i = 0; i < value.length; i++) {
+    tooltipHTML +=
+      name === '男性相对比例' || name === '女性相对比例'
+        ? '<div>' + props.indicator[i] + ': ' + ((value[i] * 100) / sum(value)).toFixed(2) + '% </div>'
+        : '<div>' +
+          props.indicator[i] +
+          ': ' +
+          value[i] +
+          ' (' +
+          ((value[i] * 100) / sum(value)).toFixed(2) +
+          '%) </div>'
+  }
+  div.innerHTML = tooltipHTML
+  return div
+}
 </script>
 <style lang="postcss" scoped></style>

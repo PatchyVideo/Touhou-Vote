@@ -13,6 +13,10 @@
         <div class="py-1 text-sm">
           {{ '总回答数：' + item.totalAnswers + '；男性数：' + item.totalMale + '；女性数：' + item.totalFemale }}
         </div>
+        <div v-if="item.type === 'Multiple'" class="py-1 text-sm italic text-gray-700">
+          *【男性/女性相对比例】是方便查看男性/女性之间投票选项的差异而设置的，其计算公式为：回答该选项的男性/女性票数
+          ➗ (回答该问题的男性/女性票数 ➗ 回答该问题的总票数)
+        </div>
         <GraphMap
           v-if="item.questionId === 'q11031'"
           :data-total="
@@ -72,6 +76,9 @@
         <GraphRadar
           :indicator="getIndicator(item)"
           :data="getDataRadar(item)"
+          :vote-total="item.totalAnswers"
+          :vote-male="item.totalMale"
+          :vote-famale="item.totalFemale"
           v-else-if="item.type === 'Multiple'"
           class="max-w-4xl pt-3 mx-auto"
         />
