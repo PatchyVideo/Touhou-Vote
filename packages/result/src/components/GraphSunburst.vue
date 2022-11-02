@@ -30,7 +30,9 @@ const option = computed<EChartsOption>(() => {
       trigger: 'item',
       formatter: '{b0}: {c0}({d0}%)',
     },
-    legend: {},
+    legend: {
+      data: props.data.map((item) => item.name),
+    },
     toolbox: {
       feature: {
         saveAsImage: {},
