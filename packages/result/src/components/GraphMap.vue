@@ -47,7 +47,7 @@ const option = computed<EChartsOption>(() => {
   return {
     tooltip: {
       trigger: 'item',
-      formatter: function (params) {
+      formatter: function (params: any) {
         return (
           params.data.name +
           ': ' +
