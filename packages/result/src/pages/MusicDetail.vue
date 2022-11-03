@@ -174,6 +174,7 @@ type HeaderKey =
   | 'malePercentagePerChar'
   | 'femaleVoteCount'
   | 'femalePercentagePerChar'
+  | 'album'
   | 'nameJpn'
   | 'firstAppearance'
   | 'malePercentagePerTotal'
@@ -196,6 +197,7 @@ const header = computed<Header[]>(() => {
     { name: '男性比例', key: 'malePercentagePerChar' },
     { name: '女性数', key: 'femaleVoteCount' },
     { name: '女性比例', key: 'femalePercentagePerChar' },
+    { name: '所在专辑', key: 'album' },
     { name: '日文名', key: 'nameJpn' },
     { name: '初登场时间', key: 'firstAppearance' },
     { name: '占总体男性比例', key: 'malePercentagePerTotal' },
@@ -207,6 +209,7 @@ const headerFixed: Header[] = [
   { name: '曲目名', key: 'name' },
 ]
 const headerFolded: Header[] = [
+  { name: '所在专辑', key: 'album' },
   { name: '日文名', key: 'nameJpn' },
   { name: '初登场时间', key: 'firstAppearance' },
   { name: '占总体男性比例', key: 'malePercentagePerTotal' },
@@ -252,6 +255,7 @@ interface ResultMusic {
   malePercentagePerChar: number
   femaleVoteCount: number
   femalePercentagePerChar: number
+  album: string
   nameJpn: string
   firstAppearance: string
   malePercentagePerTotal: number
@@ -458,6 +462,7 @@ const {
           malePercentagePerChar
           femaleVoteCount
           femalePercentagePerChar
+          album
           nameJpn
           firstAppearance
           malePercentagePerTotal

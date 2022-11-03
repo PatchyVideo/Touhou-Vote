@@ -147,7 +147,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
-import { toPercentageString } from '@/lib/numberFormat'
+import { toPercentageString, toTimeFormat } from '@/lib/numberFormat'
 import NProgress from 'nprogress'
 
 setSiteTitle('往届结果对比 - 第⑩回 中文东方人气投票')
@@ -173,7 +173,9 @@ type HeaderKey =
   | 'votePercentageLast1'
   | 'votePercentageLast2'
   | 'firstPercentage'
+  | 'album'
   | 'nameJpn'
+  | 'firstAppearance'
 interface Header {
   name: string
   key: HeaderKey
@@ -197,10 +199,16 @@ const header: Header[] = [
   { name: '第⑨届', key: 'votePercentageLast1' },
   { name: '第8届', key: 'votePercentageLast2' },
   { name: '本命占比', key: 'firstPercentage' },
+  { name: '所在专辑', key: 'album' },
   { name: '日文名', key: 'nameJpn' },
+  { name: '初登场时间', key: 'firstAppearance' },
 ]
 const headerFixed: Header[] = [{ name: '名次', key: 'displayRank' }]
-const headerFolded: Header[] = [{ name: '日文名', key: 'nameJpn' }]
+const headerFolded: Header[] = [
+  { name: '所在专辑', key: 'album' },
+  { name: '日文名', key: 'nameJpn' },
+  { name: '初登场时间', key: 'firstAppearance' },
+]
 const headerWithoutFixed = computed<Header[]>(() =>
   header.filter(
     (item) =>
@@ -247,7 +255,9 @@ interface ResultMusic {
   votePercentageLast1: number
   votePercentageLast2: number
   firstPercentage: number
+  album: string
   nameJpn: string
+  firstAppearance: string
 }
 const resultMusics = ref<ResultMusic[]>([])
 const resultMusicsForDisplay = computed<ResultMusic[]>(() => {
@@ -509,6 +519,7 @@ watchEffect(() => {
         item.votePercentageLast1 = item.votePercentageLast1 < 0 ? '-' : toPercentageString(item.votePercentageLast1)
         item.votePercentageLast2 = item.votePercentageLast2 < 0 ? '-' : toPercentageString(item.votePercentageLast2)
         item.firstPercentage = toPercentageString(item.firstPercentage)
+        item.firstAppearance = toTimeFormat(item.firstAppearance)
         return item
       })
     }
