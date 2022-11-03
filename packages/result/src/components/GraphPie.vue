@@ -1,4 +1,14 @@
-<template><div ref="chartDom" class="w-full aspect-4/5 md:aspect-ratio-16/10"></div></template>
+<template>
+  <div>
+    <div
+      class="text-center py-1 mb-1 cursor-pointer border-y border-accent-200 transition transition-colors hover:text-accent-600"
+      @click="changeGraph()"
+    >
+      点击这里切换图表类型
+    </div>
+    <div ref="chartDom" class="w-full aspect-4/5 md:aspect-ratio-16/10"></div>
+  </div>
+</template>
 <script lang="ts" setup>
 import { GraphDataPie } from '@/lib/Graph'
 import * as echarts from 'echarts/core'
@@ -10,16 +20,17 @@ import {
   LegendComponent,
   LegendComponentOption,
 } from 'echarts/components'
-import { PieChart } from 'echarts/charts'
+import { PieChart, BarChart } from 'echarts/charts'
 import { LabelLayout } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
+import { getGraphBarOption } from '@/lib/graphBar'
 
 const props = defineProps<{
   data: GraphDataPie[]
   muchLegend?: boolean
 }>()
 
-echarts.use([ToolboxComponent, TooltipComponent, LegendComponent, PieChart, CanvasRenderer, LabelLayout])
+echarts.use([ToolboxComponent, TooltipComponent, LegendComponent, PieChart, BarChart, CanvasRenderer, LabelLayout])
 
 type EChartsOption = echarts.ComposeOption<ToolboxComponentOption | TooltipComponentOption | LegendComponentOption>
 const option = computed<EChartsOption>(() => {
@@ -38,7 +49,7 @@ const option = computed<EChartsOption>(() => {
       {
         type: 'pie',
         radius: '70%',
-        data: props.data,
+        data: props.data.sort((a, b) => b.value - a.value),
         label: {
           formatter: '{b}: {c}({d}%)',
         },
@@ -84,5 +95,17 @@ onMounted(() => {
     })
   }
 })
+
+const showGraph = ref(true)
+function changeGraph() {
+  showGraph.value = !showGraph.value
+  const graphOption = showGraph.value
+    ? option.value
+    : getGraphBarOption(
+        props.data.sort((a, b) => b.value - a.value).map((item) => item.name),
+        props.data.sort((a, b) => b.value - a.value).map((item) => item.value)
+      )
+  GraphPie.setOption(graphOption, true)
+}
 </script>
 <style lang="postcss" scoped></style>

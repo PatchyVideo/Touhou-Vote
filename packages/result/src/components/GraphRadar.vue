@@ -1,4 +1,14 @@
-<template><div ref="chartDom" class="w-full aspect-1/1 md:aspect-ratio-16/10"></div></template>
+<template>
+  <div>
+    <div
+      class="text-center py-1 mb-1 cursor-pointer border-y border-accent-200 transition transition-colors hover:text-accent-600"
+      @click="changeGraph()"
+    >
+      点击这里切换图表类型
+    </div>
+    <div ref="chartDom" class="w-full aspect-1/1 md:aspect-ratio-16/10"></div>
+  </div>
+</template>
 <script lang="ts" setup>
 import { GraphDataRadar } from '@/lib/Graph'
 import * as echarts from 'echarts/core'
@@ -12,10 +22,11 @@ import {
   LegendComponent,
   LegendComponentOption,
 } from 'echarts/components'
-import { RadarChart } from 'echarts/charts'
+import { RadarChart, BarChart } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
 import { sum } from 'd3'
+import { getGraphBarOption } from '@/lib/graphBar'
 
 const props = defineProps<{
   indicator: string[]
@@ -31,6 +42,7 @@ echarts.use([
   TooltipComponent,
   LegendComponent,
   RadarChart,
+  BarChart,
   CanvasRenderer,
   UniversalTransition,
 ])
@@ -129,6 +141,16 @@ function getFormatter(name: string, value: number[]): HTMLElement {
   }
   div.innerHTML = tooltipHTML
   return div
+}
+
+const showGraph = ref(true)
+function changeGraph() {
+  showGraph.value = !showGraph.value
+
+  const graphOption = showGraph.value
+    ? option.value
+    : getGraphBarOption(props.indicator, props.data[0].value, props.data[1].value, props.data[2].value)
+  GraphRadar.setOption(graphOption, true)
 }
 </script>
 <style lang="postcss" scoped></style>

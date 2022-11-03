@@ -1,4 +1,14 @@
-<template><div ref="chartDom" class="w-full aspect-1/1 md:aspect-16/10"></div></template>
+<template>
+  <div>
+    <div
+      class="text-center py-1 mb-1 cursor-pointer border-y border-accent-200 transition transition-colors hover:text-accent-600"
+      @click="changeGraph()"
+    >
+      点击这里切换图表类型
+    </div>
+    <div ref="chartDom" class="w-full aspect-1/1 md:aspect-16/10"></div>
+  </div>
+</template>
 <script lang="ts" setup>
 import { GraphDataSunburst } from '@/lib/Graph'
 import * as echarts from 'echarts/core'
@@ -11,9 +21,10 @@ import {
   LegendComponentOption,
 } from 'echarts/components'
 /* Attention: Sunburst Chart lacks the "label-position: outside" option, so we give it up 💩 */
-import { PieChart } from 'echarts/charts'
+import { PieChart, BarChart } from 'echarts/charts'
 import { LabelLayout } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
+import { getGraphBarOption } from '@/lib/graphBar'
 
 const props = defineProps<{
   data: GraphDataSunburst[]
@@ -21,7 +32,7 @@ const props = defineProps<{
   muchLegend?: boolean
 }>()
 
-echarts.use([ToolboxComponent, TooltipComponent, LegendComponent, PieChart, CanvasRenderer, LabelLayout])
+echarts.use([ToolboxComponent, TooltipComponent, LegendComponent, PieChart, BarChart, CanvasRenderer, LabelLayout])
 
 type EChartsOption = echarts.ComposeOption<ToolboxComponentOption | TooltipComponentOption | LegendComponentOption>
 const option = computed<EChartsOption>(() => {
@@ -98,5 +109,26 @@ onMounted(() => {
     })
   }
 })
+
+const showGraph = ref(true)
+function changeGraph() {
+  showGraph.value = !showGraph.value
+  const dataMale: number[] = []
+  const dataFemale: number[] = []
+  props.dataOut.map((item) => {
+    if (item.name === '男性') dataMale.push(item.value)
+    else if (item.name === '女性') dataFemale.push(item.value)
+  })
+
+  const graphOption = showGraph.value
+    ? option.value
+    : getGraphBarOption(
+        props.data.map((item) => item.name),
+        props.data.map((item) => item.value),
+        dataMale,
+        dataFemale
+      )
+  GraphSunburst.setOption(graphOption, true)
+}
 </script>
 <style lang="postcss" scoped></style>
