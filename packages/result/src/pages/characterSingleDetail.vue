@@ -64,6 +64,7 @@ import { characterList } from '@touhou-vote/shared/data/character'
 import { toPercentageString } from '@/lib/numberFormat'
 import { GraphDataLine, GraphTimeRange, getTrendData, getAddedTrendData } from '@/lib/Graph'
 import { startTimeString, deadlineString } from '@touhou-vote/shared/data/time'
+import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import characterImages from '@/assets/defaultCharacterImage.png?url'
 import GraphEvolution from '@/components/GraphEvolution.vue'
 import Questionnaire from '@/components/Questionnaire.vue'
@@ -72,6 +73,9 @@ const route = useRoute()
 
 const characterRank = ref(
   Number(route.query.rank ? (Array.isArray(route.query.rank) ? route.query.rank[0] : route.query.rank) : 1)
+)
+const additionalConstraint = computed(() =>
+  String(route.query.q ? (Array.isArray(route.query.q) ? route.query.q[0] : route.query.q) : '')
 )
 const characterName = ref('ID：' + characterRank.value)
 const characterImg = computed(
@@ -87,8 +91,8 @@ const trend = ref<GraphDataLine[]>([])
 const q = ref<string>('NONE')
 const { result, loading, onError } = useQuery<Query>(
   gql`
-    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
-      queryCharacterSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!, $query: String) {
+      queryCharacterSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank, query: $query) {
         name
         voteCount
         firstVoteCount
@@ -107,11 +111,18 @@ const { result, loading, onError } = useQuery<Query>(
       }
     }
   `,
-  {
-    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-    voteYear: 10,
-    rank: characterRank.value,
-  }
+  getAdditionalConstraintString(additionalConstraint.value) === ''
+    ? {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        rank: characterRank.value,
+      }
+    : {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        rank: characterRank.value,
+        query: getAdditionalConstraintString(additionalConstraint.value),
+      }
 )
 watchEffect(() => {
   if (result.value) {

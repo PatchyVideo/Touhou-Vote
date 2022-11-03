@@ -88,7 +88,13 @@
                   {{ item3.name + ': ' + item2[item3.key] }}
                 </div>
                 <div class="py-1">
-                  角色详情：<router-link class="cursor-pointer" :to="'/characterSingleDetail?rank=' + item2.rank"
+                  角色详情：<router-link
+                    class="cursor-pointer"
+                    :to="
+                      '/characterSingleDetail?rank=' +
+                      item2.rank +
+                      (getAdditionalConstraintString(additionalConstraint) === '' ? '' : '&q=' + additionalConstraint)
+                    "
                     >点击这里</router-link
                   >
                 </div>

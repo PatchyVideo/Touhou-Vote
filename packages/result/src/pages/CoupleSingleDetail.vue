@@ -110,11 +110,15 @@ import NProgress from 'nprogress'
 import { toPercentageString } from '@/lib/numberFormat'
 import { GraphDataLine, GraphTimeRange, getTrendData, getAddedTrendData } from '@/lib/Graph'
 import { startTimeString, deadlineString } from '@touhou-vote/shared/data/time'
+import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 
 const route = useRoute()
 
 const coupleRank = ref(
   Number(route.query.rank ? (Array.isArray(route.query.rank) ? route.query.rank[0] : route.query.rank) : 1)
+)
+const additionalConstraint = computed(() =>
+  String(route.query.q ? (Array.isArray(route.query.q) ? route.query.q[0] : route.query.q) : '')
 )
 const coupleName = ref('ID：' + coupleRank.value)
 const voteCount = ref(-1)
@@ -127,8 +131,8 @@ const trend = ref<GraphDataLine[]>([])
 const q = ref<string>('NONE')
 const { result, loading, onError } = useQuery<Query>(
   gql`
-    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
-      queryCPSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!, $query: String) {
+      queryCPSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank, query: $query) {
         cp {
           a
           b
@@ -165,11 +169,18 @@ const { result, loading, onError } = useQuery<Query>(
       }
     }
   `,
-  {
-    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-    voteYear: 10,
-    rank: coupleRank.value,
-  }
+  getAdditionalConstraintString(additionalConstraint.value) === ''
+    ? {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        rank: coupleRank.value,
+      }
+    : {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        rank: coupleRank.value,
+        query: getAdditionalConstraintString(additionalConstraint.value),
+      }
 )
 watchEffect(() => {
   if (loading.value) {

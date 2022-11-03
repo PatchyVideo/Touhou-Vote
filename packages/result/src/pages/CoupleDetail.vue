@@ -76,7 +76,13 @@
                   {{ item3.name + ': ' + item2[item3.key] }}
                 </div>
                 <div class="py-1">
-                  CP详情：<router-link class="cursor-pointer" :to="'/coupleSingleDetail?rank=' + item2.rank"
+                  CP详情：<router-link
+                    class="cursor-pointer"
+                    :to="
+                      '/coupleSingleDetail?rank=' +
+                      item2.rank +
+                      (getAdditionalConstraintString(additionalConstraint) === '' ? '' : '&q=' + additionalConstraint)
+                    "
                     >点击这里</router-link
                   >
                 </div>
