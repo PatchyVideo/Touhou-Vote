@@ -59,7 +59,7 @@
           <div v-for="(item2, index) in resultMusicsForDisplay" :key="item2.rank" class="relative">
             <div
               class="p-1 max-w-30 md:max-w-none border-t border-accent-600 flex flex-nowrap items-center"
-              :class="{ 'pb-33': lineExpanded[index] }"
+              :class="{ 'pb-40': lineExpanded[index] }"
             >
               <div
                 v-if="item.key === headerFixed[0].key"
@@ -122,7 +122,7 @@
           <div v-for="(item2, index) in resultMusicsForDisplay" :key="item2.rank" class="relative">
             <div
               class="py-1 px-3 truncate max-w-30 md:max-w-none border-t border-accent-600"
-              :class="{ 'pb-33': lineExpanded[index] }"
+              :class="{ 'pb-40': lineExpanded[index] }"
             >
               {{ item2[item.key] }}
             </div>
