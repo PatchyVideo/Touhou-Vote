@@ -32,9 +32,16 @@
         </div>
         <div>
           <div>投票理由</div>
-          <router-link class="underline" v-if="numReasons > 0" :to="'/characterReason?rank=' + characterRank">{{
-            numReasons + '(点此查看)'
-          }}</router-link>
+          <router-link
+            class="underline"
+            v-if="numReasons > 0"
+            :to="
+              '/characterReason?rank=' +
+              characterRank +
+              (getAdditionalConstraintString(additionalConstraint) === '' ? '' : '&q=' + additionalConstraint)
+            "
+            >{{ numReasons + '(点此查看)' }}</router-link
+          >
           <div v-else>{{ numReasons }}</div>
         </div>
       </div>

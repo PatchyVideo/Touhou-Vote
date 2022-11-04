@@ -57,11 +57,15 @@ import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
 import { toPercentageString } from '@/lib/numberFormat'
+import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 
 const route = useRoute()
 
 const musicRank = ref(
   Number(route.query.rank ? (Array.isArray(route.query.rank) ? route.query.rank[0] : route.query.rank) : 1)
+)
+const additionalConstraint = computed(() =>
+  String(route.query.q ? (Array.isArray(route.query.q) ? route.query.q[0] : route.query.q) : '')
 )
 const musicName = ref('ID：' + musicRank.value)
 const voteCount = ref(-1)
@@ -73,8 +77,8 @@ const reasons = ref<string[]>([])
 const numReasons = ref(-1)
 const { result, loading, onError } = useQuery<Query>(
   gql`
-    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
-      queryMusicSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!, $query: String) {
+      queryMusicSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank, query: $query) {
         name
         voteCount
         firstVoteCount
@@ -86,12 +90,18 @@ const { result, loading, onError } = useQuery<Query>(
       }
     }
   `,
-
-  {
-    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-    voteYear: 10,
-    rank: musicRank.value,
-  }
+  getAdditionalConstraintString(additionalConstraint.value) === ''
+    ? {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        rank: musicRank.value,
+      }
+    : {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        rank: musicRank.value,
+        query: getAdditionalConstraintString(additionalConstraint.value),
+      }
 )
 watchEffect(() => {
   if (loading.value) {

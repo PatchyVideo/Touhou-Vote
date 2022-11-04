@@ -55,12 +55,16 @@ import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
 import { characterList } from '@touhou-vote/shared/data/character'
 import { toPercentageString } from '@/lib/numberFormat'
+import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import characterImages from '@/assets/defaultCharacterImage.png?url'
 
 const route = useRoute()
 
 const characterRank = ref(
   Number(route.query.rank ? (Array.isArray(route.query.rank) ? route.query.rank[0] : route.query.rank) : 1)
+)
+const additionalConstraint = computed(() =>
+  String(route.query.q ? (Array.isArray(route.query.q) ? route.query.q[0] : route.query.q) : '')
 )
 const characterName = ref('ID：' + characterRank.value)
 const characterImg = computed(
@@ -75,8 +79,8 @@ const reasons = ref<string[]>([])
 const numReasons = ref(-1)
 const { result, loading, onError } = useQuery<Query>(
   gql`
-    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!) {
-      queryCharacterSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank) {
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $rank: Int!, $query: String) {
+      queryCharacterSingle(voteStart: $voteStart, voteYear: $voteYear, rank: $rank, query: $query) {
         name
         voteCount
         firstVoteCount
@@ -88,12 +92,18 @@ const { result, loading, onError } = useQuery<Query>(
       }
     }
   `,
-
-  {
-    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-    voteYear: 10,
-    rank: characterRank.value,
-  }
+  getAdditionalConstraintString(additionalConstraint.value) === ''
+    ? {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        rank: characterRank.value,
+      }
+    : {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        rank: characterRank.value,
+        query: getAdditionalConstraintString(additionalConstraint.value),
+      }
 )
 watchEffect(() => {
   if (loading.value) {

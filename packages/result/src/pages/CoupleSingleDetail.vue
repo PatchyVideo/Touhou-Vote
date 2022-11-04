@@ -39,9 +39,16 @@
         </div>
         <div>
           <div>投票理由</div>
-          <router-link v-if="numReasons > 0" class="underline" :to="'/coupleReason?rank=' + coupleRank">{{
-            numReasons + '(点此查看)'
-          }}</router-link>
+          <router-link
+            v-if="numReasons > 0"
+            class="underline"
+            :to="
+              '/coupleReason?rank=' +
+              coupleRank +
+              (getAdditionalConstraintString(additionalConstraint) === '' ? '' : '&q=' + additionalConstraint)
+            "
+            >{{ numReasons + '(点此查看)' }}</router-link
+          >
           <div v-else>{{ numReasons }}</div>
         </div>
       </div>
