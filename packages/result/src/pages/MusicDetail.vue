@@ -138,7 +138,7 @@
   </div>
   <!-- Advanced Search -->
   <div
-    class="shadow fixed bottom-10 right-5 bg-gray-50 cursor-pointer p-2 transition-opacity rounded-full dark:bg-gray-800"
+    class="z-49 shadow fixed bottom-10 right-5 bg-gray-50 cursor-pointer p-2 transition-opacity rounded-full dark:bg-gray-800"
     title="筛选"
     @click="openSearch()"
   >
@@ -326,7 +326,7 @@ const minCount = computed<number>(() =>
 const keyword = computed<string>(() =>
   String(route.query.keyword ? (Array.isArray(route.query.keyword) ? route.query.keyword[0] : route.query.keyword) : '')
 )
-const searchRange = computed<('name' | 'nameJpn')[]>(() => {
+const searchRange = computed<('name' | 'nameJpn' | 'album')[]>(() => {
   const searchRangeNumber = Number(
     route.query.searchRange
       ? Array.isArray(route.query.searchRange)
@@ -341,9 +341,16 @@ const searchRange = computed<('name' | 'nameJpn')[]>(() => {
       return ['name']
     case 3:
       return ['nameJpn', 'name']
-
+    case 4:
+      return ['album']
+    case 5:
+      return ['album', 'nameJpn']
+    case 6:
+      return ['album', 'name']
+    case 7:
+      return ['album', 'name', 'nameJpn']
     default:
-      return ['name', 'nameJpn']
+      return ['album', 'name', 'nameJpn']
   }
 })
 const additionalConstraint = computed(() =>
@@ -521,6 +528,7 @@ watchEffect(() => {
         item.malePercentagePerTotal = toPercentageString(item.malePercentagePerTotal)
         item.femalePercentagePerTotal = toPercentageString(item.femalePercentagePerTotal)
         item.firstAppearance = toTimeFormat(item.firstAppearance)
+        item.album = item.album || '幻想的音乐'
         return item
       })
     }

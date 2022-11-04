@@ -138,7 +138,7 @@
   </div>
   <!-- Advanced Search -->
   <div
-    class="shadow fixed bottom-10 right-5 bg-gray-50 cursor-pointer p-2 transition-opacity rounded-full dark:bg-gray-800"
+    class="z-49 shadow fixed bottom-10 right-5 bg-gray-50 cursor-pointer p-2 transition-opacity rounded-full dark:bg-gray-800"
     title="筛选"
     @click="openSearch()"
   >

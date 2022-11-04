@@ -369,8 +369,9 @@ const searchRangeDisplay: {
   key: SearchRange
 }[] = props.musicSearchRange
   ? [
-      { name: '曲目名', key: 'characterOrigin' },
-      { name: '日文名', key: 'name' },
+      { name: '所属专辑', key: 'characterOrigin' },
+      { name: '曲目名', key: 'name' },
+      { name: '日文名', key: 'nameJpn' },
     ]
   : props.cpSearchRange
   ? [
