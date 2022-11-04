@@ -196,6 +196,7 @@ watchEffect(() => {
         const index = result.value.queryCharacterRanking.entries.findIndex(
           (item) => item.name === (result.value?.queryCPSingle.cp[i] || 'ERROR')
         )
+        if (index === -1) continue
         // @ts-ignore:不能将类型“string”分配给类型“"aActive" | "bActive" | "cActive"”
         const iActive: 'aActive' | 'bActive' | 'cActive' = i + 'Active'
         coupleMeta.value.push({
