@@ -167,6 +167,7 @@ watchEffect(() => {
       q.value = getAdditionalConstraintString(additionalConstraint.value)
     }
     if (result.value.queryQuestionnaireTrend) {
+      trend.value = []
       trend.value.push(
         getTrendData('总票数', result.value.queryQuestionnaireTrend[0].trend),
         getAddedTrendData('新增票数', result.value.queryQuestionnaireTrend[0].trend)
