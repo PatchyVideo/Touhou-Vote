@@ -112,11 +112,17 @@ const props = defineProps<{
   // "NONE" is the default value of q
   q: string
 }>()
-watchEffect(() => {
-  if (props.q != 'NONE') {
-    QuestionnaireDetail(props.q)
+watch(
+  props,
+  (newv) => {
+    if (newv.q != 'NONE') {
+      QuestionnaireDetail(props.q)
+    }
+  },
+  {
+    deep: true,
   }
-})
+)
 
 const questionnaireCompletionRates = ref<GraphDataPie[]>([])
 interface QuestionItem {

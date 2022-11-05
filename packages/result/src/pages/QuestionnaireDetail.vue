@@ -52,17 +52,30 @@
       <GraphEvolution :x-axis="GraphTimeRange" :data="trend" class="max-w-4xl pt-3 mx-auto" />
     </div>
     <Questionnaire class="md:mx-5" :q="q" />
+    <!-- Advanced Search -->
+    <div
+      class="z-49 shadow fixed bottom-10 right-5 bg-gray-50 cursor-pointer p-2 transition-opacity rounded-full dark:bg-gray-800"
+      title="筛选"
+      @click="openSearch()"
+    >
+      <div class="i-uil:file-search-alt text-2xl" />
+    </div>
+    <AdvancedSearch v-model:open="search" :filtermode="false" :querymode="true" />
   </div>
 </template>
 <script lang="ts" setup>
+import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
+import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import NProgress from 'nprogress'
 import Questionnaire from '@/components/Questionnaire.vue'
 import { GraphDataLine, GraphTimeRange, getTrendData, getAddedTrendData } from '@/lib/Graph'
 import { startTimeString, deadlineString } from '@touhou-vote/shared/data/time'
 
 setSiteTitle('调查问卷结果 - 第⑩回 中文东方人气投票')
+
+const route = useRoute()
 
 const numVote = ref(-1)
 const numChar = ref(-1)
@@ -72,18 +85,44 @@ const numDoujin = ref(-1)
 
 const trend = ref<GraphDataLine[]>([])
 const q = ref<string>('NONE')
+const additionalConstraint = computed<string>(() =>
+  String(route.query.a ? (Array.isArray(route.query.a) ? route.query.a[0] : route.query.a) : '')
+)
+watch(additionalConstraint, () => {
+  fetchMore({
+    variables:
+      getAdditionalConstraintString(additionalConstraint.value) === ''
+        ? {
+            voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+            voteYear: 10,
+            // Use the first question to present the trend
+            questionIds: ['q11011'],
+          }
+        : {
+            query: getAdditionalConstraintString(additionalConstraint.value),
+            voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+            voteYear: 10,
+            // Use the first question to present the trend
+            questionIds: ['q11011'],
+          },
+    updateQuery(previousQueryResult, { fetchMoreResult }) {
+      if (!fetchMoreResult) return previousQueryResult
+      return fetchMoreResult
+    },
+  })
+})
 
-const { result, loading, onError } = useQuery<Query>(
+const { result, loading, onError, fetchMore } = useQuery<Query>(
   gql`
-    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $questionIds: [String!]!) {
-      queryGlobalStats(voteStart: $voteStart, voteYear: $voteYear) {
+    query ($voteStart: DateTimeUtc!, $voteYear: Int!, $questionIds: [String!]!, $query: String) {
+      queryGlobalStats(voteStart: $voteStart, voteYear: $voteYear, query: $query) {
         numVote
         numChar
         numMusic
         numCp
         numDoujin
       }
-      queryQuestionnaireTrend(voteStart: $voteStart, voteYear: $voteYear, questionIds: $questionIds) {
+      queryQuestionnaireTrend(voteStart: $voteStart, voteYear: $voteYear, questionIds: $questionIds, query: $query) {
         trend {
           hrs
           cnt
@@ -95,12 +134,20 @@ const { result, loading, onError } = useQuery<Query>(
       }
     }
   `,
-  {
-    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-    voteYear: 10,
-    // Use the first question to present the trend
-    questionIds: ['q11011'],
-  }
+  getAdditionalConstraintString(additionalConstraint.value) === ''
+    ? {
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        // Use the first question to present the trend
+        questionIds: ['q11011'],
+      }
+    : {
+        query: getAdditionalConstraintString(additionalConstraint.value),
+        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteYear: 10,
+        // Use the first question to present the trend
+        questionIds: ['q11011'],
+      }
 )
 watchEffect(() => {
   if (loading.value) {
@@ -117,7 +164,7 @@ watchEffect(() => {
       numMusic.value = result.value.queryGlobalStats.numMusic
       numCp.value = result.value.queryGlobalStats.numCp
       numDoujin.value = result.value.queryGlobalStats.numDoujin
-      q.value = ''
+      q.value = getAdditionalConstraintString(additionalConstraint.value)
     }
     if (result.value.queryQuestionnaireTrend) {
       trend.value.push(
@@ -131,6 +178,11 @@ onError((err) => {
   alert(err.message)
   console.log('获取信息失败！')
 })
+
+const search = ref(false)
+function openSearch() {
+  search.value = true
+}
 </script>
 <route lang="yaml">
 meta:

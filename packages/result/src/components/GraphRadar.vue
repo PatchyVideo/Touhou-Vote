@@ -108,7 +108,7 @@ const dataWithRelativeScale = computed<GraphDataRadar[]>(() => {
   return props.data.concat(relatedData)
 })
 const maxData = computed<number>(() => {
-  let max = 200
+  let max = 5
   props.data[0].value.map((item) => {
     if (item > max) max = item
   })

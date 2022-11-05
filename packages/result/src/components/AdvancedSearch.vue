@@ -12,7 +12,7 @@
     </div>
     <div v-if="GUIMode" class="divide-y-1">
       <!-- Filter by result -->
-      <div class="space-y-2 py-1">
+      <div v-if="props.filtermode" class="space-y-2 py-1">
         <div>从投票结果中筛选：</div>
         <div class="flex justify-between space-x-2 items-center">
           <div class="whitespace-nowrap">关键字：</div>
@@ -293,6 +293,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
     requred: true,
+  },
+  filtermode: {
+    type: Boolean,
+    default: true,
   },
   querymode: {
     type: Boolean,
