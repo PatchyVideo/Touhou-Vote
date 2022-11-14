@@ -39,19 +39,19 @@ const votes = {
   character: {
     name: '角色部门',
     desc: '为喜欢的角色投票',
-    image: 'https://upload.thwiki.cc/thumb/a/a6/THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png/100px-THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png',
+    image: 'https://upload.touhou.vote/imgs/nav/character@100px.png',
     compelete: voteCharacterComplete,
   },
   music: {
     name: '音乐部门',
     desc: '为喜欢的音乐投票',
-    image: 'https://upload.thwiki.cc/thumb/4/49/THBWiki-LOGO-%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85.png/100px-THBWiki-LOGO-%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85.png',
+    image: 'https://upload.touhou.vote/imgs/nav/music@100px.png',
     compelete: voteMusicComplete,
   },
   couple: {
     name: 'CP部门',
     desc: '为喜欢的角色组合投票',
-    image: 'https://upload.thwiki.cc/thumb/0/02/THBWiki-LOGO-%E4%B8%89%E6%9C%88%E7%B2%BE.png/100px-THBWiki-LOGO-%E4%B8%89%E6%9C%88%E7%B2%BE.png',
+    image: 'https://upload.touhou.vote/imgs/nav/couple@100px.png',
     compelete: voteCoupleComplete,
   },
 }

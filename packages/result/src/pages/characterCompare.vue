@@ -6,7 +6,7 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.thwiki.cc/a/a6/THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png"
+          src="https://upload.touhou.vote/imgs/logo_reimu.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <h2 class="text-4xl font-light">角色部门</h2>

@@ -3,7 +3,7 @@
     <div class="mb-0 md:m-5 p-3 space-y-3 bg-white bg-opacity-80 rounded-t md:bg-opacity-0 md:rounded">
       <div class="flex items-end">
         <img
-          src="https://upload.thwiki.cc/thumb/f/f7/THBWiki-LOGO-%E5%AE%87%E4%BD%90%E8%A7%81%E5%A0%87%E5%AD%90.png/100px-THBWiki-LOGO-%E5%AE%87%E4%BD%90%E8%A7%81%E5%A0%87%E5%AD%90.png"
+          src="https://upload.touhou.vote/imgs/nav/doujin@100px.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <h2 class="text-4xl font-light">作品提名</h2>

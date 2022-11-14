@@ -6,7 +6,7 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.thwiki.cc/thumb/d/dd/THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png/100px-THBWiki-LOGO-%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83.png"
+          src="https://upload.touhou.vote/imgs/nav/questionnaireDetail@100px.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <h2 class="text-4xl font-light">调查问卷</h2>

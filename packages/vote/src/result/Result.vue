@@ -8,7 +8,7 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.thwiki.cc/a/a6/THBWiki-LOGO-%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%E6%96%B0%E4%BD%9C.png"
+          src="https://upload.touhou.vote/imgs/logo_reimu.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <h2 class="text-4xl font-light">角色部门</h2>
@@ -82,7 +82,7 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.thwiki.cc/thumb/4/49/THBWiki-LOGO-%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85.png/100px-THBWiki-LOGO-%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85.png"
+          src="https://upload.touhou.vote/imgs/nav/music@100px.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <h2 class="text-4xl font-light">音乐部门</h2>
@@ -156,7 +156,7 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.thwiki.cc/thumb/0/02/THBWiki-LOGO-%E4%B8%89%E6%9C%88%E7%B2%BE.png/100px-THBWiki-LOGO-%E4%B8%89%E6%9C%88%E7%B2%BE.png"
+          src="https://upload.touhou.vote/imgs/nav/couple@100px.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <h2 class="text-4xl font-light">CP部门</h2>
