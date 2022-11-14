@@ -89,7 +89,7 @@ const DoujinData = [
     name: '东方夜雀食堂',
     author: '二色幽紫蝶',
     url: 'https://www.bilibili.com/video/BV1eM4y1u7ep',
-    pic: 'https://upload.thwiki.cc/c/ca/2021%E4%B8%AD%E6%96%87%E4%B8%9C%E6%96%B9%E4%BA%BA%E6%B0%94%E6%8A%95%E7%A5%A8-%E6%8F%90%E5%90%8D%E9%83%A8%E9%97%A801.webp',
+    pic: 'https://upload.touhou.vote/imgs/doujin/v10/01.webp',
     desc: '',
     reasons: [
       '某985计算机专业，每天都为保研名额卷到头破血流，以前玩的魂类游戏和竟技类都逐漸没有精力了。今年有幸遇到了这个游戏，每天刚好可以用睡觉之前的时间玩一会，在夜雀食堂走一轮，真的很温馨。游戏中的时间过了三个月，现实生活中也过了三个月，感谢它让我可以在繁忙的生活中找到能让我慢下来的慰藉！',
@@ -102,7 +102,7 @@ const DoujinData = [
     name: '3D永夜抄',
     author: 'minusT',
     url: 'https://www.youtube.com/watch?v=430ejbSn-5k',
-    pic: 'https://upload.thwiki.cc/d/d2/2021%E4%B8%AD%E6%96%87%E4%B8%9C%E6%96%B9%E4%BA%BA%E6%B0%94%E6%8A%95%E7%A5%A8-%E6%8F%90%E5%90%8D%E9%83%A8%E9%97%A802.webp',
+    pic: 'https://upload.touhou.vote/imgs/doujin/v10/02.webp',
     desc: '',
     reasons: [
       '如果说zun是将他头脑中的幻想世界变成游戏，在乎面的stg中呈现的话。那么minusT就是将zun的平面内容立体化，以一种更直观、更震撼的方式展现出来。超高的技术力，加上和原作弹嘉演出的高契合度，简直是至福。每当我回味这一部作品，或者是这一系列3d东方时，我总能感受到满屏的弹幕（视频中的也好，大家发送的也好）传递出的热情，一种同人文化独有的，创作者和爱好者的热情。一这么想，我就想就着手边的电脑开上一把原作。这种作者与爱好者间的良性互动，是每一次minusT作品给我带来的特殊又难得的体验。',
@@ -115,7 +115,7 @@ const DoujinData = [
     name: '【半年制作量】东方mmd：永远亭争夺战（pv风 踩点 特效向）',
     author: '博丽x海苔',
     url: 'https://www.bilibili.com/video/BV1QA411t76e',
-    pic: 'https://upload.thwiki.cc/0/03/2021%E4%B8%AD%E6%96%87%E4%B8%9C%E6%96%B9%E4%BA%BA%E6%B0%94%E6%8A%95%E7%A5%A8-%E6%8F%90%E5%90%8D%E9%83%A8%E9%97%A803.webp',
+    pic: 'https://upload.touhou.vote/imgs/doujin/v10/03.webp',
     desc: '',
     reasons: [
       '疫情期间能看到这种高质量的MMD真是惊喜，符卡的还原非常绚丽，人物动作也十分流畅，每个角色都很灵动，或可爱或帅气，高级弹幕的配合也说明了其他的观众也是如我一样激动，希望能被更多的东方众或MMD爱好者看到。',
@@ -128,7 +128,7 @@ const DoujinData = [
     name: '【2022·东方华灯宴】',
     author: '东方华灯宴制作组',
     url: 'https://www.bilibili.com/video/BV16q4y1h7xX',
-    pic: 'https://upload.thwiki.cc/b/ba/2021%E4%B8%AD%E6%96%87%E4%B8%9C%E6%96%B9%E4%BA%BA%E6%B0%94%E6%8A%95%E7%A5%A8-%E6%8F%90%E5%90%8D%E9%83%A8%E9%97%A804.webp',
+    pic: 'https://upload.touhou.vote/imgs/doujin/v10/04.webp',
     desc: '',
     reasons: [
       '应该是许多东方众每年过年时节必看的视频吧，感觉不需要额外说明了。里面的每个节目单独拿出来都非常优秀的作品，能感觉到作作者对东方倾注的熱情。',
@@ -140,7 +140,7 @@ const DoujinData = [
     name: '【2021·东方华灯宴】',
     author: '东方华灯宴制作组',
     url: 'https://www.bilibili.com/video/BV1Sy4y1Y773/',
-    pic: 'https://upload.thwiki.cc/8/88/2021%E4%B8%AD%E6%96%87%E4%B8%9C%E6%96%B9%E4%BA%BA%E6%B0%94%E6%8A%95%E7%A5%A8-%E6%8F%90%E5%90%8D%E9%83%A8%E9%97%A805.webp',
+    pic: 'https://upload.touhou.vote/imgs/doujin/v10/05.webp',
     desc: '',
     reasons: [
       '华灯宴的一次小高潮，各种大小作品都能单独拿出來，可國可点。 音MAD、同人动画、音声都能看出国内同人创作者的一腔热诚与极高的技术力，穿插的主线剧情也表现出了熊怪作为主催对同人创作的一定思考。希望每年的华灯宴都能继续精彩！',
@@ -152,7 +152,7 @@ const DoujinData = [
     name: '【东方MMD】事件：月城冲突',
     author: '博丽x海苔',
     url: 'https://www.bilibili.com/video/BV1qU4y1X7QD',
-    pic: 'https://upload.thwiki.cc/8/88/2021%E4%B8%AD%E6%96%87%E4%B8%9C%E6%96%B9%E4%BA%BA%E6%B0%94%E6%8A%95%E7%A5%A8-%E6%8F%90%E5%90%8D%E9%83%A8%E9%97%A806.webp',
+    pic: 'https://upload.touhou.vote/imgs/doujin/v10/06.webp',
     desc: '',
     reasons: [
       '神一般的动画，让人很难相信这是MMD。后半铃仙和纯狐的对战部分背景2D的特效真的特別惊艳，和前景了渲2结合得非常得体，我觉得甚至有可可能超过了大部分日本动画中对3D的运用。太强了。',
@@ -165,7 +165,7 @@ const DoujinData = [
     name: '【東方projectPV】三妖精SAY YA!!! ',
     author: '森罗万象',
     url: 'https://www.bilibili.com/video/BV1rv411x7Jz',
-    pic: 'https://upload.thwiki.cc/d/d0/2021%E4%B8%AD%E6%96%87%E4%B8%9C%E6%96%B9%E4%BA%BA%E6%B0%94%E6%8A%95%E7%A5%A8-%E6%8F%90%E5%90%8D%E9%83%A8%E9%97%A807.webp',
+    pic: 'https://upload.touhou.vote/imgs/doujin/v10/07.webp',
     desc: '',
     reasons: [
       '森罗万象是我个人最喜爱的东方同人音乐社团，而我尤其喜欢这一首。原曲《春之冰精》 的痕迹很弱，整首曲子几乎是全新的曲调，PV也高廈概括了三月精的全剧情。尤其是高潮妖精们齐声高歌时，那种由萌系一跃而充满力量的跨感十分动人。即使生来弱小，也不放弃挑战强者的决心，这是妖精们的共识，也是东方人的情感所在。，幻想仍存，希望不灭。',
@@ -177,7 +177,7 @@ const DoujinData = [
     name: '东方长篇评书《畜生侦探》',
     author: '米斯特克里斯',
     url: 'https://www.bilibili.com/video/BV1UF411i7PL',
-    pic: 'https://upload.thwiki.cc/5/52/2021%E4%B8%AD%E6%96%87%E4%B8%9C%E6%96%B9%E4%BA%BA%E6%B0%94%E6%8A%95%E7%A5%A8-%E6%8F%90%E5%90%8D%E9%83%A8%E9%97%A808.webp',
+    pic: 'https://upload.touhou.vote/imgs/doujin/v10/08.webp',
     desc: '',
     reasons: [
       '醒木一方口一张，道尽古今说幻想。\n        灵长园内龙初现，鬼谋秘计椟中藏。\n        沉龙深潭浮白骨，义杰大殿请宴忙。\n        老龙威严义犹在，姊妹成仇竟相狀。\n        劲牙作乱夠掣电，忠勇护主看老狼。\n        两兽相斗双俱伤，强欲谋起暗难防。\n        蛇眸明识敌友辨，鼠辈跳梁傲语诳。\n        鬼杰孤直锁铁键，狼牙参差相颉颜。\n        段段出彩字字精，句句揪心声声亮。\n        畜生侦探才气溢，槐南茶馆评书强！',
@@ -189,7 +189,7 @@ const DoujinData = [
     name: '有神论',
     author: 'CureLancy! & 草石虫',
     url: 'https://www.bilibili.com/video/BV1Ve411s79n',
-    pic: 'https://upload.thwiki.cc/0/00/2021%E4%B8%AD%E6%96%87%E4%B8%9C%E6%96%B9%E4%BA%BA%E6%B0%94%E6%8A%95%E7%A5%A8-%E6%8F%90%E5%90%8D%E9%83%A8%E9%97%A809.webp',
+    pic: 'https://upload.touhou.vote/imgs/doujin/v10/09.webp',
     desc: '',
     reasons: [
       '近年来非常制作非常精良的配音手书作品，剧情和叙事都非常的优秀，整个手书全程配音是加分项。整体结构完整，用阿呼的视角来讲述整个结界组的故事也非常的有趣。',
@@ -201,7 +201,7 @@ const DoujinData = [
     name: '【安科】烈海王似乎打算在幻想乡挑战强者们的样子',
     author: '王子2326',
     url: 'https://tieba.baidu.com/p/6710222599',
-    pic: 'https://upload.thwiki.cc/9/95/2021%E4%B8%AD%E6%96%87%E4%B8%9C%E6%96%B9%E4%BA%BA%E6%B0%94%E6%8A%95%E7%A5%A8-%E6%8F%90%E5%90%8D%E9%83%A8%E9%97%A810.jpeg',
+    pic: 'https://upload.touhou.vote/imgs/doujin/v10/10.jpeg',
     desc: '',
     reasons: [
       '当时我一直都是一个健康作息人：11点以前必须上床，而且要在11点半之前睡着。但是在当时看烈幻入看到12点半都是常态。而在这其中最印象深刻的一次，就是动物灵异变的最后一场战斗。以前以为是玩笑话的无呼吸连打F5，当时真真正正地实现了。因为真的想看到这一篇章，看这个故事究竟是怎样走向结局的。当时一楼一楼饥渴地看着，就想看到故事一直以来的所有发展如何在此结尾，跌宕起伏的剧情，瞬息万变的骰子，一步一步地把无人知晓的命运舞合完全地展现出來。最后一回合股出的大失败，我直楼很很地種了一下桌子；但接下来 “贫穷神的加护发动。发动的那个瞬间，我差点尖叫出来；决战之后的故事会和緊会，我笑得合不拢嘴；最后的 “堂堂完结！以及 “物底结束”，我的眼眶不知不觉中湿润了。',
