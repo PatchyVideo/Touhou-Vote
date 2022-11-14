@@ -1,6 +1,6 @@
 <template>
   <Nav no-top />
-  <RouterView />
+  <div class="max-w-450 mx-auto"><RouterView /></div>
   <div class="w-full text-center">
     <div>
       <a rel="noopener noreferrer" href="/nav">历届人气投票结果</a>&ensp;

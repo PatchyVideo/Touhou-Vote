@@ -20,9 +20,9 @@
       *中文东方人气投票组委会对本次结果保留最终解释权
     </div>
 
-    <div class="mb-0 md:m-5 p-3 flex md:justify-around flex-wrap space-y-3 md:space-y-0">
+    <div class="mb-0 md:m-5 p-3 flex md:justify-between flex-wrap space-y-3 md:space-y-0">
       <!-- Doujin -->
-      <div class="w-full md:w-2/5 p-3 flex flex-col rounded border-2 border-accent-300 space-y-3">
+      <div class="w-full md:w-3/7 p-3 flex flex-col rounded border-2 border-accent-300 space-y-3">
         <div class="text-2xl">提名作品前十名</div>
         <div v-for="(item, index) in DoujinData" :key="item.name" class="p-1 rounded border border-accent-600">
           <div class="flex items-center space-x-2">
@@ -58,7 +58,7 @@
         </div>
       </div>
       <!-- Comment -->
-      <div class="w-full md:w-2/5 p-3 flex flex-col rounded border-2 border-accent-600 space-y-3 md:border-accent-300">
+      <div class="w-full md:w-3/7 p-3 flex flex-col rounded border-2 border-accent-600 space-y-3 md:border-accent-300">
         <div class="text-2xl">甄选评论</div>
         <div
           v-for="item in CommentData"
