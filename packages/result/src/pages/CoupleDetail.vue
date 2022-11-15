@@ -41,7 +41,12 @@
       * 更高级的搜索功能可以点击右下角的图标展开高级搜索框<br />
       * 如果在移动端觉得表格过于拥挤可以尝试打开浏览器的“电脑UA（桌面端网站）”功能<br />
       * 点 + 号或者表格行本身可展开详情，点击详情链接可以查看更加详尽的角色投票数据<br />
-      * 点击表头可进行其他类型的排序，排序规则见角色部门结果信息页面
+      * 点击表头可进行其他类型的排序<br />
+      * 关于表格中的参数，可以<a
+        href="https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/%E7%BB%93%E6%9E%9C%E9%A1%B5%E9%9D%A2%20-%20%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E.md"
+        target="_blank"
+        >在这里</a
+      >查看
     </div>
     <!-- Form -->
     <div class="md:mx-5 flex bg-white shadow rounded border border-accent-600">

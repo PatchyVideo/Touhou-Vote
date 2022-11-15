@@ -5,10 +5,7 @@
       class="mb-0 md:m-5 p-3 space-y-3 bg-white bg-opacity-80 rounded-t md:bg-opacity-0 md:rounded md:flex md:justify-between md:items-center"
     >
       <div class="flex items-end">
-        <img
-          src="https://upload.touhou.vote/imgs/logo_reimu.png"
-          class="w-10 h-10 col-span-1 row-span-2 rounded"
-        />
+        <img src="https://upload.touhou.vote/imgs/logo_reimu.png" class="w-10 h-10 col-span-1 row-span-2 rounded" />
         <h2 class="text-4xl font-light">角色部门</h2>
         <span class="ml-3 text-xl">结果信息</span>
       </div>
@@ -41,14 +38,12 @@
       * 如果在移动端觉得表格过于拥挤可以尝试打开浏览器的“电脑UA（桌面端网站）”功能<br />
       * 往届结果页面中的“同投率”一栏与“投票比例”合并<br />
       * 点 + 号或者表格行本身可展开详情，点击详情链接可以查看更加详尽的角色投票数据<br />
-      * 点击表头可进行其他类型的排序，排序规则如下：<br />
-      <div class="pl-4">
-        1. 同票数的都是同一个名次<br />
-        2. 同一个名次时，靠本命票数决定先后顺序<br />
-        3. 当有并列名次时，占据虚位，下一个名次要顺位递推（如 3,3,5 或 10,10,10,13 ）<br />
-        4. 同一个名次，本命票也一样的情况下，靠角色的系统ID排序<br />
-        5. 对于0票的对象，参照第4条排序在列表最后
-      </div>
+      * 点击表头可进行其他类型的排序<br />
+      * 关于表格中的参数，可以<a
+        href="https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/%E7%BB%93%E6%9E%9C%E9%A1%B5%E9%9D%A2%20-%20%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E.md"
+        target="_blank"
+        >在这里</a
+      >查看
     </div>
     <!-- Form -->
     <div class="md:mx-5 flex bg-white shadow rounded border border-accent-600">
