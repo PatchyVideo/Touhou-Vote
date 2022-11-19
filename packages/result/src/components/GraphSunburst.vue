@@ -6,7 +6,7 @@
     >
       点击这里切换图表类型
     </div>
-    <div ref="chartDom" class="w-full aspect-1/1 md:aspect-16/10"></div>
+    <div ref="chartDom" class="w-full aspect-ratio-1/1 md:aspect-ratio-16/10"></div>
   </div>
 </template>
 <script lang="ts" setup>

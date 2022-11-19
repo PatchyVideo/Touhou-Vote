@@ -1,4 +1,4 @@
-<template><div ref="chartDom" class="w-full aspect-1/1 md:aspect-ratio-16/10"></div></template>
+<template><div ref="chartDom" class="w-full aspect-ratio-1/1 md:aspect-ratio-16/10"></div></template>
 <script lang="ts" setup>
 import { GraphDataLine } from '@/lib/Graph'
 import * as echarts from 'echarts/core'

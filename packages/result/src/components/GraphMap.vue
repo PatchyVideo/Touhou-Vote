@@ -1,4 +1,4 @@
-<template><div ref="chartDom" class="w-full aspect-1/1"></div></template>
+<template><div ref="chartDom" class="w-full aspect-ratio-1/1"></div></template>
 <script lang="ts" setup>
 import { GraphDataMap } from '@/lib/Graph'
 import * as echarts from 'echarts/core'
