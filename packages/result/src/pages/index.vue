@@ -39,7 +39,7 @@
         :to="item.to"
         v-for="item in resultTypeMeta"
         :key="item.name"
-        class="flex items-center justify-center p-2 w-full max-w-100 border-y border-accent-400 bg-opacity-30 bg-accent-100 shadow cursor-pointer transition transition-all active:translate-1"
+        class="flex items-center justify-center p-2 w-full border-y border-accent-400 bg-opacity-30 bg-accent-100 shadow cursor-pointer transition transition-all active:translate-1"
       >
         <img :src="item.img" class="w-10 h-10" />
         <div class="text-black text-xl">{{ item.name }}</div>

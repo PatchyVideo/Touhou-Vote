@@ -187,10 +187,10 @@ const route = useRoute()
 watch(
   route,
   () => {
-    drawerOpen = false
+    drawerOpen.value = false
   },
   { deep: true }
 )
 
-const drawerOpen = $ref(false)
+const drawerOpen = ref(false)
 </script>

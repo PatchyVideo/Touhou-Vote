@@ -6,13 +6,13 @@
     "gen": "tsx src/main.ts"
   },
   "devDependencies": {
-    "@types/rimraf": "^3.0.2",
-    "node-gyp": "^9.1.0"
+    "@types/rimraf": "^4.0.5",
+    "node-gyp": "^9.3.1"
   },
   "dependencies": {
     "@touhou-vote/vote": "workspace:*",
-    "@vscode/sqlite3": "^5.0.8",
-    "bson": "^4.6.5",
-    "rimraf": "^3.0.2"
+    "@vscode/sqlite3": "5.1.4-vscode",
+    "bson": "^5.2.0",
+    "rimraf": "^5.0.0"
   }
 }
