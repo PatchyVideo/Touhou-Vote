@@ -37,7 +37,7 @@ const plugin = async (schema, _, config) => {
             })} } },`
         })}
     };
-  `.toStringWithImports()
+  `.toString()
   return { content }
 }
 
