@@ -56,7 +56,7 @@
             }"
           >
             <img
-              src="https://upload.touhou.vote/imgs/nav/couple@100px.png"
+              src="https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png"
               class="w-10 h-10 rounded"
             />
             <div
@@ -89,7 +89,7 @@
 
         <RouterLink to="/character" class="flex py-1 items-center gap-1 md:flex-1 md:justify-center">
           <img
-            src="https://upload.touhou.vote/imgs/nav/character@100px.png"
+            src="https://s3c.lilywhite.cc/thvote/imgs/nav/character@100px.png"
             class="w-10 h-10 col-span-1 row-span-2 rounded"
           />
           <div
@@ -104,7 +104,7 @@
 
         <RouterLink to="/music" class="flex py-1 items-center gap-1 md:flex-1 md:justify-center">
           <img
-            src="https://upload.touhou.vote/imgs/nav/music@100px.png"
+            src="https://s3c.lilywhite.cc/thvote/imgs/nav/music@100px.png"
             class="w-10 h-10 col-span-1 row-span-2 rounded"
           />
           <div
@@ -119,7 +119,7 @@
 
         <RouterLink to="/couple" class="flex py-1 items-center gap-1 md:flex-1 md:justify-center">
           <img
-            src="https://upload.touhou.vote/imgs/nav/couple@100px.png"
+            src="https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png"
             class="w-10 h-10 col-span-1 row-span-2 rounded"
           />
           <div
@@ -134,7 +134,7 @@
 
         <RouterLink to="/doujin" class="flex py-1 items-center gap-1 md:flex-1 md:justify-center">
           <img
-            src="https://upload.touhou.vote/imgs/nav/doujin@100px.png"
+            src="https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png"
             class="w-10 h-10 col-span-1 row-span-2 rounded"
           />
           <div
@@ -149,7 +149,7 @@
 
         <RouterLink to="/questionnaireDetail" class="flex py-1 items-center gap-1 md:flex-1 md:justify-center">
           <img
-            src="https://upload.touhou.vote/imgs/nav/questionnaireDetail@100px.png"
+            src="https://s3c.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png"
             class="w-10 h-10 col-span-1 row-span-2 rounded"
           />
           <div

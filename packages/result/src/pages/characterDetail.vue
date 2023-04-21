@@ -6,7 +6,7 @@
     >
       <div class="flex items-end">
         <img src="https://upload.touhou.vote/imgs/logo_reimu.png" class="w-10 h-10 col-span-1 row-span-2 rounded" />
-        <h2 class="text-4xl font-light">角色部门</h2>
+        <h2 class="texts3c.lilywhite.cc/thvote色部门</h2>
         <span class="ml-3 text-xl">结果信息</span>
       </div>
       <div class="grid grid-cols-3 md:grid-cols-5 gap-1 text-sm md:text-base text-center">

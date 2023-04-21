@@ -69,7 +69,7 @@
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
                 <img
-                  src="https://upload.touhou.vote/imgs/nav/questionnaireDetail@100px.png"
+                  src="https://s3c.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png"
                   class="object-cover rounded"
                 />
               </div>
@@ -99,7 +99,7 @@
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
                 <img
-                  src="https://upload.touhou.vote/imgs/nav/couple@100px.png"
+                  src="https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png"
                   class="object-cover rounded"
                 />
               </div>
@@ -138,7 +138,7 @@
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
                 <img
-                  src="https://upload.touhou.vote/imgs/nav/doujin@100px.png"
+                  src="https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png"
                   class="object-contain rounded"
                 />
               </div>
@@ -470,17 +470,17 @@ const dpCollapseNav = ref(screenSizes['<xl'])
 const dpTabs = [
   {
     title: '填写问卷',
-    icon: 'https://upload.touhou.vote/imgs/nav/questionnaireDetail@100px.png',
+    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png',
     component: UserQuestionnaireDp,
   },
   {
     title: '参与投票',
-    icon: 'https://upload.touhou.vote/imgs/nav/couple@100px.png',
+    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
     component: UserVoteDp,
   },
   {
     title: '作品提名',
-    icon: 'https://upload.touhou.vote/imgs/nav/doujin@100px.png',
+    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png',
     component: VoteDoujinDp,
   },
 ]

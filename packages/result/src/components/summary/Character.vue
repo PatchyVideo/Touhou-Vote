@@ -5,7 +5,7 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.touhou.vote/imgs/nav/character@100px.png"
+          src="https://s3c.lilywhite.cc/thvote/imgs/nav/character@100px.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <h2 class="text-4xl font-light">角色部门</h2>

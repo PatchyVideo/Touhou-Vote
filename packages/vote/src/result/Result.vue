@@ -8,7 +8,7 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.touhou.vote/imgs/logo_reimu.png"
+          src="https://s3c.lilywhite.cc/thvote/imgs/logo_reimu.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <h2 class="text-4xl font-light">角色部门</h2>
@@ -82,7 +82,7 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.touhou.vote/imgs/nav/music@100px.png"
+          src="https://s3c.lilywhite.cc/thvote/imgs/nav/music@100px.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <h2 class="text-4xl font-light">音乐部门</h2>
@@ -156,7 +156,7 @@
     >
       <div class="flex items-end">
         <img
-          src="https://upload.touhou.vote/imgs/nav/couple@100px.png"
+          src="https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <h2 class="text-4xl font-light">CP部门</h2>

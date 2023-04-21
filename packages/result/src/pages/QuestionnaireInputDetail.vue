@@ -6,7 +6,7 @@
     >
       <div class="flex items-center">
         <img
-          src="https://upload.touhou.vote/imgs/nav/questionnaireDetail@100px.png"
+          src="https://s3c.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <div>

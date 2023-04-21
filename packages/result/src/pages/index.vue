@@ -64,27 +64,27 @@ setSiteTitle('投票结果 - 第⑩回 中文东方人气投票')
 
 const resultTypeMeta = ref([
   {
-    img: 'https://upload.touhou.vote/imgs/nav/character@100px.png',
+    img: 'https://s3c.lilywhite.cc/thvote/imgs/nav/character@100px.png',
     name: '角色部门',
     to: '/character',
   },
   {
-    img: 'https://upload.touhou.vote/imgs/nav/music@100px.png',
+    img: 'https://s3c.lilywhite.cc/thvote/imgs/nav/music@100px.png',
     name: '音乐部门',
     to: '/music',
   },
   {
-    img: 'https://upload.touhou.vote/imgs/nav/couple@100px.png',
+    img: 'https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
     name: 'CP部门',
     to: '/couple',
   },
   {
-    img: 'https://upload.touhou.vote/imgs/nav/doujin@100px.png',
+    img: 'https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png',
     name: '提名部门',
     to: '/doujin',
   },
   {
-    img: 'https://upload.touhou.vote/imgs/nav/questionnaireDetail@100px.png',
+    img: 'https://s3c.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png',
     name: '调查问卷',
     to: '/questionnaireDetail',
   },

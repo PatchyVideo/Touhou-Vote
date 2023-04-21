@@ -6,7 +6,7 @@
         <div class="w-1/3 p-0.5 overflow-hidden rounded">
           <div class="w-full aspect-1/1">
             <img
-              src="https://upload.touhou.vote/imgs/nav/character@100px.png"
+              src="https://s3c.lilywhite.cc/thvote/imgs/nav/character@100px.png"
               class="object-cover rounded"
             />
           </div>
@@ -36,7 +36,7 @@
         <div class="w-1/3 p-0.5 overflow-hidden rounded">
           <div class="w-full aspect-1/1">
             <img
-              src="https://upload.touhou.vote/imgs/nav/music@100px.png"
+              src="https://s3c.lilywhite.cc/thvote/imgs/nav/music@100px.png"
               class="object-cover rounded"
             />
           </div>
@@ -63,7 +63,7 @@
         <div class="w-1/3 p-0.5 overflow-hidden rounded">
           <div class="w-full aspect-1/1">
             <img
-              src="https://upload.touhou.vote/imgs/nav/couple@100px.png"
+              src="https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png"
               class="object-cover rounded"
             />
           </div>
