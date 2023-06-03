@@ -77,7 +77,7 @@ $ pnpm nav:serve
 
 ```bash
 # 生成 GraphQL Schema
-$ pnpm vote:codegen
+$ pnpm result:codegen
 
 # 启动本地调试
 $ pnpm result:dev
