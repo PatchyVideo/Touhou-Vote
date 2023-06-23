@@ -15,7 +15,7 @@ export interface Character {
 
 export const characterList: Character[] = [
   {
-    id: '1',
+    id: '4068b1c2',
     name: '博丽灵梦',
     origname: '博麗　霊夢',
     altnames: ['红白', '城管'],
@@ -29,7 +29,7 @@ export const characterList: Character[] = [
     work: ['东方灵异传', '东方红魔乡'],
   },
   {
-    id: '2',
+    id: '3d9df9a0',
     name: '雾雨魔理沙',
     origname: '霧雨　魔理沙',
     altnames: ['黑白', '魔胖子', '莎莎'],
@@ -43,7 +43,7 @@ export const characterList: Character[] = [
     work: ['东方封魔录', '东方红魔乡'],
   },
   {
-    id: '3',
+    id: '303bf2f0',
     name: '神玉',
     origname: 'しんぎょく',
     altnames: [],
@@ -57,7 +57,7 @@ export const characterList: Character[] = [
     work: ['东方灵异传'],
   },
   {
-    id: '4',
+    id: 'a5dd07db',
     name: '魅魔',
     origname: '魅魔',
     altnames: [],
@@ -71,7 +71,7 @@ export const characterList: Character[] = [
     work: ['东方灵异传'],
   },
   {
-    id: '5',
+    id: 'f2295f91',
     name: '菊理',
     origname: 'きくり',
     altnames: [],
@@ -85,7 +85,7 @@ export const characterList: Character[] = [
     work: ['东方灵异传'],
   },
   {
-    id: '6',
+    id: '7eb52786',
     name: '矜羯罗',
     origname: '矜羯羅',
     altnames: [],
@@ -99,7 +99,7 @@ export const characterList: Character[] = [
     work: ['东方灵异传'],
   },
   {
-    id: '7',
+    id: 'ab83aff5',
     name: '幽幻魔眼',
     origname: 'ゆうげんまがん',
     altnames: [],
@@ -113,7 +113,7 @@ export const characterList: Character[] = [
     work: ['东方灵异传'],
   },
   {
-    id: '8',
+    id: '03de3773',
     name: '依莉斯',
     origname: 'エリス',
     altnames: [],
@@ -127,7 +127,7 @@ export const characterList: Character[] = [
     work: ['东方灵异传'],
   },
   {
-    id: '9',
+    id: 'b1c5013e',
     name: '萨丽爱尔',
     origname: 'サリエル',
     altnames: ['大碎骨', '天使'],
@@ -141,7 +141,7 @@ export const characterList: Character[] = [
     work: ['东方灵异传'],
   },
   {
-    id: '10',
+    id: '8b8da236',
     name: '玄爷',
     origname: '玄爺',
     altnames: ['乌龟'],
@@ -155,7 +155,7 @@ export const characterList: Character[] = [
     work: ['东方封魔录'],
   },
   {
-    id: '11',
+    id: 'aabfc5ec',
     name: '里香',
     origname: '里香',
     altnames: ['战车少女'],
@@ -169,7 +169,7 @@ export const characterList: Character[] = [
     work: ['东方封魔录'],
   },
   {
-    id: '12',
+    id: '4eaafad3',
     name: '明罗',
     origname: '明羅',
     altnames: [],
@@ -183,7 +183,7 @@ export const characterList: Character[] = [
     work: ['东方封魔录'],
   },
   {
-    id: '13',
+    id: '18b5c02c',
     name: 'Flower～战车',
     origname: 'ふらわ～戦車',
     altnames: [],
@@ -197,7 +197,7 @@ export const characterList: Character[] = [
     work: ['东方封魔录'],
   },
   {
-    id: '14',
+    id: '77ef1514',
     name: '邪眼西格玛',
     origname: 'イビルアイ∑',
     altnames: [],
@@ -211,7 +211,7 @@ export const characterList: Character[] = [
     work: ['东方封魔录'],
   },
   {
-    id: '15',
+    id: '99ae0f53',
     name: '爱莲',
     origname: 'エレン',
     altnames: ['恋爱魔女'],
@@ -225,7 +225,7 @@ export const characterList: Character[] = [
     work: ['东方梦时空'],
   },
   {
-    id: '16',
+    id: '5959db57',
     name: '小兔姬',
     origname: '小兎姫',
     altnames: ['警察'],
@@ -239,7 +239,7 @@ export const characterList: Character[] = [
     work: ['东方梦时空'],
   },
   {
-    id: '17',
+    id: 'dbd077f6',
     name: '卡娜·安娜贝拉尔',
     origname: 'カナ・アナベラル',
     altnames: ['梦消失'],
@@ -253,7 +253,7 @@ export const characterList: Character[] = [
     work: ['东方梦时空'],
   },
   {
-    id: '18',
+    id: '84d9644e',
     name: '朝仓理香子',
     origname: '朝倉　理香子',
     altnames: [],
@@ -267,7 +267,7 @@ export const characterList: Character[] = [
     work: ['东方梦时空'],
   },
   {
-    id: '19',
+    id: '5f0437a8',
     name: '北白河千百合',
     origname: '北白河　ちゆり',
     altnames: [],
@@ -281,7 +281,7 @@ export const characterList: Character[] = [
     work: ['东方梦时空'],
   },
   {
-    id: '20',
+    id: 'bed36787',
     name: '冈崎梦美',
     origname: '岡崎　夢美',
     altnames: ['教授', '草莓'],
@@ -295,7 +295,7 @@ export const characterList: Character[] = [
     work: ['东方梦时空'],
   },
   {
-    id: '21',
+    id: '9238ecec',
     name: '咪咪号',
     origname: 'ミミちゃん',
     altnames: [],
@@ -309,7 +309,7 @@ export const characterList: Character[] = [
     work: ['东方梦时空'],
   },
   {
-    id: '22',
+    id: 'f24ee488',
     name: '留琴',
     origname: 'る～こと',
     altnames: ['机器女仆', '核能女仆'],
@@ -323,7 +323,7 @@ export const characterList: Character[] = [
     work: ['东方梦时空'],
   },
   {
-    id: '23',
+    id: '788cc6d6',
     name: '玛○奇',
     origname: 'ま○ち',
     altnames: ['玛露奇', '家务机器人'],
@@ -337,7 +337,7 @@ export const characterList: Character[] = [
     work: ['东方梦时空'],
   },
   {
-    id: '24',
+    id: '5cb3ddc2',
     name: '苏格拉底',
     origname: 'ソクラテス',
     altnames: [],
@@ -351,7 +351,7 @@ export const characterList: Character[] = [
     work: ['东方梦时空'],
   },
   {
-    id: '25',
+    id: 'fb515016',
     name: '奥莲姬',
     origname: 'オレンジ',
     altnames: ['橙子'],
@@ -365,7 +365,7 @@ export const characterList: Character[] = [
     work: ['东方幻想乡'],
   },
   {
-    id: '26',
+    id: 'd9dc3ac7',
     name: '胡桃',
     origname: 'くるみ',
     altnames: ['吸血鬼'],
@@ -379,7 +379,7 @@ export const characterList: Character[] = [
     work: ['东方幻想乡'],
   },
   {
-    id: '27',
+    id: '82a37606',
     name: '艾丽',
     origname: 'エリー',
     altnames: ['门卫'],
@@ -393,7 +393,7 @@ export const characterList: Character[] = [
     work: ['东方幻想乡'],
   },
   {
-    id: '28',
+    id: 'beeb23bc',
     name: '梦月',
     origname: '夢月',
     altnames: [],
@@ -407,7 +407,7 @@ export const characterList: Character[] = [
     work: ['东方幻想乡'],
   },
   {
-    id: '29',
+    id: 'bacebda2',
     name: '幻月',
     origname: '幻月',
     altnames: [],
@@ -421,7 +421,7 @@ export const characterList: Character[] = [
     work: ['东方幻想乡'],
   },
   {
-    id: '30',
+    id: '9a037fa3',
     name: '萨拉',
     origname: 'サラ',
     altnames: [],
@@ -435,7 +435,7 @@ export const characterList: Character[] = [
     work: ['东方怪绮谈'],
   },
   {
-    id: '31',
+    id: '03e0a86b',
     name: '露易兹',
     origname: 'ルイズ',
     altnames: [],
@@ -449,7 +449,7 @@ export const characterList: Character[] = [
     work: ['东方怪绮谈'],
   },
   {
-    id: '32',
+    id: 'd84553b9',
     name: '雪',
     origname: 'ユキ',
     altnames: ['黑之魔法使'],
@@ -463,7 +463,7 @@ export const characterList: Character[] = [
     work: ['东方怪绮谈'],
   },
   {
-    id: '33',
+    id: 'ad5488d6',
     name: '舞',
     origname: 'マイ',
     altnames: ['白之魔法使'],
@@ -477,7 +477,7 @@ export const characterList: Character[] = [
     work: ['东方怪绮谈'],
   },
   {
-    id: '34',
+    id: '5f202ec7',
     name: '梦子',
     origname: '夢子',
     altnames: ['魔界女仆'],
@@ -491,7 +491,7 @@ export const characterList: Character[] = [
     work: ['东方怪绮谈'],
   },
   {
-    id: '35',
+    id: 'd5f92cfe',
     name: '神绮',
     origname: '神綺',
     altnames: ['太太', '呆毛神', '女儿怪'],
@@ -505,7 +505,7 @@ export const characterList: Character[] = [
     work: ['东方怪绮谈'],
   },
   {
-    id: '36',
+    id: '2e68cf78',
     name: '露米娅',
     origname: 'ルーミア',
     altnames: ['⑩'],
@@ -519,7 +519,7 @@ export const characterList: Character[] = [
     work: ['东方红魔乡'],
   },
   {
-    id: '37',
+    id: 'b18739ea',
     name: '大妖精',
     origname: '大妖精',
     altnames: ['大酱'],
@@ -533,7 +533,7 @@ export const characterList: Character[] = [
     work: ['东方红魔乡'],
   },
   {
-    id: '38',
+    id: 'be3477fd',
     name: '琪露诺',
     origname: 'チルノ',
     altnames: ['⑨', '冰精'],
@@ -547,7 +547,7 @@ export const characterList: Character[] = [
     work: ['东方红魔乡'],
   },
   {
-    id: '39',
+    id: '63d2a4b4',
     name: '红美铃',
     origname: '紅　美鈴',
     altnames: ['中国', '红师傅'],
@@ -561,7 +561,7 @@ export const characterList: Character[] = [
     work: ['东方红魔乡'],
   },
   {
-    id: '40',
+    id: '42b64412',
     name: '小恶魔',
     origname: '小悪魔',
     altnames: [],
@@ -575,7 +575,7 @@ export const characterList: Character[] = [
     work: ['东方红魔乡'],
   },
   {
-    id: '41',
+    id: 'e55a3661',
     name: '帕秋莉·诺蕾姬',
     origname: 'パチュリー・ノーレッジ',
     altnames: ['姆Q', '帕琪'],
@@ -589,7 +589,7 @@ export const characterList: Character[] = [
     work: ['东方红魔乡'],
   },
   {
-    id: '42',
+    id: 'b72223ba',
     name: '十六夜咲夜',
     origname: '十六夜　咲夜',
     altnames: ['PAD长'],
@@ -603,7 +603,7 @@ export const characterList: Character[] = [
     work: ['东方红魔乡'],
   },
   {
-    id: '43',
+    id: 'ec5f65bf',
     name: '蕾米莉亚·斯卡蕾特',
     origname: 'レミリア・スカーレット',
     altnames: ['威严', '大小姐'],
@@ -617,7 +617,7 @@ export const characterList: Character[] = [
     work: ['东方红魔乡'],
   },
   {
-    id: '44',
+    id: 'ec5f65bf',
     name: '芙兰朵露·斯卡蕾特',
     origname: 'フランドール・スカーレット',
     altnames: ['二妹', '二小姐'],
@@ -631,7 +631,7 @@ export const characterList: Character[] = [
     work: ['东方红魔乡'],
   },
   {
-    id: '45',
+    id: '5861a82e',
     name: '冴月麟',
     origname: '冴月　麟',
     altnames: ['阿卡鳞'],
@@ -645,7 +645,7 @@ export const characterList: Character[] = [
     work: ['东方红魔乡'],
   },
   {
-    id: '46',
+    id: 'cd9c045d',
     name: 'Label子',
     origname: 'レーベルイラストの娘',
     altnames: [],
@@ -659,7 +659,7 @@ export const characterList: Character[] = [
     work: ['蓬莱人形'],
   },
   {
-    id: '47',
+    id: '90023610',
     name: '小丑',
     origname: 'ピエロ',
     altnames: [],
@@ -673,7 +673,7 @@ export const characterList: Character[] = [
     work: ['蓬莱人形'],
   },
   {
-    id: '48',
+    id: '000273ca',
     name: '正直者',
     origname: '正直者',
     altnames: [],
@@ -687,7 +687,7 @@ export const characterList: Character[] = [
     work: ['蓬莱人形'],
   },
   {
-    id: '49',
+    id: '89f04189',
     name: '夹克子',
     origname: 'ジャケットイラストの娘',
     altnames: [],
@@ -701,7 +701,7 @@ export const characterList: Character[] = [
     work: ['蓬莱人形'],
   },
   {
-    id: '50',
+    id: '0f2c1677',
     name: '蕾蒂·霍瓦特洛克',
     origname: 'レティ・ホワイトロック',
     altnames: ['⑨妈', '冬胖子'],
@@ -715,7 +715,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '51',
+    id: 'c2686a48',
     name: '橙',
     origname: '橙',
     altnames: ['黑猫'],
@@ -729,7 +729,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '52',
+    id: '07f85e3d',
     name: '爱丽丝·玛格特洛依德',
     origname: 'アリス・マーガトロイド',
     altnames: ['小爱', '威震天', '人偶师'],
@@ -743,7 +743,7 @@ export const characterList: Character[] = [
     work: ['东方怪绮谈', '东方妖妖梦'],
   },
   {
-    id: '53',
+    id: '68d9855c',
     name: '莉莉霍瓦特',
     origname: 'リリーホワイト',
     altnames: ['莉莉白', '莉莉黑'],
@@ -757,7 +757,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '54',
+    id: '7d4f8696',
     name: '露娜萨·普莉兹姆利巴',
     origname: 'ルナサ・プリズムリバー',
     altnames: ['骚灵大姐', '提琴手', '骚灵三姐妹'],
@@ -771,7 +771,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '55',
+    id: '7d4f8696',
     name: '梅露兰·普莉兹姆利巴',
     origname: 'メルラン・プリズムリバー',
     altnames: ['骚灵二姐', '小号手', '骚灵三姐妹'],
@@ -785,7 +785,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '56',
+    id: '7d4f8696',
     name: '莉莉卡·普莉兹姆利巴',
     origname: 'リリカ・プリズムリバー',
     altnames: ['骚灵三妹', '键盘手', '骚灵三姐妹'],
@@ -799,7 +799,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '57',
+    id: 'e6d1be88',
     name: '魂魄妖梦',
     origname: '魂魄　妖夢',
     altnames: ['yoo', '庭师'],
@@ -813,7 +813,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '58',
+    id: '8e4c257a',
     name: '西行寺幽幽子',
     origname: '西行寺　幽々子',
     altnames: ['UUZ', '吃货子'],
@@ -827,7 +827,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '59',
+    id: '53542596',
     name: '八云蓝',
     origname: '八雲　藍',
     altnames: ['素果天狐', '蓝妈', '九尾策士'],
@@ -841,7 +841,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '60',
+    id: '94ce1ced',
     name: '八云紫',
     origname: '八雲　紫',
     altnames: ['BBA', '紫妈', '老太婆'],
@@ -855,7 +855,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '61',
+    id: '17657c79',
     name: '魂魄妖忌',
     origname: '魂魄　妖忌',
     altnames: ['老爷子'],
@@ -869,7 +869,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '62',
+    id: '7d4f8696',
     name: '蕾拉·普莉兹姆利巴',
     origname: 'レイラ・プリズムリバー',
     altnames: [],
@@ -883,7 +883,7 @@ export const characterList: Character[] = [
     work: ['东方妖妖梦'],
   },
   {
-    id: '63',
+    id: '7dbc3f72',
     name: '宇佐见莲子',
     origname: '宇佐見　蓮子',
     altnames: [],
@@ -897,7 +897,7 @@ export const characterList: Character[] = [
     work: ['莲台野夜行'],
   },
   {
-    id: '64',
+    id: '0d47d362',
     name: '玛艾露贝莉·赫恩',
     origname: 'マエリベリー・ハーン',
     altnames: ['梅莉'],
@@ -911,7 +911,7 @@ export const characterList: Character[] = [
     work: ['莲台野夜行'],
   },
   {
-    id: '65',
+    id: '2da5f39a',
     name: '莉格露·奈特巴格',
     origname: 'リグル・ナイトバグ',
     altnames: ['虫子'],
@@ -925,7 +925,7 @@ export const characterList: Character[] = [
     work: ['东方永夜抄'],
   },
   {
-    id: '66',
+    id: '749360da',
     name: '米斯蒂娅·萝蕾拉',
     origname: 'ミスティア・ローレライ',
     altnames: ['米斯琪', '老板娘', '小碎骨'],
@@ -939,7 +939,7 @@ export const characterList: Character[] = [
     work: ['东方永夜抄'],
   },
   {
-    id: '67',
+    id: 'da58029c',
     name: '上白泽慧音',
     origname: '上白沢　慧音',
     altnames: ['老师'],
@@ -953,7 +953,7 @@ export const characterList: Character[] = [
     work: ['东方永夜抄'],
   },
   {
-    id: '68',
+    id: 'ca37ab39',
     name: '因幡天为（因幡帝）',
     origname: '因幡　てゐ',
     altnames: ['黑兔子', '帝帝', '腹黑兔'],
@@ -967,7 +967,7 @@ export const characterList: Character[] = [
     work: ['东方永夜抄'],
   },
   {
-    id: '69',
+    id: '001cc0e1',
     name: '铃仙·优昙华院·因幡',
     origname: '鈴仙・優曇華院・イナバ',
     altnames: ['大兔子', '受兔'],
@@ -981,7 +981,7 @@ export const characterList: Character[] = [
     work: ['东方永夜抄'],
   },
   {
-    id: '70',
+    id: '006a7501',
     name: '八意永琳',
     origname: '八意　永琳',
     altnames: ['师匠'],
@@ -995,7 +995,7 @@ export const characterList: Character[] = [
     work: ['东方永夜抄'],
   },
   {
-    id: '71',
+    id: '5f819ac7',
     name: '蓬莱山辉夜',
     origname: '蓬莱山　輝夜',
     altnames: ['NEET', '竹取姬', '公主大人'],
@@ -1009,7 +1009,7 @@ export const characterList: Character[] = [
     work: ['东方永夜抄'],
   },
   {
-    id: '72',
+    id: 'd819ed10',
     name: '藤原妹红',
     origname: '藤原　妹紅',
     altnames: [],
@@ -1023,7 +1023,7 @@ export const characterList: Character[] = [
     work: ['东方永夜抄'],
   },
   {
-    id: '73',
+    id: 'd8e6d65e',
     name: '伊吹萃香',
     origname: '伊吹　萃香',
     altnames: ['西瓜'],
@@ -1037,7 +1037,7 @@ export const characterList: Character[] = [
     work: ['东方萃梦想'],
   },
   {
-    id: '74',
+    id: '813e8c90',
     name: '射命丸文',
     origname: '射命丸　文',
     altnames: ['aya', '文文', '狗仔文'],
@@ -1051,7 +1051,7 @@ export const characterList: Character[] = [
     work: ['东方花映塚'],
   },
   {
-    id: '75',
+    id: 'ffacf239',
     name: '梅蒂欣·梅兰可莉',
     origname: 'メディスン・メランコリー',
     altnames: ['毒人偶'],
@@ -1065,7 +1065,7 @@ export const characterList: Character[] = [
     work: ['东方花映塚'],
   },
   {
-    id: '76',
+    id: '2033fc94',
     name: '风见幽香',
     origname: '風見　幽香',
     altnames: ['睡美人', '花妈'],
@@ -1079,7 +1079,7 @@ export const characterList: Character[] = [
     work: ['东方幻想乡', '东方花映塚'],
   },
   {
-    id: '77',
+    id: '57329a76',
     name: '小野塚小町',
     origname: '小野塚　小町',
     altnames: ['死神', '乳町'],
@@ -1093,7 +1093,7 @@ export const characterList: Character[] = [
     work: ['东方花映塚'],
   },
   {
-    id: '78',
+    id: '3501efbe',
     name: '四季映姬·夜摩仙那度',
     origname: '四季映姫・ヤマザナドゥ',
     altnames: ['阎萝王'],
@@ -1107,7 +1107,7 @@ export const characterList: Character[] = [
     work: ['东方花映塚'],
   },
   {
-    id: '79',
+    id: '188bca93',
     name: '稗田阿求',
     origname: '稗田　阿求',
     altnames: [],
@@ -1121,7 +1121,7 @@ export const characterList: Character[] = [
     work: ['东方求闻史纪'],
   },
   {
-    id: '80',
+    id: '6ced6557',
     name: '求闻史纪中的受访人群',
     origname: '人間',
     altnames: [],
@@ -1135,7 +1135,7 @@ export const characterList: Character[] = [
     work: ['东方求闻史纪'],
   },
   {
-    id: '81',
+    id: 'affb66d3',
     name: '桑尼米尔克',
     origname: 'サニーミルク',
     altnames: [],
@@ -1149,7 +1149,7 @@ export const characterList: Character[] = [
     work: ['东方三月精'],
   },
   {
-    id: '82',
+    id: 'b4d29b15',
     name: '露娜切露德',
     origname: 'ルナチャイルド',
     altnames: [],
@@ -1163,7 +1163,7 @@ export const characterList: Character[] = [
     work: ['东方三月精'],
   },
   {
-    id: '83',
+    id: 'f70a8ece',
     name: '斯塔萨菲雅',
     origname: 'スターサファイア',
     altnames: [],
@@ -1177,7 +1177,7 @@ export const characterList: Character[] = [
     work: ['东方三月精'],
   },
   {
-    id: '84',
+    id: '4a1b481a',
     name: '秋静叶',
     origname: '秋　静葉',
     altnames: [],
@@ -1191,7 +1191,7 @@ export const characterList: Character[] = [
     work: ['东方风神录'],
   },
   {
-    id: '85',
+    id: 'f12dabc6',
     name: '秋穰子',
     origname: '秋　穣子',
     altnames: [],
@@ -1205,7 +1205,7 @@ export const characterList: Character[] = [
     work: ['东方风神录'],
   },
   {
-    id: '86',
+    id: 'd324b050',
     name: '键山雏',
     origname: '鍵山　雛',
     altnames: ['转转'],
@@ -1219,7 +1219,7 @@ export const characterList: Character[] = [
     work: ['东方风神录'],
   },
   {
-    id: '87',
+    id: '50acffee',
     name: '河城荷取',
     origname: '河城　にとり',
     altnames: ['河童'],
@@ -1233,7 +1233,7 @@ export const characterList: Character[] = [
     work: ['东方风神录'],
   },
   {
-    id: '88',
+    id: '33a061be',
     name: '犬走椛',
     origname: '犬走　椛',
     altnames: ['狗椛'],
@@ -1247,7 +1247,7 @@ export const characterList: Character[] = [
     work: ['东方风神录'],
   },
   {
-    id: '89',
+    id: '7fa2654a',
     name: '东风谷早苗',
     origname: '東風谷　早苗',
     altnames: [],
@@ -1261,7 +1261,7 @@ export const characterList: Character[] = [
     work: ['东方风神录'],
   },
   {
-    id: '90',
+    id: '0d3ecd8c',
     name: '八坂神奈子',
     origname: '八坂　神奈子',
     altnames: ['钢加农'],
@@ -1275,7 +1275,7 @@ export const characterList: Character[] = [
     work: ['东方风神录'],
   },
   {
-    id: '91',
+    id: 'c2ceff64',
     name: '洩矢诹访子',
     origname: '洩矢　諏訪子',
     altnames: ['青蛙子'],
@@ -1289,7 +1289,7 @@ export const characterList: Character[] = [
     work: ['东方风神录'],
   },
   {
-    id: '92',
+    id: '08702320',
     name: '永江衣玖',
     origname: '永江　衣玖',
     altnames: ['19'],
@@ -1303,7 +1303,7 @@ export const characterList: Character[] = [
     work: ['东方绯想天'],
   },
   {
-    id: '93',
+    id: '029bff44',
     name: '比那名居天子',
     origname: '比那名居　天子',
     altnames: ['M子'],
@@ -1317,7 +1317,7 @@ export const characterList: Character[] = [
     work: ['东方绯想天'],
   },
   {
-    id: '94',
+    id: 'b1c44786',
     name: '琪斯美',
     origname: 'キスメ',
     altnames: ['小桶'],
@@ -1331,7 +1331,7 @@ export const characterList: Character[] = [
     work: ['东方地灵殿'],
   },
   {
-    id: '95',
+    id: 'b26073b4',
     name: '黑谷山女',
     origname: '黒谷　ヤマメ',
     altnames: [],
@@ -1345,7 +1345,7 @@ export const characterList: Character[] = [
     work: ['东方地灵殿'],
   },
   {
-    id: '96',
+    id: 'bebc0f91',
     name: '水桥帕露西',
     origname: '水橋　パルスィ',
     altnames: ['桥姬', '嫉妒'],
@@ -1359,7 +1359,7 @@ export const characterList: Character[] = [
     work: ['东方地灵殿'],
   },
   {
-    id: '97',
+    id: '15e80220',
     name: '星熊勇仪',
     origname: '星熊　勇儀',
     altnames: [],
@@ -1373,7 +1373,7 @@ export const characterList: Character[] = [
     work: ['东方地灵殿'],
   },
   {
-    id: '98',
+    id: '33de930b',
     name: '古明地觉',
     origname: '古明地　さとり',
     altnames: ['小五'],
@@ -1387,7 +1387,7 @@ export const characterList: Character[] = [
     work: ['东方地灵殿'],
   },
   {
-    id: '99',
+    id: '38c69c41',
     name: '火焰猫燐',
     origname: '火焔猫　燐',
     altnames: ['阿燐'],
@@ -1401,7 +1401,7 @@ export const characterList: Character[] = [
     work: ['东方地灵殿'],
   },
   {
-    id: '100',
+    id: 'e188b6a4',
     name: '灵乌路空',
     origname: '霊烏路　空',
     altnames: ['阿空', '鸟头'],
@@ -1415,7 +1415,7 @@ export const characterList: Character[] = [
     work: ['东方地灵殿'],
   },
   {
-    id: '101',
+    id: '34179bb0',
     name: '古明地恋',
     origname: '古明地　こいし',
     altnames: ['小石'],
@@ -1429,7 +1429,7 @@ export const characterList: Character[] = [
     work: ['东方地灵殿'],
   },
   {
-    id: '102',
+    id: 'e316093d',
     name: '娜兹玲',
     origname: 'ナズーリン',
     altnames: [],
@@ -1443,7 +1443,7 @@ export const characterList: Character[] = [
     work: ['东方星莲船'],
   },
   {
-    id: '103',
+    id: '7c470da9',
     name: '多多良小伞',
     origname: '多々良　小傘',
     altnames: [],
@@ -1457,7 +1457,7 @@ export const characterList: Character[] = [
     work: ['东方星莲船'],
   },
   {
-    id: '104',
+    id: 'e96ae29a',
     name: '云山',
     origname: '雲山',
     altnames: [],
@@ -1471,7 +1471,7 @@ export const characterList: Character[] = [
     work: ['东方星莲船'],
   },
   {
-    id: '105',
+    id: 'eafecafb',
     name: '云居一轮',
     origname: '雲居　一輪',
     altnames: [],
@@ -1485,7 +1485,7 @@ export const characterList: Character[] = [
     work: ['东方星莲船'],
   },
   {
-    id: '106',
+    id: 'e37a0bef',
     name: '村纱水蜜',
     origname: '村紗　水蜜',
     altnames: ['船长'],
@@ -1499,7 +1499,7 @@ export const characterList: Character[] = [
     work: ['东方星莲船'],
   },
   {
-    id: '107',
+    id: '59904708',
     name: '寅丸星',
     origname: '寅丸　星',
     altnames: ['大师兄'],
@@ -1513,7 +1513,7 @@ export const characterList: Character[] = [
     work: ['东方星莲船'],
   },
   {
-    id: '108',
+    id: '4953d7f7',
     name: '圣白莲',
     origname: '聖　白蓮',
     altnames: [],
@@ -1527,7 +1527,7 @@ export const characterList: Character[] = [
     work: ['东方星莲船'],
   },
   {
-    id: '109',
+    id: '3238eba0',
     name: '封兽鵺',
     origname: '封獣　ぬえ',
     altnames: [],
@@ -1541,7 +1541,7 @@ export const characterList: Character[] = [
     work: ['东方星莲船'],
   },
   {
-    id: '110',
+    id: '19ed4421',
     name: '命莲',
     origname: '命蓮',
     altnames: [],
@@ -1555,7 +1555,7 @@ export const characterList: Character[] = [
     work: ['东方星莲船'],
   },
   {
-    id: '111',
+    id: 'ab795a54',
     name: '大鲶鱼',
     origname: '大ナマズ',
     altnames: [],
@@ -1569,7 +1569,7 @@ export const characterList: Character[] = [
     work: ['东方非想天则'],
   },
   {
-    id: '112',
+    id: '02a48a0c',
     name: '非想天则',
     origname: '非想天則',
     altnames: [],
@@ -1583,7 +1583,7 @@ export const characterList: Character[] = [
     work: ['东方非想天则'],
   },
   {
-    id: '113',
+    id: '7aac70ba',
     name: '嫦娥',
     origname: '嫦娥',
     altnames: [],
@@ -1597,7 +1597,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '114',
+    id: '593f76f0',
     name: '绵月丰姬',
     origname: '綿月　豊姫',
     altnames: [],
@@ -1611,7 +1611,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '115',
+    id: '1af19a3d',
     name: '绵月依姬',
     origname: '綿月　依姫',
     altnames: [],
@@ -1625,7 +1625,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '116',
+    id: '3c039ec5',
     name: 'Reisen',
     origname: 'レイセン',
     altnames: ['二号', '泠仙'],
@@ -1639,7 +1639,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '117',
+    id: '9fe6d80e',
     name: '月夜见',
     origname: '月夜見',
     altnames: [],
@@ -1653,7 +1653,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '118',
+    id: 'cd902256',
     name: '石长姬',
     origname: '磐長姫',
     altnames: [],
@@ -1667,7 +1667,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '119',
+    id: '0bf650b2',
     name: '木花咲耶姬',
     origname: '木花咲耶姫',
     altnames: [],
@@ -1681,7 +1681,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '120',
+    id: '22eace11',
     name: '天照大御神',
     origname: '天照大御神',
     altnames: [],
@@ -1695,7 +1695,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '121',
+    id: '9ce93250',
     name: '石凝老命',
     origname: '石凝老命',
     altnames: [],
@@ -1709,7 +1709,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '122',
+    id: 'a285ec9e',
     name: '天宇受卖命',
     origname: '天宇受売命',
     altnames: [],
@@ -1723,7 +1723,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '123',
+    id: '6b486a78',
     name: '伊豆能卖',
     origname: '伊豆能売',
     altnames: [],
@@ -1737,7 +1737,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '124',
+    id: '6e5bea4f',
     name: '火雷神',
     origname: '火雷神',
     altnames: [],
@@ -1751,7 +1751,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '125',
+    id: '5972b3d4',
     name: '岩笠',
     origname: '岩笠',
     altnames: [],
@@ -1765,7 +1765,7 @@ export const characterList: Character[] = [
     work: ['东方儚月抄'],
   },
   {
-    id: '126',
+    id: '57328f63',
     name: '姬海棠果',
     origname: '姫海棠　はたて',
     altnames: ['羽立'],
@@ -1779,7 +1779,7 @@ export const characterList: Character[] = [
     work: ['东方文花帖DS'],
   },
   {
-    id: '127',
+    id: '55370feb',
     name: '森近霖之助',
     origname: '森近　霖之助',
     altnames: ['乡长', '香霖'],
@@ -1793,7 +1793,7 @@ export const characterList: Character[] = [
     work: ['东方香霖堂'],
   },
   {
-    id: '128',
+    id: 'a20c5e51',
     name: '无名的读书妖怪',
     origname: '名無しの本読み妖怪',
     altnames: ['朱鹭子'],
@@ -1807,7 +1807,7 @@ export const characterList: Character[] = [
     work: ['东方香霖堂'],
   },
   {
-    id: '129',
+    id: 'd3e2bfb4',
     name: '茨木华扇',
     origname: '茨木　華扇',
     altnames: ['茨华仙', '包子'],
@@ -1821,7 +1821,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '130',
+    id: '3deaed96',
     name: '野槌',
     origname: 'ツチノコ',
     altnames: [],
@@ -1835,7 +1835,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '131',
+    id: '22977678',
     name: '酒虫',
     origname: '酒虫',
     altnames: [],
@@ -1849,7 +1849,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '132',
+    id: 'f7b7d235',
     name: '雷兽（务光）',
     origname: '雷獣（務光）',
     altnames: [],
@@ -1863,7 +1863,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '133',
+    id: 'caf70ca3',
     name: '运松翁',
     origname: '運松翁',
     altnames: [],
@@ -1877,7 +1877,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '134',
+    id: '5d9bb531',
     name: '久米 / 竿打',
     origname: '久米 / 竿打',
     altnames: [],
@@ -1891,7 +1891,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '135',
+    id: '84b6ad85',
     name: '管狐',
     origname: '管狐',
     altnames: [],
@@ -1905,7 +1905,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '136',
+    id: '5d66e63e',
     name: '水鬼鬼神长',
     origname: '水鬼鬼神長',
     altnames: [],
@@ -1919,7 +1919,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '137',
+    id: 'e554d2d9',
     name: '万岁乐',
     origname: '万歳楽',
     altnames: [],
@@ -1933,7 +1933,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '138',
+    id: 'f467bb1f',
     name: '地精',
     origname: 'ホフゴブリン',
     altnames: [],
@@ -1947,7 +1947,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '139',
+    id: '192b2d70',
     name: '大老爷',
     origname: '大旦那',
     altnames: [],
@@ -1961,7 +1961,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '140',
+    id: '996a33db',
     name: '杀死大老爷的侍童',
     origname: '小間使い',
     altnames: [],
@@ -1975,7 +1975,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '141',
+    id: '33823215',
     name: '妖怪兔',
     origname: '妖怪兎',
     altnames: [],
@@ -1989,7 +1989,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '142',
+    id: 'b41c8452',
     name: '卖脚婆',
     origname: '足売り婆さん',
     altnames: [],
@@ -2003,7 +2003,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '143',
+    id: 'd7f6ca5d',
     name: '袈裟罗婆娑罗',
     origname: 'ケサランパサラン',
     altnames: [],
@@ -2017,7 +2017,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '144',
+    id: 'b17eaeca',
     name: '饿神',
     origname: 'ヒダル神',
     altnames: [],
@@ -2031,7 +2031,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '145',
+    id: '58e822af',
     name: '睡鼠',
     origname: 'ヤマネ',
     altnames: [],
@@ -2045,7 +2045,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '146',
+    id: 'efad6eae',
     name: '假扮魔理沙的妖狐',
     origname: '',
     altnames: [],
@@ -2059,7 +2059,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '147',
+    id: '101d9a47',
     name: '茨木童子之臂',
     origname: '茨木童子の腕',
     altnames: [],
@@ -2073,7 +2073,7 @@ export const characterList: Character[] = [
     work: ['东方茨歌仙'],
   },
   {
-    id: '148',
+    id: '4972131c',
     name: '幽谷响子',
     origname: '幽谷　響子',
     altnames: [],
@@ -2087,7 +2087,7 @@ export const characterList: Character[] = [
     work: ['东方神灵庙'],
   },
   {
-    id: '149',
+    id: 'b145a860',
     name: '宫古芳香',
     origname: '宮古　芳香',
     altnames: [],
@@ -2101,7 +2101,7 @@ export const characterList: Character[] = [
     work: ['东方神灵庙'],
   },
   {
-    id: '150',
+    id: 'd4410671',
     name: '霍青娥',
     origname: '霍　青娥',
     altnames: ['娘娘'],
@@ -2115,7 +2115,7 @@ export const characterList: Character[] = [
     work: ['东方神灵庙'],
   },
   {
-    id: '151',
+    id: '34cd5a77',
     name: '苏我屠自古',
     origname: '蘇我　屠自古',
     altnames: ['大根'],
@@ -2129,7 +2129,7 @@ export const characterList: Character[] = [
     work: ['东方神灵庙'],
   },
   {
-    id: '152',
+    id: '0ef500dd',
     name: '物部布都',
     origname: '物部　布都',
     altnames: [],
@@ -2143,7 +2143,7 @@ export const characterList: Character[] = [
     work: ['东方神灵庙'],
   },
   {
-    id: '153',
+    id: '2e520635',
     name: '丰聪耳神子',
     origname: '豊聡耳　神子',
     altnames: [],
@@ -2157,7 +2157,7 @@ export const characterList: Character[] = [
     work: ['东方神灵庙'],
   },
   {
-    id: '154',
+    id: '68b648a3',
     name: '二岩猯藏',
     origname: '二ッ岩　マミゾウ',
     altnames: ['大狸子'],
@@ -2171,7 +2171,7 @@ export const characterList: Character[] = [
     work: ['东方神灵庙'],
   },
   {
-    id: '155',
+    id: '1787afa6',
     name: '本居小铃',
     origname: '本居　小鈴',
     altnames: ['防撞桶'],
@@ -2185,7 +2185,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '156',
+    id: '0cb6f14e',
     name: '龙神',
     origname: '龍神',
     altnames: [],
@@ -2199,7 +2199,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '157',
+    id: '67dae668',
     name: '烟烟罗',
     origname: '煙々羅',
     altnames: [],
@@ -2213,7 +2213,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '158',
+    id: '87761f9a',
     name: '卓柏卡布拉',
     origname: 'チュパカブラ',
     altnames: [],
@@ -2227,7 +2227,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '159',
+    id: '99cfb125',
     name: '沓颊',
     origname: '沓頬',
     altnames: [],
@@ -2241,7 +2241,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '160',
+    id: '0ccab0c8',
     name: '怨灵少女',
     origname: '少女の怨霊',
     altnames: [],
@@ -2255,7 +2255,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '161',
+    id: 'f3dde80a',
     name: '祐天上人',
     origname: '祐天上人',
     altnames: [],
@@ -2269,7 +2269,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '162',
+    id: '6f0d811d',
     name: '白仙和尚',
     origname: '白仙坊主',
     altnames: [],
@@ -2283,7 +2283,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '163',
+    id: 'ba42d2ee',
     name: '占卜师（易者）',
     origname: '易者',
     altnames: [],
@@ -2297,7 +2297,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '164',
+    id: '8735205e',
     name: '抗抑郁药大叔',
     origname: '抗鬱薬おじさん',
     altnames: [],
@@ -2311,7 +2311,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '165',
+    id: 'e876c514',
     name: '盐家老板',
     origname: '塩屋敷の旦那',
     altnames: [],
@@ -2325,7 +2325,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '166',
+    id: 'd7c5cc1e',
     name: '马凭',
     origname: '馬憑き',
     altnames: [],
@@ -2339,7 +2339,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '167',
+    id: '94dca132',
     name: '竹扫帚付丧神',
     origname: '付喪神の竹箒',
     altnames: [],
@@ -2353,7 +2353,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '168',
+    id: '2a5971fd',
     name: '兜风四人组',
     origname: '四人の若者',
     altnames: [],
@@ -2367,7 +2367,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '169',
+    id: 'fb09714f',
     name: '导航',
     origname: 'カーナビ',
     altnames: [],
@@ -2381,7 +2381,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '170',
+    id: 'c9016b29',
     name: '百鬼夜行绘卷妖怪（黑鬼）',
     origname: '百鬼夜行絵巻妖怪（黒い鬼）',
     altnames: [],
@@ -2395,7 +2395,7 @@ export const characterList: Character[] = [
     work: ['东方铃奈庵'],
   },
   {
-    id: '171',
+    id: '7bb3f441',
     name: '秦心',
     origname: '秦　こころ',
     altnames: [],
@@ -2409,7 +2409,7 @@ export const characterList: Character[] = [
     work: ['东方心绮楼'],
   },
   {
-    id: '172',
+    id: '79defd81',
     name: '秦河胜',
     origname: '秦河胜',
     altnames: [],
@@ -2423,7 +2423,7 @@ export const characterList: Character[] = [
     work: ['东方心绮楼'],
   },
   {
-    id: '173',
+    id: '3809fb1a',
     name: '若鹭姬',
     origname: 'わかさぎ姫',
     altnames: ['人鱼'],
@@ -2437,7 +2437,7 @@ export const characterList: Character[] = [
     work: ['东方辉针城'],
   },
   {
-    id: '174',
+    id: '7ae65ae2',
     name: '赤蛮奇',
     origname: '赤蛮奇',
     altnames: [],
@@ -2451,7 +2451,7 @@ export const characterList: Character[] = [
     work: ['东方辉针城'],
   },
   {
-    id: '175',
+    id: 'f88aa37b',
     name: '今泉影狼',
     origname: '今泉　影狼',
     altnames: [],
@@ -2465,7 +2465,7 @@ export const characterList: Character[] = [
     work: ['东方辉针城'],
   },
   {
-    id: '176',
+    id: 'c9e7d2e0',
     name: '九十九弁弁',
     origname: '九十九　弁々',
     altnames: [],
@@ -2479,7 +2479,7 @@ export const characterList: Character[] = [
     work: ['东方辉针城'],
   },
   {
-    id: '177',
+    id: '5ceeb38f',
     name: '九十九八桥',
     origname: '九十九　八橋',
     altnames: [],
@@ -2493,7 +2493,7 @@ export const characterList: Character[] = [
     work: ['东方辉针城'],
   },
   {
-    id: '178',
+    id: '4404baf3',
     name: '鬼人正邪',
     origname: '鬼人　正邪',
     altnames: [],
@@ -2507,7 +2507,7 @@ export const characterList: Character[] = [
     work: ['东方辉针城'],
   },
   {
-    id: '179',
+    id: '0a884fe4',
     name: '少名针妙丸',
     origname: '少名　針妙丸',
     altnames: ['小碗'],
@@ -2521,7 +2521,7 @@ export const characterList: Character[] = [
     work: ['东方辉针城'],
   },
   {
-    id: '180',
+    id: '7c3d4846',
     name: '堀川雷鼓',
     origname: '堀川　雷鼓',
     altnames: [],
@@ -2535,7 +2535,7 @@ export const characterList: Character[] = [
     work: ['东方辉针城'],
   },
   {
-    id: '181',
+    id: 'fd076917',
     name: '宇佐见堇子',
     origname: '宇佐見　菫子',
     altnames: [],
@@ -2549,7 +2549,7 @@ export const characterList: Character[] = [
     work: ['东方深秘录'],
   },
   {
-    id: '182',
+    id: 'f2314c6c',
     name: '绿巨人',
     origname: '緑の巨人',
     altnames: [],
@@ -2563,7 +2563,7 @@ export const characterList: Character[] = [
     work: ['东方深秘录'],
   },
   {
-    id: '183',
+    id: '66c8842c',
     name: '阿菊',
     origname: 'お菊',
     altnames: [],
@@ -2577,7 +2577,7 @@ export const characterList: Character[] = [
     work: ['东方深秘录'],
   },
   {
-    id: '184',
+    id: '321144f2',
     name: '八尺大人',
     origname: '八尺さま',
     altnames: [],
@@ -2591,7 +2591,7 @@ export const characterList: Character[] = [
     work: ['东方深秘录'],
   },
   {
-    id: '185',
+    id: '814d584a',
     name: '彭祖',
     origname: '彭祖',
     altnames: [],
@@ -2605,7 +2605,7 @@ export const characterList: Character[] = [
     work: ['东方深秘录'],
   },
   {
-    id: '186',
+    id: '52fa94f0',
     name: '黄帝',
     origname: '黄帝',
     altnames: [],
@@ -2619,7 +2619,7 @@ export const characterList: Character[] = [
     work: ['东方深秘录'],
   },
   {
-    id: '187',
+    id: '0c70487c',
     name: '尼西号',
     origname: 'ネッシー号',
     altnames: [],
@@ -2633,7 +2633,7 @@ export const characterList: Character[] = [
     work: ['东方深秘录'],
   },
   {
-    id: '188',
+    id: 'e8a19f99',
     name: '清兰',
     origname: '清蘭',
     altnames: ['蓝兔子'],
@@ -2647,7 +2647,7 @@ export const characterList: Character[] = [
     work: ['东方绀珠传'],
   },
   {
-    id: '189',
+    id: '11e770b4',
     name: '铃瑚',
     origname: '鈴瑚',
     altnames: ['黄兔子'],
@@ -2661,7 +2661,7 @@ export const characterList: Character[] = [
     work: ['东方绀珠传'],
   },
   {
-    id: '190',
+    id: 'c9211abf',
     name: '哆来咪·苏伊特',
     origname: 'ドレミー・スイート',
     altnames: ['123'],
@@ -2675,7 +2675,7 @@ export const characterList: Character[] = [
     work: ['东方绀珠传'],
   },
   {
-    id: '191',
+    id: '4fb1e8a5',
     name: '稀神探女',
     origname: '稀神　サグメ',
     altnames: [],
@@ -2689,7 +2689,7 @@ export const characterList: Character[] = [
     work: ['东方绀珠传'],
   },
   {
-    id: '192',
+    id: 'ee0075d9',
     name: '克劳恩皮丝',
     origname: 'クラウンピース',
     altnames: ['美国妖精'],
@@ -2703,7 +2703,7 @@ export const characterList: Character[] = [
     work: ['东方绀珠传'],
   },
   {
-    id: '193',
+    id: '2c8e6ed2',
     name: '纯狐',
     origname: '純狐',
     altnames: [],
@@ -2717,7 +2717,7 @@ export const characterList: Character[] = [
     work: ['东方绀珠传'],
   },
   {
-    id: '194',
+    id: '95017393',
     name: '赫卡提亚·拉碧斯拉祖利',
     origname: 'ヘカーティア・ラピスラズリ',
     altnames: [],
@@ -2731,7 +2731,7 @@ export const characterList: Character[] = [
     work: ['东方绀珠传'],
   },
   {
-    id: '195',
+    id: '0141e31f',
     name: '酒吧“Old Adam”的老板',
     origname: 'バーのマスター',
     altnames: [],
@@ -2745,7 +2745,7 @@ export const characterList: Character[] = [
     work: ['旧约酒馆'],
   },
   {
-    id: '196',
+    id: 'a9f6e51a',
     name: '爱塔妮缇拉尔瓦',
     origname: 'エタニティラルバ',
     altnames: ['大蛾子'],
@@ -2759,7 +2759,7 @@ export const characterList: Character[] = [
     work: ['东方天空璋'],
   },
   {
-    id: '197',
+    id: '5d19f359',
     name: '坂田合欢',
     origname: '坂田　ネムノ',
     altnames: [],
@@ -2773,7 +2773,7 @@ export const characterList: Character[] = [
     work: ['东方天空璋'],
   },
   {
-    id: '198',
+    id: '42ebcc86',
     name: '高丽野阿吽',
     origname: '高麗野　あうん',
     altnames: [],
@@ -2787,7 +2787,7 @@ export const characterList: Character[] = [
     work: ['东方天空璋'],
   },
   {
-    id: '199',
+    id: '0b79ec5d',
     name: '矢田寺成美',
     origname: '矢田寺　成美',
     altnames: [],
@@ -2801,7 +2801,7 @@ export const characterList: Character[] = [
     work: ['东方天空璋'],
   },
   {
-    id: '200',
+    id: '2f2d256c',
     name: '丁礼田舞',
     origname: '丁礼田　舞',
     altnames: [],
@@ -2815,7 +2815,7 @@ export const characterList: Character[] = [
     work: ['东方天空璋'],
   },
   {
-    id: '201',
+    id: 'ba664baa',
     name: '尔子田里乃',
     origname: '爾子田　里乃',
     altnames: [],
@@ -2829,7 +2829,7 @@ export const characterList: Character[] = [
     work: ['东方天空璋'],
   },
   {
-    id: '202',
+    id: 'e6bbfe03',
     name: '摩多罗隐岐奈',
     origname: '摩多羅　隠岐奈',
     altnames: [],
@@ -2843,7 +2843,7 @@ export const characterList: Character[] = [
     work: ['东方天空璋'],
   },
   {
-    id: '203',
+    id: '1f4a2c62',
     name: '依神女苑',
     origname: '依神 女苑',
     altnames: [],
@@ -2857,7 +2857,7 @@ export const characterList: Character[] = [
     work: ['东方凭依华'],
   },
   {
-    id: '204',
+    id: '9dc08586',
     name: '依神紫苑',
     origname: '依神 紫苑',
     altnames: [],
@@ -2871,7 +2871,7 @@ export const characterList: Character[] = [
     work: ['东方凭依华'],
   },
   {
-    id: '205',
+    id: 'aa1c0076',
     name: '戎璎花',
     origname: '戎　瓔花　',
     altnames: [],
@@ -2885,7 +2885,7 @@ export const characterList: Character[] = [
     work: ['东方鬼形兽'],
   },
   {
-    id: '206',
+    id: 'fbfb296c',
     name: '牛崎润美',
     origname: '牛崎　潤美',
     altnames: [],
@@ -2899,7 +2899,7 @@ export const characterList: Character[] = [
     work: ['东方鬼形兽'],
   },
   {
-    id: '207',
+    id: '14f763b6',
     name: '庭渡久侘歌',
     origname: '庭渡　久侘歌',
     altnames: [],
@@ -2913,7 +2913,7 @@ export const characterList: Character[] = [
     work: ['东方鬼形兽'],
   },
   {
-    id: '208',
+    id: '5a5d25c5',
     name: '吉吊八千慧',
     origname: '吉弔　八千慧',
     altnames: [],
@@ -2927,7 +2927,7 @@ export const characterList: Character[] = [
     work: ['东方鬼形兽'],
   },
   {
-    id: '209',
+    id: '0e36ec60',
     name: '杖刀偶磨弓',
     origname: '杖刀偶　磨弓',
     altnames: ['兵长'],
@@ -2941,7 +2941,7 @@ export const characterList: Character[] = [
     work: ['东方鬼形兽'],
   },
   {
-    id: '210',
+    id: 'dc38c61c',
     name: '埴安神袿姬',
     origname: '埴安神　袿姫',
     altnames: [],
@@ -2955,7 +2955,7 @@ export const characterList: Character[] = [
     work: ['东方鬼形兽'],
   },
   {
-    id: '211',
+    id: '73fd556d',
     name: '骊驹早鬼',
     origname: '驪駒　早鬼',
     altnames: [],
@@ -2969,7 +2969,7 @@ export const characterList: Character[] = [
     work: ['东方鬼形兽'],
   },
   {
-    id: '212',
+    id: '2e2d353f',
     name: '野狼灵',
     origname: 'オオカミ霊',
     altnames: [],
@@ -2983,7 +2983,7 @@ export const characterList: Character[] = [
     work: ['东方鬼形兽'],
   },
   {
-    id: '213',
+    id: 'af21d28c',
     name: '水獭灵',
     origname: 'カワウソ霊',
     altnames: [],
@@ -2997,7 +2997,7 @@ export const characterList: Character[] = [
     work: ['东方鬼形兽'],
   },
   {
-    id: '214',
+    id: '1bee0568',
     name: '大鹫灵',
     origname: 'オオワシ霊',
     altnames: [],
@@ -3011,7 +3011,7 @@ export const characterList: Character[] = [
     work: ['东方鬼形兽'],
   },
   {
-    id: '215',
+    id: '103bd296',
     name: '宫出口瑞灵',
     origname: '宮出口　瑞霊',
     altnames: ['反狱王'],
@@ -3025,7 +3025,7 @@ export const characterList: Character[] = [
     work: ['东方智灵奇传'],
   },
   {
-    id: '216',
+    id: 'da69ae1e',
     name: '奥野田美宵',
     origname: '奥野田　美宵',
     altnames: [],
@@ -3039,7 +3039,7 @@ export const characterList: Character[] = [
     work: ['东方醉蝶华'],
   },
   {
-    id: '217',
+    id: 'b4199ad4',
     name: '鲵吞亭店主',
     origname: '鯢呑亭のボス',
     altnames: [],
@@ -3053,7 +3053,7 @@ export const characterList: Character[] = [
     work: ['东方醉蝶华'],
   },
   {
-    id: '218',
+    id: '84e9c920',
     name: '鲵吞亭的常客',
     origname: '鯢呑亭のの客',
     altnames: [],
@@ -3067,7 +3067,7 @@ export const characterList: Character[] = [
     work: ['东方醉蝶华'],
   },
   {
-    id: '219',
+    id: 'ff7a8d4f',
     name: '豪德寺三花',
     origname: '豪徳寺　ミケ',
     altnames: [],
@@ -3081,7 +3081,7 @@ export const characterList: Character[] = [
     work: ['东方虹龙洞'],
   },
   {
-    id: '220',
+    id: 'ccbabb4c',
     name: '山城高岭',
     origname: '山城　たかね',
     altnames: [],
@@ -3095,7 +3095,7 @@ export const characterList: Character[] = [
     work: ['东方虹龙洞'],
   },
   {
-    id: '221',
+    id: 'f70f867a',
     name: '驹草山如',
     origname: '駒草　山如',
     altnames: ['驹草太夫'],
@@ -3109,7 +3109,7 @@ export const characterList: Character[] = [
     work: ['东方虹龙洞'],
   },
   {
-    id: '222',
+    id: '95ce2efe',
     name: '玉造魅须丸',
     origname: '玉造　魅須丸',
     altnames: [],
@@ -3123,7 +3123,7 @@ export const characterList: Character[] = [
     work: ['东方虹龙洞'],
   },
   {
-    id: '223',
+    id: '6f8a9fff',
     name: '菅牧典',
     origname: '菅牧　典',
     altnames: [],
@@ -3137,7 +3137,7 @@ export const characterList: Character[] = [
     work: ['东方虹龙洞'],
   },
   {
-    id: '224',
+    id: '47f642b4',
     name: '饭纲丸龙',
     origname: '飯綱丸 龍',
     altnames: [],
@@ -3151,7 +3151,7 @@ export const characterList: Character[] = [
     work: ['东方虹龙洞'],
   },
   {
-    id: '225',
+    id: '77bfe41e',
     name: '天弓千亦',
     origname: '天弓　千亦',
     altnames: [],
@@ -3165,7 +3165,7 @@ export const characterList: Character[] = [
     work: ['东方虹龙洞'],
   },
   {
-    id: '226',
+    id: '6d566075',
     name: '姬虫百百世',
     origname: '姫虫　百々世',
     altnames: ['蜈蚣'],
@@ -3179,7 +3179,7 @@ export const characterList: Character[] = [
     work: ['东方虹龙洞'],
   },
   {
-    id: '227',
+    id: '50f5ce2a',
     name: '饕餮尤魔',
     origname: '饕餮　尤魔',
     altnames: [],
@@ -3193,7 +3193,7 @@ export const characterList: Character[] = [
     work: ['东方刚欲异闻'],
   },
   {
-    id: '228',
+    id: 'e641432f',
     name: '毛玉',
     origname: '毛玉',
     altnames: [],
@@ -3207,7 +3207,7 @@ export const characterList: Character[] = [
     work: ['其他'],
   },
   {
-    id: '229',
+    id: '1a5b646c',
     name: '妖精（含持花妖精，僵尸妖精）',
     origname: '妖精',
     altnames: [],
@@ -3221,7 +3221,7 @@ export const characterList: Character[] = [
     work: ['其他'],
   },
   {
-    id: '230',
+    id: '0c4be10c',
     name: 'UFO',
     origname: 'UFO',
     altnames: [],
@@ -3235,7 +3235,7 @@ export const characterList: Character[] = [
     work: ['其他'],
   },
   {
-    id: '231',
+    id: 'd0b564c4',
     name: '怨灵',
     origname: '怨霊',
     altnames: [],
@@ -3249,7 +3249,7 @@ export const characterList: Character[] = [
     work: ['其他'],
   },
   {
-    id: '232',
+    id: 'a5dcb32e',
     name: '人偶（含上海人偶、哥利亚人偶）',
     origname: '人形',
     altnames: [],
@@ -3263,7 +3263,7 @@ export const characterList: Character[] = [
     work: ['其他'],
   },
   {
-    id: '233',
+    id: 'd476f4af',
     name: '幽灵',
     origname: '幽霊',
     altnames: [],
@@ -3277,7 +3277,7 @@ export const characterList: Character[] = [
     work: ['其他'],
   },
   {
-    id: '234',
+    id: '3146fcaa',
     name: '阴阳玉',
     origname: '陰陽玉',
     altnames: [],
@@ -3291,7 +3291,7 @@ export const characterList: Character[] = [
     work: ['其他'],
   },
   {
-    id: '235',
+    id: '6cf59442',
     name: '狸猫',
     origname: '狸貓',
     altnames: [],
@@ -3305,7 +3305,7 @@ export const characterList: Character[] = [
     work: ['其他'],
   },
   {
-    id: '236',
+    id: '8363cd0a',
     name: '河童（含山童）',
     origname: '河童（山童）',
     altnames: [],
@@ -3319,7 +3319,7 @@ export const characterList: Character[] = [
     work: ['其他'],
   },
   {
-    id: '237',
+    id: 'c6477f15',
     name: '野铁炮',
     origname: '野鉄砲',
     altnames: [],
@@ -3333,7 +3333,7 @@ export const characterList: Character[] = [
     work: ['其他'],
   },
   {
-    id: '238',
+    id: 'b9484248',
     name: '座敷童子',
     origname: '座敷童子',
     altnames: [],
@@ -3347,7 +3347,7 @@ export const characterList: Character[] = [
     work: ['其他'],
   },
   {
-    id: '239',
+    id: '1def190b',
     name: '酒吧“Old Adam”的客人',
     origname: 'バーの客',
     altnames: [],
