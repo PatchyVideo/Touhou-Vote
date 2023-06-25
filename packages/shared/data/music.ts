@@ -323,8 +323,8 @@ export const musicList: Music[] = [
   },
   {
     id: '8b60f82c',
-    name: 'She's in a temper!!',
-    origname: 'She's in a temper!!',
+    name: "She's in a temper!!",
+    origname: "She's in a temper!!",
     album: '东方封魔录',
     date: 19970815,
     image:
@@ -417,7 +417,15 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
-    include: ['东方永夜抄', '幻想曲拔萃', '核热造神非想天则', '深秘乐曲集', '幺乐团的历史', '完全凭依唱片名录', '贪欲之兽的音乐'],
+    include: [
+      '东方永夜抄',
+      '幻想曲拔萃',
+      '核热造神非想天则',
+      '深秘乐曲集',
+      '幺乐团的历史',
+      '完全凭依唱片名录',
+      '贪欲之兽的音乐',
+    ],
   },
   {
     id: 'b3851909',
@@ -911,8 +919,8 @@ export const musicList: Music[] = [
   },
   {
     id: 'f00d5d8b',
-    name: 'Selene's light',
-    origname: 'Selene's light',
+    name: "Selene's light",
+    origname: "Selene's light",
     album: '东方幻想乡',
     date: 19980814,
     image:
@@ -1457,8 +1465,8 @@ export const musicList: Music[] = [
   },
   {
     id: '38477557',
-    name: '世界的尽头 ～ World's End',
-    origname: '世界の果て ～ World's End',
+    name: "世界的尽头 ～ World's End",
+    origname: "世界の果て ～ World's End",
     album: '东方怪绮谈',
     date: 19981230,
     image:
@@ -3151,7 +3159,7 @@ export const musicList: Music[] = [
   },
   {
     id: '6c793bf8',
-    name: 'Player's Score',
+    name: "Player's Score",
     origname: 'プレイヤーズスコア',
     album: '东方风神录',
     date: 20070817,
@@ -7953,8 +7961,8 @@ export const musicList: Music[] = [
   },
   {
     id: 'd0442754',
-    name: '幻想科学　～ Doll's Phantom',
-    origname: '幻想科学　～ Doll's Phantom',
+    name: "幻想科学　～ Doll's Phantom",
+    origname: "幻想科学　～ Doll's Phantom",
     album: '秋霜玉',
     date: 20001230,
     image:
@@ -7967,8 +7975,8 @@ export const musicList: Music[] = [
   },
   {
     id: 'cccf5f6c',
-    name: '少女神性　～ Pandora's Box',
-    origname: '少女神性　～ Pandora's Box',
+    name: "少女神性　～ Pandora's Box",
+    origname: "少女神性　～ Pandora's Box",
     album: '秋霜玉',
     date: 20001230,
     image:
