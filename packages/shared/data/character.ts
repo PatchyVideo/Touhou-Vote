@@ -1,4 +1,4 @@
-export interface Character {
+export class Character {
   id: string
   name: string
   origname: string
@@ -11,6 +11,33 @@ export interface Character {
   date: number
   kind: ('old' | 'new' | 'book' | 'CD' | 'others' | '')[]
   work: string[]
+  constructor(
+    id = '00000000',
+    name = 'ERROR',
+    origname = 'ERROR',
+    altnames: string[] = [],
+    title = '原初的错误',
+    image = 'https://thwiki.cc/favicon.ico',
+    color = '#000000',
+    reason = '相遇，只是再度重逢',
+    date = 19961103,
+    honmei = false,
+    kind: ('old' | 'new' | 'book' | 'CD' | 'others' | '')[] = ['others'],
+    work = ['其他']
+  ) {
+    this.id = id
+    this.name = name
+    this.origname = origname
+    this.altnames = altnames
+    this.title = title
+    this.image = image
+    this.color = color
+    this.reason = reason
+    this.honmei = honmei
+    this.date = date
+    this.kind = kind
+    this.work = work
+  }
 }
 
 export const characterList: Character[] = [
@@ -20,7 +47,8 @@ export const characterList: Character[] = [
     origname: '博麗　霊夢',
     altnames: ['红白', '城管'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -34,7 +62,8 @@ export const characterList: Character[] = [
     origname: '霧雨　魔理沙',
     altnames: ['黑白', '魔胖子', '莎莎'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9B%BE%E9%9B%A8%E9%AD%94%E7%90%86%E6%B2%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9B%BE%E9%9B%A8%E9%AD%94%E7%90%86%E6%B2%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -48,7 +77,8 @@ export const characterList: Character[] = [
     origname: 'しんぎょく',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A5%9E%E7%8E%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A5%9E%E7%8E%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -62,7 +92,8 @@ export const characterList: Character[] = [
     origname: '魅魔',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%AD%85%E9%AD%94%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%AD%85%E9%AD%94%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -76,7 +107,8 @@ export const characterList: Character[] = [
     origname: 'きくり',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8F%8A%E7%90%86%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8F%8A%E7%90%86%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -90,7 +122,8 @@ export const characterList: Character[] = [
     origname: '矜羯羅',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%9F%9C%E7%BE%AF%E7%BD%97%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%9F%9C%E7%BE%AF%E7%BD%97%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -104,7 +137,8 @@ export const characterList: Character[] = [
     origname: 'ゆうげんまがん',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B9%BD%E5%B9%BB%E9%AD%94%E7%9C%BC%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B9%BD%E5%B9%BB%E9%AD%94%E7%9C%BC%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -118,7 +152,8 @@ export const characterList: Character[] = [
     origname: 'エリス',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BE%9D%E8%8E%89%E4%B8%9D%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BE%9D%E8%8E%89%E4%B8%9D%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -132,7 +167,8 @@ export const characterList: Character[] = [
     origname: 'サリエル',
     altnames: ['大碎骨', '天使'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%90%A8%E4%B8%BD%E8%89%BE%E5%B0%94%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%90%A8%E4%B8%BD%E8%89%BE%E5%B0%94%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -146,7 +182,8 @@ export const characterList: Character[] = [
     origname: '玄爺',
     altnames: ['乌龟'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%84%E7%88%B7%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%84%E7%88%B7%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -160,7 +197,8 @@ export const characterList: Character[] = [
     origname: '里香',
     altnames: ['战车少女'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%87%8C%E9%A6%99%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%87%8C%E9%A6%99%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -174,7 +212,8 @@ export const characterList: Character[] = [
     origname: '明羅',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%98%8E%E7%BD%97%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%98%8E%E7%BD%97%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -188,7 +227,8 @@ export const characterList: Character[] = [
     origname: 'ふらわ～戦車',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/Flower%EF%BD%9E%E6%88%98%E8%BD%A6%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/Flower%EF%BD%9E%E6%88%98%E8%BD%A6%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -202,7 +242,8 @@ export const characterList: Character[] = [
     origname: 'イビルアイ∑',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%82%AA%E7%9C%BC%E8%A5%BF%E6%A0%BC%E7%8E%9B%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%82%AA%E7%9C%BC%E8%A5%BF%E6%A0%BC%E7%8E%9B%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -216,7 +257,8 @@ export const characterList: Character[] = [
     origname: 'エレン',
     altnames: ['恋爱魔女'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%88%B1%E8%8E%B2%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%88%B1%E8%8E%B2%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -230,7 +272,8 @@ export const characterList: Character[] = [
     origname: '小兎姫',
     altnames: ['警察'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%8F%E5%85%94%E5%A7%AC%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%8F%E5%85%94%E5%A7%AC%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -244,7 +287,8 @@ export const characterList: Character[] = [
     origname: 'カナ・アナベラル',
     altnames: ['梦消失'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8D%A1%E5%A8%9C%C2%B7%E5%AE%89%E5%A8%9C%E8%B4%9D%E6%8B%89%E5%B0%94%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8D%A1%E5%A8%9C%C2%B7%E5%AE%89%E5%A8%9C%E8%B4%9D%E6%8B%89%E5%B0%94%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -258,7 +302,8 @@ export const characterList: Character[] = [
     origname: '朝倉　理香子',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%9C%9D%E4%BB%93%E7%90%86%E9%A6%99%E5%AD%90%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%9C%9D%E4%BB%93%E7%90%86%E9%A6%99%E5%AD%90%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -272,7 +317,8 @@ export const characterList: Character[] = [
     origname: '北白河　ちゆり',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8C%97%E7%99%BD%E6%B2%B3%E5%8D%83%E7%99%BE%E5%90%88%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8C%97%E7%99%BD%E6%B2%B3%E5%8D%83%E7%99%BE%E5%90%88%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -286,7 +332,8 @@ export const characterList: Character[] = [
     origname: '岡崎　夢美',
     altnames: ['教授', '草莓'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%86%88%E5%B4%8E%E6%A2%A6%E7%BE%8E%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%86%88%E5%B4%8E%E6%A2%A6%E7%BE%8E%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -300,7 +347,8 @@ export const characterList: Character[] = [
     origname: 'ミミちゃん',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%92%AA%E5%92%AA%E5%8F%B7%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%92%AA%E5%92%AA%E5%8F%B7%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -314,7 +362,8 @@ export const characterList: Character[] = [
     origname: 'る～こと',
     altnames: ['机器女仆', '核能女仆'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%95%99%E7%90%B4%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%95%99%E7%90%B4%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -328,7 +377,8 @@ export const characterList: Character[] = [
     origname: 'ま○ち',
     altnames: ['玛露奇', '家务机器人'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%9B%E2%97%8B%E5%A5%87%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%9B%E2%97%8B%E5%A5%87%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -342,7 +392,8 @@ export const characterList: Character[] = [
     origname: 'ソクラテス',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8B%8F%E6%A0%BC%E6%8B%89%E5%BA%95%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8B%8F%E6%A0%BC%E6%8B%89%E5%BA%95%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -356,7 +407,8 @@ export const characterList: Character[] = [
     origname: 'オレンジ',
     altnames: ['橙子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A5%A5%E8%8E%B2%E5%A7%AC%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A5%A5%E8%8E%B2%E5%A7%AC%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -370,7 +422,8 @@ export const characterList: Character[] = [
     origname: 'くるみ',
     altnames: ['吸血鬼'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%83%A1%E6%A1%83%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%83%A1%E6%A1%83%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -384,7 +437,8 @@ export const characterList: Character[] = [
     origname: 'エリー',
     altnames: ['门卫'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%89%BE%E4%B8%BD%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%89%BE%E4%B8%BD%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -398,7 +452,8 @@ export const characterList: Character[] = [
     origname: '夢月',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%A6%E6%9C%88%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%A6%E6%9C%88%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -412,7 +467,8 @@ export const characterList: Character[] = [
     origname: '幻月',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B9%BB%E6%9C%88%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B9%BB%E6%9C%88%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -426,7 +482,8 @@ export const characterList: Character[] = [
     origname: 'サラ',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%90%A8%E6%8B%89%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%90%A8%E6%8B%89%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -440,7 +497,8 @@ export const characterList: Character[] = [
     origname: 'ルイズ',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E6%98%93%E5%85%B9%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E6%98%93%E5%85%B9%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -454,7 +512,8 @@ export const characterList: Character[] = [
     origname: 'ユキ',
     altnames: ['黑之魔法使'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9B%AA%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9B%AA%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -468,7 +527,8 @@ export const characterList: Character[] = [
     origname: 'マイ',
     altnames: ['白之魔法使'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%88%9E%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%88%9E%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -482,7 +542,8 @@ export const characterList: Character[] = [
     origname: '夢子',
     altnames: ['魔界女仆'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%A6%E5%AD%90%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%A6%E5%AD%90%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -496,7 +557,8 @@ export const characterList: Character[] = [
     origname: '神綺',
     altnames: ['太太', '呆毛神', '女儿怪'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A5%9E%E7%BB%AE%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A5%9E%E7%BB%AE%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -510,7 +572,8 @@ export const characterList: Character[] = [
     origname: 'ルーミア',
     altnames: ['⑩'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E7%B1%B3%E5%A8%85%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E7%B1%B3%E5%A8%85%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -524,7 +587,8 @@ export const characterList: Character[] = [
     origname: '大妖精',
     altnames: ['大酱'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A4%A7%E5%A6%96%E7%B2%BE%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A4%A7%E5%A6%96%E7%B2%BE%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -538,7 +602,8 @@ export const characterList: Character[] = [
     origname: 'チルノ',
     altnames: ['⑨', '冰精'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%90%AA%E9%9C%B2%E8%AF%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%90%AA%E9%9C%B2%E8%AF%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -552,7 +617,8 @@ export const characterList: Character[] = [
     origname: '紅　美鈴',
     altnames: ['中国', '红师傅'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%BA%A2%E7%BE%8E%E9%93%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%BA%A2%E7%BE%8E%E9%93%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -566,7 +632,8 @@ export const characterList: Character[] = [
     origname: '小悪魔',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%8F%E6%81%B6%E9%AD%94%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%8F%E6%81%B6%E9%AD%94%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -580,7 +647,8 @@ export const characterList: Character[] = [
     origname: 'パチュリー・ノーレッジ',
     altnames: ['姆Q', '帕琪'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B8%95%E7%A7%8B%E8%8E%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B8%95%E7%A7%8B%E8%8E%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -594,7 +662,8 @@ export const characterList: Character[] = [
     origname: '十六夜　咲夜',
     altnames: ['PAD长'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8D%81%E5%85%AD%E5%A4%9C%E5%92%B2%E5%A4%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8D%81%E5%85%AD%E5%A4%9C%E5%92%B2%E5%A4%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -608,7 +677,8 @@ export const characterList: Character[] = [
     origname: 'レミリア・スカーレット',
     altnames: ['威严', '大小姐'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%95%BE%E7%B1%B3%E8%8E%89%E4%BA%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%95%BE%E7%B1%B3%E8%8E%89%E4%BA%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -622,7 +692,8 @@ export const characterList: Character[] = [
     origname: 'フランドール・スカーレット',
     altnames: ['二妹', '二小姐'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8A%99%E5%85%B0%E6%9C%B5%E9%9C%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8A%99%E5%85%B0%E6%9C%B5%E9%9C%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -706,7 +777,8 @@ export const characterList: Character[] = [
     origname: 'レティ・ホワイトロック',
     altnames: ['⑨妈', '冬胖子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%95%BE%E8%92%82%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%95%BE%E8%92%82%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -720,7 +792,8 @@ export const characterList: Character[] = [
     origname: '橙',
     altnames: ['黑猫'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A9%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A9%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -734,7 +807,8 @@ export const characterList: Character[] = [
     origname: 'アリス・マーガトロイド',
     altnames: ['小爱', '威震天', '人偶师'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%88%B1%E4%B8%BD%E4%B8%9D%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%88%B1%E4%B8%BD%E4%B8%9D%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -748,7 +822,8 @@ export const characterList: Character[] = [
     origname: 'リリーホワイト',
     altnames: ['莉莉白', '莉莉黑'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8E%89%E8%8E%89%E9%9C%8D%E7%93%A6%E7%89%B9%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8E%89%E8%8E%89%E9%9C%8D%E7%93%A6%E7%89%B9%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -762,7 +837,8 @@ export const characterList: Character[] = [
     origname: 'ルナサ・プリズムリバー',
     altnames: ['骚灵大姐', '提琴手', '骚灵三姐妹'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E5%A8%9C%E8%90%A8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E5%A8%9C%E8%90%A8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -776,7 +852,8 @@ export const characterList: Character[] = [
     origname: 'メルラン・プリズムリバー',
     altnames: ['骚灵二姐', '小号手', '骚灵三姐妹'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%85%E9%9C%B2%E5%85%B0%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%85%E9%9C%B2%E5%85%B0%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -790,7 +867,8 @@ export const characterList: Character[] = [
     origname: 'リリカ・プリズムリバー',
     altnames: ['骚灵三妹', '键盘手', '骚灵三姐妹'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8E%89%E8%8E%89%E5%8D%A1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8E%89%E8%8E%89%E5%8D%A1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -804,7 +882,8 @@ export const characterList: Character[] = [
     origname: '魂魄　妖夢',
     altnames: ['yoo', '庭师'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%AD%82%E9%AD%84%E5%A6%96%E6%A2%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%AD%82%E9%AD%84%E5%A6%96%E6%A2%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -818,7 +897,8 @@ export const characterList: Character[] = [
     origname: '西行寺　幽々子',
     altnames: ['UUZ', '吃货子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%A5%BF%E8%A1%8C%E5%AF%BA%E5%B9%BD%E5%B9%BD%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%A5%BF%E8%A1%8C%E5%AF%BA%E5%B9%BD%E5%B9%BD%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -832,7 +912,8 @@ export const characterList: Character[] = [
     origname: '八雲　藍',
     altnames: ['素果天狐', '蓝妈', '九尾策士'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E4%BA%91%E8%93%9D%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E4%BA%91%E8%93%9D%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -846,7 +927,8 @@ export const characterList: Character[] = [
     origname: '八雲　紫',
     altnames: ['BBA', '紫妈', '老太婆'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E4%BA%91%E7%B4%AB%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E4%BA%91%E7%B4%AB%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -888,7 +970,8 @@ export const characterList: Character[] = [
     origname: '宇佐見　蓮子',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%AE%87%E4%BD%90%E8%A7%81%E8%8E%B2%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%AE%87%E4%BD%90%E8%A7%81%E8%8E%B2%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -902,7 +985,8 @@ export const characterList: Character[] = [
     origname: 'マエリベリー・ハーン',
     altnames: ['梅莉'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%9B%E8%89%BE%E9%9C%B2%E8%B4%9D%E8%8E%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%9B%E8%89%BE%E9%9C%B2%E8%B4%9D%E8%8E%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -916,7 +1000,8 @@ export const characterList: Character[] = [
     origname: 'リグル・ナイトバグ',
     altnames: ['虫子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8E%89%E6%A0%BC%E9%9C%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8E%89%E6%A0%BC%E9%9C%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -930,7 +1015,8 @@ export const characterList: Character[] = [
     origname: 'ミスティア・ローレライ',
     altnames: ['米斯琪', '老板娘', '小碎骨'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -944,7 +1030,8 @@ export const characterList: Character[] = [
     origname: '上白沢　慧音',
     altnames: ['老师'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%8A%E7%99%BD%E6%B3%BD%E6%85%A7%E9%9F%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%8A%E7%99%BD%E6%B3%BD%E6%85%A7%E9%9F%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -958,7 +1045,8 @@ export const characterList: Character[] = [
     origname: '因幡　てゐ',
     altnames: ['黑兔子', '帝帝', '腹黑兔'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%9B%A0%E5%B9%A1%E5%A4%A9%E4%B8%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%9B%A0%E5%B9%A1%E5%A4%A9%E4%B8%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -972,7 +1060,8 @@ export const characterList: Character[] = [
     origname: '鈴仙・優曇華院・イナバ',
     altnames: ['大兔子', '受兔'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%93%83%E4%BB%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%93%83%E4%BB%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -986,7 +1075,8 @@ export const characterList: Character[] = [
     origname: '八意　永琳',
     altnames: ['师匠'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E6%84%8F%E6%B0%B8%E7%90%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E6%84%8F%E6%B0%B8%E7%90%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1000,7 +1090,8 @@ export const characterList: Character[] = [
     origname: '蓬莱山　輝夜',
     altnames: ['NEET', '竹取姬', '公主大人'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%93%AC%E8%8E%B1%E5%B1%B1%E8%BE%89%E5%A4%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%93%AC%E8%8E%B1%E5%B1%B1%E8%BE%89%E5%A4%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1014,7 +1105,8 @@ export const characterList: Character[] = [
     origname: '藤原　妹紅',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%97%A4%E5%8E%9F%E5%A6%B9%E7%BA%A2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%97%A4%E5%8E%9F%E5%A6%B9%E7%BA%A2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1028,7 +1120,8 @@ export const characterList: Character[] = [
     origname: '伊吹　萃香',
     altnames: ['西瓜'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BC%8A%E5%90%B9%E8%90%83%E9%A6%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BC%8A%E5%90%B9%E8%90%83%E9%A6%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1042,7 +1135,8 @@ export const characterList: Character[] = [
     origname: '射命丸　文',
     altnames: ['aya', '文文', '狗仔文'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%84%E5%91%BD%E4%B8%B8%E6%96%87%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%84%E5%91%BD%E4%B8%B8%E6%96%87%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1056,7 +1150,8 @@ export const characterList: Character[] = [
     origname: 'メディスン・メランコリー',
     altnames: ['毒人偶'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%85%E8%92%82%E6%AC%A3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%85%E8%92%82%E6%AC%A3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1070,7 +1165,8 @@ export const characterList: Character[] = [
     origname: '風見　幽香',
     altnames: ['睡美人', '花妈'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%A3%8E%E8%A7%81%E5%B9%BD%E9%A6%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%A3%8E%E8%A7%81%E5%B9%BD%E9%A6%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1084,7 +1180,8 @@ export const characterList: Character[] = [
     origname: '小野塚　小町',
     altnames: ['死神', '乳町'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%8F%E9%87%8E%E5%A1%9A%E5%B0%8F%E7%94%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%8F%E9%87%8E%E5%A1%9A%E5%B0%8F%E7%94%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1098,7 +1195,8 @@ export const characterList: Character[] = [
     origname: '四季映姫・ヤマザナドゥ',
     altnames: ['阎萝王'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%9B%9B%E5%AD%A3%E6%98%A0%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%9B%9B%E5%AD%A3%E6%98%A0%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1112,7 +1210,8 @@ export const characterList: Character[] = [
     origname: '稗田　阿求',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A8%97%E7%94%B0%E9%98%BF%E6%B1%82%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A8%97%E7%94%B0%E9%98%BF%E6%B1%82%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1140,7 +1239,8 @@ export const characterList: Character[] = [
     origname: 'サニーミルク',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A1%91%E5%B0%BC%E7%B1%B3%E5%B0%94%E5%85%8B%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A1%91%E5%B0%BC%E7%B1%B3%E5%B0%94%E5%85%8B%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1154,7 +1254,8 @@ export const characterList: Character[] = [
     origname: 'ルナチャイルド',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E5%A8%9C%E5%88%87%E9%9C%B2%E5%BE%B7%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E5%A8%9C%E5%88%87%E9%9C%B2%E5%BE%B7%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1168,7 +1269,8 @@ export const characterList: Character[] = [
     origname: 'スターサファイア',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%96%AF%E5%A1%94%E8%90%A8%E8%8F%B2%E9%9B%85%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%96%AF%E5%A1%94%E8%90%A8%E8%8F%B2%E9%9B%85%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1182,7 +1284,8 @@ export const characterList: Character[] = [
     origname: '秋　静葉',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A7%8B%E9%9D%99%E5%8F%B6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A7%8B%E9%9D%99%E5%8F%B6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1196,7 +1299,8 @@ export const characterList: Character[] = [
     origname: '秋　穣子',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A7%8B%E7%A9%B0%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A7%8B%E7%A9%B0%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1210,7 +1314,8 @@ export const characterList: Character[] = [
     origname: '鍵山　雛',
     altnames: ['转转'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%94%AE%E5%B1%B1%E9%9B%8F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%94%AE%E5%B1%B1%E9%9B%8F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1224,7 +1329,8 @@ export const characterList: Character[] = [
     origname: '河城　にとり',
     altnames: ['河童'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%B2%B3%E5%9F%8E%E8%8D%B7%E5%8F%96%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%B2%B3%E5%9F%8E%E8%8D%B7%E5%8F%96%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1238,7 +1344,8 @@ export const characterList: Character[] = [
     origname: '犬走　椛',
     altnames: ['狗椛'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%8A%AC%E8%B5%B0%E6%A4%9B%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%8A%AC%E8%B5%B0%E6%A4%9B%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1252,7 +1359,8 @@ export const characterList: Character[] = [
     origname: '東風谷　早苗',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%9C%E9%A3%8E%E8%B0%B7%E6%97%A9%E8%8B%97%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%9C%E9%A3%8E%E8%B0%B7%E6%97%A9%E8%8B%97%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1266,7 +1374,8 @@ export const characterList: Character[] = [
     origname: '八坂　神奈子',
     altnames: ['钢加农'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E5%9D%82%E7%A5%9E%E5%A5%88%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E5%9D%82%E7%A5%9E%E5%A5%88%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1280,7 +1389,8 @@ export const characterList: Character[] = [
     origname: '洩矢　諏訪子',
     altnames: ['青蛙子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%B4%A9%E7%9F%A2%E8%AF%B9%E8%AE%BF%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%B4%A9%E7%9F%A2%E8%AF%B9%E8%AE%BF%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1294,7 +1404,8 @@ export const characterList: Character[] = [
     origname: '永江　衣玖',
     altnames: ['19'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%B0%B8%E6%B1%9F%E8%A1%A3%E7%8E%96%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%B0%B8%E6%B1%9F%E8%A1%A3%E7%8E%96%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1308,7 +1419,8 @@ export const characterList: Character[] = [
     origname: '比那名居　天子',
     altnames: ['M子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%AF%94%E9%82%A3%E5%90%8D%E5%B1%85%E5%A4%A9%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%AF%94%E9%82%A3%E5%90%8D%E5%B1%85%E5%A4%A9%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1322,7 +1434,8 @@ export const characterList: Character[] = [
     origname: 'キスメ',
     altnames: ['小桶'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%90%AA%E6%96%AF%E7%BE%8E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%90%AA%E6%96%AF%E7%BE%8E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1336,7 +1449,8 @@ export const characterList: Character[] = [
     origname: '黒谷　ヤマメ',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%BB%91%E8%B0%B7%E5%B1%B1%E5%A5%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%BB%91%E8%B0%B7%E5%B1%B1%E5%A5%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1350,7 +1464,8 @@ export const characterList: Character[] = [
     origname: '水橋　パルスィ',
     altnames: ['桥姬', '嫉妒'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%B0%B4%E6%A1%A5%E5%B8%95%E9%9C%B2%E8%A5%BF%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%B0%B4%E6%A1%A5%E5%B8%95%E9%9C%B2%E8%A5%BF%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1364,7 +1479,8 @@ export const characterList: Character[] = [
     origname: '星熊　勇儀',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%98%9F%E7%86%8A%E5%8B%87%E4%BB%AA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%98%9F%E7%86%8A%E5%8B%87%E4%BB%AA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1378,7 +1494,8 @@ export const characterList: Character[] = [
     origname: '古明地　さとり',
     altnames: ['小五'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8F%A4%E6%98%8E%E5%9C%B0%E8%A7%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8F%A4%E6%98%8E%E5%9C%B0%E8%A7%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1392,7 +1509,8 @@ export const characterList: Character[] = [
     origname: '火焔猫　燐',
     altnames: ['阿燐'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%81%AB%E7%84%B0%E7%8C%AB%E7%87%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%81%AB%E7%84%B0%E7%8C%AB%E7%87%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1406,7 +1524,8 @@ export const characterList: Character[] = [
     origname: '霊烏路　空',
     altnames: ['阿空', '鸟头'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%81%B5%E4%B9%8C%E8%B7%AF%E7%A9%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%81%B5%E4%B9%8C%E8%B7%AF%E7%A9%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1420,7 +1539,8 @@ export const characterList: Character[] = [
     origname: '古明地　こいし',
     altnames: ['小石'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8F%A4%E6%98%8E%E5%9C%B0%E6%81%8B%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%8F%A4%E6%98%8E%E5%9C%B0%E6%81%8B%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1434,7 +1554,8 @@ export const characterList: Character[] = [
     origname: 'ナズーリン',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A8%9C%E5%85%B9%E7%8E%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A8%9C%E5%85%B9%E7%8E%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1448,7 +1569,8 @@ export const characterList: Character[] = [
     origname: '多々良　小傘',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A4%9A%E5%A4%9A%E8%89%AF%E5%B0%8F%E4%BC%9E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A4%9A%E5%A4%9A%E8%89%AF%E5%B0%8F%E4%BC%9E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1462,7 +1584,8 @@ export const characterList: Character[] = [
     origname: '雲山',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BA%91%E5%B1%85%E4%B8%80%E8%BD%AE%26%E4%BA%91%E5%B1%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BA%91%E5%B1%85%E4%B8%80%E8%BD%AE%26%E4%BA%91%E5%B1%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1476,7 +1599,8 @@ export const characterList: Character[] = [
     origname: '雲居　一輪',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BA%91%E5%B1%85%E4%B8%80%E8%BD%AE%26%E4%BA%91%E5%B1%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BA%91%E5%B1%85%E4%B8%80%E8%BD%AE%26%E4%BA%91%E5%B1%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1490,7 +1614,8 @@ export const characterList: Character[] = [
     origname: '村紗　水蜜',
     altnames: ['船长'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%9D%91%E7%BA%B1%E6%B0%B4%E8%9C%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%9D%91%E7%BA%B1%E6%B0%B4%E8%9C%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1504,7 +1629,8 @@ export const characterList: Character[] = [
     origname: '寅丸　星',
     altnames: ['大师兄'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%AF%85%E4%B8%B8%E6%98%9F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%AF%85%E4%B8%B8%E6%98%9F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1518,7 +1644,8 @@ export const characterList: Character[] = [
     origname: '聖　白蓮',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%9C%A3%E7%99%BD%E8%8E%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%9C%A3%E7%99%BD%E8%8E%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1532,7 +1659,8 @@ export const characterList: Character[] = [
     origname: '封獣　ぬえ',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%81%E5%85%BD%E9%B5%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%81%E5%85%BD%E9%B5%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1602,7 +1730,8 @@ export const characterList: Character[] = [
     origname: '綿月　豊姫',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%BB%B5%E6%9C%88%E4%B8%B0%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%BB%B5%E6%9C%88%E4%B8%B0%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1616,7 +1745,8 @@ export const characterList: Character[] = [
     origname: '綿月　依姫',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%BB%B5%E6%9C%88%E4%BE%9D%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%BB%B5%E6%9C%88%E4%BE%9D%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1630,7 +1760,8 @@ export const characterList: Character[] = [
     origname: 'レイセン',
     altnames: ['二号', '泠仙'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/Reisen%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/Reisen%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1770,7 +1901,8 @@ export const characterList: Character[] = [
     origname: '姫海棠　はたて',
     altnames: ['羽立'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A7%AC%E6%B5%B7%E6%A3%A0%E6%9E%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A7%AC%E6%B5%B7%E6%A3%A0%E6%9E%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1784,7 +1916,8 @@ export const characterList: Character[] = [
     origname: '森近　霖之助',
     altnames: ['乡长', '香霖'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A3%AE%E8%BF%91%E9%9C%96%E4%B9%8B%E5%8A%A9%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A3%AE%E8%BF%91%E9%9C%96%E4%B9%8B%E5%8A%A9%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1798,7 +1931,8 @@ export const characterList: Character[] = [
     origname: '名無しの本読み妖怪',
     altnames: ['朱鹭子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%97%A0%E5%90%8D%E7%9A%84%E8%AF%BB%E4%B9%A6%E5%A6%96%E6%80%AA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%97%A0%E5%90%8D%E7%9A%84%E8%AF%BB%E4%B9%A6%E5%A6%96%E6%80%AA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -1812,7 +1946,8 @@ export const characterList: Character[] = [
     origname: '茨木　華扇',
     altnames: ['茨华仙', '包子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8C%A8%E6%9C%A8%E5%8D%8E%E6%89%87%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8C%A8%E6%9C%A8%E5%8D%8E%E6%89%87%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2078,7 +2213,8 @@ export const characterList: Character[] = [
     origname: '幽谷　響子',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B9%BD%E8%B0%B7%E5%93%8D%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B9%BD%E8%B0%B7%E5%93%8D%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2092,7 +2228,8 @@ export const characterList: Character[] = [
     origname: '宮古　芳香',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%AE%AB%E5%8F%A4%E8%8A%B3%E9%A6%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%AE%AB%E5%8F%A4%E8%8A%B3%E9%A6%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2106,7 +2243,8 @@ export const characterList: Character[] = [
     origname: '霍　青娥',
     altnames: ['娘娘'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%8D%E9%9D%92%E5%A8%A5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%8D%E9%9D%92%E5%A8%A5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2120,7 +2258,8 @@ export const characterList: Character[] = [
     origname: '蘇我　屠自古',
     altnames: ['大根'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8B%8F%E6%88%91%E5%B1%A0%E8%87%AA%E5%8F%A4%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8B%8F%E6%88%91%E5%B1%A0%E8%87%AA%E5%8F%A4%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2134,7 +2273,8 @@ export const characterList: Character[] = [
     origname: '物部　布都',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%89%A9%E9%83%A8%E5%B8%83%E9%83%BD%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%89%A9%E9%83%A8%E5%B8%83%E9%83%BD%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2148,7 +2288,8 @@ export const characterList: Character[] = [
     origname: '豊聡耳　神子',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%B0%E8%81%AA%E8%80%B3%E7%A5%9E%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%B0%E8%81%AA%E8%80%B3%E7%A5%9E%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2162,7 +2303,8 @@ export const characterList: Character[] = [
     origname: '二ッ岩　マミゾウ',
     altnames: ['大狸子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BA%8C%E5%B2%A9%E7%8C%AF%E8%97%8F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BA%8C%E5%B2%A9%E7%8C%AF%E8%97%8F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2176,7 +2318,8 @@ export const characterList: Character[] = [
     origname: '本居　小鈴',
     altnames: ['防撞桶'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2400,7 +2543,8 @@ export const characterList: Character[] = [
     origname: '秦　こころ',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A7%A6%E5%BF%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A7%A6%E5%BF%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2428,7 +2572,8 @@ export const characterList: Character[] = [
     origname: 'わかさぎ姫',
     altnames: ['人鱼'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8B%A5%E9%B9%AD%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8B%A5%E9%B9%AD%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2442,7 +2587,8 @@ export const characterList: Character[] = [
     origname: '赤蛮奇',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%B5%A4%E8%9B%AE%E5%A5%87%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%B5%A4%E8%9B%AE%E5%A5%87%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2456,7 +2602,8 @@ export const characterList: Character[] = [
     origname: '今泉　影狼',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BB%8A%E6%B3%89%E5%BD%B1%E7%8B%BC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BB%8A%E6%B3%89%E5%BD%B1%E7%8B%BC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2470,7 +2617,8 @@ export const characterList: Character[] = [
     origname: '九十九　弁々',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%BC%81%E5%BC%81%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%BC%81%E5%BC%81%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2484,7 +2632,8 @@ export const characterList: Character[] = [
     origname: '九十九　八橋',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%85%AB%E6%A1%A5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%85%AB%E6%A1%A5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2498,7 +2647,8 @@ export const characterList: Character[] = [
     origname: '鬼人　正邪',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%AC%BC%E4%BA%BA%E6%AD%A3%E9%82%AA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%AC%BC%E4%BA%BA%E6%AD%A3%E9%82%AA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2512,7 +2662,8 @@ export const characterList: Character[] = [
     origname: '少名　針妙丸',
     altnames: ['小碗'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%91%E5%90%8D%E9%92%88%E5%A6%99%E4%B8%B8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%91%E5%90%8D%E9%92%88%E5%A6%99%E4%B8%B8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2526,7 +2677,8 @@ export const characterList: Character[] = [
     origname: '堀川　雷鼓',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A0%80%E5%B7%9D%E9%9B%B7%E9%BC%93%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A0%80%E5%B7%9D%E9%9B%B7%E9%BC%93%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2540,7 +2692,8 @@ export const characterList: Character[] = [
     origname: '宇佐見　菫子',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%AE%87%E4%BD%90%E8%A7%81%E5%A0%87%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%AE%87%E4%BD%90%E8%A7%81%E5%A0%87%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2638,7 +2791,8 @@ export const characterList: Character[] = [
     origname: '清蘭',
     altnames: ['蓝兔子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%B8%85%E5%85%B0%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%B8%85%E5%85%B0%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2652,7 +2806,8 @@ export const characterList: Character[] = [
     origname: '鈴瑚',
     altnames: ['黄兔子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%93%83%E7%91%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%93%83%E7%91%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2666,7 +2821,8 @@ export const characterList: Character[] = [
     origname: 'ドレミー・スイート',
     altnames: ['123'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%93%86%E6%9D%A5%E5%92%AA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%93%86%E6%9D%A5%E5%92%AA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2680,7 +2836,8 @@ export const characterList: Character[] = [
     origname: '稀神　サグメ',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A8%80%E7%A5%9E%E6%8E%A2%E5%A5%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%A8%80%E7%A5%9E%E6%8E%A2%E5%A5%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2694,7 +2851,8 @@ export const characterList: Character[] = [
     origname: 'クラウンピース',
     altnames: ['美国妖精'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%85%8B%E5%8A%B3%E6%81%A9%E7%9A%AE%E4%B8%9D%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%85%8B%E5%8A%B3%E6%81%A9%E7%9A%AE%E4%B8%9D%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2708,7 +2866,8 @@ export const characterList: Character[] = [
     origname: '純狐',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%BA%AF%E7%8B%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%BA%AF%E7%8B%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2722,7 +2881,8 @@ export const characterList: Character[] = [
     origname: 'ヘカーティア・ラピスラズリ',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%B5%AB%E5%8D%A1%E6%8F%90%E4%BA%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%B5%AB%E5%8D%A1%E6%8F%90%E4%BA%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2750,7 +2910,8 @@ export const characterList: Character[] = [
     origname: 'エタニティラルバ',
     altnames: ['大蛾子'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%88%B1%E5%A1%94%E5%A6%AE%E7%BC%87%E6%8B%89%E5%B0%94%E7%93%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%88%B1%E5%A1%94%E5%A6%AE%E7%BC%87%E6%8B%89%E5%B0%94%E7%93%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2764,7 +2925,8 @@ export const characterList: Character[] = [
     origname: '坂田　ネムノ',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%9D%82%E7%94%B0%E5%90%88%E6%AC%A2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%9D%82%E7%94%B0%E5%90%88%E6%AC%A2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2778,7 +2940,8 @@ export const characterList: Character[] = [
     origname: '高麗野　あうん',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%AB%98%E4%B8%BD%E9%87%8E%E9%98%BF%E5%90%BD%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%AB%98%E4%B8%BD%E9%87%8E%E9%98%BF%E5%90%BD%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2792,7 +2955,8 @@ export const characterList: Character[] = [
     origname: '矢田寺　成美',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%9F%A2%E7%94%B0%E5%AF%BA%E6%88%90%E7%BE%8E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%9F%A2%E7%94%B0%E5%AF%BA%E6%88%90%E7%BE%8E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2806,7 +2970,8 @@ export const characterList: Character[] = [
     origname: '丁礼田　舞',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%81%E7%A4%BC%E7%94%B0%E8%88%9E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%81%E7%A4%BC%E7%94%B0%E8%88%9E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2820,7 +2985,8 @@ export const characterList: Character[] = [
     origname: '爾子田　里乃',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%94%E5%AD%90%E7%94%B0%E9%87%8C%E4%B9%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%94%E5%AD%90%E7%94%B0%E9%87%8C%E4%B9%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2834,7 +3000,8 @@ export const characterList: Character[] = [
     origname: '摩多羅　隠岐奈',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%91%A9%E5%A4%9A%E7%BD%97%E9%9A%90%E5%B2%90%E5%A5%88%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%91%A9%E5%A4%9A%E7%BD%97%E9%9A%90%E5%B2%90%E5%A5%88%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2848,7 +3015,8 @@ export const characterList: Character[] = [
     origname: '依神 女苑',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BE%9D%E7%A5%9E%E5%A5%B3%E8%8B%91%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BE%9D%E7%A5%9E%E5%A5%B3%E8%8B%91%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2862,7 +3030,8 @@ export const characterList: Character[] = [
     origname: '依神 紫苑',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BE%9D%E7%A5%9E%E7%B4%AB%E8%8B%91%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E4%BE%9D%E7%A5%9E%E7%B4%AB%E8%8B%91%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2876,7 +3045,8 @@ export const characterList: Character[] = [
     origname: '戎　瓔花　',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%88%8E%E7%92%8E%E8%8A%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%88%8E%E7%92%8E%E8%8A%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2890,7 +3060,8 @@ export const characterList: Character[] = [
     origname: '牛崎　潤美',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%89%9B%E5%B4%8E%E6%B6%A6%E7%BE%8E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%89%9B%E5%B4%8E%E6%B6%A6%E7%BE%8E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2904,7 +3075,8 @@ export const characterList: Character[] = [
     origname: '庭渡　久侘歌',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%BA%AD%E6%B8%A1%E4%B9%85%E4%BE%98%E6%AD%8C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%BA%AD%E6%B8%A1%E4%B9%85%E4%BE%98%E6%AD%8C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2918,7 +3090,8 @@ export const characterList: Character[] = [
     origname: '吉弔　八千慧',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%90%89%E5%90%8A%E5%85%AB%E5%8D%83%E6%85%A7%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%90%89%E5%90%8A%E5%85%AB%E5%8D%83%E6%85%A7%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2932,7 +3105,8 @@ export const characterList: Character[] = [
     origname: '杖刀偶　磨弓',
     altnames: ['兵长'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%9D%96%E5%88%80%E5%81%B6%E7%A3%A8%E5%BC%93%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%9D%96%E5%88%80%E5%81%B6%E7%A3%A8%E5%BC%93%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2946,7 +3120,8 @@ export const characterList: Character[] = [
     origname: '埴安神　袿姫',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%9F%B4%E5%AE%89%E7%A5%9E%E8%A2%BF%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%9F%B4%E5%AE%89%E7%A5%9E%E8%A2%BF%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -2960,7 +3135,8 @@ export const characterList: Character[] = [
     origname: '驪駒　早鬼',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%AA%8A%E9%A9%B9%E6%97%A9%E9%AC%BC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%AA%8A%E9%A9%B9%E6%97%A9%E9%AC%BC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3030,7 +3206,8 @@ export const characterList: Character[] = [
     origname: '奥野田　美宵',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A5%A5%E9%87%8E%E7%94%B0%E7%BE%8E%E5%AE%B5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A5%A5%E9%87%8E%E7%94%B0%E7%BE%8E%E5%AE%B5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3072,7 +3249,8 @@ export const characterList: Character[] = [
     origname: '豪徳寺　ミケ',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%B1%AA%E5%BE%B7%E5%AF%BA%E4%B8%89%E8%8A%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%B1%AA%E5%BE%B7%E5%AF%BA%E4%B8%89%E8%8A%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3086,7 +3264,8 @@ export const characterList: Character[] = [
     origname: '山城　たかね',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B1%B1%E5%9F%8E%E9%AB%98%E5%B2%AD%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%B1%B1%E5%9F%8E%E9%AB%98%E5%B2%AD%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3100,7 +3279,8 @@ export const characterList: Character[] = [
     origname: '駒草　山如',
     altnames: ['驹草太夫'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%A9%B9%E8%8D%89%E5%B1%B1%E5%A6%82%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%A9%B9%E8%8D%89%E5%B1%B1%E5%A6%82%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3114,7 +3294,8 @@ export const characterList: Character[] = [
     origname: '玉造　魅須丸',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%89%E9%80%A0%E9%AD%85%E9%A1%BB%E4%B8%B8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%89%E9%80%A0%E9%AD%85%E9%A1%BB%E4%B8%B8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3128,7 +3309,8 @@ export const characterList: Character[] = [
     origname: '菅牧　典',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8F%85%E7%89%A7%E5%85%B8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E8%8F%85%E7%89%A7%E5%85%B8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3142,7 +3324,8 @@ export const characterList: Character[] = [
     origname: '飯綱丸 龍',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%A5%AD%E7%BA%B2%E4%B8%B8%E9%BE%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%A5%AD%E7%BA%B2%E4%B8%B8%E9%BE%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3156,7 +3339,8 @@ export const characterList: Character[] = [
     origname: '天弓　千亦',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A4%A9%E5%BC%93%E5%8D%83%E4%BA%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A4%A9%E5%BC%93%E5%8D%83%E4%BA%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3170,7 +3354,8 @@ export const characterList: Character[] = [
     origname: '姫虫　百々世',
     altnames: ['蜈蚣'],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A7%AC%E8%99%AB%E7%99%BE%E7%99%BE%E4%B8%96%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E5%A7%AC%E8%99%AB%E7%99%BE%E7%99%BE%E4%B8%96%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
@@ -3184,7 +3369,8 @@ export const characterList: Character[] = [
     origname: '饕餮　尤魔',
     altnames: [],
     title: '',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%A5%95%E9%A4%AE%E5%B0%A4%E9%AD%94%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+    image:
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E9%A5%95%E9%A4%AE%E5%B0%A4%E9%AD%94%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
