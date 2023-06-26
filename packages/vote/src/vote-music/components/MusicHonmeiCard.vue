@@ -53,8 +53,8 @@ const props = defineProps({
 
 const reasonInput = shallowRef<HTMLInputElement | null>(null)
 const reasonEdit = ref(props.musicHonmei.reason)
-watch(props.musicHonmei, () => {
-  reasonEdit.value = props.musicHonmei.reason
+watch(props.musicHonmei, function (newv) {
+  reasonEdit.value = newv.reason
 })
 function updateReason(): void {
   musics.value.map((mus) => {

@@ -56,8 +56,8 @@ const props = defineProps({
 
 const reasonInput = shallowRef<HTMLInputElement | null>(null)
 const reasonEdit = ref(props.characterHonmei.reason)
-watch(props.characterHonmei, () => {
-  reasonEdit.value = props.characterHonmei.reason
+watch(props.characterHonmei, function (newv) {
+  reasonEdit.value = newv.reason
 })
 function updateReason(): void {
   characters.value.map((chara) => {
