@@ -11,7 +11,7 @@ export class Character {
   kind: ('old' | 'new' | 'book' | 'CD' | 'others' | '')[]
   work: string[]
   constructor(
-    id = '',
+    id = '00000000',
     name = 'ERROR',
     altnames: string[] = [],
     title = '原初的错误',

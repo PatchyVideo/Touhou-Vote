@@ -8,7 +8,7 @@
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <transition name="characterHonmei" mode="out-in">
-        <div v-if="charactersReverse.length" class="p-1 rounded w-full shadow bg-white bg-opacity-80">
+        <div v-if="charactersVoted.length" class="p-1 rounded w-full shadow bg-white bg-opacity-80">
           <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
             <div>本命角色</div>
             <icon-uil-arrows-h
@@ -23,7 +23,7 @@
             />
           </div>
           <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50">
-            <div v-if="characterHonmei.honmei" key="selecting">
+            <div v-if="characterHonmei.id != character0.id" key="selecting">
               <CharacterHonmeiCard v-model:character-honmei="characterHonmei" class="opacity-80" />
             </div>
             <div v-else key="no-selecting" class="w-full text-center text-gray-400 py-10 space-y-2">
@@ -49,16 +49,16 @@
           <div>
             {{
               '我喜欢的角色(' +
-              charactersReverseWithoutHonmei.length +
+              charactersVotedWithoutHonmei.length +
               '/' +
-              (characterHonmei.honmei ? characters.length - 1 + ')' : characters.length + ')')
+              (characterHonmei.id != character0.id ? CHARACTERVOTENUM - 1 + ')' : CHARACTERVOTENUM + ')')
             }}
           </div>
           <icon-uil-plus
             class="cursor-pointer"
-            :class="{ 'text-gray-400': charactersVotedNumber === 8 }"
+            :class="{ 'text-gray-400': charactersVotedNumber === CHARACTERVOTENUM }"
             @click="
-              charactersVotedNumber === 8
+              charactersVotedNumber === CHARACTERVOTENUM
                 ? ''
                 : (() => {
                     characterHonmeiIsSelected = false
@@ -69,14 +69,14 @@
         </div>
         <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50 whitespace-nowrap overflow-x-auto">
           <transition name="character" mode="out-in">
-            <div v-if="charactersReverseWithoutHonmei.length">
+            <div v-if="charactersVotedWithoutHonmei.length">
               <transition-group name="characterList" tag="div">
                 <div
-                  v-for="(character, index) in charactersReverseWithoutHonmei"
+                  v-for="(character, index) in charactersVotedWithoutHonmei"
                   :key="character.id"
                   class="inline-block transition transition-all duration-200 mr-3 w-3/10 max-w-52"
                 >
-                  <CharacterCard v-model:character="charactersReverseWithoutHonmei[index]" />
+                  <CharacterCard v-model:character="charactersVotedWithoutHonmei[index]" />
                 </div>
               </transition-group>
             </div>
@@ -109,7 +109,7 @@
           </div>
           <div class="">{{ '投票理由：' + (characterHonmei.reason ? characterHonmei.reason : '无') }}</div>
         </div>
-        <div v-for="(character, index) in charactersReverseWithoutHonmei" :key="character.id" class="py-1">
+        <div v-for="(character, index) in charactersVotedWithoutHonmei" :key="character.id" class="py-1">
           <div class="">
             {{ '投票位' + (index + 1) + '：' + character.name }}
           </div>
@@ -142,8 +142,8 @@ import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import BackToHome from '@/common/components/BackToHome.vue'
 import CharacterCard from '@/vote-character/components/CharacterCard.vue'
 import { character0 } from '@/vote-character/lib/character'
-import { charactersReverse, charactersReverseWithoutHonmei } from '@/vote-character/lib/characterList'
-import { characterHonmei, characters, updateVotecharacters } from '@/vote-character/lib/voteData'
+import { charactersVoted, charactersVotedWithoutHonmei } from '@/vote-character/lib/characterList'
+import { CHARACTERVOTENUM, characterHonmei, characters, updateVoteCharacters } from '@/vote-character/lib/voteData'
 import { gql, useMutation, useQuery, useResult } from '@/graphql'
 import type { Mutation, Query, schema } from '@/graphql'
 import { voteCharacterComplete, voteToken } from '@/home/lib/user'
@@ -187,7 +187,7 @@ watchEffect(() => {
 const resultData = useResult(result, null, (data) => data?.getSubmitCharacterVote)
 watchEffect(() => {
   if (resultData.value) {
-    updateVotecharacters(resultData.value.characters)
+    updateVoteCharacters(resultData.value.characters)
   }
 })
 getSubmitCharacterVoteError((err) => {
@@ -196,7 +196,7 @@ getSubmitCharacterVoteError((err) => {
   else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
 
-const charactersVotedNumber = computed<number>(() => charactersReverse.value.length)
+const charactersVotedNumber = computed<number>(() => charactersVoted.value.length)
 
 const characterSelectOpen = ref(false)
 const characterHonmeiIsSelected = ref(false)
@@ -205,10 +205,10 @@ const confirmBoxOpen = ref(false)
 
 const CharacterSubmit = computed<schema.CharacterSubmit[]>(() =>
   characters.value
-    .filter((item) => item.id != '')
+    .filter((item) => item.id != character0.id)
     .map((item) => {
       return {
-        name: item.name,
+        id: item.id,
         reason: item.reason,
         first: item.honmei,
       }

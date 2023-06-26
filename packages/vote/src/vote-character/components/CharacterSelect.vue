@@ -80,7 +80,7 @@ import AdvancedFilter from './AdvancedFilter.vue'
 import { Character } from '@/vote-character/lib/character'
 import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
 import {
-  characterHonmeiListLeft,
+  charactersVotedWithoutHonmei,
   characterListLeftWithFilter,
   order,
   orderOptions,
@@ -124,12 +124,12 @@ const loading = ref(false)
 const advancedFilterOpen = ref(false)
 
 const characterList = computed(() =>
-  props.characterHonmeiIsSelected ? characterHonmeiListLeft.value : characterListLeftWithFilter.value
+  props.characterHonmeiIsSelected ? charactersVotedWithoutHonmei.value : characterListLeftWithFilter.value
 )
 
 function characterSelect(id: string): void {
   const targetCharacter = props.characterHonmeiIsSelected
-    ? characterHonmeiListLeft.value.find((item) => item.id === id)
+    ? charactersVotedWithoutHonmei.value.find((item) => item.id === id)
     : characterListLeftWithFilter.value.find((item) => item.id === id)
   if (targetCharacter) {
     if (props.characterHonmeiIsSelected) {

@@ -10,7 +10,7 @@ export class Music {
   kind: ('game' | 'book' | 'CD' | 'others' | '')[]
   include: string[]
   constructor(
-    id = '',
+    id = '00000000',
     name = 'UNDEFINED',
     album = '虚幻的音阶',
     date = 19961103,
