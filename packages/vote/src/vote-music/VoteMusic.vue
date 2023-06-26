@@ -23,7 +23,7 @@
             />
           </div>
           <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50">
-            <div v-if="musicHonmei.id === music0.id" key="selecting">
+            <div v-if="musicHonmei.id != music0.id" key="selecting">
               <MusicHonmeiCard v-model:music-honmei="musicHonmei" class="opacity-80" />
             </div>
             <div v-else key="no-selecting" class="w-full text-center text-gray-400 py-10 space-y-2">
