@@ -17,7 +17,7 @@ export function updateVoteCharacters(newVoteData: CharacterSubmitQuery[]): void 
   if (!newVoteData.length) return
   characters.value = new Array(CHARACTERVOTENUM).fill(null).map(() => new Character())
   for (let i = 0; i < newVoteData.length; i++) {
-    const characterData = characterList.find((item) => item.name === newVoteData[i].name) || characters.value[i]
+    const characterData = characterList.find((item) => item.id === newVoteData[i].id) || characters.value[i]
     characterData.honmei = newVoteData[i].first || false
     characterData.reason = newVoteData[i].reason || ''
     characters.value[i] = characterData
