@@ -109,7 +109,7 @@ export const albumList: Album[] = [
 
 export const musicList: Music[] = [
   {
-    id: 'd90a316c',
+    id: 'aa1b7078',
     name: 'A Sacred Lot',
     origname: 'A Sacred Lot',
     album: '东方灵异传',
@@ -137,7 +137,7 @@ export const musicList: Music[] = [
     include: ['蓬莱人形', '幺乐团的历史'],
   },
   {
-    id: 'c856dbea',
+    id: '5d6ff33d',
     name: 'The Positive and Negative',
     origname: 'The Positive and Negative',
     album: '东方灵异传',
@@ -151,7 +151,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '9039f46f',
+    id: 'fe36f81b',
     name: 'Highly Responsive to Prayers',
     origname: 'Highly Responsive to Prayers',
     album: '东方灵异传',
@@ -193,7 +193,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '0265687c',
+    id: '4cfe44cc',
     name: 'Oriental Magician',
     origname: 'Oriental Magician',
     album: '东方灵异传',
@@ -207,7 +207,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'b6067614',
+    id: 'a9bb45d5',
     name: '破邪的小太刀',
     origname: '破邪の小太刀',
     album: '东方灵异传',
@@ -235,7 +235,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '2bb5b6d6',
+    id: 'a7ec5b3a',
     name: 'the Legend of KAGE',
     origname: 'the Legend of KAGE',
     album: '东方灵异传',
@@ -249,7 +249,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '35c43f56',
+    id: 'f8a4c46b',
     name: '来吧，直到倒地死去的那一刻',
     origname: 'いざ、倒れ逝くその時まで',
     album: '东方灵异传',
@@ -263,7 +263,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '0c0b07de',
+    id: '2be66d31',
     name: '同归于尽',
     origname: '死なばもろとも',
     album: '东方灵异传',
@@ -319,7 +319,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '14a02ca6',
+    id: '67968aa2',
     name: '东方封魔录 ～ 净土曼荼罗',
     origname: '東方封魔録 ～ 浄土曼荼羅',
     album: '东方封魔录',
@@ -333,7 +333,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'dc353322',
+    id: '180c7ee4',
     name: '博丽 ～ Eastern Wind',
     origname: '博麗 ～ Eastern Wind',
     album: '东方封魔录',
@@ -347,9 +347,9 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '8b60f82c',
-    name: "She's in a temper!!",
-    origname: "She's in a temper!!",
+    id: '90a75218',
+    name: 'She's in a temper!!',
+    origname: 'She's in a temper!!',
     album: '东方封魔录',
     date: 19970815,
     image:
@@ -361,7 +361,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'ca16dcf3',
+    id: '66240fe6',
     name: 'End of Daylight',
     origname: 'End of Daylight',
     album: '东方封魔录',
@@ -375,7 +375,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'c97b7d94',
+    id: '67e99126',
     name: '黑暗的力量',
     origname: 'やみのちから',
     album: '东方封魔录',
@@ -417,7 +417,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'fec31769',
+    id: '05cca541',
     name: '神篱，如紫色火焰般燃烧',
     origname: 'ひもろぎ、むらさきにもえ',
     album: '东方封魔录',
@@ -431,7 +431,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '05f71811',
+    id: '186a6989',
     name: '恋色Magic（恋色Master spark）',
     origname: '恋色マジック',
     album: '东方封魔录',
@@ -442,18 +442,10 @@ export const musicList: Music[] = [
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
-    include: [
-      '东方永夜抄',
-      '幻想曲拔萃',
-      '核热造神非想天则',
-      '深秘乐曲集',
-      '幺乐团的历史',
-      '完全凭依唱片名录',
-      '贪欲之兽的音乐',
-    ],
+    include: ['东方永夜抄', '幻想曲拔萃', '核热造神非想天则', '深秘乐曲集', '幺乐团的历史', '完全凭依唱片名录', '贪欲之兽的音乐'],
   },
   {
-    id: 'b3851909',
+    id: 'd42b0e10',
     name: '东方封魔录 ～ 幽幻乱舞',
     origname: '東方封魔録 ～ 幽幻乱舞',
     album: '东方封魔录',
@@ -467,7 +459,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'd9f33b03',
+    id: 'fd3c7e89',
     name: 'Complete Darkness',
     origname: 'Complete Darkness',
     album: '东方封魔录',
@@ -481,7 +473,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'eacc0eaf',
+    id: '6e10beb2',
     name: 'Extra Love',
     origname: 'Extra Love',
     album: '东方封魔录',
@@ -495,7 +487,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '04dcadd3',
+    id: '84ad1fad',
     name: '战车娘所做的梦',
     origname: '戦車むすめのみるゆめ',
     album: '东方封魔录',
@@ -523,7 +515,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '331d7adf',
+    id: '2346d81e',
     name: '传说中的仙境',
     origname: '昔話わんだーらんど',
     album: '东方封魔录',
@@ -537,7 +529,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '9736b9da',
+    id: 'cfab0825',
     name: '博丽神社境内',
     origname: '博麗神社境内',
     album: '东方封魔录',
@@ -579,7 +571,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '21248d7d',
+    id: 'ec8dd840',
     name: '梦想超越时空',
     origname: '夢は時空を越えて',
     album: '东方梦时空',
@@ -593,7 +585,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'bd3ee70c',
+    id: '9e2604d2',
     name: 'Selection',
     origname: 'Selection',
     album: '东方梦时空',
@@ -621,7 +613,7 @@ export const musicList: Music[] = [
     include: ['东方怪绮谈', '幻想曲拔萃', '全人类的天乐录', '核热造神非想天则', '幺乐团的历史'],
   },
   {
-    id: '674a4d22',
+    id: '14dee9e1',
     name: 'Reincarnation',
     origname: 'Reincarnation',
     album: '东方梦时空',
@@ -635,7 +627,7 @@ export const musicList: Music[] = [
     include: ['蓬莱人形', '幺乐团的历史'],
   },
   {
-    id: 'd53db6c1',
+    id: '332465d7',
     name: 'Dim. Dream',
     origname: 'Dim. Dream',
     album: '东方梦时空',
@@ -649,7 +641,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '857b0c3a',
+    id: '4c8dac15',
     name: 'Tabula rasa ～ 空白少女',
     origname: 'Tabula rasa ～ 空白少女',
     album: '东方梦时空',
@@ -663,7 +655,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'ecbb61ee',
+    id: '2f062604',
     name: 'Maniacal Princess',
     origname: 'Maniacal Princess',
     album: '东方梦时空',
@@ -677,7 +669,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'd53db6c1',
+    id: '38752548',
     name: '梦消失 ～ Lost Dream',
     origname: '夢消失 ～ Lost Dream',
     album: '东方梦时空',
@@ -691,7 +683,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '67063829',
+    id: '741404ac',
     name: '梦幻游戏 ～ Dream War',
     origname: '夢幻遊戯 ～ Dream War',
     album: '东方梦时空',
@@ -705,7 +697,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'e7724063',
+    id: '335d2f52',
     name: '魔法决战！ ～ Fight it out!',
     origname: '魔法決戦！ ～ Fight it out!',
     album: '东方梦时空',
@@ -719,7 +711,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '23b5b35d',
+    id: '1e19043f',
     name: 'Sailor of Time',
     origname: 'Sailor of Time',
     album: '东方梦时空',
@@ -733,7 +725,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '2fb2000a',
+    id: '6f405b2b',
     name: 'Strawberry Crisis!!',
     origname: 'Strawberry Crisis!!',
     album: '东方梦时空',
@@ -747,7 +739,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '614dd63b',
+    id: 'b153b000',
     name: '非统一魔法世界论',
     origname: '非統一魔法世界論',
     album: '东方梦时空',
@@ -789,7 +781,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'd82458a5',
+    id: '787874ed',
     name: '东方的蓝色天空',
     origname: '東方の青い空',
     album: '东方梦时空',
@@ -817,7 +809,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '120aacc0',
+    id: 'daa42696',
     name: 'Maple Dream...',
     origname: 'Maple Dream...',
     album: '东方梦时空',
@@ -859,7 +851,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '9013d651',
+    id: '1908eafe',
     name: 'Game Over',
     origname: 'ゲームオーバー',
     album: '东方梦时空',
@@ -887,7 +879,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '9c9f83ac',
+    id: '8c3c82e5',
     name: 'Starbow Dream',
     origname: 'スターボウドリーム',
     album: '东方梦时空',
@@ -901,7 +893,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '5300f4f8',
+    id: '15579667',
     name: 'Phantasmagoria',
     origname: 'Phantasmagoria',
     album: '东方梦时空',
@@ -915,7 +907,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'e4b2cd42',
+    id: '1bb60d9a',
     name: '幻想乡 ～ Lotus Land Story',
     origname: '幻想郷 ～ Lotus Land Story',
     album: '东方幻想乡',
@@ -929,7 +921,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'b6c7be35',
+    id: 'd0428740',
     name: 'Witching Dream',
     origname: 'Witching Dream',
     album: '东方幻想乡',
@@ -943,9 +935,9 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'f00d5d8b',
-    name: "Selene's light",
-    origname: "Selene's light",
+    id: '63df9bb3',
+    name: 'Selene's light',
+    origname: 'Selene's light',
     album: '东方幻想乡',
     date: 19980814,
     image:
@@ -957,7 +949,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '39896f46',
+    id: '40d71a03',
     name: '装饰战 ～ Decoration Battle',
     origname: '装飾戦 ～ Decoration Battle',
     album: '东方幻想乡',
@@ -971,7 +963,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'a1b1bc21',
+    id: '952c6c02',
     name: 'Break the Sabbath',
     origname: 'Break the Sabbath',
     album: '东方幻想乡',
@@ -985,7 +977,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '85c3b14a',
+    id: '518363d7',
     name: '紅响曲 ～ Scarlet Phoneme',
     origname: '紅響曲 ～ Scarlet Phoneme',
     album: '东方幻想乡',
@@ -999,7 +991,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '96bc11bb',
+    id: 'fe26c47a',
     name: 'Bad Apple!!',
     origname: 'Bad Apple!!',
     album: '东方幻想乡',
@@ -1013,7 +1005,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '12da4d33',
+    id: '6a76f449',
     name: '灵战 ～ Perdition crisis',
     origname: '霊戦 ～ Perdition crisis',
     album: '东方幻想乡',
@@ -1027,7 +1019,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '67d068cd',
+    id: 'acec11ca',
     name: 'Alice Maestra',
     origname: 'アリスマエステラ',
     album: '东方幻想乡',
@@ -1041,7 +1033,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'db94894f',
+    id: '97911a3c',
     name: '少女绮想曲 ～ Capriccio',
     origname: '少女綺想曲 ～ Capriccio',
     album: '东方幻想乡',
@@ -1055,7 +1047,7 @@ export const musicList: Music[] = [
     include: ['东方永夜抄', '幻想曲拔萃', '幺乐团的历史', '贪欲之兽的音乐'],
   },
   {
-    id: '852081d6',
+    id: 'ac4cdbcb',
     name: '星之器 ～ Casket of Star',
     origname: '星の器 ～ Casket of Star',
     album: '东方幻想乡',
@@ -1069,7 +1061,7 @@ export const musicList: Music[] = [
     include: ['东方怪绮谈', '全人类的天乐录', '幺乐团的历史'],
   },
   {
-    id: 'f0219b94',
+    id: '5ad88ced',
     name: 'Lotus Love',
     origname: 'Lotus Love',
     album: '东方幻想乡',
@@ -1083,7 +1075,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '574f4ed5',
+    id: 'd4cc328f',
     name: '能够睡眠的恐怖 ～ Sleeping Terror',
     origname: '眠れる恐怖 ～ Sleeping Terror',
     album: '东方幻想乡',
@@ -1097,7 +1089,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '544daa0e',
+    id: 'a76ac78d',
     name: 'Dream Land',
     origname: 'Dream Land',
     album: '东方幻想乡',
@@ -1111,7 +1103,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'b6c7be35',
+    id: '8727e4b8',
     name: '幽梦 ～ Inanimate Dream',
     origname: '幽夢 ～ Inanimate Dream',
     album: '东方幻想乡',
@@ -1125,7 +1117,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '1c16f92b',
+    id: 'f664c246',
     name: '不可不禁止的游戏',
     origname: '禁じざるをえない遊戯',
     album: '东方幻想乡',
@@ -1139,7 +1131,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'dfffe3de',
+    id: '1ebd291f',
     name: '女仆幻想 ～ Icemilk Magic',
     origname: 'メイド幻想 ～ Icemilk Magic',
     album: '东方幻想乡',
@@ -1153,7 +1145,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '201dd8d7',
+    id: 'e3e81907',
     name: '可爱的恶魔 ～ Innocence',
     origname: 'かわいい悪魔 ～ Innocence',
     album: '东方幻想乡',
@@ -1181,7 +1173,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '1071c790',
+    id: 'db53cae1',
     name: 'Peaceful',
     origname: 'Peaceful',
     album: '东方幻想乡',
@@ -1195,7 +1187,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'b6c7be35',
+    id: 'fd76022a',
     name: 'Arcadian Dream',
     origname: 'Arcadian Dream',
     album: '东方幻想乡',
@@ -1223,7 +1215,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'ceeda52c',
+    id: '1cb887d5',
     name: 'Lotus Road',
     origname: 'Lotus Road',
     album: '东方幻想乡',
@@ -1237,7 +1229,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '0f05cbcf',
+    id: '004166ca',
     name: 'Dreamy pilot',
     origname: 'Dreamy pilot',
     album: '东方幻想乡',
@@ -1251,7 +1243,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '879ad2c5',
+    id: 'bfeb743d',
     name: 'Incomplete Plot',
     origname: 'Incomplete Plot',
     album: '东方幻想乡',
@@ -1265,7 +1257,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '0fec5a29',
+    id: '0d6e05af',
     name: 'Border Land',
     origname: 'Border Land',
     album: '东方幻想乡',
@@ -1279,7 +1271,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'ae189424',
+    id: 'c019653e',
     name: 'Magic Shop of Raspberry',
     origname: 'Magic Shop of Raspberry',
     album: '东方幻想乡',
@@ -1293,7 +1285,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'b6c7be35',
+    id: '86f77e13',
     name: 'Crescent Dream',
     origname: 'Crescent Dream',
     album: '东方幻想乡',
@@ -1307,7 +1299,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'e1f640f5',
+    id: '121a6172',
     name: '怪绮谈 ～ Mystic Square',
     origname: '怪綺談 ～ Mystic Square',
     album: '东方怪绮谈',
@@ -1321,7 +1313,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'b8728937',
+    id: '1701d4fd',
     name: 'Dream Express',
     origname: 'Dream Express',
     album: '东方怪绮谈',
@@ -1335,7 +1327,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'e1f640f5',
+    id: '3e75a2e0',
     name: '魔法阵 ～ Magic Square',
     origname: '魔法陣 ～ Magic Square',
     album: '东方怪绮谈',
@@ -1363,7 +1355,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '0675207d',
+    id: '15f73b44',
     name: '灵天 ～ Spiritual Heaven',
     origname: '霊天 ～ Spiritual Heaven',
     album: '东方怪绮谈',
@@ -1377,7 +1369,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'f35da865',
+    id: 'be8defa9',
     name: 'Romantic Children',
     origname: 'Romantic Children',
     album: '东方怪绮谈',
@@ -1391,7 +1383,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '6c757bb3',
+    id: '4137cf03',
     name: 'Plastic Mind',
     origname: 'プラスチックマインド',
     album: '东方怪绮谈',
@@ -1405,7 +1397,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'f7fd831a',
+    id: 'eec6e4a8',
     name: 'Maple Wise',
     origname: 'メイプルワイズ',
     album: '东方怪绮谈',
@@ -1419,7 +1411,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '5a2b82b8',
+    id: '0c673d61',
     name: '禁忌的魔法 ～ Forbidden Magic',
     origname: '禁断の魔法 ～ Forbidden Magic',
     album: '东方怪绮谈',
@@ -1433,7 +1425,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'f68b4e1a',
+    id: '7ea08311',
     name: '绯红的少女 ～ Crimson Dead!!',
     origname: '真紅の少女 ～ Crimson Dead!!',
     album: '东方怪绮谈',
@@ -1447,7 +1439,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '3221aa8d',
+    id: 'cff989f0',
     name: '背叛的少女 ～ Judas Kiss',
     origname: '裏切りの少女 ～ Judas Kiss',
     album: '东方怪绮谈',
@@ -1461,7 +1453,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '76c0ab7a',
+    id: '291f5e62',
     name: 'the Last Judgement',
     origname: 'the Last Judgement',
     album: '东方怪绮谈',
@@ -1475,7 +1467,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'e11d461e',
+    id: '74920cb1',
     name: '可悲的人偶 ～ Doll of Misery',
     origname: '悲しき人形 ～ Doll of Misery',
     album: '东方怪绮谈',
@@ -1489,9 +1481,9 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '38477557',
-    name: "世界的尽头 ～ World's End",
-    origname: "世界の果て ～ World's End",
+    id: 'c7978fea',
+    name: '世界的尽头 ～ World's End',
+    origname: '世界の果て ～ World's End',
     album: '东方怪绮谈',
     date: 19981230,
     image:
@@ -1503,7 +1495,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'c5305ec9',
+    id: '0a1ef7e3',
     name: '神话幻想 ～ Infinite Being',
     origname: '神話幻想 ～ Infinite Being',
     album: '东方怪绮谈',
@@ -1517,7 +1509,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '2a952d00',
+    id: '5c5b793e',
     name: '不可思议之国的爱丽丝',
     origname: '不思議の国のアリス',
     album: '东方怪绮谈',
@@ -1531,7 +1523,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '0f4ba0c0',
+    id: '7ac8971b',
     name: 'the Grimoire of Alice',
     origname: 'the Grimoire of Alice',
     album: '东方怪绮谈',
@@ -1559,7 +1551,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'd44240e5',
+    id: '05f77862',
     name: 'Endless',
     origname: 'Endless',
     album: '东方怪绮谈',
@@ -1587,7 +1579,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '7902ce43',
+    id: 'deb2e6b6',
     name: 'Mystic Dream',
     origname: 'Mystic Dream',
     album: '东方怪绮谈',
@@ -1601,7 +1593,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '3cbe00d0',
+    id: 'f85c0a8a',
     name: 'Peaceful Romancer',
     origname: 'Peaceful Romancer',
     album: '东方怪绮谈',
@@ -1615,7 +1607,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: '3bcdd60d',
+    id: 'fe162151',
     name: '灵魂安息之所',
     origname: '魂の休らむ所',
     album: '东方怪绮谈',
@@ -1629,7 +1621,7 @@ export const musicList: Music[] = [
     include: ['幺乐团的历史'],
   },
   {
-    id: 'd33cf438',
+    id: 'e3957435',
     name: '比赤色更红的梦',
     origname: '赤より紅い夢',
     album: '东方红魔乡',
@@ -1643,7 +1635,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '487c323d',
+    id: '91fd38e0',
     name: '如鬼灯般的红色之魂',
     origname: 'ほおずきみたいに紅い魂',
     album: '东方红魔乡',
@@ -1671,7 +1663,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '1b7efad1',
+    id: '07740fb3',
     name: 'Lunate Elf',
     origname: 'ルーネイトエルフ',
     album: '东方红魔乡',
@@ -1685,7 +1677,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9438c533',
+    id: 'af806075',
     name: '活泼的纯情小姑娘（活泼纯情小姑娘的冒险）',
     origname: 'おてんば恋娘（おてんば恋娘の冒険）',
     album: '东方红魔乡',
@@ -1699,7 +1691,7 @@ export const musicList: Music[] = [
     include: ['东方花映塚', '东方文花帖', '核热造神非想天则'],
   },
   {
-    id: 'e2742519',
+    id: 'aed661f2',
     name: '上海红茶馆　～ Chinese Tea',
     origname: '上海紅茶館　～ Chinese Tea',
     album: '东方红魔乡',
@@ -1713,7 +1705,7 @@ export const musicList: Music[] = [
     include: ['核热造神非想天则', '梦违科学世纪'],
   },
   {
-    id: 'c530f305',
+    id: 'ff978032',
     name: '明治十七年的上海爱丽丝',
     origname: '明治十七年の上海アリス',
     album: '东方红魔乡',
@@ -1727,7 +1719,7 @@ export const musicList: Music[] = [
     include: ['蓬莱人形'],
   },
   {
-    id: '917bb64f',
+    id: '076d3905',
     name: '巴瓦鲁魔法图书馆',
     origname: 'ヴワル魔法図書館',
     album: '东方红魔乡',
@@ -1741,7 +1733,7 @@ export const musicList: Music[] = [
     include: ['幻想曲拔萃', '核热造神非想天则'],
   },
   {
-    id: 'bef06194',
+    id: '46e5fb88',
     name: 'Locked Girl　～ 少女密室',
     origname: 'ラクトガール　～ 少女密室',
     album: '东方红魔乡',
@@ -1755,7 +1747,7 @@ export const musicList: Music[] = [
     include: ['幻想曲拔萃', '全人类的天乐录', '卯酉东海道'],
   },
   {
-    id: '730c41ed',
+    id: '330a8409',
     name: '女仆与血之怀表',
     origname: 'メイドと血の懐中時計',
     album: '东方红魔乡',
@@ -1769,7 +1761,7 @@ export const musicList: Music[] = [
     include: ['幻想曲拔萃'],
   },
   {
-    id: '96a244fe',
+    id: '923f3824',
     name: '月时计　～ Luna Dial',
     origname: '月時計　～ ルナ・ダイアル',
     album: '东方红魔乡',
@@ -1783,7 +1775,7 @@ export const musicList: Music[] = [
     include: ['幻想曲拔萃'],
   },
   {
-    id: '77dc9e2f',
+    id: 'edc40b4c',
     name: '特佩斯的年幼末裔',
     origname: 'ツェペシュの幼き末裔',
     album: '东方红魔乡',
@@ -1797,7 +1789,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '961d1c04',
+    id: '07576b4c',
     name: '献给已逝公主的七重奏',
     origname: '亡き王女の為のセプテット',
     album: '东方红魔乡',
@@ -1811,7 +1803,7 @@ export const musicList: Music[] = [
     include: ['幻想曲拔萃', '全人类的天乐录'],
   },
   {
-    id: 'd72abc19',
+    id: 'ad1d1813',
     name: '魔法少女们的百年祭',
     origname: '魔法少女達の百年祭',
     album: '东方红魔乡',
@@ -1825,7 +1817,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: '57317e1d',
+    id: 'ca2afd1e',
     name: 'U.N.OWEN就是她吗？',
     origname: 'U.N.オーエンは彼女なのか？',
     album: '东方红魔乡',
@@ -1839,7 +1831,7 @@ export const musicList: Music[] = [
     include: ['蓬莱人形', '贪欲之兽的音乐'],
   },
   {
-    id: 'a20722ff',
+    id: '45f42c0a',
     name: '比红色更虚无的永远',
     origname: '紅より儚い永遠',
     album: '东方红魔乡',
@@ -1853,7 +1845,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd6b52eb7',
+    id: '00f20fc7',
     name: '红楼 ～ Eastern Dream…',
     origname: '紅楼　～ Eastern Dream...',
     album: '东方红魔乡',
@@ -1867,7 +1859,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '15de722d',
+    id: '506a210b',
     name: '妖妖梦 ～ Snow or Cherry Petal',
     origname: '妖々夢 ～ Snow or Cherry Petal',
     album: '东方妖妖梦',
@@ -1881,7 +1873,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '054293ce',
+    id: '1f366558',
     name: '无何有之乡',
     origname: '無何有の郷 ～ Deep Mountain',
     album: '东方妖妖梦',
@@ -1895,7 +1887,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd3596348',
+    id: '48c397a1',
     name: 'Crystallize Silver',
     origname: 'クリスタライズシルバー',
     album: '东方妖妖梦',
@@ -1909,7 +1901,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f1dfaff1',
+    id: 'ad1bcdad',
     name: '远野幻想物语',
     origname: '遠野幻想物語',
     album: '东方妖妖梦',
@@ -1923,7 +1915,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '7dfeebbc',
+    id: 'c747518e',
     name: '凋叶棕（withered leaf）',
     origname: 'ティアオイエツォン(withered leaf)',
     album: '东方妖妖梦',
@@ -1937,7 +1929,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd1fb43d5',
+    id: 'f7da11df',
     name: '布加勒斯特的人偶师',
     origname: 'ブクレシュティの人形師',
     album: '东方妖妖梦',
@@ -1951,7 +1943,7 @@ export const musicList: Music[] = [
     include: ['幻想曲拔萃', '全人类的天乐录'],
   },
   {
-    id: 'a2459193',
+    id: '2a42fd12',
     name: '人偶裁判 ～ 玩弄人形的少女',
     origname: '人形裁判　～ 人の形弄びし少女',
     album: '东方妖妖梦',
@@ -1965,7 +1957,7 @@ export const musicList: Music[] = [
     include: ['幻想曲拔萃', '梦违科学世纪'],
   },
   {
-    id: '609152c2',
+    id: 'e8cb85a3',
     name: '天空的花都',
     origname: '天空の花の都',
     album: '东方妖妖梦',
@@ -1979,7 +1971,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '6528735d',
+    id: '36cfee76',
     name: '幽灵乐团 ～ Phantom Ensemble',
     origname: '幽霊楽団　～ Phantom Ensemble',
     album: '东方妖妖梦',
@@ -1993,7 +1985,7 @@ export const musicList: Music[] = [
     include: ['东方花映塚'],
   },
   {
-    id: '62b53573',
+    id: 'ee1b2ff4',
     name: '东方妖妖梦 ～ Ancient Temple',
     origname: '東方妖々夢　～ Ancient Temple',
     album: '东方妖妖梦',
@@ -2007,7 +1999,7 @@ export const musicList: Music[] = [
     include: ['幻想曲拔萃', '东方花映塚', '莲台野夜行'],
   },
   {
-    id: '06e2bdf0',
+    id: 'a05c6175',
     name: '广有射怪鸟事 ～ Till When?',
     origname: '広有射怪鳥事　～ Till When?',
     album: '东方妖妖梦',
@@ -2021,7 +2013,7 @@ export const musicList: Music[] = [
     include: ['幻想曲拔萃', '全人类的天乐录'],
   },
   {
-    id: 'e504194b',
+    id: '52704618',
     name: 'Ultimate Truth',
     origname: 'アルティメットトゥルース',
     album: '东方妖妖梦',
@@ -2035,7 +2027,7 @@ export const musicList: Music[] = [
     include: ['幻想曲拔萃', '全人类的天乐录'],
   },
   {
-    id: '6b292490',
+    id: '322b49b6',
     name: '幽雅地绽放吧，墨染的樱花　～ Border of Life',
     origname: '幽雅に咲かせ、墨染の桜　～ Border of Life',
     album: '东方妖妖梦',
@@ -2049,7 +2041,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '265596e1',
+    id: '29d9386a',
     name: 'Border of Life',
     origname: 'ボーダーオブライフ',
     album: '东方妖妖梦',
@@ -2077,7 +2069,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '0459ffb8',
+    id: '1f83f846',
     name: '少女幻葬 ～ Necro-Fantasy',
     origname: '少女幻葬～ Necro-Fantasy',
     album: '东方妖妖梦',
@@ -2091,7 +2083,7 @@ export const musicList: Music[] = [
     include: ['莲台野夜行'],
   },
   {
-    id: '252ee484',
+    id: 'a7abbfb0',
     name: '妖妖跋扈 ～ Who done it!',
     origname: '妖々跋扈　～ Who done it!',
     album: '东方妖妖梦',
@@ -2105,7 +2097,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '61422bbf',
+    id: 'b0e36297',
     name: 'Necro-Fantasia',
     origname: 'ネクロファンタジア',
     album: '东方妖妖梦',
@@ -2133,7 +2125,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '183165b1',
+    id: '64feb69b',
     name: '樱花樱花 ～ Japanize Dream...',
     origname: 'さくらさくら　～ Japanize Dream...',
     album: '东方妖妖梦',
@@ -2161,7 +2153,7 @@ export const musicList: Music[] = [
     include: ['核热造神非想天则'],
   },
   {
-    id: 'a2bb0a2b',
+    id: 'bb10d08e',
     name: 'Demystify Feast',
     origname: 'Demystify Feast',
     album: '幻想曲拔萃',
@@ -2175,7 +2167,7 @@ export const musicList: Music[] = [
     include: ['大空魔术'],
   },
   {
-    id: '5f9ac92b',
+    id: '7a1e82e4',
     name: '夜幕降临 ～ Evening Star',
     origname: '夜が降りてくる ～ Evening Star',
     album: '幻想曲拔萃',
@@ -2189,7 +2181,7 @@ export const musicList: Music[] = [
     include: ['全人类的天乐录', '梦违科学世纪', '完全凭依唱片名录'],
   },
   {
-    id: '60fe6533',
+    id: '73d77a15',
     name: '御伽之国的鬼岛 ～ Missing Power',
     origname: '御伽の国の鬼が島 ～ Missing Power',
     album: '幻想曲拔萃',
@@ -2287,7 +2279,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'ad2c5578',
+    id: '5d931307',
     name: '间奏曲',
     origname: 'Intermezzo',
     album: '幻想曲拔萃',
@@ -2427,7 +2419,7 @@ export const musicList: Music[] = [
     include: ['全人类的天乐录'],
   },
   {
-    id: 'ddb07fa3',
+    id: 'ceabc761',
     name: '永夜抄　～ Eastern Night.',
     origname: '永夜抄　～ Eastern Night.',
     album: '东方永夜抄',
@@ -2441,7 +2433,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '8a2d6600',
+    id: 'cb6a7e45',
     name: '幻视之夜　～ Ghostly Eyes',
     origname: '幻視の夜　～ Ghostly Eyes',
     album: '东方永夜抄',
@@ -2455,7 +2447,7 @@ export const musicList: Music[] = [
     include: ['莲台野夜行'],
   },
   {
-    id: '38ac2eb6',
+    id: '0833d1cf',
     name: '蠢蠢的秋月　～ Mooned Insect',
     origname: '蠢々秋月　～ Mooned Insect',
     album: '东方永夜抄',
@@ -2469,7 +2461,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '7cbd7770',
+    id: '31f7eb5c',
     name: '夜雀的歌声　～ Night Bird',
     origname: '夜雀の歌声　～ Night Bird',
     album: '东方永夜抄',
@@ -2483,7 +2475,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '6b1a2be6',
+    id: '87be77a4',
     name: '已经只能听见歌声了',
     origname: 'もう歌しか聞こえない',
     album: '东方永夜抄',
@@ -2497,7 +2489,7 @@ export const musicList: Music[] = [
     include: ['东方花映塚'],
   },
   {
-    id: '61f9e432',
+    id: '48d6c1a4',
     name: '令人怀念的东方之血　～ Old World',
     origname: '懐かしき東方の血　～ Old World',
     album: '东方永夜抄',
@@ -2511,7 +2503,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '8dcc08a0',
+    id: 'c30e50b6',
     name: 'Plain Asia',
     origname: 'プレインエイジア',
     album: '东方永夜抄',
@@ -2525,7 +2517,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '17e5c327',
+    id: '0c101fb4',
     name: '永夜的报应　～ Imperishable Night（Pipes and Fiddle）',
     origname: '永夜の報い　～ Imperishable Night',
     album: '东方永夜抄',
@@ -2539,7 +2531,7 @@ export const musicList: Music[] = [
     include: ['梦违科学世纪', '东方外来韦编'],
   },
   {
-    id: 'a0ebfde4',
+    id: '40c1b9bc',
     name: '灰姑娘的笼子　～ Kagome-Kagome',
     origname: 'シンデレラケージ　～ Kagome-Kagome',
     album: '东方永夜抄',
@@ -2553,7 +2545,7 @@ export const musicList: Music[] = [
     include: ['Cradle - 东方幻乐祀典'],
   },
   {
-    id: '0bbaa587',
+    id: '52f985bc',
     name: '狂气之瞳　～ Invisible Full Moon',
     origname: '狂気の瞳　～ Invisible Full Moon',
     album: '东方永夜抄',
@@ -2567,7 +2559,7 @@ export const musicList: Music[] = [
     include: ['东方花映塚', '全人类的天乐录', '深秘乐曲集·补', '完全凭依唱片名录'],
   },
   {
-    id: '1e77f8b4',
+    id: '18bbbfc4',
     name: 'Voyage1969',
     origname: 'ヴォヤージュ1969',
     album: '东方永夜抄',
@@ -2581,7 +2573,7 @@ export const musicList: Music[] = [
     include: ['梦违科学世纪'],
   },
   {
-    id: '27bcb002',
+    id: '2968f852',
     name: '千年幻想乡　～ History of the Moon',
     origname: '千年幻想郷　～ History of the Moon',
     album: '东方永夜抄',
@@ -2595,7 +2587,7 @@ export const musicList: Music[] = [
     include: ['卯酉东海道'],
   },
   {
-    id: '7630be17',
+    id: '325f79bd',
     name: '竹取飞翔　～ Lunatic Princess',
     origname: '竹取飛翔　～ Lunatic Princess',
     album: '东方永夜抄',
@@ -2609,7 +2601,7 @@ export const musicList: Music[] = [
     include: ['卯酉东海道'],
   },
   {
-    id: '1bd49e6f',
+    id: 'bba1d1e8',
     name: 'Voyage1970',
     origname: 'ヴォヤージュ1970',
     album: '东方永夜抄',
@@ -2623,7 +2615,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '445eae19',
+    id: '19e39ded',
     name: 'Extend Ash　～ 蓬莱人',
     origname: 'エクステンドアッシュ　～ 蓬莱人',
     album: '东方永夜抄',
@@ -2637,7 +2629,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '7f76ab12',
+    id: '234cf9b5',
     name: '飘上月球，不死之烟',
     origname: '月まで届け、不死の煙',
     album: '东方永夜抄',
@@ -2665,7 +2657,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'df2744d3',
+    id: 'f1ebb7c0',
     name: 'Eternal Dream　～ 幽玄的枫树',
     origname: 'Eternal Dream　～ 幽玄の槭樹',
     album: '东方永夜抄',
@@ -2679,7 +2671,7 @@ export const musicList: Music[] = [
     include: ['梦违科学世纪'],
   },
   {
-    id: 'a2d44c90',
+    id: '84d6c67c',
     name: '东方妖怪小町',
     origname: '東方妖怪小町',
     album: '东方永夜抄',
@@ -2693,7 +2685,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'da78927c',
+    id: 'face6f08',
     name: '花映塚　～ Higan Retour',
     origname: '花映塚　～ Higan Retour',
     album: '东方花映塚',
@@ -2707,7 +2699,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '1b8f4411',
+    id: '4d80672c',
     name: '春色小径　～ Colorful Path',
     origname: '春色小径　～ Colorful Path',
     album: '东方花映塚',
@@ -2721,7 +2713,7 @@ export const musicList: Music[] = [
     include: ['暗黑能乐集心绮楼'],
   },
   {
-    id: '3f84250a',
+    id: '36c5e375',
     name: 'Oriental Dark Flight',
     origname: 'オリエンタルダークフライト',
     album: '东方花映塚',
@@ -2735,7 +2727,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '2f79718c',
+    id: '9d62ed86',
     name: 'Flowering Night',
     origname: 'フラワリングナイト',
     album: '东方花映塚',
@@ -2749,7 +2741,7 @@ export const musicList: Music[] = [
     include: ['全人类的天乐录'],
   },
   {
-    id: '0f78d0ca',
+    id: '06fc7519',
     name: '宇佐大人的白旗',
     origname: 'お宇佐さまの素い幡',
     album: '东方花映塚',
@@ -2763,7 +2755,7 @@ export const musicList: Music[] = [
     include: ['卯酉东海道'],
   },
   {
-    id: '2fc8bfb9',
+    id: '0e4e7d2c',
     name: '剧毒身体　～ Forsaken Doll',
     origname: 'ポイズンボディ　～ Forsaken Doll',
     album: '东方花映塚',
@@ -2777,7 +2769,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '067a31c5',
+    id: 'bad13fa8',
     name: '今昔幻想乡　～ Flower Land',
     origname: '今昔幻想郷　～ Flower Land',
     album: '东方花映塚',
@@ -2791,7 +2783,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '18af2b67',
+    id: '13f4e9ea',
     name: '彼岸归航　～ Riverside View',
     origname: '彼岸帰航　～ Riverside View',
     album: '东方花映塚',
@@ -2805,7 +2797,7 @@ export const musicList: Music[] = [
     include: ['全人类的天乐录', '卯酉东海道'],
   },
   {
-    id: '63895ea4',
+    id: '830d6ce9',
     name: '第六十年的东方审判　～ Fate of Sixty Years',
     origname: '六十年目の東方裁判　～ Fate of Sixty Years',
     album: '东方花映塚',
@@ -2847,7 +2839,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '68b4fdb7',
+    id: '1c14d460',
     name: '花如幻想一般',
     origname: '花は幻想のままに',
     album: '东方花映塚',
@@ -2861,7 +2853,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '3ff0a7f5',
+    id: 'b4ff0c22',
     name: '魂之花 ～ Another Dream...',
     origname: '魂の花　～ Another Dream...',
     album: '东方花映塚',
@@ -2875,7 +2867,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'cbe718a7',
+    id: '49abc1f6',
     name: '天狗的笔记 ～ Mysterious Note',
     origname: '天狗の手帖　～ Mysterious Note',
     album: '东方文花帖',
@@ -2889,7 +2881,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '11426bf9',
+    id: '450aefd6',
     name: '风的循环 ～ Wind Tour',
     origname: '風の循環　～ Wind Tour',
     album: '东方文花帖',
@@ -2903,7 +2895,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '6be12f67',
+    id: 'e4938f5a',
     name: '天狗正凝视着 ～ Black Eyes',
     origname: '天狗が見ている　～ Black Eyes',
     album: '东方文花帖',
@@ -2917,7 +2909,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '57b79cb0',
+    id: '1a73e624',
     name: '东之国的不眠夜',
     origname: '東の国の眠らない夜',
     album: '东方文花帖',
@@ -2931,7 +2923,7 @@ export const musicList: Music[] = [
     include: ['大空魔术'],
   },
   {
-    id: '891955b9',
+    id: 'c7644738',
     name: '回忆京都',
     origname: 'レトロスペクティブ京都',
     album: '东方文花帖',
@@ -2945,7 +2937,7 @@ export const musicList: Music[] = [
     include: ['卯酉东海道'],
   },
   {
-    id: 'caf1fb5c',
+    id: 'cfb07ce3',
     name: '被封印的众神',
     origname: '封印されし神々',
     album: '东方风神录',
@@ -2959,7 +2951,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '8168209a',
+    id: '942b1e3e',
     name: '眷爱众生之神　～ Romantic Fall',
     origname: '人恋し神様　～ Romantic Fall',
     album: '东方风神录',
@@ -2973,7 +2965,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9044a615',
+    id: '4e8a1fa6',
     name: '会受稻田姬的斥责啦',
     origname: '稲田姫様に叱られるから',
     album: '东方风神录',
@@ -2987,7 +2979,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'fb9647c5',
+    id: 'b8406eae',
     name: '厄神降临之路　～ Dark Road',
     origname: '厄神様の通り道　～ Dark Road',
     album: '东方风神录',
@@ -3001,7 +2993,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '19720ecf',
+    id: 'd9242c0d',
     name: '命运的阴暗面',
     origname: '運命のダークサイド',
     album: '东方风神录',
@@ -3015,7 +3007,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '765ae1ec',
+    id: '61f75ca3',
     name: '众神眷恋的幻想乡',
     origname: '神々が恋した幻想郷',
     album: '东方风神录',
@@ -3029,7 +3021,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd3fca5e7',
+    id: 'e3c1fda3',
     name: '芥川龙之介的河童 ～ Candid Friend',
     origname: '芥川龍之介の河童　～ Candid Friend',
     album: '东方风神录',
@@ -3043,7 +3035,7 @@ export const musicList: Music[] = [
     include: ['暗黑能乐集心绮楼', '深秘乐曲集', '完全凭依唱片名录'],
   },
   {
-    id: '7aead282',
+    id: 'afa22d56',
     name: 'Fall of Fall ～ 秋意渐浓之瀑',
     origname: 'フォールオブフォール　～ 秋めく滝',
     album: '东方风神录',
@@ -3057,7 +3049,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'b791bf0e',
+    id: 'f288c6b5',
     name: '妖怪之山 ～ Mysterious Mountain',
     origname: '妖怪の山　～ Mysterious Mountain',
     album: '东方风神录',
@@ -3071,7 +3063,7 @@ export const musicList: Music[] = [
     include: ['东方文花帖DS', '弹幕天邪鬼'],
   },
   {
-    id: 'cbbe6908',
+    id: 'd95bded9',
     name: '少女曾见的日本原风景',
     origname: '少女が見た日本の原風景',
     album: '东方风神录',
@@ -3085,7 +3077,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c3c25b81',
+    id: '843422df',
     name: '信仰是为了虚幻之人',
     origname: '信仰は儚き人間の為に',
     album: '东方风神录',
@@ -3099,7 +3091,7 @@ export const musicList: Music[] = [
     include: ['核热造神非想天则'],
   },
   {
-    id: 'e5677980',
+    id: 'b2847974',
     name: '御柱的墓场 ～ Grave of Being',
     origname: '御柱の墓場　～ Grave of Being',
     album: '东方风神录',
@@ -3113,7 +3105,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: 'a1e30495',
+    id: '8891e09c',
     name: '神圣庄严的古战场 ～ Suwa Foughten Field',
     origname: '神さびた古戦場　～ Suwa Foughten Field',
     album: '东方风神录',
@@ -3127,7 +3119,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: 'e6f2b9b2',
+    id: '37591878',
     name: '明日之盛，昨日之俗',
     origname: '明日ハレの日、ケの昨日',
     album: '东方风神录',
@@ -3141,7 +3133,7 @@ export const musicList: Music[] = [
     include: ['核热造神非想天则', '未知之花 魅知之旅'],
   },
   {
-    id: '8df9d217',
+    id: 'a1feb032',
     name: 'Native Faith',
     origname: 'ネイティブフェイス',
     album: '东方风神录',
@@ -3169,7 +3161,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f57964bb',
+    id: '1e13b0b0',
     name: '神明降下恩惠之雨 ～ Sylphid Dream',
     origname: '神は恵みの雨を降らす　～ Sylphid Dream',
     album: '东方风神录',
@@ -3183,8 +3175,8 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '6c793bf8',
-    name: "Player's Score",
+    id: 'f579fd34',
+    name: 'Player's Score',
     origname: 'プレイヤーズスコア',
     album: '东方风神录',
     date: 20070817,
@@ -3225,7 +3217,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '76f4e0a6',
+    id: 'ec255f92',
     name: '地之色乃黄色（地之色乃黄色　～ Primrose）',
     origname: '地の色は黄色',
     album: '全人类的天乐录',
@@ -3365,7 +3357,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e77accc9',
+    id: '31b1bb2e',
     name: '黑海中的绯红 ～ Legendary Fish',
     origname: '黒い海に紅く ～ Legendary Fish',
     album: '全人类的天乐录',
@@ -3393,7 +3385,7 @@ export const musicList: Music[] = [
     include: ['完全凭依唱片名录'],
   },
   {
-    id: '725f1fff',
+    id: '809f8500',
     name: '有顶天变 ～ Wonderful Heaven',
     origname: '有頂天変 ～ Wonderful Heaven',
     album: '全人类的天乐录',
@@ -3407,7 +3399,7 @@ export const musicList: Music[] = [
     include: ['完全凭依唱片名录'],
   },
   {
-    id: '18532ca6',
+    id: '501a7bd0',
     name: '幼小的有顶天',
     origname: '幼心地の有頂天',
     album: '全人类的天乐录',
@@ -3449,7 +3441,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '2e55f4b4',
+    id: '9e4dffee',
     name: '地灵们的起床',
     origname: '地霊達の起床',
     album: '东方地灵殿',
@@ -3477,7 +3469,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: 'd90d28ac',
+    id: '95438689',
     name: '被封印的妖怪　～ Lost Place',
     origname: '封じられた妖怪 ～ Lost Place',
     album: '东方地灵殿',
@@ -3491,7 +3483,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: 'b5b73890',
+    id: 'c792ace8',
     name: '阻绝人迹之桥',
     origname: '渡る者の途絶えた橋',
     album: '东方地灵殿',
@@ -3505,7 +3497,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '8fbe16a3',
+    id: '3f6cd510',
     name: '绿眼的嫉妒',
     origname: '緑眼のジェラシー',
     album: '东方地灵殿',
@@ -3519,7 +3511,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '74042bdf',
+    id: '88a32a6d',
     name: '漫游旧地狱街道',
     origname: '旧地獄街道を行く',
     album: '东方地灵殿',
@@ -3533,7 +3525,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: 'b58cc186',
+    id: '1a5ce9d3',
     name: '大江山的花之酒宴',
     origname: '華のさかづき大江山',
     album: '东方地灵殿',
@@ -3547,7 +3539,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: '0e3bddcb',
+    id: 'c7fbea7c',
     name: 'Heartfelt Fancy',
     origname: 'ハートフェルトファンシー',
     album: '东方地灵殿',
@@ -3561,7 +3553,7 @@ export const musicList: Music[] = [
     include: ['伊奘诺物质'],
   },
   {
-    id: 'bc80fcd2',
+    id: 'f460195d',
     name: '少女觉 ～ 3rd eye',
     origname: '少女さとり ～ 3rd eye',
     album: '东方地灵殿',
@@ -3575,7 +3567,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '88f69d8a',
+    id: '1424930d',
     name: '废狱摇篮曲',
     origname: '廃獄ララバイ',
     album: '东方地灵殿',
@@ -3589,7 +3581,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '265ac2ea',
+    id: 'bd6ed151',
     name: '尸体旅行　～ Be of good cheer!',
     origname: '死体旅行～Be of good cheer!',
     album: '东方地灵殿',
@@ -3603,7 +3595,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '88c415a5',
+    id: '6a64bae1',
     name: '业火地幔',
     origname: '業火マントル',
     album: '东方地灵殿',
@@ -3617,7 +3609,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: 'aedcdd43',
+    id: 'ec17846e',
     name: '灵知的太阳信仰 ～ Nuclear Fusion',
     origname: '霊知の太陽信仰　～ Nuclear Fusion',
     album: '东方地灵殿',
@@ -3631,7 +3623,7 @@ export const musicList: Music[] = [
     include: ['核热造神非想天则', '贪欲之兽的音乐'],
   },
   {
-    id: '1dedaaf3',
+    id: '3104fd1a',
     name: 'Last Remote',
     origname: 'ラストリモート',
     album: '东方地灵殿',
@@ -3645,7 +3637,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'fe5365b2',
+    id: 'c938bd3d',
     name: '哈德曼的妖怪少女',
     origname: 'ハルトマンの妖怪少女',
     album: '东方地灵殿',
@@ -3659,7 +3651,7 @@ export const musicList: Music[] = [
     include: ['鸟船遗迹', '暗黑能乐集心绮楼', '深秘乐曲集', '完全凭依唱片名录'],
   },
   {
-    id: '480744f9',
+    id: 'f80a8283',
     name: '地灵们的归家',
     origname: '地霊達の帰宅',
     album: '东方地灵殿',
@@ -3673,7 +3665,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '957a48b8',
+    id: '963b75e8',
     name: '能源黎明 ～ Future Dream...',
     origname: 'エネルギー黎明 ～ Future Dream...',
     album: '东方地灵殿',
@@ -3715,7 +3707,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '636573ab',
+    id: 'f8b9bda9',
     name: '小小的贤将',
     origname: '小さな小さな賢将',
     album: '东方星莲船',
@@ -3729,7 +3721,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd7f59651',
+    id: '9d609e49',
     name: '封闭的云中通路',
     origname: '閉ざせし雲の通い路',
     album: '东方星莲船',
@@ -3743,7 +3735,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '2ded537d',
+    id: '413d7bec',
     name: '请注意万年备用伞',
     origname: '万年置き傘にご注意を',
     album: '东方星莲船',
@@ -3757,7 +3749,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: '68743c09',
+    id: '5d7edbeb',
     name: 'Sky Ruin',
     origname: 'スカイルーイン',
     album: '东方星莲船',
@@ -3771,7 +3763,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '12bd2820',
+    id: '44e88728',
     name: '守旧老爹与前卫少女',
     origname: '時代親父とハイカラ少女',
     album: '东方星莲船',
@@ -3785,7 +3777,7 @@ export const musicList: Music[] = [
     include: ['暗黑能乐集心绮楼', '深秘乐曲集', '完全凭依唱片名录'],
   },
   {
-    id: '61a58a18',
+    id: 'da8cf6f8',
     name: '幽灵客船的时空穿越之旅',
     origname: '幽霊客船の時空を越えた旅',
     album: '东方星莲船',
@@ -3799,7 +3791,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'da81750f',
+    id: '3dc6bb9b',
     name: 'Captain Murasa',
     origname: 'キャプテン·ムラサ',
     album: '东方星莲船',
@@ -3813,7 +3805,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: 'b779ea24',
+    id: 'f1a40846',
     name: '魔界地方都市秘境',
     origname: '魔界地方都市エソテリア',
     album: '东方星莲船',
@@ -3827,7 +3819,7 @@ export const musicList: Music[] = [
     include: ['旧约酒馆'],
   },
   {
-    id: '404097ce',
+    id: 'e69c9578',
     name: '虎纹的毘沙门天',
     origname: '虎柄の毘沙門天',
     album: '东方星莲船',
@@ -3855,7 +3847,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f8615646',
+    id: '4f911242',
     name: '感情的摩天楼　～ Cosmic Mind',
     origname: '感情の摩天楼　～ Cosmic Mind',
     album: '东方星莲船',
@@ -3869,7 +3861,7 @@ export const musicList: Music[] = [
     include: ['鸟船遗迹', '暗黑能乐集心绮楼', '深秘乐曲集', '完全凭依唱片名录'],
   },
   {
-    id: '43d9ff9c',
+    id: '50c79183',
     name: '夜空中的UFO恋曲',
     origname: '夜空のユーフォーロマンス',
     album: '东方星莲船',
@@ -3883,7 +3875,7 @@ export const musicList: Music[] = [
     include: ['鸟船遗迹'],
   },
   {
-    id: 'ceb65e41',
+    id: '1e62ee32',
     name: '平安时代的外星人',
     origname: '平安のエイリアン',
     album: '东方星莲船',
@@ -3911,7 +3903,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '05b5e418',
+    id: 'f6b6e474',
     name: '空中的归路　～ Sky Dream',
     origname: '空の帰り道　～ Sky Dream',
     album: '东方星莲船',
@@ -3925,7 +3917,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '4061fc89',
+    id: 'e47e1f2e',
     name: '你见到了那个影子吗',
     origname: '君はあの影を見たか',
     album: '核热造神非想天则',
@@ -3953,7 +3945,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '444b8647',
+    id: '67ffea7c',
     name: '我们的非想天则',
     origname: 'ぼくらの非想天則',
     album: '核热造神非想天则',
@@ -3967,7 +3959,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'aefb99ab',
+    id: '4773ebad',
     name: '人偶存在的风景',
     origname: '人形のある風景',
     album: '核热造神非想天则',
@@ -3981,7 +3973,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c8ed66f7',
+    id: '616d16de',
     name: '悠久的蒸汽机关',
     origname: '悠久の蒸気機関',
     album: '核热造神非想天则',
@@ -3995,7 +3987,7 @@ export const musicList: Music[] = [
     include: ['完全凭依唱片名录'],
   },
   {
-    id: '60f63bed',
+    id: '5bb3c3b9',
     name: '未知物Ｘ　～ Unfound Adventure（未知物X　～ Occultly Madness）',
     origname: 'アンノウンＸ　～ Unfound Adventure',
     album: '核热造神非想天则',
@@ -4009,7 +4001,7 @@ export const musicList: Music[] = [
     include: ['伊奘诺物质', '深秘乐曲集·补', '完全凭依唱片名录'],
   },
   {
-    id: 'b613d766',
+    id: 'dc1af385',
     name: '空中飘浮的物体Ｘ',
     origname: '空に浮かぶ物体Ｘ',
     album: '核热造神非想天则',
@@ -4023,7 +4015,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f4d08a1f',
+    id: 'a3b21e44',
     name: '巨大的影子与渺小的结局',
     origname: '巨大な影と小さな結末',
     album: '核热造神非想天则',
@@ -4037,7 +4029,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'a9c1c2ea',
+    id: '4ea1e7dd',
     name: 'Newshound',
     origname: 'ニュースハウンド',
     album: '东方文花帖DS',
@@ -4051,7 +4043,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'ad23961b',
+    id: '37eb40cd',
     name: '你所在之城的怪事',
     origname: 'あなたの町の怪事件',
     album: '东方文花帖DS',
@@ -4065,7 +4057,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9ea63a52',
+    id: '4598544a',
     name: '现代妖怪殖民地',
     origname: '妖怪モダンコロニー',
     album: '东方文花帖DS',
@@ -4079,7 +4071,7 @@ export const musicList: Music[] = [
     include: ['东方三月精'],
   },
   {
-    id: 'e94ec7e9',
+    id: '8521cca5',
     name: '复仇女神的要塞',
     origname: 'ネメシスの要塞',
     album: '东方文花帖DS',
@@ -4093,7 +4085,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '03c82c14',
+    id: 'e148794f',
     name: '无间之钟 ～ Infinite Nightmare',
     origname: '無間の鐘　～ Infinite Nightmare',
     album: '东方文花帖DS',
@@ -4135,7 +4127,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '819f458b',
+    id: 'a6270364',
     name: '赌上性命去恶作剧',
     origname: 'いたずらに命をかけて',
     album: '妖精大战争',
@@ -4149,7 +4141,7 @@ export const musicList: Music[] = [
     include: ['东方三月精'],
   },
   {
-    id: '17ce39a4',
+    id: 'c3c75f4e',
     name: 'Loose Rain',
     origname: 'ルーズレイン',
     album: '妖精大战争',
@@ -4163,7 +4155,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9adf0d4a',
+    id: '6242313b',
     name: 'Magus Night',
     origname: 'メイガスナイト',
     album: '妖精大战争',
@@ -4177,7 +4169,7 @@ export const musicList: Music[] = [
     include: ['东方三月精', '暗黑能乐集心绮楼'],
   },
   {
-    id: '20d2ea13',
+    id: 'd8da8afe',
     name: '春之冰精 -静-',
     origname: '春の氷精　- 静 -',
     album: '妖精大战争',
@@ -4219,7 +4211,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '355fc849',
+    id: '02dc230f',
     name: 'Ghost Lead',
     origname: 'ゴーストリード',
     album: '东方神灵庙',
@@ -4233,7 +4225,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'deaf936b',
+    id: '66a995cc',
     name: '欢迎来到妖怪寺',
     origname: '妖怪寺へようこそ',
     album: '东方神灵庙',
@@ -4247,7 +4239,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd796f360',
+    id: '012fca8e',
     name: '门前的妖怪小姑娘',
     origname: '門前の妖怪小娘',
     album: '东方神灵庙',
@@ -4261,7 +4253,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9d9c1fa9',
+    id: '9bb5271c',
     name: '在美妙的墓地里住下吧',
     origname: '素敵な墓場で暮しましょ',
     album: '东方神灵庙',
@@ -4275,7 +4267,7 @@ export const musicList: Music[] = [
     include: ['伊奘诺物质'],
   },
   {
-    id: '5be36f1e',
+    id: 'a82b64bb',
     name: 'Rigid Paradise',
     origname: 'リジッドパラダイス',
     album: '东方神灵庙',
@@ -4289,7 +4281,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '670ae299',
+    id: 'c1538879',
     name: 'Desire Drive',
     origname: 'デザイアドライブ',
     album: '东方神灵庙',
@@ -4303,7 +4295,7 @@ export const musicList: Music[] = [
     include: ['鸟船遗迹'],
   },
   {
-    id: 'a7dc6653',
+    id: '8febadc7',
     name: '古老的元神',
     origname: '古きユアンシェン',
     album: '东方神灵庙',
@@ -4345,7 +4337,7 @@ export const musicList: Music[] = [
     include: ['暗黑能乐集心绮楼', '深秘乐曲集', '旧约酒馆', '完全凭依唱片名录'],
   },
   {
-    id: 'b80d5ff0',
+    id: '3071606c',
     name: '小小欲望的星空',
     origname: '小さな欲望の星空',
     album: '东方神灵庙',
@@ -4359,7 +4351,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c4d5f9cf',
+    id: 'a4de8980',
     name: '圣德传说 ～ True Administrator',
     origname: '聖徳伝説 ～ True Administrator',
     album: '东方神灵庙',
@@ -4387,7 +4379,7 @@ export const musicList: Music[] = [
     include: ['伊奘诺物质'],
   },
   {
-    id: 'f0ab1e8e',
+    id: '499a02bb',
     name: '佐渡的二岩',
     origname: '佐渡の二ッ岩',
     album: '东方神灵庙',
@@ -4401,7 +4393,7 @@ export const musicList: Music[] = [
     include: ['暗黑能乐集心绮楼'],
   },
   {
-    id: 'a0b31f2c',
+    id: 'fdf6e931',
     name: '神社的新风',
     origname: '神社の新しい風',
     album: '东方神灵庙',
@@ -4415,7 +4407,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '1df7d03e',
+    id: '19515053',
     name: 'Desire Dream',
     origname: 'デザイアドリーム',
     album: '东方神灵庙',
@@ -4429,7 +4421,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9a799a94',
+    id: '608f8e51',
     name: '幻想乡的二岩',
     origname: '幻想郷の二ッ岩',
     album: '暗黑能乐集心绮楼',
@@ -4443,7 +4435,7 @@ export const musicList: Music[] = [
     include: ['深秘乐曲集', '完全凭依唱片名录'],
   },
   {
-    id: '4f2aecbd',
+    id: '364bcf4f',
     name: '亡失的情感',
     origname: '亡失のエモーション',
     album: '暗黑能乐集心绮楼',
@@ -4457,7 +4449,7 @@ export const musicList: Music[] = [
     include: ['深秘乐曲集', '旧约酒馆', '完全凭依唱片名录'],
   },
   {
-    id: '778e232d',
+    id: 'abd3c464',
     name: '尘世不变的悲观主义',
     origname: '塵界不変のペシミズム',
     album: '暗黑能乐集心绮楼',
@@ -4485,7 +4477,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'ea04abfc',
+    id: 'aa530377',
     name: '有人气的场所',
     origname: '人気のある場所',
     album: '暗黑能乐集心绮楼',
@@ -4499,7 +4491,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '34165214',
+    id: '3a1ac1d0',
     name: '无人气的场所',
     origname: '人気のない場所',
     album: '暗黑能乐集心绮楼',
@@ -4513,7 +4505,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'ef3909e6',
+    id: '8120ac61',
     name: '丑时三刻的村庄',
     origname: '丑三つ時の里',
     album: '暗黑能乐集心绮楼',
@@ -4527,7 +4519,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'a4fe660f',
+    id: 'e31fcc8b',
     name: '本日的头版头条',
     origname: '本日の一面記事',
     album: '暗黑能乐集心绮楼',
@@ -4555,7 +4547,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '715db98a',
+    id: 'b6a9cbce',
     name: '官板黄昏新闻',
     origname: '官板黄昏新聞',
     album: '暗黑能乐集心绮楼',
@@ -4569,7 +4561,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '2f7d3d22',
+    id: 'e698f678',
     name: '不可思议的驱魔棒',
     origname: '不思議なお祓い棒',
     album: '东方辉针城',
@@ -4583,7 +4575,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '549027df',
+    id: '4b078f4c',
     name: 'Mist Lake',
     origname: 'ミストレイク',
     album: '东方辉针城',
@@ -4597,7 +4589,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '4be5e597',
+    id: '11885592',
     name: '秘境的人鱼',
     origname: '秘境のマーメイド',
     album: '东方辉针城',
@@ -4611,7 +4603,7 @@ export const musicList: Music[] = [
     include: ['弹幕天邪鬼'],
   },
   {
-    id: '7553b3b5',
+    id: 'dd1f0731',
     name: '往来于运河的人与妖',
     origname: '運河を行き交う人妖',
     album: '东方辉针城',
@@ -4625,7 +4617,7 @@ export const musicList: Music[] = [
     include: ['东方铃奈庵'],
   },
   {
-    id: '870de74d',
+    id: 'e15f7651',
     name: '柳树下的杜拉罕',
     origname: '柳の下のデュラハン',
     album: '东方辉针城',
@@ -4653,7 +4645,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '59a4e9b9',
+    id: '6ff6ecb9',
     name: '孤独的狼人',
     origname: '孤独なウェアウルフ',
     album: '东方辉针城',
@@ -4667,7 +4659,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '544ca44e',
+    id: '03e7d1f8',
     name: 'Magical Storm',
     origname: 'マジカルストーム',
     album: '东方辉针城',
@@ -4695,7 +4687,7 @@ export const musicList: Music[] = [
     include: ['弹幕天邪鬼'],
   },
   {
-    id: '57fab3a6',
+    id: '41049bfd',
     name: '沉向空中的辉针城',
     origname: '空中に沈む輝針城',
     album: '东方辉针城',
@@ -4709,7 +4701,7 @@ export const musicList: Music[] = [
     include: ['燕石博物志'],
   },
   {
-    id: '1bfd9226',
+    id: 'd6b97123',
     name: 'Reverse Ideology',
     origname: 'リバースイデオロギー',
     album: '东方辉针城',
@@ -4723,7 +4715,7 @@ export const musicList: Music[] = [
     include: ['弹幕天邪鬼', '旧约酒馆'],
   },
   {
-    id: '8d7da44d',
+    id: '34b7f9fd',
     name: '针小棒大的天守阁',
     origname: '針小棒大の天守閣',
     album: '东方辉针城',
@@ -4737,7 +4729,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd7bc214e',
+    id: '366ea0d7',
     name: '辉光之针的小人族　～ Little Princess',
     origname: '輝く針の小人族　～ Little Princess',
     album: '东方辉针城',
@@ -4765,7 +4757,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'cf3cee17',
+    id: 'a96a62cb',
     name: '原初的节拍　～ Pristine Beat',
     origname: '始原のビート　～ Pristine Beat',
     album: '东方辉针城',
@@ -4793,7 +4785,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f9e4208e',
+    id: '91690ef0',
     name: '非常非常神奇的道具们',
     origname: '不思議な不思議な道具達',
     album: '东方辉针城',
@@ -4807,7 +4799,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '74e35b5f',
+    id: '2294a5f6',
     name: '燃起犯规的狼烟',
     origname: '反則の狼煙を上げろ',
     album: '弹幕天邪鬼',
@@ -4821,7 +4813,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '6575441b',
+    id: 'ac0ebe18',
     name: '以犯规对不可能的弹幕',
     origname: '不可能弾幕には反則を',
     album: '弹幕天邪鬼',
@@ -4835,7 +4827,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '4e33d091',
+    id: '5e28361c',
     name: 'Midnight Spell Card',
     origname: 'ミッドナイトスペルカード',
     album: '弹幕天邪鬼',
@@ -4849,7 +4841,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'ff5d6af9',
+    id: '1584f77a',
     name: '浪漫逃飞行',
     origname: 'ロマンチック逃飛行',
     album: '弹幕天邪鬼',
@@ -4863,7 +4855,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '49716b18',
+    id: '46dc74b0',
     name: '永远的三日天下',
     origname: '永遠の三日天下',
     album: '弹幕天邪鬼',
@@ -4877,7 +4869,7 @@ export const musicList: Music[] = [
     include: ['燕石博物志'],
   },
   {
-    id: 'be4f26ed',
+    id: 'fa99f62e',
     name: '震撼心灵的都市传说',
     origname: '心揺さぶる都市伝説',
     album: '深秘乐曲集',
@@ -4891,7 +4883,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'ef28d4db',
+    id: 'bc014625',
     name: '幻想乡不可思议发现',
     origname: '幻想郷ふしぎ発見',
     album: '深秘乐曲集',
@@ -4905,7 +4897,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '6f57a3c7',
+    id: '891fe1db',
     name: '有珠子的日常',
     origname: 'ボールのある日常',
     album: '深秘乐曲集',
@@ -4919,7 +4911,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'dd19d193',
+    id: 'c78e8770',
     name: '显现的传承形态',
     origname: '顕現した伝承の形',
     album: '深秘乐曲集',
@@ -4933,7 +4925,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '0b45dc04',
+    id: '5cc732fb',
     name: '时代风潮的造访',
     origname: '時代の風の訪れ',
     album: '深秘乐曲集',
@@ -4947,7 +4939,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '8bd40c38',
+    id: '6fd2b707',
     name: '价值不明',
     origname: '価値がわからない',
     album: '深秘乐曲集',
@@ -4961,7 +4953,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '38fb7906',
+    id: 'df874f5b',
     name: '相信可能性',
     origname: '可能性を信じて',
     album: '深秘乐曲集',
@@ -4975,7 +4967,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '16c262bc',
+    id: '34ea4b60',
     name: '知晓真相之人',
     origname: '真実を知る者',
     album: '深秘乐曲集',
@@ -4989,7 +4981,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '1cd82cba',
+    id: 'ff0d6f78',
     name: '外界民俗',
     origname: '外界フォークロア',
     album: '深秘乐曲集',
@@ -5017,7 +5009,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'b3b18cd1',
+    id: '5dc878d6',
     name: '被揭晓的深秘',
     origname: '明かされる深秘',
     album: '深秘乐曲集',
@@ -5031,7 +5023,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '651591e7',
+    id: '08967da6',
     name: '灵异任你选（Occult Attract）',
     origname: 'オカルトアラカルト',
     album: '深秘乐曲集',
@@ -5045,7 +5037,7 @@ export const musicList: Music[] = [
     include: ['东方外来韦编', '完全凭依唱片名录'],
   },
   {
-    id: '0b22a64a',
+    id: '337badc5',
     name: '七玉搜集大摊牌',
     origname: '七玉蒐集ショウダウン',
     album: '深秘乐曲集',
@@ -5059,7 +5051,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '6cf0dfe8',
+    id: 'fe93b97d',
     name: '公正的争夺',
     origname: '公正なる奪い合い',
     album: '深秘乐曲集',
@@ -5087,7 +5079,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '85780c71',
+    id: '8acaa5fd',
     name: '竹林大火',
     origname: '竹林インフレイム',
     album: '深秘乐曲集',
@@ -5101,7 +5093,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e0f2e909',
+    id: '3176fdb2',
     name: '华狭间的战场',
     origname: '華狭間のバトルフィールド',
     album: '深秘乐曲集',
@@ -5115,7 +5107,7 @@ export const musicList: Music[] = [
     include: ['完全凭依唱片名录'],
   },
   {
-    id: 'd05676bb',
+    id: '68dc9b51',
     name: 'Last Occultism ~现世的秘术师',
     origname: 'ラストオカルティズム　～現し世の秘術師',
     album: '深秘乐曲集',
@@ -5129,7 +5121,7 @@ export const musicList: Music[] = [
     include: ['东方外来韦编', '完全凭依唱片名录'],
   },
   {
-    id: '51aa7c55',
+    id: '364442bb',
     name: '新竹林大火',
     origname: 'ネオ竹林インフレイム',
     album: '深秘乐曲集·补',
@@ -5157,7 +5149,7 @@ export const musicList: Music[] = [
     include: ['完全凭依唱片名录'],
   },
   {
-    id: 'e023bb71',
+    id: '8e72fd43',
     name: 'Occult Attract',
     origname: 'オカルトアトラクト',
     album: '深秘乐曲集·补',
@@ -5171,7 +5163,7 @@ export const musicList: Music[] = [
     include: ['东方外来韦编'],
   },
   {
-    id: '66ff1a3b',
+    id: 'd3e842cf',
     name: '境界民俗',
     origname: '境界フォークロア',
     album: '深秘乐曲集·补',
@@ -5185,7 +5177,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '937e3c44',
+    id: 'bf3e9d98',
     name: '容貌错乱　～ Horrible Night',
     origname: '相貌の狂い　～ Horrible Night',
     album: '深秘乐曲集·补',
@@ -5199,7 +5191,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'a8516d0a',
+    id: '5ea87d5a',
     name: '宇宙巫女现身',
     origname: '宇宙巫女現る',
     album: '东方绀珠传',
@@ -5213,7 +5205,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'b21b793f',
+    id: '737e2c82',
     name: '忘不了，那曾依藉的绿意',
     origname: '忘れがたき、よすがの緑',
     album: '东方绀珠传',
@@ -5227,7 +5219,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '0dd56869',
+    id: 'eee0646a',
     name: '兔已着陆',
     origname: '兎は舞い降りた',
     album: '东方绀珠传',
@@ -5241,7 +5233,7 @@ export const musicList: Music[] = [
     include: ['东方铃奈庵'],
   },
   {
-    id: 'fde84073',
+    id: '17daa444',
     name: '湖上倒映着洁净的月光',
     origname: '湖は浄めの月光を映して',
     album: '东方绀珠传',
@@ -5255,7 +5247,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'a39ec6d2',
+    id: '0b2dc28b',
     name: '九月的南瓜',
     origname: '九月のパンプキン',
     album: '东方绀珠传',
@@ -5269,7 +5261,7 @@ export const musicList: Music[] = [
     include: ['燕石博物志'],
   },
   {
-    id: '525342c9',
+    id: '73c15fd2',
     name: '飞翔于宇宙的不可思议巫女',
     origname: '宇宙を飛ぶ不思議な巫女',
     album: '东方绀珠传',
@@ -5297,7 +5289,7 @@ export const musicList: Music[] = [
     include: ['完全凭依唱片名录', '秘封噩梦日记'],
   },
   {
-    id: '22a1c3e0',
+    id: '8cde6b01',
     name: '冻结的永远之都',
     origname: '凍り付いた永遠の都',
     album: '东方绀珠传',
@@ -5311,7 +5303,7 @@ export const musicList: Music[] = [
     include: ['燕石博物志'],
   },
   {
-    id: 'a3609957',
+    id: '4902c288',
     name: '逆转的命运之轮',
     origname: '逆転するホイールオブフォーチュン',
     album: '东方绀珠传',
@@ -5325,7 +5317,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '977ca491',
+    id: 'f93b7570',
     name: '遥遥38万公里的航程',
     origname: '遥か３８万キロのボヤージュ',
     album: '东方绀珠传',
@@ -5339,7 +5331,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '739f0b3e',
+    id: 'ad197c76',
     name: '星条旗的小丑',
     origname: '星条旗のピエロ',
     album: '东方绀珠传',
@@ -5353,7 +5345,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd5e599a7',
+    id: 'bef43a7b',
     name: '故乡之星倒映之海',
     origname: '故郷の星が映る海',
     album: '东方绀珠传',
@@ -5367,7 +5359,7 @@ export const musicList: Music[] = [
     include: ['燕石博物志'],
   },
   {
-    id: '66fa4505',
+    id: '4ff2ed10',
     name: 'Pure Furies　～ 心之所在',
     origname: 'ピュアヒューリーズ　～ 心の在処',
     album: '东方绀珠传',
@@ -5381,7 +5373,7 @@ export const musicList: Music[] = [
     include: ['燕石博物志'],
   },
   {
-    id: '57194467',
+    id: 'f50f5e50',
     name: '前所未见的噩梦世界',
     origname: '見た事も無い悪夢の世界',
     album: '东方绀珠传',
@@ -5395,7 +5387,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e89226ef',
+    id: 'cd1128a0',
     name: 'Pandemonic Planet',
     origname: 'パンデモニックプラネット',
     album: '东方绀珠传',
@@ -5409,7 +5401,7 @@ export const musicList: Music[] = [
     include: ['旧约酒馆'],
   },
   {
-    id: 'b602c772',
+    id: 'edddca5f',
     name: '从神社所见之月',
     origname: '神社から見える月',
     album: '东方绀珠传',
@@ -5423,7 +5415,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '2fa360ca',
+    id: '1df65078',
     name: '宇宙巫女归还',
     origname: '宇宙巫女帰還する',
     album: '东方绀珠传',
@@ -5437,7 +5429,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '03f57a7e',
+    id: '563d6ba4',
     name: '心绮楼祭囃子',
     origname: '心綺楼祭囃子',
     album: '暗黑能乐集心绮楼',
@@ -5465,7 +5457,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '53a68df1',
+    id: '1eacb99f',
     name: '没用上的场所',
     origname: '使われなかった場所',
     album: '暗黑能乐集心绮楼',
@@ -5479,7 +5471,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f153fb7b',
+    id: '2bc178ed',
     name: 'Lastword发动',
     origname: 'ラストワード発動',
     album: '暗黑能乐集心绮楼',
@@ -5493,7 +5485,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'fba18d9b',
+    id: 'e51867ce',
     name: '樱花舞落的天空',
     origname: '桜舞い散る天空',
     album: '东方天空璋',
@@ -5507,7 +5499,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '009811b5',
+    id: 'a1728674',
     name: '希望之星直升青霄',
     origname: '希望の星は青霄に昇る',
     album: '东方天空璋',
@@ -5521,7 +5513,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c1b286dd',
+    id: 'faed9f70',
     name: '仲夏的妖精梦',
     origname: '真夏の妖精の夢',
     album: '东方天空璋',
@@ -5535,7 +5527,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'edce84d7',
+    id: 'a8033d3b',
     name: '妖怪山间无色风',
     origname: '色無き風は妖怪の山に',
     album: '东方天空璋',
@@ -5549,7 +5541,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '18efb99a',
+    id: '0ff9014b',
     name: '深山的遭遇',
     origname: '山奥のエンカウンター',
     album: '东方天空璋',
@@ -5563,7 +5555,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '6c5c1d6d',
+    id: '1e954a02',
     name: '泳于樱色之海',
     origname: '桜色の海を泳いで',
     album: '东方天空璋',
@@ -5591,7 +5583,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '40831c1a',
+    id: 'f29a913f',
     name: '幻想的白色旅人',
     origname: '幻想のホワイトトラベラー',
     album: '东方天空璋',
@@ -5605,7 +5597,7 @@ export const musicList: Music[] = [
     include: ['虹色的北斗七星'],
   },
   {
-    id: '57f67f34',
+    id: '5963aac6',
     name: '魔法的笠地藏',
     origname: '魔法の笠地蔵',
     album: '东方天空璋',
@@ -5619,7 +5611,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '3bcf670f',
+    id: '47a5e8b5',
     name: '禁断之门对面，是此世还是彼世',
     origname: '禁断の扉の向こうは、この世かあの世か',
     album: '东方天空璋',
@@ -5633,7 +5625,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '2c2f1432',
+    id: 'b4f3ff1b',
     name: 'Crazy Back Dancers',
     origname: 'クレイジーバックダンサーズ',
     album: '东方天空璋',
@@ -5647,7 +5639,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '7240d98f',
+    id: 'eb094bbe',
     name: 'Into Backdoor',
     origname: 'イントゥ・バックドア',
     album: '东方天空璋',
@@ -5661,7 +5653,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'a3d12ac3',
+    id: 'b98ef381',
     name: '被秘匿的四个季节',
     origname: '秘匿されたフォーシーズンズ',
     album: '东方天空璋',
@@ -5675,7 +5667,7 @@ export const musicList: Music[] = [
     include: ['秘封噩梦日记'],
   },
   {
-    id: 'bb39c7a6',
+    id: '32eb1fbb',
     name: '门再也进不去了',
     origname: 'もうドアには入れない',
     album: '东方天空璋',
@@ -5689,7 +5681,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '12aedc07',
+    id: '4a5f7756',
     name: '秘神摩多罗　～ Hidden Star in All Seasons.',
     origname: '秘神マターラ　～ Hidden Star in All Seasons.',
     album: '东方天空璋',
@@ -5703,7 +5695,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e249aacd',
+    id: 'f076e035',
     name: '不自然的自然',
     origname: '不自然な自然',
     album: '东方天空璋',
@@ -5731,7 +5723,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e30c5e1d',
+    id: '39af4faa',
     name: '圣辇船飞向天空',
     origname: '聖輦船空を往く',
     album: '完全凭依唱片名录',
@@ -5759,7 +5751,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '027f29ea',
+    id: '6a2c0d54',
     name: 'Mushroom·Waltz',
     origname: 'マッシュルーム・ワルツ',
     album: '完全凭依唱片名录',
@@ -5773,7 +5765,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '192dbb43',
+    id: 'e3a25887',
     name: '不灭的赤魂',
     origname: '不滅のレッドソウル',
     album: '完全凭依唱片名录',
@@ -5787,7 +5779,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '180f359f',
+    id: 'ff8ad0b0',
     name: '法力之下的平等',
     origname: '法力の下の平等',
     album: '完全凭依唱片名录',
@@ -5801,7 +5793,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c48d0caf',
+    id: 'cd2f6b4d',
     name: '恒常不变的参庙祀',
     origname: '恒常不変の参廟祀',
     album: '完全凭依唱片名录',
@@ -5815,7 +5807,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '5d3a9468',
+    id: '54e26051',
     name: '光辉的天球仪',
     origname: '光輝く天球儀',
     album: '完全凭依唱片名录',
@@ -5829,7 +5821,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '82ecedb0',
+    id: '340f5875',
     name: '泽之河童的技术力',
     origname: '沢の河童の技術力',
     album: '完全凭依唱片名录',
@@ -5843,7 +5835,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '1d914c11',
+    id: 'd784289a',
     name: '地底绽放的蔷薇',
     origname: '地底に咲く薔薇',
     album: '完全凭依唱片名录',
@@ -5857,7 +5849,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f2ed5cea',
+    id: '8c629359',
     name: '在深绿的狸森里',
     origname: '深緑の狸森にて',
     album: '完全凭依唱片名录',
@@ -5885,7 +5877,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'acd333df',
+    id: '4cc36de2',
     name: '落日映照下的逆城',
     origname: '落日に映える逆さ城',
     album: '完全凭依唱片名录',
@@ -5899,7 +5891,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '1dbfc440',
+    id: 'f26b9ab3',
     name: '克服万千之试炼',
     origname: '千の試練を超えて',
     album: '完全凭依唱片名录',
@@ -5913,7 +5905,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '7daabde2',
+    id: 'e83b49fb',
     name: '梦世界民俗',
     origname: '夢世界フォークロア',
     album: '完全凭依唱片名录',
@@ -5927,7 +5919,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f5c1084c',
+    id: 'd818e31a',
     name: '永远延续的回廊',
     origname: '永遠に続く回廊',
     album: '完全凭依唱片名录',
@@ -5941,7 +5933,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '1bbaa023',
+    id: '50c59b3e',
     name: 'Sleep Sheep·Parade',
     origname: 'スリープシープ・パレード',
     album: '完全凭依唱片名录',
@@ -5969,7 +5961,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '4d11b3fd',
+    id: 'b002fdda',
     name: '凭坐处于梦与现实之间　～ Necro-Fantasia',
     origname: '憑坐は夢と現の間に　～ Necro-Fantasia',
     album: '完全凭依唱片名录',
@@ -5983,7 +5975,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '3bdf7411',
+    id: 'a3e02870',
     name: '今宵是飘逸的自我主义者(Live ver)　～ Egoistic Flowers.',
     origname: '今宵は飄逸なエゴイスト(Live ver)　～ Egoistic Flowers.',
     album: '完全凭依唱片名录',
@@ -6123,7 +6115,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '6d33f487',
+    id: '838b548f',
     name: '疑惑的萌芽',
     origname: '疑惑の芽生え',
     album: '完全凭依唱片名录',
@@ -6137,7 +6129,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'deee49a6',
+    id: '221a2de4',
     name: '含苞待放的凭依华',
     origname: '未だ蕾む憑依華',
     album: '完全凭依唱片名录',
@@ -6151,7 +6143,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '5533d98b',
+    id: '4bfe9f9e',
     name: '通往真相的枝叶',
     origname: '真相へ繋がる枝葉',
     album: '完全凭依唱片名录',
@@ -6165,7 +6157,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd7d5a43f',
+    id: '347ef38f',
     name: '争奇斗艳的凭依华',
     origname: '咲き誇る憑依華',
     album: '完全凭依唱片名录',
@@ -6179,7 +6171,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9f1cca96',
+    id: 'ef2d30ef',
     name: '飞舞飘散的凭依华吹雪',
     origname: '舞い散る憑依華吹雪',
     album: '完全凭依唱片名录',
@@ -6221,7 +6213,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e062828e',
+    id: '40d94036',
     name: 'Lucid Dreamer',
     origname: 'ルーシッドドリーマー',
     album: '秘封噩梦日记',
@@ -6235,7 +6227,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e062828e',
+    id: 'a8d4000b',
     name: 'Lunatic Dreamer',
     origname: 'ルナティックドリーマー',
     album: '秘封噩梦日记',
@@ -6249,7 +6241,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '92d44be7',
+    id: '553cc278',
     name: 'Nightmare Diary',
     origname: 'ナイトメアダイアリー',
     album: '秘封噩梦日记',
@@ -6263,7 +6255,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '0bccb1e5',
+    id: '148780e7',
     name: '沉默的兽灵',
     origname: '物言わぬ獣の霊',
     album: '东方鬼形兽',
@@ -6277,7 +6269,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '242f2463',
+    id: '3a69e520',
     name: '只有地藏知晓的哀叹',
     origname: '地蔵だけが知る哀嘆',
     album: '东方鬼形兽',
@@ -6291,7 +6283,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '47062d94',
+    id: 'dafb1d4a',
     name: 'Jelly Stone',
     origname: 'ジェリーストーン',
     album: '东方鬼形兽',
@@ -6305,7 +6297,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '528b2147',
+    id: '24e51210',
     name: 'Lost River',
     origname: 'ロストリバー',
     album: '东方鬼形兽',
@@ -6319,7 +6311,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '7d9cab5e',
+    id: 'ba742e7e',
     name: '石之婴儿与水中牛',
     origname: '石の赤子と水中の牛',
     album: '东方鬼形兽',
@@ -6333,7 +6325,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '6b4a0c3d',
+    id: 'd54c2da7',
     name: '不朽的曼珠沙华',
     origname: '不朽の曼珠沙華',
     album: '东方鬼形兽',
@@ -6347,7 +6339,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: '8d067c0d',
+    id: '69dbb73f',
     name: 'Seraphic Chicken',
     origname: 'セラフィックチキン',
     album: '东方鬼形兽',
@@ -6361,7 +6353,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: '9f477718',
+    id: '79d51667',
     name: 'Unlocated Hell',
     origname: 'アンロケイテッドヘル',
     album: '东方鬼形兽',
@@ -6375,7 +6367,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'bc152dab',
+    id: '3fa749a2',
     name: 'Tortoise Dragon　～ 幸运与不幸',
     origname: 'トータスドラゴン　～ 幸運と不運',
     album: '东方鬼形兽',
@@ -6389,7 +6381,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '460b8aad',
+    id: '192366a7',
     name: 'Beast Metropolis',
     origname: 'ビーストメトロポリス',
     album: '东方鬼形兽',
@@ -6403,7 +6395,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '583ab8c1',
+    id: '0d31f8b1',
     name: '陶瓷的杖刀人',
     origname: 'セラミックスの杖刀人',
     album: '东方鬼形兽',
@@ -6417,7 +6409,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9a864a7b',
+    id: '90a735d9',
     name: 'Electric Heritage',
     origname: 'エレクトリックヘリテージ',
     album: '东方鬼形兽',
@@ -6431,7 +6423,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd4a3773b',
+    id: '4d6d0151',
     name: '寄世界于偶像　～ Idoratrize World',
     origname: '偶像に世界を委ねて　～ Idoratrize World',
     album: '东方鬼形兽',
@@ -6445,7 +6437,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'fd98f0e1',
+    id: 'a1987d48',
     name: '闪耀的弱肉强食法则',
     origname: '輝かしき弱肉強食の掟',
     album: '东方鬼形兽',
@@ -6459,7 +6451,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9d21409d',
+    id: '73f6e28b',
     name: '圣德太子的天马　～ Dark Pegasus',
     origname: '聖徳太子のペガサス　～ Dark Pegasus',
     album: '东方鬼形兽',
@@ -6473,7 +6465,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e370a0f4',
+    id: '4fa0153f',
     name: '畜生们的休息',
     origname: '畜生達の休息',
     album: '东方鬼形兽',
@@ -6487,7 +6479,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '76b13056',
+    id: '0e8e5a3c',
     name: '从地下的归还',
     origname: '地下からの帰還',
     album: '东方鬼形兽',
@@ -6501,7 +6493,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '2df35170',
+    id: 'e233a133',
     name: '被水淹没的沉愁地狱',
     origname: '水没した沈愁地獄',
     album: '贪欲之兽的音乐',
@@ -6515,7 +6507,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c4f87c63',
+    id: '542a4c62',
     name: '大地之底，刚欲之海',
     origname: '大地の底、剛欲の海',
     album: '贪欲之兽的音乐',
@@ -6529,7 +6521,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'de83ec3a',
+    id: '2d627ef4',
     name: '贪欲之兽的记忆',
     origname: '強欲な獣のメメント',
     album: '贪欲之兽的音乐',
@@ -6543,7 +6535,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f3bd2fe7',
+    id: '2617bade',
     name: '全有机体的记忆　～ Memory of Fossil Energy.',
     origname: '有機体全てのメメント　～ Memory of Fossil Energy.',
     album: '贪欲之兽的音乐',
@@ -6571,7 +6563,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '16ae1290',
+    id: 'add94977',
     name: '东方刚欲异闻',
     origname: '東方剛欲異聞',
     album: '贪欲之兽的音乐',
@@ -6585,7 +6577,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '99a95731',
+    id: 'c564531a',
     name: '架起虹桥的幻想乡',
     origname: '虹の架かる幻想郷',
     album: '东方虹龙洞',
@@ -6599,7 +6591,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '4217ed4f',
+    id: '15f0f2af',
     name: '妖异们的骤雨',
     origname: '妖異達の通り雨',
     album: '东方虹龙洞',
@@ -6613,7 +6605,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '8c842983',
+    id: 'dee396ed',
     name: '大吉猫咪',
     origname: '大吉キトゥン',
     album: '东方虹龙洞',
@@ -6627,7 +6619,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f11e2c47',
+    id: 'a790c75e',
     name: '深绿掩映的断崖',
     origname: '深緑に隠された断崖',
     album: '东方虹龙洞',
@@ -6641,7 +6633,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'fc8fa02d',
+    id: '534dfb49',
     name: 'Banditry Technology',
     origname: 'バンデットリィテクノロジー',
     album: '东方虹龙洞',
@@ -6655,7 +6647,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e356d25c',
+    id: 'e74caec3',
     name: '驹草盛开的万年积雪',
     origname: '駒草咲くパーペチュアルスノー',
     album: '东方虹龙洞',
@@ -6669,7 +6661,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '7cbd2950',
+    id: '811df281',
     name: 'Smoking Dragon',
     origname: 'スモーキングドラゴン',
     album: '东方虹龙洞',
@@ -6683,7 +6675,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '0d9e21f9',
+    id: '44866da4',
     name: '日渐荒废的工业遗址',
     origname: '廃れゆく産業遺構',
     album: '东方虹龙洞',
@@ -6711,7 +6703,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c409270b',
+    id: '7accab4b',
     name: '渴盼已久的逢魔之刻',
     origname: '待ちわびた逢魔が時',
     album: '东方虹龙洞',
@@ -6725,7 +6717,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9ac8091b',
+    id: 'a1c4b4c3',
     name: '天魔之山漫天星',
     origname: '星降る天魔の山',
     album: '东方虹龙洞',
@@ -6739,7 +6731,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c648ec0a',
+    id: 'be2b9f85',
     name: 'Lunar Rainbow',
     origname: 'ルナレインボー',
     album: '东方虹龙洞',
@@ -6753,7 +6745,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '0ea4726c',
+    id: '31318e23',
     name: '熙攘市场今何在　～ Immemorial Marketeers',
     origname: 'あの賑やかな市場は今どこに　～ Immemorial Marketeers',
     album: '东方虹龙洞',
@@ -6767,7 +6759,7 @@ export const musicList: Music[] = [
     include: ['虹色的北斗七星'],
   },
   {
-    id: '61fa97e3',
+    id: '7a37954f',
     name: '幻想地下大轨道网',
     origname: '幻想の地下大線路網',
     album: '东方虹龙洞',
@@ -6781,7 +6773,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e2953379',
+    id: '09f3b47c',
     name: '灭杀龙王的公主',
     origname: '龍王殺しのプリンセス',
     album: '东方虹龙洞',
@@ -6795,7 +6787,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '3b3f5a77',
+    id: 'e35ddb94',
     name: '风暴过后的星期日',
     origname: '嵐の後の日曜日',
     album: '东方虹龙洞',
@@ -6851,7 +6843,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '6d2fafab',
+    id: '90961976',
     name: '空中飞翔的巫女不可思议的每天',
     origname: '空飛ぶ巫女の不思議な毎日',
     album: '蓬莱人形',
@@ -6865,7 +6857,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'de801396',
+    id: 'ea22a415',
     name: '走在夜晚的莲台野',
     origname: '夜のデンデラ野を逝く',
     album: '莲台野夜行',
@@ -6879,7 +6871,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '64260525',
+    id: 'accf5d49',
     name: '少女秘封俱乐部',
     origname: '少女秘封倶楽部',
     album: '莲台野夜行',
@@ -6907,7 +6899,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e2e1c587',
+    id: '883b77c3',
     name: '魔术师梅莉',
     origname: '魔術師メリー',
     album: '莲台野夜行',
@@ -6921,7 +6913,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '8100537c',
+    id: '67c7aefb',
     name: '月之妖鸟、化猫之幻',
     origname: '月の妖鳥、化猫の幻',
     album: '莲台野夜行',
@@ -6935,7 +6927,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'b136a6d4',
+    id: '0b8d4121',
     name: '过去的花 ～ Fairy of Flower',
     origname: '過去の花　～ Fairy of Flower',
     album: '莲台野夜行',
@@ -6949,7 +6941,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'add4c98b',
+    id: 'a0e8c59e',
     name: '幻想的永远祭',
     origname: '幻想の永遠祭',
     album: '莲台野夜行',
@@ -6963,7 +6955,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c3c9d5a2',
+    id: '5536f6b7',
     name: '童祭 ～ Innocent Treasures',
     origname: '童祭 ～ Innocent Treasures',
     album: '梦违科学世纪',
@@ -6991,7 +6983,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '15774aa8',
+    id: '4d18fc3e',
     name: '科学世纪的少年少女',
     origname: '科学世紀の少年少女',
     album: '梦违科学世纪',
@@ -7005,7 +6997,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '4ac2ccaf',
+    id: '4277112f',
     name: '梦境与现实的境界',
     origname: '夢と現の境界',
     album: '梦违科学世纪',
@@ -7019,7 +7011,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c719143e',
+    id: 'f17b8906',
     name: '广重36号 ～ Neo Super-Express',
     origname: 'ヒロシゲ36号　～ Neo Super-Express',
     album: '卯酉东海道',
@@ -7033,7 +7025,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c56e656b',
+    id: '06885985',
     name: '53分钟的蓝色大海',
     origname: '53ミニッツの青い海',
     album: '卯酉东海道',
@@ -7047,7 +7039,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'ab252ce4',
+    id: '374b3cef',
     name: '青木原的传说',
     origname: '青木ヶ原の伝説',
     album: '卯酉东海道',
@@ -7061,7 +7053,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e642ca4a',
+    id: '8a310768',
     name: '最澄澈的空与海',
     origname: '最も澄みわたる空と海',
     album: '卯酉东海道',
@@ -7075,7 +7067,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '4470e946',
+    id: '287691dc',
     name: '欢迎来到月面旅行团',
     origname: '月面ツアーへようこそ',
     album: '大空魔术',
@@ -7089,7 +7081,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c9636573',
+    id: '668b578c',
     name: '天空的格林尼治',
     origname: '天空のグリニッジ',
     album: '大空魔术',
@@ -7103,7 +7095,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '0660db5c',
+    id: '5f5d2cd7',
     name: '轮椅上的未来宇宙',
     origname: '車椅子の未来宇宙',
     album: '大空魔术',
@@ -7117,7 +7109,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '5abd629f',
+    id: '7d80de05',
     name: '卫星露天咖啡屋',
     origname: '衛星カフェテラス',
     album: '大空魔术',
@@ -7145,7 +7137,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '47788db4',
+    id: 'ae98f7c5',
     name: '大空魔术 ～ Magical Astronomy',
     origname: '大空魔術　～ Magical Astronomy',
     album: '大空魔术',
@@ -7159,7 +7151,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '7a2ecdb6',
+    id: '736c3521',
     name: '月的另一侧',
     origname: '向こう側の月',
     album: '大空魔术',
@@ -7173,7 +7165,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e247e453',
+    id: '75515818',
     name: '未知之花 魅知之旅',
     origname: '未知の花 魅知の旅',
     album: '未知之花 魅知之旅',
@@ -7187,7 +7179,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e76844ee',
+    id: '964a1499',
     name: '卫星鸟船',
     origname: '衛星トリフネ',
     album: '鸟船遗迹',
@@ -7201,7 +7193,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '371fce35',
+    id: '8426365f',
     name: '特洛伊群的密林',
     origname: 'トロヤ群の密林',
     album: '鸟船遗迹',
@@ -7229,7 +7221,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '326ecf29',
+    id: 'efce7780',
     name: '天鸟船神社的结界',
     origname: '天鳥船神社の結界',
     album: '鸟船遗迹',
@@ -7243,7 +7235,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'aee136c9',
+    id: '0b3db70c',
     name: '漂浮于宇宙之中的幻想乡',
     origname: '宇宙に浮かぶ幻想郷',
     album: '鸟船遗迹',
@@ -7257,7 +7249,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9a5274bb',
+    id: 'ee11e28a',
     name: '绿意盎然的疗养院',
     origname: '緑のサナトリウム',
     album: '伊奘诺物质',
@@ -7271,7 +7263,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '185ca9e2',
+    id: '6b28e0a3',
     name: '被牛引到善光寺',
     origname: '牛に引かれて善光寺参り',
     album: '伊奘诺物质',
@@ -7285,7 +7277,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9d251302',
+    id: 'd7e7ca68',
     name: '阿加尔塔之风',
     origname: 'アガルタの風',
     album: '伊奘诺物质',
@@ -7299,7 +7291,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '44eb4197',
+    id: '6f6d97b9',
     name: '伊奘诺物质',
     origname: 'イザナギオブジェクト',
     album: '伊奘诺物质',
@@ -7313,7 +7305,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '8660396a',
+    id: 'b0cc3a6a',
     name: '收集日本各地的不可思议',
     origname: '日本中の不思議を集めて',
     album: '伊奘诺物质',
@@ -7327,7 +7319,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '07006f08',
+    id: '202a76c3',
     name: 'Theme of Eastern Story',
     origname: 'テーマ·オブ·イースタンストーリー',
     album: '幺乐团的历史',
@@ -7341,7 +7333,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '0c580a38',
+    id: 'd70c0cc9',
     name: '二人不值一提的博物志',
     origname: '他愛も無い二人の博物誌',
     album: '燕石博物志',
@@ -7355,7 +7347,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '7882022d',
+    id: '95465f90',
     name: 'Dr. Latency的令人不眠之瞳',
     origname: 'Dr.レイテンシーの眠れなくなる瞳',
     album: '燕石博物志',
@@ -7369,7 +7361,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '095098e0',
+    id: '1f51d8f1',
     name: '比普朗克更短的须臾',
     origname: '須臾はプランクを超えて',
     album: '燕石博物志',
@@ -7383,7 +7375,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'fa331ea2',
+    id: 'df55212b',
     name: '薛定谔的怪猫',
     origname: 'シュレディンガーの化猫',
     album: '燕石博物志',
@@ -7411,7 +7403,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '169326fa',
+    id: '746cf34e',
     name: 'Bar·Old Adam',
     origname: 'バー・オールドアダム',
     album: '旧约酒馆',
@@ -7425,7 +7417,7 @@ export const musicList: Music[] = [
     include: ['秘封噩梦日记'],
   },
   {
-    id: '0bd35fc9',
+    id: 'ee792d6c',
     name: '燕石博物志所带来的黑暗',
     origname: '燕石博物誌が連れてきた闇',
     album: '旧约酒馆',
@@ -7439,7 +7431,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'fa1b8f94',
+    id: '82e1ef21',
     name: 'Outsider Cocktail',
     origname: 'アウトサイダーカクテル',
     album: '旧约酒馆',
@@ -7453,7 +7445,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'de498342',
+    id: 'cb946e59',
     name: '旧世界的冒险酒吧',
     origname: '旧世界の冒険酒場',
     album: '旧约酒馆',
@@ -7467,7 +7459,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f1e57017',
+    id: 'd719dc34',
     name: '宿醉者的同床异梦',
     origname: '二日酔いの同床異夢',
     album: '旧约酒馆',
@@ -7481,7 +7473,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '55502417',
+    id: 'db31ee7f',
     name: '七石之狼、登天吞云',
     origname: '七ツ石の狼、雲を取りに駆ける',
     album: '虹色的北斗七星',
@@ -7495,7 +7487,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'bedd1924',
+    id: '94960499',
     name: 'Japanese Saga',
     origname: 'ジャパニーズサーガ',
     album: '东方求闻史纪',
@@ -7523,7 +7515,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'a0d5d20d',
+    id: '43d6080e',
     name: '飞翔夜晚的鸠山 - Power MIX',
     origname: '夜の鳩山を飛ぶ -Power MIX',
     album: '东方求闻史纪',
@@ -7537,7 +7529,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '931efaed',
+    id: '1bceaa03',
     name: '妖怪宇宙旅行',
     origname: '妖怪宇宙旅行',
     album: '东方儚月抄',
@@ -7551,7 +7543,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '3d7f50a1',
+    id: '135b3aa6',
     name: '绵月的符卡 ～ Lunatic Blue',
     origname: '綿月のスペルカード　～ Lunatic Blue',
     album: '东方儚月抄',
@@ -7579,7 +7571,7 @@ export const musicList: Music[] = [
     include: ['东方花映塚', '东方文花帖', '全人类的天乐录'],
   },
   {
-    id: '7a647b56',
+    id: '3a11ed5c',
     name: '花映塚 ～ after Higan Retour',
     origname: '花映塚 ～ after Higan Retour',
     album: '东方文花帖（书籍）',
@@ -7593,7 +7585,7 @@ export const musicList: Music[] = [
     include: ['东方文花帖'],
   },
   {
-    id: 'af147a0e',
+    id: '6c4cf788',
     name: '魔法使的忧郁',
     origname: '魔法使いの憂鬱',
     album: 'The Grimoire of Marisa',
@@ -7607,7 +7599,7 @@ export const musicList: Music[] = [
     include: ['贪欲之兽的音乐'],
   },
   {
-    id: 'a9162440',
+    id: '24bb929f',
     name: 'Sunny Rutile Flection',
     origname: 'サニールチルフレクション',
     album: '东方三月精',
@@ -7621,7 +7613,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '82854da4',
+    id: '1218266b',
     name: '因夜失眠',
     origname: '夜だから眠れない',
     album: '东方三月精',
@@ -7635,7 +7627,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '931f18e0',
+    id: '713a3cbe',
     name: '妖精灿烂的样子',
     origname: '妖精燦々として',
     album: '东方三月精',
@@ -7649,7 +7641,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c236db80',
+    id: '53c8fe06',
     name: '桑尼米尔克的红雾异变',
     origname: 'サニーミルクの紅霧異変',
     album: '东方三月精',
@@ -7663,7 +7655,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f98e8d0f',
+    id: 'bba5e126',
     name: '雪月樱花之国',
     origname: '雪月桜花の国',
     album: '东方三月精',
@@ -7677,7 +7669,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '406c4696',
+    id: '34128478',
     name: 'Star Voyage2008',
     origname: 'スターヴォヤージュ2008',
     album: '东方三月精',
@@ -7691,7 +7683,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c927b886',
+    id: '51eb2f00',
     name: '可爱的大战争叠奏曲',
     origname: '可愛い大戦争のリフレーン',
     album: '东方三月精',
@@ -7705,7 +7697,7 @@ export const musicList: Music[] = [
     include: ['妖精大战争'],
   },
   {
-    id: '21e50f54',
+    id: '0f040495',
     name: '妖精冒险谭',
     origname: 'フェアリー冒険譚',
     album: '东方三月精',
@@ -7733,7 +7725,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '70768ba5',
+    id: '6a8d631f',
     name: '神域的捉迷藏生活',
     origname: '神域のかくれんぼ暮らし',
     album: '东方三月精',
@@ -7747,7 +7739,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd61107b6',
+    id: '69b13995',
     name: '时刻旺盛的好奇心',
     origname: '年中夢中の好奇心',
     album: '东方三月精',
@@ -7761,7 +7753,7 @@ export const musicList: Music[] = [
     include: ['妖精大战争'],
   },
   {
-    id: '35f119de',
+    id: '2246421d',
     name: '午夜中的妖精舞会',
     origname: '真夜中のフェアリーダンス',
     album: '东方三月精',
@@ -7775,7 +7767,7 @@ export const musicList: Music[] = [
     include: ['妖精大战争'],
   },
   {
-    id: '53914828',
+    id: '4b567ad2',
     name: '妖精大战争 ～Faily Wars',
     origname: '妖精大戦争　～ Fairy Wars',
     album: '东方三月精',
@@ -7789,7 +7781,7 @@ export const musicList: Music[] = [
     include: ['妖精大战争'],
   },
   {
-    id: '13b16601',
+    id: '12cf3a64',
     name: '识文解意的爱书人',
     origname: '判読眼のビブロフィリア',
     album: '东方铃奈庵',
@@ -7803,7 +7795,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '49219482',
+    id: 'db97390b',
     name: '秋霜玉　～ Clockworks',
     origname: '秋霜玉　～ Clockworks',
     album: '秋霜玉',
@@ -7817,7 +7809,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'e16dc3da',
+    id: '9bfb8bad',
     name: 'False Strawberry',
     origname: 'フォルスストロベリー',
     album: '秋霜玉',
@@ -7831,7 +7823,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '0420bdd7',
+    id: '80eafac4',
     name: 'Primrose Shiver',
     origname: 'プリムローズシヴァ',
     album: '秋霜玉',
@@ -7859,7 +7851,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '67e18dcf',
+    id: 'cb652ca8',
     name: 'Disastrous Gemini',
     origname: 'ディザストラスジェミニ',
     album: '秋霜玉',
@@ -7873,7 +7865,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd691b1e8',
+    id: '5c5bc471',
     name: '华之幻想 红梦之宙',
     origname: '華の幻想　紅夢の宙',
     album: '秋霜玉',
@@ -7887,7 +7879,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '25868f41',
+    id: 'beace7eb',
     name: '天空军团',
     origname: '天空アーミー',
     album: '秋霜玉',
@@ -7901,7 +7893,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '28e431a8',
+    id: '2538f0d7',
     name: '斯普特尼克幻夜',
     origname: 'スプートニク幻夜',
     album: '秋霜玉',
@@ -7915,7 +7907,7 @@ export const musicList: Music[] = [
     include: ['The Grimoire of Marisa'],
   },
   {
-    id: '0a9ef36b',
+    id: '08e4e69b',
     name: '机械马戏团　～ Reverie（Circus Reverie）',
     origname: '機械サーカス　～ Reverie',
     album: '秋霜玉',
@@ -7929,7 +7921,7 @@ export const musicList: Music[] = [
     include: ['蓬莱人形'],
   },
   {
-    id: '49312a39',
+    id: '4e2491cc',
     name: '卡纳维拉尔角的梦幻少女',
     origname: 'カナベラルの夢幻少女',
     album: '秋霜玉',
@@ -7943,7 +7935,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '75597a77',
+    id: '7aa0b3f3',
     name: '魔法少女十字军',
     origname: '魔法少女十字軍',
     album: '秋霜玉',
@@ -7957,7 +7949,7 @@ export const musicList: Music[] = [
     include: ['莲台野夜行'],
   },
   {
-    id: '8a0aedaa',
+    id: '750aadfc',
     name: 'Antique Terror',
     origname: 'アンティークテラー',
     album: '秋霜玉',
@@ -7971,7 +7963,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '0f75b69a',
+    id: '65eec8ed',
     name: '梦机械　～ Innocent Power',
     origname: '夢機械　～ Innocent Power',
     album: '秋霜玉',
@@ -7985,9 +7977,9 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd0442754',
-    name: "幻想科学　～ Doll's Phantom",
-    origname: "幻想科学　～ Doll's Phantom",
+    id: '3a6d7c98',
+    name: '幻想科学　～ Doll's Phantom',
+    origname: '幻想科学　～ Doll's Phantom',
     album: '秋霜玉',
     date: 20001230,
     image:
@@ -7999,9 +7991,9 @@ export const musicList: Music[] = [
     include: ['梦违科学世纪'],
   },
   {
-    id: 'cccf5f6c',
-    name: "少女神性　～ Pandora's Box",
-    origname: "少女神性　～ Pandora's Box",
+    id: '6ea70362',
+    name: '少女神性　～ Pandora's Box',
+    origname: '少女神性　～ Pandora's Box',
     album: '秋霜玉',
     date: 20001230,
     image:
@@ -8013,7 +8005,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f7670e5b',
+    id: 'bb3e06e9',
     name: 'Silk Road Alice',
     origname: 'シルクロードアリス',
     album: '秋霜玉',
@@ -8027,7 +8019,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '3acea38a',
+    id: '4c45f349',
     name: '魔女们的舞会　～ Magus',
     origname: '魔女達の舞踏会　～ Magus',
     album: '秋霜玉',
@@ -8041,7 +8033,7 @@ export const musicList: Music[] = [
     include: ['幻想曲拔萃'],
   },
   {
-    id: '850de9f8',
+    id: '8c331433',
     name: '二色莲花蝶　～ Ancients（二色莲花蝶　～ Red and White）',
     origname: '二色蓮花蝶　～ Ancients',
     album: '秋霜玉',
@@ -8055,7 +8047,7 @@ export const musicList: Music[] = [
     include: ['蓬莱人形', '核热造神非想天则', '深秘乐曲集', '完全凭依唱片名录'],
   },
   {
-    id: '46184eeb',
+    id: 'dc7811f1',
     name: 'Herselves',
     origname: 'ハーセルヴズ',
     album: '秋霜玉',
@@ -8069,7 +8061,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '4ccd5e80',
+    id: '6b2c0bcf',
     name: 'Titled Maid',
     origname: 'タイトルドメイド',
     album: '秋霜玉',
@@ -8083,7 +8075,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '3249ae37',
+    id: '1a0e0699',
     name: '稀翁玉　～ Fairy Dance',
     origname: '稀翁玉　～ Fairy Dance',
     album: '稀翁玉',
@@ -8097,7 +8089,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '329ce6bb',
+    id: '874044b8',
     name: '天鹅绒少女战　～ Velvet Battle',
     origname: '天鵝絨少女戰　～ Velvet Battle',
     album: '稀翁玉',
@@ -8111,7 +8103,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'c082f679',
+    id: '0e0f7b3e',
     name: 'Castle Explorer -in the Sky-',
     origname: 'Castle Explorer -in the Sky-',
     album: '稀翁玉',
@@ -8125,7 +8117,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '05b01315',
+    id: '4ab0d1c1',
     name: '俄耳甫斯的诗　～ Pseudoclassic',
     origname: 'オルフェの詩　～ Pseudoclassic',
     album: '稀翁玉',
@@ -8139,7 +8131,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '3a084422',
+    id: '9046e7fc',
     name: '新幻想　～ New Fantasy',
     origname: '新幻想　～ New Fantasy',
     album: '稀翁玉',
@@ -8153,7 +8145,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'b951adbe',
+    id: '2b6bcb25',
     name: '奥尔良的圣骑士',
     origname: 'オルレアンの聖騎士',
     album: '稀翁玉',
@@ -8167,7 +8159,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '9679d21e',
+    id: 'd60777dd',
     name: 'My Maid',
     origname: ' Sweet Maid',
     album: '稀翁玉',
@@ -8181,7 +8173,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '2b7e346b',
+    id: '5217265a',
     name: '樱花之恋塚　～ Flower of Japan',
     origname: '櫻花之戀塚　～ Flower of Japan',
     album: '稀翁玉',
@@ -8195,7 +8187,7 @@ export const musicList: Music[] = [
     include: ['蓬莱人形'],
   },
   {
-    id: '2f9a3e54',
+    id: '1b62af00',
     name: '少女战士　～ Heart of Valkyrie',
     origname: '乙女戰士 ～ Heart of Valkyrie',
     album: '稀翁玉',
@@ -8209,7 +8201,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '46cb5541',
+    id: '166435f1',
     name: '神秘的人偶　～ God Knows',
     origname: 'エニグマティクドール ～ God Knows',
     album: '稀翁玉',
@@ -8223,7 +8215,7 @@ export const musicList: Music[] = [
     include: ['蓬莱人形'],
   },
   {
-    id: 'a1504053',
+    id: 'f0cd1eac',
     name: 'Witch of Love Potion',
     origname: 'Witch of Love Potion',
     album: 'Torte Le Magic',
@@ -8237,7 +8229,7 @@ export const musicList: Music[] = [
     include: ['蓬莱人形'],
   },
   {
-    id: 'a7575d2d',
+    id: 'f8dee778',
     name: 'Magical and Hopeless',
     origname: 'Magical and Hopeless',
     album: 'Torte Le Magic',
@@ -8251,7 +8243,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '042ed769',
+    id: 'cda69fb8',
     name: 'Sacred Battle',
     origname: 'Sacred Battle',
     album: 'Torte Le Magic',
@@ -8265,7 +8257,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '1efaf202',
+    id: 'f3bd4a8f',
     name: '酒鬼的雷姆利亚',
     origname: '呑んべぇのレムリア',
     album: '黄昏酒场',
@@ -8279,7 +8271,7 @@ export const musicList: Music[] = [
     include: ['东方儚月抄'],
   },
   {
-    id: 'dd77f3a5',
+    id: 'f90170f0',
     name: 'AN ORDEAL FROM GOD',
     origname: 'AN ORDEAL FROM GOD',
     album: '神魔讨绮传',
@@ -8293,7 +8285,7 @@ export const musicList: Music[] = [
     include: ['东方幻想麻将'],
   },
   {
-    id: '2cd5b4d3',
+    id: '1ea64d8b',
     name: '好奇的上海古牌',
     origname: 'キュアリアス上海古牌',
     album: '东方幻想麻将',
@@ -8307,7 +8299,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'f87aced3',
+    id: '35ad4fb8',
     name: '妖妖跋扈　～ Speed Fox!',
     origname: '妖々跋扈　～ Speed Fox!',
     album: 'Cradle - 东方幻乐祀典',
@@ -8321,7 +8313,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '1b4c2c47',
+    id: 'b77419b7',
     name: 'Mysterious Shrine',
     origname: 'Mysterious Shrine',
     album: '8BIT MUSIC POWER FINAL',
@@ -8335,7 +8327,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '5579faec',
+    id: 'e3be67b3',
     name: '独一无二的投影',
     origname: '唯一無二のシミュラークル',
     album: 'INDIE Live Expo',
@@ -8348,7 +8340,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '0f413b6a',
+    id: 'd2f24439',
     name: '日日是红日 ～ Folksy Touhou days.',
     origname: '日々是紅日　～ Folksy Touhou days.',
     album: '东方音焰火',
@@ -8362,7 +8354,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '7e84bfe8',
+    id: '7f3defc8',
     name: '黄昏的魔术师',
     origname: '宵闇の魔術師',
     album: '其他',
@@ -8375,7 +8367,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '14b1b6b5',
+    id: 'e70ba3ea',
     name: 'Magic of Life',
     origname: 'Magic of Life',
     album: '其他',
@@ -8388,7 +8380,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'b4d94197',
+    id: 'fb9ae143',
     name: 'Plastic Space',
     origname: 'Plastic Space',
     album: '其他',
@@ -8401,7 +8393,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: '01ce18b3',
+    id: '3b0413ad',
     name: 'Inventive City',
     origname: 'Inventive City',
     album: '其他',
@@ -8427,7 +8419,7 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'cd18aa14',
+    id: 'd261c512',
     name: '蓬莱幻想 ～ far East',
     origname: '蓬莱幻想 ～ far East',
     album: '其他',
