@@ -23,7 +23,7 @@
 
       <div class="flex-1 flex flex-col justify-between items-center">
         <div class="mt-12 mx-4 md:max-w-60vw">
-          <div>【开发版】感谢各位的参与，本次人气投票活动已圆满结束</div>
+          <div>感谢各位的参与，本次人气投票活动已圆满结束</div>
           <div>所有的投票结果将发布在本站内，请点击下面的链接进入相应的部分查看结果数据</div>
           <span class="text-sm italic text-gray-700">*请注意，一切在本站之外发表的排行、分析、视频均为非官方性质</span>
         </div>
