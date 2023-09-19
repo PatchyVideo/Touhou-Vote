@@ -36,12 +36,12 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import { ref, shallowRef, watch } from 'vue'
-import { useVModel } from '@vueuse/core'
 import { Music } from '@/vote-music/lib/music'
 import { musics } from '@/vote-music/lib/voteData'
 import MusicImages from '@/vote-music/assets/defaultMusicImage.jpg?url'
 
 const props = defineProps({
+  // Note that characterHonmei in voteData.ts is readonly
   musicHonmei: {
     type: Object as PropType<Music>,
     requred: true,
@@ -50,24 +50,20 @@ const props = defineProps({
     },
   },
 })
-const emit = defineEmits<{
-  (event: 'update:musicHonmei', value: Music): void
-}>()
-const musicHonmei = useVModel(props, 'musicHonmei', emit)
 
 const reasonInput = shallowRef<HTMLInputElement | null>(null)
-const reasonEdit = ref(musicHonmei.value.reason)
-watch(musicHonmei, () => {
-  reasonEdit.value = musicHonmei.value.reason
+const reasonEdit = ref(props.musicHonmei.reason)
+watch(props.musicHonmei, function (newv) {
+  reasonEdit.value = newv.reason
 })
 function updateReason(): void {
-  musics.value.map((item) => {
-    if (item.honmei) item.reason = reasonEdit.value
+  musics.value.map((mus) => {
+    if (mus.honmei) mus.reason = reasonEdit.value
   })
   reasonInput.value?.blur()
 }
 
 function closeCard(): void {
-  musics.value.map((item) => (item.honmei = false))
+  musics.value.map((mus) => (mus.honmei = false))
 }
 </script>

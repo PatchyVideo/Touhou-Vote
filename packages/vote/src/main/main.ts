@@ -87,21 +87,21 @@ const router = createRouter({
   ],
 })
 let pendingNProgress: number | undefined
-router.beforeEach(async (to, from, next) => {
-  if (pendingNProgress === undefined)
-    pendingNProgress = setTimeout(() => {
-      if (!NProgress.isStarted()) NProgress.start()
-      pendingNProgress = undefined
-    }, 150)
+// router.beforeEach(async (to, from, next) => {
+//   if (pendingNProgress === undefined)
+//     pendingNProgress = setTimeout(() => {
+//       if (!NProgress.isStarted()) NProgress.start()
+//       pendingNProgress = undefined
+//     }, 150)
 
-  await checkLoginStatusPromise
-  if (to.path != '/' && voteNotStart()) next({ path: '/' })
-  else if (to.path != '/' && !isLogin.value) next({ path: '/' })
-  else if (to.meta.availableAfterVoteEnded && voteEnded()) next()
-  else if (voteEnded()) next({ path: '/' })
-  else if (to.meta.requriequestionnaire && !IsQuestionnaireAllDone.value) next({ path: '/' })
-  else next()
-})
+//   await checkLoginStatusPromise
+//   if (to.path != '/' && voteNotStart()) next({ path: '/' })
+//   else if (to.path != '/' && !isLogin.value) next({ path: '/' })
+//   else if (to.meta.availableAfterVoteEnded && voteEnded()) next()
+//   else if (voteEnded()) next({ path: '/' })
+//   else if (to.meta.requriequestionnaire && !IsQuestionnaireAllDone.value) next({ path: '/' })
+//   else next()
+// })
 router.afterEach((guard) => {
   incProcess()
   appPromisesFinish.then(() => {

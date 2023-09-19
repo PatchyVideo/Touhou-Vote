@@ -85,7 +85,7 @@ import { useVModels } from '@vueuse/core'
 import AdvancedFilter from './AdvancedFilter.vue'
 import { screenSizes } from '@/tailwindcss'
 import { Music } from '@/vote-music/lib/music'
-import { musicHonmeiListLeft, musicListLeftWithFilter, order, orderOptions } from '@/vote-music/lib/musicList'
+import { musicsVotedWithoutHonmei, musicListLeftWithFilter, order, orderOptions } from '@/vote-music/lib/musicList'
 import { musics } from '@/vote-music/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import AutoComplete from '@/common/components/AutoComplete.vue'
@@ -127,12 +127,12 @@ const loading = ref(false)
 const advancedFilterOpen = ref(false)
 
 const musicList = computed(() =>
-  props.musicHonmeiIsSelected ? musicHonmeiListLeft.value : musicListLeftWithFilter.value
+  props.musicHonmeiIsSelected ? musicsVotedWithoutHonmei.value : musicListLeftWithFilter.value
 )
 
 function musicSelect(id: string): void {
   const targetMusic = props.musicHonmeiIsSelected
-    ? musicHonmeiListLeft.value.find((item) => item.id === id)
+    ? musicsVotedWithoutHonmei.value.find((item) => item.id === id)
     : musicListLeftWithFilter.value.find((item) => item.id === id)
   if (targetMusic) {
     if (props.musicHonmeiIsSelected) {
