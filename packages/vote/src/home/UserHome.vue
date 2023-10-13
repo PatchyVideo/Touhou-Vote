@@ -265,7 +265,7 @@
               @click="() => (dpCollapseNav = !dpCollapseNav)"
               @keydown.enter="() => (dpCollapseNav = !dpCollapseNav)"
             />
-            中文东方人气投票 第⑩回
+            中文东方人气投票 第11回
           </div>
           <div class="flex flex-nowrap" @keydown.escape="() => (userListOpen = false)">
             <img
@@ -383,7 +383,7 @@ import {
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 
-setSiteTitle(username.value + ' - 第⑩回 中文东方人气投票')
+setSiteTitle(String(username.value))
 
 const route = useRoute()
 const router = useRouter()

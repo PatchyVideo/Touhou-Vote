@@ -3,7 +3,7 @@
   <div class="w-full min-h-100vh flex flex-col">
     <div class="p-2 shadow flex items-center bg-white mb-2">
       <BackToHome :show="true" :saveable="false" />
-      <div class="font-medium">第⑩届 国内东方人气投票 - 角色部门</div>
+      <div class="font-medium">第11届 国内东方人气投票 - 角色部门</div>
     </div>
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
@@ -150,7 +150,7 @@ import { voteCharacterComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
 
-setSiteTitle('角色部门 - 第⑩回 中文东方人气投票')
+setSiteTitle('角色部门')
 
 const router = useRouter()
 

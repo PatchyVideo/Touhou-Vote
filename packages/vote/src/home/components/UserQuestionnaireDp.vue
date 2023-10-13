@@ -45,5 +45,5 @@ import { questionnaireNameById } from '@/home/lib/questionnaireNameById'
 import { username } from '../lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 
-setSiteTitle(username.value + ' - 第⑩回 中文东方人气投票')
+setSiteTitle(String(username.value))
 </script>

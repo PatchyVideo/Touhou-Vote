@@ -109,7 +109,7 @@ import { screenSizes } from '@/tailwindcss'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { deadlineWithTimezoneOffset } from '@/end-page/lib/voteEnded'
 
-setSiteTitle('第⑩回 中文东方人气投票')
+setSiteTitle()
 
 const loginBoxOpen = ref(false)
 

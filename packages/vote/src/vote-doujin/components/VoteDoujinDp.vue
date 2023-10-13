@@ -83,7 +83,7 @@ import { voteDoujinComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
 
-setSiteTitle('提名作品 - 第⑩回 中文东方人气投票')
+setSiteTitle('提名作品')
 
 const confirmedNotice = useLocalStorage('confirmedDoujinNotice', false)
 

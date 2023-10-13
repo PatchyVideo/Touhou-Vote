@@ -44,7 +44,7 @@ import { screenSizes } from '@/tailwindcss'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { startTimeWithTimezoneOffset } from '@/start-page/lib/voteStart'
 
-setSiteTitle('未开始 - 第⑩回 中文东方人气投票')
+setSiteTitle('未开始')
 
 // Calculate Time Remains
 const days = ref<number>(0)

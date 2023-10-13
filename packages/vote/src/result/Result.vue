@@ -248,7 +248,7 @@ import type { Query } from '@/graphql'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 
-setSiteTitle('结果速报 - 第⑩回 中文东方人气投票')
+setSiteTitle('结果速报')
 
 interface HeaderCharacter {
   name: string
