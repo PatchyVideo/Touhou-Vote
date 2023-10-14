@@ -5,7 +5,7 @@
     <div class="w-full py-1 pr-3 bg-white bg-opacity-80 shadow flex items-center justify-between">
       <div v-if="!systemListIsOpen" class="w-2/3 pl-3 flex items-center justify-between md:w-1/3 xl:w-1/4">
         <div class="w-3/4"><img src="@/common/assets/title.svg" /></div>
-        <div class="w-1/5"><img src="@/common/assets/title10.svg" /></div>
+        <div class="w-1/5"><img src="@/common/assets/titleNum.svg" /></div>
       </div>
       <div v-else class="flex items-center space-x-2">
         <icon-uil-angle-left-b class="w-8 h-8 cursor-pointer" @click="systemListClose()" />

@@ -12,7 +12,7 @@
             </div>
             <div class="w-full flex flex-wrap space-y-2">
               <div class="w-full"><img src="@/common/assets/title.svg" /></div>
-              <div class="w-full"><img class="w-1/4 inline-block" src="@/common/assets/title10.svg" /></div>
+              <div class="w-full"><img class="w-1/4 inline-block" src="@/common/assets/titleNum.svg" /></div>
             </div>
           </div>
           <div v-if="screenSizes['<md']" class="text-gray-600 text-lg">
