@@ -1,3 +1,3 @@
-export function setSiteTitle(title = ''): void {
-  document.title = title + (title && ' - ') + '第11回 中文东方人气投票'
-}
+import { setSiteTitle } from '@touhou-vote/shared/composables/setSiteTitle'
+
+export { setSiteTitle }
