@@ -986,7 +986,7 @@ export const characterList: Character[] = [
     altnames: ['梅莉'],
     title: '',
     image:
-      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%9B%E8%89%BE%E9%9C%B2%E8%B4%9D%E8%8E%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
+      'https://s3c.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%85%E8%8E%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
     color: '#FC4328',
     reason: '',
     honmei: false,
