@@ -5,7 +5,7 @@
   >
     <div class="w-2/5 max-w-64">
       <div class="aspect-ratio-1/1 rounded border">
-        <img :src="characterHonmei.image ? characterHonmei.image : characterImages" />
+        <img class="object-contain" :src="characterHonmei.image ? characterHonmei.image : characterImages" />
       </div>
     </div>
     <icon-uil-times class="absolute right-1 top-1 cursor-pointer" @click="closeCard()"></icon-uil-times>

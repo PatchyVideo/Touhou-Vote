@@ -6,7 +6,7 @@
     <icon-uil-times class="absolute right-0 top-0 cursor-pointer" @click="closeCharacterCard()"></icon-uil-times>
     <div class="w-full">
       <div class="aspect-ratio-1/1 rounded border">
-        <img :src="character.image ? character.image : characterImages" />
+        <img class="object-contain" :src="character.image ? character.image : characterImages" />
       </div>
     </div>
     <div class="p-1 truncate text-center text-xs md:text-base" :style="'color:' + character.color">

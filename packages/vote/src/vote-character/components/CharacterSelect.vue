@@ -18,7 +18,7 @@
       <div v-if="!characterHonmeiIsSelected">
         <small>可通过名称、外号、所属作品来搜索，支持部分匹配和拼音匹配</small>
       </div>
-      <div class="flex-grow overflow-y-auto p-2 pr-0 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
+      <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <!-- eslint-disable vue/no-v-html -->
         <div
           v-if="!characterList.length"
@@ -39,7 +39,7 @@
         >
           <div class="flex-shrink-0 w-1/3 max-w-32">
             <div class="aspect-ratio-1/1 rounded border">
-              <img loading="lazy" :src="item.image ? item.image : characterImages" />
+              <img class="object-contain" loading="lazy" :src="item.image ? item.image : characterImages" />
             </div>
           </div>
           <div class="flex-1 min-w-0 p-1 flex flex-col content-between md:p-2">
