@@ -15,7 +15,7 @@
     "@vueuse/components": "^10.0.2",
     "@vueuse/core": "^10.0.2",
     "bson-objectid": "^2.0.4",
-    "graphql": "^16.6.0",
+    "graphql": "^16.8.1",
     "nprogress": "1.0.0-1",
     "pinin": "^0.2.0",
     "vue": "^3.2.47",
