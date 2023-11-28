@@ -194,7 +194,7 @@ import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { voteEnded } from '@/end-page/lib/voteEnded'
 import { popMessageText } from '@/common/lib/popMessage'
 
-setSiteTitle('用户设置 - 第⑩回 中文东方人气投票')
+setSiteTitle('用户设置')
 
 const loading = computed<boolean>(
   () =>

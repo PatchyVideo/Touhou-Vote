@@ -3,13 +3,13 @@
   <div class="w-full min-h-100vh flex flex-col">
     <div class="p-2 shadow flex items-center bg-white mb-2">
       <BackToHome :show="true" :saveable="false" />
-      <div class="font-medium">第⑩届 国内东方人气投票 - CP部门</div>
+      <div class="font-medium">第11届 国内东方人气投票 - CP部门</div>
     </div>
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <div class="p-1 rounded w-full space-y-2 shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
-          <div>{{ '角色组合(' + couplesValid.length + '/' + couples.length + ')' }}</div>
+          <div>{{ '角色组合(' + couplesValid.length + '/' + CPVOTENUM + ')' }}</div>
         </div>
         <div class="shadow-inner p-2 rounded bg-gray-50 bg-opacity-50 space-y-2">
           <transition name="couple" mode="out-in">
@@ -35,7 +35,7 @@
           </transition>
           <transition name="addMore" mode="out-in">
             <div
-              v-if="couplesValid.length < couples.length"
+              v-if="couplesValid.length < CPVOTENUM"
               class="w-full shadow text-center bg-white cursor-pointer select-none p-2 rounded"
               @click="addCouple()"
             >
@@ -74,11 +74,11 @@
         <div v-for="(couple, indexCouple) in couplesValidWithoutHonmei" :key="indexCouple" class="py-1">
           <div class="">
             <label>{{ '投票位' + (indexCouple + 1) + '：' }}</label>
-            <label v-for="(character, indexCharacter) in computeCharactersValid(couple.characters)" :key="character.id"
-              >{{ character.name
-              }}<label v-if="couple.seme === indexCharacter" class="text-accent-color-600">(主动)</label
-              ><label v-if="indexCharacter != computeCharactersValid(couple.characters).length - 1">，</label></label
-            >
+            <label v-for="(character, indexCharacter) in computeCharactersValid(couple.characters)" :key="character.id">
+              {{ character.name }}
+              <label v-if="couple.seme === indexCharacter" class="text-accent-color-600">(主动)</label>
+              <label v-if="indexCharacter != computeCharactersValid(couple.characters).length - 1">，</label>
+            </label>
           </div>
         </div>
         <div class="text-gray-500 italic">
@@ -102,7 +102,7 @@
 import { computed, ref, watch, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import NProgress from 'nprogress'
-import { couples, updateVotecouple } from '@/vote-couple/lib/voteData'
+import { CPVOTENUM, couples, updateVotecouple } from '@/vote-couple/lib/voteData'
 import { coupleHonmei, couplesValid, couplesValidWithoutHonmei } from '@/vote-couple/lib/coupleList'
 import CoupleCard from '@/vote-couple/components/CoupleCard.vue'
 import VoteSelect from '@/common/components/VoteSelect.vue'
@@ -117,7 +117,7 @@ import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
 import type { Couple } from './lib/couple'
 
-setSiteTitle('CP部门 - 第⑩回 中文东方人气投票')
+setSiteTitle('CP部门')
 
 const {
   result,
@@ -248,34 +248,34 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
     if (item.seme === -1)
       if (computeCharactersValid(item.characters).length === 3)
         return {
-          nameA: computeCharactersValid(item.characters)[0].name,
-          nameB: computeCharactersValid(item.characters)[1].name,
-          nameC: computeCharactersValid(item.characters)[2].name,
+          idA: computeCharactersValid(item.characters)[0].id,
+          idB: computeCharactersValid(item.characters)[1].id,
+          idC: computeCharactersValid(item.characters)[2].id,
           first: item.honmei,
           reason: item.reason,
         }
       else
         return {
-          nameA: computeCharactersValid(item.characters)[0].name,
-          nameB: computeCharactersValid(item.characters)[1].name,
+          idA: computeCharactersValid(item.characters)[0].id,
+          idB: computeCharactersValid(item.characters)[1].id,
           first: item.honmei,
           reason: item.reason,
         }
     else {
       if (computeCharactersValid(item.characters).length === 3)
         return {
-          nameA: computeCharactersValid(item.characters)[0].name,
-          nameB: computeCharactersValid(item.characters)[1].name,
-          nameC: computeCharactersValid(item.characters)[2].name,
-          active: item.characters[item.seme].name,
+          idA: computeCharactersValid(item.characters)[0].id,
+          idB: computeCharactersValid(item.characters)[1].id,
+          idC: computeCharactersValid(item.characters)[2].id,
+          active: item.characters[item.seme].id,
           first: item.honmei,
           reason: item.reason,
         }
       else
         return {
-          nameA: computeCharactersValid(item.characters)[0].name,
-          nameB: computeCharactersValid(item.characters)[1].name,
-          active: item.characters[item.seme].name,
+          idA: computeCharactersValid(item.characters)[0].id,
+          idB: computeCharactersValid(item.characters)[1].id,
+          active: item.characters[item.seme].id,
           first: item.honmei,
           reason: item.reason,
         }

@@ -16,7 +16,7 @@
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
       </div>
       <div v-if="!musicHonmeiIsSelected"><small>可通过名称、所属作品来搜索，支持部分匹配和拼音匹配。</small></div>
-      <div class="flex-grow overflow-y-auto p-2 pr-0 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
+      <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
         <!-- eslint-disable vue/no-v-html -->
         <div
           v-if="!musicList.length"
@@ -85,7 +85,7 @@ import { useVModels } from '@vueuse/core'
 import AdvancedFilter from './AdvancedFilter.vue'
 import { screenSizes } from '@/tailwindcss'
 import { Music } from '@/vote-music/lib/music'
-import { musicHonmeiListLeft, musicListLeftWithFilter, order, orderOptions } from '@/vote-music/lib/musicList'
+import { musicsVotedWithoutHonmei, musicListLeftWithFilter, order, orderOptions } from '@/vote-music/lib/musicList'
 import { musics } from '@/vote-music/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import AutoComplete from '@/common/components/AutoComplete.vue'
@@ -127,12 +127,12 @@ const loading = ref(false)
 const advancedFilterOpen = ref(false)
 
 const musicList = computed(() =>
-  props.musicHonmeiIsSelected ? musicHonmeiListLeft.value : musicListLeftWithFilter.value
+  props.musicHonmeiIsSelected ? musicsVotedWithoutHonmei.value : musicListLeftWithFilter.value
 )
 
 function musicSelect(id: string): void {
   const targetMusic = props.musicHonmeiIsSelected
-    ? musicHonmeiListLeft.value.find((item) => item.id === id)
+    ? musicsVotedWithoutHonmei.value.find((item) => item.id === id)
     : musicListLeftWithFilter.value.find((item) => item.id === id)
   if (targetMusic) {
     if (props.musicHonmeiIsSelected) {

@@ -30,6 +30,7 @@ export const workList: Work[] = [
   { name: '东方鬼形兽', kind: 'new' },
   { name: '东方刚欲异闻', kind: 'new' },
   { name: '东方虹龙洞', kind: 'new' },
+  { name: '东方兽王园', kind: 'new' },
   { name: '蓬莱人形', kind: 'CD' },
   { name: '莲台野夜行', kind: 'CD' },
   { name: '旧约酒馆', kind: 'CD' },

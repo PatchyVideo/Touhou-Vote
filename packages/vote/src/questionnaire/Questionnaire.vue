@@ -167,7 +167,7 @@ import { voteToken } from '@/home/lib/user'
 import { screenSizes } from '@/tailwindcss'
 import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
 
-setSiteTitle('调查问卷 - 第⑩回 中文东方人气投票')
+setSiteTitle('调查问卷')
 
 const route = useRoute()
 const router = useRouter()

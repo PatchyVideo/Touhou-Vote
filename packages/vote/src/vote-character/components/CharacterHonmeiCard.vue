@@ -5,7 +5,7 @@
   >
     <div class="w-2/5 max-w-64">
       <div class="aspect-ratio-1/1 rounded border">
-        <img :src="characterHonmei.image ? characterHonmei.image : characterImages" />
+        <img class="object-contain" :src="characterHonmei.image ? characterHonmei.image : characterImages" />
       </div>
     </div>
     <icon-uil-times class="absolute right-1 top-1 cursor-pointer" @click="closeCard()"></icon-uil-times>
@@ -39,12 +39,12 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import { ref, shallowRef, watch } from 'vue'
-import { useVModel } from '@vueuse/core'
 import { Character } from '@/vote-character/lib/character'
 import { characters } from '@/vote-character/lib/voteData'
 import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
 
 const props = defineProps({
+  // Note that characterHonmei in voteData.ts is readonly
   characterHonmei: {
     type: Object as PropType<Character>,
     requred: true,
@@ -53,24 +53,20 @@ const props = defineProps({
     },
   },
 })
-const emit = defineEmits<{
-  (event: 'update:characterHonmei', value: Character): void
-}>()
-const characterHonmei = useVModel(props, 'characterHonmei', emit)
 
 const reasonInput = shallowRef<HTMLInputElement | null>(null)
-const reasonEdit = ref(characterHonmei.value.reason)
-watch(characterHonmei, () => {
-  reasonEdit.value = characterHonmei.value.reason
+const reasonEdit = ref(props.characterHonmei.reason)
+watch(props.characterHonmei, function (newv) {
+  reasonEdit.value = newv.reason
 })
 function updateReason(): void {
-  characters.value.map((item) => {
-    if (item.honmei) item.reason = reasonEdit.value
+  characters.value.map((chara) => {
+    if (chara.honmei) chara.reason = reasonEdit.value
   })
   reasonInput.value?.blur()
 }
 
 function closeCard(): void {
-  characters.value.map((item) => (item.honmei = false))
+  characters.value.map((chara) => (chara.honmei = false))
 }
 </script>

@@ -3,12 +3,12 @@
   <div class="w-full min-h-100vh flex flex-col">
     <div class="p-2 shadow flex items-center bg-white mb-2">
       <BackToHome :show="true" :saveable="false" />
-      <div class="font-medium">第⑩届 国内东方人气投票 - 音乐部门</div>
+      <div class="font-medium">第11届 国内东方人气投票 - 音乐部门</div>
     </div>
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <transition name="musicHonmei" mode="out-in">
-        <div v-if="musicsReverse.length" class="p-1 rounded w-full shadow bg-white bg-opacity-80">
+        <div v-if="musicsVoted.length" class="p-1 rounded w-full shadow bg-white bg-opacity-80">
           <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
             <div>本命曲目</div>
             <icon-uil-arrows-h
@@ -23,7 +23,7 @@
             />
           </div>
           <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50">
-            <div v-if="musicHonmei.honmei" key="selecting">
+            <div v-if="musicHonmei.id != music0.id" key="selecting">
               <MusicHonmeiCard v-model:music-honmei="musicHonmei" class="opacity-80" />
             </div>
             <div v-else key="no-selecting" class="w-full text-center text-gray-400 py-10 space-y-2">
@@ -47,13 +47,18 @@
       <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl®">
           <div>
-            {{ '我喜欢的曲目(' + musicsReverseWithoutHonmei.length + '/' + (musicHonmei.honmei ? '11)' : '12)') }}
+            {{
+              '我喜欢的曲目(' +
+              musicsVotedWithoutHonmei.length +
+              '/' +
+              (musicHonmei.id != music0.id ? MUSICVOTENUM - 1 + ')' : MUSICVOTENUM + ')')
+            }}
           </div>
           <icon-uil-plus
             class="cursor-pointer"
-            :class="{ 'text-gray-400': musicsVotedNumber === 12 }"
+            :class="{ 'text-gray-400': musicsVotedNumber === MUSICVOTENUM }"
             @click="
-              musicsVotedNumber === 12
+              musicsVotedNumber === MUSICVOTENUM
                 ? ''
                 : (() => {
                     musicHonmeiIsSelected = false
@@ -64,14 +69,14 @@
         </div>
         <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50 whitespace-nowrap overflow-x-auto">
           <transition name="music" mode="out-in">
-            <div v-if="musicsReverseWithoutHonmei.length">
+            <div v-if="musicsVotedWithoutHonmei.length">
               <transition-group name="musicList" tag="div">
                 <div
-                  v-for="(music, index) in musicsReverseWithoutHonmei"
+                  v-for="(music, index) in musicsVotedWithoutHonmei"
                   :key="music.id"
                   class="inline-block transition transition-all duration-200 mr-3 w-3/10 max-w-52"
                 >
-                  <MusicCard v-model:music="musicsReverseWithoutHonmei[index]" />
+                  <MusicCard v-model:music="musicsVotedWithoutHonmei[index]" />
                 </div>
               </transition-group>
             </div>
@@ -105,7 +110,7 @@
           <div class="truncate">{{ '专辑：' + musicHonmei.album }}</div>
           <div class="">{{ '投票理由：' + (musicHonmei.reason ? musicHonmei.reason : '无') }}</div>
         </div>
-        <div v-for="(music, index) in musicsReverseWithoutHonmei" :key="music.id" class="py-1">
+        <div v-for="(music, index) in musicsVotedWithoutHonmei" :key="music.id" class="py-1">
           <div class="">
             {{ '投票位' + (index + 1) + '：' + music.name }}
           </div>
@@ -139,15 +144,15 @@ import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import BackToHome from '@/common/components/BackToHome.vue'
 import MusicCard from '@/vote-music/components/MusicCard.vue'
 import { music0 } from '@/vote-music/lib/music'
-import { musicsReverse, musicsReverseWithoutHonmei } from '@/vote-music/lib/musicList'
-import { musicHonmei, musics, updateVotemusics } from '@/vote-music/lib/voteData'
+import { musicsVoted, musicsVotedWithoutHonmei } from '@/vote-music/lib/musicList'
+import { MUSICVOTENUM, musicHonmei, musics, updateVoteMusics } from '@/vote-music/lib/voteData'
 import { gql, useMutation, useQuery, useResult } from '@/graphql'
 import type { Mutation, Query, schema } from '@/graphql'
 import { voteMusicComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
 
-setSiteTitle('音乐部门 - 第⑩回 中文东方人气投票')
+setSiteTitle('音乐部门')
 
 const router = useRouter()
 
@@ -184,7 +189,7 @@ watchEffect(() => {
 const resultData = useResult(result, null, (data) => data?.getSubmitMusicVote)
 watchEffect(() => {
   if (resultData.value) {
-    updateVotemusics(resultData.value.music)
+    updateVoteMusics(resultData.value.music)
   }
 })
 getSubmitMusicVoteError((err) => {
@@ -193,7 +198,7 @@ getSubmitMusicVoteError((err) => {
   else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
 
-const musicsVotedNumber = computed<number>(() => musicsReverse.value.length)
+const musicsVotedNumber = computed<number>(() => musicsVoted.value.length)
 
 const musicSelectOpen = ref(false)
 const musicHonmeiIsSelected = ref(false)
@@ -202,10 +207,10 @@ const confirmBoxOpen = ref(false)
 
 const MusicSubmit = computed<schema.MusicSubmit[]>(() =>
   musics.value
-    .filter((item) => item.id != '')
+    .filter((item) => item.id != music0.id)
     .map((item) => {
       return {
-        name: item.name,
+        id: item.id,
         reason: item.reason,
         first: item.honmei,
       }

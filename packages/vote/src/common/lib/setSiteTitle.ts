@@ -1,3 +1,3 @@
-export function setSiteTitle(title: string): void {
-  document.title = title
-}
+import { setSiteTitle } from '@touhou-vote/shared/composables/setSiteTitle'
+
+export { setSiteTitle }

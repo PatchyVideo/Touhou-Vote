@@ -1,3 +1,3 @@
-export function setSiteTitle(title: string): void {
-  document.title = title
+export function setSiteTitle(title = ''): void {
+  document.title = title + (title && ' - ') + '第11回 中文东方人气投票'
 }

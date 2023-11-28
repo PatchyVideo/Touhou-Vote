@@ -60,7 +60,7 @@
 <script lang="ts" setup>
 import { screenSizes } from '@/composables/style'
 
-setSiteTitle('投票结果 - 第⑩回 中文东方人气投票')
+setSiteTitle('【开发版】投票结果 - 第⑩回 中文东方人气投票')
 
 const resultTypeMeta = ref([
   {

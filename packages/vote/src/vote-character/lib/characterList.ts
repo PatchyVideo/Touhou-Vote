@@ -29,15 +29,11 @@ export const characterListLeft = computed<Character[]>(() => {
   return charaList
 })
 
-export const characterHonmeiListLeft = computed<Character[]>(() => {
-  return charactersReverse.value.filter((character) => character.id != characterHonmei.value.id)
-})
-
-export const charactersReverse = computed<Character[]>(() =>
-  characters.value.filter((character) => character.id != character0.id).reverse()
+export const charactersVoted = computed<Character[]>(() =>
+  characters.value.filter((chara) => chara.id != character0.id)
 )
-export const charactersReverseWithoutHonmei = computed<Character[]>(() => {
-  return charactersReverse.value.filter((character) => !character.honmei)
+export const charactersVotedWithoutHonmei = computed<Character[]>(() => {
+  return charactersVoted.value.filter((chara) => !chara.honmei)
 })
 
 export const orderOptions = [

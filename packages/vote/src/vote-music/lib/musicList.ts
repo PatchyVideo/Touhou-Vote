@@ -23,16 +23,15 @@ export const musicListLeft = computed<Music[]>(() => {
   }
 
   if (albumSelected.value.name !== '') {
-    list = list.filter((music) => music.album === albumSelected.value.name || music.include.includes(albumSelected.value.name))
+    list = list.filter(
+      (music) => music.album === albumSelected.value.name || music.include.includes(albumSelected.value.name)
+    )
   }
   return list
 })
-export const musicHonmeiListLeft = computed<Music[]>(() =>
-  musicsReverse.value.filter((music) => music.id != musicHonmei.value.id)
-)
 
-export const musicsReverse = computed<Music[]>(() => musics.value.filter((music) => music.id != music0.id).reverse())
-export const musicsReverseWithoutHonmei = computed<Music[]>(() => musicsReverse.value.filter((music) => !music.honmei))
+export const musicsVoted = computed<Music[]>(() => musics.value.filter((mus) => mus.id != music0.id))
+export const musicsVotedWithoutHonmei = computed<Music[]>(() => musicsVoted.value.filter((mus) => !mus.honmei))
 
 export const orderOptions = [
   {

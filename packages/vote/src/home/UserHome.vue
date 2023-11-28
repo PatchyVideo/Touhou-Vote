@@ -5,43 +5,34 @@
     <div class="w-full py-1 pr-3 bg-white bg-opacity-80 shadow flex items-center justify-between">
       <div v-if="!systemListIsOpen" class="w-2/3 pl-3 flex items-center justify-between md:w-1/3 xl:w-1/4">
         <div class="w-3/4"><img src="@/common/assets/title.svg" /></div>
-        <div class="w-1/5"><img src="@/common/assets/title10.svg" /></div>
+        <div class="w-1/5"><img src="@/common/assets/titleNum.svg" /></div>
       </div>
       <div v-else class="flex items-center space-x-2">
         <icon-uil-angle-left-b class="w-8 h-8 cursor-pointer" @click="systemListClose()" />
         <div class="text-lg">
           {{
             systemListOpenName === 'questionnaire'
-              ? '投票问卷'
-              : systemListOpenName === 'vote'
+            ? '投票问卷'
+            : systemListOpenName === 'vote'
               ? '人气投票'
               : 'ERROR PAGE'
           }}
         </div>
       </div>
-      <img
-        class="h-9 w-9 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
-        src="@/home/assets/DefaultAvatar.jpg"
-        @click="userListOpen = true"
-      />
+      <img class="h-9 w-9 rounded-full ring-2 ring-accent-color-200 cursor-pointer" src="@/home/assets/DefaultAvatar.jpg"
+        @click="userListOpen = true" />
       <!-- User List -->
       <Transition name="userList">
         <div v-if="userListOpen" class="absolute min-w-30 text-center top-6 z-51 right-0.5 rounded bg-white p-2 shadow">
-          <img
-            class="absolute -top-5 right-2 h-11 w-11 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
-            src="@/home/assets/DefaultAvatar.jpg"
-          />
+          <img class="absolute -top-5 right-2 h-11 w-11 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
+            src="@/home/assets/DefaultAvatar.jpg" />
           <div class="pr-15 truncate">{{ username }}</div>
           <div class="space-y-2 mt-2">
-            <router-link
-              to="/user/settings"
-              class="block text-black rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
-              ><div>账号设置</div></router-link
-            >
-            <div
-              class="rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
-              @click="logout()"
-            >
+            <router-link to="/user/settings"
+              class="block text-black rounded cursor-pointer transition transition-colors hover:bg-accent-color-100">
+              <div>账号设置</div>
+            </router-link>
+            <div class="rounded cursor-pointer transition transition-colors hover:bg-accent-color-100" @click="logout()">
               退出登陆
             </div>
           </div>
@@ -49,46 +40,35 @@
       </Transition>
       <!-- Mask -->
       <Transition name="mask">
-        <div
-          v-if="userListOpen"
-          class="fixed inset-0 bg-black bg-opacity-0 z-50"
-          @click="userListOpen = false"
-          @touchmove.prevent.passive
-        ></div>
+        <div v-if="userListOpen" class="fixed inset-0 bg-black bg-opacity-0 z-50" @click="userListOpen = false"
+          @touchmove.prevent.passive></div>
       </Transition>
     </div>
 
     <!-- Main Content -->
     <div class="w-full overflow-hidden">
-      <div
-        class="w-2/1 flex transform-gpu transition-transform duration-300 space-x-1"
-        :class="{ '-translate-x-1/2': systemListIsOpen }"
-      >
+      <div class="w-2/1 flex transform-gpu transition-transform duration-300 space-x-1"
+        :class="{ '-translate-x-1/2': systemListIsOpen }">
         <div class="w-1/2 p-3 space-y-2">
           <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
-                <img
-                  src="https://s3c.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png"
-                  class="object-cover rounded"
-                />
+                <img src="https://s3c.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png"
+                  class="object-cover rounded" />
               </div>
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
                 <div class="w-full flex items-center space-x-2">
                   <div class="text-xl truncate">填写问卷</div>
-                  <label v-if="IsQuestionnaireAllDone" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
-                    >完成</label
-                  >
+                  <label v-if="IsQuestionnaireAllDone"
+                    class="p-0.5 rounded text-xs shadow bg-red-500 text-white">完成</label>
                 </div>
                 <div class="text-sm text-gray-700">投票之前请先完成调查问卷哦</div>
               </div>
               <div class="w-full text-right">
-                <button
-                  class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600"
-                  @click="systemListOpen('questionnaire')"
-                >
+                <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600"
+                  @click="systemListOpen('questionnaire')">
                   {{ IsQuestionnaireAllDone ? '修改问卷' : '开始填写' }}
                 </button>
               </div>
@@ -98,36 +78,28 @@
           <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
-                <img
-                  src="https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png"
-                  class="object-cover rounded"
-                />
+                <img src="https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png" class="object-cover rounded" />
               </div>
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
                 <div class="w-full flex items-center space-x-2">
                   <div class="text-xl truncate">参与投票</div>
-                  <label
-                    v-if="voteCharacterComplete && voteMusicComplete && voteCoupleComplete"
-                    class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
-                    >完成</label
-                  >
+                  <label v-if="voteCharacterComplete && voteMusicComplete && voteCoupleComplete"
+                    class="p-0.5 rounded text-xs shadow bg-red-500 text-white">完成</label>
                 </div>
                 <div class="text-sm text-gray-700">为您喜爱的角色/曲目/CP投上一票吧！</div>
               </div>
               <div class="w-full text-right">
-                <button
-                  class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600"
+                <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600"
                   :class="{ 'bg-accent-color-300': !IsQuestionnaireAllDone }"
-                  @click="IsQuestionnaireAllDone && systemListOpen('vote')"
-                >
+                  @click="IsQuestionnaireAllDone && systemListOpen('vote')">
                   {{
                     IsQuestionnaireAllDone
-                      ? voteCharacterComplete && voteMusicComplete && voteCoupleComplete
-                        ? '修改结果'
-                        : '开始投票'
-                      : '请先填写问卷哦'
+                    ? voteCharacterComplete && voteMusicComplete && voteCoupleComplete
+                      ? '修改结果'
+                      : '开始投票'
+                    : '请先填写问卷哦'
                   }}
                 </button>
               </div>
@@ -137,28 +109,21 @@
           <div class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
-                <img
-                  src="https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png"
-                  class="object-contain rounded"
-                />
+                <img src="https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png" class="object-contain rounded" />
               </div>
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
                 <div class="w-full flex items-center space-x-2">
                   <div class="text-xl truncate"><label class="text-accent-color-600">(NEW)</label>作品提名</div>
-                  <label v-if="voteDoujinComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
-                    >完成</label
-                  >
+                  <label v-if="voteDoujinComplete" class="p-0.5 rounded text-xs shadow bg-red-500 text-white">完成</label>
                 </div>
                 <div class="text-sm text-gray-700">新部门，为自己喜爱的同人作品提名！</div>
               </div>
               <div class="w-full text-right">
-                <button
-                  class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600"
+                <button class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600"
                   :class="{ 'bg-accent-color-300': !IsQuestionnaireAllDone }"
-                  @click="IsQuestionnaireAllDone && gotoDoujinSystem()"
-                >
+                  @click="IsQuestionnaireAllDone && gotoDoujinSystem()">
                   {{ IsQuestionnaireAllDone ? (voteDoujinComplete ? '修改提名' : '前往提名') : '请先填写问卷哦' }}
                 </button>
               </div>
@@ -181,29 +146,16 @@
               </div>
             </div>
           </div> -->
-
-          <!-- Copyright -->
-          <div
-            class="quicksand flex flex-wrap justify-center gap-x-2 text-sm text-gray-600 absolute w-100vw left-0 bottom-1"
-          >
-            <div>&copy; Copyright 2022 THBWiki, VoileLabs.</div>
-            <div>Licensed under GPL-3.0.</div>
-            <div class="flex gap-x-2">
-              <a rel="noopener noreferrer" href="/nav">往届人气投票结果</a>
-              <a target="_blank" rel="noopener noreferrer" href="https://jq.qq.com/?k=0BnkgDKx">反馈问题</a>
-            </div>
-          </div>
+          <Copyright copyright-type="absolute" />
         </div>
         <div class="w-1/2">
-          <Component
-            :is="
+          <Component :is="
               systemListOpenName === 'questionnaire'
                 ? UserQuestionnaire
                 : systemListOpenName === 'vote'
                 ? UserVote
                 : UserQuestionnaire
-            "
-          />
+            " />
         </div>
       </div>
     </div>
@@ -212,92 +164,58 @@
   <!-- DeskTop View -->
   <div v-else class="relative h-100vh p-4 bg-accent-color-200">
     <!-- Skip Navigation -->
-    <a
-      class="z-52 absolute px-2 py-1 rounded-full bg-white transform -translate-x-3/2 focus-visible:translate-x-0"
-      href="#maincontent"
-      >Skip Navigation</a
-    >
+    <a class="z-52 absolute px-2 py-1 rounded-full bg-white transform -translate-x-3/2 focus-visible:translate-x-0"
+      href="#maincontent">Skip Navigation</a>
     <!-- Left Nav -->
     <div
       class="grid grid-rows-3 grid-flow-col h-full text-lg lg:text-xl xl:text-2xl transition-all ease-in-out duration-600"
-      :class="dpCollapseNav ? 'w-[calc(4ch+2rem)]' : 'w-[min(calc(30vh-2rem),calc(256px+3rem))]'"
-      role="tablist"
-      tabindex="0"
-    >
-      <RouterLink
-        v-for="(tab, index) in dpTabs"
-        :key="tab.title"
+      :class="dpCollapseNav ? 'w-[calc(4ch+2rem)]' : 'w-[min(calc(30vh-2rem),calc(256px+3rem))]'" role="tablist"
+      tabindex="0">
+      <RouterLink v-for="(tab, index) in dpTabs" :key="tab.title"
         class="flex flex-col justify-center items-center pr-8 py-4 rounded-xl border-2 transform focus-visible:-translate-x-0.5 transition-transform"
-        :class="
-          dpActiveTab === index
-            ? 'bg-white border-accent-color-400'
-            : 'bg-accent-color-100 border-accent-color-300 cursor-pointer'
-        "
-        :to="{ path: '/', query: { tab: index } }"
-        role="tab"
-      >
+        :class="dpActiveTab === index
+          ? 'bg-white border-accent-color-400'
+          : 'bg-accent-color-100 border-accent-color-300 cursor-pointer'
+          " :to="{ path: '/', query: { tab: index } }" role="tab">
         <div class="flex min-h-0 aspect-square">
           <img class="object-contain" :src="tab.icon" />
         </div>
-        <div
-          class="mx-auto text-black text-center transition-all ease-in-out duration-600"
-          :class="dpCollapseNav ? 'w-2ch' : 'w-9ch'"
-          v-text="tab.title"
-        ></div>
+        <div class="mx-auto text-black text-center transition-all ease-in-out duration-600"
+          :class="dpCollapseNav ? 'w-2ch' : 'w-9ch'" v-text="tab.title"></div>
       </RouterLink>
     </div>
     <!-- Content Box -->
     <div class="absolute top-4 bottom-4 left-4 right-4 flex flex-nowrap pointer-events-none">
       <!-- Left Padding -->
+      <div class="text-lg lg:text-xl xl:text-2xl transition-all ease-in-out duration-600"
+        :class="dpCollapseNav ? 'ml-[calc(4ch-2px)]' : 'ml-[min(calc(30vh-4rem-2px),calc(256px+1rem-2px))]'"></div>
       <div
-        class="text-lg lg:text-xl xl:text-2xl transition-all ease-in-out duration-600"
-        :class="dpCollapseNav ? 'ml-[calc(4ch-2px)]' : 'ml-[min(calc(30vh-4rem-2px),calc(256px+1rem-2px))]'"
-      ></div>
-      <div
-        class="flex-1 flex flex-col gap-4 pt-2 px-4 pb-px rounded-xl border-2 border-accent-color-400 bg-white pointer-events-auto"
-      >
+        class="flex-1 flex flex-col gap-4 pt-2 px-4 pb-px rounded-xl border-2 border-accent-color-400 bg-white pointer-events-auto">
         <!-- Top Nav -->
         <div class="flex justify-between">
           <div class="flex-1 text-lg lg:text-xl xl:text-2xl">
-            <icon-uil-align-justify
-              class="align-text-bottom text-gray-400 cursor-pointer"
-              tabindex="0"
-              @click="() => (dpCollapseNav = !dpCollapseNav)"
-              @keydown.enter="() => (dpCollapseNav = !dpCollapseNav)"
-            />
-            中文东方人气投票 第⑩回
+            <icon-uil-align-justify class="align-text-bottom text-gray-400 cursor-pointer" tabindex="0"
+              @click="() => (dpCollapseNav = !dpCollapseNav)" @keydown.enter="() => (dpCollapseNav = !dpCollapseNav)" />
+            中文东方人气投票 第11回
           </div>
           <div class="flex flex-nowrap" @keydown.escape="() => (userListOpen = false)">
-            <img
-              class="h-8 w-8 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
-              src="@/home/assets/DefaultAvatar.jpg"
-              tabindex="0"
-              @click="() => (userListOpen = true)"
-              @keydown.enter="() => (userListOpen = true)"
-            />
+            <img class="h-8 w-8 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
+              src="@/home/assets/DefaultAvatar.jpg" tabindex="0" @click="() => (userListOpen = true)"
+              @keydown.enter="() => (userListOpen = true)" />
             <!-- User List -->
             <Transition name="userList">
-              <div
-                v-if="userListOpen"
-                class="absolute min-w-30 text-center top-6 z-51 right-1 rounded bg-white p-2 shadow"
-              >
-                <img
-                  class="absolute -top-5 right-2 h-11 w-11 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
-                  src="@/home/assets/DefaultAvatar.jpg"
-                />
+              <div v-if="userListOpen"
+                class="absolute min-w-30 text-center top-6 z-51 right-1 rounded bg-white p-2 shadow">
+                <img class="absolute -top-5 right-2 h-11 w-11 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
+                  src="@/home/assets/DefaultAvatar.jpg" />
                 <div class="pr-15 truncate">{{ username }}</div>
                 <div class="space-y-2 mt-2">
-                  <router-link
-                    to="/user/settings"
-                    class="block text-black rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
-                    ><div>账号设置</div></router-link
-                  >
-                  <div
-                    class="rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
-                    tabindex="0"
-                    @click="logout()"
-                    @keydown.enter="logout()"
-                  >
+                  <router-link to="/user/settings"
+                    class="block text-black rounded cursor-pointer transition transition-colors hover:bg-accent-color-100">
+                    <div>账号设置</div>
+                  </router-link>
+                  <div class="rounded cursor-pointer transition transition-colors hover:bg-accent-color-100" tabindex="0"
+                    @click="logout()" @keydown.enter="logout()">
                     退出登陆
                   </div>
                 </div>
@@ -305,13 +223,9 @@
             </Transition>
             <!-- Mask -->
             <Transition name="mask">
-              <div
-                v-if="userListOpen"
-                class="fixed inset-0 bg-black bg-opacity-0 z-50"
-                @click="() => (userListOpen = false)"
-                @keydown.escape="() => (userListOpen = false)"
-                @touchmove.prevent.passive
-              ></div>
+              <div v-if="userListOpen" class="fixed inset-0 bg-black bg-opacity-0 z-50"
+                @click="() => (userListOpen = false)" @keydown.escape="() => (userListOpen = false)"
+                @touchmove.prevent.passive></div>
             </Transition>
           </div>
         </div>
@@ -319,12 +233,7 @@
         <div id="maincontent" :key="dpActiveTab" class="flex-1 overflow-auto">
           <component :is="dpTabs[dpActiveTab].component" />
         </div>
-        <!-- Copyright -->
-        <div class="quicksand text-sm text-gray-600 text-center">
-          &copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.&ensp;
-          <a rel="noopener noreferrer" href="/nav">往届人气投票结果</a>&ensp;
-          <a target="_blank" rel="noopener noreferrer" href="https://jq.qq.com/?k=0BnkgDKx">反馈问题</a>
-        </div>
+        <Copyright />
       </div>
     </div>
 
@@ -371,6 +280,7 @@ import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import UserQuestionnaireDp from '@/home/components/UserQuestionnaireDp.vue'
 import UserVoteDp from '@/home/components/UserVoteDp.vue'
 import VoteDoujinDp from '@/vote-doujin/components/VoteDoujinDp.vue'
+import Copyright from '@/common/components/Copyright.vue'
 import { screenSizes } from '@/tailwindcss'
 import {
   deleteUserData,
@@ -383,7 +293,7 @@ import {
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 
-setSiteTitle(username.value + ' - 第⑩回 中文东方人气投票')
+setSiteTitle(String(username.value))
 
 const route = useRoute()
 const router = useRouter()
@@ -496,10 +406,12 @@ const dpTabs = [
 .userList-leave-to {
   opacity: 0;
 }
+
 .mask-enter-active,
 .mask-leave-active {
   @apply transition-all duration-200;
 }
+
 .mask-enter-from,
 .mask-leave-to {
   @apply bg-opacity-0;

@@ -16,10 +16,10 @@
             @click="deleteCharacter(index)"
           ></icon-uil-times>
           <div
-            class="character-image relative w-full overflow-hidden"
+            class="character-image relative w-full aspect-ratio-1/1 overflow-hidden"
             :class="{ 'before:hidden': couple.seme != index }"
           >
-            <img class="w-full rounded border" :src="character.image ? character.image : characterImages" />
+            <img class="w-full object-contain rounded border" :src="character.image ? character.image : characterImages" />
           </div>
           <div class="p-1 truncate text-center text-xs md:text-base" :style="'color:' + character.color">
             {{ character.name }}
