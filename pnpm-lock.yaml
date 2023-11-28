@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -79,7 +83,7 @@ importers:
         version: 3.2.47
       unocss:
         specifier: ^0.51.5
-        version: 0.51.5(postcss@8.4.23)(vite@4.3.9)
+        version: 0.51.5(postcss@8.4.31)(vite@4.3.9)
       unplugin-auto-import:
         specifier: ^0.15.3
         version: 0.15.3(@vueuse/core@10.0.2)
@@ -182,7 +186,7 @@ importers:
         version: 6.4.1
       unocss:
         specifier: ^0.51.5
-        version: 0.51.5(postcss@8.4.23)(vite@4.3.9)
+        version: 0.51.5(postcss@8.4.31)(vite@4.3.9)
       unplugin-auto-import:
         specifier: ^0.15.3
         version: 0.15.3(@vueuse/core@10.0.2)
@@ -6832,7 +6836,7 @@ packages:
       normalize-path: 2.1.1
     dev: true
 
-  /unocss@0.51.5(postcss@8.4.23)(vite@4.3.9):
+  /unocss@0.51.5(postcss@8.4.31)(vite@4.3.9):
     resolution: {integrity: sha512-stHCKGlkGAaKdjr18lAysEy+Zjk02nBIwHSg5IzQ9AaHQNRuBpcIeDZelW3+AKwaxDjH6FHasfE/SDJ09wZdGA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -7084,7 +7088,7 @@ packages:
     dependencies:
       '@types/node': 18.15.13
       esbuild: 0.17.17
-      postcss: 8.4.23
+      postcss: 8.4.31
       rollup: 3.27.0
     optionalDependencies:
       fsevents: 2.3.2
