@@ -11,7 +11,10 @@
         class="flex flex-row flex-nowrap items-center gap-2 my-3 md:my-4 p-2 md:p-4 rounded-xl border-2 md:border-4 border-pink-300 border-dashed md:border-dashed"
         :href="'/' + latestLink"
       >
-        <img class="w-16 h-16 md:w-20 md:h-20" :src="latestIcon" />
+        <div
+          class="w-16 h-16 md:w-20 md:h-20 bg-[length:192px_192px] md:bg-[length:240px_240px]"
+          :style="'background-image: url(' + latestIcon + ')'"
+        />
         <div>
           <div class="text-2xl md:text-4xl text-pink-600">
             <template v-if="voting">
@@ -28,12 +31,16 @@
       </a>
       <div class="grid lg:grid-cols-2 gap-3">
         <a
-          v-for="[link, title, icon, time] in resultList.slice(1)"
+          v-for="([link, title, icon, time], index) in resultList.slice(1)"
           :key="link"
           class="flex flex-row items-center flex-nowrap gap-1 p-2 md:px-3 md:py-2 rounded-lg border-2 border-pink-300 border-dotted"
           :href="'/' + link"
         >
-          <img class="w-12 h-12 md:w-14 md:h-14" :src="icon" />
+          <div
+            :style="'background-image: url(' + icon + ')'"
+            class="w-12 h-12 md:w-14 md:h-14 bg-[length:144px_144px] md:bg-[length:168px_168px]"
+            :class="resultListIconPosition[index % 9]"
+          />
           <div>
             <div class="text-xl md:text-3xl text-pink-500">第{{ title }}回结果页</div>
             <div class="text-sm sm:text-base">投票时间 {{ time }}</div>
@@ -53,66 +60,27 @@ import { formatDuration, intervalToDuration } from 'date-fns'
 import dateFnsZhCN from 'date-fns/locale/zh-CN'
 
 const resultListRaw: [string, string, string, string][] = [
-  [
-    'v1',
-    '一',
-    'https://s3c.lilywhite.cc/thvote/imgs/index/vote01@100px.png',
-    '2012/7/23 ~ 7/30',
-  ],
-  [
-    'v2',
-    '二',
-    'https://s3c.lilywhite.cc/thvote/imgs/index/vote02@100px.png',
-    '2013/10/1 ~ 10/7',
-  ],
-  [
-    'v3',
-    '三',
-    'https://s3c.lilywhite.cc/thvote/imgs/index/vote03@100px.png',
-    '2014/8/22 ~ 8/28',
-  ],
-  [
-    'v4',
-    '四',
-    'https://s3c.lilywhite.cc/thvote/imgs/index/vote04@100px.png',
-    '2015/10/1 ~ 10/15',
-  ],
-  [
-    'v5',
-    '五',
-    'https://s3c.lilywhite.cc/thvote/imgs/index/vote05@100px.png',
-    '2016/10/1 ~ 10/15',
-  ],
-  [
-    'v6',
-    '六',
-    'https://s3c.lilywhite.cc/thvote/imgs/index/vote06@100px.png',
-    '2017/10/1 ~ 10/15',
-  ],
-  [
-    'v7',
-    '七',
-    'https://s3c.lilywhite.cc/thvote/imgs/index/vote07@100px.png',
-    '2018/09/30 ~ 10/14',
-  ],
-  [
-    'v8',
-    '八',
-    'https://s3c.lilywhite.cc/thvote/imgs/index/vote08@100px.png',
-    '2019/09/30 ~ 10/14',
-  ],
-  [
-    'v9',
-    '⑨',
-    'https://s3c.lilywhite.cc/thvote/imgs/index/vote09@100px.png',
-    '2020/12/18 ~ 12/31',
-  ],
-  [
-    'v10',
-    '⑩',
-    'https://s3c.lilywhite.cc/thvote/imgs/index/vote10@100px.png',
-    '2022/06/17 ~ 07/03',
-  ],
+  ['v1', '一', 'https://s3c.lilywhite.cc/test/test1.png', '2012/7/23 ~ 7/30'],
+  ['v2', '二', 'https://s3c.lilywhite.cc/test/test1.png', '2013/10/1 ~ 10/7'],
+  ['v3', '三', 'https://s3c.lilywhite.cc/test/test1.png', '2014/8/22 ~ 8/28'],
+  ['v4', '四', 'https://s3c.lilywhite.cc/test/test1.png', '2015/10/1 ~ 10/15'],
+  ['v5', '五', 'https://s3c.lilywhite.cc/test/test1.png', '2016/10/1 ~ 10/15'],
+  ['v6', '六', 'https://s3c.lilywhite.cc/test/test1.png', '2017/10/1 ~ 10/15'],
+  ['v7', '七', 'https://s3c.lilywhite.cc/test/test1.png', '2018/09/30 ~ 10/14'],
+  ['v8', '八', 'https://s3c.lilywhite.cc/test/test1.png', '2019/09/30 ~ 10/14'],
+  ['v9', '⑨', 'https://s3c.lilywhite.cc/test/test1.png', '2020/12/18 ~ 12/31'],
+  ['v10', '⑩', 'https://s3c.lilywhite.cc/test/test2.png', '2022/06/17 ~ 07/03'],
+]
+const resultListIconPosition = [
+  'bg-left-top',
+  'bg-top',
+  'bg-right-top',
+  'bg-left',
+  'bg-center',
+  'bg-right',
+  'bg-left-bottom',
+  'bg-bottom',
+  'bg=right-bottom',
 ]
 const resultList = resultListRaw.reverse()
 const latest = resultList[0]
