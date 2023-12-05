@@ -2,7 +2,7 @@
   <transition name="editDoujin">
     <div
       v-if="open"
-      class="fixed top-1/10 left-0 right-0 mx-auto w-19/20 max-w-105ch max-h-4/5 flex flex-col p-3 z-40 space-y-2 bg-white rounded"
+      class="fixed top-1/10 left-0 right-0 mx-auto w-19/20 max-w-105ch max-h-4/5 flex flex-col p-3 z-40 space-y-2 bg-subaccent rounded"
     >
       <div class="flex justify-between">
         <div class="md:text-base xl:text-xl 2xl:text-2xl">编辑提名</div>
@@ -14,17 +14,18 @@
             <div class="whitespace-nowrap py-0.5"><strong>发布链接</strong></div>
             <input
               v-model="doujinUrl"
-              class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
+              class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-300 transition-colors w-full"
             />
             <button
-              class="whitespace-nowrap px-1 py-0.5 text-xs rounded border lg:text-sm"
-              :class="{ 'text-gray-300': fetchLoading || !validUrlInvalid }"
+              class="whitespace-nowrap px-1 py-0.5 bg-accent-color-600 text-xs rounded lg:text-sm"
+              :class="{ 'bg-accent-color-300': fetchLoading || !validUrlInvalid }"
               @click="!fetchLoading && validUrlInvalid && fetchMsg()"
             >
-              <icon-uil-spinner-alt v-if="fetchLoading" class="animate-spin" />自动获取信息
+              <icon-uil-spinner-alt v-if="fetchLoading" class="animate-spin" />
+              自动获取信息
             </button>
           </div>
-          <ul class="text-xs text-gray-800 3xl:text-sm">
+          <ul class="text-xs 3xl:text-sm">
             <li>
               *<span ref="hintElUrlEmpty">必填项</span>，
               <span ref="hintElUrlMaxLength">最长 2048 个字符</span>
@@ -32,26 +33,17 @@
             <li>
               *<span ref="hintElUrlInvalid">有效的链接仅支持以下网站</span
               >：Bilibili(仅限视频)、微博(仅限移动端链接)、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
-                class="text-gray-800 underline decoration-blue-400 hover:text-blue-600 transition transition-colors"
+                class="underline"
                 href="https://thvideo.tv/"
                 target="_blank"
                 >旧页面</a
-              >和<a
-                class="text-gray-800 underline decoration-blue-400 hover:text-blue-600 transition transition-colors"
-                href="https://platinum.vercel.app/"
-                target="_blank"
-                >新页面</a
+              >和<a class="underline" href="https://platinum.vercel.app/" target="_blank">新页面</a
               >)、Twitter、YouTube、Pixiv、Nico静画/动画、Acfun、百度贴吧、Steam、dizzylab、DLsite
               <!-- 、Melonbooks -->
             </li>
             <li>
               *如果作品的发布地址在上述网站之外或并未在网络上发布，则请前往
-              <a
-                class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
-                href="https://thwiki.cc/"
-                target="_blank"
-                >THBWiki</a
-              >
+              <a class="underline" href="https://thwiki.cc/" target="_blank">THBWiki</a>
               创建该作品的词条并将词条链接粘贴到此处
             </li>
             <li>
@@ -100,7 +92,7 @@
                   <VoteSelect v-model:selected="doujinType" class="w-full" :item-list="doujintypesWithoutColor" />
                 </div>
               </div>
-              <ul class="text-xs text-gray-800 3xl:text-sm">
+              <ul class="text-xs 3xl:text-sm">
                 <li>*<span ref="hintElTypeEmpty">必填项</span></li>
               </ul>
             </div>
@@ -108,7 +100,7 @@
           <div class="flex-shrink-0 flex flex-row lg:flex-col flex-wrap justify-between">
             <div class="whitespace-nowrap space-y-0.5">
               <div>作品封面</div>
-              <ul class="text-xs text-gray-800 3xl:text-sm">
+              <ul class="text-xs 3xl:text-sm">
                 <li>*只能由爬虫自动获取</li>
                 <li>*仅供用户参考，对提名无影响</li>
               </ul>
@@ -179,7 +171,7 @@
             class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
             href="https://www.bilibili.com/read/cv6364137"
             target="_blank"
-            ><label class="text-accent-color-600">东方Project使用规定</label></a
+            ><label class="text-accent-color-300">东方Project使用规定</label></a
           >
           的东方Project二次创作作品。
         </li>
@@ -190,9 +182,9 @@
           同一个作品在不同网站上发布或不同语言版本视为同一作品。提名的链接如指向无授权搬运或营销号盗用的发布，若能识别则计作对于原作品的提名，否则将不计票。考虑到有效性，建议使用原作者的发布地址进行提名。
         </li>
         <li>
-          可能出现<label class="text-accent-color-600">版权问题、公序良俗争议或内容触犯法律</label>的作品的提名无效。
+          可能出现<label class="text-accent-color-300">版权问题、公序良俗争议或内容触犯法律</label>的作品的提名无效。
         </li>
-        <li><label class="text-accent-color-600">R18</label> 作品的提名无效。</li>
+        <li><label class="text-accent-color-300">R18</label> 作品的提名无效。</li>
         <li>
           单品和组合作品（如创作合集与其中的单品）、合作作品的单独发布（如游戏的OST和该游戏本身）均可视为不同的作品分别提名。
         </li>
@@ -202,7 +194,7 @@
         <li>上述规则的最终解释权由THBWiki所有。</li>
       </ul>
       <button
-        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="w-full py-2 rounded text bg-accent-color-600 flex items-center space-x-1 justify-center"
         @click="noticeOpen = false"
       >
         <label>我知道了</label>

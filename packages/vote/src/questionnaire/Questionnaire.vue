@@ -1,7 +1,7 @@
 <template>
   <div class="page"></div>
   <div class="w-full min-h-100vh flex flex-col overflow-hidden">
-    <div class="p-2 shadow flex items-center justify-between bg-white">
+    <div class="p-2 flex items-center justify-between bg-subaccent bg-opacity-90">
       <div class="flex items-center">
         <BackToHome :show="true" :saveable="true" />
         <div class="font-medium">
@@ -17,21 +17,22 @@
         ▼
       </div>
     </div>
+
     <div class="w-full h-1 flex mb-1">
       <div
         v-for="(answer, index) in questionDone[bigQuestionnaire][smallQuestionnaire].answers"
         :key="index"
         class="h-full"
-        :class="[answer.done ? 'bg-accent-color-600' : ' bg-gray-300']"
+        :class="[answer.done ? 'bg-accent-color-600' : ' bg-subaccent']"
         :style="'width:' + 100 / questionDone[bigQuestionnaire][smallQuestionnaire].answers.length + '%'"
       ></div>
     </div>
 
     <div class="w-full flex flex-col space-y-3 p-1 md:w-1/2 3xl:w-1/4 md:m-auto">
-      <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
+      <div class="p-1 rounded w-full bg-subaccent bg-opacity-90">
         <div class="space-y-5 p-2">
           <div>{{ questionNum + 1 + '：' + question.content + '（' + TypeToChinese[question.type] + '）' }}</div>
-          <div v-if="question.type != 'Input'" class="rounded bg-gray-50 bg-opacity-50 space-y-1">
+          <div v-if="question.type != 'Input'" class="innerBox rounded space-y-1">
             <div
               v-for="(option, index) in options"
               :key="index"
@@ -58,7 +59,7 @@
       </div>
       <div class="flex justify-between space-x-2">
         <button
-          class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+          class="w-1/2 py-1 shadow rounded bg-accent-color-600 text-sm md:text-base"
           :class="{ 'bg-accent-color-300 cursor-default': questionNum === 0 }"
           @click="!questionNum || changeQuestion('forward')"
         >
@@ -66,14 +67,14 @@
         </button>
         <button
           v-if="questionNum + 1 != questionDone[bigQuestionnaire][smallQuestionnaire].answers.length"
-          class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+          class="w-1/2 py-1 shadow rounded bg-accent-color-600 text-sm md:text-base"
           @click="changeQuestion('back')"
         >
           下一题
         </button>
         <button
           v-else
-          class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+          class="w-1/2 py-1 shadow rounded bg-accent-color-600 text-sm md:text-base"
           :class="{ 'bg-accent-color-300': submiting || !questionnaireDone }"
           @click="questionnaireDone && submitQuestionnire()"
         >
@@ -87,7 +88,7 @@
           questionnaireDone &&
           Boolean(questionNum + 1 != questionDone[bigQuestionnaire][smallQuestionnaire].answers.length)
         "
-        class="w-full py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+        class="w-full py-1 shadow rounded bg-accent-color-600 text-sm md:text-base"
         :class="{ 'bg-accent-color-300': submiting }"
         @click="submitQuestionnire()"
       >
@@ -105,7 +106,7 @@
   />
   <button
     v-if="screenSizes['lg']"
-    class="fixed flex items-center bottom-20 right-5 px-3 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+    class="fixed flex items-center bottom-20 right-5 px-3 py-1 shadow rounded bg-accent-color-600 text-sm md:text-base"
     @click="drawerOpen"
   >
     <icon-uil-align class="fill-current" />
@@ -128,15 +129,12 @@
       </div>
       <div class="flex justify-between space-x-2">
         <button
-          class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+          class="w-1/2 py-1 shadow rounded bg-accent-color-600 text-sm md:text-base"
           @click="backHome(IsQuestionnaireAllDone && firstCompleteQuestionnaireAll)"
         >
           {{ IsQuestionnaireAllDone && firstCompleteQuestionnaireAll ? '去投票！' : '休息一下，返回主页面' }}
         </button>
-        <button
-          class="w-1/2 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
-          @click="continueEdit()"
-        >
+        <button class="w-1/2 py-1 shadow rounded bg-accent-color-600 text-sm md:text-base" @click="continueEdit()">
           我还想继续填写/修改问卷！
         </button>
       </div>

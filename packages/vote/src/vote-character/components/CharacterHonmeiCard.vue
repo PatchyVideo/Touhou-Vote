@@ -1,10 +1,7 @@
 <template>
-  <div
-    class="relative w-full p-1 rounded shadow bg-white flex ring"
-    :style="'--tw-ring-color:' + characterHonmei.color + ';color:' + characterHonmei.color"
-  >
+  <div class="relative w-full p-1 rounded shadow bg-subaccent bg-opacity-90 flex">
     <div class="w-2/5 max-w-64">
-      <div class="aspect-ratio-1/1 rounded border">
+      <div class="aspect-ratio-1/1 rounded border border-accent-color-600">
         <img class="object-contain" :src="characterHonmei.image ? characterHonmei.image : characterImages" />
       </div>
     </div>
@@ -19,7 +16,7 @@
           ref="reasonInput"
           v-model="reasonEdit"
           placeholder="点此填写理由（可选）"
-          class="truncate"
+          class="innerBox w-full truncate px-1 rounded outline-none"
           type="text"
           @blur="updateReason()"
           @keydown.enter="updateReason()"
@@ -27,7 +24,7 @@
       </div>
       <div class="w-full flex justify-end">
         <div
-          class="transform transform-gpu -rotate-45 border rounded-sm border-red-500 text-red-500 md:text-lg xl:text-xl"
+          class="transform transform-gpu -rotate-45 border rounded-sm border-accent-color-600 text-accent-color-600 md:text-lg xl:text-xl"
         >
           本命
         </div>

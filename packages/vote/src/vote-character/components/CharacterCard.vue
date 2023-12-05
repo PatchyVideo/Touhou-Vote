@@ -1,22 +1,15 @@
 <template>
-  <div
-    class="relative p-1 pt-5 opacity-80 rounded shadow bg-white ring"
-    :style="'--tw-ring-color:' + character.color + ';color:' + character.color"
-  >
+  <div class="relative p-1 pt-5 opacity-80 rounded shadow bg-subaccent bg-opacity-90">
     <icon-uil-times class="absolute right-0 top-0 cursor-pointer" @click="closeCharacterCard()"></icon-uil-times>
     <div class="w-full">
-      <div class="aspect-ratio-1/1 rounded border">
+      <div class="aspect-ratio-1/1 rounded border border-accent-color-600">
         <img class="object-contain" :src="character.image ? character.image : characterImages" />
       </div>
     </div>
-    <div class="p-1 truncate text-center text-xs md:text-base" :style="'color:' + character.color">
+    <div class="p-1 truncate text-center text-xs md:text-base">
       {{ character.name }}
     </div>
-    <button
-      class="w-full py-1 shadow rounded text-white text-sm md:text-base"
-      :style="'background-color:' + character.color"
-      @click="openReasonBox()"
-    >
+    <button class="w-full py-1 shadow rounded bg-accent-color-600 text-sm md:text-base" @click="openReasonBox()">
       编辑投票理由
     </button>
   </div>
@@ -31,10 +24,7 @@
           type="text"
           @keydown.enter="commitReasonBox()"
       /></label>
-      <button
-        class="w-full py-2 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
-        @click="commitReasonBox()"
-      >
+      <button class="w-full py-2 shadow rounded bg-accent-color-600 text-sm md:text-base" @click="commitReasonBox()">
         确定
       </button>
     </div>

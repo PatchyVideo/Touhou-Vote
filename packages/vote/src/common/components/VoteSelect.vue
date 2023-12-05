@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-block relative">
+  <div class="inline-block relative shadow">
     <div
       ref="VoteSelectRoot"
       class="flex justify-between cursor-pointer shadow p-1 md:px-3 rounded"
@@ -15,7 +15,7 @@
     </div>
     <div
       v-if="itemList.length"
-      class="absolute z-52 rounded bg-white shadow mt-1 w-full overflow-hidden"
+      class="absolute z-52 rounded bg-subaccent shadow mt-1 w-full overflow-hidden"
       :class="{ 'p-1': !listHidden }"
     >
       <ul
@@ -25,7 +25,7 @@
         <li
           v-for="(item, index) in itemList"
           :key="index"
-          class="truncate cursor-pointer transition transition-colors hover:bg-gray-100"
+          class="truncate cursor-pointer transition transition-colors hover:bg-subaccent"
           @click="selectItem(item)"
         >
           {{ item.name }}

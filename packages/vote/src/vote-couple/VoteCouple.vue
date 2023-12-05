@@ -1,23 +1,19 @@
 <template>
   <div class="page"></div>
   <div class="w-full min-h-100vh flex flex-col">
-    <div class="p-2 shadow flex items-center bg-white mb-2">
+    <div class="p-2 shadow flex items-center bg-subaccent bg-opacity-90 mb-2">
       <BackToHome :show="true" :saveable="false" />
       <div class="font-medium">第11届 国内东方人气投票 - CP部门</div>
     </div>
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
-      <div class="p-1 rounded w-full space-y-2 shadow bg-white bg-opacity-80">
+      <div class="p-1 rounded w-full space-y-2 shadow bg-subaccent bg-opacity-90">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
           <div>{{ '角色组合(' + couplesValid.length + '/' + CPVOTENUM + ')' }}</div>
         </div>
-        <div class="shadow-inner p-2 rounded bg-gray-50 bg-opacity-50 space-y-2">
+        <div class="innerBox shadow-inner p-2 rounded space-y-2">
           <transition name="couple" mode="out-in">
-            <div
-              v-if="!couplesValid.length"
-              key="no-selecting"
-              class="w-full text-center text-gray-400 py-10 space-y-2"
-            >
+            <div v-if="!couplesValid.length" key="no-selecting" class="w-full text-center py-10 space-y-2">
               <div>请点击下方的按钮</div>
               <div>选择一对您喜欢的CP吧!</div>
             </div>
@@ -36,7 +32,7 @@
           <transition name="addMore" mode="out-in">
             <div
               v-if="couplesValid.length < CPVOTENUM"
-              class="w-full shadow text-center bg-white cursor-pointer select-none p-2 rounded"
+              class="w-full shadow text-center bg-subaccent bg-opacity-90 cursor-pointer select-none p-2 rounded"
               @click="addCouple()"
             >
               <icon-uil-plus class="text-lg" />
@@ -52,7 +48,7 @@
 
       <button
         :class="{ 'bg-accent-color-300': !couplesValid.length }"
-        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="w-full py-2 rounded bg-accent-color-600 flex items-center space-x-1 justify-center"
         @click="checkVote()"
       >
         {{ couplesValid.length ? '提交!' : '请投票' }}
@@ -67,7 +63,7 @@
             <label>本命CP：</label>
             <label v-for="(character, index) in computeCharactersValid(coupleHonmei.characters)" :key="character.id"
               >{{ character.name
-              }}<label v-if="coupleHonmei.seme === index" class="text-accent-color-600">(主动)</label>，</label
+              }}<label v-if="coupleHonmei.seme === index" class="text-accent-color-300">(主动)</label>，</label
             >
           </div>
         </div>
@@ -76,17 +72,15 @@
             <label>{{ '投票位' + (indexCouple + 1) + '：' }}</label>
             <label v-for="(character, indexCharacter) in computeCharactersValid(couple.characters)" :key="character.id">
               {{ character.name }}
-              <label v-if="couple.seme === indexCharacter" class="text-accent-color-600">(主动)</label>
+              <label v-if="couple.seme === indexCharacter" class="text-accent-color-300">(主动)</label>
               <label v-if="indexCharacter != computeCharactersValid(couple.characters).length - 1">，</label>
             </label>
           </div>
         </div>
-        <div class="text-gray-500 italic">
-          *票位序号仅用于核对投票内容，不影响权重<br />*投票期间可随时更改投票内容哦
-        </div>
+        <div class="italic">*票位序号仅用于核对投票内容，不影响权重<br />*投票期间可随时更改投票内容哦</div>
       </div>
       <button
-        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="w-full py-2 rounded bg-accent-color-600 flex items-center space-x-1 justify-center"
         :class="{ 'bg-accent-color-300': loading }"
         @click="vote()"
       >

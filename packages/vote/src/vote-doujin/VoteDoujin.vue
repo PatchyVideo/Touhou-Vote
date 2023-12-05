@@ -1,19 +1,19 @@
 <template>
   <div class="page"></div>
   <div class="w-full min-h-100vh flex flex-col">
-    <div class="p-2 shadow flex items-center bg-white mb-2">
+    <div class="p-2 shadow flex items-center bg-subaccent opacity-90 mb-2">
       <BackToHome :show="true" :saveable="true" />
-      <div class="font-medium">第11届 国内东方人气投票 - 提名系统</div>
+      <div class="font-medium">第11届 国内东方人气投票 - 作品提名</div>
     </div>
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
-      <div class="p-1 rounded w-full space-y-2 shadow bg-white bg-opacity-80">
+      <div class="p-1 rounded w-full space-y-2 shadow bg-subaccent bg-opacity-90">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
           <div>{{ '提名作品(' + doujinValid.length + '/' + doujins.length + ')' }}</div>
         </div>
-        <div class="shadow-inner p-2 rounded bg-gray-50 bg-opacity-50 space-y-2">
+        <div class="innerBox p-2 rounded space-y-2">
           <transition name="doujin" mode="out-in">
-            <div v-if="!doujinValid.length" key="no-selecting" class="w-full text-center text-gray-400 py-10 space-y-2">
+            <div v-if="!doujinValid.length" key="no-selecting" class="w-full text-center py-10 space-y-2">
               <div>请点击下方的按钮</div>
               <div>提名一个对您来说印象最深刻，最想推荐给它人的作品吧!</div>
             </div>
@@ -33,7 +33,7 @@
           <transition name="addMore" mode="out-in">
             <div
               v-if="doujinValid.length < doujins.length"
-              class="flex flex-row justify-center items-center shadow bg-white cursor-pointer select-none p-2 rounded border border-accent-color-200"
+              class="flex flex-row justify-center items-center shadow bg-subaccent bg-opacity-90 cursor-pointer select-none p-2 rounded"
               @click="openEditDoujin()"
             >
               <icon-uil-plus class="text-lg" />
@@ -45,7 +45,7 @@
 
       <button
         :class="{ 'bg-accent-color-300': !doujinValid.length || loading }"
-        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="w-full py-2 rounded text bg-accent-color-600 flex items-center space-x-1 justify-center"
         @click="!doujinValid.length || vote()"
       >
         <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>
@@ -70,12 +70,12 @@
           <strong>【年度最受欢迎/最有影响力/最具创意的xx类作品】</strong>等奖项。
         </p>
         <p class="indent-lg">根据举办情况，还可能会邀请相应行业的专业人士进行点评哦！</p>
-        <p class="indent-lg">由于是首次举办，尚在摸索阶段，可能会有诸多不足之处，还请各位谅解，感谢大家的支持！</p>
+        <p class="indent-lg">本系统尚在摸索阶段，可能会有诸多不足之处，还请各位谅解，感谢大家的支持！</p>
         <br />
         <p class="italic text-sm">*本活动最终解释权归THBWiki所有</p>
       </div>
       <button
-        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="w-full py-2 rounded text bg-accent-color-600 flex items-center space-x-1 justify-center"
         @click="() => (confirmedNotice = true)"
       >
         我知道了

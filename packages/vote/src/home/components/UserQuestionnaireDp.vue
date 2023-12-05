@@ -1,13 +1,14 @@
 <template>
+  <div class="page"></div>
   <div class="flex flex-col gap-4">
-    <div v-if="IsQuestionnaireAllDone" class="text-lg text-gray-800">
+    <div v-if="IsQuestionnaireAllDone" class="text-lg">
       问卷填写完成了！您可以继续填写，或在左栏选择“参与投票”开始投票
     </div>
-    <div v-else class="text-lg text-gray-800">在开始投票之前，您需要至少填写下列问卷中的3个（2+1）：</div>
+    <div v-else class="text-lg">在开始投票之前，您需要至少填写下列问卷中的3个（2+1）：</div>
     <div v-for="(children, catogory) in questionnaire" :key="catogory">
       <div class="flex flex-nowrap items-end gap-2">
         <h2 class="text-xl" v-text="questionnaireNameById[catogory].name"></h2>
-        <span class="text-gray-700" v-text="questionnaireNameById[catogory].desc"></span>
+        <span v-text="questionnaireNameById[catogory].desc"></span>
       </div>
       <div class="flex flex-wrap gap-3 mt-1">
         <RouterLink
@@ -26,11 +27,8 @@
             <span v-else class="px-1 text-amber-600 rounded border border-amber-300 bg-amber-50 bg-opacity-50"
               >未填写</span
             >
-            <h3
-              class="text-black text-2xl max-w-17ch"
-              v-text="questionnaireNameById[catogory].children[childId].name"
-            ></h3>
-            <span class="text-gray-700" v-text="questionnaireNameById[catogory].children[childId].desc"></span>
+            <h3 class="text-2xl max-w-17ch" v-text="questionnaireNameById[catogory].children[childId].name"></h3>
+            <span v-text="questionnaireNameById[catogory].children[childId].desc"></span>
           </div>
         </RouterLink>
       </div>

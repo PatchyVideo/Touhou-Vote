@@ -1,9 +1,13 @@
 <template>
   <div
-    class="fixed top-0 inset-x-0 max-h-100vh z-51 p-3 md:p-10 rounded-b shadow bg-white overflow-auto transform-gpu transition-transform duration-200 ease-in-out flex flex-col"
+    class="fixed top-0 inset-x-0 max-h-100vh z-51 p-3 md:p-10 rounded-b bg-subaccent bg-opacity-90 overflow-auto transform-gpu transition-transform duration-200 ease-in-out flex flex-col"
     :class="{ '-translate-y-full': !open }"
   >
-    <div v-for="(questionnaire, index) in questionnaireKeyToName" :key="index" class="w-full rounded shadow mb-2">
+    <div
+      v-for="(questionnaire, index) in questionnaireKeyToName"
+      :key="index"
+      class="w-full rounded border border-accent-color-600 bg-subaccent bg-opacity-90 mb-2"
+    >
       <div
         class="px-2 py-1 truncate cursor-pointer"
         @click="selectAsQuestionnaireCurrent(questionnaire.smallQuestionnaire)"
@@ -22,14 +26,14 @@
       <div
         :id="questionnaire.smallQuestionnaire"
         name="questionnaire"
-        class="flex flex-wrap shadow-inner m-1 rounded transform transition-all duration-200 ease-in-out h-0 overflow-hidden"
+        class="innerBox flex flex-wrap shadow-inner m-1 rounded transform transition-all duration-200 ease-in-out h-0 overflow-hidden"
       >
         <div
           v-for="(answer, index2) in questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire]
             .answers"
           :key="index2"
           class="rounded-full ring ring-accent-color-600 m-3 w-8 h-8 leading-8 text-center cursor-pointer"
-          :class="[answer.done ? 'text-white bg-accent-color-600' : 'text-black bg-accent-color-100']"
+          :class="[answer.done ? 'text-white bg-accent-color-600' : 'text-black bg-accent-color-300']"
           @click="changeQuestion(questionnaire.bigQuestionnaire, questionnaire.smallQuestionnaire, index2)"
         >
           {{ index2 + 1 }}

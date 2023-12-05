@@ -3,18 +3,18 @@
   <div class="w-full min-h-100vh flex flex-col space-y-2 md:space-y-0 md:z-50">
     <!-- Top Nav -->
     <div
-      class="w-full h-11 py-1 bg-white bg-opacity-80 shadow flex items-center space-x-2"
+      class="w-full h-11 py-1 bg-subaccent bg-opacity-90 shadow flex items-center space-x-2"
       :class="{ 'pl-2': voteEnded() }"
     >
-      <router-link v-if="!voteEnded()" to="/" class="text-black w-8 h-8 cursor-pointer"
+      <router-link v-if="!voteEnded()" to="/" class="w-8 h-8 cursor-pointer"
         ><icon-uil-angle-left-b class="w-full h-full"></icon-uil-angle-left-b
       ></router-link>
-      <div class="text-gray-600 text-xl">用户设定</div>
+      <div class="text-xl">用户设定</div>
     </div>
     <!-- Main Content -->
     <div class="md:p-3 md:w-1/3 md:min-w-95 md:m-auto md:flex md:flex-grow">
       <div
-        class="md:w-full md:rounded-xl md:p-3 md:bg-white md:bg-opacity-50 md:backdrop-filter md:backdrop-blur-2 md:shadow md:flex md:flex-grow md:items-center"
+        class="md:w-full md:rounded-xl md:p-3 md:bg-subaccent md:bg-opacity-90 md:shadow md:flex md:flex-grow md:items-center"
       >
         <div class="w-full md:ring-accent-color-600 p-3 divide-y divide-accent-color-300">
           <div class="flex items-center space-x-3">
@@ -24,10 +24,10 @@
             />
             <div class="space-y-2">
               <div class="truncate text-xl">{{ username }}</div>
-              <div class="truncate text-sm text-gray-600">{{ '注册于' + createdAt }}</div>
+              <div class="truncate text-sm">{{ '注册于' + createdAt }}</div>
               <div class="space-x-2">
                 <!-- <label class="text-red-600 underline cursor-pointer" @click="">修改头像</label> -->
-                <label class="text-red-600 underline cursor-pointer" @click="updateUsernameOpen = true"
+                <label class="text-accent-color-600 underline cursor-pointer" @click="updateUsernameOpen = true"
                   >修改用户名</label
                 >
               </div>
@@ -39,19 +39,25 @@
           <div class="mt-3 divide-y divide-accent-color-300">
             <div class="p-3 flex items-center justify-between">
               <div>{{ '邮箱：' + (user.email != null ? user.email : '未绑定') }}</div>
-              <label v-if="voteEnded()" class="text-red-600 underline cursor-pointer" @click="openChangeEmail()">{{
-                user.email != null ? '修改' : '去绑定'
-              }}</label>
+              <label
+                v-if="voteEnded()"
+                class="text-accent-color-600 underline cursor-pointer"
+                @click="openChangeEmail()"
+                >{{ user.email != null ? '修改' : '去绑定' }}</label
+              >
             </div>
             <div class="p-3 flex items-center justify-between">
               <div>{{ '手机：' + (user.phone != null ? user.phone : '未绑定') }}</div>
-              <label v-if="voteEnded()" class="text-red-600 underline cursor-pointer" @click="openChangePhone()">{{
-                user.phone != null ? '修改' : '去绑定'
-              }}</label>
+              <label
+                v-if="voteEnded()"
+                class="text-accent-color-600 underline cursor-pointer"
+                @click="openChangePhone()"
+                >{{ user.phone != null ? '修改' : '去绑定' }}</label
+              >
             </div>
             <div class="p-3 flex items-center justify-between">
               <div>{{ '密码：' + (user.password ? '已设置' : '未设置') }}</div>
-              <label class="text-red-600 underline cursor-pointer" @click="changePasswordOpen = true">{{
+              <label class="text-accent-color-600 underline cursor-pointer" @click="changePasswordOpen = true">{{
                 user.password ? '修改' : '去设置'
               }}</label>
             </div>
@@ -72,7 +78,7 @@
             </div> -->
           </div>
           <button
-            class="w-full py-2 rounded-xl text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+            class="w-full py-2 rounded-xl text bg-accent-color-600 flex items-center space-x-1 justify-center"
             :class="{ 'bg-accent-color-300': loading }"
             @click="logout()"
           >
@@ -82,6 +88,7 @@
       </div>
     </div>
   </div>
+
   <VoteMessageBox v-model:open="updateUsernameOpen" title="修改用户名">
     <div class="space-y-3 py-5">
       <label class="input-border input-border-md flex flex-row py-2 px-4">
@@ -93,7 +100,7 @@
           @keydown.enter="updateUsername()"
       /></label>
       <button
-        class="w-full py-2 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+        class="w-full py-2 shadow rounded bg-accent-color-600 text-sm md:text-base"
         :class="{ 'bg-accent-color-300': loading }"
         @click="updateUsername()"
       >
@@ -128,7 +135,7 @@
           @keydown.enter="updatePassword()"
       /></label>
       <button
-        class="w-full py-2 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+        class="w-full py-2 shadow rounded bg-accent-color-600 text-sm md:text-base"
         :class="{ 'bg-accent-color-300': loading }"
         @click="updatePassword()"
       >
@@ -165,7 +172,7 @@
             @keypress.enter="updatePhoneOrEmail()"
         /></label>
         <button
-          class="py-2 px-5 rounded-xl text-white bg-accent-color-600"
+          class="py-2 px-5 rounded-xl bg-accent-color-600"
           :class="{ 'bg-accent-color-300': !verificationCodeAvailable || loading }"
           @click="verificationCodeGet()"
         >
@@ -174,7 +181,7 @@
       </div>
       <div class="text-accent-color-600 text-xs h-5" v-text="verificationCodeError"></div>
       <button
-        class="w-full py-2 rounded-xl text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="w-full py-2 rounded-xl text bg-accent-color-600 flex items-center space-x-1 justify-center"
         :class="{ 'bg-accent-color-300': loading }"
         @click="updatePhoneOrEmail()"
       >

@@ -2,12 +2,13 @@
   <transition name="selectBox">
     <div
       v-if="open"
-      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-white rounded w-[calc(100%-1rem)] mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
+      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-subaccent rounded w-[calc(100%-1rem)] mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>请选择角色</div>
         <icon-uil-times class="cursor-pointer" @click="loading || close()"></icon-uil-times>
       </div>
+
       <div v-if="!characterHonmeiIsSelected" class="flex justify-between items-center">
         <div class="w-1/2">
           <AutoComplete type="character" />
@@ -15,14 +16,16 @@
         <VoteSelect v-model:selected="order" :item-list="orderOptions" />
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
       </div>
+
       <div v-if="!characterHonmeiIsSelected">
         <small>可通过名称、外号、所属作品来搜索，支持部分匹配和拼音匹配</small>
       </div>
-      <div class="flex-grow overflow-y-auto p-2 rounded shadow-inner bg-gray-50 flex flex-col space-y-3">
+
+      <div class="innerBox flex-grow overflow-y-auto p-2 rounded flex flex-col space-y-3">
         <!-- eslint-disable vue/no-v-html -->
         <div
           v-if="!characterList.length"
-          class="text-center text-gray-400 py-10"
+          class="text-center py-10"
           v-html="
             characterHonmeiIsSelected
               ? '只能从喜欢的角色中选择自己的本命哦<br />请回到上一个界面，点击<strong> + </strong>按钮<br />选择一位自己喜欢的角色吧！'
@@ -34,28 +37,23 @@
           v-for="item in characterList"
           v-else
           :key="item.id"
-          class="flex flex-row p-1 rounded shadow bg-white ring"
-          :style="'--tw-ring-color:' + item.color"
+          class="flex flex-row p-1 rounded shadow bg-subaccent bg-opacity-90 ring ring-subaccent"
         >
           <div class="flex-shrink-0 w-1/3 max-w-32">
-            <div class="aspect-ratio-1/1 rounded border">
+            <div class="aspect-ratio-1/1 rounded bg-subaccent border border-accent-color-600">
               <img class="object-contain" loading="lazy" :src="item.image ? item.image : characterImages" />
             </div>
           </div>
           <div class="flex-1 min-w-0 p-1 flex flex-col content-between md:p-2">
             <div class="flex-1">
               <div class="truncate opacity-60" :style="'color:' + item.color">{{ item.title }}</div>
-              <div
-                class="font-semibold truncate text-lg md:text-xl xl:text-2xl 2xl:text-3xl"
-                :style="'color:' + item.color"
-              >
+              <div class="font-semibold truncate text-lg md:text-xl xl:text-2xl 2xl:text-3xl">
                 {{ item.name }}
               </div>
             </div>
             <div class="flex justify-end">
               <button
-                class="px-3 md:px-5 py-1 shadow rounded text-white text-sm md:text-base"
-                :style="'background-color:' + item.color"
+                class="px-3 md:px-5 py-1 shadow rounded bg-accent-color-600 text-sm md:text-base"
                 @click="characterSelect(item.id)"
               >
                 选择
@@ -67,7 +65,7 @@
     </div>
   </transition>
   <Transition name="mask">
-    <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-50" @touchmove.stop.prevent></div>
+    <div v-if="open" class="fixed inset-0 bg-subaccent bg-opacity-0 z-50" @touchmove.stop.prevent></div>
   </Transition>
   <AdvancedFilter v-model:open="advancedFilterOpen" />
 </template>

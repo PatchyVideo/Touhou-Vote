@@ -3,7 +3,7 @@
     <icon-uil-angle-left-b class="w-full h-full cursor-pointer" @click="backToHome()"></icon-uil-angle-left-b>
     <button
       v-if="screenSizes['md']"
-      class="fixed flex items-center bottom-5 right-5 px-3 py-1 shadow rounded text-white bg-accent-color-600 text-sm md:text-base"
+      class="fixed flex items-center bottom-5 right-5 px-3 py-1 shadow rounded bg-accent-color-600 text-sm md:text-base"
       @click="backToHome()"
     >
       <icon-uil-angle-right-b class="fill-current" />

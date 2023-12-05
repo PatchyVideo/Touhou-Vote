@@ -8,12 +8,16 @@
         /><template v-else>{{ doujinValid.length }}</template
         >/{{ doujins.length }})
       </h2>
-      <span class="text-gray-700"
-        >为喜欢的同人作品提名
-        <span class="cursor-pointer hover:text-gray-900" tabindex="0" @click="() => (confirmedNotice = false)"
-          >[阅读须知]</span
-        ></span
-      >
+      <span>
+        为喜欢的同人作品提名
+        <span
+          class="cursor-pointer text-accent-color-300 hover:text-gray-600"
+          tabindex="0"
+          @click="() => (confirmedNotice = false)"
+        >
+          [阅读须知]
+        </span>
+      </span>
     </div>
     <div class="flex flex-col gap-2 mt-1 max-w-80ch">
       <div v-for="(doujin, index) in doujinValid" :key="doujin.url" @click="openEditDoujin(index)">
@@ -21,7 +25,7 @@
       </div>
       <button
         v-if="doujinValid.length < doujins.length"
-        class="flex flex-row justify-center items-center py-3 w-full rounded-md border-2 border-accent-color-200 hover:shadow-md hover:border-accent-color-300 transition-all ease-in-out"
+        class="flex flex-row justify-center items-center py-3 w-full rounded-md border-2 border-accent-color-600 hover:shadow hover:border-accent-color-300 transition-all ease-in-out"
         @click="() => openEditDoujin()"
       >
         <icon-uil-plus class="text-xl" />
@@ -29,7 +33,7 @@
       </button>
       <button
         :class="{ 'bg-accent-color-300': !doujinValid.length || loading }"
-        class="inline-block mx-auto px-16 py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="inline-block mx-auto px-16 py-2 rounded bg-accent-color-600 flex items-center space-x-1 justify-center"
         @click="!doujinValid.length || vote()"
       >
         <icon-uil-spinner-alt v-if="loading" class="animate-spin" />
@@ -41,7 +45,7 @@
   <div v-else class="grid place-items-center w-full h-full">
     <div class="flex flex-col overflow-auto max-w-70ch">
       <h2 class="mx-auto text-2xl">关于作品提名</h2>
-      <div class="prose py-4">
+      <div class="prose-lg py-4">
         <p class="indent-lg">欢迎来到新版中文东方人气投票的作品提名部门。</p>
         <p class="indent-lg">
           您可通过本部门的提名页面，对于

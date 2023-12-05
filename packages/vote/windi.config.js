@@ -18,17 +18,20 @@ export default defineConfig({
     extend: {
       colors: {
         // accent-color-600 is the default accent color of the project
+        // accent-color-300 is recommended to used for text
         'accent-color': {
-          100: '#FCECEC',
-          200: '#F8DAD8',
-          300: '#F1B5B0',
-          400: '#EA8F88',
-          500: '#E36A60',
-          600: '#DB4437',
-          700: '#280D0B',
-          800: '#561B15',
-          900: '#822820',
+          100: '#D6CEE6',
+          200: '#D6C2F7',
+          300: '#BDA6EF',
+          400: '#AD8EEF',
+          500: '#9C75EF',
+          600: '#7351C5',
+          700: '#5A41A4',
+          800: '#4A317B',
+          900: '#312052',
         },
+        subaccent: '#3A3531',
+        textaccent: '#CEBEAD',
       },
       screens: {
         '3xl': '1920px',

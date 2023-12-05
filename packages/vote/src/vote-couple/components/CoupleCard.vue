@@ -1,32 +1,31 @@
 <template>
-  <div class="p-1 opacity-80 rounded shadow bg-white space-y-2">
+  <div class="p-1 opacity-80 rounded shadow bg-subaccent bg-opacity-90 space-y-2">
     <div class="flex justify-between items-center">
       <div>{{ '投票位' + (indexOfCouple + 1) }}</div>
       <icon-uil-times class="cursor-pointer" @click="closeCard()"></icon-uil-times>
     </div>
-    <div class="p-1 flex space-x-4 overflow-hidden">
+    <div class="innerBox p-1 flex space-x-4 overflow-hidden">
       <transition-group name="characterList">
         <div
           v-for="(character, index) in charactersValid"
           :key="index"
-          class="relative w-3/10 min-h-30 md:min-h-40 3xl:min-h-50 p-1 pt-5 shadow rounded"
+          class="relative w-3/10 min-h-30 md:min-h-40 3xl:min-h-50 p-1 pt-5 bg-subaccent bg-opacity-90 shadow rounded"
         >
           <icon-uil-times
             class="absolute right-0 top-0 cursor-pointer"
             @click="deleteCharacter(index)"
           ></icon-uil-times>
           <div
-            class="character-image relative w-full aspect-ratio-1/1 overflow-hidden"
+            class="character-image relative w-full aspect-ratio-1/1 rounded border border-accent-color-600"
             :class="{ 'before:hidden': couple.seme != index }"
           >
-            <img class="w-full object-contain rounded border" :src="character.image ? character.image : characterImages" />
+            <img class="w-full object-contain" :src="character.image ? character.image : characterImages" />
           </div>
-          <div class="p-1 truncate text-center text-xs md:text-base" :style="'color:' + character.color">
+          <div class="p-1 truncate text-center text-xs md:text-base">
             {{ character.name }}
           </div>
           <button
-            class="w-full py-1 shadow rounded text-white text-sm md:text-base"
-            :style="'background-color:' + character.color"
+            class="w-full py-1 shadow rounded bg-accent-color-600 text-sm md:text-base"
             @click="chooseAsSeme(index)"
           >
             {{ couple.seme === index ? '撤销' : '选为主动' }}
@@ -49,7 +48,7 @@
         ref="reasonInput"
         v-model="couple.reason"
         placeholder="点此填写理由（可选）"
-        class="truncate w-full rounded ring ring-accent-color-300"
+        class="innerBox px-1 truncate w-full rounded ring ring-accent-color-300 outline-none"
         type="text"
       />
     </div>

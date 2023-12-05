@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="px-3 py-2 max-w-80ch rounded-md shadow cursor-pointer border-2 border-accent-color-400 hover:shadow-md hover:border-accent-color-500 transition-all ease-in-out"
-  >
+  <div class="px-3 py-2 max-w-80ch rounded-md shadow cursor-pointer">
     <div class="flex overflow-hidden">
       <div class="w-42">
         <div class="aspect-ratio-10/16 overflow-hidden border rounded">
@@ -36,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="mt-1 text-gray-800 line-clamp-4" v-text="doujin.reason"></div>
+    <div class="mt-1 line-clamp-4" v-text="doujin.reason"></div>
   </div>
 </template>
 

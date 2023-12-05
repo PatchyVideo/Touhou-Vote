@@ -1,8 +1,8 @@
 <template>
-  <div class="p-2 rounded shadow bg-white bg-opacity-80 space-y-1 cursor-pointer border" style="border-color: #fc4328">
+  <div class="p-2 rounded shadow bg-subaccent bg-opacity-90 space-y-1 cursor-pointer">
     <div class="flex overflow-hidden">
       <div class="w-3/10">
-        <div class="aspect-ratio-10/16 overflow-hidden border rounded">
+        <div class="aspect-ratio-10/16 overflow-hidden rounded">
           <picture class="h-full w-full object-contain">
             <source
               :srcset="
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="text-sm mt-1 text-gray-700 line-clamp-2">{{ doujin.reason }}</div>
+    <div class="text-sm mt-1 line-clamp-2">{{ doujin.reason }}</div>
   </div>
 </template>
 

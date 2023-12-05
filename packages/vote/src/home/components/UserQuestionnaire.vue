@@ -5,12 +5,12 @@
       <div v-for="(children, catogory) in questionnaire" :key="catogory">
         <div class="flex flex-nowrap items-end border-b-1 border-gray-700 space-x-2">
           <h2 class="text-base font-bold whitespace-nowrap">{{ questionnaireNameById[catogory].name }}</h2>
-          <span class="text-sm text-gray-700 truncate">{{ questionnaireNameById[catogory].desc }}</span>
+          <span class="text-sm truncate">{{ questionnaireNameById[catogory].desc }}</span>
         </div>
         <div
           v-for="(_child, childId) in children"
           :key="childId"
-          class="flex w-full p-0.5 shadow rounded bg-white bg-opacity-50 backdrop-filter backdrop-blur-2 mt-2"
+          class="flex w-full p-0.5 shadow rounded bg-subaccent bg-opacity-90 backdrop-filter backdrop-blur-2 mt-2"
         >
           <div class="w-1/3 p-0.5 overflow-hidden rounded">
             <div class="w-full aspect-1/1">
@@ -23,13 +23,18 @@
                 <div class="text-xl truncate">
                   {{ questionnaireNameById[catogory].children[childId].name }}
                 </div>
-                <label
+                <span
                   v-if="IsQuestionnaireDone(catogory as string, childId as string)"
-                  class="p-0.5 rounded text-xs shadow bg-red-500 text-white"
-                  >完成</label
-                >
+                  class="px-1 text-emerald-600 truncate rounded border border-emerald-300 bg-emerald-50 bg-opacity-50"
+                  >已填写
+                </span>
+                <span
+                  v-else
+                  class="px-1 text-amber-600 truncate rounded border border-amber-300 bg-amber-50 bg-opacity-50"
+                  >未填写
+                </span>
               </div>
-              <span class="text-gray-700" v-text="questionnaireNameById[catogory].children[childId].desc"></span>
+              <span v-text="questionnaireNameById[catogory].children[childId].desc"></span>
             </div>
             <div class="w-full text-right">
               <button

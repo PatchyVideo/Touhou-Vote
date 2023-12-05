@@ -18,7 +18,7 @@
     <div class="p-2" v-text="msg.text"></div>
     <div class="flex justify-center gap-2">
       <button
-        class="px-4 py-1 rounded text-white bg-accent-color-600"
+        class="px-4 py-1 rounded bg-accent-color-600"
         @click="
           () => {
             closeConfirm(msg)
@@ -28,7 +28,7 @@
         v-text="msg.cancelText || '取消'"
       ></button>
       <button
-        class="px-4 py-1 rounded text-white bg-accent-color-600"
+        class="px-4 py-1 rounded bg-accent-color-600"
         @click="
           () => {
             closeConfirm(msg)

@@ -1,14 +1,14 @@
 <template>
   <div class="page"></div>
   <div class="w-full min-h-100vh flex flex-col">
-    <div class="p-2 shadow flex items-center bg-white mb-2">
+    <div class="p-2 shadow flex items-center bg-subaccent bg-opacity-90 mb-2">
       <BackToHome :show="true" :saveable="false" />
       <div class="font-medium">第11届 国内东方人气投票 - 角色部门</div>
     </div>
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <transition name="characterHonmei" mode="out-in">
-        <div v-if="charactersVoted.length" class="p-1 rounded w-full shadow bg-white bg-opacity-80">
+        <div v-if="charactersVoted.length" class="p-1 rounded w-full shadow bg-subaccent bg-opacity-80">
           <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
             <div>本命角色</div>
             <icon-uil-arrows-h
@@ -22,14 +22,13 @@
               "
             />
           </div>
-          <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50">
+          <div class="innerBox p-2 rounded">
             <div v-if="characterHonmei.id != character0.id" key="selecting">
               <CharacterHonmeiCard v-model:character-honmei="characterHonmei" class="opacity-80" />
             </div>
-            <div v-else key="no-selecting" class="w-full text-center text-gray-400 py-10 space-y-2">
+            <div v-else key="no-selecting" class="w-full text-center py-10 space-y-2">
               <div>可以从喜欢的角色中选择一位</div>
               <div
-                class="underline cursor-pointer transition hover:text-gray-500"
                 @click="
                   () => {
                     characterHonmeiIsSelected = true
@@ -37,14 +36,16 @@
                   }
                 "
               >
-                <strong>点击这里把Ta选为您的本命票哦</strong>
+                <strong class="underline cursor-pointer transition hover:text-accent-color-300"
+                  >点击这里把Ta选为您的本命票哦</strong
+                >
               </div>
             </div>
           </div>
         </div>
       </transition>
 
-      <div class="p-1 rounded w-full shadow bg-white bg-opacity-80">
+      <div class="p-1 rounded w-full shadow bg-subaccent bg-opacity-80">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl®">
           <div>
             {{
@@ -56,7 +57,7 @@
           </div>
           <icon-uil-plus
             class="cursor-pointer"
-            :class="{ 'text-gray-400': charactersVotedNumber === CHARACTERVOTENUM }"
+            :class="{ hidden: charactersVotedNumber === CHARACTERVOTENUM }"
             @click="
               charactersVotedNumber === CHARACTERVOTENUM
                 ? ''
@@ -67,7 +68,7 @@
             "
           ></icon-uil-plus>
         </div>
-        <div class="p-2 rounded shadow-inner bg-gray-50 bg-opacity-50 whitespace-nowrap overflow-x-auto">
+        <div class="innerBox p-2 rounded whitespace-nowrap overflow-x-auto">
           <transition name="character" mode="out-in">
             <div v-if="charactersVotedWithoutHonmei.length">
               <transition-group name="characterList" tag="div">
@@ -80,14 +81,14 @@
                 </div>
               </transition-group>
             </div>
-            <div v-else class="w-full text-center text-gray-400 py-15">
+            <div v-else class="w-full text-center py-15">
               请为您喜爱的角色投上一票吧!<br />点击右上方的<strong> + </strong>按钮添加角色
             </div>
           </transition>
         </div>
       </div>
       <button
-        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="w-full py-2 rounded text bg-accent-color-600 flex items-center space-x-1 justify-center"
         :class="{ 'bg-accent-color-300': !charactersVotedNumber }"
         @click="charactersVotedNumber ? (confirmBoxOpen = true) : ''"
       >
@@ -103,11 +104,11 @@
   <VoteMessageBox v-model:open="confirmBoxOpen" title="请确定投票内容：">
     <div class="overflow-auto">
       <div class="divide-y p-2">
-        <div v-if="characterHonmei.honmei" class="py-1" :style="'color:' + characterHonmei.color">
+        <div v-if="characterHonmei.honmei" class="py-1">
           <div class="text-lg">
             {{ '本命位：' + characterHonmei.name }}
           </div>
-          <div class="">{{ '投票理由：' + (characterHonmei.reason ? characterHonmei.reason : '无') }}</div>
+          <div>{{ '投票理由：' + (characterHonmei.reason ? characterHonmei.reason : '无') }}</div>
         </div>
         <div v-for="(character, index) in charactersVotedWithoutHonmei" :key="character.id" class="py-1">
           <div class="">
@@ -115,18 +116,15 @@
           </div>
           <div class="text-sm">{{ '投票理由：' + (character.reason ? character.reason : '无') }}</div>
         </div>
-        <div class="text-gray-500 italic">
-          *票位序号仅用于核对投票内容，不影响权重<br />*投票期间可随时更改投票内容哦
-        </div>
+        <div class="italic">*票位序号仅用于核对投票内容，不影响权重<br />*投票期间可随时更改投票内容哦</div>
       </div>
       <button
-        class="w-full py-2 rounded text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="w-full py-2 rounded bg-accent-color-600 flex items-center space-x-1 justify-center"
         :class="{ 'bg-accent-color-300': loading }"
         @click="vote()"
       >
-        <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>{{
-          loading ? '投票中' : '确认投票！'
-        }}</label>
+        <icon-uil-spinner-alt v-if="loading" class="animate-spin" />
+        {{ loading ? '投票中' : '确认投票！' }}
       </button>
     </div>
   </VoteMessageBox>

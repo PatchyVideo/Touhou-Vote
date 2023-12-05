@@ -2,7 +2,7 @@
   <transition name="loginBox">
     <div
       v-if="open"
-      class="fixed max-h-full top-1/2 mx-auto left-0 right-0 -mt-40 p-4 w-19/20 rounded-xl bg-white md:w-100 z-51"
+      class="fixed max-h-full top-1/2 mx-auto left-0 right-0 -mt-40 p-4 border border-accent-color-600 w-19/20 md:w-100 rounded-xl bg-subaccent z-51"
     >
       <div class="w-full overflow-hidden">
         <div
@@ -17,7 +17,7 @@
             </div>
             <div>
               <label class="input-border flex flex-row py-2 px-4">
-                <span class="h-6 w-6"><icon-uil-user class="inline-block w-6 h-6 text-gray-700" /></span>
+                <span class="h-6 w-6"><icon-uil-user class="inline-block w-6 h-6" /></span>
                 <input
                   v-model="userEmailOrPhoneNum"
                   class="ml-2 w-full bg-transparent focus:outline-none"
@@ -30,10 +30,10 @@
                     }
                   "
               /></label>
-              <div class="text-accent-color-600 text-xs h-5" v-text="userTypeError"></div>
+              <div class="text-xs h-5" v-text="userTypeError"></div>
               <div class="flex justify-between">
                 <label class="w-1/2 py-2 px-4 inline-block input-border flex flex-row">
-                  <span class="h-6 w-6"><icon-uil-lock-alt class="inline-block w-6 h-6 text-gray-700" /></span>
+                  <span class="h-6 w-6"><icon-uil-lock-alt class="inline-block w-6 h-6" /></span>
                   <input
                     ref="codeEl"
                     v-model="verificationCode"
@@ -50,7 +50,7 @@
                   {{ '获取' + (verificationCodeAvailable ? '' : '(' + verificationCodeAvailableTime + ')') }}
                 </button>
               </div>
-              <div class="text-accent-color-600 text-xs h-5" v-text="verificationCodeError"></div>
+              <div class="text-xs h-5" v-text="verificationCodeError"></div>
               <button
                 class="w-full py-2 rounded-xl text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
                 :class="{ 'bg-accent-color-300': loading }"
@@ -87,7 +87,7 @@
               </div>
             </div> -->
             <div
-              class="text-gray-600 text-sm text-right cursor-pointer transition transition-colors hover:text-accent-color-600"
+              class="text-sm text-right cursor-pointer transition transition-colors hover:text-accent-color-600"
               @click="loading || (useOldSystemLogin = true)"
             >
               使用旧版账号密码登录
@@ -110,7 +110,7 @@
                   placeholder="邮箱"
                   type="text"
               /></label>
-              <div class="text-accent-color-600 text-xs h-5" v-text="userNameError"></div>
+              <div class="text-xs h-5" v-text="userNameError"></div>
               <label class="input-border flex flex-row py-2 px-4">
                 <span class="h-6 w-6"><icon-uil-lock-alt class="inline-block w-6 h-6 text-gray-700" /></span>
                 <input
@@ -119,7 +119,7 @@
                   placeholder="密码"
                   type="password"
               /></label>
-              <div class="text-accent-color-600 text-xs h-5" v-text="userPasswordError"></div>
+              <div class="text-xs h-5" v-text="userPasswordError"></div>
               <button
                 class="w-full py-2 rounded-xl text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
                 :class="{ 'bg-accent-color-300': loading }"

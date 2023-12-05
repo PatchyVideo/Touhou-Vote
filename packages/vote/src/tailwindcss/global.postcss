@@ -1,9 +1,28 @@
 @import url('https://fonts.loli.net/css?family=Quicksand');
 
 a {
-  @apply cursor-pointer;
-  @apply text-accent-color-600;
-  @apply hover:text-accent-color-900;
+  @apply cursor-pointer text-accent-color-300 hover:text-accent-color-600 transition transition-colors;
+}
+
+button {
+  @apply text-white;
+}
+
+strong {
+  @apply text-accent-color-300;
+}
+
+input,
+textarea {
+  @apply bg-transparent;
+}
+
+.innerBox {
+  @apply bg-accent-color-100 bg-opacity-10 shadow-inner;
+}
+
+* {
+  @apply text-textaccent;
 }
 
 /* Scrollbar */
@@ -106,21 +125,6 @@ a {
 
 /* Background */
 .page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  z-index: -1;
-  overflow: hidden;
-}
-@variants <md {
-  .page {
-    background-image: radial-gradient(circle at top left, theme('colors.accent-color.200') min(95vh), #ffffff 0);
-  }
-}
-@variants md {
-  .page {
-    background-image: radial-gradient(circle at 80% 30%, theme('colors.accent-color.200') min(40%), #ffffff 0);
-  }
+  @apply fixed inset-0 -z-1 bg-no-repeat bg-cover bg-center;
+  background-image: url('@/common/assets/backgroundImg.jpg');
 }

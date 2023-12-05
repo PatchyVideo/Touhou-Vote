@@ -2,7 +2,7 @@
   <transition name="messageBox">
     <div
       v-if="open"
-      class="fixed max-h-2/3 top-1/2 mx-auto left-0 right-0 -mt-60 p-2 w-19/20 max-w-70ch rounded bg-white z-51 flex flex-col"
+      class="fixed max-h-2/3 top-1/2 mx-auto left-0 right-0 -mt-60 p-2 w-19/20 max-w-70ch rounded bg-subaccent bg-opacity-90 shadow z-51 flex flex-col"
     >
       <div class="flex justify-between items-center">
         <div class="text-lg truncate">{{ props.title }}</div>
@@ -10,12 +10,12 @@
       </div>
       <slot></slot>
       <div class="flex justify-center" @click="() => (open = false)">
-        <button v-if="closeButton" class="px-4 py-1 rounded text-white bg-accent-color-600" @click="close">确定</button>
+        <button v-if="closeButton" class="px-4 py-1 rounded bg-accent-color-600" @click="close">确定</button>
       </div>
     </div>
   </transition>
   <Transition name="mask">
-    <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-50" @touchmove.stop.prevent></div>
+    <div v-if="open" class="fixed inset-0 bg-subaccent bg-opacity-0 z-50" @touchmove.stop.prevent></div>
   </Transition>
 </template>
 

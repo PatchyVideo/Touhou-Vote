@@ -2,7 +2,7 @@
   <transition name="advancedFilter">
     <div
       v-if="open"
-      class="fixed top-1/8 left-0 right-0 h-3/5 flex flex-col p-3 z-53 space-y-2 bg-white rounded w-3/4 mx-auto md:w-2/5 lg:w-4/15 3xl:w-1/5 text-sm md:text-base xl:text-xl 2xl:text-2xl"
+      class="fixed top-1/8 left-0 right-0 h-3/5 flex flex-col p-3 z-53 space-y-2 bg-subaccent bg-opacity-90 shadow rounded w-4/5 mx-auto md:w-1/3 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>高级筛选</div>
@@ -27,21 +27,19 @@
         <div>收录于专辑：</div>
         <VoteSelect v-model:selected="albumSelectedTem" :item-list="albumsListAfterFilterTem" />
         <div
-          class="text-right text-accent-color-600 transition transition-colors cursor-pointer hover:text-accent-color-300"
+          class="text-right text-accent-color-300 transition transition-colors cursor-pointer hover:text-accent-color-600"
           @click="resetFilter()"
         >
           重置条件
         </div>
       </div>
       <div class="p-2 border-t">
-        <button class="w-full py-2 rounded-xl text-white bg-accent-color-600 justify-center" @click="commitFilter()">
-          确定
-        </button>
+        <button class="w-full py-2 rounded-xl bg-accent-color-600 justify-center" @click="commitFilter()">确定</button>
       </div>
     </div>
   </transition>
   <Transition name="mask">
-    <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-52" @touchmove.stop.prevent></div>
+    <div v-if="open" class="fixed inset-0 bg-subaccent bg-opacity-0 z-52" @touchmove.stop.prevent></div>
   </Transition>
 </template>
 
