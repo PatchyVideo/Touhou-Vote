@@ -1,10 +1,7 @@
 <template>
   <div class="page"></div>
   <div class="w-full min-h-100vh flex flex-col">
-    <div class="p-2 shadow flex items-center bg-subaccent opacity-90 mb-2">
-      <BackToHome :show="true" :saveable="true" />
-      <div class="font-medium">第11届 中文东方人气投票 - 作品提名</div>
-    </div>
+    <NavVote VoteType="doujin" />
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <div class="p-1 rounded w-full space-y-2 shadow bg-subaccent bg-opacity-90">
@@ -89,10 +86,10 @@ import { computed, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { useLocalStorage } from '@vueuse/core'
 import NProgress from 'nprogress'
+import NavVote from '@/common/components/NavVote.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import DoujinCard from '@/vote-doujin/components/DoujinCard.vue'
 import EditDoujin from '@/vote-doujin/components/EditDoujin.vue'
-import BackToHome from '@/common/components/BackToHome.vue'
 import { doujins, updateVoteDataDoujins } from '@/vote-doujin/lib/voteData'
 import { doujinValid } from '@/vote-doujin/lib/doujinList'
 import { gql, useMutation, useQuery, useResult } from '@/graphql'

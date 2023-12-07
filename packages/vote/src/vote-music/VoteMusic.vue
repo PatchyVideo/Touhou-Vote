@@ -1,10 +1,7 @@
 <template>
   <div class="page"></div>
   <div class="w-full min-h-100vh flex flex-col">
-    <div class="p-2 shadow flex items-center bg-subaccent mb-2">
-      <BackToHome :show="true" :saveable="false" />
-      <div class="font-medium">第11届 中文东方人气投票 - 音乐部门</div>
-    </div>
+    <NavVote VoteType="music" />
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <transition name="musicHonmei" mode="out-in">
@@ -136,10 +133,10 @@
 import { computed, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import NProgress from 'nprogress'
+import NavVote from '@/common/components/NavVote.vue'
 import MusicSelect from './components/MusicSelect.vue'
 import MusicHonmeiCard from './components/MusicHonmeiCard.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
-import BackToHome from '@/common/components/BackToHome.vue'
 import MusicCard from '@/vote-music/components/MusicCard.vue'
 import { music0 } from '@/vote-music/lib/music'
 import { musicsVoted, musicsVotedWithoutHonmei } from '@/vote-music/lib/musicList'

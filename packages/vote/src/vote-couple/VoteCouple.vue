@@ -1,10 +1,7 @@
 <template>
   <div class="page"></div>
   <div class="w-full min-h-100vh flex flex-col">
-    <div class="p-2 shadow flex items-center bg-subaccent bg-opacity-90 mb-2">
-      <BackToHome :show="true" :saveable="false" />
-      <div class="font-medium">第11届 中文东方人气投票 - CP部门</div>
-    </div>
+    <NavVote VoteType="couple" />
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <div class="p-1 rounded w-full space-y-2 shadow bg-subaccent bg-opacity-90">
@@ -98,10 +95,10 @@ import { useRouter } from 'vue-router'
 import NProgress from 'nprogress'
 import { CPVOTENUM, couples, updateVotecouple } from '@/vote-couple/lib/voteData'
 import { coupleHonmei, couplesValid, couplesValidWithoutHonmei } from '@/vote-couple/lib/coupleList'
+import NavVote from '@/common/components/NavVote.vue'
 import CoupleCard from '@/vote-couple/components/CoupleCard.vue'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
-import BackToHome from '@/common/components/BackToHome.vue'
 import type { Character } from '@/vote-character/lib/character'
 import { character0 } from '@/vote-character/lib/character'
 import { gql, useMutation, useQuery, useResult } from '@/graphql'
