@@ -3,7 +3,7 @@
   <div class="w-full min-h-100vh flex flex-col">
     <div class="p-2 shadow flex items-center bg-subaccent opacity-90 mb-2">
       <BackToHome :show="true" :saveable="true" />
-      <div class="font-medium">第11届 国内东方人气投票 - 作品提名</div>
+      <div class="font-medium">第11届 中文东方人气投票 - 作品提名</div>
     </div>
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
