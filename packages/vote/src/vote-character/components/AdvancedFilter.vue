@@ -38,9 +38,7 @@
       </div>
     </div>
   </transition>
-  <Transition name="mask">
-    <div v-if="open" class="fixed inset-0 bg-subaccent bg-opacity-0 z-52" @touchmove.stop.prevent></div>
-  </Transition>
+  <Mask v-model:open="open" :z-index="52" />
 </template>
 
 <script lang="ts" setup>
@@ -60,6 +58,7 @@ import {
   worksListAfterFilterTem,
 } from '@/vote-character/lib/workList'
 import VoteSelect from '@/common/components/VoteSelect.vue'
+import Mask from '@/common/components/Mask.vue'
 
 const props = defineProps({
   open: {
@@ -101,13 +100,5 @@ function resetFilter(): void {
 .advancedFilter-enter-from,
 .advancedFilter-leave-to {
   @apply opacity-0;
-}
-.mask-enter-active,
-.mask-leave-active {
-  @apply transition-all duration-200;
-}
-.mask-enter-from,
-.mask-leave-to {
-  @apply bg-opacity-0;
 }
 </style>

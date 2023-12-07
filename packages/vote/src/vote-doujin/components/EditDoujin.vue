@@ -145,23 +145,22 @@
           <button class="px-5 py-1 rounded text-white bg-accent-color-600" @click="comfirmEdit()">确定</button>
         </div>
       </div>
-      <!-- Mask for fetching messages  -->
       <Transition name="mask">
         <div
           v-if="fetchLoading"
-          class="absolute top-0 bottom-0 left-0 right-0 rounded flex justify-center filter drop-shadow-md backdrop-filter backdrop-blur-sm"
+          class="absolute inset-0 rounded flex justify-center backdrop-filter backdrop-blur-sm"
           @touchmove.stop.prevent
         >
           <div class="flex items-center text-accent-color-600 font-bold text-lg">
-            <icon-uil-spinner-alt class="animate-spin" />少女祈祷中...
+            <icon-uil-spinner-alt class="animate-spin" />
+            少女祈祷中...
           </div>
         </div>
       </Transition>
     </div>
   </transition>
-  <Transition name="mask">
-    <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-39" @touchmove.stop.prevent></div>
-  </Transition>
+  <Mask v-model:open="open" :z-index="39" />
+
   <VoteMessageBox v-model:open="noticeOpen" title="提名规则">
     <div class="flex flex-col overflow-auto">
       <ul class="space-y-2 p-2 list-disc list-inside">
@@ -212,6 +211,7 @@ import { doujinValid } from '@/vote-doujin/lib/doujinList'
 import { doujins, setVoteDataDoujins } from '@/vote-doujin/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import Mask from '@/common/components/Mask.vue'
 import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
 
 const props = defineProps({

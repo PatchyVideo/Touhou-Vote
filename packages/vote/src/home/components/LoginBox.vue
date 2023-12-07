@@ -133,9 +133,7 @@
       </div>
     </div>
   </transition>
-  <Transition name="mask">
-    <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-50" @touchmove.stop.prevent></div>
-  </Transition>
+  <Mask v-model:open="open" />
 </template>
 <script lang="ts" setup>
 import { computed, ref, shallowRef, watchEffect } from 'vue'
@@ -144,6 +142,7 @@ import { gql, useMutation } from '@/graphql'
 import type { Mutation } from '@/graphql'
 import { setUserDataToLocalStorage } from '@/home/lib/user'
 import { popMessageText } from '@/common/lib/popMessage'
+import Mask from '@/common/components/Mask.vue'
 
 const props = defineProps({
   open: {
@@ -404,13 +403,5 @@ const codeEl = shallowRef<HTMLInputElement | null>()
 .loginBox-enter-from,
 .loginBox-leave-to {
   @apply opacity-0;
-}
-.mask-enter-active,
-.mask-leave-active {
-  @apply transition-all duration-200;
-}
-.mask-enter-from,
-.mask-leave-to {
-  @apply bg-opacity-0;
 }
 </style>

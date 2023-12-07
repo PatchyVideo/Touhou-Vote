@@ -83,9 +83,8 @@
       </div>
     </div>
   </transition>
-  <Transition name="mask">
-    <div v-if="open" class="fixed inset-0 bg-subaccent bg-opacity-0 z-50" @touchmove.stop.prevent></div>
-  </Transition>
+  <Mask v-model:open="open" />
+
   <AdvancedFilter v-model:open="advancedFilterOpen" />
 </template>
 
@@ -99,6 +98,7 @@ import { Music } from '@/vote-music/lib/music'
 import { musicsVotedWithoutHonmei, musicListLeftWithFilter, order, orderOptions } from '@/vote-music/lib/musicList'
 import { musics } from '@/vote-music/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
+import Mask from '@/common/components/Mask.vue'
 import AutoComplete from '@/common/components/AutoComplete.vue'
 import MusicImages from '@/vote-music/assets/defaultMusicImage.jpg?url'
 
@@ -185,13 +185,5 @@ function playAudio(musicSrc: string): void {
 .selectBox-enter-from,
 .selectBox-leave-to {
   @apply opacity-0;
-}
-.mask-enter-active,
-.mask-leave-active {
-  @apply transition-all duration-200;
-}
-.mask-enter-from,
-.mask-leave-to {
-  @apply bg-opacity-0;
 }
 </style>

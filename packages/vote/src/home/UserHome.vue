@@ -27,7 +27,7 @@
       <Transition name="userList">
         <div
           v-if="userListOpen"
-          class="absolute min-w-30 text-center top-6 z-51 right-0.5 rounded bg-subaccent p-2 shadow"
+          class="absolute min-w-30 text-center top-6 z-51 right-0.5 rounded bg-subaccent bg-opacity-90 p-2 shadow"
         >
           <img
             class="absolute -top-5 right-2 h-11 w-11 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
@@ -50,15 +50,7 @@
           </div>
         </div>
       </Transition>
-      <!-- Mask -->
-      <Transition name="mask">
-        <div
-          v-if="userListOpen"
-          class="fixed inset-0 bg-subaccent bg-opacity-0 z-50"
-          @click="userListOpen = false"
-          @touchmove.prevent.passive
-        ></div>
-      </Transition>
+      <Mask v-model:open="userListOpen" click-to-close />
     </div>
 
     <!-- Main Content -->
@@ -294,16 +286,7 @@
                 </div>
               </div>
             </Transition>
-            <!-- Mask -->
-            <Transition name="mask">
-              <div
-                v-if="userListOpen"
-                class="fixed inset-0 bg-subaccent bg-opacity-0 z-50"
-                @click="() => (userListOpen = false)"
-                @keydown.escape="() => (userListOpen = false)"
-                @touchmove.prevent.passive
-              ></div>
-            </Transition>
+            <Mask v-model:open="userListOpen" click-to-close />
           </div>
         </div>
         <!-- Main Content -->
@@ -357,6 +340,7 @@ import UserQuestionnaireDp from '@/home/components/UserQuestionnaireDp.vue'
 import UserVoteDp from '@/home/components/UserVoteDp.vue'
 import VoteDoujinDp from '@/vote-doujin/components/VoteDoujinDp.vue'
 import Copyright from '@/common/components/Copyright.vue'
+import Mask from '@/common/components/Mask.vue'
 import { screenSizes } from '@/tailwindcss'
 import {
   deleteUserData,
@@ -481,15 +465,5 @@ const dpTabs = [
 .userList-enter-from,
 .userList-leave-to {
   opacity: 0;
-}
-
-.mask-enter-active,
-.mask-leave-active {
-  @apply transition-all duration-200;
-}
-
-.mask-enter-from,
-.mask-leave-to {
-  @apply bg-opacity-0;
 }
 </style>

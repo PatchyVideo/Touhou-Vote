@@ -42,9 +42,7 @@
     </div>
     <div class="text-right text-accent-color-600 cursor-pointer" @click="close()">▲收起</div>
   </div>
-  <Transition name="mask">
-    <div v-if="open" class="fixed inset-0 bg-black bg-opacity-20 z-50" @touchmove.stop.prevent @click="close()"></div>
-  </Transition>
+  <Mask v-model:open="open" click-to-close />
 </template>
 
 <script lang="ts" setup>
@@ -52,6 +50,7 @@ import { onMounted, ref, watch, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useRoute, useRouter } from 'vue-router'
 import { questionDone, questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
+import Mask from '@/common/components/Mask.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -124,13 +123,3 @@ function changeQuestion(big: string, small: string, index: number): void {
   close()
 }
 </script>
-<style lang="postcss" scoped>
-.mask-enter-active,
-.mask-leave-active {
-  @apply transition-all duration-200;
-}
-.mask-enter-from,
-.mask-leave-to {
-  @apply bg-opacity-0;
-}
-</style>

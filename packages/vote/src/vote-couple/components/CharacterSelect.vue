@@ -56,9 +56,7 @@
       </div>
     </div>
   </transition>
-  <Transition name="mask">
-    <div v-if="open" class="fixed inset-0 bg-subaccent bg-opacity-0 z-50" @touchmove.stop.prevent></div>
-  </Transition>
+  <Mask v-model:open="open" />
   <AdvancedFilter v-model:open="advancedFilterOpen" />
 </template>
 
@@ -75,6 +73,7 @@ import { characterList } from '@/vote-character/lib/characterList'
 import { Couple } from '@/vote-couple/lib/couple'
 import { filterForKind, workSelected } from '@/vote-couple/lib/workList'
 import { pinin } from '@/common/lib/pinin'
+import Mask from '@/common/components/Mask.vue'
 
 const props = defineProps({
   open: {
@@ -201,13 +200,5 @@ function characterSelect(id: string): void {
 .selectBox-enter-from,
 .selectBox-leave-to {
   @apply opacity-0;
-}
-.mask-enter-active,
-.mask-leave-active {
-  @apply transition-all duration-200;
-}
-.mask-enter-from,
-.mask-leave-to {
-  @apply bg-opacity-0;
 }
 </style>
