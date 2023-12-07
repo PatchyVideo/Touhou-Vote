@@ -1,5 +1,5 @@
 <template>
-  <div class="relative p-1 pt-5 opacity-80 rounded shadow bg-subaccent bg-opacity-90">
+  <div class="baseBlock relative p-1 pt-5 opacity-80 rounded shadow">
     <icon-uil-times class="absolute right-0 top-0 cursor-pointer" @click="closeMusicCard()"></icon-uil-times>
     <div class="aspect-ratio-1/1 rounded border border-accent-color-600">
       <img class="object-contain" :src="music.image ? music.image : MusicImages" />

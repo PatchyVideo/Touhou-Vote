@@ -3,7 +3,7 @@
   <!-- Mobile View -->
   <div v-if="screenSizes['<lg']" class="min-h-100vh flex flex-col text-sm">
     <!-- Top Nav -->
-    <div class="w-full py-1 pr-3 bg-subaccent bg-opacity-90 shadow flex items-center justify-between">
+    <div class="baseBlock w-full py-1 pr-3 shadow flex items-center justify-between">
       <div v-if="!systemListIsOpen" class="pl-3 text-lg">第11届 中文东方人气投票</div>
       <div v-else class="flex items-center space-x-2">
         <icon-uil-angle-left-b class="w-8 h-8 cursor-pointer" @click="systemListClose()" />
@@ -27,7 +27,7 @@
       <Transition name="userList">
         <div
           v-if="userListOpen"
-          class="absolute min-w-30 text-center top-6 z-51 right-0.5 rounded bg-subaccent bg-opacity-90 p-2 shadow"
+          class="baseBlock absolute min-w-30 text-center top-6 z-51 right-0.5 rounded p-2 shadow"
         >
           <img
             class="absolute -top-5 right-2 h-11 w-11 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
@@ -60,7 +60,7 @@
         :class="{ '-translate-x-1/2': systemListIsOpen }"
       >
         <div class="w-1/2 p-3 space-y-2">
-          <div class="flex w-full p-0.5 shadow rounded bg-subaccent bg-opacity-90">
+          <div class="baseBlock flex w-full p-0.5 shadow rounded">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
                 <img
@@ -92,7 +92,7 @@
             </div>
           </div>
 
-          <div class="flex w-full p-0.5 shadow rounded bg-subaccent bg-opacity-90">
+          <div class="baseBlock flex w-full p-0.5 shadow rounded">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
                 <img src="https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png" class="object-cover rounded" />
@@ -128,7 +128,7 @@
             </div>
           </div>
 
-          <div class="flex w-full p-0.5 shadow rounded bg-subaccent bg-opacity-90">
+          <div class="baseBlock flex w-full p-0.5 shadow rounded">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
                 <img src="https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png" class="object-contain rounded" />
@@ -158,7 +158,7 @@
             </div>
           </div>
 
-          <!-- <div class="flex w-full p-0.5 shadow rounded bg-subaccent bg-opacity-90">
+          <!-- <div class="baseBlock flex w-full p-0.5 shadow rounded">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
                 <img src="@/home/assets/DefaultAvatar.jpg" class="object-cover rounded" />
@@ -236,7 +236,7 @@
         :class="dpCollapseNav ? 'ml-[calc(4ch-2px)]' : 'ml-[min(calc(30vh-4rem-2px),calc(256px+1rem-2px))]'"
       ></div>
       <div
-        class="flex-1 flex flex-col gap-4 pt-2 px-4 pb-px rounded-xl border-2 border-accent-color-400 bg-subaccent bg-opacity-100 pointer-events-auto"
+        class="flex-1 flex flex-col gap-4 pt-2 px-4 pb-px rounded-xl border-2 border-accent-color-400 bg-subaccent pointer-events-auto"
       >
         <!-- Top Nav -->
         <div class="flex justify-between">
@@ -261,7 +261,7 @@
             <Transition name="userList">
               <div
                 v-if="userListOpen"
-                class="absolute min-w-30 text-center top-6 z-51 right-1 rounded bg-subaccent p-2 shadow"
+                class="baseBlock absolute min-w-30 text-center top-6 z-51 right-1 rounded p-2 shadow"
               >
                 <img
                   class="absolute -top-5 right-2 h-11 w-11 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
@@ -299,13 +299,13 @@
 
     <!-- <div
         class="
+          baseBlock
           flex flex-wrap
           space-y-2
           w-3/10
           p-2
           shadow-around
           rounded
-          bg-subaccent bg-opacity-90
         "
       >
         <div class="w-full overflow-hidden rounded">

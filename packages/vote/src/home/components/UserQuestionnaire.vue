@@ -7,11 +7,7 @@
           <h2 class="text-base font-bold whitespace-nowrap">{{ questionnaireNameById[catogory].name }}</h2>
           <span class="text-sm truncate">{{ questionnaireNameById[catogory].desc }}</span>
         </div>
-        <div
-          v-for="(_child, childId) in children"
-          :key="childId"
-          class="flex w-full p-0.5 shadow rounded bg-subaccent bg-opacity-90 mt-2"
-        >
+        <div v-for="(_child, childId) in children" :key="childId" class="baseBlock w-full p-0.5 shadow rounded mt-2">
           <div class="w-1/3 p-0.5 overflow-hidden rounded">
             <div class="w-full aspect-1/1">
               <img :src="questionnaireNameById[catogory].children[childId].image" class="object-cover rounded" />

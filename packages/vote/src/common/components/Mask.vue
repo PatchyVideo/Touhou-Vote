@@ -2,7 +2,7 @@
   <Transition name="mask">
     <div
       v-if="open"
-      class="fixed inset-0 backdrop-filter backdrop-blur-sm"
+      class="fixed inset-0 bg-subaccent bg-opacity-30 backdrop-filter backdrop-blur-sm"
       :style="'z-index:' + props.zIndex"
       @click="closeMask()"
       @touchmove.stop.prevent

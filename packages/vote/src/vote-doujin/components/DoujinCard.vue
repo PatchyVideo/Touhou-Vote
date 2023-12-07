@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 rounded shadow bg-subaccent bg-opacity-90 space-y-1 cursor-pointer">
+  <div class="baseBlock p-2 rounded shadow space-y-1 cursor-pointer">
     <div class="flex overflow-hidden">
       <div class="w-3/10">
         <div class="aspect-ratio-10/16 overflow-hidden rounded">

@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <div v-if="screenSizes['md']" class="text-xl rounded-xl p-8 shadow-around bg-subaccent bg-opacity-90">
+        <div v-if="screenSizes['md']" class="baseBlock text-xl rounded-xl p-8 shadow-around">
           这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
         </div>
       </div>
@@ -47,7 +47,7 @@
       </div>
 
       <!-- Other Messages -->
-      <div class="w-full pt-6vh md:p-10 md:shadow-around md:rounded-xl md:bg-subaccent md:bg-opacity-90 md:mt-10">
+      <div class="baseBlockMd w-full pt-6vh md:p-10 md:shadow-around md:rounded-xl md:mt-10">
         <article class="prose-lg lg:prose-xl">
           <h2>投票详情</h2>
           <p>投票的举办地点与结果的发布地点均为本站。</p>

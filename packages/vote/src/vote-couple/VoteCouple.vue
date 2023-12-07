@@ -4,7 +4,7 @@
     <NavVote VoteType="couple" />
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
-      <div class="p-1 rounded w-full space-y-2 shadow bg-subaccent bg-opacity-90">
+      <div class="baseBlock p-1 rounded w-full space-y-2 shadow">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
           <div>{{ '角色组合(' + couplesValid.length + '/' + CPVOTENUM + ')' }}</div>
         </div>
@@ -29,7 +29,7 @@
           <transition name="addMore" mode="out-in">
             <div
               v-if="couplesValid.length < CPVOTENUM"
-              class="w-full shadow text-center bg-subaccent bg-opacity-90 cursor-pointer select-none p-2 rounded"
+              class="baseBlock w-full shadow text-center cursor-pointer select-none p-2 rounded"
               @click="addCouple()"
             >
               <icon-uil-plus class="text-lg" />

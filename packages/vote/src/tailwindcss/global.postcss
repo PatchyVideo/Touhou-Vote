@@ -21,6 +21,16 @@ textarea {
   @apply bg-accent-color-100 bg-opacity-10 shadow-inner;
 }
 
+.baseBlock {
+  @apply bg-subaccent bg-opacity-80;
+  /* backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px); */
+}
+
+.baseBlockMd {
+  @apply md:bg-subaccent md:bg-opacity-80;
+}
+
 * {
   @apply text-textaccent;
 }
@@ -127,4 +137,5 @@ textarea {
 .page {
   @apply fixed inset-0 -z-1 bg-no-repeat bg-cover bg-center;
   background-image: url('@/common/assets/backgroundImg.jpg');
+  /* filter: blur(10px); */
 }

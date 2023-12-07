@@ -2,7 +2,7 @@
   <transition name="selectBox">
     <div
       v-if="open"
-      class="fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 bg-subaccent rounded w-[calc(100%-1rem)] mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
+      class="baseBlock fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 rounded w-[calc(100%-1rem)] mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>请选择角色</div>
@@ -25,14 +25,10 @@
 
       <div><small>可通过名称、外号、所属作品来搜索，支持部分匹配和拼音匹配。</small></div>
 
-      <div class="innerBox flex-grow overflow-y-auto p-2 rounded flex flex-col space-y-3">
-        <div
-          v-for="item in characterListLeftWithFilter"
-          :key="item.id"
-          class="p-1 rounded shadow bg-subaccent bg-opacity-90 ring ring-subaccent flex"
-        >
+      <div class="innerBox flex-grow overflow-y-auto p-2 pr-0 rounded flex flex-col space-y-3">
+        <div v-for="item in characterListLeftWithFilter" :key="item.id" class="baseBlock p-1 rounded shadow flex">
           <div class="flex-shrink-0 w-1/3 max-w-32">
-            <div class="aspect-ratio-1/1 rounded bg-subaccent border border-accent-color-600">
+            <div class="baseBlock aspect-ratio-1/1 rounded border border-accent-color-600">
               <img class="object-contain" loading="lazy" :src="item.image ? item.image : characterImages" />
             </div>
           </div>

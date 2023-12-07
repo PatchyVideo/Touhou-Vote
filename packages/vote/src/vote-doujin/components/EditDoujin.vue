@@ -2,7 +2,7 @@
   <transition name="editDoujin">
     <div
       v-if="open"
-      class="fixed top-1/10 left-0 right-0 mx-auto w-19/20 max-w-105ch max-h-4/5 flex flex-col p-3 z-40 space-y-2 bg-subaccent rounded"
+      class="baseBlock fixed top-1/10 left-0 right-0 mx-auto w-19/20 max-w-105ch max-h-4/5 flex flex-col p-3 z-40 space-y-2 rounded"
     >
       <div class="flex justify-between">
         <div class="md:text-base xl:text-xl 2xl:text-2xl">编辑提名</div>

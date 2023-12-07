@@ -2,7 +2,7 @@
   <div class="min-h-[calc(100vh-44px)] md:min-h-0">
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
-      <div class="flex w-full p-0.5 shadow rounded bg-subaccent bg-opacity-80">
+      <div class="baseBlock flex w-full p-0.5 shadow rounded">
         <div class="w-1/3 p-0.5 overflow-hidden rounded">
           <div class="w-full aspect-1/1">
             <img src="https://s3c.lilywhite.cc/thvote/imgs/nav/character@100px.png" class="object-cover rounded" />
@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div class="flex w-full p-0.5 shadow rounded bg-subaccent bg-opacity-80">
+      <div class="baseBlock flex w-full p-0.5 shadow rounded">
         <div class="w-1/3 p-0.5 overflow-hidden rounded">
           <div class="w-full aspect-1/1">
             <img src="https://s3c.lilywhite.cc/thvote/imgs/nav/music@100px.png" class="object-cover rounded" />
@@ -63,7 +63,7 @@
           </div>
         </div>
       </div>
-      <div class="flex w-full p-0.5 shadow rounded bg-subaccent bg-opacity-80">
+      <div class="baseBlock flex w-full p-0.5 shadow rounded">
         <div class="w-1/3 p-0.5 overflow-hidden rounded">
           <div class="w-full aspect-1/1">
             <img src="https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png" class="object-cover rounded" />

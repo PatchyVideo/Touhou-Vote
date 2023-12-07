@@ -5,7 +5,7 @@
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <transition name="musicHonmei" mode="out-in">
-        <div v-if="musicsVoted.length" class="p-1 rounded w-full shadow bg-subaccent bg-opacity-80">
+        <div v-if="musicsVoted.length" class="baseBlock p-1 rounded w-full shadow">
           <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
             <div>本命曲目</div>
             <icon-uil-arrows-h
@@ -42,7 +42,7 @@
         </div>
       </transition>
 
-      <div class="p-1 rounded w-full shadow bg-subaccent bg-opacity-80">
+      <div class="baseBlock p-1 rounded w-full shadow">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl®">
           <div>
             {{
