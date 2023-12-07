@@ -34,7 +34,7 @@
             </div>
             <div class="w-full text-right">
               <button
-                class="px-2 py-0.5 text-sm rounded text-white bg-accent-color-600 xl:px-3 xl:py-2"
+                class="px-2 py-0.5 text-sm rounded bg-accent-color-600 xl:px-3 xl:py-2"
                 @click="gotoQuestionnaire(catogory as string, childId as string)"
               >
                 开始填写

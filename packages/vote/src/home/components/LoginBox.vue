@@ -43,7 +43,7 @@
                     @keypress.enter="login()"
                 /></label>
                 <button
-                  class="py-2 px-5 rounded-xl text-white bg-accent-color-600"
+                  class="py-2 px-5 rounded-xl bg-accent-color-600"
                   :class="{ 'bg-accent-color-300': !verificationCodeAvailable || loading }"
                   @click="verificationCodeGet()"
                 >
@@ -52,7 +52,7 @@
               </div>
               <div class="text-xs h-5" v-text="verificationCodeError"></div>
               <button
-                class="w-full py-2 rounded-xl text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+                class="w-full py-2 rounded-xl text bg-accent-color-600 flex items-center space-x-1 justify-center"
                 :class="{ 'bg-accent-color-300': loading }"
                 @click="login()"
               >
@@ -121,7 +121,7 @@
               /></label>
               <div class="text-xs h-5" v-text="userPasswordError"></div>
               <button
-                class="w-full py-2 rounded-xl text text-white bg-accent-color-600 flex items-center space-x-1 justify-center"
+                class="w-full py-2 rounded-xl text bg-accent-color-600 flex items-center space-x-1 justify-center"
                 :class="{ 'bg-accent-color-300': loading }"
                 @click="oldSystemlogin()"
               >

@@ -64,7 +64,7 @@
         <p class="italic text-sm">*本活动最终解释权归THBWiki所有</p>
       </div>
       <button
-        class="inline-block mx-auto px-8 py-2 rounded text-white bg-accent-color-600"
+        class="inline-block mx-auto px-8 py-2 rounded bg-accent-color-600"
         @click="() => (confirmedNotice = true)"
       >
         我知道了

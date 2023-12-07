@@ -142,7 +142,7 @@
             删除
           </button>
           <button class="px-5 py-1 rounded border" @click="cancelEdit()">取消</button>
-          <button class="px-5 py-1 rounded text-white bg-accent-color-600" @click="comfirmEdit()">确定</button>
+          <button class="px-5 py-1 rounded bg-accent-color-600" @click="comfirmEdit()">确定</button>
         </div>
       </div>
       <Transition name="mask">
