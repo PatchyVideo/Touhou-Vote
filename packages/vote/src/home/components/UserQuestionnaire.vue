@@ -10,7 +10,7 @@
         <div
           v-for="(_child, childId) in children"
           :key="childId"
-          class="flex w-full p-0.5 shadow rounded bg-subaccent bg-opacity-90 backdrop-filter backdrop-blur-2 mt-2"
+          class="flex w-full p-0.5 shadow rounded bg-subaccent bg-opacity-90 mt-2"
         >
           <div class="w-1/3 p-0.5 overflow-hidden rounded">
             <div class="w-full aspect-1/1">

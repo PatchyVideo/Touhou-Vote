@@ -1,6 +1,6 @@
 <template>
   <div class="page"></div>
-  <div class="w-full backdrop-filter backdrop-blur-1">
+  <div class="w-full">
     <div class="flex flex-wrap items-center justify-between w-full px-3vh md:w-9/10 md:mx-auto xl:w-2/3">
       <!-- Title -->
       <div class="grid md:grid-cols-2 place-items-center w-full min-h-100vh gap-16">
@@ -34,10 +34,7 @@
           </div>
         </div>
 
-        <div
-          v-if="screenSizes['md']"
-          class="text-xl rounded-xl p-8 shadow-around bg-subaccent bg-opacity-90 backdrop-filter backdrop-blur-2"
-        >
+        <div v-if="screenSizes['md']" class="text-xl rounded-xl p-8 shadow-around bg-subaccent bg-opacity-90">
           这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
         </div>
       </div>
@@ -50,9 +47,7 @@
       </div>
 
       <!-- Other Messages -->
-      <div
-        class="w-full pt-6vh md:p-10 md:shadow-around md:rounded-xl md:bg-subaccent md:bg-opacity-90 md:backdrop-filter md:backdrop-blur-2 md:mt-10"
-      >
+      <div class="w-full pt-6vh md:p-10 md:shadow-around md:rounded-xl md:bg-subaccent md:bg-opacity-90 md:mt-10">
         <article class="prose-lg lg:prose-xl">
           <h2>投票详情</h2>
           <p>投票的举办地点与结果的发布地点均为本站。</p>
