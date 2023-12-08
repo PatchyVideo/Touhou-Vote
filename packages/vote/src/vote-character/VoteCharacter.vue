@@ -158,7 +158,7 @@ const {
     query ($voteToken: String!) {
       getSubmitCharacterVote(voteToken: $voteToken) {
         characters {
-          name
+          id
           first
           reason
         }

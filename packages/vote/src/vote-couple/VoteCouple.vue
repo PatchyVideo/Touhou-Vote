@@ -119,9 +119,9 @@ const {
     query ($voteToken: String!) {
       getSubmitCPVote(voteToken: $voteToken) {
         cps {
-          nameA
-          nameB
-          nameC
+          idA
+          idB
+          idC
           active
           first
           reason

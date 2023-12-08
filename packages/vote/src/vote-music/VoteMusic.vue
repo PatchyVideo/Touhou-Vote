@@ -160,7 +160,7 @@ const {
     query ($voteToken: String!) {
       getSubmitMusicVote(voteToken: $voteToken) {
         music {
-          name
+          id
           first
           reason
         }
