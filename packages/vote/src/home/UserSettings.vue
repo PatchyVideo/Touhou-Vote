@@ -1,6 +1,6 @@
 <template>
   <div class="page"></div>
-  <div class="w-full min-h-100vh flex flex-col space-y-2 md:space-y-0 md:z-50">
+  <div class="flex flex-col w-full min-h-100vh">
     <!-- Top Nav -->
     <div
       class="baseBoxRoundedShadow rounded-none w-full h-11 py-1 flex items-center space-x-2"
@@ -12,10 +12,10 @@
       <div class="text-xl">用户设定</div>
     </div>
     <!-- Main Content -->
-    <div class="md:p-3 md:w-1/3 md:min-w-95 md:m-auto md:flex md:flex-grow">
-      <div class="baseBlockMd md:w-full md:p-3 md:shadow md:flex md:flex-grow md:items-center">
-        <div class="w-full md:ring-accent-color-600 p-3 divide-y divide-accent-color-300">
-          <div class="flex items-center space-x-3">
+    <div class="flex-grow md:flex md:items-center w-full md:min-w-190 max-w-230 md:m-auto p-3">
+      <div class="baseBoxRoundedShadow w-full p-3 md:p-15">
+        <div class="md:flex md:space-x-4 md:pb-20">
+          <div class="md:w-1/2 flex items-center space-x-3">
             <img
               class="h-25 w-25 rounded-full ring-2 ring-accent-color-500 cursor-pointer"
               src="@/home/assets/DefaultAvatar.jpg"
@@ -25,16 +25,16 @@
               <div class="truncate text-sm">{{ '注册于' + createdAt }}</div>
               <div class="space-x-2">
                 <!-- <label class="text-red-600 underline cursor-pointer" @click="">修改头像</label> -->
-                <label class="text-accent-color-600 underline cursor-pointer" @click="updateUsernameOpen = true"
+                <label class="text-accent-color-300 underline cursor-pointer" @click="updateUsernameOpen = true"
                   >修改用户名</label
                 >
               </div>
-              <div v-if="!voteEnded()" class="text-accent-color-600 text-sm">
+              <div v-if="!voteEnded()" class="text-accent-color-300 text-sm">
                 *出于防刷票考虑，投票期间不能修改账户绑定信息哦
               </div>
             </div>
           </div>
-          <div class="mt-3 divide-y divide-accent-color-300">
+          <div class="md:w-1/2 mt-3 divide-y divide-accent-color-300">
             <div class="p-3 flex items-center justify-between">
               <div>{{ '邮箱：' + (user.email != null ? user.email : '未绑定') }}</div>
               <label
@@ -55,7 +55,7 @@
             </div>
             <div class="p-3 flex items-center justify-between">
               <div>{{ '密码：' + (user.password ? '已设置' : '未设置') }}</div>
-              <label class="text-accent-color-600 underline cursor-pointer" @click="changePasswordOpen = true">{{
+              <label class="text-accent-color-300 underline cursor-pointer" @click="changePasswordOpen = true">{{
                 user.password ? '修改' : '去设置'
               }}</label>
             </div>
@@ -75,14 +75,14 @@
               </div>
             </div> -->
           </div>
-          <button
-            class="w-full py-2 flex items-center space-x-1 justify-center"
-            :class="{ 'bg-accent-color-300': loading }"
-            @click="logout()"
-          >
-            退出登陆
-          </button>
         </div>
+        <button
+          class="w-full py-2 flex items-center space-x-1 justify-center"
+          :class="{ 'bg-accent-color-300': loading }"
+          @click="logout()"
+        >
+          退出登陆
+        </button>
       </div>
     </div>
   </div>
