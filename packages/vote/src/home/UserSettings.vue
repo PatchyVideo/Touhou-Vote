@@ -73,7 +73,7 @@
             </div> -->
           </div>
           <button
-            class="w-full py-2 rounded-xl text bg-accent-color-600 flex items-center space-x-1 justify-center"
+            class="w-full py-2 flex items-center space-x-1 justify-center"
             :class="{ 'bg-accent-color-300': loading }"
             @click="logout()"
           >
@@ -95,7 +95,7 @@
           @keydown.enter="updateUsername()"
       /></label>
       <button
-        class="w-full py-2 shadow rounded bg-accent-color-600 text-sm md:text-base"
+        class="w-full py-2 text-sm md:text-base"
         :class="{ 'bg-accent-color-300': loading }"
         @click="updateUsername()"
       >
@@ -130,7 +130,7 @@
           @keydown.enter="updatePassword()"
       /></label>
       <button
-        class="w-full py-2 shadow rounded bg-accent-color-600 text-sm md:text-base"
+        class="w-full py-2 text-sm md:text-base"
         :class="{ 'bg-accent-color-300': loading }"
         @click="updatePassword()"
       >
@@ -167,7 +167,7 @@
             @keypress.enter="updatePhoneOrEmail()"
         /></label>
         <button
-          class="py-2 px-5 rounded-xl bg-accent-color-600"
+          class="py-2 px-5"
           :class="{ 'bg-accent-color-300': !verificationCodeAvailable || loading }"
           @click="verificationCodeGet()"
         >
@@ -176,7 +176,7 @@
       </div>
       <div class="text-accent-color-600 text-xs h-5" v-text="verificationCodeError"></div>
       <button
-        class="w-full py-2 rounded-xl text bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="w-full py-2 flex items-center space-x-1 justify-center"
         :class="{ 'bg-accent-color-300': loading }"
         @click="updatePhoneOrEmail()"
       >

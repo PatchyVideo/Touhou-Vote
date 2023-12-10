@@ -24,10 +24,7 @@
           <div class="p-1 truncate text-center text-xs md:text-base">
             {{ character.name }}
           </div>
-          <button
-            class="w-full py-1 shadow rounded bg-accent-color-600 text-sm md:text-base"
-            @click="chooseAsSeme(index)"
-          >
+          <button class="w-full py-1 text-sm md:text-base" @click="chooseAsSeme(index)">
             {{ couple.seme === index ? '撤销' : '选为主动' }}
           </button>
         </div>

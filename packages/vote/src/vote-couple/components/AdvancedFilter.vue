@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="p-2 border-t">
-        <button class="w-full py-2 rounded-xl bg-accent-color-600 justify-center" @click="commitFilter()">确定</button>
+        <button class="w-full py-2 justify-center" @click="commitFilter()">确定</button>
       </div>
     </div>
   </transition>

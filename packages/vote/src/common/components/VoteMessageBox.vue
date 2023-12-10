@@ -10,7 +10,7 @@
       </div>
       <slot></slot>
       <div class="flex justify-center" @click="() => (open = false)">
-        <button v-if="closeButton" class="px-4 py-1 rounded bg-accent-color-600" @click="close">确定</button>
+        <button v-if="closeButton" class="px-4 py-1" @click="close">确定</button>
       </div>
     </div>
   </transition>

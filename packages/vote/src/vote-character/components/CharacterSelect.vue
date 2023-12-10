@@ -47,12 +47,7 @@
               </div>
             </div>
             <div class="flex justify-end">
-              <button
-                class="px-3 md:px-5 py-1 shadow rounded bg-accent-color-600 text-sm md:text-base"
-                @click="characterSelect(item.id)"
-              >
-                选择
-              </button>
+              <button class="px-3 md:px-5 py-1 text-sm md:text-base" @click="characterSelect(item.id)">选择</button>
             </div>
           </div>
         </div>

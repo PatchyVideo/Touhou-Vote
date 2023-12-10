@@ -77,7 +77,7 @@
               </div>
               <div class="w-full text-right">
                 <button
-                  class="px-2 py-0.5 text-sm rounded bg-accent-color-600"
+                  class="px-2 py-0.5 text-sm"
                   :class="{ 'bg-accent-color-300': item.buttonInactive() }"
                   @click="item.buttonFunction()"
                 >

@@ -42,7 +42,7 @@
 
       <button
         :class="{ 'bg-accent-color-300': !doujinValid.length || loading }"
-        class="w-full py-2 rounded text bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="w-full py-2 flex items-center space-x-1 justify-center"
         @click="!doujinValid.length || vote()"
       >
         <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>
@@ -71,10 +71,7 @@
         <br />
         <p class="italic text-sm">*本活动最终解释权归THBWiki所有</p>
       </div>
-      <button
-        class="w-full py-2 rounded text bg-accent-color-600 flex items-center space-x-1 justify-center"
-        @click="() => (confirmedNotice = true)"
-      >
+      <button class="w-full py-2 flex items-center space-x-1 justify-center" @click="() => (confirmedNotice = true)">
         我知道了
       </button>
     </div>

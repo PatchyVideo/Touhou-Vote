@@ -26,7 +26,7 @@
             <div class="text-sm">为喜欢的角色投票</div>
           </div>
           <div class="w-full text-right">
-            <button class="px-2 py-0.5 text-sm rounded bg-accent-color-600 md:px-3 md:py-2" @click="voteCharacter()">
+            <button class="px-2 py-0.5 text-sm md:px-3 md:py-2" @click="voteCharacter()">
               {{ voteCharacterComplete ? '修改结果' : '开始投票' }}
             </button>
           </div>
@@ -57,7 +57,7 @@
             <div class="text-sm">为喜欢的音乐投票</div>
           </div>
           <div class="w-full text-right">
-            <button class="px-2 py-0.5 text-sm rounded bg-accent-color-600 md:px-3 md:py-2" @click="voteMusic()">
+            <button class="px-2 py-0.5 text-sm md:px-3 md:py-2" @click="voteMusic()">
               {{ voteMusicComplete ? '修改结果' : '开始投票' }}
             </button>
           </div>
@@ -87,7 +87,7 @@
             <div class="text-sm">为喜欢的角色组合投票</div>
           </div>
           <div class="w-full text-right">
-            <button class="px-2 py-0.5 text-sm rounded bg-accent-color-600 md:px-3 md:py-2" @click="voteCouple()">
+            <button class="px-2 py-0.5 text-sm md:px-3 md:py-2" @click="voteCouple()">
               {{ voteCoupleComplete ? '修改结果' : '开始投票' }}
             </button>
           </div>

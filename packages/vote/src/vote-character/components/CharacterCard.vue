@@ -9,9 +9,7 @@
     <div class="p-1 truncate text-center text-xs md:text-base">
       {{ character.name }}
     </div>
-    <button class="w-full py-1 shadow rounded bg-accent-color-600 text-sm md:text-base" @click="openReasonBox()">
-      编辑投票理由
-    </button>
+    <button class="w-full py-1 text-sm md:text-base" @click="openReasonBox()">编辑投票理由</button>
   </div>
   <VoteMessageBox v-model:open="reasonBoxOpen" :title="reasonTitle">
     <div class="space-y-3 py-5">
@@ -24,9 +22,7 @@
           type="text"
           @keydown.enter="commitReasonBox()"
       /></label>
-      <button class="w-full py-2 shadow rounded bg-accent-color-600 text-sm md:text-base" @click="commitReasonBox()">
-        确定
-      </button>
+      <button class="w-full py-2 text-sm md:text-base" @click="commitReasonBox()">确定</button>
     </div>
   </VoteMessageBox>
 </template>

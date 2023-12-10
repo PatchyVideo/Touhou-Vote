@@ -25,7 +25,7 @@
       </div>
       <button
         v-if="doujinValid.length < doujins.length"
-        class="flex flex-row justify-center items-center py-3 w-full rounded-md border-2 border-accent-color-600 hover:shadow hover:border-accent-color-300 transition-all ease-in-out"
+        class="flex flex-row justify-center items-center py-3 w-full border-2 border-accent-color-600 hover:shadow hover:border-accent-color-300 transition-all ease-in-out"
         @click="() => openEditDoujin()"
       >
         <icon-uil-plus class="text-xl" />
@@ -33,7 +33,7 @@
       </button>
       <button
         :class="{ 'bg-accent-color-300': !doujinValid.length || loading }"
-        class="inline-block mx-auto px-16 py-2 rounded bg-accent-color-600 flex items-center space-x-1 justify-center"
+        class="inline-block mx-auto px-16 py-2 flex items-center space-x-1 justify-center"
         @click="!doujinValid.length || vote()"
       >
         <icon-uil-spinner-alt v-if="loading" class="animate-spin" />
@@ -63,12 +63,7 @@
         <p class="indent-lg">由于是首次举办，尚在摸索阶段，可能会有诸多不足之处，还请各位谅解，感谢大家的支持！</p>
         <p class="italic text-sm">*本活动最终解释权归THBWiki所有</p>
       </div>
-      <button
-        class="inline-block mx-auto px-8 py-2 rounded bg-accent-color-600"
-        @click="() => (confirmedNotice = true)"
-      >
-        我知道了
-      </button>
+      <button class="inline-block mx-auto px-8 py-2" @click="() => (confirmedNotice = true)">我知道了</button>
     </div>
   </div>
 </template>

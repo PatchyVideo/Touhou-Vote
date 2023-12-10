@@ -59,19 +59,14 @@
             </div>
             <div class="w-full flex justify-between">
               <button
-                class="flex items-center px-3 md:px-5 py-1 shadow rounded text-sm md:text-base bg-accent-color-600"
+                class="flex items-center px-3 md:px-5 py-1 text-sm md:text-base"
                 :class="{ 'ring ring-accent-color-600': musicPlaying === item.music }"
                 @click="playAudio(item.music)"
               >
                 <icon-uil-spinner-alt v-if="musicPlaying === item.music && musicLoading" class="animate-spin" />
                 试听
               </button>
-              <button
-                class="px-3 md:px-5 py-1 shadow rounded text-sm md:text-base bg-accent-color-600"
-                @click="musicSelect(item.id)"
-              >
-                选择
-              </button>
+              <button class="px-3 md:px-5 py-1 text-sm md:text-base" @click="musicSelect(item.id)">选择</button>
             </div>
           </div>
         </div>

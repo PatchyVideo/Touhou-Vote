@@ -17,7 +17,7 @@
               class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-300 transition-colors w-full"
             />
             <button
-              class="whitespace-nowrap px-1 py-0.5 bg-accent-color-600 text-xs rounded lg:text-sm"
+              class="whitespace-nowrap px-1 py-0.5 text-xs lg:text-sm"
               :class="{ 'bg-accent-color-300': fetchLoading || !validUrlInvalid }"
               @click="!fetchLoading && validUrlInvalid && fetchMsg()"
             >
@@ -138,11 +138,15 @@
           <icon-uil-question-circle /><span class="<md:hidden">提名规则</span>
         </div>
         <div class="flex gap-x-4">
-          <button v-if="props.index != doujinValid.length" class="px-5 py-1 rounded border" @click="deleteEdit()">
+          <button
+            v-if="props.index != doujinValid.length"
+            class="px-5 py-1 bg-white text-accent-color-300 border"
+            @click="deleteEdit()"
+          >
             删除
           </button>
-          <button class="px-5 py-1 rounded border" @click="cancelEdit()">取消</button>
-          <button class="px-5 py-1 rounded bg-accent-color-600" @click="comfirmEdit()">确定</button>
+          <button class="px-5 py-1 bg-white text-accent-color-300 border" @click="cancelEdit()">取消</button>
+          <button class="px-5 py-1" @click="comfirmEdit()">确定</button>
         </div>
       </div>
       <Transition name="mask">
@@ -192,10 +196,7 @@
         </li>
         <li>上述规则的最终解释权由THBWiki所有。</li>
       </ul>
-      <button
-        class="w-full py-2 rounded text bg-accent-color-600 flex items-center space-x-1 justify-center"
-        @click="noticeOpen = false"
-      >
+      <button class="w-full py-2 flex items-center space-x-1 justify-center" @click="noticeOpen = false">
         <label>我知道了</label>
       </button>
     </div>
