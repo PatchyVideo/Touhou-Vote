@@ -1,5 +1,5 @@
 <template>
-  <div class="baseBlock relative w-full p-1 rounded flex">
+  <div class="baseBlock relative w-full p-1 flex">
     <div class="w-2/5 max-w-32 md:max-w-64">
       <div class="border rounded aspect-ratio-1/1 border-accent-color-600">
         <img class="object-contain" :src="musicHonmei.image ? musicHonmei.image : MusicImages" />
@@ -16,7 +16,7 @@
           ref="reasonInput"
           v-model="reasonEdit"
           placeholder="点此填写理由（可选）"
-          class="innerBox w-full truncate px-1 rounded outline-none"
+          class="innerBox w-full truncate px-1 outline-none"
           type="text"
           @blur="updateReason()"
           @keydown.enter="updateReason()"

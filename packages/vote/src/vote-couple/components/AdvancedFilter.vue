@@ -2,7 +2,7 @@
   <transition name="advancedFilter">
     <div
       v-if="open"
-      class="baseBlock fixed top-1/8 left-0 right-0 h-3/5 flex flex-col p-3 z-53 space-y-2 rounded w-4/5 mx-auto md:w-1/3 text-sm md:text-base xl:text-xl 2xl:text-2xl"
+      class="baseBlock fixed top-1/8 left-0 right-0 h-3/5 flex flex-col p-3 z-53 space-y-2 w-4/5 mx-auto md:w-1/3 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>高级筛选</div>

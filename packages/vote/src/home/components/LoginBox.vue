@@ -2,7 +2,7 @@
   <transition name="loginBox">
     <div
       v-if="open"
-      class="baseBlock fixed max-h-full top-1/2 mx-auto left-0 right-0 -mt-40 p-4 border border-accent-color-600 w-19/20 md:w-100 rounded-xl z-51"
+      class="baseBlock fixed max-h-full top-1/2 mx-auto left-0 right-0 -mt-40 p-4 border border-accent-color-600 w-19/20 md:w-100 z-51"
     >
       <div class="w-full overflow-hidden">
         <div

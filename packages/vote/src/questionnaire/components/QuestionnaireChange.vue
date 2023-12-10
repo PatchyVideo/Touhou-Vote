@@ -1,12 +1,12 @@
 <template>
   <div
-    class="baseBlock fixed top-0 inset-x-0 max-h-100vh z-51 p-3 md:p-10 rounded-b overflow-auto transform-gpu transition-transform duration-200 ease-in-out flex flex-col"
+    class="baseBlock fixed top-0 inset-x-0 max-h-100vh z-51 p-3 md:p-10 rounded-none rounded-b overflow-auto transform-gpu transition-transform duration-200 ease-in-out flex flex-col"
     :class="{ '-translate-y-full': !open }"
   >
     <div
       v-for="(questionnaire, index) in questionnaireKeyToName"
       :key="index"
-      class="baseBlock w-full rounded border border-accent-color-600 mb-2"
+      class="baseBlock w-full border border-accent-color-600 mb-2"
     >
       <div
         class="px-2 py-1 truncate cursor-pointer"
@@ -26,7 +26,7 @@
       <div
         :id="questionnaire.smallQuestionnaire"
         name="questionnaire"
-        class="innerBox flex flex-wrap m-1 rounded transform transition-all duration-200 ease-in-out h-0 overflow-hidden"
+        class="innerBox flex flex-wrap m-1 transform transition-all duration-200 ease-in-out h-0 overflow-hidden"
       >
         <div
           v-for="(answer, index2) in questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire]

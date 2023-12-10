@@ -5,7 +5,7 @@
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <transition name="musicHonmei" mode="out-in">
-        <div v-if="musicsVoted.length" class="baseBlock p-1 rounded w-full">
+        <div v-if="musicsVoted.length" class="baseBlock p-1 w-full">
           <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
             <div>本命曲目</div>
             <icon-uil-arrows-h
@@ -19,7 +19,7 @@
               "
             />
           </div>
-          <div class="innerBox p-2 rounded">
+          <div class="innerBox p-2">
             <div v-if="musicHonmei.id != music0.id" key="selecting">
               <MusicHonmeiCard v-model:music-honmei="musicHonmei" class="opacity-80" />
             </div>
@@ -42,7 +42,7 @@
         </div>
       </transition>
 
-      <div class="baseBlock p-1 rounded w-full">
+      <div class="baseBlock p-1 w-full">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl®">
           <div>
             {{
@@ -65,7 +65,7 @@
             "
           ></icon-uil-plus>
         </div>
-        <div class="innerBox p-2 rounded whitespace-nowrap overflow-x-auto">
+        <div class="innerBox p-2 whitespace-nowrap overflow-x-auto">
           <transition name="music" mode="out-in">
             <div v-if="musicsVotedWithoutHonmei.length">
               <transition-group name="musicList" tag="div">

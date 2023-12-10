@@ -1,5 +1,5 @@
 <template>
-  <div class="baseBlock p-1 opacity-80 rounded space-y-2">
+  <div class="baseBlock p-1 opacity-80 space-y-2">
     <div class="flex justify-between items-center">
       <div>{{ '投票位' + (indexOfCouple + 1) }}</div>
       <icon-uil-times class="cursor-pointer" @click="closeCard()"></icon-uil-times>
@@ -9,7 +9,7 @@
         <div
           v-for="(character, index) in charactersValid"
           :key="index"
-          class="baseBlock relative w-3/10 min-h-30 md:min-h-40 3xl:min-h-50 p-1 pt-5 rounded"
+          class="baseBlock relative w-3/10 min-h-30 md:min-h-40 3xl:min-h-50 p-1 pt-5"
         >
           <icon-uil-times
             class="absolute right-0 top-0 cursor-pointer"
@@ -48,7 +48,7 @@
         ref="reasonInput"
         v-model="couple.reason"
         placeholder="点此填写理由（可选）"
-        class="innerBox px-1 truncate w-full rounded ring ring-accent-color-300 outline-none"
+        class="innerBox px-1 truncate w-full ring ring-accent-color-300 outline-none"
         type="text"
       />
     </div>

@@ -3,7 +3,7 @@
   <!-- Mobile View -->
   <div v-if="screenSizes['<lg']" class="min-h-100vh flex flex-col text-sm">
     <!-- Top Nav -->
-    <div class="baseBlock w-full py-1 pr-3 flex items-center justify-between">
+    <div class="baseBlock rounded-none w-full py-1 pr-3 flex items-center justify-between">
       <div v-if="!systemListIsOpen" class="pl-3 text-lg">第11届 中文东方人气投票</div>
       <div v-else class="flex items-center space-x-2">
         <icon-uil-angle-left-b class="w-8 h-8 cursor-pointer" @click="systemListClose()" />
@@ -25,7 +25,7 @@
 
       <!-- User List -->
       <Transition name="userList">
-        <div v-if="userListOpen" class="baseBlock absolute min-w-30 text-center top-6 z-51 right-0.5 rounded p-2">
+        <div v-if="userListOpen" class="baseBlock absolute min-w-30 text-center top-6 z-51 right-0.5 p-2">
           <img
             class="absolute -top-5 right-2 h-11 w-11 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
             src="@/home/assets/DefaultAvatar.jpg"
@@ -57,7 +57,7 @@
         :class="{ '-translate-x-1/2': systemListIsOpen }"
       >
         <div class="w-1/2 p-3 space-y-2">
-          <div v-for="item in TabList" :key="item.type" class="baseBlock flex w-full p-0.5 rounded">
+          <div v-for="item in TabList" :key="item.type" class="baseBlock flex w-full p-0.5">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
                 <img :src="item.icon" class="object-cover rounded" />
@@ -171,7 +171,7 @@
             />
             <!-- User List -->
             <Transition name="userList">
-              <div v-if="userListOpen" class="baseBlock absolute min-w-30 text-center top-6 z-51 right-1 rounded p-2">
+              <div v-if="userListOpen" class="baseBlock absolute min-w-30 text-center top-6 z-51 right-1 p-2">
                 <img
                   class="absolute -top-5 right-2 h-11 w-11 rounded-full ring-2 ring-accent-color-200 cursor-pointer"
                   src="@/home/assets/DefaultAvatar.jpg"

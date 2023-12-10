@@ -4,11 +4,11 @@
     <NavVote VoteType="doujin" />
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
-      <div class="baseBlock p-1 rounded w-full space-y-2">
+      <div class="baseBlock p-1 w-full space-y-2">
         <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
           <div>{{ '提名作品(' + doujinValid.length + '/' + doujins.length + ')' }}</div>
         </div>
-        <div class="innerBox p-2 rounded space-y-2">
+        <div class="innerBox p-2 space-y-2">
           <transition name="doujin" mode="out-in">
             <div v-if="!doujinValid.length" key="no-selecting" class="w-full text-center py-10 space-y-2">
               <div>请点击下方的按钮</div>
@@ -30,7 +30,7 @@
           <transition name="addMore" mode="out-in">
             <div
               v-if="doujinValid.length < doujins.length"
-              class="baseBlock flex flex-row justify-center items-center cursor-pointer select-none p-2 rounded"
+              class="baseBlock flex flex-row justify-center items-center cursor-pointer select-none p-2"
               @click="openEditDoujin()"
             >
               <icon-uil-plus class="text-lg" />

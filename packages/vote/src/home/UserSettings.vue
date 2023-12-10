@@ -2,7 +2,7 @@
   <div class="page"></div>
   <div class="w-full min-h-100vh flex flex-col space-y-2 md:space-y-0 md:z-50">
     <!-- Top Nav -->
-    <div class="baseBlock w-full h-11 py-1 flex items-center space-x-2" :class="{ 'pl-2': voteEnded() }">
+    <div class="baseBlock rounded-none w-full h-11 py-1 flex items-center space-x-2" :class="{ 'pl-2': voteEnded() }">
       <router-link v-if="!voteEnded()" to="/" class="w-8 h-8 cursor-pointer"
         ><icon-uil-angle-left-b class="w-full h-full"></icon-uil-angle-left-b
       ></router-link>
@@ -10,7 +10,7 @@
     </div>
     <!-- Main Content -->
     <div class="md:p-3 md:w-1/3 md:min-w-95 md:m-auto md:flex md:flex-grow">
-      <div class="baseBlockMd md:w-full md:rounded-xl md:p-3 md:shadow md:flex md:flex-grow md:items-center">
+      <div class="baseBlockMd md:w-full md:p-3 md:shadow md:flex md:flex-grow md:items-center">
         <div class="w-full md:ring-accent-color-600 p-3 divide-y divide-accent-color-300">
           <div class="flex items-center space-x-3">
             <img

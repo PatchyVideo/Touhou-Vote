@@ -1,5 +1,5 @@
 <template>
-  <div class="innerBox shadow rounded h-7 w-full flex justify-start items-center">
+  <div class="innerBox shadow h-7 w-full flex justify-start items-center">
     <icon-uil-search class="flex-shrink-0 inline mx-2" />
     <input
       v-model="searchContent"
