@@ -33,7 +33,7 @@
           "
         ></div>
         <!-- eslint-enable vue/no-v-html -->
-        <div v-for="item in characterList" v-else :key="item.id" class="baseBlock flex flex-row p-1 rounded shadow">
+        <div v-for="item in characterList" v-else :key="item.id" class="baseBlock flex flex-row p-1 rounded">
           <div class="flex-shrink-0 w-1/3 max-w-32">
             <div class="baseBlock aspect-ratio-1/1 rounded border border-accent-color-600">
               <img class="object-contain" loading="lazy" :src="item.image ? item.image : characterImages" />

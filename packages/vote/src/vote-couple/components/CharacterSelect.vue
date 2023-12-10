@@ -26,7 +26,7 @@
       <div><small>可通过名称、外号、所属作品来搜索，支持部分匹配和拼音匹配。</small></div>
 
       <div class="innerBox flex-grow overflow-y-auto p-2 pr-0 rounded flex flex-col space-y-3">
-        <div v-for="item in characterListLeftWithFilter" :key="item.id" class="baseBlock p-1 rounded shadow flex">
+        <div v-for="item in characterListLeftWithFilter" :key="item.id" class="baseBlock p-1 rounded flex">
           <div class="flex-shrink-0 w-1/3 max-w-32">
             <div class="baseBlock aspect-ratio-1/1 rounded border border-accent-color-600">
               <img class="object-contain" loading="lazy" :src="item.image ? item.image : characterImages" />

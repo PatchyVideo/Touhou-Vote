@@ -26,7 +26,7 @@
       <div
         :id="questionnaire.smallQuestionnaire"
         name="questionnaire"
-        class="innerBox flex flex-wrap shadow-inner m-1 rounded transform transition-all duration-200 ease-in-out h-0 overflow-hidden"
+        class="innerBox flex flex-wrap m-1 rounded transform transition-all duration-200 ease-in-out h-0 overflow-hidden"
       >
         <div
           v-for="(answer, index2) in questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire]

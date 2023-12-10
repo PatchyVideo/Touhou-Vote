@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <div v-if="screenSizes['md']" class="baseBlock text-xl rounded-xl p-8 shadow-around">
+        <div v-if="screenSizes['md']" class="baseBlock text-xl rounded-xl p-8">
           这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
         </div>
       </div>
