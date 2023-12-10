@@ -1,41 +1,43 @@
 <template>
   <div class="page"></div>
   <div class="w-full">
-    <div class="flex flex-wrap items-center justify-between w-full px-3vh md:w-9/10 md:mx-auto xl:w-2/3">
+    <div class="w-full px-2 mx-auto md:w-9/10 xl:w-2/3">
       <!-- Title -->
-      <div class="grid md:grid-cols-2 place-items-center w-full min-h-100vh gap-16">
-        <div class="space-y-6vh md:pt-0 md:flex md:flex-wrap md:content-center md:space-y-4vh">
-          <div class="w-full space-y-2">
-            <div class="quicksand md:text-xl">
-              <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://thwiki.cc/favicon.ico" />THBWiki &
-              <img class="inline-block w-8 h-10 pb-1 align-middle" src="@/common/assets/logoVoilelabs.png" />VoileLabs
+      <div class="flex items-end min-h-100vh">
+        <div class="baseBox rounded-t w-full p-5 md:p-10 pb-20 flex justify-between items-center">
+          <div class="md:w-[calc(50%-1rem)] space-y-4vh">
+            <div class="space-y-2">
+              <div class="quicksand md:text-xl">
+                <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://thwiki.cc/favicon.ico" />THBWiki &
+                <img class="inline-block w-8 h-10 pb-1 align-middle" src="@/common/assets/logoVoilelabs.png" />VoileLabs
+              </div>
+              <div class="flex flex-wrap space-y-2">
+                <div class="w-full"><img src="@/common/assets/title.svg" /></div>
+                <div class="w-full"><img class="w-1/4 inline-block" src="@/common/assets/titleNum.svg" /></div>
+              </div>
             </div>
-            <div class="w-full flex flex-wrap space-y-2">
-              <div class="w-full"><img src="@/common/assets/title.svg" /></div>
-              <div class="w-full"><img class="w-1/4 inline-block" src="@/common/assets/titleNum.svg" /></div>
+            <a
+              class="float-arrow-box space-x-3 flex items-center w-3/5 md:w-1/2"
+              tabindex="0"
+              @click="loginBoxOpen = true"
+              ><img class="w-3/5" src="@/common/assets/login.svg" /><img
+                src="@/common/assets/loginIcon.svg"
+                class="float-arrow w-1/6"
+            /></a>
+            <div class="w-full text-lg flex items-center space-x-1">
+              <icon-uil-clock-five />
+              <div class="text-right text-md font-sans">
+                {{ '距结束还有 ' + daysWith0 + '天' + hoursWith0 + '时' + minutesWith0 + '分' + secondsWith0 + '秒' }}
+              </div>
             </div>
           </div>
-          <div v-if="screenSizes['<md']" class="text-lg">
-            这是一个为了调查东方Project系列在中文社群的大致情况而举办的一次调查活动。在举办期间，我们同往届一样接受来自中文社群的东方爱好者们的投票。并将在投票结束后择日公布本次投票的结果。期待您的参与。
-          </div>
-          <a
-            class="float-arrow-box space-x-3 flex items-center w-3/5 md:w-1/2"
-            tabindex="0"
-            @click="loginBoxOpen = true"
-            ><img class="w-3/5" src="@/common/assets/login.svg" /><img
-              src="@/common/assets/loginIcon.svg"
-              class="float-arrow w-1/6"
-          /></a>
-          <div class="w-full text-lg flex items-center space-x-1">
-            <icon-uil-clock-five />
-            <div class="text-right text-md font-sans">
-              {{ '距结束还有 ' + daysWith0 + '天' + hoursWith0 + '时' + minutesWith0 + '分' + secondsWith0 + '秒' }}
-            </div>
-          </div>
-        </div>
 
-        <div v-if="screenSizes['md']" class="baseBlock text-xl p-8">
-          这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
+          <!-- Devider -->
+          <div v-if="screenSizes['md']" class="w-0.5 h-40 rounded bg-textaccent" />
+
+          <div v-if="screenSizes['md']" class="md:w-[calc(50%-1rem)] text-xl flex items-center">
+            这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
+          </div>
         </div>
       </div>
 
@@ -47,13 +49,14 @@
       </div>
 
       <!-- Other Messages -->
-      <div class="baseBlockMd w-full pt-6vh md:p-10 md:shadow-around md:mt-10">
+      <div class="baseBox rounded-b w-full p-10">
         <article class="prose-lg lg:prose-xl">
-          <h2>投票详情</h2>
-          <p>投票的举办地点与结果的发布地点均为本站。</p>
+          <h2 v-if="screenSizes['md']">投票详情</h2>
+          <p v-else>
+            这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
+          </p>
           <p>
-            本次投票的规则与上一届相同。 <strong>角色票为8个，音乐票为12个，CP票为4个。</strong><br />
-            此外，本届新增加了作品提名部门，<strong>每人有提名5个作品的机会</strong>。<br />
+            本次投票的规则与上一届相同。 <strong>角色票为8个，音乐票为12个，CP票为4个作品提名为5个</strong><br />
             投票过程为黑箱投票，即在投票过程中不显示实时投票统计，而是在投票结束后计算出结果进行展示。
           </p>
           <p>
@@ -82,6 +85,7 @@
           <!-- ... -->
         </article>
       </div>
+
       <Copyright />
     </div>
   </div>
