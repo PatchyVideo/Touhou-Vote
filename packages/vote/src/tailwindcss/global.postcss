@@ -30,6 +30,7 @@ textarea {
 .baseBoxRoundedShadow {
   @apply rounded;
 }
+.baseBoxShadow,
 .baseBoxRoundedShadow {
   @apply shadow;
 }
@@ -138,8 +139,17 @@ textarea {
 
 /* Background */
 .page {
-  @apply fixed inset-0 -z-1 bg-no-repeat bg-cover bg-center shadow-bg;
-  box-shadow: inset 3em 3em 20em 6em rgba(0, 0, 0, 0.5), inset -3em -3em 20em 6em rgba(0, 0, 0, 0.5);
+  @apply fixed inset-0 -z-1 bg-no-repeat bg-cover bg-center;
   background-image: url('@/common/assets/backgroundImg.jpg');
-  /* filter: blur(10px); */
+}
+
+@variants <md {
+  .page {
+    box-shadow: inset 3em 3em 20em 6em rgba(0, 0, 0, 0.3), inset -3em -3em 20em 6em rgba(0, 0, 0, 0.3);
+  }
+}
+@variants md {
+  .page {
+    box-shadow: inset 3em 3em 20em 6em rgba(0, 0, 0, 0.4), inset -3em -3em 20em 6em rgba(0, 0, 0, 0.4);
+  }
 }

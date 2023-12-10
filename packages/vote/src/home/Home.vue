@@ -4,7 +4,7 @@
     <div class="w-full px-2 mx-auto md:w-9/10 xl:w-2/3">
       <!-- Title -->
       <div class="flex items-end min-h-100vh">
-        <div class="baseBox rounded-t w-full p-5 md:p-10 pb-20 flex justify-between items-center">
+        <div class="baseBox rounded-t md:flex md:justify-between md:items-center w-full p-5 md:p-10 pb-20">
           <div class="md:w-[calc(50%-1rem)] space-y-4vh">
             <div class="space-y-2">
               <div class="quicksand md:text-xl">
@@ -33,7 +33,7 @@
           </div>
 
           <!-- Devider -->
-          <div v-if="screenSizes['md']" class="w-0.5 h-40 rounded bg-textaccent" />
+          <div v-if="screenSizes['md']" class="w-0.5 h-40 rounded shadow bg-textaccent" />
 
           <div v-if="screenSizes['md']" class="md:w-[calc(50%-1rem)] text-xl flex items-center">
             这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
