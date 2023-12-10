@@ -1,7 +1,7 @@
 <template>
   <div class="page"></div>
   <div class="w-full min-h-100vh flex flex-col overflow-hidden">
-    <div class="baseBlock rounded-none p-2 flex items-center justify-between">
+    <div class="baseBoxRoundedShadow rounded-none p-2 flex items-center justify-between">
       <div class="flex items-center">
         <BackToHome :show="true" :saveable="true" />
         <div class="font-medium">
@@ -29,7 +29,7 @@
     </div>
 
     <div class="w-full flex flex-col space-y-3 p-1 md:w-1/2 3xl:w-1/4 md:m-auto">
-      <div class="baseBlock p-1 w-full">
+      <div class="baseBoxRoundedShadow p-1 w-full">
         <div class="space-y-5 p-2">
           <div>{{ questionNum + 1 + '：' + question.content + '（' + TypeToChinese[question.type] + '）' }}</div>
           <div v-if="question.type != 'Input'" class="innerBox space-y-1">

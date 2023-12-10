@@ -21,12 +21,17 @@ textarea {
   @apply bg-accent-color-100 bg-opacity-10 shadow-inner rounded;
 }
 
-.baseBlock {
-  @apply bg-subaccent bg-opacity-90 shadow rounded;
+.baseBox,
+.baseBoxRounded,
+.baseBoxRoundedShadow {
+  @apply bg-subaccent bg-opacity-90;
 }
-
-.baseBlockMd {
-  @apply md:bg-subaccent md:bg-opacity-80;
+.baseBoxRounded,
+.baseBoxRoundedShadow {
+  @apply rounded;
+}
+.baseBoxRoundedShadow {
+  @apply shadow;
 }
 
 * {
@@ -133,7 +138,8 @@ textarea {
 
 /* Background */
 .page {
-  @apply fixed inset-0 -z-1 bg-no-repeat bg-cover bg-center;
+  @apply fixed inset-0 -z-1 bg-no-repeat bg-cover bg-center shadow-bg;
+  box-shadow: inset 3em 3em 20em 6em rgba(0, 0, 0, 0.5), inset -3em -3em 20em 6em rgba(0, 0, 0, 0.5);
   background-image: url('@/common/assets/backgroundImg.jpg');
   /* filter: blur(10px); */
 }

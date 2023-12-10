@@ -2,7 +2,7 @@
   <transition name="selectBox">
     <div
       v-if="open"
-      class="baseBlock fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 w-[calc(100%-1rem)] mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
+      class="baseBoxRoundedShadow fixed top-1/10 left-0 right-0 h-4/5 flex flex-col p-3 z-51 space-y-2 w-[calc(100%-1rem)] mx-auto md:w-1/2 3xl:w-1/4 text-sm md:text-base xl:text-xl 2xl:text-2xl"
     >
       <div class="flex justify-between border-b">
         <div>请选择曲目</div>
@@ -31,9 +31,9 @@
           "
         ></div>
         <!-- eslint-enable vue/no-v-html -->
-        <div v-for="item in musicList" v-else :key="item.id" class="baseBlock p-1 flex">
+        <div v-for="item in musicList" v-else :key="item.id" class="baseBoxRoundedShadow p-1 flex">
           <div class="flex-shrink-0 w-1/3 max-w-32">
-            <div class="baseBlock aspect-ratio-1/1 border border-accent-color-600">
+            <div class="baseBoxRoundedShadow aspect-ratio-1/1 border border-accent-color-600">
               <img class="object-contain" loading="lazy" :src="item.image ? item.image : MusicImages" />
             </div>
           </div>

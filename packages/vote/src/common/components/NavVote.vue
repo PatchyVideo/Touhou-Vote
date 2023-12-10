@@ -1,5 +1,5 @@
 <template>
-  <div class="baseBlock rounded-none p-2 shadow flex items-center mb-2">
+  <div class="baseBoxRoundedShadow rounded-none p-2 shadow flex items-center mb-2">
     <BackToHome :show="true" :saveable="false" />
     <div class="font-medium">{{ '第11届 中文东方人气投票 - ' + typeChinese }}</div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="baseBlock p-2 space-y-1 cursor-pointer">
+  <div class="baseBoxRoundedShadow p-2 space-y-1 cursor-pointer">
     <div class="flex overflow-hidden">
       <div class="w-3/10">
         <div class="aspect-ratio-10/16 overflow-hidden rounded">

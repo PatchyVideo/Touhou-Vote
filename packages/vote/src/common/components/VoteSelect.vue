@@ -2,7 +2,7 @@
   <div class="inline-block relative">
     <div
       ref="VoteSelectRoot"
-      class="baseBlock flex justify-between cursor-pointer p-1 md:px-3"
+      class="baseBoxRoundedShadow flex justify-between cursor-pointer p-1 md:px-3"
       @click="listHidden = !listHidden"
     >
       {{ selected.name === '' ? selectedName : selected.name }}
@@ -15,7 +15,7 @@
     </div>
     <div
       v-if="itemList.length"
-      class="baseBlock absolute z-52 mt-1 w-full overflow-hidden"
+      class="baseBoxRoundedShadow absolute z-52 mt-1 w-full overflow-hidden"
       :class="{ 'p-1': !listHidden }"
     >
       <ul

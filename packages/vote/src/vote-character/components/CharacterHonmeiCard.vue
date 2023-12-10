@@ -1,5 +1,5 @@
 <template>
-  <div class="baseBlock relative w-full p-1 flex">
+  <div class="baseBoxRoundedShadow relative w-full p-1 flex">
     <div class="w-2/5 max-w-64">
       <div class="aspect-ratio-1/1 rounded border border-accent-color-600">
         <img class="object-contain" :src="characterHonmei.image ? characterHonmei.image : characterImages" />
