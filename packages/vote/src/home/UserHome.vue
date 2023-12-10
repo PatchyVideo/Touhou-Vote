@@ -60,120 +60,35 @@
         :class="{ '-translate-x-1/2': systemListIsOpen }"
       >
         <div class="w-1/2 p-3 space-y-2">
-          <div class="baseBlock flex w-full p-0.5 shadow rounded">
+          <div v-for="item in TabList" :key="item.type" class="baseBlock flex w-full p-0.5 shadow rounded">
             <div class="w-1/3 p-0.5 overflow-hidden rounded">
               <div class="w-full aspect-1/1">
-                <img
-                  src="https://s3c.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png"
-                  class="object-cover rounded"
-                />
+                <img :src="item.icon" class="object-cover rounded" />
               </div>
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
                 <div class="w-full flex items-center space-x-2">
-                  <div class="text-xl truncate">填写问卷</div>
+                  <div class="text-xl truncate">{{ item.title }}</div>
                   <span
-                    v-if="IsQuestionnaireAllDone"
+                    v-if="item.complete()"
                     class="px-1 text-emerald-600 rounded border border-emerald-300 bg-emerald-50 bg-opacity-50"
                     >完成
                   </span>
                 </div>
-                <div class="text-sm">投票之前请先完成调查问卷哦</div>
+                <div class="text-sm">{{ item.desc }}</div>
               </div>
               <div class="w-full text-right">
                 <button
                   class="px-2 py-0.5 text-sm rounded bg-accent-color-600"
-                  @click="systemListOpen('questionnaire')"
+                  :class="{ 'bg-accent-color-300': item.buttonInactive() }"
+                  @click="item.buttonFunction()"
                 >
-                  {{ IsQuestionnaireAllDone ? '修改问卷' : '开始填写' }}
+                  {{ item.buttonText() }}
                 </button>
               </div>
             </div>
           </div>
-
-          <div class="baseBlock flex w-full p-0.5 shadow rounded">
-            <div class="w-1/3 p-0.5 overflow-hidden rounded">
-              <div class="w-full aspect-1/1">
-                <img src="https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png" class="object-cover rounded" />
-              </div>
-            </div>
-            <div class="w-2/3 p-0.5 flex flex-wrap content-between">
-              <div class="w-full space-y-0.5">
-                <div class="w-full flex items-center space-x-2">
-                  <div class="text-xl truncate">参与投票</div>
-                  <span
-                    v-if="voteCharacterComplete && voteMusicComplete && voteCoupleComplete"
-                    class="px-1 text-emerald-600 rounded border border-emerald-300 bg-emerald-50 bg-opacity-50"
-                    >完成
-                  </span>
-                </div>
-                <div class="text-sm">为您喜爱的角色/曲目/CP投上一票吧！</div>
-              </div>
-              <div class="w-full text-right">
-                <button
-                  class="px-2 py-0.5 text-sm rounded bg-accent-color-600"
-                  :class="{ 'bg-accent-color-300': !IsQuestionnaireAllDone }"
-                  @click="IsQuestionnaireAllDone && systemListOpen('vote')"
-                >
-                  {{
-                    IsQuestionnaireAllDone
-                      ? voteCharacterComplete && voteMusicComplete && voteCoupleComplete
-                        ? '修改结果'
-                        : '开始投票'
-                      : '请先填写问卷哦'
-                  }}
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="baseBlock flex w-full p-0.5 shadow rounded">
-            <div class="w-1/3 p-0.5 overflow-hidden rounded">
-              <div class="w-full aspect-1/1">
-                <img src="https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png" class="object-contain rounded" />
-              </div>
-            </div>
-            <div class="w-2/3 p-0.5 flex flex-wrap content-between">
-              <div class="w-full space-y-0.5">
-                <div class="w-full flex items-center space-x-2">
-                  <div class="text-xl truncate">作品提名</div>
-                  <span
-                    v-if="voteDoujinComplete"
-                    class="px-1 text-emerald-600 rounded border border-emerald-300 bg-emerald-50 bg-opacity-50"
-                    >完成</span
-                  >
-                </div>
-                <div class="text-sm">为自己喜爱的同人作品提名！</div>
-              </div>
-              <div class="w-full text-right">
-                <button
-                  class="px-2 py-0.5 text-sm rounded bg-accent-color-600"
-                  :class="{ 'bg-accent-color-300': !IsQuestionnaireAllDone }"
-                  @click="IsQuestionnaireAllDone && gotoDoujinSystem()"
-                >
-                  {{ IsQuestionnaireAllDone ? (voteDoujinComplete ? '修改提名' : '前往提名') : '请先填写问卷哦' }}
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- <div class="baseBlock flex w-full p-0.5 shadow rounded">
-            <div class="w-1/3 p-0.5 overflow-hidden rounded">
-              <div class="w-full aspect-1/1">
-                <img src="@/home/assets/DefaultAvatar.jpg" class="object-cover rounded" />
-              </div>
-            </div>
-            <div class="w-2/3 p-0.5 flex flex-wrap content-between">
-              <div class="w-full space-y-0.5">
-                <div class="text-xl truncate">查看往届数据</div>
-                <div class="text-xs">投票之前需要完成问卷哦投票之前需要完成问卷哦投票之前需要完成</div>
-              </div>
-              <div class="w-full text-right">
-                <button class="px-2 py-0.5 text-sm rounded bg-accent-color-600">查看数据</button>
-              </div>
-            </div>
-          </div> -->
           <Copyright copyright-type="absolute" />
         </div>
         <div class="w-1/2">
@@ -207,8 +122,8 @@
       tabindex="0"
     >
       <RouterLink
-        v-for="(tab, index) in dpTabs"
-        :key="tab.title"
+        v-for="(tab, index) in TabList"
+        :key="tab.type"
         class="flex flex-col justify-center items-center pr-8 py-4 rounded-xl border-2 transform focus-visible:-translate-x-0.5 transition-transform"
         :class="
           dpActiveTab === index
@@ -291,38 +206,11 @@
         </div>
         <!-- Main Content -->
         <div id="maincontent" :key="dpActiveTab" class="flex-1 overflow-auto">
-          <component :is="dpTabs[dpActiveTab].component" />
+          <component :is="TabList[dpActiveTab].component" />
         </div>
         <Copyright />
       </div>
     </div>
-
-    <!-- <div
-        class="
-          baseBlock
-          flex flex-wrap
-          space-y-2
-          w-3/10
-          p-2
-          shadow-around
-          rounded
-        "
-      >
-        <div class="w-full overflow-hidden rounded">
-          <div class="w-full aspect-1/1">
-            <img src="@/home/assets/DefaultAvatar.jpg" class="object-cover rounded" />
-          </div>
-        </div>
-        <div class="w-full space-y-2">
-          <div class="text-xl text-center truncate">查看往届数据（100%）</div>
-          <div class="text-gray-600">需要先完成<strong>必填问卷</strong>才能开始投票哦！</div>
-        </div>
-        <div class="w-full text-center">
-          <button class="w-full p-2 rounded bg-accent-color-600" @click="systemListOpen('vote')">
-            查看数据
-          </button>
-        </div>
-      </div> -->
   </div>
   <VoteMessageBox v-model:open="resetTabMessageBoxOpen" title="提示" close-button>
     <div class="p-2">需要先完成<strong>必填问卷</strong>才能开始投票哦！</div>
@@ -330,9 +218,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useEventListener } from '@vueuse/core'
 import UserQuestionnaire from '@/home/components/UserQuestionnaire.vue'
 import UserVote from '@/home/components/UserVote.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
@@ -357,6 +244,59 @@ setSiteTitle(String(username.value))
 
 const route = useRoute()
 const router = useRouter()
+
+const TabList = [
+  {
+    type: 'questionnaire',
+    title: '填写问卷',
+    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png',
+    desc: '投票之前请先完成调查问卷哦',
+    complete: () => IsQuestionnaireAllDone.value,
+    buttonText: () => (IsQuestionnaireAllDone.value ? '修改问卷' : '开始填写'),
+    buttonInactive: () => false,
+    buttonFunction: () => systemListOpen('questionnaire'),
+    component: UserQuestionnaireDp,
+  },
+  {
+    type: 'vote',
+    title: '参与投票',
+    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
+    desc: '为您喜爱的角色/曲目/CP投上一票吧！',
+    complete: () => voteCharacterComplete.value && voteMusicComplete.value && voteCoupleComplete.value,
+    buttonText: () =>
+      IsQuestionnaireAllDone.value
+        ? voteCharacterComplete.value && voteMusicComplete.value && voteCoupleComplete.value
+          ? '修改结果'
+          : '开始投票'
+        : '请先填写问卷哦',
+    buttonInactive: () => !IsQuestionnaireAllDone.value,
+    buttonFunction: () => IsQuestionnaireAllDone.value && systemListOpen('vote'),
+    component: UserVoteDp,
+  },
+  {
+    type: 'doujin',
+    title: '作品提名',
+    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png',
+    desc: '为自己喜爱的同人作品提名！',
+    complete: () => voteDoujinComplete.value,
+    buttonInactive: () => !IsQuestionnaireAllDone.value,
+    buttonText: () =>
+      IsQuestionnaireAllDone.value ? (voteDoujinComplete.value ? '修改提名' : '前往提名') : '请先填写问卷哦',
+    buttonFunction: () => IsQuestionnaireAllDone.value && gotoDoujinSystem(),
+    component: VoteDoujinDp,
+  },
+  // {
+  //   value: 'doujin',
+  //   title: '查看往届数据',
+  //   icon: '@/home/assets/DefaultAvatar.jpg',
+  //   desc: '回顾过去的投票！',
+  //   complete: () => false,
+  //   buttonInactive: () => false,
+  //   buttonText: () => '查看数据',
+  //   buttonFunction: () => {},
+  //   component: VotePastDp,
+  // },
+]
 
 /* User lists Operation */
 const userListOpen = ref(false)
@@ -399,17 +339,6 @@ async function logout(): Promise<void> {
   location.reload()
 }
 
-// Resize the height of UserQuestionnaire
-function setUserQuestionnaireHeight(): void {
-  if (screenSizes['<md']) return
-  let userQuestionnaire = document.getElementById('userQuestionnaire')
-  let userVoteBox = document.getElementById('userVoteBox')
-  if (userQuestionnaire && userVoteBox)
-    userQuestionnaire.style.maxHeight = window.getComputedStyle(userVoteBox).getPropertyValue('height')
-}
-onMounted(() => setUserQuestionnaireHeight())
-useEventListener('resize', setUserQuestionnaireHeight)
-
 // destop exclusive
 const dpActiveTab = computed<number>({
   get: () => Number(route.query.tab) || 0,
@@ -437,23 +366,6 @@ watch(dpActiveTab, (tab) => {
   }
 })
 const dpCollapseNav = ref(screenSizes['<xl'])
-const dpTabs = [
-  {
-    title: '填写问卷',
-    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png',
-    component: UserQuestionnaireDp,
-  },
-  {
-    title: '参与投票',
-    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
-    component: UserVoteDp,
-  },
-  {
-    title: '作品提名',
-    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png',
-    component: VoteDoujinDp,
-  },
-]
 </script>
 
 <style lang="postcss" scoped>
