@@ -78,7 +78,7 @@
               <div class="w-full text-right">
                 <button
                   class="px-2 py-0.5 text-sm"
-                  :class="{ 'bg-accent-color-300': item.buttonInactive() }"
+                  :class="{ 'bg-accent-color-300': item.buttonDisabled() }"
                   @click="item.buttonFunction()"
                 >
                   {{ item.buttonText() }}
@@ -250,7 +250,7 @@ const TabList = [
     desc: '投票之前请先完成调查问卷哦',
     complete: () => IsQuestionnaireAllDone.value,
     buttonText: () => (IsQuestionnaireAllDone.value ? '修改问卷' : '开始填写'),
-    buttonInactive: () => false,
+    buttonDisabled: () => false,
     buttonFunction: () => systemListOpen('questionnaire'),
     component: UserQuestionnaireDp,
   },
@@ -266,7 +266,7 @@ const TabList = [
           ? '修改结果'
           : '开始投票'
         : '请先填写问卷哦',
-    buttonInactive: () => !IsQuestionnaireAllDone.value,
+    buttonDisabled: () => !IsQuestionnaireAllDone.value,
     buttonFunction: () => IsQuestionnaireAllDone.value && systemListOpen('vote'),
     component: UserVoteDp,
   },
@@ -276,7 +276,7 @@ const TabList = [
     icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png',
     desc: '为自己喜爱的同人作品提名！',
     complete: () => voteDoujinComplete.value,
-    buttonInactive: () => !IsQuestionnaireAllDone.value,
+    buttonDisabled: () => !IsQuestionnaireAllDone.value,
     buttonText: () =>
       IsQuestionnaireAllDone.value ? (voteDoujinComplete.value ? '修改提名' : '前往提名') : '请先填写问卷哦',
     buttonFunction: () => IsQuestionnaireAllDone.value && gotoDoujinSystem(),
@@ -288,7 +288,7 @@ const TabList = [
   //   icon: '@/home/assets/DefaultAvatar.jpg',
   //   desc: '回顾过去的投票！',
   //   complete: () => false,
-  //   buttonInactive: () => false,
+  //   buttonDisabled: () => false,
   //   buttonText: () => '查看数据',
   //   buttonFunction: () => {},
   //   component: VotePastDp,
