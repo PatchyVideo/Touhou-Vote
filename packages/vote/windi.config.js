@@ -31,6 +31,8 @@ export default defineConfig({
           900: '#312052',
         },
         subaccent: '#3A3531',
+        // Color for divider in home page
+        'subaccent-divider': '#5a5a56',
         textaccent: '#CEBEAD',
       },
       screens: {

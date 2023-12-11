@@ -1,11 +1,11 @@
 <template>
   <div class="page"></div>
   <div class="w-full">
-    <div class="w-full px-2 mx-auto md:w-9/10 xl:w-2/3">
+    <div class="w-full px-2 mx-auto md:w-9/10 xl:w-2/3 bounce-home">
       <!-- Title -->
       <div class="flex items-end min-h-100vh">
-        <div class="baseBox rounded-t md:flex md:justify-between md:items-center w-full p-5 md:p-10 pb-20">
-          <div class="md:w-[calc(50%-1rem)] space-y-4vh">
+        <div class="baseBox rounded-t md:flex md:justify-between md:items-center w-full p-5 pt-10 pb-20 md:p-10">
+          <div class="md:w-[calc(50%-2.5rem)] space-y-4vh">
             <div class="space-y-2">
               <div class="quicksand md:text-xl">
                 <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://thwiki.cc/favicon.ico" />THBWiki &
@@ -32,10 +32,10 @@
             </div>
           </div>
 
-          <!-- Devider -->
-          <div v-if="screenSizes['md']" class="w-0.5 h-40 rounded shadow bg-textaccent" />
+          <!-- Divider -->
+          <div v-if="screenSizes['md']" class="w-0.75 h-20 rounded-full shadow bg-subaccent-divider" />
 
-          <div v-if="screenSizes['md']" class="md:w-[calc(50%-1rem)] text-xl flex items-center">
+          <div v-if="screenSizes['md']" class="md:w-[calc(50%-2.5rem)] text-xl flex items-center">
             这是一个为了调查东方Project系列在中文圈的大致情况而举办的一次调查活动。在活动期间，我们同往届一样，接受来自中文圈内的东方爱好者们的投票，并在投票结束后择日公布本次投票的结果。敬请期待。
           </div>
         </div>
@@ -45,7 +45,7 @@
         class="w-full absolute top-94vh left-0 text-xl text-center text-accent-color-500 cursor-pointer transition hover:text-accent-color-600"
         @click="showMoreInfo()"
       >
-        <icon-uil-angle-double-down class="w-10 h-10 fill-current animate-bounce" />
+        <icon-uil-angle-double-down class="w-10 h-10 fill-current" />
       </div>
 
       <!-- Other Messages -->

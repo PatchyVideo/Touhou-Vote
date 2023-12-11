@@ -18,7 +18,7 @@ textarea {
 }
 
 .innerBox {
-  @apply bg-accent-color-100 bg-opacity-10 shadow-inner rounded;
+  @apply bg-accent-color-100 bg-opacity-10 shadow-inner rounded-xl;
 }
 
 .baseBox,
@@ -28,7 +28,7 @@ textarea {
 }
 .baseBoxRounded,
 .baseBoxRoundedShadow {
-  @apply rounded;
+  @apply rounded-xl;
 }
 .baseBoxShadow,
 .baseBoxRoundedShadow {
@@ -151,5 +151,21 @@ textarea {
 @variants md {
   .page {
     box-shadow: inset 3em 3em 20em 6em rgba(0, 0, 0, 0.4), inset -3em -3em 20em 6em rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Bounce  */
+.bounce-home {
+  animation: bounce 1s linear 0s 2;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+  50% {
+    transform: translateY(-5%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
 }
