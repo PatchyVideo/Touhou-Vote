@@ -32,8 +32,10 @@
           v-for="(answer, index2) in questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire]
             .answers"
           :key="index2"
-          class="rounded-full ring ring-accent-color-600 m-3 w-8 h-8 leading-8 text-center cursor-pointer"
-          :class="[answer.done ? 'text-white bg-accent-color-600' : 'text-black bg-accent-color-300']"
+          class="rounded-full m-3 w-8 h-8 leading-8 text-center cursor-pointer shadow ring"
+          :class="[
+            answer.done ? 'ring ring-accent-color-600 bg-accent-color-300 text-white' : ' ring-accent-color-100',
+          ]"
           @click="changeQuestion(questionnaire.bigQuestionnaire, questionnaire.smallQuestionnaire, index2)"
         >
           {{ index2 + 1 }}
