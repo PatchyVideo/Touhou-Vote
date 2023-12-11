@@ -124,7 +124,7 @@
         class="flex flex-col justify-center items-center py-4 rounded-l-xl border-r-0 border-2 transform focus-visible:-translate-x-0.5 transition-transform"
         :class="
           dpActiveTab === index
-            ? 'bg-subaccent bg-opacity-80 border-accent-color-400'
+            ? 'bg-subaccent bg-opacity-80 border-accent-color-300'
             : 'bg-subaccent bg-opacity-50 border-accent-color-300 cursor-pointer'
         "
         :to="{ path: '/', query: { tab: index } }"
@@ -148,7 +148,7 @@
         :class="dpCollapseNav ? 'ml-[calc(4ch-2px)]' : 'ml-[min(calc(30vh-4rem-2px),calc(256px+1rem-2px))]'"
       ></div>
       <div
-        class="baseBoxRoundedShadow flex-1 flex flex-col gap-4 pt-2 px-4 pb-px border-2 border-accent-color-400 pointer-events-auto"
+        class="baseBoxRoundedShadow flex-1 flex flex-col gap-4 pt-2 px-4 pb-px border-2 border-accent-color-300 pointer-events-auto"
       >
         <!-- Top Nav -->
         <div class="flex justify-between">
