@@ -58,7 +58,7 @@
                 <div class="whitespace-nowrap py-0.5">标题</div>
                 <input
                   v-model="doujinTitle"
-                  class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
+                  class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-300 transition-colors w-full"
                 />
               </div>
               <ul class="text-xs text-gray-800 3xl:text-sm">
@@ -74,7 +74,7 @@
                 <div class="whitespace-nowrap py-0.5">作者</div>
                 <input
                   v-model="doujinAuthor"
-                  class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-400 transition-colors w-full"
+                  class="inline-block h-full outline-none border-b border-gray-300 focus:border-accent-color-300 transition-colors w-full"
                 />
               </div>
               <ul class="text-xs text-gray-800 3xl:text-sm">
@@ -128,7 +128,7 @@
               v-model="doujinReason"
               maxlength="1024"
               rows="8"
-              class="inline-block outline-none border border-gray-300 focus:border-accent-color-400 transition-colors w-full p-1 rounded"
+              class="inline-block outline-none border border-gray-300 focus:border-accent-color-300 transition-colors w-full p-1 rounded"
             />
           </div>
         </div>
@@ -372,7 +372,7 @@ function useValidation<T>(el: Ref<HTMLElement | null>, value: Ref<T>, valCb: (va
   const throttled = useThrottle(value, 200, true, false)
   const isValid = computed(() => valCb(throttled.value))
   watch(el, (el) => {
-    if (el) el.classList.add('inline-block', 'animate-animated', 'decoration-accent-color-400')
+    if (el) el.classList.add('inline-block', 'animate-animated', 'decoration-accent-color-300')
   })
   watch([el, isValid], ([el, isValid]) => {
     if (!el) return

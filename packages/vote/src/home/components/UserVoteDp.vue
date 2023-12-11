@@ -8,7 +8,7 @@
       <RouterLink
         v-for="(vote, voteId) in votes"
         :key="voteId"
-        class="flex flex-row items-center gap-1 px-4 py-2 rounded-xl border-2 border-accent-color-400 cursor-pointer"
+        class="flex flex-row items-center gap-1 px-4 py-2 rounded-xl border-2 cursor-pointer border-accent-color-300 hover:shadow hover:border-accent-color-600 transition-all ease-in-out"
         :to="'/vote/' + voteId"
       >
         <img class="w-32 h-32 object-cover" :src="vote.image" />

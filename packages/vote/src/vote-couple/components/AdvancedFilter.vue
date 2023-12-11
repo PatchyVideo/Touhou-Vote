@@ -16,7 +16,7 @@
             :key="index"
             class="cursor-pointer rounded shadow py-1 px-2 mb-2 transition transition-colors select-none"
             :class="{
-              'ring ring-accent-color-600 bg-accent-color-400 text-white':
+              'ring ring-accent-color-600 bg-accent-color-300 text-white':
                 filterForKindTem.findIndex((filterKind) => filterKind.value === kind.value) != -1,
             }"
             @click="updateFilterForKindTem(kind)"

@@ -23,14 +23,14 @@
       <div v-for="(doujin, index) in doujinValid" :key="doujin.url" @click="openEditDoujin(index)">
         <DoujinCardDp v-model:doujin="doujinValid[index]" />
       </div>
-      <button
+      <div
         v-if="doujinValid.length < doujins.length"
-        class="flex flex-row justify-center items-center py-3 w-full border-2 border-accent-color-600 hover:shadow hover:border-accent-color-300 transition-all ease-in-out"
+        class="baseBoxRoundedShadow flex flex-row justify-center items-center cursor-pointer select-none p-2 border-2 border-accent-color-300 hover:shadow hover:border-accent-color-600 transition-all ease-in-out"
         @click="() => openEditDoujin()"
       >
         <icon-uil-plus class="text-xl" />
         <div class="text-lg">添加提名</div>
-      </button>
+      </div>
       <button
         :class="{ buttonDisabled: !doujinValid.length || loading }"
         class="inline-block mx-auto px-16 py-2 flex items-center space-x-1 justify-center"

@@ -14,7 +14,7 @@
         <RouterLink
           v-for="(_child, childId) in children"
           :key="childId"
-          class="flex flex-row items-center gap-1 px-4 py-2 rounded-xl border-2 border-accent-color-400 cursor-pointer"
+          class="flex flex-row items-center gap-1 px-4 py-2 rounded-xl border-2 cursor-pointer border-accent-color-300 hover:shadow hover:border-accent-color-600 transition-all ease-in-out"
           :to="{ path: '/questionnaire', query: { bigQuestionnaire: catogory, smallQuestionnaire: childId } }"
         >
           <img class="w-32 h-32 object-cover" :src="questionnaireNameById[catogory].children[childId].image" />
