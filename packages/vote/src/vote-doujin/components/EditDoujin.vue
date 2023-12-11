@@ -18,7 +18,7 @@
             />
             <button
               class="whitespace-nowrap px-1 py-0.5 text-xs lg:text-sm"
-              :class="{ 'bg-accent-color-300': fetchLoading || !validUrlInvalid }"
+              :class="{ buttonDisabled: fetchLoading || !validUrlInvalid }"
               @click="!fetchLoading && validUrlInvalid && fetchMsg()"
             >
               <icon-uil-spinner-alt v-if="fetchLoading" class="animate-spin" />

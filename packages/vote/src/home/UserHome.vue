@@ -78,7 +78,7 @@
               <div class="w-full text-right">
                 <button
                   class="px-2 py-0.5 text-sm"
-                  :class="{ 'bg-accent-color-300': item.buttonDisabled() }"
+                  :class="{ buttonDisabled: item.buttonDisabled() }"
                   @click="item.buttonFunction()"
                 >
                   {{ item.buttonText() }}

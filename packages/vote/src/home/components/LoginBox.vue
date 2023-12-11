@@ -44,7 +44,7 @@
                 /></label>
                 <button
                   class="py-2 px-5"
-                  :class="{ 'bg-accent-color-300': !verificationCodeAvailable || loading }"
+                  :class="{ buttonDisabled: !verificationCodeAvailable || loading }"
                   @click="verificationCodeGet()"
                 >
                   {{ '获取' + (verificationCodeAvailable ? '' : '(' + verificationCodeAvailableTime + ')') }}
@@ -53,7 +53,7 @@
               <div class="text-xs h-5" v-text="verificationCodeError"></div>
               <button
                 class="w-full py-2 flex items-center space-x-1 justify-center"
-                :class="{ 'bg-accent-color-300': loading }"
+                :class="{ buttonDisabled: loading }"
                 @click="login()"
               >
                 <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>开始投票</label>
@@ -122,7 +122,7 @@
               <div class="text-xs h-5" v-text="userPasswordError"></div>
               <button
                 class="w-full py-2 flex items-center space-x-1 justify-center"
-                :class="{ 'bg-accent-color-300': loading }"
+                :class="{ buttonDisabled: loading }"
                 @click="oldSystemlogin()"
               >
                 <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>登录</label>

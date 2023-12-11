@@ -86,7 +86,7 @@
       </div>
       <button
         class="w-full py-2 flex items-center space-x-1 justify-center"
-        :class="{ 'bg-accent-color-300': !musicsVotedNumber }"
+        :class="{ buttonDisabled: !musicsVotedNumber }"
         @click="musicsVotedNumber ? (confirmBoxOpen = true) : ''"
       >
         {{ musicsVotedNumber ? '提交!' : '请投票' }}
@@ -119,7 +119,7 @@
       </div>
       <button
         class="w-full py-2 flex items-center space-x-1 justify-center"
-        :class="{ 'bg-accent-color-300': loading }"
+        :class="{ buttonDisabled: loading }"
         @click="vote()"
       >
         <icon-uil-spinner-alt v-if="loading" class="animate-spin" />

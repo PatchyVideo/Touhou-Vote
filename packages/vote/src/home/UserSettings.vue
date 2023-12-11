@@ -78,7 +78,7 @@
         </div>
         <button
           class="w-full py-2 flex items-center space-x-1 justify-center"
-          :class="{ 'bg-accent-color-300': loading }"
+          :class="{ buttonDisabled: loading }"
           @click="logout()"
         >
           退出登陆
@@ -97,11 +97,7 @@
           maxlength="30"
           @keydown.enter="updateUsername()"
       /></label>
-      <button
-        class="w-full py-2 text-sm md:text-base"
-        :class="{ 'bg-accent-color-300': loading }"
-        @click="updateUsername()"
-      >
+      <button class="w-full py-2 text-sm md:text-base" :class="{ buttonDisabled: loading }" @click="updateUsername()">
         <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>确定</label>
       </button>
     </div>
@@ -132,11 +128,7 @@
           type="password"
           @keydown.enter="updatePassword()"
       /></label>
-      <button
-        class="w-full py-2 text-sm md:text-base"
-        :class="{ 'bg-accent-color-300': loading }"
-        @click="updatePassword()"
-      >
+      <button class="w-full py-2 text-sm md:text-base" :class="{ buttonDisabled: loading }" @click="updatePassword()">
         <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>确定</label>
       </button>
     </div>
@@ -171,7 +163,7 @@
         /></label>
         <button
           class="py-2 px-5"
-          :class="{ 'bg-accent-color-300': !verificationCodeAvailable || loading }"
+          :class="{ buttonDisabled: !verificationCodeAvailable || loading }"
           @click="verificationCodeGet()"
         >
           {{ '获取' + (verificationCodeAvailable ? '' : '(' + verificationCodeAvailableTime + ')') }}
@@ -180,7 +172,7 @@
       <div class="text-accent-color-300 text-xs h-5" v-text="verificationCodeError"></div>
       <button
         class="w-full py-2 flex items-center space-x-1 justify-center"
-        :class="{ 'bg-accent-color-300': loading }"
+        :class="{ buttonDisabled: loading }"
         @click="updatePhoneOrEmail()"
       >
         <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>确定修改</label>

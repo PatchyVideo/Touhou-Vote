@@ -41,7 +41,7 @@
       </div>
 
       <button
-        :class="{ 'bg-accent-color-300': !doujinValid.length || loading }"
+        :class="{ buttonDisabled: !doujinValid.length || loading }"
         class="w-full py-2 flex items-center space-x-1 justify-center"
         @click="!doujinValid.length || vote()"
       >

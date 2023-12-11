@@ -44,7 +44,7 @@
       </div>
 
       <button
-        :class="{ 'bg-accent-color-300': !couplesValid.length }"
+        :class="{ buttonDisabled: !couplesValid.length }"
         class="w-full py-2 flex items-center space-x-1 justify-center"
         @click="checkVote()"
       >
@@ -78,7 +78,7 @@
       </div>
       <button
         class="w-full py-2 flex items-center space-x-1 justify-center"
-        :class="{ 'bg-accent-color-300': loading }"
+        :class="{ buttonDisabled: loading }"
         @click="vote()"
       >
         <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>{{

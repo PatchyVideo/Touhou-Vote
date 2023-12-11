@@ -32,7 +32,7 @@
         <div class="text-lg">添加提名</div>
       </button>
       <button
-        :class="{ 'bg-accent-color-300': !doujinValid.length || loading }"
+        :class="{ buttonDisabled: !doujinValid.length || loading }"
         class="inline-block mx-auto px-16 py-2 flex items-center space-x-1 justify-center"
         @click="!doujinValid.length || vote()"
       >

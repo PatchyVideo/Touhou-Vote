@@ -60,7 +60,7 @@
       <div class="flex justify-between space-x-2">
         <button
           class="w-1/2 py-1 text-sm md:text-base"
-          :class="{ 'bg-accent-color-300 cursor-not-allowed opacity-60': questionNum === 0 }"
+          :class="{ buttonDisabled: questionNum === 0 }"
           @click="!questionNum || changeQuestion('forward')"
         >
           上一题
@@ -75,7 +75,7 @@
         <button
           v-else
           class="w-1/2 py-1 text-sm md:text-base"
-          :class="{ 'bg-accent-color-300': submiting || !questionnaireDone }"
+          :class="{ buttonDisabled: submiting || !questionnaireDone }"
           @click="questionnaireDone && submitQuestionnire()"
         >
           <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />{{
@@ -89,7 +89,7 @@
           Boolean(questionNum + 1 != questionDone[bigQuestionnaire][smallQuestionnaire].answers.length)
         "
         class="w-full py-1 text-sm md:text-base"
-        :class="{ 'bg-accent-color-300': submiting }"
+        :class="{ buttonDisabled: submiting }"
         @click="submitQuestionnire()"
       >
         <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />{{
