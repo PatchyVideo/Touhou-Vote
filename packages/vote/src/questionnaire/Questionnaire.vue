@@ -32,11 +32,11 @@
       <div class="baseBoxRoundedShadow p-1 w-full">
         <div class="space-y-5 p-2">
           <div>{{ questionNum + 1 + '：' + question.content + '（' + TypeToChinese[question.type] + '）' }}</div>
-          <div v-if="question.type != 'Input'" class="innerBox space-y-1">
+          <div v-if="question.type != 'Input'" class="innerBox p-2 space-y-1">
             <div
               v-for="(option, index) in options"
               :key="index"
-              class="md:hover:bg-accent-color-100 py-1 px-1 rounded transition transition-colors cursor-pointer"
+              class="py-1 px-1 rounded transition transition-colors cursor-pointer md:hover:bg-subaccent md:hover:bg-opacity-80"
               @click="selectOption(option.id)"
             >
               <VoteCheckBox
@@ -60,7 +60,7 @@
       <div class="flex justify-between space-x-2">
         <button
           class="w-1/2 py-1 text-sm md:text-base"
-          :class="{ 'bg-accent-color-300 cursor-default': questionNum === 0 }"
+          :class="{ 'bg-accent-color-300 cursor-not-allowed opacity-60': questionNum === 0 }"
           @click="!questionNum || changeQuestion('forward')"
         >
           上一题
