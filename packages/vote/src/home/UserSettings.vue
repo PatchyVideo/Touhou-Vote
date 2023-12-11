@@ -39,7 +39,7 @@
               <div>{{ '邮箱：' + (user.email != null ? user.email : '未绑定') }}</div>
               <label
                 v-if="voteEnded()"
-                class="text-accent-color-600 underline cursor-pointer"
+                class="text-accent-color-300 underline cursor-pointer"
                 @click="openChangeEmail()"
                 >{{ user.email != null ? '修改' : '去绑定' }}</label
               >
@@ -48,7 +48,7 @@
               <div>{{ '手机：' + (user.phone != null ? user.phone : '未绑定') }}</div>
               <label
                 v-if="voteEnded()"
-                class="text-accent-color-600 underline cursor-pointer"
+                class="text-accent-color-300 underline cursor-pointer"
                 @click="openChangePhone()"
                 >{{ user.phone != null ? '修改' : '去绑定' }}</label
               >
@@ -157,7 +157,7 @@
             }
           "
       /></label>
-      <div class="text-accent-color-600 text-xs h-5" v-text="userTypeError"></div>
+      <div class="text-accent-color-300 text-xs h-5" v-text="userTypeError"></div>
       <div class="flex justify-between">
         <label class="w-1/2 py-2 px-4 inline-block input-border flex flex-row">
           <span class="h-6 w-6"><icon-uil-lock-alt class="inline-block w-6 h-6 text-gray-700" /></span>
@@ -177,7 +177,7 @@
           {{ '获取' + (verificationCodeAvailable ? '' : '(' + verificationCodeAvailableTime + ')') }}
         </button>
       </div>
-      <div class="text-accent-color-600 text-xs h-5" v-text="verificationCodeError"></div>
+      <div class="text-accent-color-300 text-xs h-5" v-text="verificationCodeError"></div>
       <button
         class="w-full py-2 flex items-center space-x-1 justify-center"
         :class="{ 'bg-accent-color-300': loading }"

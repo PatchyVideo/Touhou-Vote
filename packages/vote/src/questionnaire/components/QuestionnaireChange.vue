@@ -40,7 +40,7 @@
         </div>
       </div>
     </div>
-    <div class="text-right text-accent-color-600 cursor-pointer" @click="close()">▲收起</div>
+    <div class="text-right text-accent-color-300 cursor-pointer" @click="close()">▲收起</div>
   </div>
   <Mask v-model:open="open" click-to-close />
 </template>

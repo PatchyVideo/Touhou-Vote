@@ -16,7 +16,7 @@
             @click="deleteCharacter(index)"
           ></icon-uil-times>
           <div
-            class="character-image relative w-full aspect-ratio-1/1 rounded border border-accent-color-600"
+            class="character-image relative w-full aspect-ratio-1/1 rounded border border-accent-color-600 overflow-hidden"
             :class="{ 'before:hidden': couple.seme != index }"
           >
             <img class="w-full object-contain" :src="character.image ? character.image : characterImages" />
@@ -45,7 +45,7 @@
         ref="reasonInput"
         v-model="couple.reason"
         placeholder="点此填写理由（可选）"
-        class="innerBox px-1 truncate w-full ring ring-accent-color-300 outline-none"
+        class="innerBox p-1 truncate w-full ring ring-accent-color-300 outline-none"
         type="text"
       />
     </div>
@@ -122,7 +122,7 @@ function closeCard(): void {
 <style lang="postcss" scoped>
 .character-image::before {
   content: '主动';
-  @apply absolute -right-9 top-1.5 md:top-1 transform transform-gpu rotate-45 px-10 md:py-0.5 origin-center bg-accent-color-600 text-white text-xs md:text-base;
+  @apply absolute -right-9 top-1.5 md:top-1 transform transform-gpu rotate-45 px-10 md:py-0.5 origin-center bg-accent-color-600 bg-opacity-90 text-white text-xs md:text-base;
 }
 .selectedMore-enter-active,
 .selectedMore-leave-active {

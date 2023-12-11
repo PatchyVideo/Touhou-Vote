@@ -155,7 +155,7 @@
           class="absolute inset-0 rounded flex justify-center backdrop-filter backdrop-blur-sm"
           @touchmove.stop.prevent
         >
-          <div class="flex items-center text-accent-color-600 font-bold text-lg">
+          <div class="flex items-center text-accent-color-300 font-bold text-lg">
             <icon-uil-spinner-alt class="animate-spin" />
             少女祈祷中...
           </div>
@@ -376,16 +376,16 @@ function useValidation<T>(el: Ref<HTMLElement | null>, value: Ref<T>, valCb: (va
   })
   watch([el, isValid], ([el, isValid]) => {
     if (!el) return
-    if (isValid) el.classList.remove('text-accent-color-600', 'underline')
+    if (isValid) el.classList.remove('text-accent-color-300', 'underline')
     else el.classList.add('underline')
   })
   watch(hintError, () => {
     if (!el.value) return
-    if (!isValid.value) el.value.classList.add('text-accent-color-600', 'animate-shakeX')
+    if (!isValid.value) el.value.classList.add('text-accent-color-300', 'animate-shakeX')
   })
   watch(open, (open) => {
     if (!el.value || open) return
-    el.value.classList.remove('text-accent-color-600', 'animate-shakeX')
+    el.value.classList.remove('text-accent-color-300', 'animate-shakeX')
   })
   const onAnimationEnd = () => {
     el.value?.classList.remove('animate-shakeX')
