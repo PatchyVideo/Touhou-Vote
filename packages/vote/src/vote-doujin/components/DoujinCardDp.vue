@@ -1,10 +1,10 @@
 <template>
   <div
-    class="rounded-lg px-3 py-2 max-w-80ch cursor-pointer border-2 border-accent-color-300 hover:shadow hover:border-accent-color-600 transition-all ease-in-out"
+    class="rounded-xl px-3 py-2 max-w-80ch cursor-pointer border-2 border-accent-color-300 hover:shadow hover:border-accent-color-600 transition-all ease-in-out"
   >
     <div class="flex overflow-hidden">
       <div class="w-42">
-        <div class="aspect-ratio-10/16 overflow-hidden border rounded">
+        <div class="aspect-ratio-10/16 overflow-hidden border rounded-xl">
           <picture class="h-full w-full object-contain">
             <source
               :srcset="

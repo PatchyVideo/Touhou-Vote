@@ -2,7 +2,7 @@
   <div class="baseBoxRoundedShadow p-2 space-y-1 cursor-pointer">
     <div class="flex overflow-hidden">
       <div class="w-3/10">
-        <div class="aspect-ratio-10/16 overflow-hidden rounded">
+        <div class="aspect-ratio-10/16 overflow-hidden rounded-xl">
           <picture class="h-full w-full object-contain">
             <source
               :srcset="

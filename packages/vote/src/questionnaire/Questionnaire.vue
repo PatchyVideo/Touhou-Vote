@@ -36,7 +36,7 @@
             <div
               v-for="(option, index) in options"
               :key="index"
-              class="py-1 px-1 rounded transition transition-colors cursor-pointer md:hover:bg-subaccent md:hover:bg-opacity-80"
+              class="py-1 px-1 rounded-xl transition transition-colors cursor-pointer md:hover:bg-subaccent md:hover:bg-opacity-80"
               @click="selectOption(option.id)"
             >
               <VoteCheckBox
@@ -50,7 +50,7 @@
             <textarea
               v-model="answerContent"
               maxlength="1000"
-              class="w-full ring ring-accent-color-600 rounded"
+              class="w-full ring ring-accent-color-600 rounded-xl"
               placeholder="请说点儿什么吧..."
               rows="5"
             />

@@ -16,7 +16,7 @@
             @click="deleteCharacter(index)"
           ></icon-uil-times>
           <div
-            class="character-image relative w-full aspect-ratio-1/1 rounded border border-accent-color-600 overflow-hidden"
+            class="character-image relative w-full aspect-ratio-1/1 rounded-xl border border-accent-color-600 overflow-hidden"
             :class="{ 'before:hidden': couple.seme != index }"
           >
             <img class="w-full object-contain" :src="character.image ? character.image : characterImages" />
@@ -32,7 +32,7 @@
       <transition name="selectedMore" mode="out-in">
         <div
           v-if="moreCharacterCanBeSelected"
-          class="w-3/10 min-h-30 md:min-h-40 3xl:min-h-50 p-1 shadow rounded flex flex-col cursor-pointer"
+          class="w-3/10 min-h-30 md:min-h-40 3xl:min-h-50 p-1 shadow rounded-xl flex flex-col cursor-pointer"
           @click="characterSelectOpen = true"
         >
           <icon-uil-plus class="w-1/2 mx-auto flex-grow" />

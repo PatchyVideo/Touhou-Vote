@@ -2,7 +2,7 @@
   <div class="baseBoxRoundedShadow relative p-1 pt-5 opacity-80">
     <icon-uil-times class="absolute right-0 top-0 cursor-pointer" @click="closeCharacterCard()"></icon-uil-times>
     <div class="w-full">
-      <div class="aspect-ratio-1/1 rounded border border-accent-color-600">
+      <div class="aspect-ratio-1/1 rounded-xl border border-accent-color-600">
         <img class="object-contain" :src="character.image ? character.image : characterImages" />
       </div>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="baseBoxRoundedShadow relative p-1 pt-5 opacity-80">
     <icon-uil-times class="absolute right-0 top-0 cursor-pointer" @click="closeMusicCard()"></icon-uil-times>
-    <div class="aspect-ratio-1/1 rounded border border-accent-color-600">
+    <div class="aspect-ratio-1/1 rounded-xl border border-accent-color-600">
       <img class="object-contain" :src="music.image ? music.image : MusicImages" />
     </div>
     <div class="p-1 pb-0 line-clamp-2 whitespace-pre-wrap text-center text-xs h-9 md:text-base md:h-13">

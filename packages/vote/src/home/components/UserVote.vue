@@ -3,9 +3,9 @@
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
       <div v-for="item in VoteList" :key="item.type" class="baseBoxRoundedShadow flex w-full p-0.5">
-        <div class="w-1/3 p-0.5 overflow-hidden rounded">
+        <div class="w-1/3 p-0.5 overflow-hidden rounded-xl">
           <div class="w-full aspect-1/1">
-            <img :src="item.icon" class="object-cover rounded" />
+            <img :src="item.icon" class="object-cover" />
           </div>
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">

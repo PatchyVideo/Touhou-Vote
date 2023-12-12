@@ -34,12 +34,12 @@
           <div class="space-y-2 mt-2">
             <router-link
               to="/user/settings"
-              class="block rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
+              class="block rounded-xl cursor-pointer transition transition-colors hover:bg-accent-color-100"
             >
               <div>账号设置</div>
             </router-link>
             <div
-              class="rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
+              class="rounded-xl cursor-pointer transition transition-colors hover:bg-accent-color-100"
               @click="logout()"
             >
               退出登陆
@@ -58,9 +58,9 @@
       >
         <div class="w-1/2 p-3 space-y-2">
           <div v-for="item in TabList" :key="item.type" class="baseBoxRoundedShadow flex w-full p-0.5">
-            <div class="w-1/3 p-0.5 overflow-hidden rounded">
+            <div class="w-1/3 p-0.5 overflow-hidden rounded-xl">
               <div class="w-full aspect-1/1">
-                <img :src="item.icon" class="object-cover rounded" />
+                <img :src="item.icon" class="object-cover" />
               </div>
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
@@ -183,12 +183,12 @@
                 <div class="space-y-2 mt-2">
                   <router-link
                     to="/user/settings"
-                    class="block text-black rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
+                    class="block text-black rounded-xl cursor-pointer transition transition-colors hover:bg-accent-color-100"
                   >
                     <div>账号设置</div>
                   </router-link>
                   <div
-                    class="rounded cursor-pointer transition transition-colors hover:bg-accent-color-100"
+                    class="rounded-xl cursor-pointer transition transition-colors hover:bg-accent-color-100"
                     tabindex="0"
                     @click="logout()"
                     @keydown.enter="logout()"

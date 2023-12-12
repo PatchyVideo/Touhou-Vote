@@ -106,7 +106,7 @@
               </ul>
             </div>
             <div class="w-58">
-              <div class="aspect-ratio-10/16 border rounded">
+              <div class="aspect-ratio-10/16 border rounded-xl">
                 <picture class="h-full w-full object-contain">
                   <source :srcset="doujinImageUrl.replace(/^http:/, 'https:')" />
                   <img class="h-full w-full object-contain" :src="Doujin0.imageUrl" />
@@ -152,7 +152,7 @@
       <Transition name="mask">
         <div
           v-if="fetchLoading"
-          class="absolute inset-0 rounded flex justify-center backdrop-filter backdrop-blur-sm"
+          class="absolute inset-0 rounded-xl flex justify-center backdrop-filter backdrop-blur-sm"
           @touchmove.stop.prevent
         >
           <div class="flex items-center text-accent-color-300 font-bold text-lg">

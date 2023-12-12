@@ -1,7 +1,7 @@
 <template>
   <div class="baseBoxRoundedShadow relative w-full p-1 flex">
     <div class="w-2/5 max-w-32 md:max-w-64">
-      <div class="border rounded aspect-ratio-1/1 border-accent-color-600">
+      <div class="border rounded-xl aspect-ratio-1/1 border-accent-color-600">
         <img class="object-contain" :src="musicHonmei.image ? musicHonmei.image : MusicImages" />
       </div>
     </div>
@@ -24,7 +24,7 @@
       </div>
       <div class="w-full flex justify-end">
         <div
-          class="transform transform-gpu -rotate-45 border rounded-sm border-accent-color-300 text-accent-color-300 md:text-lg xl:text-xl"
+          class="transform transform-gpu -rotate-45 border rounded border-accent-color-300 text-accent-color-300 md:text-lg xl:text-xl"
         >
           本命
         </div>

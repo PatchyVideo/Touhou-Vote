@@ -8,9 +8,9 @@
           <span class="text-sm truncate">{{ questionnaireNameById[catogory].desc }}</span>
         </div>
         <div v-for="(_child, childId) in children" :key="childId" class="baseBoxRoundedShadow flex w-full p-0.5 mt-2">
-          <div class="w-1/3 p-0.5 overflow-hidden rounded">
+          <div class="w-1/3 p-0.5 overflow-hidden rounded-xl">
             <div class="w-full aspect-1/1">
-              <img :src="questionnaireNameById[catogory].children[childId].image" class="object-cover rounded" />
+              <img :src="questionnaireNameById[catogory].children[childId].image" class="object-cover" />
             </div>
           </div>
           <div class="w-2/3 p-0.5 flex flex-wrap content-between">
