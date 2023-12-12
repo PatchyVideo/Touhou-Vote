@@ -2,10 +2,7 @@
   <div class="page"></div>
   <div class="flex flex-col w-full min-h-100vh">
     <!-- Top Nav -->
-    <div
-      class="baseBoxRoundedShadow rounded-none w-full h-11 py-1 flex items-center space-x-2"
-      :class="{ 'pl-2': voteEnded() }"
-    >
+    <div class="baseBoxShadow w-full h-11 py-1 flex items-center space-x-2" :class="{ 'pl-2': voteEnded() }">
       <router-link v-if="!voteEnded()" to="/" class="w-8 h-8 cursor-pointer"
         ><icon-uil-angle-left-b class="w-full h-full"></icon-uil-angle-left-b
       ></router-link>

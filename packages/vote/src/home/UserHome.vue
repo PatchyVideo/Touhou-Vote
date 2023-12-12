@@ -3,7 +3,7 @@
   <!-- Mobile View -->
   <div v-if="screenSizes['<lg']" class="min-h-100vh flex flex-col text-sm">
     <!-- Top Nav -->
-    <div class="baseBoxRoundedShadow rounded-none w-full py-1 pr-3 flex items-center justify-between">
+    <div class="baseBoxShadow w-full py-1 pr-3 flex items-center justify-between">
       <div v-if="!systemListIsOpen" class="pl-3 text-lg">第11届 中文东方人气投票</div>
       <div v-else class="flex items-center space-x-2">
         <icon-uil-angle-left-b class="w-8 h-8 cursor-pointer" @click="systemListClose()" />

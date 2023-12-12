@@ -1,6 +1,6 @@
 <template>
   <div
-    class="baseBoxRoundedShadow fixed top-0 inset-x-0 max-h-100vh z-51 p-3 md:p-10 rounded-none rounded-b overflow-auto transform-gpu transition-transform duration-200 ease-in-out flex flex-col"
+    class="baseBoxShadow fixed top-0 inset-x-0 max-h-100vh z-51 p-3 md:p-10 rounded-b overflow-auto transform-gpu transition-transform duration-200 ease-in-out flex flex-col"
     :class="{ '-translate-y-full': !open }"
   >
     <div
