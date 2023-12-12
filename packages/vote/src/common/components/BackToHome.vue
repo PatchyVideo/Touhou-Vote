@@ -34,8 +34,8 @@ async function backToHome() {
   if (
     await popConfirmText(
       props.saveable
-        ? '您确定要回到主页吗？（放心，未提交的内容会暂存本地哦）'
-        : '您确定要回到主页吗？（请注意，会失去未提交的内容！）'
+        ? '您想要回到主页吗？（放心，未提交的内容会暂存本地哦）'
+        : '您想要回到主页吗？（请注意，会失去未提交的内容！）'
     )
   ) {
     router.push('/')
