@@ -114,7 +114,7 @@
     <!-- Left Nav -->
     <div
       class="grid grid-rows-3 grid-flow-col h-full text-lg lg:text-xl xl:text-2xl transition-all ease-in-out duration-600"
-      :class="dpCollapseNav ? 'w-[calc(4ch+2px)]' : 'w-[min(calc(30vh-4rem+2px),calc(256px+1rem+2px))]'"
+      :class="dpCollapseNav ? 'w-[calc(4ch)]' : 'w-[min(calc(30vh-4rem),calc(256px+1rem))]'"
       role="tablist"
       tabindex="0"
     >
@@ -124,8 +124,8 @@
         class="flex flex-col justify-center items-center py-4 rounded-l-xl border-r-0 border-2 transform focus-visible:-translate-x-0.5 transition-transform"
         :class="
           dpActiveTab === index
-            ? 'bg-subaccent bg-opacity-80 border-accent-color-300'
-            : 'bg-subaccent bg-opacity-50 border-accent-color-300 cursor-pointer'
+            ? 'bg-subaccent bg-opacity-90 border-accent-color-300'
+            : 'bg-subaccent bg-opacity-50 border-accent-color-300 cursor-pointer border-r-2'
         "
         :to="{ path: '/', query: { tab: index } }"
         role="tab"
@@ -145,10 +145,10 @@
       <!-- Left Padding -->
       <div
         class="text-lg lg:text-xl xl:text-2xl transition-all ease-in-out duration-600"
-        :class="dpCollapseNav ? 'ml-[calc(4ch-2px)]' : 'ml-[min(calc(30vh-4rem-2px),calc(256px+1rem-2px))]'"
+        :class="dpCollapseNav ? 'ml-[calc(4ch)]' : 'ml-[min(calc(30vh-4rem),calc(256px+1rem))]'"
       ></div>
       <div
-        class="baseBoxRoundedShadow flex-1 flex flex-col gap-4 pt-2 px-4 pb-px border-2 border-accent-color-300 pointer-events-auto"
+        class="baseBox rounded-r-xl flex-1 flex flex-col gap-4 pt-2 px-4 pb-px border-2 border-l-0 border-accent-color-300 pointer-events-auto"
       >
         <!-- Top Nav -->
         <div class="flex justify-between">

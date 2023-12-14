@@ -98,20 +98,23 @@
       </button>
     </div>
   </div>
+
   <QuestionnaireChange
     v-model:open="open"
     :big-questionnaire="bigQuestionnaire"
     :small-questionnaire="smallQuestionnaire"
     @change-question="changeQuestion"
   />
+
   <button
     v-if="screenSizes['lg']"
-    class="fixed flex items-center bottom-20 right-5 px-3 py-1 text-sm md:text-base"
+    class="fixed flex items-center bottom-20 right-5 px-3 py-1 text-lg"
     @click="drawerOpen"
   >
-    <icon-uil-align class="fill-current" />
+    <icon-uil-align class="fill-current mr-1" />
     选择题目
   </button>
+
   <VoteMessageBox v-model:open="submitCompleteMessageBoxOpen" title="提交成功！">
     <div class="p-2 space-y-2">
       <div v-if="IsQuestionnaireAllDone && firstCompleteQuestionnaireAll">

@@ -1,7 +1,7 @@
 <template>
   <div
-    class="baseBoxShadow fixed top-0 inset-x-0 max-h-100vh z-51 p-3 md:p-10 rounded-b overflow-auto transform-gpu transition-transform duration-200 ease-in-out flex flex-col"
-    :class="{ '-translate-y-full': !open }"
+    class="baseBoxShadow fixed top-0 inset-x-0 md:inset-x-auto md:inset-y-0 md:right-0 md:w-1/3 max-h-100vh md:h-100vh z-51 p-3 md:p-10 rounded-b overflow-auto transform-gpu transition-transform duration-200 ease-in-out flex flex-col"
+    :class="{ '-translate-y-full md:translate-y-0 md:translate-x-full': !open }"
   >
     <div
       v-for="(questionnaire, index) in questionnaireKeyToName"
@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <div class="text-right text-accent-color-300 cursor-pointer" @click="close()">▲收起</div>
+    <div class="text-right text-accent-color-300 hover:text-accent-color-600 cursor-pointer" @click="close()">收起</div>
   </div>
   <Mask v-model:open="open" click-to-close />
 </template>
@@ -81,8 +81,8 @@ const emit = defineEmits<{
 
 const open = useVModel(props, 'open', emit)
 watchEffect(() => {
-  if (!open.value) document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:auto')
-  else document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:hidden')
+  if (open.value) document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:hidden')
+  else document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:auto')
 })
 function close(): void {
   open.value = false
