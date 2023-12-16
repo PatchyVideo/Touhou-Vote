@@ -6,7 +6,7 @@
     >
       <div class="flex items-center">
         <img
-          src="https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png"
+          src="https://asset.lilywhite.cc/thvote/imgs/nav/couple@100px.png"
           class="w-10 h-10 col-span-1 row-span-2 rounded"
         />
         <div>

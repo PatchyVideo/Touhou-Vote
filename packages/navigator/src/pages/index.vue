@@ -60,16 +60,16 @@ import { formatDuration, intervalToDuration } from 'date-fns'
 import dateFnsZhCN from 'date-fns/locale/zh-CN'
 
 const resultListRaw: [string, string, string, string][] = [
-  ['v1', '一', 'https://s3c.lilywhite.cc/test/test1.png', '2012/7/23 ~ 7/30'],
-  ['v2', '二', 'https://s3c.lilywhite.cc/test/test1.png', '2013/10/1 ~ 10/7'],
-  ['v3', '三', 'https://s3c.lilywhite.cc/test/test1.png', '2014/8/22 ~ 8/28'],
-  ['v4', '四', 'https://s3c.lilywhite.cc/test/test1.png', '2015/10/1 ~ 10/15'],
-  ['v5', '五', 'https://s3c.lilywhite.cc/test/test1.png', '2016/10/1 ~ 10/15'],
-  ['v6', '六', 'https://s3c.lilywhite.cc/test/test1.png', '2017/10/1 ~ 10/15'],
-  ['v7', '七', 'https://s3c.lilywhite.cc/test/test1.png', '2018/09/30 ~ 10/14'],
-  ['v8', '八', 'https://s3c.lilywhite.cc/test/test1.png', '2019/09/30 ~ 10/14'],
-  ['v9', '⑨', 'https://s3c.lilywhite.cc/test/test1.png', '2020/12/18 ~ 12/31'],
-  ['v10', '⑩', 'https://s3c.lilywhite.cc/test/test2.png', '2022/06/17 ~ 07/03'],
+  ['v1', '一', 'https://asset.lilywhite.cc/test/test1.png', '2012/7/23 ~ 7/30'],
+  ['v2', '二', 'https://asset.lilywhite.cc/test/test1.png', '2013/10/1 ~ 10/7'],
+  ['v3', '三', 'https://asset.lilywhite.cc/test/test1.png', '2014/8/22 ~ 8/28'],
+  ['v4', '四', 'https://asset.lilywhite.cc/test/test1.png', '2015/10/1 ~ 10/15'],
+  ['v5', '五', 'https://asset.lilywhite.cc/test/test1.png', '2016/10/1 ~ 10/15'],
+  ['v6', '六', 'https://asset.lilywhite.cc/test/test1.png', '2017/10/1 ~ 10/15'],
+  ['v7', '七', 'https://asset.lilywhite.cc/test/test1.png', '2018/09/30 ~ 10/14'],
+  ['v8', '八', 'https://asset.lilywhite.cc/test/test1.png', '2019/09/30 ~ 10/14'],
+  ['v9', '⑨', 'https://asset.lilywhite.cc/test/test1.png', '2020/12/18 ~ 12/31'],
+  ['v10', '⑩', 'https://asset.lilywhite.cc/test/test2.png', '2022/06/17 ~ 07/03'],
 ]
 const resultListIconPosition = [
   'bg-left-top',

@@ -56,7 +56,7 @@ const VoteList = [
   {
     type: 'character',
     title: '角色部门',
-    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/character@100px.png',
+    icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/character@100px.png',
     desc: '为喜欢的角色投票',
     complete: () => voteCharacterComplete.value,
     buttontext: () => (voteCharacterComplete.value ? '修改结果' : '开始投票'),
@@ -65,7 +65,7 @@ const VoteList = [
   {
     type: 'music',
     title: '音乐部门',
-    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/music@100px.png',
+    icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/music@100px.png',
     desc: '为喜欢的音乐投票',
     complete: () => voteMusicComplete.value,
     buttontext: () => (voteMusicComplete.value ? '修改结果' : '开始投票'),
@@ -74,7 +74,7 @@ const VoteList = [
   {
     type: 'couple',
     title: 'CP部门',
-    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
+    icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
     desc: '为喜欢的角色组合投票',
     complete: () => voteCoupleComplete.value,
     buttontext: () => (voteCoupleComplete.value ? '修改结果' : '开始投票'),

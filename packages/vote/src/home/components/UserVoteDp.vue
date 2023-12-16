@@ -39,19 +39,19 @@ const votes = {
   character: {
     name: '角色部门',
     desc: '为喜欢的角色投票',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/nav/character@100px.png',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/nav/character@100px.png',
     compelete: voteCharacterComplete,
   },
   music: {
     name: '音乐部门',
     desc: '为喜欢的音乐投票',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/nav/music@100px.png',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/nav/music@100px.png',
     compelete: voteMusicComplete,
   },
   couple: {
     name: 'CP部门',
     desc: '为喜欢的角色组合投票',
-    image: 'https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
     compelete: voteCoupleComplete,
   },
 }

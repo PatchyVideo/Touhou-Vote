@@ -11,7 +11,7 @@ export class Doujin {
     title = '新版中文东方人气投票',
     author = '东方众们',
     reason = '只要大家齐心协力，就能向着崭新的明天展翅飞翔，前进吧！',
-    imageUrl = 'https://s3c.lilywhite.cc/thvote/imgs/Cover@100px.png'
+    imageUrl = 'https://asset.lilywhite.cc/thvote/imgs/Cover@100px.png'
   ) {
     this.dojinType = dojinType
     this.url = url
@@ -23,7 +23,7 @@ export class Doujin {
 }
 export const Doujin0 = new Doujin()
 
-export const Doujin0NoImageUrl = 'https://s3c.lilywhite.cc/thvote/imgs/NoImage@100px.png'
+export const Doujin0NoImageUrl = 'https://asset.lilywhite.cc/thvote/imgs/NoImage@100px.png'
 
 interface DoujinType {
   name: string

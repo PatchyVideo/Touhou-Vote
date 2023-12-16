@@ -246,7 +246,7 @@ const TabList = [
   {
     type: 'questionnaire',
     title: '填写问卷',
-    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png',
+    icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png',
     desc: '投票之前请先完成调查问卷哦',
     complete: () => IsQuestionnaireAllDone.value,
     buttonText: () => (IsQuestionnaireAllDone.value ? '修改问卷' : '开始填写'),
@@ -257,7 +257,7 @@ const TabList = [
   {
     type: 'vote',
     title: '参与投票',
-    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
+    icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
     desc: '为您喜爱的角色/曲目/CP投上一票吧！',
     complete: () => voteCharacterComplete.value && voteMusicComplete.value && voteCoupleComplete.value,
     buttonText: () =>
@@ -273,7 +273,7 @@ const TabList = [
   {
     type: 'doujin',
     title: '作品提名',
-    icon: 'https://s3c.lilywhite.cc/thvote/imgs/nav/doujin@100px.png',
+    icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/doujin@100px.png',
     desc: '为自己喜爱的同人作品提名！',
     complete: () => voteDoujinComplete.value,
     buttonDisabled: () => !IsQuestionnaireAllDone.value,
