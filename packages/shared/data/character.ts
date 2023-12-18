@@ -17,7 +17,7 @@ export class Character {
     origname = 'ERROR',
     altnames: string[] = [],
     title = '原初的错误',
-    image = 'https://thwiki.cc/favicon.ico',
+    image = 'https://static.thwiki.cc/favicon.png',
     color = '#000000',
     reason = '相遇，只是再度重逢',
     date = 19961103,

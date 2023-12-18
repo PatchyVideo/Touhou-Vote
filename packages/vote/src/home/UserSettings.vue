@@ -60,7 +60,7 @@
               <div>账号绑定:</div>
               <div class="flex">
                 <div class="filter grayscale rounded-full shadow p-0.5 mx-2 border-3 border-accent-color-300">
-                  <img class="w-6 h-6 cursor-pointer" src="https://thwiki.cc/favicon.ico" title="THBWiki 账户" />
+                  <img class="w-6 h-6 cursor-pointer" src="https://static.thwiki.cc/favicon.png" title="THBWiki 账户" />
                 </div>
                 <div class="rounded-full shadow p-0.5 mx-2 border-3 border-accent-color-300">
                   <img

@@ -3,7 +3,7 @@
   <div class="w-full max-w-screen-lg mx-auto">
     <div class="flex flex-col py-10vh lg:py-15vh mx-2">
       <div class="quicksand text-gray-800 md:text-xl">
-        <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://thwiki.cc/favicon.ico" />THBWiki &
+        <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://static.thwiki.cc/favicon.png" />THBWiki &
         <img class="inline-block w-8 h-10 pb-1 align-middle" src="@/assets/logoVoilelabs.png" />VoileLabs
       </div>
       <h1 class="text-5xl"><img class="h-12" alt="中文东方人气投票" src="@/assets/title.svg" /></h1>

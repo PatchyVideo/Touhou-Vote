@@ -8,7 +8,8 @@
           <div class="md:w-[calc(50%-2.5rem)] space-y-4vh">
             <div class="space-y-2">
               <div class="quicksand md:text-xl">
-                <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://thwiki.cc/favicon.ico" />THBWiki &
+                <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://static.thwiki.cc/favicon.png" />THBWiki
+                &
                 <img class="inline-block w-8 h-10 pb-1 align-middle" src="@/common/assets/logoVoilelabs.png" />VoileLabs
               </div>
               <div class="flex flex-wrap space-y-2">

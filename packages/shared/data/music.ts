@@ -21,7 +21,7 @@ export class Music {
     origname = 'UNDEFINED',
     album = '虚幻的音阶',
     date = 19961103,
-    image = 'https://thwiki.cc/favicon.ico',
+    image = 'https://static.thwiki.cc/favicon.png',
     music = '',
     reason = '梦的彼岸，能听到大家的欢笑声吗？',
     honmei = false,

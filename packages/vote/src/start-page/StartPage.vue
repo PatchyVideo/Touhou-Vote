@@ -4,7 +4,7 @@
     <div class="space-y-6vh w-full md:pt-0 md:flex md:flex-col md:flex-wrap md:content-center md:space-y-4vh">
       <div class="md:w-1/2 space-y-2">
         <div class="quicksand text-gray-800 md:text-xl">
-          <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://thwiki.cc/favicon.ico" />THBWiki &
+          <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://static.thwiki.cc/favicon.png" />THBWiki &
           <img class="inline-block w-8 h-10 pb-1 align-middle" src="@/common/assets/logoVoilelabs.png" />VoileLabs
         </div>
         <div class="w-full flex flex-wrap space-y-2">

@@ -8,7 +8,7 @@
       <div ref="titleEl" class="flex-1 flex mx-2 my-auto max-h-32 justify-center items-center">
         <div class="flex flex-col">
           <div class="quicksand flex items-center gap-1 text-gray-800 md:text-xl">
-            <img class="w-5" src="https://thwiki.cc/favicon.ico" />
+            <img class="w-5" src="https://static.thwiki.cc/favicon.png" />
             THBWiki &
             <img class="w-8" src="@/assets/logoVoilelabs.png" />
             VoileLabs
