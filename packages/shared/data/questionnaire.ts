@@ -3590,7 +3590,7 @@ export const questionnaire: QuestionnaireALL = {
         ],
         [
           {
-            id: 25112,
+            id: 25121,
             type: 'Input',
             question: '您认为除了现有平台，还可以搭建什么样的平台来帮助创作者与观众？',
             introduction: '',
@@ -3600,7 +3600,7 @@ export const questionnaire: QuestionnaireALL = {
         ],
         [
           {
-            id: 25113,
+            id: 25131,
             type: 'Input',
             question: '您对于本次投票有何意见或建议呢？',
             introduction: '',
