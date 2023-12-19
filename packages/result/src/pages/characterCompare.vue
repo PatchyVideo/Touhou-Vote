@@ -180,7 +180,7 @@ type HeaderKey =
 interface Header {
   name: string
   key: HeaderKey
-  sortable?: Boolean
+  sortable?: boolean
 }
 const header: Header[] = [
   { name: '名次', key: 'displayRank' },

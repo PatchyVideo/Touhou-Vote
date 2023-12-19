@@ -5,7 +5,10 @@
       class="mb-0 md:m-5 p-3 space-y-3 bg-white bg-opacity-80 rounded-t md:bg-opacity-0 md:rounded md:flex md:justify-between md:items-center"
     >
       <div class="flex items-end">
-        <img src="https://asset.lilywhite.cc/thvote/imgs/thb_reimu.png" class="w-10 h-10 col-span-1 row-span-2 rounded" />
+        <img
+          src="https://asset.lilywhite.cc/thvote/imgs/thb_reimu.png"
+          class="w-10 h-10 col-span-1 row-span-2 rounded"
+        />
         <h2 class="text-4xl font-light">角色部门</h2>
         <span class="ml-3 text-xl">结果信息</span>
       </div>

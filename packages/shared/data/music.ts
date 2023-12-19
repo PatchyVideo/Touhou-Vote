@@ -7068,8 +7068,7 @@ export const musicList: Music[] = [
     origname: '蓬莱伝説',
     album: '蓬莱人形',
     date: 20020811,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ab529d5e@10s.mp3',
     reason: '',
     honmei: false,
@@ -7082,8 +7081,7 @@ export const musicList: Music[] = [
     origname: '人形の森',
     album: '蓬莱人形',
     date: 20020811,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d8dbd5a1@10s.mp3',
     reason: '',
     honmei: false,
@@ -7096,8 +7094,7 @@ export const musicList: Music[] = [
     origname: '空飛ぶ巫女の不思議な毎日',
     album: '蓬莱人形',
     date: 20020811,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/90961976@10s.mp3',
     reason: '',
     honmei: false,
@@ -7320,8 +7317,7 @@ export const musicList: Music[] = [
     origname: '月面ツアーへようこそ',
     album: '大空魔术',
     date: 20060813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/287691dc@10s.mp3',
     reason: '',
     honmei: false,
@@ -7334,8 +7330,7 @@ export const musicList: Music[] = [
     origname: '天空のグリニッジ',
     album: '大空魔术',
     date: 20060813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/668b578c@10s.mp3',
     reason: '',
     honmei: false,
@@ -7348,8 +7343,7 @@ export const musicList: Music[] = [
     origname: '車椅子の未来宇宙',
     album: '大空魔术',
     date: 20060813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5f5d2cd7@10s.mp3',
     reason: '',
     honmei: false,
@@ -7362,8 +7356,7 @@ export const musicList: Music[] = [
     origname: '衛星カフェテラス',
     album: '大空魔术',
     date: 20060813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7d80de05@10s.mp3',
     reason: '',
     honmei: false,
@@ -7376,8 +7369,7 @@ export const musicList: Music[] = [
     origname: 'G Free',
     album: '大空魔术',
     date: 20060813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/798716a4@10s.mp3',
     reason: '',
     honmei: false,
@@ -7390,8 +7382,7 @@ export const musicList: Music[] = [
     origname: '大空魔術　～ Magical Astronomy',
     album: '大空魔术',
     date: 20060813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ae98f7c5@10s.mp3',
     reason: '',
     honmei: false,
@@ -7404,8 +7395,7 @@ export const musicList: Music[] = [
     origname: '向こう側の月',
     album: '大空魔术',
     date: 20060813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/736c3521@10s.mp3',
     reason: '',
     honmei: false,
@@ -7432,8 +7422,7 @@ export const musicList: Music[] = [
     origname: '衛星トリフネ',
     album: '鸟船遗迹',
     date: 20120430,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/964a1499@10s.mp3',
     reason: '',
     honmei: false,
@@ -7446,8 +7435,7 @@ export const musicList: Music[] = [
     origname: 'トロヤ群の密林',
     album: '鸟船遗迹',
     date: 20120430,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8426365f@10s.mp3',
     reason: '',
     honmei: false,
@@ -7460,8 +7448,7 @@ export const musicList: Music[] = [
     origname: '天鳥船神社',
     album: '鸟船遗迹',
     date: 20120430,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0335e7c4@10s.mp3',
     reason: '',
     honmei: false,
@@ -7474,8 +7461,7 @@ export const musicList: Music[] = [
     origname: '天鳥船神社の結界',
     album: '鸟船遗迹',
     date: 20120430,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/efce7780@10s.mp3',
     reason: '',
     honmei: false,
@@ -7488,8 +7474,7 @@ export const musicList: Music[] = [
     origname: '宇宙に浮かぶ幻想郷',
     album: '鸟船遗迹',
     date: 20120430,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0b3db70c@10s.mp3',
     reason: '',
     honmei: false,
@@ -7656,8 +7641,7 @@ export const musicList: Music[] = [
     origname: 'バー・オールドアダム',
     album: '旧约酒馆',
     date: 20160813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/746cf34e@10s.mp3',
     reason: '',
     honmei: false,
@@ -7670,8 +7654,7 @@ export const musicList: Music[] = [
     origname: '燕石博物誌が連れてきた闇',
     album: '旧约酒馆',
     date: 20160813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ee792d6c@10s.mp3',
     reason: '',
     honmei: false,
@@ -7684,8 +7667,7 @@ export const musicList: Music[] = [
     origname: 'アウトサイダーカクテル',
     album: '旧约酒馆',
     date: 20160813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/82e1ef21@10s.mp3',
     reason: '',
     honmei: false,
@@ -7698,8 +7680,7 @@ export const musicList: Music[] = [
     origname: '旧世界の冒険酒場',
     album: '旧约酒馆',
     date: 20160813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cb946e59@10s.mp3',
     reason: '',
     honmei: false,
@@ -7712,8 +7693,7 @@ export const musicList: Music[] = [
     origname: '二日酔いの同床異夢',
     album: '旧约酒馆',
     date: 20160813,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d719dc34@10s.mp3',
     reason: '',
     honmei: false,
@@ -7838,8 +7818,7 @@ export const musicList: Music[] = [
     origname: '魔法使いの憂鬱',
     album: 'The Grimoire of Marisa',
     date: 20090728,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/The%20Grimoire%20of%20Marisa@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/The%20Grimoire%20of%20Marisa@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6c4cf788@10s.mp3',
     reason: '',
     honmei: false,
@@ -8048,8 +8027,7 @@ export const musicList: Music[] = [
     origname: '秋霜玉　～ Clockworks',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/db97390b@10s.mp3',
     reason: '',
     honmei: false,
@@ -8062,8 +8040,7 @@ export const musicList: Music[] = [
     origname: 'フォルスストロベリー',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9bfb8bad@10s.mp3',
     reason: '',
     honmei: false,
@@ -8076,8 +8053,7 @@ export const musicList: Music[] = [
     origname: 'プリムローズシヴァ',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/80eafac4@10s.mp3',
     reason: '',
     honmei: false,
@@ -8090,8 +8066,7 @@ export const musicList: Music[] = [
     origname: '幻想帝都',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e729eef0@10s.mp3',
     reason: '',
     honmei: false,
@@ -8104,8 +8079,7 @@ export const musicList: Music[] = [
     origname: 'ディザストラスジェミニ',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cb652ca8@10s.mp3',
     reason: '',
     honmei: false,
@@ -8118,8 +8092,7 @@ export const musicList: Music[] = [
     origname: '華の幻想　紅夢の宙',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5c5bc471@10s.mp3',
     reason: '',
     honmei: false,
@@ -8132,8 +8105,7 @@ export const musicList: Music[] = [
     origname: '天空アーミー',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/beace7eb@10s.mp3',
     reason: '',
     honmei: false,
@@ -8146,8 +8118,7 @@ export const musicList: Music[] = [
     origname: 'スプートニク幻夜',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2538f0d7@10s.mp3',
     reason: '',
     honmei: false,
@@ -8160,8 +8131,7 @@ export const musicList: Music[] = [
     origname: '機械サーカス　～ Reverie',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/08e4e69b@10s.mp3',
     reason: '',
     honmei: false,
@@ -8174,8 +8144,7 @@ export const musicList: Music[] = [
     origname: 'カナベラルの夢幻少女',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4e2491cc@10s.mp3',
     reason: '',
     honmei: false,
@@ -8188,8 +8157,7 @@ export const musicList: Music[] = [
     origname: '魔法少女十字軍',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7aa0b3f3@10s.mp3',
     reason: '',
     honmei: false,
@@ -8202,8 +8170,7 @@ export const musicList: Music[] = [
     origname: 'アンティークテラー',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/750aadfc@10s.mp3',
     reason: '',
     honmei: false,
@@ -8216,8 +8183,7 @@ export const musicList: Music[] = [
     origname: '夢機械　～ Innocent Power',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/65eec8ed@10s.mp3',
     reason: '',
     honmei: false,
@@ -8230,8 +8196,7 @@ export const musicList: Music[] = [
     origname: "幻想科学　～ Doll's Phantom",
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3a6d7c98@10s.mp3',
     reason: '',
     honmei: false,
@@ -8244,8 +8209,7 @@ export const musicList: Music[] = [
     origname: "少女神性　～ Pandora's Box",
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6ea70362@10s.mp3',
     reason: '',
     honmei: false,
@@ -8258,8 +8222,7 @@ export const musicList: Music[] = [
     origname: 'シルクロードアリス',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bb3e06e9@10s.mp3',
     reason: '',
     honmei: false,
@@ -8272,8 +8235,7 @@ export const musicList: Music[] = [
     origname: '魔女達の舞踏会　～ Magus',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4c45f349@10s.mp3',
     reason: '',
     honmei: false,
@@ -8286,8 +8248,7 @@ export const musicList: Music[] = [
     origname: '二色蓮花蝶　～ Ancients',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8c331433@10s.mp3',
     reason: '',
     honmei: false,
@@ -8300,8 +8261,7 @@ export const musicList: Music[] = [
     origname: 'ハーセルヴズ',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/dc7811f1@10s.mp3',
     reason: '',
     honmei: false,
@@ -8314,8 +8274,7 @@ export const musicList: Music[] = [
     origname: 'タイトルドメイド',
     album: '秋霜玉',
     date: 20001230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6b2c0bcf@10s.mp3',
     reason: '',
     honmei: false,
@@ -8328,8 +8287,7 @@ export const musicList: Music[] = [
     origname: '稀翁玉　～ Fairy Dance',
     album: '稀翁玉',
     date: 20011230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1a0e0699@10s.mp3',
     reason: '',
     honmei: false,
@@ -8342,8 +8300,7 @@ export const musicList: Music[] = [
     origname: '天鵝絨少女戰　～ Velvet Battle',
     album: '稀翁玉',
     date: 20011230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/874044b8@10s.mp3',
     reason: '',
     honmei: false,
@@ -8356,8 +8313,7 @@ export const musicList: Music[] = [
     origname: 'Castle Explorer -in the Sky-',
     album: '稀翁玉',
     date: 20011230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0e0f7b3e@10s.mp3',
     reason: '',
     honmei: false,
@@ -8370,8 +8326,7 @@ export const musicList: Music[] = [
     origname: 'オルフェの詩　～ Pseudoclassic',
     album: '稀翁玉',
     date: 20011230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4ab0d1c1@10s.mp3',
     reason: '',
     honmei: false,
@@ -8384,8 +8339,7 @@ export const musicList: Music[] = [
     origname: '新幻想　～ New Fantasy',
     album: '稀翁玉',
     date: 20011230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9046e7fc@10s.mp3',
     reason: '',
     honmei: false,
@@ -8398,8 +8352,7 @@ export const musicList: Music[] = [
     origname: 'オルレアンの聖騎士',
     album: '稀翁玉',
     date: 20011230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2b6bcb25@10s.mp3',
     reason: '',
     honmei: false,
@@ -8412,8 +8365,7 @@ export const musicList: Music[] = [
     origname: ' Sweet Maid',
     album: '稀翁玉',
     date: 20011230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d60777dd@10s.mp3',
     reason: '',
     honmei: false,
@@ -8426,8 +8378,7 @@ export const musicList: Music[] = [
     origname: '櫻花之戀塚　～ Flower of Japan',
     album: '稀翁玉',
     date: 20011230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5217265a@10s.mp3',
     reason: '',
     honmei: false,
@@ -8440,8 +8391,7 @@ export const musicList: Music[] = [
     origname: '乙女戰士 ～ Heart of Valkyrie',
     album: '稀翁玉',
     date: 20011230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1b62af00@10s.mp3',
     reason: '',
     honmei: false,
@@ -8454,8 +8404,7 @@ export const musicList: Music[] = [
     origname: 'エニグマティクドール ～ God Knows',
     album: '稀翁玉',
     date: 20011230,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/166435f1@10s.mp3',
     reason: '',
     honmei: false,
@@ -8468,8 +8417,7 @@ export const musicList: Music[] = [
     origname: 'Witch of Love Potion',
     album: 'Torte Le Magic',
     date: 20010504,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/Torte%20Le%20Magic@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/Torte%20Le%20Magic@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f0cd1eac@10s.mp3',
     reason: '',
     honmei: false,
@@ -8482,8 +8430,7 @@ export const musicList: Music[] = [
     origname: 'Magical and Hopeless',
     album: 'Torte Le Magic',
     date: 20010504,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/Torte%20Le%20Magic@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/Torte%20Le%20Magic@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f8dee778@10s.mp3',
     reason: '',
     honmei: false,
@@ -8496,8 +8443,7 @@ export const musicList: Music[] = [
     origname: 'Sacred Battle',
     album: 'Torte Le Magic',
     date: 20010504,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/Torte%20Le%20Magic@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/Torte%20Le%20Magic@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cda69fb8@10s.mp3',
     reason: '',
     honmei: false,
@@ -8510,8 +8456,7 @@ export const musicList: Music[] = [
     origname: '呑んべぇのレムリア',
     album: '黄昏酒场',
     date: 20071229,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%BB%84%E6%98%8F%E9%85%92%E5%9C%BA@100px.png',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%BB%84%E6%98%8F%E9%85%92%E5%9C%BA@100px.png',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f3bd4a8f@10s.mp3',
     reason: '',
     honmei: false,
@@ -8566,8 +8511,7 @@ export const musicList: Music[] = [
     origname: 'Mysterious Shrine',
     album: '8BIT MUSIC POWER FINAL',
     date: 20170406,
-    image:
-      'https://asset.lilywhite.cc/thvote/imgs/shared/music/8BIT%20MUSIC%20POWER%20FINAL@100px.jpg',
+    image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/8BIT%20MUSIC%20POWER%20FINAL@100px.jpg',
     music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b77419b7@10s.mp3',
     reason: '',
     honmei: false,

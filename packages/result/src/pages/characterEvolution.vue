@@ -93,10 +93,11 @@
 <script lang="ts" setup>
 import { watchEffect } from 'vue'
 import NProgress from 'nprogress'
-import { gql, useQuery, useLazyQuery } from '@/composables/graphql'
+import { gql, useLazyQuery, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { characterList } from '@touhou-vote/shared/data/character'
-import { GraphDataLine, GraphTimeRange, getTrendData } from '@/lib/Graph'
+import type { GraphDataLine } from '@/lib/Graph'
+import { GraphTimeRange, getTrendData } from '@/lib/Graph'
 import VoteSelect from '@/components/VoteSelect.vue'
 import GraphEvolution from '@/components/GraphEvolution.vue'
 

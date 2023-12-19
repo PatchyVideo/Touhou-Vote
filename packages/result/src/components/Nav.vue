@@ -55,10 +55,7 @@
               'top-1': showSummary,
             }"
           >
-            <img
-              src="https://asset.lilywhite.cc/thvote/imgs/nav/couple@100px.png"
-              class="w-10 h-10 rounded"
-            />
+            <img src="https://asset.lilywhite.cc/thvote/imgs/nav/couple@100px.png" class="w-10 h-10 rounded" />
             <div
               class="text-black text-xl"
               :class="{

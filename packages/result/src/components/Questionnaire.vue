@@ -96,12 +96,12 @@
 import { gql, useLazyQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
-import { GraphDataPie, GraphDataSunburst, GraphDataRadar } from '@/lib/Graph'
+import type { GraphDataPie, GraphDataRadar, GraphDataSunburst } from '@/lib/Graph'
 import {
   allQuestionnaireIDList,
-  qIDToID,
   findQuestionWithQuestionID,
   getSmallQuestionnaireChineseName,
+  qIDToID,
 } from '@/lib/Questionnaire'
 import GraphMap from '../components/GraphMap.vue'
 import GraphPie from '../components/GraphPie.vue'

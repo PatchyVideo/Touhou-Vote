@@ -66,8 +66,8 @@ import AdvancedFilter from './AdvancedFilter.vue'
 import { Character } from '@/vote-character/lib/character'
 import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
 import {
-  charactersVotedWithoutHonmei,
   characterListLeftWithFilter,
+  charactersVotedWithoutHonmei,
   order,
   orderOptions,
 } from '@/vote-character/lib/characterList'

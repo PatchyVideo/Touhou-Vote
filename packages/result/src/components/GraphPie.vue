@@ -10,17 +10,11 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { GraphDataPie } from '@/lib/Graph'
+import type { GraphDataPie } from '@/lib/Graph'
 import * as echarts from 'echarts/core'
-import {
-  ToolboxComponent,
-  ToolboxComponentOption,
-  TooltipComponent,
-  TooltipComponentOption,
-  LegendComponent,
-  LegendComponentOption,
-} from 'echarts/components'
-import { PieChart, BarChart } from 'echarts/charts'
+import type { LegendComponentOption, ToolboxComponentOption, TooltipComponentOption } from 'echarts/components'
+import { LegendComponent, ToolboxComponent, TooltipComponent } from 'echarts/components'
+import { BarChart, PieChart } from 'echarts/charts'
 import { LabelLayout } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
 import { getGraphBarOption } from '@/lib/graphBar'

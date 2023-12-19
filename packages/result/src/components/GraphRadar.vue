@@ -10,19 +10,16 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { GraphDataRadar } from '@/lib/Graph'
+import type { GraphDataRadar } from '@/lib/Graph'
 import * as echarts from 'echarts/core'
-import {
-  TitleComponent,
-  TitleComponentOption,
-  ToolboxComponent,
-  ToolboxComponentOption,
-  TooltipComponent,
-  TooltipComponentOption,
-  LegendComponent,
+import type {
   LegendComponentOption,
+  TitleComponentOption,
+  ToolboxComponentOption,
+  TooltipComponentOption,
 } from 'echarts/components'
-import { RadarChart, BarChart } from 'echarts/charts'
+import { LegendComponent, TitleComponent, ToolboxComponent, TooltipComponent } from 'echarts/components'
+import { BarChart, RadarChart } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
 import { sum } from 'd3'

@@ -1,18 +1,20 @@
 <template><div ref="chartDom" class="w-full aspect-ratio-1/1"></div></template>
 <script lang="ts" setup>
-import { GraphDataMap } from '@/lib/Graph'
+import type { GraphDataMap } from '@/lib/Graph'
 import * as echarts from 'echarts/core'
-import {
-  ToolboxComponent,
-  ToolboxComponentOption,
-  TooltipComponent,
-  TooltipComponentOption,
-  VisualMapComponent,
-  VisualMapComponentOption,
-  GeoComponent,
+import type {
   GeoComponentOption,
-  LegendComponent,
   LegendComponentOption,
+  ToolboxComponentOption,
+  TooltipComponentOption,
+  VisualMapComponentOption,
+} from 'echarts/components'
+import {
+  GeoComponent,
+  LegendComponent,
+  ToolboxComponent,
+  TooltipComponent,
+  VisualMapComponent,
 } from 'echarts/components'
 import { MapChart } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'

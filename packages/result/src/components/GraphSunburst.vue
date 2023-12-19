@@ -10,18 +10,12 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { GraphDataSunburst } from '@/lib/Graph'
+import type { GraphDataSunburst } from '@/lib/Graph'
 import * as echarts from 'echarts/core'
-import {
-  ToolboxComponent,
-  ToolboxComponentOption,
-  TooltipComponent,
-  TooltipComponentOption,
-  LegendComponent,
-  LegendComponentOption,
-} from 'echarts/components'
+import type { LegendComponentOption, ToolboxComponentOption, TooltipComponentOption } from 'echarts/components'
+import { LegendComponent, ToolboxComponent, TooltipComponent } from 'echarts/components'
 /* Attention: Sunburst Chart lacks the "label-position: outside" option, so we give it up 💩 */
-import { PieChart, BarChart } from 'echarts/charts'
+import { BarChart, PieChart } from 'echarts/charts'
 import { LabelLayout } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
 import { getGraphBarOption } from '@/lib/graphBar'

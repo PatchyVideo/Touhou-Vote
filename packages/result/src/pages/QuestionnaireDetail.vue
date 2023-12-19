@@ -70,8 +70,9 @@ import type { Query } from '@/composables/graphql'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import NProgress from 'nprogress'
 import Questionnaire from '@/components/Questionnaire.vue'
-import { GraphDataLine, GraphTimeRange, getTrendData, getAddedTrendData } from '@/lib/Graph'
-import { startTimeString, deadlineString } from '@touhou-vote/shared/data/time'
+import type { GraphDataLine } from '@/lib/Graph'
+import { GraphTimeRange, getAddedTrendData, getTrendData } from '@/lib/Graph'
+import { deadlineString, startTimeString } from '@touhou-vote/shared/data/time'
 
 setSiteTitle('调查问卷结果 - 第⑩回 中文东方人气投票')
 

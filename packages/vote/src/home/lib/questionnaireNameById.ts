@@ -51,7 +51,8 @@ export const questionnaireNameById: Record<
       exQuestionnaire3: {
         name: '展会与手游相关',
         desc: '适合展会游客或东方手游玩家填写',
-        image: 'https://asset.lilywhite.cc/thvote/imgs/vote/home/THBWiki-LOGO-%E8%A7%92%E5%B7%9D%E4%B9%A6%E5%BA%97@100px.png',
+        image:
+          'https://asset.lilywhite.cc/thvote/imgs/vote/home/THBWiki-LOGO-%E8%A7%92%E5%B7%9D%E4%B9%A6%E5%BA%97@100px.png',
       },
       exQuestionnaire4: {
         name: '正版盗版相关',

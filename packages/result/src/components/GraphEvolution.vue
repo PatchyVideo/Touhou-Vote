@@ -1,22 +1,25 @@
 <template><div ref="chartDom" class="w-full aspect-ratio-1/1 md:aspect-ratio-16/10"></div></template>
 <script lang="ts" setup>
-import { GraphDataLine } from '@/lib/Graph'
+import type { GraphDataLine } from '@/lib/Graph'
 import * as echarts from 'echarts/core'
-import {
-  TitleComponent,
-  TitleComponentOption,
-  ToolboxComponent,
-  ToolboxComponentOption,
-  TooltipComponent,
-  TooltipComponentOption,
-  GridComponent,
-  GridComponentOption,
-  DataZoomComponent,
+import type {
   DataZoomComponentOption,
-  LegendComponent,
+  GridComponentOption,
   LegendComponentOption,
+  TitleComponentOption,
+  ToolboxComponentOption,
+  TooltipComponentOption,
 } from 'echarts/components'
-import { LineChart, LineSeriesOption } from 'echarts/charts'
+import {
+  DataZoomComponent,
+  GridComponent,
+  LegendComponent,
+  TitleComponent,
+  ToolboxComponent,
+  TooltipComponent,
+} from 'echarts/components'
+import type { LineSeriesOption } from 'echarts/charts'
+import { LineChart } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
 

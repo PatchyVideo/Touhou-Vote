@@ -285,7 +285,8 @@ import { useVModel } from '@vueuse/core'
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 import { characterList } from '@touhou-vote/shared/data/character'
 import { musicList } from '@touhou-vote/shared/data/music'
-import { questionnaire, Question } from '@touhou-vote/shared/data/questionnaire'
+import type { Question } from '@touhou-vote/shared/data/questionnaire'
+import { questionnaire } from '@touhou-vote/shared/data/questionnaire'
 import VoteSelect from '@/components/VoteSelect.vue'
 
 const props = defineProps({

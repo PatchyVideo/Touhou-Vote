@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import { voteCharacterComplete, voteCoupleComplete, voteMusicComplete, username } from '../lib/user'
+import { username, voteCharacterComplete, voteCoupleComplete, voteMusicComplete } from '../lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 
 setSiteTitle(String(username.value))

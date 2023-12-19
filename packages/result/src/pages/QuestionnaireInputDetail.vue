@@ -48,7 +48,7 @@ import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
-import { qIDToID, findQuestionWithQuestionID } from '@/lib/Questionnaire'
+import { findQuestionWithQuestionID, qIDToID } from '@/lib/Questionnaire'
 const route = useRoute()
 
 const qid = ref(

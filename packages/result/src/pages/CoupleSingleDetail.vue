@@ -115,8 +115,9 @@ import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
 import { toPercentageString } from '@/lib/numberFormat'
-import { GraphDataLine, GraphTimeRange, getTrendData, getAddedTrendData } from '@/lib/Graph'
-import { startTimeString, deadlineString } from '@touhou-vote/shared/data/time'
+import type { GraphDataLine } from '@/lib/Graph'
+import { GraphTimeRange, getAddedTrendData, getTrendData } from '@/lib/Graph'
+import { deadlineString, startTimeString } from '@touhou-vote/shared/data/time'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 
 const route = useRoute()

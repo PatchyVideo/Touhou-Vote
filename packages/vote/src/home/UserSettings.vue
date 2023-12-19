@@ -186,7 +186,7 @@ import type { Mutation } from '@/graphql'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { voteEnded } from '@/end-page/lib/voteEnded'
-import { popMessageText, popConfirmText } from '@/common/lib/popMessage'
+import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
 
 setSiteTitle('用户设置')
 
