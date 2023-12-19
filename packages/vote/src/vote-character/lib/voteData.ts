@@ -15,11 +15,11 @@ export const characters = ref<Character[]>(new Array(CHARACTERVOTENUM).fill(null
 
 watch(characters.value, setVoteDataCharacters, { deep: true })
 function setVoteDataCharacters(): void {
-  localStorage.setItem('voteCharacter', JSON.stringify(characters.value))
+  localStorage.setItem('characters', JSON.stringify(characters.value))
 }
 
 export function updateVoteCharacters(newVoteData: CharacterSubmitQuery[]): void {
-  const charactersDataLocal: Character[] = JSON.parse(localStorage.getItem('voteCharacter') || '[]')
+  const charactersDataLocal: Character[] = JSON.parse(localStorage.getItem('characters') || '[]')
   if (JSON.stringify(charactersDataLocal) != '[]') {
     characters.value = charactersDataLocal
   } else if (newVoteData.length) {

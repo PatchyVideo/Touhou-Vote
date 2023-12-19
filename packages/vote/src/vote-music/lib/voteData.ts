@@ -14,11 +14,11 @@ export const musics = ref<Music[]>(new Array(MUSICVOTENUM).fill(null).map(() => 
 
 watch(musics.value, setVoteDataMusics, { deep: true })
 function setVoteDataMusics(): void {
-  localStorage.setItem('voteMuisc', JSON.stringify(musics.value))
+  localStorage.setItem('muiscs', JSON.stringify(musics.value))
 }
 
 export function updateVoteMusics(newVoteData: MusicSubmitQuery[]): void {
-  const musicsDataLocal: Music[] = JSON.parse(localStorage.getItem('voteMuisc') || '[]')
+  const musicsDataLocal: Music[] = JSON.parse(localStorage.getItem('muiscs') || '[]')
   if (JSON.stringify(musicsDataLocal) != '[]') {
     musics.value = musicsDataLocal
   } else if (newVoteData.length) {

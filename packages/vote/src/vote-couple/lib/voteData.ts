@@ -15,11 +15,11 @@ export const couples = ref<Couple[]>(new Array(CPVOTENUM).fill(null).map(() => n
 
 watch(couples.value, setVoteDataCouples, { deep: true })
 function setVoteDataCouples(): void {
-  localStorage.setItem('voteCouple', JSON.stringify(couples.value))
+  localStorage.setItem('couples', JSON.stringify(couples.value))
 }
 
 export function updateVotecouple(coupleVoteData: CpSubmitQuery[]): void {
-  const couplesDataLocal: Couple[] = JSON.parse(localStorage.getItem('voteCouple') || '[]')
+  const couplesDataLocal: Couple[] = JSON.parse(localStorage.getItem('couples') || '[]')
   if (JSON.stringify(couplesDataLocal) != '[]') {
     couples.value = couplesDataLocal
   } else if (coupleVoteData.length) {
