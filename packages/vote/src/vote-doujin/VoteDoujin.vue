@@ -55,11 +55,11 @@
   <VoteMessageBox v-model:open="noticeOpen" title="关于作品提名">
     <div class="flex flex-col overflow-auto">
       <div class="space-y-1 p-2">
-        <p class="indent-lg">欢迎来到新版中文东方人气投票的作品提名部门。</p>
+        <p class="indent-lg">欢迎来到新版中文东方人气投票的作品提名。</p>
         <p class="indent-lg">
           您可通过本部门的提名页面，对于<strong> 最近3年内发布 </strong>的让您觉得
           <strong> 印象最深刻，最想推荐给它人 </strong>
-          的作品进行提名。（由于是第一次举办，故接受最近3年内发布的作品，从下一届开始将仅接受一年内）
+          的作品进行提名。
         </p>
         <br />
         <p class="indent-lg">
