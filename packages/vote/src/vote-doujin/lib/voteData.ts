@@ -4,7 +4,7 @@ import type { DojinSubmitQuery } from '@/graphql/__generated__/graphql'
 
 export const doujins = ref<Doujin[]>(new Array(5).fill(null).map(() => new Doujin()))
 
-watch(doujins.value, setVoteDataDoujins, { deep: true })
+watch(doujins, setVoteDataDoujins, { deep: true })
 function setVoteDataDoujins(): void {
   localStorage.setItem('doujins', JSON.stringify(doujins.value))
 }

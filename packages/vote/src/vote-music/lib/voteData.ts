@@ -12,7 +12,7 @@ export const musicHonmei = computed<Music>(() => musics.value.find((music) => mu
 // Vote data, including blank ticket seat (as New Music)
 export const musics = ref<Music[]>(new Array(MUSICVOTENUM).fill(null).map(() => new Music()))
 
-watch(musics.value, setVoteDataMusics, { deep: true })
+watch(musics, setVoteDataMusics, { deep: true })
 function setVoteDataMusics(): void {
   localStorage.setItem('muiscs', JSON.stringify(musics.value))
 }

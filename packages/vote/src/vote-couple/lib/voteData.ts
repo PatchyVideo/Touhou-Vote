@@ -13,7 +13,7 @@ export const coupleHonmei = computed<Couple>(() => couples.value.find((couple) =
 
 export const couples = ref<Couple[]>(new Array(CPVOTENUM).fill(null).map(() => new Couple()))
 
-watch(couples.value, setVoteDataCouples, { deep: true })
+watch(couples, setVoteDataCouples, { deep: true })
 function setVoteDataCouples(): void {
   localStorage.setItem('couples', JSON.stringify(couples.value))
 }

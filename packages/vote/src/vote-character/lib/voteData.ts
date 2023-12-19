@@ -13,8 +13,9 @@ export const characterHonmei = computed<Character>(
 // Vote data, including blank ticket seat (as New Character)
 export const characters = ref<Character[]>(new Array(CHARACTERVOTENUM).fill(null).map(() => new Character()))
 
-watch(characters.value, setVoteDataCharacters, { deep: true })
+watch(characters, setVoteDataCharacters, { deep: true })
 function setVoteDataCharacters(): void {
+  console.log(characters.value)
   localStorage.setItem('characters', JSON.stringify(characters.value))
 }
 
