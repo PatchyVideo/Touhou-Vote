@@ -3,7 +3,7 @@
   <div class="w-full min-h-100vh flex flex-col overflow-hidden">
     <div class="baseBoxShadow p-2 flex items-center justify-between">
       <div class="flex items-center">
-        <BackToHome :show="true" :saveable="true" />
+        <BackToHome :show="true" />
         <div class="font-medium">
           {{ questionnaireName }}
         </div>

@@ -24,20 +24,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  saveable: {
-    type: Boolean,
-    default: true,
-  },
 })
 
 async function backToHome() {
-  if (
-    await popConfirmText(
-      props.saveable
-        ? '您想要回到主页吗？（放心，未提交的内容会暂存本地哦）'
-        : '您想要回到主页吗？（请注意，会失去未提交的内容！）'
-    )
-  ) {
+  if (await popConfirmText('您想要回到主页吗？（放心，未提交的内容会暂存本地哦）')) {
     router.push('/')
   }
 }

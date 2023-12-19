@@ -1,6 +1,6 @@
 <template>
   <div class="baseBoxShadow p-2 flex items-center mb-2">
-    <BackToHome :show="true" :saveable="false" />
+    <BackToHome :show="true" />
     <div class="font-medium">{{ '第11届 中文东方人气投票 - ' + typeChinese }}</div>
   </div>
 </template>
