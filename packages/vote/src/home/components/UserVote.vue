@@ -2,7 +2,12 @@
   <div class="min-h-[calc(100vh-44px)] md:min-h-0">
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
-      <div v-for="item in VoteList" :key="item.type" class="baseBoxRoundedShadow flex w-full p-0.5">
+      <div
+        v-for="item in VoteList"
+        :key="item.type"
+        class="baseBoxRoundedShadow flex w-full p-0.5"
+        @click="item.buttonFunction()"
+      >
         <div class="w-1/3 p-0.5 overflow-hidden rounded-xl">
           <div class="w-full aspect-1/1">
             <img :src="item.icon" class="object-cover" />
@@ -26,7 +31,7 @@
             <div class="text-sm">{{ item.desc }}</div>
           </div>
           <div class="w-full text-right">
-            <button class="px-2 py-0.5 text-sm md:px-3 md:py-2" @click="item.buttonFunction()">
+            <button class="px-2 py-0.5 text-sm md:px-3 md:py-2">
               {{ item.buttontext() }}
             </button>
           </div>

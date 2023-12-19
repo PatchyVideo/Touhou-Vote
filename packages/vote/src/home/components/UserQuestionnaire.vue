@@ -7,7 +7,12 @@
           <h2 class="text-base font-bold whitespace-nowrap">{{ questionnaireNameById[catogory].name }}</h2>
           <span class="text-sm truncate">{{ questionnaireNameById[catogory].desc }}</span>
         </div>
-        <div v-for="(_child, childId) in children" :key="childId" class="baseBoxRoundedShadow flex w-full p-0.5 mt-2">
+        <div
+          v-for="(_child, childId) in children"
+          :key="childId"
+          class="baseBoxRoundedShadow flex w-full p-0.5 mt-2"
+          @click="gotoQuestionnaire(catogory as string, childId as string)"
+        >
           <div class="w-1/3 p-0.5 overflow-hidden rounded-xl">
             <div class="w-full aspect-1/1">
               <img :src="questionnaireNameById[catogory].children[childId].image" class="object-cover" />
@@ -33,12 +38,7 @@
               <span v-text="questionnaireNameById[catogory].children[childId].desc"></span>
             </div>
             <div class="w-full text-right">
-              <button
-                class="px-2 py-0.5 text-sm xl:px-3 xl:py-2"
-                @click="gotoQuestionnaire(catogory as string, childId as string)"
-              >
-                开始填写
-              </button>
+              <button class="px-2 py-0.5 text-sm xl:px-3 xl:py-2">开始填写</button>
             </div>
           </div>
         </div>
