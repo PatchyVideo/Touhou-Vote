@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { Couple } from '@/vote-couple/lib/couple'
 import { characterList } from '@/vote-character/lib/characterList'
 import type { CpSubmitQuery } from '@/graphql/__generated__/graphql'
@@ -12,20 +12,30 @@ export const CPVOTENUM = 4
 export const coupleHonmei = computed<Couple>(() => couples.value.find((couple) => couple.honmei) || new Couple())
 
 export const couples = ref<Couple[]>(new Array(CPVOTENUM).fill(null).map(() => new Couple()))
+
+watch(couples.value, setVoteDataCouples, { deep: true })
+function setVoteDataCouples(): void {
+  localStorage.setItem('voteCouple', JSON.stringify(couples.value))
+}
+
 export function updateVotecouple(coupleVoteData: CpSubmitQuery[]): void {
-  if (!coupleVoteData.length) return
-  couples.value = new Array(CPVOTENUM).fill(null).map(() => new Couple())
-  for (let i = 0; i < coupleVoteData.length; i++) {
-    const coupleData = new Couple()
-    coupleData.characters[0] = characterList.find((item) => item.id === coupleVoteData[i].idA) || new Character()
-    coupleData.characters[1] = characterList.find((item) => item.id === coupleVoteData[i].idB) || new Character()
-    if (coupleVoteData[i].nameC)
-      coupleData.characters[2] = characterList.find((item) => item.id === coupleVoteData[i].idC) || new Character()
-    if (coupleVoteData[i].active)
-      coupleData.seme = coupleData.characters.findIndex((item) => item.id === coupleVoteData[i].active)
-    if (coupleVoteData[i].first) coupleData.honmei = true
-    if (coupleVoteData[i].reason) coupleData.reason = coupleVoteData[i].reason || ''
-    coupleData.valid = true
-    couples.value[i] = coupleData
+  const couplesDataLocal: Couple[] = JSON.parse(localStorage.getItem('voteCouple') || '[]')
+  if (JSON.stringify(couplesDataLocal) != '[]') {
+    couples.value = couplesDataLocal
+  } else if (coupleVoteData.length) {
+    couples.value = new Array(CPVOTENUM).fill(null).map(() => new Couple())
+    for (let i = 0; i < coupleVoteData.length; i++) {
+      const coupleData = new Couple()
+      coupleData.characters[0] = characterList.find((item) => item.id === coupleVoteData[i].idA) || new Character()
+      coupleData.characters[1] = characterList.find((item) => item.id === coupleVoteData[i].idB) || new Character()
+      if (coupleVoteData[i].idC)
+        coupleData.characters[2] = characterList.find((item) => item.id === coupleVoteData[i].idC) || new Character()
+      if (coupleVoteData[i].active)
+        coupleData.seme = coupleData.characters.findIndex((item) => item.id === coupleVoteData[i].active)
+      if (coupleVoteData[i].first) coupleData.honmei = true
+      if (coupleVoteData[i].reason) coupleData.reason = coupleVoteData[i].reason || ''
+      coupleData.valid = true
+      couples.value[i] = coupleData
+    }
   }
 }
