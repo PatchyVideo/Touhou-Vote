@@ -68,11 +68,11 @@
         <div class="innerBox p-2 whitespace-nowrap overflow-x-auto">
           <transition name="music" mode="out-in">
             <div v-if="musicsVotedWithoutHonmei.length">
-              <transition-group name="musicList" tag="div">
+              <transition-group name="musicList" tag="div" class="flex flex-nowrap md:flex-wrap overflow-auto">
                 <div
                   v-for="(music, index) in musicsVotedWithoutHonmei"
                   :key="music.id"
-                  class="inline-block transition transition-all duration-200 mr-3 w-3/10 max-w-52"
+                  class="transition transition-all duration-200 w-3/10 md:w-1/3 px-1 md:py-1"
                 >
                   <MusicCard v-model:music="musicsVotedWithoutHonmei[index]" />
                 </div>
