@@ -235,6 +235,7 @@ import {
   voteMusicComplete,
 } from '@/home/lib/user'
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
+import { popConfirmText } from '@/common/lib/popMessage'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 
 setSiteTitle(String(username.value))
@@ -331,9 +332,11 @@ function gotoDoujinSystem(): void {
 }
 
 async function logout(): Promise<void> {
-  deleteUserData()
-  await router.push({ path: route.path, query: {} })
-  location.reload()
+  if (await popConfirmText('您确定要退出登录吗（这将会失去所有未提交的内容）')) {
+    deleteUserData()
+    await router.push({ path: route.path, query: {} })
+    location.reload()
+  }
 }
 
 // destop exclusive

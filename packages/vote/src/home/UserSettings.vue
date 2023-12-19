@@ -186,7 +186,7 @@ import type { Mutation } from '@/graphql'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { voteEnded } from '@/end-page/lib/voteEnded'
-import { popMessageText } from '@/common/lib/popMessage'
+import { popMessageText, popConfirmText } from '@/common/lib/popMessage'
 
 setSiteTitle('用户设置')
 
@@ -443,8 +443,10 @@ async function updatePhoneOrEmail(): Promise<void> {
 
 const codeEl = shallowRef<HTMLInputElement | null>()
 
-function logout(): void {
-  deleteUserData()
-  location.reload()
+async function logout() {
+  if (await popConfirmText('您确定要退出登录吗（这将会失去所有未提交的内容）')) {
+    deleteUserData()
+    location.reload()
+  }
 }
 </script>
