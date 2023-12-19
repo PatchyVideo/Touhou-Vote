@@ -57,16 +57,16 @@
                 }}
               </div>
             </div>
-            <div class="w-full flex justify-between">
-              <button
-                class="flex items-center px-3 md:px-5 py-1 text-sm md:text-base"
-                :class="{ 'ring ring-accent-color-300': musicPlaying === item.music }"
+            <div class="w-full flex justify-between align-middle">
+              <div
+                class="flex items-center justify-center bg-accent-color-600 text-white w-7 h-7 rounded-full"
+                :class="{ 'ring ring-accent-color-300': musicPlaying === item.music && !musicEnded }"
                 @click="playAudio(item.music)"
               >
                 <icon-uil-spinner-alt v-if="musicPlaying === item.music && musicLoading" class="animate-spin" />
-                <icon-uil-pause v-else-if="musicPlaying === item.music" />
-                试听
-              </button>
+                <icon-uil-pause v-else-if="musicPlaying === item.music && !musicEnded" />
+                <icon-uil-play v-else />
+              </div>
               <button class="px-3 md:px-5 py-1 text-sm md:text-base" @click="musicSelect(item.id)">选择</button>
             </div>
           </div>
@@ -81,7 +81,7 @@
 
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import { computed, ref, watchEffect } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 import { useVModels } from '@vueuse/core'
 import AdvancedFilter from './AdvancedFilter.vue'
 import { screenSizes } from '@/tailwindcss'
@@ -152,8 +152,13 @@ audio.value.addEventListener('canplay', () => {
 })
 audio.value.addEventListener('waiting', () => {
   musicLoading.value = true
+  musicEnded.value = false
+})
+audio.value.addEventListener('ended', () => {
+  musicEnded.value = true
 })
 const musicLoading = ref(false)
+const musicEnded = ref(false)
 const musicPlaying = ref<string>('')
 function playAudio(musicSrc: string): void {
   if (musicLoading.value) return
@@ -166,6 +171,12 @@ function playAudio(musicSrc: string): void {
     audio.value.play()
   }
 }
+watch(open, (newv) => {
+  if (newv === false) {
+    musicLoading.value = false
+    musicEnded.value = true
+  }
+})
 </script>
 <style lang="postcss" scoped>
 .selectBox-enter-active,
