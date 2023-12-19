@@ -60,10 +60,11 @@
             <div class="w-full flex justify-between">
               <button
                 class="flex items-center px-3 md:px-5 py-1 text-sm md:text-base"
-                :class="{ 'ring ring-accent-color-600': musicPlaying === item.music }"
+                :class="{ 'ring ring-accent-color-300': musicPlaying === item.music }"
                 @click="playAudio(item.music)"
               >
                 <icon-uil-spinner-alt v-if="musicPlaying === item.music && musicLoading" class="animate-spin" />
+                <icon-uil-pause v-else-if="musicPlaying === item.music" />
                 试听
               </button>
               <button class="px-3 md:px-5 py-1 text-sm md:text-base" @click="musicSelect(item.id)">选择</button>
