@@ -57,15 +57,18 @@
                 }}
               </div>
             </div>
-            <div class="w-full flex justify-between align-middle">
+            <div class="w-full flex justify-between">
               <div
-                class="flex items-center justify-center bg-accent-color-600 text-white w-7 h-7 rounded-full"
+                class="flex items-center justify-center bg-accent-color-600 shadow opacity-90 transition transition-all hover:opacity-100 hover:bg-accent-color-700 w-7 h-7 md:w-8 md:h-8 rounded-full cursor-pointer"
                 :class="{ 'ring ring-accent-color-300': musicPlaying === item.music && !musicEnded }"
                 @click="playAudio(item.music)"
               >
-                <icon-uil-spinner-alt v-if="musicPlaying === item.music && musicLoading" class="animate-spin" />
-                <icon-uil-pause v-else-if="musicPlaying === item.music && !musicEnded" />
-                <icon-uil-play v-else />
+                <icon-uil-spinner-alt
+                  v-if="musicPlaying === item.music && musicLoading"
+                  class="text-white animate-spin"
+                />
+                <icon-uil-pause v-else-if="musicPlaying === item.music && !musicEnded" class="text-white" />
+                <icon-uil-play v-else class="text-white" />
               </div>
               <button class="px-3 md:px-5 py-1 text-sm md:text-base" @click="musicSelect(item.id)">选择</button>
             </div>
