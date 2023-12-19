@@ -209,7 +209,7 @@ import { computed, ref, watch } from 'vue'
 import { useEventListener, useLocalStorage, useThrottle, useVModel } from '@vueuse/core'
 import { Doujin, Doujin0, Doujin0NoImageUrl, doujinTypes } from '@/vote-doujin/lib/doujin'
 import { doujinValid } from '@/vote-doujin/lib/doujinList'
-import { doujins, setVoteDataDoujins } from '@/vote-doujin/lib/voteData'
+import { doujins } from '@/vote-doujin/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import Mask from '@/common/components/Mask.vue'
@@ -458,7 +458,6 @@ async function deleteEdit(): Promise<void> {
   if (await popConfirmText('您想要删除该提名吗？')) {
     doujins.value.splice(props.index, 1)
     doujins.value.push(new Doujin())
-    setVoteDataDoujins()
     close()
   }
 }
@@ -471,7 +470,6 @@ async function cancelEdit(): Promise<void> {
 function comfirmEdit(): void {
   if (isDoujinValid.value) {
     submitDoujinData()
-    setVoteDataDoujins()
     close()
   } else {
     hintError.value++

@@ -1,15 +1,18 @@
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { Doujin, Doujin0 } from '@/vote-doujin/lib/doujin'
 import type { DojinSubmitQuery } from '@/graphql/__generated__/graphql'
 
 export const doujins = ref<Doujin[]>(new Array(5).fill(null).map(() => new Doujin()))
-export function setVoteDataDoujins(): void {
+
+watch(doujins.value, setVoteDataDoujins, { deep: true })
+function setVoteDataDoujins(): void {
   localStorage.setItem('doujins', JSON.stringify(doujins.value))
 }
+
 export function updateVoteDataDoujins(doujinVoteData: DojinSubmitQuery[]): void {
-  const doujinsData: Doujin[] = JSON.parse(localStorage.getItem('doujins') || '[]')
-  if (JSON.stringify(doujinsData) != '[]') {
-    doujins.value = doujinsData
+  const doujinsDatalocal: Doujin[] = JSON.parse(localStorage.getItem('doujins') || '[]')
+  if (JSON.stringify(doujinsDatalocal) != '[]') {
+    doujins.value = doujinsDatalocal
   } else if (doujinVoteData.length) {
     for (let i = 0; i < doujinVoteData.length; i++) {
       const doujinData = new Doujin()
