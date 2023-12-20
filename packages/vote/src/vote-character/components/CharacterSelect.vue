@@ -66,6 +66,7 @@ import AdvancedFilter from './AdvancedFilter.vue'
 import { Character } from '@/vote-character/lib/character'
 import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
 import {
+  keyword,
   characterListLeftWithFilter,
   charactersVotedWithoutHonmei,
   order,
@@ -100,6 +101,7 @@ const emit = defineEmits<{
 }>()
 const { open, characterSelected } = useVModels(props, emit)
 function close(): void {
+  keyword.value = ''
   open.value = false
 }
 watchEffect(() => {

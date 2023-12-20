@@ -99,6 +99,7 @@ const emit = defineEmits<{
 }>()
 const { open, characterSelected, flag } = useVModels(props, emit)
 function close(): void {
+  searchContent.value = ''
   open.value = false
 }
 watchEffect(() => {

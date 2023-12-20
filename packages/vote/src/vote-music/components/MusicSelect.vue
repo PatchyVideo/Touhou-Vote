@@ -89,7 +89,13 @@ import { useVModels } from '@vueuse/core'
 import AdvancedFilter from './AdvancedFilter.vue'
 import { screenSizes } from '@/tailwindcss'
 import { Music } from '@/vote-music/lib/music'
-import { musicListLeftWithFilter, musicsVotedWithoutHonmei, order, orderOptions } from '@/vote-music/lib/musicList'
+import {
+  keyword,
+  musicListLeftWithFilter,
+  musicsVotedWithoutHonmei,
+  order,
+  orderOptions,
+} from '@/vote-music/lib/musicList'
 import { musics } from '@/vote-music/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import Mask from '@/common/components/Mask.vue'
@@ -176,6 +182,7 @@ function playAudio(musicSrc: string): void {
 }
 watch(open, (newv) => {
   if (newv === false) {
+    keyword.value = ''
     musicLoading.value = false
     musicEnded.value = true
   }
