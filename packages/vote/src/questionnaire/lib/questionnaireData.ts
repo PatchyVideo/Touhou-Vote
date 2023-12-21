@@ -414,32 +414,17 @@ export function getQuestionnaireData(): QuestionnaireData {
             input: '',
           },
           {
-            id: 23051,
+            id: 23050,
             options: [],
             input: '',
           },
           {
-            id: 23060,
+            id: 23061,
             options: [],
             input: '',
           },
           {
             id: 23071,
-            options: [],
-            input: '',
-          },
-          {
-            id: 23081,
-            options: [],
-            input: '',
-          },
-          {
-            id: 23091,
-            options: [],
-            input: '',
-          },
-          {
-            id: 23101,
             options: [],
             input: '',
           },
@@ -454,22 +439,22 @@ export function getQuestionnaireData(): QuestionnaireData {
             input: '',
           },
           {
-            id: 24021,
+            id: 24020,
             options: [],
             input: '',
           },
           {
-            id: 24031,
+            id: 24030,
             options: [],
             input: '',
           },
           {
-            id: 24041,
+            id: 24040,
             options: [],
             input: '',
           },
           {
-            id: 24050,
+            id: 24051,
             options: [],
             input: '',
           },
@@ -515,6 +500,16 @@ export function getQuestionnaireData(): QuestionnaireData {
           },
           {
             id: 24141,
+            options: [],
+            input: '',
+          },
+          {
+            id: 24150,
+            options: [],
+            input: '',
+          },
+          {
+            id: 24161,
             options: [],
             input: '',
           },
