@@ -315,7 +315,16 @@ function deleteOption(
   })
 }
 // 刷新选项ID
-function refreshOptionID() {}
+function refreshOptionID() {
+  for (const bigQuestionnaire in questionnaireCopy.value)
+    for (const smallQuestionnaire in questionnaireCopy.value[bigQuestionnaire])
+      for (const questionLibrary of questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions)
+        for (const question of questionLibrary)
+          question.options.map((item, index) => {
+            item.id = question.id * 100 + index
+            return item
+          })
+}
 
 // 向下添加问题列表里的问题
 function addQuestion(
