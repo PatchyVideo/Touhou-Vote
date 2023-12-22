@@ -1,6 +1,6 @@
 <template>
   <div class="page"></div>
-  <div class="w-full 2xl:w-2/3 min-h-100vh flex flex-col overflow-hidden">
+  <div class="w-full min-h-100vh flex flex-col overflow-hidden">
     <div class="baseBoxShadow p-2 flex items-center justify-between">
       <div class="flex items-center">
         <BackToHome :show="true" />
@@ -28,7 +28,7 @@
       ></div>
     </div>
 
-    <div class="w-full flex flex-col space-y-3 p-1 md:w-1/2 2xl:w-3/4 md:m-auto 2xl:ml-1/12 2xl:mt-20">
+    <div class="w-full flex flex-col space-y-3 p-1 md:w-1/2 2xl:w-5/12 md:m-auto">
       <div class="baseBoxRoundedShadow p-1 w-full">
         <div class="space-y-5 p-2">
           <div>{{ questionNum + 1 + '：' + question.content + '（' + TypeToChinese[question.type] + '）' }}</div>
@@ -66,35 +66,25 @@
           上一题
         </button>
         <button
-          v-if="questionNum + 1 != questionDone[bigQuestionnaire][smallQuestionnaire].answers.length"
           class="w-1/2 py-1 text-sm md:text-base"
-          @click="changeQuestion('back')"
+          :class="{
+            buttonDisabled: questionNum + 1 === questionDone[bigQuestionnaire][smallQuestionnaire].answers.length,
+          }"
+          @click="
+            questionNum + 1 != questionDone[bigQuestionnaire][smallQuestionnaire].answers.length &&
+              changeQuestion('back')
+          "
         >
           下一题
         </button>
-        <button
-          v-else
-          class="w-1/2 py-1 text-sm md:text-base"
-          :class="{ buttonDisabled: submiting || !questionnaireDone }"
-          @click="questionnaireDone && submitQuestionnire()"
-        >
-          <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />{{
-            submiting ? '提交中' : '提交'
-          }}
-        </button>
       </div>
       <button
-        v-if="
-          questionnaireDone &&
-          Boolean(questionNum + 1 != questionDone[bigQuestionnaire][smallQuestionnaire].answers.length)
-        "
         class="w-full py-1 text-sm md:text-base"
-        :class="{ buttonDisabled: submiting }"
-        @click="submitQuestionnire()"
+        :class="{ buttonDisabled: submiting, invisible: !questionnaireDone }"
+        @click="console.log('hi')"
       >
-        <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />{{
-          submiting ? '提交中' : '提交'
-        }}
+        <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />
+        {{ submiting ? '提交中' : '提交' }}
       </button>
     </div>
   </div>

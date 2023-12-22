@@ -1,6 +1,6 @@
 <template>
   <div
-    class="baseBoxShadow fixed top-0 inset-x-0 lg:inset-x-auto lg:inset-y-0 lg:right-0 lg:w-1/3 max-h-100vh lg:h-100vh z-51 2xl:z-auto p-3 lg:p-10 rounded-b overflow-auto transform-gpu transition-transform 2xl:translate-x-0 duration-200 ease-in-out flex flex-col"
+    class="baseBoxShadow fixed top-0 inset-x-0 lg:inset-x-auto lg:inset-y-0 2xl:top-15 2xl:bottom-0 lg:right-0 lg:w-1/3 2xl:w-1/4 max-h-100vh z-51 2xl:z-auto p-3 lg:p-10 rounded-b overflow-auto transform-gpu transition-transform 2xl:translate-x-0 duration-200 ease-in-out flex flex-col"
     :class="{ '-translate-y-full lg:translate-y-0 lg:translate-x-full': !open }"
   >
     <div
@@ -32,7 +32,7 @@
           v-for="(answer, index2) in questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire]
             .answers"
           :key="index2"
-          class="rounded-full m-3 w-8 h-8 leading-8 text-center cursor-pointer shadow ring"
+          class="rounded-full m-2 w-8 h-8 leading-8 text-center cursor-pointer shadow ring"
           :class="[
             answer.done ? 'ring ring-accent-color-600 bg-accent-color-300 text-white' : ' ring-accent-color-100',
           ]"
@@ -127,7 +127,7 @@ function selectAsQuestionnaireCurrent(selectedClass: string): void {
 function unfoldAllQuestionnaire() {
   let SubContentAll = document.getElementsByName('questionnaire')
   SubContentAll.forEach((item) => {
-    item.style.height = item.scrollHeight + 'px'
+    item.style.height = 'auto'
   })
 }
 onMounted(() => screenSizes['<2xl'] && selectAsQuestionnaireCurrent(selectedQuestionnaire.value))
