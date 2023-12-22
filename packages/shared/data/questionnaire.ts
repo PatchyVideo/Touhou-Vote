@@ -2577,7 +2577,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 23041,
             type: 'Single',
-            question: '您了解官方授权商业手游《东方弹幕神乐 失落幻想》及前作吗？',
+            question: '您了解官方授权商业游戏《东方弹幕神乐 失落幻想》及前作吗？',
             introduction: '',
             input: '',
             options: [
@@ -3650,16 +3650,10 @@ export const questionnaire: QuestionnaireALL = {
                 id: 2509126,
                 related: [25100],
                 mutex: [],
-                content: '东方初心者讲座群',
-              },
-              {
-                id: 2509127,
-                related: [25100],
-                mutex: [],
                 content: '囧仙粉丝群',
               },
               {
-                id: 2509128,
+                id: 2509127,
                 related: [25101],
                 mutex: [],
                 content: '其他',
