@@ -1,4 +1,4 @@
-<h3 align="center">第十回 中文东方人气投票</h3>
+<h3 align="center">中文东方人气投票 第十一回</h3>
 
 <p align="center">
   <img alt="Commit activity" src="https://img.shields.io/github/commit-activity/m/PatchyVideo/Touhou-Vote" />
@@ -7,7 +7,7 @@
   <img alt="License" src="https://img.shields.io/github/license/PatchyVideo/Touhou-Vote" />
 </p>
 
-由 [THBWiki](https://thwiki.cc) 与 [VoileLabs](https://github.com/PatchyVideo) 共同开发的 “第十回 中文东方人气投票” 前端部分。为全新搭建的系统。
+由 [THBWiki](https://thwiki.cc) 与 [VoileLabs](https://github.com/PatchyVideo) 共同开发的 “中文东方人气投票 第十一回” 前端部分。
 
 开发进度: V1.3.1
 
@@ -17,7 +17,7 @@
 
 ## 新功能
 
-比起前几届的系统，本届多出了以下功能：
+比起旧的系统，本届多出了以下功能：
 
 - 全新设计的 UI，支持全响应式布局，更好的兼容手机端
 - 精简的登陆逻辑，支持邮箱/手机号登陆和旧版邮箱密码登陆
