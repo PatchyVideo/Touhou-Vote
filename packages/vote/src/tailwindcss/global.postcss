@@ -146,10 +146,9 @@ textarea {
 
 /* Background */
 .page {
-  @apply fixed inset-0 -z-1 bg-no-repeat bg-cover bg-center;
+  @apply fixed  -z-1 bg-no-repeat bg-cover bg-center;
   background-image: url('https://asset.lilywhite.cc/thvote/imgs/vote/bg/v11@1440px.webp');
 }
-
 @variants <md {
   .page {
     box-shadow: inset 3em 3em 20em 6em rgba(0, 0, 0, 0.3), inset -3em -3em 20em 6em rgba(0, 0, 0, 0.3);
@@ -158,6 +157,18 @@ textarea {
 @variants md {
   .page {
     box-shadow: inset 3em 3em 20em 6em rgba(0, 0, 0, 0.4), inset -3em -3em 20em 6em rgba(0, 0, 0, 0.4);
+  }
+}
+/* unocss does not support h-lvh */
+@supports (height: 100lvh) {
+  .page {
+    @apply w-full;
+    height: 100lvh;
+  }
+}
+@supports not (height: 100lvh) {
+  .page {
+    @apply w-full h-full;
   }
 }
 
