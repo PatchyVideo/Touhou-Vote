@@ -1,6 +1,6 @@
 <template>
   <div class="page"></div>
-  <div class="w-full min-h-100vh flex flex-col overflow-hidden">
+  <div class="w-full 2xl:w-2/3 min-h-100vh flex flex-col overflow-hidden">
     <div class="baseBoxShadow p-2 flex items-center justify-between">
       <div class="flex items-center">
         <BackToHome :show="true" />
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="w-full h-1 flex mb-1">
+    <div class="w-full h-1 2xl:h-3 flex mb-1">
       <div
         v-for="(answer, index) in questionDone[bigQuestionnaire][smallQuestionnaire].answers"
         :key="index"
@@ -28,7 +28,7 @@
       ></div>
     </div>
 
-    <div class="w-full flex flex-col space-y-3 p-1 md:w-1/2 3xl:w-1/4 md:m-auto">
+    <div class="w-full flex flex-col space-y-3 p-1 md:w-1/2 2xl:w-3/4 md:m-auto 2xl:ml-1/12 2xl:mt-20">
       <div class="baseBoxRoundedShadow p-1 w-full">
         <div class="space-y-5 p-2">
           <div>{{ questionNum + 1 + '：' + question.content + '（' + TypeToChinese[question.type] + '）' }}</div>
@@ -50,9 +50,9 @@
             <textarea
               v-model="answerContent"
               maxlength="1000"
-              class="w-full ring ring-accent-color-600 rounded-xl"
+              class="p-1 md:p-3 w-full ring ring-accent-color-600 rounded-xl"
               placeholder="请说点儿什么吧..."
-              rows="5"
+              rows="10"
             />
           </div>
         </div>
@@ -107,7 +107,7 @@
   />
 
   <button
-    v-if="screenSizes['lg']"
+    v-if="screenSizes['lg'] && screenSizes['<2xl']"
     class="fixed flex items-center bottom-20 right-5 px-3 py-1 text-lg"
     @click="drawerOpen"
   >

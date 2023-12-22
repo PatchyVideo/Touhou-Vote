@@ -1,7 +1,7 @@
 <template>
   <div
-    class="baseBoxShadow fixed top-0 inset-x-0 md:inset-x-auto md:inset-y-0 md:right-0 md:w-1/3 max-h-100vh md:h-100vh z-51 p-3 md:p-10 rounded-b overflow-auto transform-gpu transition-transform duration-200 ease-in-out flex flex-col"
-    :class="{ '-translate-y-full md:translate-y-0 md:translate-x-full': !open }"
+    class="baseBoxShadow fixed top-0 inset-x-0 lg:inset-x-auto lg:inset-y-0 lg:right-0 lg:w-1/3 max-h-100vh lg:h-100vh z-51 2xl:z-auto p-3 lg:p-10 rounded-b overflow-auto transform-gpu transition-transform 2xl:translate-x-0 duration-200 ease-in-out flex flex-col"
+    :class="{ '-translate-y-full lg:translate-y-0 lg:translate-x-full': !open }"
   >
     <div
       v-for="(questionnaire, index) in questionnaireKeyToName"
@@ -10,7 +10,7 @@
     >
       <div
         class="px-2 py-1 truncate cursor-pointer"
-        @click="selectAsQuestionnaireCurrent(questionnaire.smallQuestionnaire)"
+        @click="screenSizes['<2xl'] && selectAsQuestionnaireCurrent(questionnaire.smallQuestionnaire)"
       >
         {{
           questionnaire.name +
@@ -26,7 +26,7 @@
       <div
         :id="questionnaire.smallQuestionnaire"
         name="questionnaire"
-        class="innerBox flex flex-wrap m-1 mt-0 transform transition-all duration-200 ease-in-out h-0 overflow-hidden"
+        class="innerBox flex flex-wrap m-1 mt-0 transform transition-all duration-200 ease-in-out overflow-hidden"
       >
         <div
           v-for="(answer, index2) in questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire]
@@ -42,9 +42,15 @@
         </div>
       </div>
     </div>
-    <div class="text-right text-accent-color-300 hover:text-accent-color-600 cursor-pointer" @click="close()">收起</div>
+    <div
+      v-if="screenSizes['<2xl']"
+      class="text-right text-accent-color-300 hover:text-accent-color-600 cursor-pointer"
+      @click="close()"
+    >
+      收起
+    </div>
   </div>
-  <Mask v-model:open="open" click-to-close />
+  <Mask v-if="screenSizes['<2xl']" v-model:open="open" click-to-close />
 </template>
 
 <script lang="ts" setup>
@@ -52,6 +58,7 @@ import { onMounted, ref, watch, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useRoute, useRouter } from 'vue-router'
 import { questionDone, questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
+import { screenSizes } from '@/tailwindcss'
 import Mask from '@/common/components/Mask.vue'
 
 const route = useRoute()
@@ -82,17 +89,21 @@ const emit = defineEmits<{
 const open = useVModel(props, 'open', emit)
 watchEffect(() => {
   if (open.value) document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:hidden')
-  else document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:auto')
+  else {
+    document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:auto')
+    // Change to current questionnaire after close this component in mobile view
+    screenSizes['<2xl'] &&
+      // Waiting for animation
+      setTimeout(() => {
+        bigQuestionnaireCurrent.value = props.bigQuestionnaire
+        smallQuestionnaireCurrent.value = props.smallQuestionnaire
+        selectedQuestionnaire.value = props.smallQuestionnaire
+        selectAsQuestionnaireCurrent(selectedQuestionnaire.value)
+      }, 200)
+  }
 })
 function close(): void {
   open.value = false
-  // Waiting for animation
-  setTimeout(() => {
-    bigQuestionnaireCurrent.value = props.bigQuestionnaire
-    smallQuestionnaireCurrent.value = props.smallQuestionnaire
-    selectedQuestionnaire.value = props.smallQuestionnaire
-    selectAsQuestionnaireCurrent(selectedQuestionnaire.value)
-  }, 200)
 }
 
 const bigQuestionnaireCurrent = ref(props.bigQuestionnaire)
@@ -113,7 +124,17 @@ function selectAsQuestionnaireCurrent(selectedClass: string): void {
   if (openSubContent) openSubContent.style.height = openSubContent.scrollHeight + 'px'
   selectedQuestionnaire.value = selectedClass
 }
-onMounted(() => selectAsQuestionnaireCurrent(selectedQuestionnaire.value))
+function unfoldAllQuestionnaire() {
+  let SubContentAll = document.getElementsByName('questionnaire')
+  SubContentAll.forEach((item) => {
+    item.style.height = item.scrollHeight + 'px'
+  })
+}
+onMounted(() => screenSizes['<2xl'] && selectAsQuestionnaireCurrent(selectedQuestionnaire.value))
+window.onresize = () => {
+  // 1536px: 2xl, screenSizes['<2xl'] does not respond timely
+  window.innerWidth < 1536 ? selectAsQuestionnaireCurrent(selectedQuestionnaire.value) : unfoldAllQuestionnaire()
+}
 
 function changeQuestion(big: string, small: string, index: number): void {
   emit('changeQuestion', 'no')
