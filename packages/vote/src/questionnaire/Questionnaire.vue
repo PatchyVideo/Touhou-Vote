@@ -20,8 +20,8 @@
 
     <div class="w-full h-1 2xl:h-3 flex mb-1">
       <div
-        v-for="(answer, index) in questionDone[bigQuestionnaire][smallQuestionnaire].answers"
-        :key="index"
+        v-for="answer in questionDone[bigQuestionnaire][smallQuestionnaire].answers"
+        :key="answer.id"
         class="h-full"
         :class="[answer.done ? 'bg-accent-color-600' : ' bg-subaccent']"
         :style="'width:' + 100 / questionDone[bigQuestionnaire][smallQuestionnaire].answers.length + '%'"
@@ -34,8 +34,8 @@
           <div>{{ questionNum + 1 + '：' + question.content + '（' + TypeToChinese[question.type] + '）' }}</div>
           <div v-if="question.type != 'Input'" class="innerBox p-2 space-y-1">
             <div
-              v-for="(option, index) in options"
-              :key="index"
+              v-for="option in options"
+              :key="option.id"
               class="py-1 px-1 rounded-xl transition transition-colors cursor-pointer md:hover:bg-subaccent md:hover:bg-opacity-80"
               @click="selectOption(option.id)"
             >
@@ -81,7 +81,7 @@
       <button
         class="w-full py-1 text-sm md:text-base"
         :class="{ buttonDisabled: submiting, invisible: !questionnaireDone }"
-        @click="console.log('hi')"
+        @click="submitQuestionnire()"
       >
         <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />
         {{ submiting ? '提交中' : '提交' }}
@@ -237,6 +237,7 @@ const TypeToChinese = {
 interface Option {
   content: string
   id: number
+  group: number
 }
 const options = computed<Option[]>(() =>
   questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].questions[
@@ -245,6 +246,7 @@ const options = computed<Option[]>(() =>
     return {
       content: option.content,
       id: option.id,
+      group: option.group,
     }
   })
 )
@@ -294,6 +296,12 @@ function selectOption(id: number): void {
     }
   } else if (question.value.type === 'Multiple') {
     index === -1 ? answerData.value.push(id) : answerData.value.splice(index, 1)
+    if (index === -1) {
+      const selectedOptionGroup = options.value.find((item) => item.id === id)!.group
+      answerData.value = answerData.value.filter(
+        (item) => options.value.find((item2) => item2.id === item)!.group === selectedOptionGroup
+      )
+    }
   }
 }
 
