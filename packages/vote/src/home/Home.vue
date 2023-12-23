@@ -4,7 +4,7 @@
     <div class="w-full px-2 mx-auto md:w-9/10 xl:w-2/3 bounce-home">
       <!-- Title -->
       <div class="flex items-end min-h-100vh">
-        <div class="baseBox rounded-t md:flex md:justify-between md:items-center w-full p-5 pt-10 pb-20 md:p-10">
+        <div class="baseBox rounded-t-xl md:flex md:justify-between md:items-center w-full p-5 pt-10 pb-20 md:p-10">
           <div class="md:w-[calc(50%-2.5rem)] space-y-4vh">
             <div class="space-y-2">
               <div class="quicksand md:text-xl">
