@@ -1,5 +1,5 @@
 <template>
-  <div class="baseBoxRoundedShadow p-1 opacity-80 space-y-2">
+  <div class="baseBoxRoundedShadow p-1 space-y-2">
     <div class="flex justify-between items-center">
       <div>{{ '投票位' + (indexOfCouple + 1) }}</div>
       <icon-uil-times class="cursor-pointer" @click="closeCard()"></icon-uil-times>
@@ -9,7 +9,7 @@
         <div
           v-for="(character, index) in charactersValid"
           :key="index"
-          class="baseBoxRoundedShadow relative w-3/10 min-h-30 md:min-h-40 3xl:min-h-50 p-1 pt-5"
+          class="baseBoxRoundedShadow relative w-3/10 min-h-40 md:min-h-60 2xl:min-h-70 3xl:min-h-50 p-1 pt-5"
         >
           <icon-uil-times
             class="absolute right-0 top-0 cursor-pointer"
@@ -32,7 +32,7 @@
       <transition name="selectedMore" mode="out-in">
         <div
           v-if="moreCharacterCanBeSelected"
-          class="w-3/10 min-h-30 md:min-h-40 3xl:min-h-50 p-1 shadow rounded-xl flex flex-col cursor-pointer"
+          class="baseBoxRoundedShadow w-3/10 min-h-40 md:min-h-60 2xl:min-h-70 p-1 flex flex-col cursor-pointer"
           @click="characterSelectOpen = true"
         >
           <icon-uil-plus class="w-1/2 mx-auto flex-grow" />

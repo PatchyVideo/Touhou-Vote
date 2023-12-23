@@ -52,36 +52,30 @@
               (musicHonmei.id != music0.id ? MUSICVOTENUM - 1 + ')' : MUSICVOTENUM + ')')
             }}
           </div>
-          <icon-uil-plus
-            class="cursor-pointer"
-            :class="{ hidden: musicsVotedNumber === MUSICVOTENUM }"
-            @click="
-              musicsVotedNumber === MUSICVOTENUM
-                ? ''
-                : (() => {
-                    musicHonmeiIsSelected = false
-                    musicSelectOpen = true
-                  })()
-            "
-          ></icon-uil-plus>
         </div>
-        <div class="innerBox p-2 whitespace-nowrap overflow-x-auto">
-          <transition name="music" mode="out-in">
-            <div v-if="musicsVotedWithoutHonmei.length">
-              <transition-group name="musicList" tag="div" class="flex flex-nowrap md:flex-wrap overflow-auto">
-                <div
-                  v-for="(music, index) in musicsVotedWithoutHonmei"
-                  :key="music.id"
-                  class="transition transition-all duration-200 w-3/10 md:w-1/3 px-1 md:py-1"
-                >
-                  <MusicCard v-model:music="musicsVotedWithoutHonmei[index]" />
-                </div>
-              </transition-group>
+        <div class="innerBox w-full p-1 whitespace-nowrap overflow-x-auto">
+          <transition-group name="musicList" tag="div" class="flex flex-nowrap md:flex-wrap overflow-auto">
+            <div
+              v-for="(music, index) in musicsVotedWithoutHonmei"
+              :key="music.id"
+              class="transition transition-all duration-200 w-3/10 m-1 md:m-2"
+            >
+              <MusicCard v-model:music="musicsVotedWithoutHonmei[index]" />
             </div>
-            <div v-else class="w-full text-center py-15">
-              请为您喜爱的曲目投上一票吧!<br />点击右上方的<strong> + </strong>按钮添加曲目
+            <div
+              v-if="musicsVotedNumber < MUSICVOTENUM"
+              class="baseBoxRoundedShadow min-w-3/10 p-1 m-1 md:m-2 min-h-40 md:min-h-60 2xl:min-h-70 flex flex-col cursor-pointer"
+              @click="
+                () => {
+                  musicHonmeiIsSelected = false
+                  musicSelectOpen = true
+                }
+              "
+            >
+              <icon-uil-plus class="w-1/2 mx-auto flex-grow" />
+              <div class="p-1 truncate text-center text-xs md:text-base">添加曲目</div>
             </div>
-          </transition>
+          </transition-group>
         </div>
       </div>
       <button

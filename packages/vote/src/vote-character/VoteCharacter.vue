@@ -52,36 +52,30 @@
               (characterHonmei.id != character0.id ? CHARACTERVOTENUM - 1 + ')' : CHARACTERVOTENUM + ')')
             }}
           </div>
-          <icon-uil-plus
-            class="cursor-pointer"
-            :class="{ hidden: charactersVotedNumber === CHARACTERVOTENUM }"
-            @click="
-              charactersVotedNumber === CHARACTERVOTENUM
-                ? ''
-                : (() => {
-                    characterHonmeiIsSelected = false
-                    characterSelectOpen = true
-                  })()
-            "
-          ></icon-uil-plus>
         </div>
-        <div class="innerBox p-2 whitespace-nowrap overflow-x-auto">
-          <transition name="character" mode="out-in">
-            <div v-if="charactersVotedWithoutHonmei.length">
-              <transition-group name="characterList" tag="div" class="flex flex-nowrap md:flex-wrap overflow-auto">
-                <div
-                  v-for="(character, index) in charactersVotedWithoutHonmei"
-                  :key="character.id"
-                  class="transition transition-all duration-200 w-3/10 md:w-1/3 px-1 md:py-1"
-                >
-                  <CharacterCard v-model:character="charactersVotedWithoutHonmei[index]" />
-                </div>
-              </transition-group>
+        <div class="innerBox w-full p-1 whitespace-nowrap overflow-x-auto">
+          <transition-group name="characterList" tag="div" class="flex flex-nowrap md:flex-wrap overflow-auto">
+            <div
+              v-for="(character, index) in charactersVotedWithoutHonmei"
+              :key="character.id"
+              class="transition transition-all duration-200 w-3/10 m-1 md:m-2"
+            >
+              <CharacterCard v-model:character="charactersVotedWithoutHonmei[index]" />
             </div>
-            <div v-else class="w-full text-center py-15">
-              请为您喜爱的角色投上一票吧!<br />点击右上方的<strong> + </strong>按钮添加角色
+            <div
+              v-if="charactersVotedNumber < CHARACTERVOTENUM"
+              class="baseBoxRoundedShadow min-w-3/10 p-1 m-1 md:m-2 min-h-40 md:min-h-60 2xl:min-h-70 flex flex-col cursor-pointer"
+              @click="
+                () => {
+                  characterHonmeiIsSelected = false
+                  characterSelectOpen = true
+                }
+              "
+            >
+              <icon-uil-plus class="w-1/2 mx-auto flex-grow" />
+              <div class="p-1 truncate text-center text-xs md:text-base">添加角色</div>
             </div>
-          </transition>
+          </transition-group>
         </div>
       </div>
       <button
