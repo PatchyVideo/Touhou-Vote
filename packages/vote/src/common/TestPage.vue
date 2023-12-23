@@ -1,6 +1,25 @@
 <template>
   <div class="w-full space-y-3">
-    <div>编辑须知: 1. 问题列表第1个问题的id的最后一位</div>
+    <div>
+      编辑须知：<br />
+      1.问题列表第1个问题的id的最后一位如果是0，则改问题列表默认隐藏，只有选择了"关联问题"中含有该列表的其他问题的选项时才展示出来；
+      <br />
+      2.插入第一个隐藏问题为插入id最后一位是0的问题（默认隐藏）；插入第一个非隐藏问题为插入id的最后一位是1的问题（不隐藏）
+      <br />
+      3. 因为相关问题和互斥选项<strong class="text-red-500">【不会跟随问卷/选项的id动态改变】</strong>，
+      所以建议最后编辑相关问题和互斥选项
+      <br />
+      4. 右下角导出问卷&答题卡数据有基本的校验功能，会删除Input类型下被隐藏掉的所有选项，点击之前需注意 <br />
+      5. 校验功能如下： <br />
+      <div class="pl-8">
+        校验问题种类（Single，Multiple，Input）； <br />
+        校验所有选项的内容不为空, 且选项的选项组为大于等于0的整数； <br />
+        校验所有的related是否合法(5位, 拥有对应问题)； <br />
+        校验所有的mutex是否合法(7位, 拥有对应选项)； <br />
+        校验非input类型选项列表不为空； <br />
+        校验问题库里的某一个问题列表不为空； <br />
+      </div>
+    </div>
     <div class="w-full p-3 rounded-xl">
       <div v-for="(bigQuestionnaire, bigQuestionnaireName) in questionnaireCopy" :key="bigQuestionnaireName">
         <div class="border-b">{{ bigQuestionnaireName }}</div>
@@ -13,7 +32,12 @@
           <div>{{ 'id: ' + smallQuestionnaire.id }}</div>
           <div>{{ '介绍: ' }}</div>
           <textarea v-model="smallQuestionnaire.introduction" />
-          <div>{{ '问题库: 共' + smallQuestionnaire.questions.length + '个问题' }}</div>
+          <div class="flex items-center justify-between">
+            <div>{{ '问题库: 共' + smallQuestionnaire.questions.length + '个问题' }}</div>
+            <button @click="addQuestionList(bigQuestionnaireName as string, smallQuestionnaireName as string, -1)">
+              插入第一个问题列表
+            </button>
+          </div>
           <div
             v-for="(questionLibrary, questionLibraryIndex) in smallQuestionnaire.questions"
             :key="questionLibraryIndex"
@@ -21,18 +45,32 @@
           >
             <div class="flex items-center justify-between">
               <div>{{ '问题列表' + (questionLibraryIndex + 1) + ': ' }}</div>
-              <button
-                @click="
-                  addQuestion(
-                    bigQuestionnaireName as string,
-                    smallQuestionnaireName as string,
-                    questionLibraryIndex,
-                    -1
-                  )
-                "
-              >
-                插入第一个问题
-              </button>
+              <div class="flex items-center justify-between space-x-3">
+                <button
+                  @click="
+                    addQuestion(
+                      bigQuestionnaireName as string,
+                      smallQuestionnaireName as string,
+                      questionLibraryIndex,
+                      -2
+                    )
+                  "
+                >
+                  插入第一个隐藏问题
+                </button>
+                <button
+                  @click="
+                    addQuestion(
+                      bigQuestionnaireName as string,
+                      smallQuestionnaireName as string,
+                      questionLibraryIndex,
+                      -1
+                    )
+                  "
+                >
+                  插入第一个非隐藏问题
+                </button>
+              </div>
             </div>
             <div v-for="(question, questionIndex) in questionLibrary" class="p-3 space-y-2 border">
               <div>{{ '问题' + (questionIndex + 1) }}</div>
@@ -195,6 +233,30 @@
                 </button>
               </div>
             </div>
+            <div class="flex justify-end space-x-3">
+              <button
+                @click="
+                  addQuestionList(
+                    bigQuestionnaireName as string,
+                    smallQuestionnaireName as string,
+                    questionLibraryIndex
+                  )
+                "
+              >
+                向下添加问题列表
+              </button>
+              <button
+                @click="
+                  deleteQuestionList(
+                    bigQuestionnaireName as string,
+                    smallQuestionnaireName as string,
+                    questionLibraryIndex
+                  )
+                "
+              >
+                删除问题列表
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -262,7 +324,7 @@ function getMutexOptions(ids: number[]) {
     for (const bigQuestionnaire in questionnaireCopy.value)
       for (const smallQuestionnaire in questionnaireCopy.value[bigQuestionnaire])
         for (const questionLibrary of questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions)
-          for (const question of questionLibrary) {
+          for (const question of questionLibrary)
             for (const option of question.options)
               if (option.id === id) {
                 mutexOptions +=
@@ -276,7 +338,6 @@ function getMutexOptions(ids: number[]) {
                   ')"; '
                 idFounded = true
               }
-          }
     if (!idFounded) {
       mutexOptions += '【【ID: ' + id + '未找到对应选项！！！】】'
     }
@@ -409,7 +470,7 @@ function DefaultQuestion(
     options: [],
   }
 }
-// 添加问题列表里的问题, questionIndex === -1 时添加第一个问题
+// 添加问题列表里的问题, questionIndex === -1 时添加第一个非隐藏问题, questionIndex === -2 时添加第一个隐藏问题
 function addQuestion(
   bigQuestionnaire: string,
   smallQuestionnaire: string,
@@ -450,30 +511,135 @@ function refreshQuestionID() {
 }
 
 // 添加问题库里的问题列表
+function addQuestionList(bigQuestionnaire: string, smallQuestionnaire: string, questionLibraryIndex: number) {
+  questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions.splice(questionLibraryIndex + 1, 0, [
+    DefaultQuestion(bigQuestionnaire, smallQuestionnaire, questionLibraryIndex, -2),
+  ])
+  refreshQuestionID()
+}
+// 删除问题库里的问题列表
+function deleteQuestionList(bigQuestionnaire: string, smallQuestionnaire: string, questionLibraryIndex: number) {
+  questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions.splice(questionLibraryIndex, 1)
+  refreshQuestionID()
+}
 
+function checkRelatedID(id: number) {
+  let idFounded = false
+  for (const bigQuestionnaire in questionnaireCopy.value)
+    for (const smallQuestionnaire in questionnaireCopy.value[bigQuestionnaire])
+      for (const questionLibrary of questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions)
+        for (const question of questionLibrary)
+          if (question.id === id) {
+            idFounded = true
+          }
+  return idFounded
+}
+function checkMutexID(id: number) {
+  let idFounded = false
+  for (const bigQuestionnaire in questionnaireCopy.value)
+    for (const smallQuestionnaire in questionnaireCopy.value[bigQuestionnaire])
+      for (const questionLibrary of questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions)
+        for (const question of questionLibrary)
+          for (const option of question.options)
+            if (option.id === id) {
+              idFounded = true
+            }
+  return idFounded
+}
 // 校验问卷合法性
 function checkQuestionnaire(): boolean {
-  // Single，Multiple，Input校验
+  // Single, Multiple, Input校验
+  for (const bigQuestionnaire in questionnaireCopy.value)
+    for (const smallQuestionnaire in questionnaireCopy.value[bigQuestionnaire])
+      for (const questionLibrary of questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions)
+        for (const question of questionLibrary)
+          if (question.type != 'Input' && question.type != 'Single' && question.type != 'Multiple') {
+            alert('问题id: ' + question.id + '的种类填写错误!(Single, Multiple, Input)')
+            return false
+          }
   // 删除input类型问题里所有的选项
-  // 校验所有选项内容不为空
-  // 校验所有选项的选项组为大于等于0的整数
-  // 校验所有的related是否合法（拥有对应问题）
-  // 校验所有的mutex是否合法（拥有对应选项）
+  for (const bigQuestionnaire in questionnaireCopy.value)
+    for (const smallQuestionnaire in questionnaireCopy.value[bigQuestionnaire])
+      for (const questionLibrary of questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions)
+        for (const question of questionLibrary)
+          if (question.type === 'Input') {
+            question.options = []
+          }
+  // 校验所有选项的内容不为空, 且选项的选项组为大于等于0的整数
+  for (const bigQuestionnaire in questionnaireCopy.value)
+    for (const smallQuestionnaire in questionnaireCopy.value[bigQuestionnaire])
+      for (const questionLibrary of questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions)
+        for (const question of questionLibrary)
+          for (const option of question.options)
+            if (option.content === '') {
+              alert('选项id: ' + option.id + '的内容不能为空!')
+              return false
+            } else if (!(option.group >= 0)) {
+              alert('选项id: ' + option.id + '的选项组只能为大于等于0的整数!')
+              return false
+            }
+  // 校验所有的related是否合法(5位, 拥有对应问题)
+  for (const bigQuestionnaire in questionnaireCopy.value)
+    for (const smallQuestionnaire in questionnaireCopy.value[bigQuestionnaire])
+      for (const questionLibrary of questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions)
+        for (const question of questionLibrary)
+          for (const option of question.options)
+            for (const id of option.related) {
+              if (id > 100000 || id < 9999) {
+                alert('相关问题id: ' + id + '填写错误!(应为5位id)')
+                return false
+              } else if (!checkRelatedID(id)) {
+                alert('相关问题id: ' + id + '没有对应问题!')
+              }
+            }
+  // 校验所有的mutex是否合法(7位, 拥有对应选项)
+  for (const bigQuestionnaire in questionnaireCopy.value)
+    for (const smallQuestionnaire in questionnaireCopy.value[bigQuestionnaire])
+      for (const questionLibrary of questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions)
+        for (const question of questionLibrary)
+          for (const option of question.options)
+            for (const id of option.mutex) {
+              if (id > 10000000 || id < 999999) {
+                alert('相关问题id: ' + id + '填写错误!(应为7位id)')
+                return false
+              } else if (!checkMutexID(id)) {
+                alert('相关问题id: ' + id + '没有对应问题!')
+              }
+            }
   // 校验非input类型选项列表不为空
+  for (const bigQuestionnaire in questionnaireCopy.value)
+    for (const smallQuestionnaire in questionnaireCopy.value[bigQuestionnaire])
+      for (const questionLibrary of questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions)
+        for (const question of questionLibrary)
+          if (question.type != 'Input') {
+            if (question.options.length === 0) {
+              alert('问题id: ' + question.id + '的选项组不能为空!')
+              return false
+            }
+          }
   // 校验问题库里的某一个问题列表不为空
+  for (const bigQuestionnaire in questionnaireCopy.value)
+    for (const smallQuestionnaire in questionnaireCopy.value[bigQuestionnaire])
+      for (const questionLibrary of questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].questions)
+        if (questionLibrary.length === 0) {
+          alert(questionnaireCopy.value[bigQuestionnaire][smallQuestionnaire].name + '的任意一个问题列表不能为空!')
+          return false
+        }
   return true
 }
 // 输出问卷JSON
 function sendOutQuestionnaire() {
-  const json: QuestionnaireALL = JSON.parse(JSON.stringify(questionnaireCopy.value))
+  if (checkQuestionnaire()) {
+    const json: QuestionnaireALL = JSON.parse(JSON.stringify(questionnaireCopy.value))
 
-  const a = document.createElement('a')
-  a.href = URL.createObjectURL(new Blob([JSON.stringify(json)], { type: 'application/json' }))
-  a.download = 'Questionnaire.json'
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
-  sendOutAnswerData()
+    const a = document.createElement('a')
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(json)], { type: 'application/json' }))
+    a.download = 'Questionnaire.json'
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    sendOutAnswerData()
+  }
 }
 
 // 输出答题卡JSON
