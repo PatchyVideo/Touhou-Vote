@@ -5,8 +5,14 @@
 
     <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <div class="baseBoxRoundedShadow p-1 w-full space-y-2">
-        <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
+        <div class="p-1 flex justify-between items-center md:text-base xl:text-xl 2xl:text-2xl">
           <div>{{ '角色组合(' + couplesValid.length + '/' + CPVOTENUM + ')' }}</div>
+          <div
+            class="text-base text-accent-color-300 underline cursor-pointer transition transition-colors hover:text-accent-color-600"
+            @click="() => (noticeOpen = true)"
+          >
+            投票须知
+          </div>
         </div>
         <div class="innerBox p-2 space-y-2">
           <transition name="couple" mode="out-in">
@@ -52,6 +58,26 @@
       </button>
     </div>
   </div>
+  <VoteMessageBox v-model:open="noticeOpen" title="投票须知">
+    <div class="flex flex-col overflow-auto">
+      <div class="space-y-1 p-2">
+        <p>CP选取规则：</p>
+        <div>
+          1. CP最低2人，最高3人 <br />
+          <div class="pl-8">
+            (1)可选取三个不同的角色 <br />
+            (2)可选取最高两个相同的角色，且此时不允许选取第三个角色 <br />
+            (3)同样的角色即使主动方不同也视为同样的CP <br />
+          </div>
+          2. CP一共可投0-4票，排名不分先后，可从4票中选出一票作为本命票 <br />
+          3. CP中可以选择其中的0～1位为攻
+        </div>
+      </div>
+      <button class="w-full py-2 flex items-center space-x-1 justify-center" @click="() => (noticeOpen = false)">
+        我知道了
+      </button>
+    </div>
+  </VoteMessageBox>
   <VoteMessageBox v-model:open="confirmBoxOpen" title="请确定投票内容：">
     <div class="overflow-auto">
       <div class="divide-y p-2">
@@ -109,6 +135,8 @@ import { popMessageText } from '@/common/lib/popMessage'
 import type { Couple } from './lib/couple'
 
 setSiteTitle('CP部门')
+
+const noticeOpen = ref(false)
 
 const {
   result,
@@ -195,9 +223,6 @@ function computeCharactersValid(characterList: Character[]): Character[] {
 }
 
 function checkVote(): void {
-  couples.value.map((item) => {
-    item.honmei = false
-  })
   if (coupleHonmeiNumber.value.value != -1) couples.value[coupleHonmeiNumber.value.value].honmei = true
   for (let i = 0; i < couplesValid.value.length; i++)
     if (computeCharactersValid(couplesValid.value[i].characters).length < 2) {
@@ -226,7 +251,7 @@ function checkVote(): void {
             characterOverlapNumber++
           }
         }
-      // Specially condition: couplesValid[i] has two same character: CharacterX while couplesValid[j] also has two same CharacterX is invalid which will make it ">"
+      // Special condition: couplesValid[i] has two same character: CharacterX while couplesValid[j] also has two same CharacterX is invalid which will make it ">"
       if (
         characterOverlapNumber >=
         Math.max(
@@ -234,7 +259,7 @@ function checkVote(): void {
           computeCharactersValid(couplesValid.value[j].characters).length
         )
       ) {
-        // Specially condition: couplesValid[i] has two same character: CharacterX while couplesValid[j](two different characters) has CharacterX is NOT invalid
+        // Special condition: couplesValid[i] has two same character: CharacterX while couplesValid[j](two different characters) has CharacterX is NOT invalid
         if (
           (couplesValid.value[i].characters[0].id === couplesValid.value[i].characters[1].id &&
             couplesValid.value[j].characters[0].id != couplesValid.value[j].characters[1].id) ||
