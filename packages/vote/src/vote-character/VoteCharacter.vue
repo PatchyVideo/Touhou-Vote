@@ -58,13 +58,13 @@
             <div
               v-for="(character, index) in charactersVotedWithoutHonmei"
               :key="character.id"
-              class="transition transition-all duration-200 w-3/10 m-1 md:m-2"
+              class="transition transition-all duration-200 w-[calc(33.3%-0.5rem)] m-1"
             >
               <CharacterCard v-model:character="charactersVotedWithoutHonmei[index]" />
             </div>
             <div
               v-if="charactersVotedNumber < CHARACTERVOTENUM"
-              class="baseBoxRoundedShadow min-w-3/10 p-1 m-1 md:m-2 min-h-40 md:min-h-60 2xl:min-h-70 flex flex-col cursor-pointer"
+              class="baseBoxRoundedShadow w-[calc(33.3%-0.5rem)] p-1 pt-5 pb-8 m-1 md:m-2 flex flex-col cursor-pointer"
               @click="
                 () => {
                   characterHonmeiIsSelected = false
@@ -72,7 +72,9 @@
                 }
               "
             >
-              <icon-uil-plus class="w-1/2 mx-auto flex-grow" />
+              <div class="w-1/2 aspect-ratio-1/1 mx-auto">
+                <icon-uil-plus class="w-full" />
+              </div>
               <div class="p-1 truncate text-center text-xs md:text-base">添加角色</div>
             </div>
           </transition-group>

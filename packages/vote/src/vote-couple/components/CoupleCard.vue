@@ -4,12 +4,12 @@
       <div>{{ '投票位' + (indexOfCouple + 1) }}</div>
       <icon-uil-times class="cursor-pointer" @click="closeCard()"></icon-uil-times>
     </div>
-    <div class="innerBox p-1 flex space-x-4 overflow-hidden">
+    <div class="innerBox p-1 flex overflow-hidden">
       <transition-group name="characterList">
         <div
           v-for="(character, index) in charactersValid"
           :key="index"
-          class="baseBoxRoundedShadow relative w-3/10 min-h-40 md:min-h-60 2xl:min-h-70 3xl:min-h-50 p-1 pt-5"
+          class="baseBoxRoundedShadow relative w-[calc(33.3%-0.5rem)] p-1 pt-5 m-1"
         >
           <icon-uil-times
             class="absolute right-0 top-0 cursor-pointer"
@@ -28,17 +28,17 @@
             {{ couple.seme === index ? '撤销' : '选为主动' }}
           </button>
         </div>
-      </transition-group>
-      <transition name="selectedMore" mode="out-in">
         <div
           v-if="moreCharacterCanBeSelected"
-          class="baseBoxRoundedShadow w-3/10 min-h-40 md:min-h-60 2xl:min-h-70 p-1 flex flex-col cursor-pointer"
+          class="baseBoxRoundedShadow w-[calc(33.3%-0.5rem)] p-1 pt-5 pb-8 m-1 flex flex-col cursor-pointer"
           @click="characterSelectOpen = true"
         >
-          <icon-uil-plus class="w-1/2 mx-auto flex-grow" />
+          <div class="w-1/2 aspect-ratio-1/1 mx-auto">
+            <icon-uil-plus class="w-full" />
+          </div>
           <div class="p-1 truncate text-center text-xs md:text-base">添加角色</div>
         </div>
-      </transition>
+      </transition-group>
     </div>
     <div class="p-2 pt-0">
       <input
@@ -123,14 +123,6 @@ function closeCard(): void {
 .character-image::before {
   content: '主动';
   @apply absolute z-1 -right-9 top-1.5 md:top-1 transform transform-gpu rotate-45 px-10 md:py-0.5 origin-center bg-accent-color-600 bg-opacity-90 text-white text-xs md:text-base;
-}
-.selectedMore-enter-active,
-.selectedMore-leave-active {
-  @apply transition-all duration-200;
-}
-.selectedMore-enter-from,
-.selectedMore-leave-to {
-  @apply opacity-0;
 }
 .characterList-enter-active,
 .characterList-leave-active {
