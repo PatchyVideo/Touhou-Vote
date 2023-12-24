@@ -24,11 +24,16 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  url: {
+    type: String,
+    default: '/',
+    required: false,
+  },
 })
 
 async function backToHome() {
   if (await popConfirmText('您想要回到主页吗？（放心，未提交的内容会暂存本地哦）')) {
-    router.push('/')
+    router.push(props.url)
   }
 }
 </script>
