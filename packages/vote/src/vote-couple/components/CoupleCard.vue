@@ -122,7 +122,7 @@ function closeCard(): void {
 <style lang="postcss" scoped>
 .character-image::before {
   content: '主动';
-  @apply absolute -right-9 top-1.5 md:top-1 transform transform-gpu rotate-45 px-10 md:py-0.5 origin-center bg-accent-color-600 bg-opacity-90 text-white text-xs md:text-base;
+  @apply absolute z-1 -right-9 top-1.5 md:top-1 transform transform-gpu rotate-45 px-10 md:py-0.5 origin-center bg-accent-color-600 bg-opacity-90 text-white text-xs md:text-base;
 }
 .selectedMore-enter-active,
 .selectedMore-leave-active {

@@ -72,11 +72,7 @@
               <div class="w-full space-y-0.5">
                 <div class="w-full flex items-center space-x-2">
                   <div class="text-xl truncate">{{ item.title }}</div>
-                  <span
-                    v-if="item.complete()"
-                    class="px-1 text-emerald-600 rounded border border-emerald-300 bg-emerald-50 bg-opacity-50"
-                    >完成
-                  </span>
+                  <CompleteTag :complete="item.complete()" />
                 </div>
                 <div class="text-sm">{{ item.desc }}</div>
               </div>
@@ -224,6 +220,7 @@ import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import UserQuestionnaireDp from '@/home/components/UserQuestionnaireDp.vue'
 import UserVoteDp from '@/home/components/UserVoteDp.vue'
 import VoteDoujinDp from '@/vote-doujin/components/VoteDoujinDp.vue'
+import CompleteTag from '@/home/components/CompleteTag.vue'
 import Copyright from '@/common/components/Copyright.vue'
 import Mask from '@/common/components/Mask.vue'
 import { screenSizes } from '@/tailwindcss'

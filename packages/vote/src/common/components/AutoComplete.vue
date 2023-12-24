@@ -3,7 +3,7 @@
     <icon-uil-search class="flex-shrink-0 inline mx-2" />
     <input
       v-model="searchContent"
-      class="innerBox inline-block h-full outline-none w-full pl-1"
+      class="innerBox inline-block h-full outline-none w-full pl-1 text-sm md:text-base"
       @keydown.enter="search()"
       :placeholder="props.type === 'character' ? '输入关键词搜索角色' : '输入关键词搜索音乐'"
     />

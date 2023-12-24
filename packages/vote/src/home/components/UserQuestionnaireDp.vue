@@ -19,14 +19,7 @@
         >
           <img class="w-32 h-32 object-cover" :src="questionnaireNameById[catogory].children[childId].image" />
           <div>
-            <span
-              v-if="IsQuestionnaireDone(catogory as string, childId as string)"
-              class="px-1 text-emerald-600 rounded border border-emerald-300 bg-emerald-50 bg-opacity-50"
-              >已填写</span
-            >
-            <span v-else class="px-1 text-amber-600 rounded border border-amber-300 bg-amber-50 bg-opacity-50"
-              >未填写</span
-            >
+            <CompleteTag :complete="IsQuestionnaireDone(catogory as string, childId as string)" />
             <h3 class="text-2xl max-w-17ch" v-text="questionnaireNameById[catogory].children[childId].name"></h3>
             <span v-text="questionnaireNameById[catogory].children[childId].desc"></span>
           </div>
@@ -42,6 +35,7 @@ import { IsQuestionnaireAllDone, IsQuestionnaireDone } from '@/questionnaire/lib
 import { questionnaireNameById } from '@/home/lib/questionnaireNameById'
 import { username } from '../lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
+import CompleteTag from '@/home/components/CompleteTag.vue'
 
 setSiteTitle(String(username.value))
 </script>

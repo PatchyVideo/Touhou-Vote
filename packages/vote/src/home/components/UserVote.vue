@@ -17,16 +17,7 @@
           <div class="w-full space-y-0.5">
             <div class="w-full flex items-center space-x-2">
               <div class="text-xl truncate">{{ item.title }}</div>
-              <span
-                v-if="item.complete()"
-                class="px-1 text-emerald-600 truncate rounded border border-emerald-300 bg-emerald-50 bg-opacity-50"
-                >已投票
-              </span>
-              <span
-                v-else
-                class="px-1 text-amber-600 truncate rounded border border-amber-300 bg-amber-50 bg-opacity-50"
-                >未投票
-              </span>
+              <CompleteTag :complete="item.complete()" />
             </div>
             <div class="text-sm">{{ item.desc }}</div>
           </div>
@@ -44,6 +35,7 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
 import { voteCharacterComplete, voteCoupleComplete, voteMusicComplete } from '@/home/lib/user'
+import CompleteTag from '@/home/components/CompleteTag.vue'
 
 const router = useRouter()
 

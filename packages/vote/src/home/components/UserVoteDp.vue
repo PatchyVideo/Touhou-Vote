@@ -13,14 +13,7 @@
       >
         <img class="w-32 h-32 object-cover" :src="vote.image" />
         <div>
-          <span
-            v-if="vote.compelete.value"
-            class="px-1 text-emerald-600 rounded border border-emerald-300 bg-emerald-50 bg-opacity-50"
-            >已投票</span
-          >
-          <span v-else class="px-1 text-amber-600 rounded border border-amber-300 bg-amber-50 bg-opacity-50"
-            >未投票</span
-          >
+          <CompleteTag :complete="vote.compelete.value" />
           <h3 class="text-2xl max-w-17ch" v-text="vote.name"></h3>
           <span v-text="vote.desc"></span>
         </div>
@@ -32,6 +25,7 @@
 <script lang="ts" setup>
 import { username, voteCharacterComplete, voteCoupleComplete, voteMusicComplete } from '../lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
+import CompleteTag from '@/home/components/CompleteTag.vue'
 
 setSiteTitle(String(username.value))
 

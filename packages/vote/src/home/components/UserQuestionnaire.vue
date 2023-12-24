@@ -24,16 +24,7 @@
                 <div class="text-xl truncate">
                   {{ questionnaireNameById[catogory].children[childId].name }}
                 </div>
-                <span
-                  v-if="IsQuestionnaireDone(catogory as string, childId as string)"
-                  class="px-1 text-emerald-600 truncate rounded border border-emerald-300 bg-emerald-50 bg-opacity-50"
-                  >已填写
-                </span>
-                <span
-                  v-else
-                  class="px-1 text-amber-600 truncate rounded border border-amber-300 bg-amber-50 bg-opacity-50"
-                  >未填写
-                </span>
+                <CompleteTag :complete="IsQuestionnaireDone(catogory as string, childId as string)" />
               </div>
               <span v-text="questionnaireNameById[catogory].children[childId].desc"></span>
             </div>
@@ -52,6 +43,7 @@ import { useRouter } from 'vue-router'
 import { questionnaire } from '@/questionnaire/lib/questionnaire'
 import { IsQuestionnaireDone } from '@/questionnaire/lib/questionnaireData'
 import { questionnaireNameById } from '@/home/lib/questionnaireNameById'
+import CompleteTag from '@/home/components/CompleteTag.vue'
 
 const router = useRouter()
 
