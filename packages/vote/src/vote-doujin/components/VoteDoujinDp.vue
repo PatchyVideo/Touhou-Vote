@@ -42,7 +42,7 @@
     </div>
     <EditDoujin v-model:open="editDoujinOpen" :index="editDoujinIndex" />
   </div>
-  <div v-else class="grid place-items-center w-full h-full">
+  <div v-else class="grid place-items-center w-full min-h-full">
     <div class="flex flex-col overflow-auto max-w-70ch">
       <h2 class="mx-auto text-2xl">关于作品提名</h2>
       <div class="prose-lg py-4">

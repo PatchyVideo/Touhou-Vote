@@ -132,7 +132,7 @@
         </div>
         <div
           class="mx-auto text-center transition-all ease-in-out duration-600"
-          :class="dpCollapseNav ? 'w-2ch' : 'w-9ch'"
+          :class="dpCollapseNav ? 'w-2ch' : 'w-auto'"
           v-text="tab.title"
         ></div>
       </RouterLink>
