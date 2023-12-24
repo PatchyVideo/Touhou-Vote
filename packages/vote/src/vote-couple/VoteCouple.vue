@@ -207,8 +207,9 @@ function checkVote(): void {
   for (let i = 0; i < couplesValid.value.length; i++)
     if (
       computeCharactersValid(couplesValid.value[i].characters).length === 3 &&
-      (couplesValid.value[i].characters[2].name === couplesValid.value[i].characters[0].name ||
-        couplesValid.value[i].characters[2].name === couplesValid.value[i].characters[1].name)
+      (couplesValid.value[i].characters[2].id === couplesValid.value[i].characters[0].id ||
+        couplesValid.value[i].characters[2].id === couplesValid.value[i].characters[1].id ||
+        couplesValid.value[i].characters[1].id === couplesValid.value[i].characters[0].id)
     ) {
       popMessageText('投票位' + (i + 1) + '不能填写两个相同的角色！（相同的角色只允许二人CP）')
       return
@@ -216,17 +217,32 @@ function checkVote(): void {
   for (let i = 0; i < couplesValid.value.length; i++)
     for (let j = i + 1; j < couplesValid.value.length; j++) {
       let characterOverlapNumber = 0
-      for (let m = 0; m < couplesValid.value[i].characters.length; m++)
-        for (let n = 0; n < couplesValid.value[j].characters.length; n++) {
-          if (couplesValid.value[i].characters[m].id === couplesValid.value[j].characters[n].id) {
+      for (let m = 0; m < computeCharactersValid(couplesValid.value[i].characters).length; m++)
+        for (let n = 0; n < computeCharactersValid(couplesValid.value[j].characters).length; n++) {
+          if (
+            computeCharactersValid(couplesValid.value[i].characters)[m].id ===
+            computeCharactersValid(couplesValid.value[j].characters)[n].id
+          ) {
             characterOverlapNumber++
-            break
           }
         }
+      // Specially condition: couplesValid[i] has two same character: CharacterX while couplesValid[j] also has two same CharacterX is invalid which will make it ">"
       if (
-        characterOverlapNumber ===
-        Math.min(couplesValid.value[i].characters.length, couplesValid.value[j].characters.length)
+        characterOverlapNumber >=
+        Math.max(
+          computeCharactersValid(couplesValid.value[i].characters).length,
+          computeCharactersValid(couplesValid.value[j].characters).length
+        )
       ) {
+        // Specially condition: couplesValid[i] has two same character: CharacterX while couplesValid[j](two different characters) has CharacterX is NOT invalid
+        if (
+          (couplesValid.value[i].characters[0].id === couplesValid.value[i].characters[1].id &&
+            couplesValid.value[j].characters[0].id != couplesValid.value[j].characters[1].id) ||
+          (couplesValid.value[i].characters[0].id != couplesValid.value[i].characters[1].id &&
+            couplesValid.value[j].characters[0].id === couplesValid.value[j].characters[1].id)
+        ) {
+          continue
+        }
         popMessageText('投票位' + (i + 1) + '投票位' + (j + 1) + '重复！')
         return
       }
