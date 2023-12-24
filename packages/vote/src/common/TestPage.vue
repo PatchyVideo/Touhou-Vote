@@ -288,11 +288,10 @@ watch(
   { deep: true }
 )
 function getQuestionnaireCopy() {
-  // const questionnaireCopyLocal: QuestionnaireALL[] = JSON.parse(localStorage.getItem('questionnaireCopy') || '{}')
-  // if (JSON.stringify(questionnaireCopyLocal) != '{}') {
-  //   return questionnaireCopyLocal
-  // } else return JSON.parse(JSON.stringify(questionnaire))
-  return JSON.parse(JSON.stringify(questionnaire))
+  const questionnaireCopyLocal: QuestionnaireALL[] = JSON.parse(localStorage.getItem('questionnaireCopy') || '{}')
+  if (JSON.stringify(questionnaireCopyLocal) != '{}') {
+    return questionnaireCopyLocal
+  } else return JSON.parse(JSON.stringify(questionnaire))
 }
 
 const relatedQuestionIDAdded = ref<number>()
