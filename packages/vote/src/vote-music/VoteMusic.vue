@@ -58,13 +58,13 @@
             <div
               v-for="(music, index) in musicsVotedWithoutHonmei"
               :key="music.id"
-              class="transition transition-all duration-200 w-[calc(33.3%-0.5rem)] m-1"
+              class="transition transition-all duration-200 min-w-[calc(33.3%-0.5rem)] m-1"
             >
               <MusicCard v-model:music="musicsVotedWithoutHonmei[index]" />
             </div>
             <div
               v-if="musicsVotedNumber < MUSICVOTENUM"
-              class="baseBoxRoundedShadow w-[calc(33.3%-0.5rem)] p-1 pt-5 pb-8 m-1 flex flex-col cursor-pointer"
+              class="baseBoxRoundedShadow min-w-[calc(33.3%-0.5rem)] p-1 pt-5 pb-8 m-1 flex flex-col cursor-pointer"
               @click="
                 () => {
                   musicHonmeiIsSelected = false

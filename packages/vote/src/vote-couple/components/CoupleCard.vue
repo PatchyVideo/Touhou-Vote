@@ -9,7 +9,7 @@
         <div
           v-for="(character, index) in charactersValid"
           :key="index"
-          class="baseBoxRoundedShadow relative w-[calc(33.3%-0.5rem)] p-1 pt-5 m-1"
+          class="baseBoxRoundedShadow relative min-w-[calc(33.3%-0.5rem)] p-1 pt-5 m-1"
         >
           <icon-uil-times
             class="absolute right-0 top-0 cursor-pointer"
@@ -30,7 +30,7 @@
         </div>
         <div
           v-if="moreCharacterCanBeSelected"
-          class="baseBoxRoundedShadow w-[calc(33.3%-0.5rem)] p-1 pt-5 pb-8 m-1 flex flex-col cursor-pointer"
+          class="baseBoxRoundedShadow min-w-[calc(33.3%-0.5rem)] p-1 pt-5 pb-8 m-1 flex flex-col cursor-pointer"
           @click="characterSelectOpen = true"
         >
           <div class="w-1/2 aspect-ratio-1/1 mx-auto">

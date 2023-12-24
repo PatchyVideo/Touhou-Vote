@@ -58,13 +58,13 @@
             <div
               v-for="(character, index) in charactersVotedWithoutHonmei"
               :key="character.id"
-              class="transition transition-all duration-200 w-[calc(33.3%-0.5rem)] m-1"
+              class="transition transition-all duration-200 min-w-[calc(33.3%-0.5rem)] m-1"
             >
               <CharacterCard v-model:character="charactersVotedWithoutHonmei[index]" />
             </div>
             <div
               v-if="charactersVotedNumber < CHARACTERVOTENUM"
-              class="baseBoxRoundedShadow w-[calc(33.3%-0.5rem)] p-1 pt-5 pb-8 m-1 md:m-2 flex flex-col cursor-pointer"
+              class="baseBoxRoundedShadow min-w-[calc(33.3%-0.5rem)] p-1 pt-5 pb-8 m-1 md:m-2 flex flex-col cursor-pointer"
               @click="
                 () => {
                   characterHonmeiIsSelected = false
