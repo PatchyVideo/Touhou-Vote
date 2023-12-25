@@ -130,9 +130,10 @@
         <div class="flex min-h-0 aspect-square">
           <img class="object-contain" :src="tab.icon" />
         </div>
+        <CompleteTag class="text-xs" :class="dpCollapseNav ? 'w-3ch' : 'w-auto'" :complete="tab.complete()" />
         <div
           class="mx-auto text-center transition-all ease-in-out duration-600"
-          :class="dpCollapseNav ? 'w-2ch' : 'w-auto'"
+          :class="dpCollapseNav ? 'w-3ch' : 'w-auto'"
           v-text="tab.title"
         ></div>
       </RouterLink>

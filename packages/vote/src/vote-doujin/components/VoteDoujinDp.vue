@@ -151,6 +151,7 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
 onDone((result) => {
   popMessageText('投票成功！')
   voteDoujinComplete.value = true
+  confirmedNotice.value = false
 })
 onError((error) => {
   console.log(error.graphQLErrors[0].extensions.error_kind)
