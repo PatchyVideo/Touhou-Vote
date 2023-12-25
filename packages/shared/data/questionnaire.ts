@@ -1111,7 +1111,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 23021,
             type: 'Single',
-            question: '您2022年内是否（作为游客/摊主）参加过东方主题的线下活动？',
+            question: '您2023年内是否（作为游客/摊主）参加过东方主题的线下活动？',
             introduction: '',
             input: '',
             options: [
