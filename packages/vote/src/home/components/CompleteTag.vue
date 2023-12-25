@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="inline-block">
     <div
       v-if="props.complete"
       class="px-1 text-textaccent rounded border border-textaccent bg-accent-color-300 bg-opacity-0"
