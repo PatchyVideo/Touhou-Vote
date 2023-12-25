@@ -43,10 +43,6 @@
             </div>
           </transition>
         </div>
-        <div v-show="couplesValid.length" class="px-2 pb-2 flex justify-between">
-          <div class="text-xl">本命组合：</div>
-          <VoteSelect v-model:selected="coupleHonmeiNumber" :item-list="coupleHonmeiOptions" />
-        </div>
       </div>
 
       <button
@@ -116,14 +112,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watch, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import NProgress from 'nprogress'
 import { CPVOTENUM, couples, updateVotecouple } from '@/vote-couple/lib/voteData'
 import { coupleHonmei, couplesValid, couplesValidWithoutHonmei } from '@/vote-couple/lib/coupleList'
 import NavVote from '@/common/components/NavVote.vue'
 import CoupleCard from '@/vote-couple/components/CoupleCard.vue'
-import VoteSelect from '@/common/components/VoteSelect.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import type { Character } from '@/vote-character/lib/character'
 import { character0 } from '@/vote-character/lib/character'
@@ -132,7 +127,6 @@ import type { Mutation, Query, schema } from '@/graphql'
 import { voteCoupleComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
-import type { Couple } from './lib/couple'
 
 setSiteTitle('CP部门')
 
@@ -183,35 +177,6 @@ getSubmitCPVoteError((err) => {
   else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
 
-const coupleDisplayName = (item: Couple, index: number) => '投票位' + (index + 1)
-const coupleHonmeiOptions = computed(() =>
-  couplesValid.value.map((item, index) => ({
-    name: coupleDisplayName(item, index),
-    value: index,
-  }))
-)
-const coupleHonmeiNumber = ref(updateCoupleHonmeiNumber())
-function updateCoupleHonmeiNumber() {
-  const honmeiIndex = couplesValid.value.findIndex((couple) => couple.honmei)
-  return honmeiIndex === -1
-    ? {
-        name: '',
-        value: -1,
-      }
-    : {
-        name: coupleDisplayName(couplesValid.value[honmeiIndex], honmeiIndex),
-        value: honmeiIndex,
-      }
-}
-// Note: 'couples.value[coupleHonmeiNumber.value.value].honmei = true' has been moved to function vote() to avoid infinite call bug.
-watch(
-  couples,
-  () => {
-    coupleHonmeiNumber.value = updateCoupleHonmeiNumber()
-  },
-  { deep: true }
-)
-
 function addCouple(): void {
   couples.value[couplesValid.value.length].valid = true
 }
@@ -223,7 +188,6 @@ function computeCharactersValid(characterList: Character[]): Character[] {
 }
 
 function checkVote(): void {
-  if (coupleHonmeiNumber.value.value != -1) couples.value[coupleHonmeiNumber.value.value].honmei = true
   for (let i = 0; i < couplesValid.value.length; i++)
     if (computeCharactersValid(couplesValid.value[i].characters).length < 2) {
       popMessageText('投票位' + (i + 1) + '选择的角色数量小于两个！')

@@ -1,7 +1,10 @@
 <template>
   <div class="baseBoxRoundedShadow p-1 space-y-2">
     <div class="flex justify-between items-center">
-      <div>{{ '投票位' + (indexOfCouple + 1) }}</div>
+      <div>
+        {{ '投票位' + (indexOfCouple + 1) }}
+        <span v-if="couple.honmei" class="rounded px-1 text-accent-color-600 bg-accent-color-300">本命</span>
+      </div>
       <icon-uil-times class="cursor-pointer" @click="closeCard()"></icon-uil-times>
     </div>
     <div class="innerBox p-1 flex overflow-hidden">
@@ -49,6 +52,7 @@
         type="text"
       />
     </div>
+    <button @click="chooseAsHonmei()" class="w-full py-1">{{ couple.honmei ? '撤销本命' : '选为本命' }}</button>
   </div>
   <CharacterSelect
     v-model:open="characterSelectOpen"
@@ -96,15 +100,28 @@ watch(flag, () => {
   if (characterSelected.value.id != character0.id)
     couple.value.characters[charactersValid.value.length] = characterSelected.value
 })
-const moreCharacterCanBeSelected = computed<boolean>(() =>
-  couple.value.characters.find((character) => character.id === character0.id) &&
-  couple.value.characters[0] != couple.value.characters[1]
-    ? true
-    : false
+const moreCharacterCanBeSelected = computed<boolean>(
+  () =>
+    couple.value.characters.findIndex((character) => character.id === character0.id) != -1 &&
+    (couple.value.characters[0].id === character0.id || couple.value.characters[0].id != couple.value.characters[1].id)
+)
+console.log(
+  couple.value.characters.findIndex((character) => character.id === character0.id) != -1,
+  couple.value.characters[0].id != character0.id,
+  couple.value.characters[0].id != couple.value.characters[1].id
 )
 
 function chooseAsSeme(index: number): void {
   couple.value.seme === index ? (couple.value.seme = -1) : (couple.value.seme = index)
+}
+
+function chooseAsHonmei() {
+  if (couple.value.honmei) {
+    couples.value.map((item) => (item.honmei = false))
+  } else {
+    couples.value.map((item) => (item.honmei = false))
+    couple.value.honmei = true
+  }
 }
 
 function deleteCharacter(index: number): void {
