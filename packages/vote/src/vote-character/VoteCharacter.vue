@@ -64,7 +64,7 @@
             </div>
             <div
               v-if="charactersVotedNumber < CHARACTERVOTENUM"
-              class="baseBoxRoundedShadow min-w-[calc(33.3%-0.5rem)] p-1 pt-5 pb-8 m-1 md:m-2 flex flex-col cursor-pointer"
+              class="baseBoxRoundedShadow min-w-[calc(33.3%-0.5rem)] p-1 pt-5 pb-8 m-1 flex flex-col cursor-pointer"
               @click="
                 () => {
                   characterHonmeiIsSelected = false
@@ -240,12 +240,11 @@ onError((error) => {
   @apply opacity-0;
 }
 .characterList-leave-active {
-  @apply absolute;
-  @apply max-w-30;
+  @apply transition-all duration-200;
 }
 
 .characterList-enter,
 .characterList-leave-to {
-  @apply opacity-0  translate-y-2;
+  @apply opacity-0;
 }
 </style>

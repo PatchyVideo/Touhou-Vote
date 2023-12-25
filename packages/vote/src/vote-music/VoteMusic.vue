@@ -238,12 +238,11 @@ onError((error) => {
   @apply opacity-0;
 }
 .musicList-leave-active {
-  @apply absolute;
-  @apply max-w-30;
+  @apply transition-all duration-200;
 }
 
 .musicList-enter,
 .musicList-leave-to {
-  @apply opacity-0  translate-y-2;
+  @apply opacity-0;
 }
 </style>
