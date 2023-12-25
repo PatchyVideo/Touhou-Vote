@@ -80,7 +80,8 @@
       </div>
       <button
         class="w-full py-1 text-sm md:text-base"
-        :class="{ buttonDisabled: submiting, invisible: !questionnaireDone }"
+        :class="{ buttonDisabled: submiting }"
+        :style="questionnaireDone ? '' : 'visibility:hidden'"
         @click="submitQuestionnire()"
       >
         <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />
