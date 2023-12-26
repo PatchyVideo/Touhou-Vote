@@ -60,7 +60,6 @@
           等奖项。
         </p>
         <p class="indent-lg">根据举办情况，还可能会邀请相应行业的专业人士进行点评哦！</p>
-        <p class="indent-lg">由于是首次举办，尚在摸索阶段，可能会有诸多不足之处，还请各位谅解，感谢大家的支持！</p>
         <p class="italic text-sm">*本活动最终解释权归THBWiki所有</p>
       </div>
       <button class="inline-block mx-auto px-8 py-2" @click="() => (confirmedNotice = true)">我知道了</button>

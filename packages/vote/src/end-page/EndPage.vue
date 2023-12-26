@@ -37,7 +37,7 @@ import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import LoginBox from '@/home/components/LoginBox.vue'
 import Copyright from '@/common/components/Copyright.vue'
 
-setSiteTitle('已结束 - 第⑩回 中文东方人气投票')
+setSiteTitle('已结束 - 第11回 中文东方人气投票')
 
 const loginBoxOpen = ref(false)
 </script>
