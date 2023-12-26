@@ -355,7 +355,7 @@ const pixivRegExp = new RegExp(
   '^(https:\\/\\/)?(www\\.)?pixiv\\.net\\/(artworks\\/[\\d]+|novel\\/(series\\/[\\d]+|show\\.php\\?id=[\\d]+))'
 )
 const nicovideoRegExp = new RegExp(
-  '^(https:\\/\\/|http:\\/\\/)?(www\\.|sp\\.|m\\.|seiga\\.)?(nicovideo\\.jp\\/watch\\/(s|n)m[\\d]+|nico\\.ms\\/(s|n)m[\\d]+)'
+  '^(https:\\/\\/|http:\\/\\/)?(www\\.|sp\\.|m\\.|seiga\\.)?(nicovideo\\.jp)(\\/watch\\/(s|n)m[\\d]+|nico\\.ms\\/(s|n)m[\\d]+)|(seiga\\/im[\\d])'
 )
 const acfunRegExp = new RegExp('^(https:\\/\\/|http:\\/\\/)?(www\\.|m\\.)?acfun\\.cn\\/v\\/[aA][cC][\\d]+')
 const tiebaRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?tieba\\.baidu\\.com\\/p\\/[\\d]+')
