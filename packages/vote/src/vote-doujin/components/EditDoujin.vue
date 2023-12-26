@@ -339,7 +339,7 @@ async function fetchMsg(): Promise<void> {
 // 夕渃 2023/12/25 20:15
 // @Lurantis 其实你可以不用我搞了正则你还搞，你只要确保丢到我这边的是一个合法的url就行了
 const universalSiteRegExp = new RegExp(
-  '^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
+  '^((http|https):\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
 )
 // const bilibiliRegExp = new RegExp(
 //   '^(https:\\/\\/|http:\\/\\/)?(www\\.|m\\.)?(bilibili\\.com\\/video\\/([aA][vV][\\d]+|BV[a-zA-Z0-9]+)(\\?p=[\\d]+)?|b23\\.tv\\/([aA][vV][\\d]+|BV[a-zA-Z0-9]+)(\\?p=[\\d]+)?|b23\\.tv\\/[\\w\\d]+)'
