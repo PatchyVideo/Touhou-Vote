@@ -78,7 +78,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 11011,
             type: 'Single',
-            question: '您的性别是？（填写的信息仅用于数据分析，不会以任何形式披露投票者个人信息）',
+            question: '您的性别是？（填写的信息仅用于数据分析，我们不会以任何形式披露投票者个人信息）',
             introduction: '',
             input: '',
             options: [
@@ -91,7 +91,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 11021,
             type: 'Single',
-            question: '您现在的主要所在地区为？',
+            question: '您现在的主要所在地为？',
             introduction: '',
             input: '',
             options: [
@@ -104,7 +104,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 11031,
             type: 'Single',
-            question: '您现在的最主要所在地是哪个省级行政区？',
+            question: '您现在的主要所在地位于哪个省级行政区？',
             introduction: '',
             input: '',
             options: [
@@ -202,7 +202,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 11061,
             type: 'Single',
-            question: '您目前还是学生吗？',
+            question: '您是学生吗？',
             introduction: '',
             input: '',
             options: [
@@ -242,7 +242,7 @@ export const questionnaire: QuestionnaireALL = {
             introduction: '',
             input: '',
             options: [
-              { id: 1108101, related: [], mutex: [], content: '一年以内（2023年后）', group: 0 },
+              { id: 1108101, related: [], mutex: [], content: '2023年及之后', group: 0 },
               { id: 1108102, related: [], mutex: [], content: '2021年～2022年期间', group: 0 },
               { id: 1108103, related: [], mutex: [], content: '2018～2020年期间', group: 0 },
               { id: 1108104, related: [], mutex: [], content: '2015～2017年期间', group: 0 },
@@ -256,7 +256,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 11091,
             type: 'Single',
-            question: '您是第几次参加人气投票活动？',
+            question: '您是第几次参加中文东方人气投票活动？',
             introduction: '',
             input: '',
             options: [
@@ -572,7 +572,7 @@ export const questionnaire: QuestionnaireALL = {
             introduction: '',
             input: '',
             options: [
-              { id: 1303101, related: [], mutex: [], content: '只要有时间就总是在浏览', group: 0 },
+              { id: 1303101, related: [], mutex: [], content: '只要有时间就在浏览', group: 0 },
               { id: 1303102, related: [], mutex: [], content: '几乎每天都会抽时间浏览', group: 0 },
               { id: 1303103, related: [], mutex: [], content: '每隔几天主动浏览几次', group: 0 },
               { id: 1303104, related: [], mutex: [], content: '仅在刷到的时候偶尔看看', group: 0 },
@@ -643,7 +643,7 @@ export const questionnaire: QuestionnaireALL = {
             introduction: '',
             input: '',
             options: [
-              { id: 1306101, related: [], mutex: [], content: '网络邮购', group: 0 },
+              { id: 1306101, related: [], mutex: [], content: '网购', group: 0 },
               { id: 1306102, related: [], mutex: [], content: '展会购买', group: 0 },
               { id: 1306103, related: [], mutex: [], content: '电子版/下载版', group: 0 },
               { id: 1306104, related: [], mutex: [], content: '委托朋友/代购', group: 0 },
@@ -743,7 +743,7 @@ export const questionnaire: QuestionnaireALL = {
               { id: 1310101, related: [], mutex: [], content: '国内代理/正版引进', group: 0 },
               { id: 1310102, related: [], mutex: [], content: '电子版/下载版', group: 0 },
               { id: 1310103, related: [], mutex: [], content: '代购平台/代购店', group: 0 },
-              { id: 1310104, related: [], mutex: [], content: '网络邮购/转运', group: 0 },
+              { id: 1310104, related: [], mutex: [], content: '网购/转运', group: 0 },
               { id: 1310105, related: [], mutex: [], content: '实地购买（展会/实体店等）', group: 0 },
               { id: 1310106, related: [], mutex: [], content: '委托朋友帮买', group: 0 },
               { id: 1310107, related: [], mutex: [], content: '购买二手/他人转手', group: 0 },
@@ -819,7 +819,7 @@ export const questionnaire: QuestionnaireALL = {
           {
             id: 13141,
             type: 'Single',
-            question: '您了解官方授权商业作品（归言录、弹幕神乐等）吗？',
+            question: '您了解官方授权商业作品（归言录、东方幻想Eclipse等）吗？',
             introduction: '',
             input: '',
             options: [
@@ -839,7 +839,7 @@ export const questionnaire: QuestionnaireALL = {
     exQuestionnaire1: {
       id: 21,
       name: '额外问卷 - 同人创作相关',
-      introduction: '该部分问卷涉及投票者官作游玩的具体情况。投票者可以选择是否填写该问卷',
+      introduction: '该部分问卷涉及投票者对同人作品开发的具体情况。投票者可以选择是否填写该问卷',
       questions: [
         [
           {
@@ -1129,7 +1129,7 @@ export const questionnaire: QuestionnaireALL = {
               { id: 2302201, related: [], mutex: [], content: '想去的展会被取消', group: 0 },
               { id: 2302202, related: [], mutex: [], content: '没有时间', group: 0 },
               { id: 2302203, related: [], mutex: [], content: '路费太贵', group: 0 },
-              { id: 2302204, related: [], mutex: [], content: '生活环境原因（如封校）', group: 0 },
+              { id: 2302204, related: [], mutex: [], content: '生活环境原因', group: 0 },
               { id: 2302205, related: [], mutex: [], content: '不知道线下展会的信息', group: 0 },
               { id: 2302206, related: [], mutex: [], content: '其它', group: 0 },
             ],
