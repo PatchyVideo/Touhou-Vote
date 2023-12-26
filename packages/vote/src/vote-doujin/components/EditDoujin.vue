@@ -336,34 +336,39 @@ async function fetchMsg(): Promise<void> {
   fetchLoading.value = false
 }
 
-const bilibiliRegExp = new RegExp(
-  '^(https:\\/\\/|http:\\/\\/)?(www\\.|m\\.)?(bilibili\\.com\\/video\\/([aA][vV][\\d]+|BV[a-zA-Z0-9]+)(\\?p=[\\d]+)?|b23\\.tv\\/([aA][vV][\\d]+|BV[a-zA-Z0-9]+)(\\?p=[\\d]+)?|b23\\.tv\\/[\\w\\d]+)'
+// 夕渃 2023/12/25 20:15
+// @Lurantis 其实你可以不用我搞了正则你还搞，你只要确保丢到我这边的是一个合法的url就行了
+const universalSiteRegExp = new RegExp(
+  '^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
 )
-const weiboRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?(weibo\\.com\\/[\\d]+\\/[a-zA-Z0-9])')
-const thbwikiRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?(thwiki\\.cc|thbwiki\\.cc)')
-const patchyvideoRegExp = new RegExp(
-  '^(https:\\/\\/)?(www\\.)?(patchyvideo\\.com\\/#\\/|thvideo\\.tv\\/#\\/)(video\\?id=[a-zA-Z0-9]+|listdetail\\?id=[a-zA-Z0-9]+)'
-)
-const platinumRegExp = new RegExp(
-  '^(https:\\/\\/)?(www\\.)?(platinum\\.vercel\\.app\\/)(video\\/|playlist\\/)[a-zA-Z0-9]+'
-)
-const twitterRegExp = new RegExp('^(https:\\/\\/)?(www\\.|mobile\\.)?twitter\\.com\\/[\\w]+\\/status\\/[\\d]+')
-const youtubeRegExp = new RegExp(
-  '^(https:\\/\\/(www\\.|m\\.)?youtube\\.com\\/(tv#\\/)?watch\\?v=[-\\w]+|https:\\/\\/youtu\\.be\\/(watch\\?v=[-\\w]+|[-\\w]+))'
-)
-const pixivRegExp = new RegExp(
-  '^(https:\\/\\/)?(www\\.)?pixiv\\.net\\/(artworks\\/[\\d]+|novel\\/(series\\/[\\d]+|show\\.php\\?id=[\\d]+))'
-)
-const nicovideoRegExp = new RegExp(
-  '^(https:\\/\\/|http:\\/\\/)?(www\\.|sp\\.|m\\.|seiga\\.)?(nicovideo\\.jp)(\\/watch\\/(s|n)m[\\d]+|nico\\.ms\\/(s|n)m[\\d]+)|(seiga\\/im[\\d])'
-)
-const acfunRegExp = new RegExp('^(https:\\/\\/|http:\\/\\/)?(www\\.|m\\.)?acfun\\.cn\\/v\\/[aA][cC][\\d]+')
-const tiebaRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?tieba\\.baidu\\.com\\/p\\/[\\d]+')
-const steamRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?store\\.steampowered\\.com\\/app\\/[\\d]+')
-const dizzylabRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?dizzylab\\.net\\/d\\/[a-zA-Z0-9-]+\\/')
-const dlsiteRegExp = new RegExp(
-  '^(https:\\/\\/)?(www\\.)?dlsite\\.com\\/home\\/work\\/=\\/product_id\\/[a-zA-Z0-9]+\\.html'
-)
+// const bilibiliRegExp = new RegExp(
+//   '^(https:\\/\\/|http:\\/\\/)?(www\\.|m\\.)?(bilibili\\.com\\/video\\/([aA][vV][\\d]+|BV[a-zA-Z0-9]+)(\\?p=[\\d]+)?|b23\\.tv\\/([aA][vV][\\d]+|BV[a-zA-Z0-9]+)(\\?p=[\\d]+)?|b23\\.tv\\/[\\w\\d]+)'
+// )
+// const weiboRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?(weibo\\.com\\/[\\d]+\\/[a-zA-Z0-9])')
+// const thbwikiRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?(thwiki\\.cc|thbwiki\\.cc)')
+// const patchyvideoRegExp = new RegExp(
+//   '^(https:\\/\\/)?(www\\.)?(patchyvideo\\.com\\/#\\/|thvideo\\.tv\\/#\\/)(video\\?id=[a-zA-Z0-9]+|listdetail\\?id=[a-zA-Z0-9]+)'
+// )
+// const platinumRegExp = new RegExp(
+//   '^(https:\\/\\/)?(www\\.)?(platinum\\.vercel\\.app\\/)(video\\/|playlist\\/)[a-zA-Z0-9]+'
+// )
+// const twitterRegExp = new RegExp('^(https:\\/\\/)?(www\\.|mobile\\.)?twitter\\.com\\/[\\w]+\\/status\\/[\\d]+')
+// const youtubeRegExp = new RegExp(
+//   '^(https:\\/\\/(www\\.|m\\.)?youtube\\.com\\/(tv#\\/)?watch\\?v=[-\\w]+|https:\\/\\/youtu\\.be\\/(watch\\?v=[-\\w]+|[-\\w]+))'
+// )
+// const pixivRegExp = new RegExp(
+//   '^(https:\\/\\/)?(www\\.)?pixiv\\.net\\/(artworks\\/[\\d]+|novel\\/(series\\/[\\d]+|show\\.php\\?id=[\\d]+))'
+// )
+// const nicovideoRegExp = new RegExp(
+//   '^(https:\\/\\/|http:\\/\\/)?(www\\.|sp\\.|m\\.|seiga\\.)?(nicovideo\\.jp)(\\/watch\\/(s|n)m[\\d]+|nico\\.ms\\/(s|n)m[\\d]+)|(seiga\\/im[\\d])'
+// )
+// const acfunRegExp = new RegExp('^(https:\\/\\/|http:\\/\\/)?(www\\.|m\\.)?acfun\\.cn\\/v\\/[aA][cC][\\d]+')
+// const tiebaRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?tieba\\.baidu\\.com\\/p\\/[\\d]+')
+// const steamRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?store\\.steampowered\\.com\\/app\\/[\\d]+')
+// const dizzylabRegExp = new RegExp('^(https:\\/\\/)?(www\\.)?dizzylab\\.net\\/d\\/[a-zA-Z0-9-]+\\/')
+// const dlsiteRegExp = new RegExp(
+//   '^(https:\\/\\/)?(www\\.)?dlsite\\.com\\/home\\/work\\/=\\/product_id\\/[a-zA-Z0-9]+\\.html'
+// )
 // const melonbooksRegExp = new RegExp(
 //   '^(https:\\/\\/)?(www\\.)?melonbooks.co.jp\\/detail\\/detail.php\\?product_id=[\\d]+'
 // )
@@ -401,20 +406,21 @@ const validUrlMaxLength = useValidation(hintElUrlMaxLength, doujinUrl, (value) =
 const hintElUrlInvalid = ref<HTMLElement | null>(null)
 const validUrlInvalid = useValidation(hintElUrlInvalid, doujinUrl, (value) =>
   [
-    bilibiliRegExp,
-    weiboRegExp,
-    thbwikiRegExp,
-    patchyvideoRegExp,
-    platinumRegExp,
-    twitterRegExp,
-    youtubeRegExp,
-    pixivRegExp,
-    nicovideoRegExp,
-    acfunRegExp,
-    tiebaRegExp,
-    steamRegExp,
-    dizzylabRegExp,
-    dlsiteRegExp,
+    universalSiteRegExp,
+    // bilibiliRegExp,
+    // weiboRegExp,
+    // thbwikiRegExp,
+    // patchyvideoRegExp,
+    // platinumRegExp,
+    // twitterRegExp,
+    // youtubeRegExp,
+    // pixivRegExp,
+    // nicovideoRegExp,
+    // acfunRegExp,
+    // tiebaRegExp,
+    // steamRegExp,
+    // dizzylabRegExp,
+    // dlsiteRegExp,
     // melonbooksRegExp,
   ].some((reg) => reg.test(value))
 )
