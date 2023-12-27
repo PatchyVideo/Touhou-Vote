@@ -59,17 +59,17 @@ export default defineConfig(async ({ command, mode }) => {
     ],
     server: {
       proxy: {
-        '/v10-be': {
+        '/v11-be': {
           target: 'http://34.86.25.42',
           changeOrigin: true,
           secure: false,
-          rewrite: (path) => path.replace(/^\/v10-be/, ''),
+          rewrite: (path) => path.replace(/^\/v11-be/, ''),
         },
       },
     },
     build: {
       sourcemap: true,
-      assetsDir: 'v10/assets',
+      assetsDir: 'v11/assets',
     },
     esbuild: {
       charset: 'utf8',

@@ -108,7 +108,7 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
     deleteUserData()
     return
   }
-  await fetch('/v10-be/user-token-status', {
+  await fetch('/v11-be/user-token-status', {
     method: 'POST',
     headers: new Headers({
       'Content-Type': 'application/json',

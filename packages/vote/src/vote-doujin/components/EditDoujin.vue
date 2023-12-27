@@ -293,7 +293,7 @@ function clearDoujinData(): void {
 const fetchLoading = ref(false)
 async function fetchMsg(): Promise<void> {
   fetchLoading.value = true
-  await fetch('/v10-be/doujin/api', {
+  await fetch('/v11-be/doujin/api', {
     method: 'POST',
     headers: new Headers({
       'Content-Type': 'application/json',

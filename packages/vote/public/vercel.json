@@ -6,7 +6,7 @@
   },
   "rewrites": [
     {
-      "source": "/v10-be/(.*)",
+      "source": "/v11-be/(.*)",
       "destination": "http://34.86.25.42/$1"
     },
     {
