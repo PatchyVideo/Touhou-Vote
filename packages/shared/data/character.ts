@@ -45,7 +45,7 @@ export const characterList: Character[] = [
     id: '4068b1c2',
     name: '博丽灵梦',
     origname: '博麗　霊夢',
-    altnames: ['红白', '城管'],
+    altnames: ['博麗霊夢', 'はくれいれいむ', 'Hakurei Reimu', '红白', '博丽霊梦', '城管'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -60,7 +60,7 @@ export const characterList: Character[] = [
     id: '51f4ad21',
     name: '雾雨魔理沙',
     origname: '霧雨　魔理沙',
-    altnames: ['黑白', '魔胖子', '莎莎'],
+    altnames: ['霧雨魔理沙', 'きりさめまりさ', 'Kirisame Marisa', '黑白', '魔胖子', '莎莎'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%9B%BE%E9%9B%A8%E9%AD%94%E7%90%86%E6%B2%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -75,7 +75,7 @@ export const characterList: Character[] = [
     id: '303bf2f0',
     name: '神玉',
     origname: 'しんぎょく',
-    altnames: [],
+    altnames: ['しんぎょく', 'shingyoku', 'SinGyoku'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%A5%9E%E7%8E%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -90,7 +90,7 @@ export const characterList: Character[] = [
     id: 'a5dd07db',
     name: '魅魔',
     origname: '魅魔',
-    altnames: [],
+    altnames: ['みま', 'Mima'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%AD%85%E9%AD%94%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -105,7 +105,7 @@ export const characterList: Character[] = [
     id: 'f2295f91',
     name: '菊理',
     origname: 'きくり',
-    altnames: [],
+    altnames: ['きくり', 'Kikuri', '硬币', '菊里'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%8F%8A%E7%90%86%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -120,7 +120,7 @@ export const characterList: Character[] = [
     id: '7eb52786',
     name: '矜羯罗',
     origname: '矜羯羅',
-    altnames: [],
+    altnames: ['矜羯羅', 'こんがら', 'Konngara'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%9F%9C%E7%BE%AF%E7%BD%97%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -135,7 +135,7 @@ export const characterList: Character[] = [
     id: 'a5ef3246',
     name: '幽幻魔眼',
     origname: 'ゆうげんまがん',
-    altnames: [],
+    altnames: ['ゆうげんまがん', 'yuugenmagan', 'YuugenMagan', '幽玄魔眼'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B9%BD%E5%B9%BB%E9%AD%94%E7%9C%BC%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -150,7 +150,7 @@ export const characterList: Character[] = [
     id: '03de3773',
     name: '依莉斯',
     origname: 'エリス',
-    altnames: [],
+    altnames: ['エリス', 'えりす', 'elis', 'Elis'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%BE%9D%E8%8E%89%E4%B8%9D%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -165,7 +165,7 @@ export const characterList: Character[] = [
     id: 'b1c5013e',
     name: '萨丽爱尔',
     origname: 'サリエル',
-    altnames: ['大碎骨', '天使'],
+    altnames: ['サリエル', 'さりえる', 'sariel', 'Sariel', '大碎骨', '天使'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%90%A8%E4%B8%BD%E8%89%BE%E5%B0%94%EF%BC%88%E7%81%B5%E5%BC%82%E4%BC%A0%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -180,7 +180,7 @@ export const characterList: Character[] = [
     id: '8b8da236',
     name: '玄爷',
     origname: '玄爺',
-    altnames: ['乌龟'],
+    altnames: ['玄爺', 'げんじい', 'Genjii', '乌龟'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%84%E7%88%B7%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
@@ -195,7 +195,7 @@ export const characterList: Character[] = [
     id: 'aabfc5ec',
     name: '里香',
     origname: '里香',
-    altnames: ['战车少女'],
+    altnames: ['りか', 'Rika', '坦克', '战车少女'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%87%8C%E9%A6%99%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
@@ -210,7 +210,7 @@ export const characterList: Character[] = [
     id: '4eaafad3',
     name: '明罗',
     origname: '明羅',
-    altnames: [],
+    altnames: ['明羅', 'めいら', 'Meira'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%98%8E%E7%BD%97%EF%BC%88%E5%B0%81%E9%AD%94%E5%BD%95%E7%AB%8B%E7%BB%98%EF%BC%89.png',
@@ -255,7 +255,7 @@ export const characterList: Character[] = [
     id: '99ae0f53',
     name: '爱莲',
     origname: 'エレン',
-    altnames: ['恋爱魔女'],
+    altnames: ['エレン', 'eren', 'Ellen', '恋爱魔女'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%88%B1%E8%8E%B2%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -270,7 +270,7 @@ export const characterList: Character[] = [
     id: '5959db57',
     name: '小兔姬',
     origname: '小兎姫',
-    altnames: ['警察'],
+    altnames: ['小兎姫', 'ことひめ', 'Kotohime', '警察'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%8F%E5%85%94%E5%A7%AC%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -285,7 +285,7 @@ export const characterList: Character[] = [
     id: 'b606f310',
     name: '卡娜·安娜贝拉尔',
     origname: 'カナ・アナベラル',
-    altnames: ['梦消失'],
+    altnames: ['卡娜 · 安娜贝拉尔', 'カナ · アナベラル', 'kana anaberaru', 'Kana Anaberal', '梦消失'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%8D%A1%E5%A8%9C%C2%B7%E5%AE%89%E5%A8%9C%E8%B4%9D%E6%8B%89%E5%B0%94%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -300,7 +300,7 @@ export const characterList: Character[] = [
     id: 'ae96f7aa',
     name: '朝仓理香子',
     origname: '朝倉　理香子',
-    altnames: [],
+    altnames: ['朝倉理香子', 'あさくらりかこ', 'asakura rikako', 'Rikako Asakura'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%9C%9D%E4%BB%93%E7%90%86%E9%A6%99%E5%AD%90%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -315,7 +315,7 @@ export const characterList: Character[] = [
     id: '4520a185',
     name: '北白河千百合',
     origname: '北白河　ちゆり',
-    altnames: [],
+    altnames: ['北白河ちゆり', 'きたしらかわちゆり', 'kitashirakawa chiyuri', 'Chiyuri Kitashirakawa', '折凳'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%8C%97%E7%99%BD%E6%B2%B3%E5%8D%83%E7%99%BE%E5%90%88%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -330,7 +330,7 @@ export const characterList: Character[] = [
     id: 'bed36787',
     name: '冈崎梦美',
     origname: '岡崎　夢美',
-    altnames: ['教授', '草莓'],
+    altnames: ['岡崎夢美', 'おかざきゆめみ', 'okazaki yumemi', 'Yumemi Okazaki', '教授', '草莓'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%86%88%E5%B4%8E%E6%A2%A6%E7%BE%8E%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -345,7 +345,7 @@ export const characterList: Character[] = [
     id: '9238ecec',
     name: '咪咪号',
     origname: 'ミミちゃん',
-    altnames: [],
+    altnames: ['ミミちゃん', 'みみｄちゃん', 'Mimi-chan'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%92%AA%E5%92%AA%E5%8F%B7%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -360,7 +360,7 @@ export const characterList: Character[] = [
     id: 'f24ee488',
     name: '留琴',
     origname: 'る～こと',
-    altnames: ['机器女仆', '核能女仆'],
+    altnames: ['る～こと', 'ruukoto', 'Ru~koto', '机器女仆', '核能女仆'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%95%99%E7%90%B4%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -375,7 +375,7 @@ export const characterList: Character[] = [
     id: '788cc6d6',
     name: '玛○奇',
     origname: 'ま○ち',
-    altnames: ['玛露奇', '家务机器人'],
+    altnames: ['ま○ち', 'mamaruchi', 'Ma maru chi', '玛玛露奇', '玛露奇', '玛bi奇', '家务机器人'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%9B%E2%97%8B%E5%A5%87%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89.png',
@@ -390,7 +390,7 @@ export const characterList: Character[] = [
     id: '5cb3ddc2',
     name: '苏格拉底',
     origname: 'ソクラテス',
-    altnames: [],
+    altnames: ['ソクラテス', 'そくらてす', 'Socrates'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%8B%8F%E6%A0%BC%E6%8B%89%E5%BA%95%EF%BC%88%E6%A2%A6%E6%97%B6%E7%A9%BA%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -405,7 +405,7 @@ export const characterList: Character[] = [
     id: 'fb515016',
     name: '奥莲姬',
     origname: 'オレンジ',
-    altnames: ['橙子'],
+    altnames: ['オレンジ', 'orenji', 'Orange', '橘子', '橙子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%A5%A5%E8%8E%B2%E5%A7%AC%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -420,7 +420,7 @@ export const characterList: Character[] = [
     id: 'd9dc3ac7',
     name: '胡桃',
     origname: 'くるみ',
-    altnames: ['吸血鬼'],
+    altnames: ['くるみ', 'Kurumi', '吸血鬼'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%83%A1%E6%A1%83%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -435,7 +435,7 @@ export const characterList: Character[] = [
     id: '82a37606',
     name: '艾丽',
     origname: 'エリー',
-    altnames: ['门卫'],
+    altnames: ['エリー', 'erii', 'Elly', '苹果', '门卫'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%89%BE%E4%B8%BD%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -450,7 +450,7 @@ export const characterList: Character[] = [
     id: 'beeb23bc',
     name: '梦月',
     origname: '夢月',
-    altnames: [],
+    altnames: ['夢月', 'むげつ', 'mugetsu', 'Mugetu'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%A6%E6%9C%88%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -465,7 +465,7 @@ export const characterList: Character[] = [
     id: 'bacebda2',
     name: '幻月',
     origname: '幻月',
-    altnames: [],
+    altnames: ['げんげつ', 'gengetsu', 'Gengetu'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B9%BB%E6%9C%88%EF%BC%88%E5%B9%BB%E6%83%B3%E4%B9%A1%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -480,7 +480,7 @@ export const characterList: Character[] = [
     id: '9a037fa3',
     name: '萨拉',
     origname: 'サラ',
-    altnames: [],
+    altnames: ['サラ', 'Sara'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%90%A8%E6%8B%89%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -495,7 +495,7 @@ export const characterList: Character[] = [
     id: '03e0a86b',
     name: '露易兹',
     origname: 'ルイズ',
-    altnames: [],
+    altnames: ['ルイズ', 'ruizu', 'Luize'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E6%98%93%E5%85%B9%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -510,7 +510,7 @@ export const characterList: Character[] = [
     id: 'd84553b9',
     name: '雪',
     origname: 'ユキ',
-    altnames: ['黑之魔法使'],
+    altnames: ['ユキ', 'Yuki', '黑之魔法使'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%9B%AA%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -525,7 +525,7 @@ export const characterList: Character[] = [
     id: 'ad5488d6',
     name: '舞',
     origname: 'マイ',
-    altnames: ['白之魔法使'],
+    altnames: ['マイ', 'Mai', '白之魔法使'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%88%9E%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -540,7 +540,7 @@ export const characterList: Character[] = [
     id: '5f202ec7',
     name: '梦子',
     origname: '夢子',
-    altnames: ['魔界女仆'],
+    altnames: ['夢子', 'ゆめこ', 'Yumeko', '魔界女仆'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%A6%E5%AD%90%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -555,7 +555,7 @@ export const characterList: Character[] = [
     id: 'd5f92cfe',
     name: '神绮',
     origname: '神綺',
-    altnames: ['太太', '呆毛神', '女儿怪'],
+    altnames: ['神綺', 'しんき', 'Shinki', '绮妈', '太太', '呆毛神', '女儿怪'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%A5%9E%E7%BB%AE%EF%BC%88%E6%80%AA%E7%BB%AE%E8%B0%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -570,7 +570,7 @@ export const characterList: Character[] = [
     id: '2e68cf78',
     name: '露米娅',
     origname: 'ルーミア',
-    altnames: ['⑩'],
+    altnames: ['ルーミア', 'ruumia', 'Rumia', '10', '露米亚', '⑩'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E7%B1%B3%E5%A8%85%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -585,7 +585,7 @@ export const characterList: Character[] = [
     id: 'b18739ea',
     name: '大妖精',
     origname: '大妖精',
-    altnames: ['大酱'],
+    altnames: ['だいようせい', 'Daiyousei', '大酱'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%A4%A7%E5%A6%96%E7%B2%BE%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -600,7 +600,7 @@ export const characterList: Character[] = [
     id: 'be3477fd',
     name: '琪露诺',
     origname: 'チルノ',
-    altnames: ['⑨', '冰精'],
+    altnames: ['チルノ', 'chiruno', 'Cirno', '9', 'Baka', '笨蛋', '⑨', '冰精'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%90%AA%E9%9C%B2%E8%AF%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -615,7 +615,7 @@ export const characterList: Character[] = [
     id: '63d2a4b4',
     name: '红美铃',
     origname: '紅　美鈴',
-    altnames: ['中国', '红师傅'],
+    altnames: ['紅美鈴', 'ホンメイリン', 'hon meirin', 'Hoan Meirin', '中国', '红师傅', 'Hong Meirin'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%BA%A2%E7%BE%8E%E9%93%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -630,7 +630,7 @@ export const characterList: Character[] = [
     id: '42b64412',
     name: '小恶魔',
     origname: '小悪魔',
-    altnames: [],
+    altnames: ['小悪魔', 'リートルデビッル', 'こあくま', 'riitoru debirru', 'Little Devil', 'Koakuma'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%8F%E6%81%B6%E9%AD%94%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -645,7 +645,15 @@ export const characterList: Character[] = [
     id: '913320ae',
     name: '帕秋莉·诺蕾姬',
     origname: 'パチュリー・ノーレッジ',
-    altnames: ['姆Q', '帕琪'],
+    altnames: [
+      '帕秋莉 · 诺蕾姬',
+      'パチュリー · ノーレッジ',
+      'pachurii noorejji',
+      'Patchouli Knowledge',
+      '姆Q',
+      '帕琪',
+      '图书',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B8%95%E7%A7%8B%E8%8E%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -660,7 +668,7 @@ export const characterList: Character[] = [
     id: 'eea98a55',
     name: '十六夜咲夜',
     origname: '十六夜　咲夜',
-    altnames: ['PAD长'],
+    altnames: ['いざよいさくや', 'Izayoi Sakuya', 'PAD长', '16'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%8D%81%E5%85%AD%E5%A4%9C%E5%92%B2%E5%A4%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -675,7 +683,15 @@ export const characterList: Character[] = [
     id: 'a0ff1362',
     name: '蕾米莉亚·斯卡蕾特',
     origname: 'レミリア・スカーレット',
-    altnames: ['威严', '大小姐'],
+    altnames: [
+      '蕾米莉亚 · 斯卡蕾特',
+      'レミリア · スカーレット',
+      'remiria sukaaretto',
+      'Remilia Scarlet',
+      '大小姐',
+      '蕾咪',
+      '威严',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%95%BE%E7%B1%B3%E8%8E%89%E4%BA%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -690,7 +706,14 @@ export const characterList: Character[] = [
     id: '4376ba72',
     name: '芙兰朵露·斯卡蕾特',
     origname: 'フランドール・スカーレット',
-    altnames: ['二妹', '二小姐'],
+    altnames: [
+      '芙兰朵露 · 斯卡蕾特',
+      'フランドール · スカーレット',
+      'furandooru sukaaretto',
+      'Flandre Scarlet',
+      '二小姐',
+      '二妹',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%8A%99%E5%85%B0%E6%9C%B5%E9%9C%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -705,7 +728,7 @@ export const characterList: Character[] = [
     id: '5861a82e',
     name: '冴月麟',
     origname: '冴月　麟',
-    altnames: ['阿卡鳞'],
+    altnames: ['さつきりん', 'さえつきりん', 'さえづきりん', 'satsukirin', 'saetsukirin', 'saezukirin', '阿卡鳞'],
     title: '',
     image: '',
     color: '#FC4328',
@@ -719,7 +742,12 @@ export const characterList: Character[] = [
     id: '5fcea7a8',
     name: 'Label子',
     origname: 'レーベルイラストの娘',
-    altnames: [],
+    altnames: [
+      '蓬莱人形C62版碟面少女',
+      '蓬莱人形レーベルイラストの娘',
+      'ほうらいにんぎょうれえべるいらすとのむすめ',
+      'DiPP label girl',
+    ],
     title: '',
     image: '',
     color: '#FC4328',
@@ -761,7 +789,12 @@ export const characterList: Character[] = [
     id: '64792b75',
     name: '夹克子',
     origname: 'ジャケットイラストの娘',
-    altnames: [],
+    altnames: [
+      '蓬莱人形C63版碟面少女',
+      '蓬莱人形ジャケットイラストの娘',
+      'ほうらいにんぎょうじゃけっといらすとのむすめ',
+      'DiPP jacket girl',
+    ],
     title: '',
     image: '',
     color: '#FC4328',
@@ -775,7 +808,15 @@ export const characterList: Character[] = [
     id: 'ec1e9520',
     name: '蕾蒂·霍瓦特洛克',
     origname: 'レティ・ホワイトロック',
-    altnames: ['⑨妈', '冬胖子'],
+    altnames: [
+      '蕾蒂 · 霍瓦特洛克',
+      'レティ · ホワイトロック',
+      'reti howaitorokku',
+      'Letty Whiterock',
+      '9妈',
+      '⑨妈',
+      '冬胖子',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%95%BE%E8%92%82%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -790,7 +831,7 @@ export const characterList: Character[] = [
     id: 'c2686a48',
     name: '橙',
     origname: '橙',
-    altnames: ['黑猫'],
+    altnames: ['チェン', 'Chen', '八云橙', '八雲橙', 'Yakumo Chen', '8', '黑猫'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%A9%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -805,7 +846,22 @@ export const characterList: Character[] = [
     id: '36a6ce01',
     name: '爱丽丝·玛格特洛依德',
     origname: 'アリス・マーガトロイド',
-    altnames: ['小爱', '威震天', '人偶师'],
+    altnames: [
+      '爱丽丝 · 玛格特洛依德',
+      'アリス · マーガトロイド',
+      'arisu maagatoroido',
+      'Alice Margatroid',
+      '小爱',
+      '威震天',
+      '爱丽丝 · 玛格特罗依德',
+      '爱丽丝 · 马格特洛伊德',
+      '爱丽丝 · 马格特罗伊德',
+      '爱丽丝 · 马格特罗依德',
+      '爱丽丝 · 马格特洛依德',
+      '爱丽丝 · 玛格特罗伊德',
+      '爱丽丝 · 玛格特洛伊德',
+      '人偶师',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%88%B1%E4%B8%BD%E4%B8%9D%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -820,7 +876,7 @@ export const characterList: Character[] = [
     id: '72f5129e',
     name: '莉莉霍瓦特',
     origname: 'リリーホワイト',
-    altnames: ['莉莉白', '莉莉黑'],
+    altnames: ['リリーホワイト', 'ririihowaito', 'LilyWhite', '莉莉白', '白莉莉', '莉莉怀特', '黑莉莉', '莉莉黑'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%8E%89%E8%8E%89%E9%9C%8D%E7%93%A6%E7%89%B9%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -835,7 +891,17 @@ export const characterList: Character[] = [
     id: '2ef58c48',
     name: '露娜萨·普莉兹姆利巴',
     origname: 'ルナサ・プリズムリバー',
-    altnames: ['骚灵大姐', '提琴手', '骚灵三姐妹'],
+    altnames: [
+      '露娜萨 · 普莉兹姆利巴',
+      '露娜萨 · 虹川',
+      'ルナサ · プリズムリバー',
+      'runasa purizumuribaa',
+      'Lunasa Prismriver',
+      '露娜姐',
+      '骚灵大姐',
+      '提琴手',
+      '骚灵三姐妹',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E5%A8%9C%E8%90%A8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -850,7 +916,16 @@ export const characterList: Character[] = [
     id: '28ec59d5',
     name: '梅露兰·普莉兹姆利巴',
     origname: 'メルラン・プリズムリバー',
-    altnames: ['骚灵二姐', '小号手', '骚灵三姐妹'],
+    altnames: [
+      '梅露兰 · 普莉兹姆利巴',
+      '梅露兰 · 虹川',
+      'メルラン · プリズムリバー',
+      'meruran purizumuribaa',
+      'Merlin Prismriver',
+      '骚灵二姐',
+      '小号手',
+      '骚灵三姐妹',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%85%E9%9C%B2%E5%85%B0%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -865,7 +940,16 @@ export const characterList: Character[] = [
     id: '7846d9d1',
     name: '莉莉卡·普莉兹姆利巴',
     origname: 'リリカ・プリズムリバー',
-    altnames: ['骚灵三妹', '键盘手', '骚灵三姐妹'],
+    altnames: [
+      '莉莉卡 · 普莉兹姆利巴',
+      '莉莉卡 · 虹川',
+      'リリカ · プリズムリバー',
+      'ririka purizumuribaa',
+      'Lyrica Prismriver',
+      '骚灵三妹',
+      '键盘手',
+      '骚灵三姐妹',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%8E%89%E8%8E%89%E5%8D%A1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -880,7 +964,7 @@ export const characterList: Character[] = [
     id: 'e6d1be88',
     name: '魂魄妖梦',
     origname: '魂魄　妖夢',
-    altnames: ['yoo', '庭师'],
+    altnames: ['魂魄妖夢', 'こんぱくようむ', 'Konpaku Youmu', 'yoo', '庭师'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%AD%82%E9%AD%84%E5%A6%96%E6%A2%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -895,7 +979,7 @@ export const characterList: Character[] = [
     id: '508760fb',
     name: '西行寺幽幽子',
     origname: '西行寺　幽々子',
-    altnames: ['UUZ', '吃货子'],
+    altnames: ['西行寺幽々子', 'さいぎょうじゆゆこ', 'Saigyouji Yuyuko', 'UUZ', '吃货子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%A5%BF%E8%A1%8C%E5%AF%BA%E5%B9%BD%E5%B9%BD%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -910,7 +994,7 @@ export const characterList: Character[] = [
     id: '53542596',
     name: '八云蓝',
     origname: '八雲　藍',
-    altnames: ['素果天狐', '蓝妈', '九尾策士'],
+    altnames: ['八雲藍', 'やくもらん', 'Yakumo Ran', '素裸天狐', '8', '素果天狐', '蓝妈', '九尾策士'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E4%BA%91%E8%93%9D%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -925,7 +1009,7 @@ export const characterList: Character[] = [
     id: '94ce1ced',
     name: '八云紫',
     origname: '八雲　紫',
-    altnames: ['BBA', '紫妈', '老太婆'],
+    altnames: ['八雲紫', 'やくもゆかり', 'yakumo yukari', 'Yukari Yakumo', '紫妈', '8', 'BBA', '老太婆'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E4%BA%91%E7%B4%AB%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -940,7 +1024,7 @@ export const characterList: Character[] = [
     id: '17657c79',
     name: '魂魄妖忌',
     origname: '魂魄　妖忌',
-    altnames: ['老爷子'],
+    altnames: ['こんぱくようき', 'konpaku youki', 'Youki Konpaku', '老爷子'],
     title: '',
     image: '',
     color: '#FC4328',
@@ -954,7 +1038,7 @@ export const characterList: Character[] = [
     id: 'f710ad38',
     name: '蕾拉·普莉兹姆利巴',
     origname: 'レイラ・プリズムリバー',
-    altnames: [],
+    altnames: ['蕾拉 · 普莉兹姆利巴', 'レイラ · プリズムリバー', 'reira purizumuribaa', 'Leira Prismriver'],
     title: '',
     image: '',
     color: '#FC4328',
@@ -968,7 +1052,7 @@ export const characterList: Character[] = [
     id: '8e3f73c5',
     name: '宇佐见莲子',
     origname: '宇佐見　蓮子',
-    altnames: [],
+    altnames: ['宇佐見蓮子', 'うさみれんこ', 'Usami Renko', '秘封', '密封', 'hifuu'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%AE%87%E4%BD%90%E8%A7%81%E8%8E%B2%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -983,7 +1067,19 @@ export const characterList: Character[] = [
     id: '9a9fdb34',
     name: '玛艾露贝莉·赫恩',
     origname: 'マエリベリー・ハーン',
-    altnames: ['梅莉'],
+    altnames: [
+      '玛艾露贝莉 · 赫恩',
+      '梅莉',
+      'マエリベリー · ハーン',
+      'メリー',
+      'maeriberii haan',
+      'merii',
+      'Maribel Hearn',
+      'Merry',
+      '秘封',
+      '密封',
+      'hifuu',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%85%E8%8E%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -998,7 +1094,7 @@ export const characterList: Character[] = [
     id: 'ea2020c2',
     name: '莉格露·奈特巴格',
     origname: 'リグル・ナイトバグ',
-    altnames: ['虫子'],
+    altnames: ['莉格露 · 奈特巴格', 'リグル · ナイトバグ', 'riguru naitobagu', 'Wriggle Nightbug', '虫子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%8E%89%E6%A0%BC%E9%9C%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1013,7 +1109,16 @@ export const characterList: Character[] = [
     id: 'a8b1567e',
     name: '米斯蒂娅·萝蕾拉',
     origname: 'ミスティア・ローレライ',
-    altnames: ['米斯琪', '老板娘', '小碎骨'],
+    altnames: [
+      '米斯蒂娅 · 萝蕾拉',
+      'ミスティア · ローレライ',
+      'misutia roorerai',
+      'Mystia Lorelei',
+      '小碎骨',
+      '老板娘',
+      '夜雀',
+      '米斯琪',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%B1%B3%E6%96%AF%E8%92%82%E5%A8%85%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1028,7 +1133,7 @@ export const characterList: Character[] = [
     id: '5cd984b0',
     name: '上白泽慧音',
     origname: '上白沢　慧音',
-    altnames: ['老师'],
+    altnames: ['上白沢慧音', 'かみしらさわけいね', 'kamishirasawa keine', 'Keine Kamishirasawa', '老师'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%8A%E7%99%BD%E6%B3%BD%E6%85%A7%E9%9F%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1058,7 +1163,18 @@ export const characterList: Character[] = [
     id: '9040d604',
     name: '铃仙·优昙华院·因幡',
     origname: '鈴仙・優曇華院・イナバ',
-    altnames: ['大兔子', '受兔'],
+    altnames: [
+      '铃仙 · 优昙华院 · 因幡',
+      '铃仙 · 优昙华院 · 稻叶',
+      '鈴仙 · 優曇華院 · イナバ',
+      '鈴仙 · U · イナバ',
+      'れいせん · うどんげいん · イナバ',
+      'Reisen Udongein Inaba',
+      '受兔',
+      '铃仙',
+      '铃仙 · U · 因幡',
+      '大兔子',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%93%83%E4%BB%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1073,7 +1189,7 @@ export const characterList: Character[] = [
     id: '006a7501',
     name: '八意永琳',
     origname: '八意　永琳',
-    altnames: ['师匠'],
+    altnames: ['やごころえいりん', 'yagokoro eirin', 'Eirin Yagokoro', '师匠'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E6%84%8F%E6%B0%B8%E7%90%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1088,7 +1204,7 @@ export const characterList: Character[] = [
     id: '7333ba10',
     name: '蓬莱山辉夜',
     origname: '蓬莱山　輝夜',
-    altnames: ['NEET', '竹取姬', '公主大人'],
+    altnames: ['蓬莱山輝夜', 'ほうらいさんかぐや', 'Houraisan Kaguya', 'NEET姬', 'NEET', '竹取姬', '公主大人'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%93%AC%E8%8E%B1%E5%B1%B1%E8%BE%89%E5%A4%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1103,7 +1219,7 @@ export const characterList: Character[] = [
     id: 'd819ed10',
     name: '藤原妹红',
     origname: '藤原　妹紅',
-    altnames: [],
+    altnames: ['藤原妹紅', 'ふじわらのもこう', 'fujiwara no mokou', 'Huziwara no Mokou', '爷们红', '不死鸟'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%97%A4%E5%8E%9F%E5%A6%B9%E7%BA%A2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1118,7 +1234,7 @@ export const characterList: Character[] = [
     id: 'd8e6d65e',
     name: '伊吹萃香',
     origname: '伊吹　萃香',
-    altnames: ['西瓜'],
+    altnames: ['いぶきすいか', 'Ibuki Suika', '西瓜'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%BC%8A%E5%90%B9%E8%90%83%E9%A6%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1133,7 +1249,7 @@ export const characterList: Character[] = [
     id: '813e8c90',
     name: '射命丸文',
     origname: '射命丸　文',
-    altnames: ['aya', '文文', '狗仔文'],
+    altnames: ['しゃめいまるあや', 'shameimaru aya', 'Syameimaru Aya', '文文', 'Ayaya', 'aya', '狗仔文'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%84%E5%91%BD%E4%B8%B8%E6%96%87%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1148,7 +1264,7 @@ export const characterList: Character[] = [
     id: 'e7e80511',
     name: '梅蒂欣·梅兰可莉',
     origname: 'メディスン・メランコリー',
-    altnames: ['毒人偶'],
+    altnames: ['梅蒂欣 · 梅兰可莉', 'メディスン · メランコリー', 'medisun merankorii', 'Medicine Melancholy', '毒人偶'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%A2%85%E8%92%82%E6%AC%A3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1163,7 +1279,7 @@ export const characterList: Character[] = [
     id: '2033fc94',
     name: '风见幽香',
     origname: '風見　幽香',
-    altnames: ['睡美人', '花妈'],
+    altnames: ['風見幽香', 'かざみゆうか', 'kazami yuuka', 'Kazami Yuka', '花妈', '睡美人'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%A3%8E%E8%A7%81%E5%B9%BD%E9%A6%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1178,7 +1294,7 @@ export const characterList: Character[] = [
     id: '16464f68',
     name: '小野塚小町',
     origname: '小野塚　小町',
-    altnames: ['死神', '乳町'],
+    altnames: ['おのづかこまち', 'Onozuka Komachi', '乳町', '死神'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%8F%E9%87%8E%E5%A1%9A%E5%B0%8F%E7%94%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1193,7 +1309,18 @@ export const characterList: Character[] = [
     id: 'fe0f8e72',
     name: '四季映姬·夜摩仙那度',
     origname: '四季映姫・ヤマザナドゥ',
-    altnames: ['阎萝王'],
+    altnames: [
+      '四季映姬 · 亚玛萨那度',
+      '四季映姫 · ヤマザナドゥ',
+      'しきえいき · やまざなどぅ',
+      'shikieiki yamazanadu',
+      'Shikieiki Yamaxanadu',
+      '阎魔',
+      '阎萝王',
+      '四季映姬·亚玛萨那度',
+      '四季映姫 · 亚玛萨那度',
+      '四季映姬 · 夜摩仙那度',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%9B%9B%E5%AD%A3%E6%98%A0%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1208,7 +1335,7 @@ export const characterList: Character[] = [
     id: '188bca93',
     name: '稗田阿求',
     origname: '稗田　阿求',
-    altnames: [],
+    altnames: ['ひえだのあきゅう', 'Hieda no Akyuu', '阿加莎克里斯Q'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%A8%97%E7%94%B0%E9%98%BF%E6%B1%82%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1237,7 +1364,7 @@ export const characterList: Character[] = [
     id: '2936b035',
     name: '桑尼米尔克',
     origname: 'サニーミルク',
-    altnames: [],
+    altnames: ['サニーミルク', 'saniimiruku', 'Sunny Milk', '光明牛奶'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%A1%91%E5%B0%BC%E7%B1%B3%E5%B0%94%E5%85%8B%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1252,7 +1379,7 @@ export const characterList: Character[] = [
     id: '801b5512',
     name: '露娜切露德',
     origname: 'ルナチャイルド',
-    altnames: [],
+    altnames: ['ルナチャイルド', 'runachairudo', 'Luna Child', '露娜茶'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%B2%E5%A8%9C%E5%88%87%E9%9C%B2%E5%BE%B7%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1267,7 +1394,7 @@ export const characterList: Character[] = [
     id: '8593b57a',
     name: '斯塔萨菲雅',
     origname: 'スターサファイア',
-    altnames: [],
+    altnames: ['スターサファイア', 'sutaasafaia', 'Star Sapphire'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%96%AF%E5%A1%94%E8%90%A8%E8%8F%B2%E9%9B%85%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1282,7 +1409,7 @@ export const characterList: Character[] = [
     id: '4a1b481a',
     name: '秋静叶',
     origname: '秋　静葉',
-    altnames: [],
+    altnames: ['秋静葉', 'あきしずは', 'aki shizuha', 'Aki Sizuha', '不人气姐妹'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%A7%8B%E9%9D%99%E5%8F%B6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1297,7 +1424,7 @@ export const characterList: Character[] = [
     id: 'f12dabc6',
     name: '秋穰子',
     origname: '秋　穣子',
-    altnames: [],
+    altnames: ['秋穣子', 'あきみのりこ', 'Aki Minoriko'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%A7%8B%E7%A9%B0%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1312,7 +1439,7 @@ export const characterList: Character[] = [
     id: 'd324b050',
     name: '键山雏',
     origname: '鍵山　雛',
-    altnames: ['转转'],
+    altnames: ['鍵山雛', 'かぎやまひな', 'kagiyama hina', 'Hina Kagiyama', '转转', '厄神'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%94%AE%E5%B1%B1%E9%9B%8F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1327,7 +1454,16 @@ export const characterList: Character[] = [
     id: '2f9625d0',
     name: '河城荷取',
     origname: '河城　にとり',
-    altnames: ['河童'],
+    altnames: [
+      '河城にとり',
+      '河城似鸟',
+      'かわしろにとり',
+      'kawashiro nitori',
+      'Kawasiro Nitori',
+      '绿坝娘',
+      '河城鸟取',
+      '河童',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%B2%B3%E5%9F%8E%E8%8D%B7%E5%8F%96%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1342,7 +1478,7 @@ export const characterList: Character[] = [
     id: '33a061be',
     name: '犬走椛',
     origname: '犬走　椛',
-    altnames: ['狗椛'],
+    altnames: ['いぬばしりもみじ', 'inubashiri momiji', 'Inubashiri Momizi', '椛椛', '磨米机', '狗椛'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%8A%AC%E8%B5%B0%E6%A4%9B%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1357,7 +1493,7 @@ export const characterList: Character[] = [
     id: 'faa03b91',
     name: '东风谷早苗',
     origname: '東風谷　早苗',
-    altnames: [],
+    altnames: ['東風谷早苗', 'こちやさなえ', 'Kochiya Sanae', '早喵'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%9C%E9%A3%8E%E8%B0%B7%E6%97%A9%E8%8B%97%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1372,7 +1508,7 @@ export const characterList: Character[] = [
     id: '11f64ff4',
     name: '八坂神奈子',
     origname: '八坂　神奈子',
-    altnames: ['钢加农'],
+    altnames: ['やさかかなこ', 'Yasaka Kanako', '钢加农'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%85%AB%E5%9D%82%E7%A5%9E%E5%A5%88%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1387,7 +1523,7 @@ export const characterList: Character[] = [
     id: '9e2e1e3c',
     name: '洩矢诹访子',
     origname: '洩矢　諏訪子',
-    altnames: ['青蛙子'],
+    altnames: ['洩矢諏訪子', 'もりやすわこ', 'Moriya Suwako', '青蛙子', '泄矢诹访子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%B4%A9%E7%9F%A2%E8%AF%B9%E8%AE%BF%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1402,7 +1538,7 @@ export const characterList: Character[] = [
     id: '08702320',
     name: '永江衣玖',
     origname: '永江　衣玖',
-    altnames: ['19'],
+    altnames: ['ながえいく', 'Nagae Iku', '19', '龙宫使', '皇带鱼'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%B0%B8%E6%B1%9F%E8%A1%A3%E7%8E%96%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1417,7 +1553,7 @@ export const characterList: Character[] = [
     id: 'c066efb3',
     name: '比那名居天子',
     origname: '比那名居　天子',
-    altnames: ['M子'],
+    altnames: ['ひななゐてんし', 'Hinanawi Tenshi', 'M子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%AF%94%E9%82%A3%E5%90%8D%E5%B1%85%E5%A4%A9%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1432,7 +1568,7 @@ export const characterList: Character[] = [
     id: 'b1c44786',
     name: '琪斯美',
     origname: 'キスメ',
-    altnames: ['小桶'],
+    altnames: ['キスメ', 'Kisume', '小桶', '琪丝美'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%90%AA%E6%96%AF%E7%BE%8E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1447,7 +1583,7 @@ export const characterList: Character[] = [
     id: '7de03a64',
     name: '黑谷山女',
     origname: '黒谷　ヤマメ',
-    altnames: [],
+    altnames: ['黒谷ヤマメ', 'くろだにやまめ', 'Kurodani Yamame'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%BB%91%E8%B0%B7%E5%B1%B1%E5%A5%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1462,7 +1598,7 @@ export const characterList: Character[] = [
     id: '39d84f3c',
     name: '水桥帕露西',
     origname: '水橋　パルスィ',
-    altnames: ['桥姬', '嫉妒'],
+    altnames: ['水橋パルスィ', 'みずはしパルスィ', 'mizuhashi parusui', 'Mizuhashi Parsee', '桥姬', '嫉妒'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%B0%B4%E6%A1%A5%E5%B8%95%E9%9C%B2%E8%A5%BF%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1477,7 +1613,7 @@ export const characterList: Character[] = [
     id: '15e80220',
     name: '星熊勇仪',
     origname: '星熊　勇儀',
-    altnames: [],
+    altnames: ['星熊勇儀', 'ほしぐまゆうぎ', 'hoshiguma yuugi', 'Hoshiguma Yugi', '红有三'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%98%9F%E7%86%8A%E5%8B%87%E4%BB%AA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1492,7 +1628,7 @@ export const characterList: Character[] = [
     id: 'b9d72b17',
     name: '古明地觉',
     origname: '古明地　さとり',
-    altnames: ['小五'],
+    altnames: ['古明地悟', '古明地さとり', 'こめいじさとり', 'Komeiji Satori', '觉觉', '小五', '5'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%8F%A4%E6%98%8E%E5%9C%B0%E8%A7%89%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1507,7 +1643,7 @@ export const characterList: Character[] = [
     id: '38c69c41',
     name: '火焰猫燐',
     origname: '火焔猫　燐',
-    altnames: ['阿燐'],
+    altnames: ['火焔猫燐', 'かえんびょうりん', 'Kaenbyou Rin', '猫车', '阿燐'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%81%AB%E7%84%B0%E7%8C%AB%E7%87%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1522,7 +1658,7 @@ export const characterList: Character[] = [
     id: 'e188b6a4',
     name: '灵乌路空',
     origname: '霊烏路　空',
-    altnames: ['阿空', '鸟头'],
+    altnames: ['霊烏路空', 'れいうじうつほ', 'Reiuji Utsuho', '阿空', '呆头空', '鸟头'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%81%B5%E4%B9%8C%E8%B7%AF%E7%A9%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1537,7 +1673,7 @@ export const characterList: Character[] = [
     id: 'aa6b7a0e',
     name: '古明地恋',
     origname: '古明地　こいし',
-    altnames: ['小石'],
+    altnames: ['古明地こいし', 'こめいじこいし', 'Komeiji Koishi', '恋恋', '小石', '514'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%8F%A4%E6%98%8E%E5%9C%B0%E6%81%8B%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1552,7 +1688,7 @@ export const characterList: Character[] = [
     id: 'e316093d',
     name: '娜兹玲',
     origname: 'ナズーリン',
-    altnames: [],
+    altnames: ['ナズーリン', 'nazuurin', 'Nazrin', '老鼠', '纳兹琳', '娜兹琳'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%A8%9C%E5%85%B9%E7%8E%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1567,7 +1703,7 @@ export const characterList: Character[] = [
     id: 'c70100d7',
     name: '多多良小伞',
     origname: '多々良　小傘',
-    altnames: [],
+    altnames: ['多々良小傘', 'たたらこがさ', 'Tatara Kogasa', '小伞'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%A4%9A%E5%A4%9A%E8%89%AF%E5%B0%8F%E4%BC%9E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1582,7 +1718,7 @@ export const characterList: Character[] = [
     id: 'e96ae29a',
     name: '云山',
     origname: '雲山',
-    altnames: [],
+    altnames: ['雲山', 'うんざん', 'Unzan'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%BA%91%E5%B1%85%E4%B8%80%E8%BD%AE%26%E4%BA%91%E5%B1%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1597,7 +1733,7 @@ export const characterList: Character[] = [
     id: 'eafecafb',
     name: '云居一轮',
     origname: '雲居　一輪',
-    altnames: [],
+    altnames: ['雲居一輪', 'くもいいちりん', 'Kumoi Ichirin'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%BA%91%E5%B1%85%E4%B8%80%E8%BD%AE%26%E4%BA%91%E5%B1%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1612,7 +1748,7 @@ export const characterList: Character[] = [
     id: 'e37a0bef',
     name: '村纱水蜜',
     origname: '村紗　水蜜',
-    altnames: ['船长'],
+    altnames: ['村紗水蜜', 'むらさみなみつ', 'Murasa Minamitsu', '船长', 'Captain'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%9D%91%E7%BA%B1%E6%B0%B4%E8%9C%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1627,7 +1763,7 @@ export const characterList: Character[] = [
     id: '59904708',
     name: '寅丸星',
     origname: '寅丸　星',
-    altnames: ['大师兄'],
+    altnames: ['とらまるしょう', 'Toramaru Shou', '老虎', '大师兄'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%AF%85%E4%B8%B8%E6%98%9F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1642,7 +1778,7 @@ export const characterList: Character[] = [
     id: '4953d7f7',
     name: '圣白莲',
     origname: '聖　白蓮',
-    altnames: [],
+    altnames: ['聖白蓮', 'ひじりびゃくれん', 'hijiri byakuren', 'Hiziri Byakuren', '莲妈', '摩托车'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%9C%A3%E7%99%BD%E8%8E%B2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1657,7 +1793,7 @@ export const characterList: Character[] = [
     id: '3238eba0',
     name: '封兽鵺',
     origname: '封獣　ぬえ',
-    altnames: [],
+    altnames: ['封獣ぬえ', 'ほうじゅうぬえ', 'Houjuu Nue'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%81%E5%85%BD%E9%B5%BA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1672,7 +1808,7 @@ export const characterList: Character[] = [
     id: '19ed4421',
     name: '命莲',
     origname: '命蓮',
-    altnames: [],
+    altnames: ['命蓮', 'みょうれん', 'Myouren'],
     title: '',
     image: '',
     color: '#FC4328',
@@ -1728,7 +1864,7 @@ export const characterList: Character[] = [
     id: '593f76f0',
     name: '绵月丰姬',
     origname: '綿月　豊姫',
-    altnames: [],
+    altnames: ['綿月豊姫', 'わたつきのとよひめ', 'Watatsuki no Toyohime'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%BB%B5%E6%9C%88%E4%B8%B0%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1743,7 +1879,7 @@ export const characterList: Character[] = [
     id: '1af19a3d',
     name: '绵月依姬',
     origname: '綿月　依姫',
-    altnames: [],
+    altnames: ['綿月依姫', 'わたつきのよりひめ', 'Watatsuki no Yorihime'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%BB%B5%E6%9C%88%E4%BE%9D%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1899,7 +2035,7 @@ export const characterList: Character[] = [
     id: '3910ebfc',
     name: '姬海棠果',
     origname: '姫海棠　はたて',
-    altnames: ['羽立'],
+    altnames: ['姫海棠はたて', 'ひめかいどうはたて', 'Himekaidou Hatate', '姬海棠羽立', '姬海棠极', '羽立'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%A7%AC%E6%B5%B7%E6%A3%A0%E6%9E%9C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1914,7 +2050,7 @@ export const characterList: Character[] = [
     id: 'f3ad7a50',
     name: '森近霖之助',
     origname: '森近　霖之助',
-    altnames: ['乡长', '香霖'],
+    altnames: ['もりちかりんのすけ', 'Morichika Rinnosuke', '乡长', '香霖'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%A3%AE%E8%BF%91%E9%9C%96%E4%B9%8B%E5%8A%A9%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -1944,7 +2080,17 @@ export const characterList: Character[] = [
     id: 'd3e2bfb4',
     name: '茨木华扇',
     origname: '茨木　華扇',
-    altnames: ['茨华仙', '包子'],
+    altnames: [
+      '茨华仙',
+      '茨木華扇',
+      '茨華仙',
+      'いばらきかせん',
+      'いばらかせん',
+      'Ibarakasen',
+      'Ibaraki Kasen',
+      '包子仙',
+      '包子',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%8C%A8%E6%9C%A8%E5%8D%8E%E6%89%87%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2211,7 +2357,7 @@ export const characterList: Character[] = [
     id: '4972131c',
     name: '幽谷响子',
     origname: '幽谷　響子',
-    altnames: [],
+    altnames: ['幽谷響子', 'かそだにきょうこ', 'Kasodani Kyouko'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B9%BD%E8%B0%B7%E5%93%8D%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2226,7 +2372,7 @@ export const characterList: Character[] = [
     id: 'b145a860',
     name: '宫古芳香',
     origname: '宮古　芳香',
-    altnames: [],
+    altnames: ['宮古芳香', 'みやこよしか', 'Miyako Yoshika', '僵尸'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%AE%AB%E5%8F%A4%E8%8A%B3%E9%A6%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2241,7 +2387,7 @@ export const characterList: Character[] = [
     id: 'd4410671',
     name: '霍青娥',
     origname: '霍　青娥',
-    altnames: ['娘娘'],
+    altnames: ['青娥娘娘', '青娥娘々', 'かくせいが', 'せいがにゃんにゃん', 'Seiga NyanNyan', 'Kaku Seiga', '娘娘'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%9C%8D%E9%9D%92%E5%A8%A5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2256,7 +2402,7 @@ export const characterList: Character[] = [
     id: 'bfd25c83',
     name: '苏我屠自古',
     origname: '蘇我　屠自古',
-    altnames: ['大根'],
+    altnames: ['蘇我屠自古', 'そがのとじこ', 'soga no tojiko', 'Soga no Toziko', '大根', '萝卜'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%8B%8F%E6%88%91%E5%B1%A0%E8%87%AA%E5%8F%A4%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2271,7 +2417,7 @@ export const characterList: Character[] = [
     id: '0ef500dd',
     name: '物部布都',
     origname: '物部　布都',
-    altnames: [],
+    altnames: ['もののべのふと', 'Mononobe no Futo'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%89%A9%E9%83%A8%E5%B8%83%E9%83%BD%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2286,7 +2432,7 @@ export const characterList: Character[] = [
     id: '7a19f36b',
     name: '丰聪耳神子',
     origname: '豊聡耳　神子',
-    altnames: [],
+    altnames: ['豊聡耳神子', 'とよさとみみのみこ', 'Toyosatomimi no Miko', '二婶子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%B0%E8%81%AA%E8%80%B3%E7%A5%9E%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2301,7 +2447,7 @@ export const characterList: Character[] = [
     id: 'e77e5909',
     name: '二岩猯藏',
     origname: '二ッ岩　マミゾウ',
-    altnames: ['大狸子'],
+    altnames: ['二ッ岩マミゾウ', 'ふたついわまみぞう', 'futatsuiwa mamizou', 'Hutatsuiwa Mamizou', '大狸子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%BA%8C%E5%B2%A9%E7%8C%AF%E8%97%8F%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2316,7 +2462,7 @@ export const characterList: Character[] = [
     id: '1787afa6',
     name: '本居小铃',
     origname: '本居　小鈴',
-    altnames: ['防撞桶'],
+    altnames: ['本居小鈴', 'もとおりこすず', 'Motoori Kosuzu', '防撞桶', '作死铃'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%9C%AC%E5%B1%85%E5%B0%8F%E9%93%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2541,7 +2687,7 @@ export const characterList: Character[] = [
     id: '7bb3f441',
     name: '秦心',
     origname: '秦　こころ',
-    altnames: [],
+    altnames: ['秦こころ', 'はたのこころ', 'Hata no Kokoro'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%A7%A6%E5%BF%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2570,7 +2716,7 @@ export const characterList: Character[] = [
     id: '3809fb1a',
     name: '若鹭姬',
     origname: 'わかさぎ姫',
-    altnames: ['人鱼'],
+    altnames: ['わかさぎ姫', 'わかさぎひめ', 'Wakasagihime', '若鹭姫', '人鱼'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%8B%A5%E9%B9%AD%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2585,7 +2731,7 @@ export const characterList: Character[] = [
     id: '7ae65ae2',
     name: '赤蛮奇',
     origname: '赤蛮奇',
-    altnames: [],
+    altnames: ['せきばんき', 'Sekibanki', '7'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%B5%A4%E8%9B%AE%E5%A5%87%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2600,7 +2746,7 @@ export const characterList: Character[] = [
     id: 'f88aa37b',
     name: '今泉影狼',
     origname: '今泉　影狼',
-    altnames: [],
+    altnames: ['いまいずみかげろう', 'Imaizumi Kagerou'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%BB%8A%E6%B3%89%E5%BD%B1%E7%8B%BC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2615,7 +2761,7 @@ export const characterList: Character[] = [
     id: '8f3dd6bf',
     name: '九十九弁弁',
     origname: '九十九　弁々',
-    altnames: [],
+    altnames: ['九十九弁々', 'つくもべんべん', 'Tsukumo Benben', '998'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%BC%81%E5%BC%81%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2630,7 +2776,7 @@ export const characterList: Character[] = [
     id: 'f8b4b8ac',
     name: '九十九八桥',
     origname: '九十九　八橋',
-    altnames: [],
+    altnames: ['九十九八橋', 'つくもやつはし', 'Tsukumo Yatsuhashi', '998'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%85%AB%E6%A1%A5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2645,7 +2791,7 @@ export const characterList: Character[] = [
     id: '4404baf3',
     name: '鬼人正邪',
     origname: '鬼人　正邪',
-    altnames: [],
+    altnames: ['きじんせいじゃ', 'Kijin Seija'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%AC%BC%E4%BA%BA%E6%AD%A3%E9%82%AA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2660,7 +2806,7 @@ export const characterList: Character[] = [
     id: '1dc27e13',
     name: '少名针妙丸',
     origname: '少名　針妙丸',
-    altnames: ['小碗'],
+    altnames: ['少名針妙丸', 'すくなしんみょうまる', 'Sukuna Shinmyoumaru', '小碗'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%91%E5%90%8D%E9%92%88%E5%A6%99%E4%B8%B8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2675,7 +2821,7 @@ export const characterList: Character[] = [
     id: '7c3d4846',
     name: '堀川雷鼓',
     origname: '堀川　雷鼓',
-    altnames: [],
+    altnames: ['ほりかわらいこ', 'Horikawa Raiko'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%A0%80%E5%B7%9D%E9%9B%B7%E9%BC%93%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2690,7 +2836,7 @@ export const characterList: Character[] = [
     id: 'da75e2d2',
     name: '宇佐见堇子',
     origname: '宇佐見　菫子',
-    altnames: [],
+    altnames: ['宇佐見菫子', 'うさみすみれこ', 'Usami Sumireko', '会长', '宇佐美堇子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%AE%87%E4%BD%90%E8%A7%81%E5%A0%87%E5%AD%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2705,7 +2851,7 @@ export const characterList: Character[] = [
     id: 'f2314c6c',
     name: '绿巨人',
     origname: '緑の巨人',
-    altnames: [],
+    altnames: ['緑の巨人', 'みどりのきょじん', 'Little Green Men'],
     title: '',
     image: '',
     color: '#FC4328',
@@ -2719,7 +2865,7 @@ export const characterList: Character[] = [
     id: '66c8842c',
     name: '阿菊',
     origname: 'お菊',
-    altnames: [],
+    altnames: ['お菊', 'おきく', 'お菊さん', 'おきくさん', 'Okiku-san'],
     title: '',
     image: '',
     color: '#FC4328',
@@ -2733,7 +2879,7 @@ export const characterList: Character[] = [
     id: '321144f2',
     name: '八尺大人',
     origname: '八尺さま',
-    altnames: [],
+    altnames: ['八尺さま', 'はっしゃくさま', 'Hasshaku-sama'],
     title: '',
     image: '',
     color: '#FC4328',
@@ -2747,7 +2893,7 @@ export const characterList: Character[] = [
     id: '814d584a',
     name: '彭祖',
     origname: '彭祖',
-    altnames: [],
+    altnames: ['ほうそ', 'Houso'],
     title: '',
     image: '',
     color: '#FC4328',
@@ -2761,7 +2907,7 @@ export const characterList: Character[] = [
     id: '52fa94f0',
     name: '黄帝',
     origname: '黄帝',
-    altnames: [],
+    altnames: ['こうてい'],
     title: '',
     image: '',
     color: '#FC4328',
@@ -2775,7 +2921,7 @@ export const characterList: Character[] = [
     id: '0c70487c',
     name: '尼西号',
     origname: 'ネッシー号',
-    altnames: [],
+    altnames: ['ネッシー', 'ねっしー', 'Nessie'],
     title: '',
     image: '',
     color: '#FC4328',
@@ -2789,7 +2935,7 @@ export const characterList: Character[] = [
     id: 'e8a19f99',
     name: '清兰',
     origname: '清蘭',
-    altnames: ['蓝兔子'],
+    altnames: ['清蘭', 'セイラン', 'Seiran', '青兰', '蓝兔子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%B8%85%E5%85%B0%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2804,7 +2950,7 @@ export const characterList: Character[] = [
     id: '11e770b4',
     name: '铃瑚',
     origname: '鈴瑚',
-    altnames: ['黄兔子'],
+    altnames: ['鈴瑚', 'りんご', 'Ringo', '黄兔子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%93%83%E7%91%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2819,7 +2965,7 @@ export const characterList: Character[] = [
     id: '45dc5f03',
     name: '哆来咪·苏伊特',
     origname: 'ドレミー・スイート',
-    altnames: ['123'],
+    altnames: ['哆来咪 · 苏伊特', 'ドレミー · スイート', 'doremii suiito', 'Doremy Sweet', '123'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%93%86%E6%9D%A5%E5%92%AA%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2834,7 +2980,7 @@ export const characterList: Character[] = [
     id: 'dd160059',
     name: '稀神探女',
     origname: '稀神　サグメ',
-    altnames: [],
+    altnames: ['稀神サグメ', 'きしんさぐめ', 'kishin sagume', 'Kisin Sagume'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%A8%80%E7%A5%9E%E6%8E%A2%E5%A5%B3%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2849,7 +2995,7 @@ export const characterList: Character[] = [
     id: '895bf401',
     name: '克劳恩皮丝',
     origname: 'クラウンピース',
-    altnames: ['美国妖精'],
+    altnames: ['クラウンピース', 'kuraunpiisu', 'Clownpiece', '美国妖精'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%85%8B%E5%8A%B3%E6%81%A9%E7%9A%AE%E4%B8%9D%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2864,7 +3010,7 @@ export const characterList: Character[] = [
     id: '2c8e6ed2',
     name: '纯狐',
     origname: '純狐',
-    altnames: [],
+    altnames: ['純狐', 'じゅんこ', 'Junko', '老佛爷'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%BA%AF%E7%8B%90%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2879,7 +3025,12 @@ export const characterList: Character[] = [
     id: 'dfb31939',
     name: '赫卡提亚·拉碧斯拉祖利',
     origname: 'ヘカーティア・ラピスラズリ',
-    altnames: [],
+    altnames: [
+      '赫卡提亚 · 拉碧斯拉祖利',
+      'ヘカーティア · ラピスラズリ',
+      'hekaatia rapisurazuri',
+      'Hecatia Lapislazuli',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%B5%AB%E5%8D%A1%E6%8F%90%E4%BA%9A%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2908,7 +3059,7 @@ export const characterList: Character[] = [
     id: 'c21f6106',
     name: '爱塔妮缇拉尔瓦',
     origname: 'エタニティラルバ',
-    altnames: ['大蛾子'],
+    altnames: ['エタニティラルバ', 'etanitiraruba', 'Etanity Larva', '大扑棱蛾子', 'Etarnity Larva', '大蛾子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%88%B1%E5%A1%94%E5%A6%AE%E7%BC%87%E6%8B%89%E5%B0%94%E7%93%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2923,7 +3074,7 @@ export const characterList: Character[] = [
     id: '5594b848',
     name: '坂田合欢',
     origname: '坂田　ネムノ',
-    altnames: [],
+    altnames: ['坂田ネムノ', 'さかたねむの', 'Sakata Nemuno', '坂田合欢野', '坂田合欢乃'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%9D%82%E7%94%B0%E5%90%88%E6%AC%A2%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2938,7 +3089,7 @@ export const characterList: Character[] = [
     id: '81795f33',
     name: '高丽野阿吽',
     origname: '高麗野　あうん',
-    altnames: [],
+    altnames: ['高麗野あうん', 'こまのあうん', 'komano aun', 'Komano Aunn', '石狮子'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%AB%98%E4%B8%BD%E9%87%8E%E9%98%BF%E5%90%BD%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2953,7 +3104,7 @@ export const characterList: Character[] = [
     id: 'f7410e8d',
     name: '矢田寺成美',
     origname: '矢田寺　成美',
-    altnames: [],
+    altnames: ['やたでらなるみ', 'Yatadera Narumi'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%9F%A2%E7%94%B0%E5%AF%BA%E6%88%90%E7%BE%8E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2968,7 +3119,7 @@ export const characterList: Character[] = [
     id: '2f2d256c',
     name: '丁礼田舞',
     origname: '丁礼田　舞',
-    altnames: [],
+    altnames: ['ていれいだまい', 'Teireida Mai'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%B8%81%E7%A4%BC%E7%94%B0%E8%88%9E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2983,7 +3134,7 @@ export const characterList: Character[] = [
     id: '44721ab5',
     name: '尔子田里乃',
     origname: '爾子田　里乃',
-    altnames: [],
+    altnames: ['爾子田里乃', 'にしださとの', 'Nishida Satono'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B0%94%E5%AD%90%E7%94%B0%E9%87%8C%E4%B9%83%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -2998,7 +3149,7 @@ export const characterList: Character[] = [
     id: '2de8f85c',
     name: '摩多罗隐岐奈',
     origname: '摩多羅　隠岐奈',
-    altnames: [],
+    altnames: ['摩多羅隠岐奈', 'またらおきな', 'Matara Okina', '摩托罗拉'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%91%A9%E5%A4%9A%E7%BD%97%E9%9A%90%E5%B2%90%E5%A5%88%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3013,7 +3164,7 @@ export const characterList: Character[] = [
     id: '1f4a2c62',
     name: '依神女苑',
     origname: '依神 女苑',
-    altnames: [],
+    altnames: ['よりがみじょおん', 'Yorigami Jyoon'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%BE%9D%E7%A5%9E%E5%A5%B3%E8%8B%91%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3028,7 +3179,7 @@ export const characterList: Character[] = [
     id: '9dc08586',
     name: '依神紫苑',
     origname: '依神 紫苑',
-    altnames: [],
+    altnames: ['よりがみしおん', 'Yorigami Shion'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E4%BE%9D%E7%A5%9E%E7%B4%AB%E8%8B%91%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3043,7 +3194,7 @@ export const characterList: Character[] = [
     id: 'aa1c0076',
     name: '戎璎花',
     origname: '戎　瓔花　',
-    altnames: [],
+    altnames: ['戎瓔花', 'えびすえいか', 'えびすようか', 'Ebisu Eika', 'Ebisu Youka', '水母'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%88%8E%E7%92%8E%E8%8A%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3058,7 +3209,7 @@ export const characterList: Character[] = [
     id: 'fbfb296c',
     name: '牛崎润美',
     origname: '牛崎　潤美',
-    altnames: [],
+    altnames: ['牛崎潤美', 'うしざきうるみ', 'Ushizaki Urumi', '牛'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%89%9B%E5%B4%8E%E6%B6%A6%E7%BE%8E%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3073,7 +3224,7 @@ export const characterList: Character[] = [
     id: '1e49209f',
     name: '庭渡久侘歌',
     origname: '庭渡　久侘歌',
-    altnames: [],
+    altnames: ['うしざきうるみ', 'Niwatari Kutaka', '鸡'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%BA%AD%E6%B8%A1%E4%B9%85%E4%BE%98%E6%AD%8C%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3088,7 +3239,7 @@ export const characterList: Character[] = [
     id: 'f91ec2d0',
     name: '吉吊八千慧',
     origname: '吉弔　八千慧',
-    altnames: [],
+    altnames: ['吉弔八千慧', 'Kitcho Yachie', 'きっちょうやちえ'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%90%89%E5%90%8A%E5%85%AB%E5%8D%83%E6%85%A7%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3103,7 +3254,7 @@ export const characterList: Character[] = [
     id: 'f8b8fb0a',
     name: '杖刀偶磨弓',
     origname: '杖刀偶　磨弓',
-    altnames: ['兵长'],
+    altnames: ['じょうとうぐうまゆみ', 'Joutougu Mayumi', '兵长'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E6%9D%96%E5%88%80%E5%81%B6%E7%A3%A8%E5%BC%93%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3118,7 +3269,7 @@ export const characterList: Character[] = [
     id: '152d6d30',
     name: '埴安神袿姬',
     origname: '埴安神　袿姫',
-    altnames: [],
+    altnames: ['埴安神袿姫', 'はにやすしんけいき', 'Haniyasushin Keiki'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%9F%B4%E5%AE%89%E7%A5%9E%E8%A2%BF%E5%A7%AC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3133,7 +3284,7 @@ export const characterList: Character[] = [
     id: '73fd556d',
     name: '骊驹早鬼',
     origname: '驪駒　早鬼',
-    altnames: [],
+    altnames: ['驪駒早鬼', 'くろこまさき', 'Kurokoma Saki'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%AA%8A%E9%A9%B9%E6%97%A9%E9%AC%BC%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3204,7 +3355,7 @@ export const characterList: Character[] = [
     id: 'efb3f0b1',
     name: '奥野田美宵',
     origname: '奥野田　美宵',
-    altnames: [],
+    altnames: ['おくのだみよい', 'Okunoda Miyoi', '鲸鱼'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%A5%A5%E9%87%8E%E7%94%B0%E7%BE%8E%E5%AE%B5%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3247,7 +3398,7 @@ export const characterList: Character[] = [
     id: 'ca79d703',
     name: '豪德寺三花',
     origname: '豪徳寺　ミケ',
-    altnames: [],
+    altnames: ['豪徳寺ミケ', 'ごうとくじみけ', 'Goutokuzi Mike', '招财猫'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%B1%AA%E5%BE%B7%E5%AF%BA%E4%B8%89%E8%8A%B1%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3262,7 +3413,7 @@ export const characterList: Character[] = [
     id: 'e8687538',
     name: '山城高岭',
     origname: '山城　たかね',
-    altnames: [],
+    altnames: ['山城たかね', 'やましろたかね', 'Yamashiro Takane'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%B1%B1%E5%9F%8E%E9%AB%98%E5%B2%AD%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3277,7 +3428,16 @@ export const characterList: Character[] = [
     id: 'f70f867a',
     name: '驹草山如',
     origname: '駒草　山如',
-    altnames: ['驹草太夫'],
+    altnames: [
+      '駒草山如',
+      'こまくささんにょ',
+      'Komakusa Sannyo',
+      '駒草太夫',
+      'こまくさ だゆう',
+      'Komakusa Dayuu',
+      '华子姐',
+      '驹草太夫',
+    ],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%A9%B9%E8%8D%89%E5%B1%B1%E5%A6%82%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3292,7 +3452,7 @@ export const characterList: Character[] = [
     id: '618b130a',
     name: '玉造魅须丸',
     origname: '玉造　魅須丸',
-    altnames: [],
+    altnames: ['玉造魅須丸', 'たまつくりみすまる', 'Tamatsukuri Misumaru'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E7%8E%89%E9%80%A0%E9%AD%85%E9%A1%BB%E4%B8%B8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3307,7 +3467,7 @@ export const characterList: Character[] = [
     id: '6f8a9fff',
     name: '菅牧典',
     origname: '菅牧　典',
-    altnames: [],
+    altnames: ['くだまきつかさ', 'Kudamaki Tsukasa'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E8%8F%85%E7%89%A7%E5%85%B8%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3322,7 +3482,7 @@ export const characterList: Character[] = [
     id: '47f642b4',
     name: '饭纲丸龙',
     origname: '飯綱丸 龍',
-    altnames: [],
+    altnames: ['飯綱丸龍', 'いいずなまるめぐむ', 'Iizunamaru Megumu', '大天狗'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%A5%AD%E7%BA%B2%E4%B8%B8%E9%BE%99%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3337,7 +3497,7 @@ export const characterList: Character[] = [
     id: '77bfe41e',
     name: '天弓千亦',
     origname: '天弓　千亦',
-    altnames: [],
+    altnames: ['てんきゅうちまた', 'Tenkyu Chimata'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%A4%A9%E5%BC%93%E5%8D%83%E4%BA%A6%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3352,7 +3512,7 @@ export const characterList: Character[] = [
     id: '8bbf1b47',
     name: '姬虫百百世',
     origname: '姫虫　百々世',
-    altnames: ['蜈蚣'],
+    altnames: ['姫虫百々世', 'ひめむしももよ', 'Himemushi Momoyo', '大蜈蚣', '蜈蚣'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E5%A7%AC%E8%99%AB%E7%99%BE%E7%99%BE%E4%B8%96%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3367,7 +3527,7 @@ export const characterList: Character[] = [
     id: '50f5ce2a',
     name: '饕餮尤魔',
     origname: '饕餮　尤魔',
-    altnames: ['大角羊'],
+    altnames: ['とうてつゆうま', 'Toutetsu Yuma', '大角羊'],
     title: '',
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/character/%E9%A5%95%E9%A4%AE%E5%B0%A4%E9%AD%94%EF%BC%88Q%E7%89%88%E7%AB%8B%E7%BB%98%EF%BC%89@100px.png',
@@ -3382,7 +3542,7 @@ export const characterList: Character[] = [
     id: 'a13626db',
     name: '孙美天',
     origname: '孫　美天',
-    altnames: ['猿神', '大圣'],
+    altnames: ['孫美天', 'そんびてん', 'Son Biten', '猿神', '大圣'],
     title: '',
     image:
       'https://upload.thwiki.cc/thumb/f/fb/%E5%AD%99%E7%BE%8E%E5%A4%A9%EF%BC%88%E5%85%BD%E7%8E%8B%E5%9B%AD%E5%A4%B4%E5%83%8F%EF%BC%89.png/100px-%E5%AD%99%E7%BE%8E%E5%A4%A9%EF%BC%88%E5%85%BD%E7%8E%8B%E5%9B%AD%E5%A4%B4%E5%83%8F%EF%BC%89.png',
@@ -3397,7 +3557,7 @@ export const characterList: Character[] = [
     id: '34592420',
     name: '三头慧之子',
     origname: '三頭 慧ノ子',
-    altnames: [],
+    altnames: ['三頭慧ノ子', 'みつがしらえのこ', 'Mitsugashira Enoko'],
     title: '',
     image:
       'https://upload.thwiki.cc/thumb/c/c0/%E4%B8%89%E5%A4%B4%E6%85%A7%E4%B9%8B%E5%AD%90%EF%BC%88%E5%85%BD%E7%8E%8B%E5%9B%AD%E5%A4%B4%E5%83%8F%EF%BC%89.png/100px-%E4%B8%89%E5%A4%B4%E6%85%A7%E4%B9%8B%E5%AD%90%EF%BC%88%E5%85%BD%E7%8E%8B%E5%9B%AD%E5%A4%B4%E5%83%8F%EF%BC%89.png',
@@ -3412,7 +3572,7 @@ export const characterList: Character[] = [
     id: 'a5727cac',
     name: '天火人血枪',
     origname: '天火人 ちやり',
-    altnames: [],
+    altnames: ['天火人ちやり', 'テンカジンちやり', 'Tenkajin Chiyari'],
     title: '',
     image:
       'https://upload.thwiki.cc/thumb/1/15/%E5%A4%A9%E7%81%AB%E4%BA%BA%E8%A1%80%E6%9E%AA%EF%BC%88%E5%85%BD%E7%8E%8B%E5%9B%AD%E5%A4%B4%E5%83%8F%EF%BC%89.png/100px-%E5%A4%A9%E7%81%AB%E4%BA%BA%E8%A1%80%E6%9E%AA%EF%BC%88%E5%85%BD%E7%8E%8B%E5%9B%AD%E5%A4%B4%E5%83%8F%EF%BC%89.png',
@@ -3427,7 +3587,7 @@ export const characterList: Character[] = [
     id: '71f77260',
     name: '豫母都日狭美',
     origname: '豫母都　日狭美',
-    altnames: ['茄子精'],
+    altnames: ['よもつひさみ', 'Yomotsu Hisami', '茄子精'],
     title: '',
     image:
       'https://upload.thwiki.cc/thumb/4/40/%E8%B1%AB%E6%AF%8D%E9%83%BD%E6%97%A5%E7%8B%AD%E7%BE%8E%EF%BC%88%E5%85%BD%E7%8E%8B%E5%9B%AD%E5%A4%B4%E5%83%8F%EF%BC%89.png/100px-%E8%B1%AB%E6%AF%8D%E9%83%BD%E6%97%A5%E7%8B%AD%E7%BE%8E%EF%BC%88%E5%85%BD%E7%8E%8B%E5%9B%AD%E5%A4%B4%E5%83%8F%EF%BC%89.png',
@@ -3442,7 +3602,7 @@ export const characterList: Character[] = [
     id: 'e85aa0f8',
     name: '日白残无',
     origname: '日白　残無',
-    altnames: [],
+    altnames: ['日白残無', 'にっぱくざんむ', 'Nippaku Zanmu'],
     title: '',
     image:
       'https://upload.thwiki.cc/thumb/0/0e/%E6%97%A5%E7%99%BD%E6%AE%8B%E6%97%A0%EF%BC%88%E5%85%BD%E7%8E%8B%E5%9B%AD%E5%A4%B4%E5%83%8F%EF%BC%89.png/100px-%E6%97%A5%E7%99%BD%E6%AE%8B%E6%97%A0%EF%BC%88%E5%85%BD%E7%8E%8B%E5%9B%AD%E5%A4%B4%E5%83%8F%EF%BC%89.png',
