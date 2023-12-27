@@ -322,7 +322,7 @@ async function fetchMsg(): Promise<void> {
       } else if (res.status === 'err' || res.status === 'parsererr' || res.status === 'apierr') {
         console.log(res.status, res.msg)
         doujinImageUrl.value = Doujin0NoImageUrl
-        popMessageText('未找到可以获取的内容！')
+        popMessageText('不支持该网站或获取信息错误！')
       } else {
         console.log(res.status, res.msg)
         doujinImageUrl.value = Doujin0NoImageUrl
