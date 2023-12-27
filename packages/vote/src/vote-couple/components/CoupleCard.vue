@@ -105,11 +105,6 @@ const moreCharacterCanBeSelected = computed<boolean>(
     couple.value.characters.findIndex((character) => character.id === character0.id) != -1 &&
     (couple.value.characters[0].id === character0.id || couple.value.characters[0].id != couple.value.characters[1].id)
 )
-console.log(
-  couple.value.characters.findIndex((character) => character.id === character0.id) != -1,
-  couple.value.characters[0].id != character0.id,
-  couple.value.characters[0].id != couple.value.characters[1].id
-)
 
 function chooseAsSeme(index: number): void {
   couple.value.seme === index ? (couple.value.seme = -1) : (couple.value.seme = index)
