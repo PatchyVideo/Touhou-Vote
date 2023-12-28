@@ -9,7 +9,7 @@
 
 由 [THBWiki](https://thwiki.cc) 与 [VoileLabs](https://github.com/PatchyVideo) 共同开发的 “中文东方人气投票 第十一回” 前端部分。
 
-开发进度: V1.3.1
+开发进度: 2.0.0
 
 ## 网址
 
