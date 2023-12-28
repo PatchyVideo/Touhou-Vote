@@ -273,7 +273,7 @@
 import { ref, watch } from 'vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { questionnaire } from '@@/../shared/data/questionnaire'
-import type { QuestionnaireALL, Question } from '@@/../shared/data/questionnaire'
+import type { Question, QuestionnaireALL } from '@@/../shared/data/questionnaire'
 
 setSiteTitle('测试界面')
 
