@@ -60,7 +60,7 @@ export default defineConfig(async ({ command, mode }) => {
     server: {
       proxy: {
         '/v11-be': {
-          target: 'http://34.86.25.42',
+          target: 'https://touhou.ai/vote-be',
           changeOrigin: true,
           secure: false,
           rewrite: (path) => path.replace(/^\/v11-be/, ''),

@@ -1,7 +1,7 @@
 overwrite: true
 schema:
   # - https://touhou.vote/v10-be/graphql
-  - http://34.86.25.42/graphql
+  - https://touhou.ai/vote-be/graphql
 generates:
   src/graphql/__generated__/graphql.ts:
     plugins:
