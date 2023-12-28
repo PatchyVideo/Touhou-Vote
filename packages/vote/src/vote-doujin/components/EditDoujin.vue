@@ -32,13 +32,13 @@
             </li>
             <li>
               *<span ref="hintElUrlInvalid">有效的链接仅支持以下网站</span
-              >：Bilibili(视频&专栏)、微博(仅限移动端链接)、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
+              >：Bilibili(视频&专栏)、微博(仅限移动端链接)、THBWiki、PatchyVideo/THVideo(仅限视频，支持<a
                 class="underline"
                 href="https://thvideo.tv/"
                 target="_blank"
                 >旧页面</a
               >和<a class="underline" href="https://platinum.vercel.app/" target="_blank">新页面</a
-              >)、YouTube、Pixiv、Nico静画/动画、Acfun(视频&文章)、百度贴吧、dizzylab、DLsite、MelonBooks，贴吧和X(Twitter)暂不支持自动获取信息
+              >)、YouTube、Pixiv、Nico静画/动画、Acfun(视频&文章)、dizzylab、DLsite、MelonBooks，百度贴吧和X(Twitter)暂不支持自动获取信息
               <!-- 、Melonbooks -->
             </li>
             <li>
