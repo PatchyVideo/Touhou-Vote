@@ -32,13 +32,13 @@
             </li>
             <li>
               *<span ref="hintElUrlInvalid">有效的链接仅支持以下网站</span
-              >：Bilibili(仅限视频)、微博(仅限移动端链接)、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
+              >：Bilibili(视频&专栏)、微博(仅限移动端链接)、THBWiki、PatchyVideo/THVideo(仅限视频和播放列表，支持<a
                 class="underline"
                 href="https://thvideo.tv/"
                 target="_blank"
                 >旧页面</a
               >和<a class="underline" href="https://platinum.vercel.app/" target="_blank">新页面</a
-              >)、Twitter、YouTube、Pixiv、Nico静画/动画、Acfun、百度贴吧、Steam、dizzylab、DLsite
+              >)、YouTube、Pixiv、Nico静画/动画、Acfun(视频&文章)、百度贴吧、dizzylab、DLsite、MelonBooks，贴吧和X(Twitter)暂不支持自动获取信息
               <!-- 、Melonbooks -->
             </li>
             <li>
@@ -46,9 +46,7 @@
               <a class="underline" href="https://thwiki.cc/" target="_blank">THBWiki</a>
               创建该作品的词条并将词条链接粘贴到此处
             </li>
-            <li>
-              *自动获取功能尚处于早期试用阶段，功能上仅供参考。THBWiki的链接如果遇到错误请尝试使用短链接（在词条页面的右上角）
-            </li>
+            <li>*自动获取信息功能上仅供参考。THBWiki的链接如果遇到错误请尝试使用短链接（在词条页面的右上角）</li>
           </ul>
         </div>
         <div class="lg:flex lg:flex-row lg:gap-4">
