@@ -58,7 +58,7 @@
             <div
               v-for="(character, index) in charactersVotedWithoutHonmei"
               :key="character.id"
-              class="transition transition-all duration-200 min-w-[calc(33.3%-0.5rem)] m-1"
+              class="transition transition-all duration-200 min-w-[calc(33.3%-0.5rem)] max-w-[calc(33.3%-0.5rem)] m-1"
             >
               <CharacterCard v-model:character="charactersVotedWithoutHonmei[index]" />
             </div>
