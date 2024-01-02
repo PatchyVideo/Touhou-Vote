@@ -51,7 +51,7 @@ export default defineConfig({
   ],
   build: {
     sourcemap: true,
-    assetsDir: 'v10/assets',
+    assetsDir: 'v11/assets',
   },
   esbuild: {
     charset: 'utf8',

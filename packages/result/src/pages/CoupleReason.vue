@@ -181,7 +181,7 @@ watchEffect(() => {
         ' x ' +
         result.value.queryCPSingle.cp.b +
         (result.value.queryCPSingle.cp.c ? ' x ' + result.value.queryCPSingle.cp.c : '')
-      setSiteTitle(coupleName.value + ' - 第⑩回 中文东方人气投票')
+      setSiteTitle(coupleName.value + ' - 第11回 中文东方人气投票')
       voteCount.value = result.value.queryCPSingle.voteCount
       firstVoteCount.value = result.value.queryCPSingle.firstVoteCount
       firstVotePercentage.value = toPercentageString(result.value.queryCPSingle.firstVotePercentage)

@@ -82,7 +82,7 @@
 import NProgress from 'nprogress'
 if (NProgress.isStarted()) NProgress.done()
 
-setSiteTitle('作品提名 - 第⑩回 中文东方人气投票')
+setSiteTitle('作品提名 - 第11回 中文东方人气投票')
 
 const DoujinData = [
   {

@@ -26,7 +26,7 @@ const app = createApp(
 
 const routes = setupLayouts(generatedRoutes)
 const router = createRouter({
-  history: createWebHistory('/v10/'),
+  history: createWebHistory('/v11/'),
   strict: true,
   routes,
 })

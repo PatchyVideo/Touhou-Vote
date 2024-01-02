@@ -1,7 +1,7 @@
 <template>
   <div class="z-51 p-2 space-x-2 shadow flex items-center fixed inset-x-0 border-b border-accent-200 bg-white">
     <div class="w-6 h-6" :class="drawerOpen ? 'i-uil:times' : 'i-uil:list-ul'" @click="drawerOpen = !drawerOpen" />
-    <div class="font-medium">投票结果 - 第⑩回 中文东方人气投票</div>
+    <div class="font-medium">投票结果 - 第11回 中文东方人气投票</div>
   </div>
   <!-- Padding -->
   <div class="h-10" />

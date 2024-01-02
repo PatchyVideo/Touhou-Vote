@@ -114,7 +114,7 @@ watchEffect(() => {
   if (result.value) {
     if (result.value.queryMusicSingle) {
       musicName.value = result.value.queryMusicSingle.name
-      setSiteTitle(musicName.value + '的投票理由 - 第⑩回 中文东方人气投票')
+      setSiteTitle(musicName.value + '的投票理由 - 第11回 中文东方人气投票')
       voteCount.value = result.value.queryMusicSingle.voteCount
       firstVoteCount.value = result.value.queryMusicSingle.firstVoteCount
       firstVotePercentage.value = toPercentageString(result.value.queryMusicSingle.firstVotePercentage)

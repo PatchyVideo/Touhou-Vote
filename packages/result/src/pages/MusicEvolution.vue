@@ -101,7 +101,7 @@ import { GraphTimeRange, getTrendData } from '@/lib/Graph'
 import VoteSelect from '@/components/VoteSelect.vue'
 import GraphEvolution from '@/components/GraphEvolution.vue'
 
-setSiteTitle('曲目投票演进 - 第⑩回 中文东方人气投票')
+setSiteTitle('曲目投票演进 - 第11回 中文东方人气投票')
 
 const totalUniqueItemsMusic = ref(-1)
 const totalFirstMusic = ref(-1)
