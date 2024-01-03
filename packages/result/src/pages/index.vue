@@ -16,7 +16,7 @@
 
           <div class="flex mx-2 md:mx-12 flex-col gap-y-2">
             <img class="w-96" src="@/assets/title.svg" />
-            <img class="ml-2/3 w-1/4" src="@/assets/title10.svg" />
+            <img class="ml-2/3 w-1/4" src="@/assets/titleNum.svg" />
           </div>
         </div>
       </div>
