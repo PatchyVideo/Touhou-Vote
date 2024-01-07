@@ -4,7 +4,7 @@
   <div v-if="screenSizes['<lg']" class="min-h-100vh flex flex-col text-sm">
     <!-- Top Nav -->
     <div class="baseBoxShadow w-full py-1 pr-3 flex items-center justify-between">
-      <div v-if="!systemListIsOpen" class="pl-3 text-lg">第11届 中文东方人气投票</div>
+      <div v-if="!systemListIsOpen" class="pl-3 text-lg">{{ '第' + voteYear + '回 中文东方人气投票' }}</div>
       <div v-else class="flex items-center space-x-2">
         <icon-uil-angle-left-b class="w-8 h-8 cursor-pointer" @click="systemListClose()" />
         <div class="text-lg">
@@ -157,7 +157,7 @@
               @click="() => (dpCollapseNav = !dpCollapseNav)"
               @keydown.enter="() => (dpCollapseNav = !dpCollapseNav)"
             />
-            中文东方人气投票 第11回
+            {{ '第' + voteYear + '回 中文东方人气投票' }}
           </div>
           <div class="flex flex-nowrap" @keydown.escape="() => (userListOpen = false)">
             <img
@@ -236,6 +236,7 @@ import {
 import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
 import { popConfirmText } from '@/common/lib/popMessage'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
+import { voteYear } from '@/common/lib/voteYear'
 
 setSiteTitle(String(username.value))
 
