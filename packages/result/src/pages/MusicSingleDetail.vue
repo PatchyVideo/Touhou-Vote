@@ -134,7 +134,7 @@ watchEffect(() => {
   if (result.value) {
     if (result.value.queryMusicSingle) {
       musicName.value = result.value.queryMusicSingle.name
-      setSiteTitle(musicName.value + ' - 第11回 中文东方人气投票')
+      setSiteTitle(musicName.value)
       q.value = 'musics:["' + musicName.value + '"]'
       voteCount.value = result.value.queryMusicSingle.voteCount
       firstVoteCount.value = result.value.queryMusicSingle.firstVoteCount

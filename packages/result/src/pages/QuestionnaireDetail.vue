@@ -74,7 +74,7 @@ import type { GraphDataLine } from '@/lib/Graph'
 import { GraphTimeRange, getAddedTrendData, getTrendData } from '@/lib/Graph'
 import { deadlineString, startTimeString } from '@touhou-vote/shared/data/time'
 
-setSiteTitle('调查问卷结果 - 第11回 中文东方人气投票')
+setSiteTitle('调查问卷结果')
 
 const route = useRoute()
 

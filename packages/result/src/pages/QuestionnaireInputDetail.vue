@@ -105,7 +105,7 @@ watchEffect(() => {
       questionName.value = findQuestionWithQuestionID(
         qIDToID(result.value.queryQuestionnaire.entries[0].questionId)
       ).question
-      setSiteTitle(questionName.value + ' - 第11回 中文东方人气投票')
+      setSiteTitle(questionName.value)
       totalAnswers.value = result.value.queryQuestionnaire.entries[0].totalAnswers
       totalMale.value = result.value.queryQuestionnaire.entries[0].totalMale
       totalFemale.value = result.value.queryQuestionnaire.entries[0].totalFemale

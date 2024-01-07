@@ -205,7 +205,7 @@ watchEffect(() => {
         ' x ' +
         result.value.queryCPSingle.cp.b +
         (result.value.queryCPSingle.cp.c ? ' x ' + result.value.queryCPSingle.cp.c : '')
-      setSiteTitle(coupleName.value + ' - 第11回 中文东方人气投票')
+      setSiteTitle(coupleName.value)
       q.value =
         'cp=("' +
         result.value.queryCPSingle.cp.a +

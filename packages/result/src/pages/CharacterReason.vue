@@ -116,7 +116,7 @@ watchEffect(() => {
   if (result.value) {
     if (result.value.queryCharacterSingle) {
       characterName.value = result.value.queryCharacterSingle.name
-      setSiteTitle(characterName.value + '的投票理由 - 第11回 中文东方人气投票')
+      setSiteTitle(characterName.value + '的投票理由')
       voteCount.value = result.value.queryCharacterSingle.voteCount
       firstVoteCount.value = result.value.queryCharacterSingle.firstVoteCount
       firstVotePercentage.value = toPercentageString(result.value.queryCharacterSingle.firstVotePercentage)

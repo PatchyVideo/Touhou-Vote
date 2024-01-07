@@ -154,7 +154,7 @@ import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import { toPercentageString } from '@/lib/numberFormat'
 import NProgress from 'nprogress'
 
-setSiteTitle('CP部门结果 - 第11回 中文东方人气投票')
+setSiteTitle('CP部门结果')
 
 const route = useRoute()
 

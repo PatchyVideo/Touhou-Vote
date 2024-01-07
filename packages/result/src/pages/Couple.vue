@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-setSiteTitle('CP部门结果 - 第11回 中文东方人气投票')
+setSiteTitle('CP部门结果')
 </script>
 
 <route lang="yaml">

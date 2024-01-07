@@ -136,7 +136,7 @@ watchEffect(() => {
   if (result.value) {
     if (result.value.queryCharacterSingle) {
       characterName.value = result.value.queryCharacterSingle.name
-      setSiteTitle(characterName.value + ' - 第11回 中文东方人气投票')
+      setSiteTitle(characterName.value)
       q.value = 'chars:["' + characterName.value + '"]'
       voteCount.value = result.value.queryCharacterSingle.voteCount
       firstVoteCount.value = result.value.queryCharacterSingle.firstVoteCount

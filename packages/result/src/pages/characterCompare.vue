@@ -150,7 +150,7 @@ import type { Query } from '@/composables/graphql'
 import { toPercentageString, toTimeFormat } from '@/lib/numberFormat'
 import NProgress from 'nprogress'
 
-setSiteTitle('往届结果对比 - 第11回 中文东方人气投票')
+setSiteTitle('往届结果对比')
 
 const route = useRoute()
 
