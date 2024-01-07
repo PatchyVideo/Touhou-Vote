@@ -70,6 +70,7 @@ const resultListRaw: [string, string, string, string][] = [
   ['v8', '八', 'https://asset.lilywhite.cc/test/test1.png', '2019/09/30 ~ 10/14'],
   ['v9', '⑨', 'https://asset.lilywhite.cc/test/test1.png', '2020/12/18 ~ 12/31'],
   ['v10', '⑩', 'https://asset.lilywhite.cc/test/test2.png', '2022/06/17 ~ 07/03'],
+  ['v11', '11', 'https://asset.lilywhite.cc/test/test2.png', '2023/12/29 ~ 01/14'],
 ]
 const resultListIconPosition = [
   'bg-left-top',
@@ -86,7 +87,7 @@ const resultList = resultListRaw.reverse()
 const latest = resultList[0]
 const [latestLink, latestTitle, latestIcon, latestTime] = latest
 
-const votingEnd = new Date('2022-07-04T16:00:00.000Z')
+const votingEnd = new Date(2024, 0, 15)
 const now = useNow({
   interval: 1000,
 })
