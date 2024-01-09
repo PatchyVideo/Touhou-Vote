@@ -164,32 +164,17 @@ function getIndicator(item: QuestionItem): string[] {
   const answersCat = [...item.answersCat]
   answersCat.sort((a, b) => Number(a.aid) - Number(b.aid))
   answersCat.map((item2) => indicator.push(item2.content))
-  // 囧说要把这两个选项去掉，原因未知💩
-  if (item.questionId === 'q25091') {
-    indicator.splice(18, 1)
-    indicator.splice(17, 1)
-  }
   return indicator
 }
 function getDataRadar(item: QuestionItem): GraphDataRadar[] {
   const data: GraphDataRadar[] = []
   const answersCat = [...item.answersCat]
   answersCat.sort((a, b) => Number(a.aid) - Number(b.aid))
-  // 囧说要把这两个选项去掉，原因未知💩
-  if (item.questionId === 'q25091') {
-    answersCat.splice(18, 1)
-    answersCat.splice(17, 1)
-    data.push(
-      { name: '总票数', value: answersCat.map((item2) => item2.totalVotes) },
-      { name: '男性票数', value: answersCat.map((item2) => item2.maleVotes) },
-      { name: '女性票数', value: answersCat.map((item2) => item2.femaleVotes) }
-    )
-  } else
-    data.push(
-      { name: '总票数', value: answersCat.map((item2) => item2.totalVotes) },
-      { name: '男性票数', value: answersCat.map((item2) => item2.maleVotes) },
-      { name: '女性票数', value: answersCat.map((item2) => item2.femaleVotes) }
-    )
+  data.push(
+    { name: '总票数', value: answersCat.map((item2) => item2.totalVotes) },
+    { name: '男性票数', value: answersCat.map((item2) => item2.maleVotes) },
+    { name: '女性票数', value: answersCat.map((item2) => item2.femaleVotes) }
+  )
   return data
 }
 const {
