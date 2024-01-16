@@ -12,8 +12,9 @@
         :href="'/' + latestLink"
       >
         <div
-          class="w-16 h-16 md:w-20 md:h-20 bg-[length:192px_192px] md:bg-[length:240px_240px]"
           :style="'background-image: url(' + latestIcon + ')'"
+          class="w-16 h-16 md:w-20 md:h-20 bg-[length:192px_192px] md:bg-[length:240px_240px]"
+          :class="resultListIconPosition[resultListRaw.length % 9]"
         />
         <div>
           <div class="text-2xl md:text-4xl text-pink-600">
@@ -81,7 +82,7 @@ const resultListIconPosition = [
   'bg-right',
   'bg-left-bottom',
   'bg-bottom',
-  'bg=right-bottom',
+  'bg-right-bottom',
 ]
 const resultList = resultListRaw.reverse()
 const latest = resultList[0]
