@@ -496,7 +496,7 @@ const {
   `,
   {
     voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-    voteYear: 10,
+    voteYear: 11,
   },
   {
     fetchPolicy: 'network-only',

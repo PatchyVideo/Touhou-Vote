@@ -95,14 +95,14 @@ watch(additionalConstraint, () => {
       getAdditionalConstraintString(additionalConstraint.value) === ''
         ? {
             voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-            voteYear: 10,
+            voteYear: 11,
             // Use the first question to present the trend
             questionIds: ['q11011'],
           }
         : {
             query: getAdditionalConstraintString(additionalConstraint.value),
             voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-            voteYear: 10,
+            voteYear: 11,
             // Use the first question to present the trend
             questionIds: ['q11011'],
           },
@@ -138,14 +138,14 @@ const { result, loading, onError, fetchMore } = useQuery<Query>(
   getAdditionalConstraintString(additionalConstraint.value) === ''
     ? {
         voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-        voteYear: 10,
+        voteYear: 11,
         // Use the first question to present the trend
         questionIds: ['q11011'],
       }
     : {
         query: getAdditionalConstraintString(additionalConstraint.value),
         voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-        voteYear: 10,
+        voteYear: 11,
         // Use the first question to present the trend
         questionIds: ['q11011'],
       }

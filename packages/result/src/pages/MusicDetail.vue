@@ -360,12 +360,12 @@ watch(additionalConstraint, () => {
       getAdditionalConstraintString(additionalConstraint.value) === ''
         ? {
             voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-            voteYear: 10,
+            voteYear: 11,
           }
         : {
             query: getAdditionalConstraintString(additionalConstraint.value),
             voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-            voteYear: 10,
+            voteYear: 11,
           },
     updateQuery(previousQueryResult, { fetchMoreResult }) {
       if (!fetchMoreResult) return previousQueryResult
@@ -382,12 +382,12 @@ watch(queryword, () => {
       queryword.value === ''
         ? {
             voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-            voteYear: 10,
+            voteYear: 11,
           }
         : {
             query: queryword.value,
             voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-            voteYear: 10,
+            voteYear: 11,
           },
     updateQuery(previousQueryResult, { fetchMoreResult }) {
       if (!fetchMoreResult) return previousQueryResult
@@ -404,22 +404,22 @@ watch(GUIMode, () => {
       ? getAdditionalConstraintString(additionalConstraint.value) === ''
         ? {
             voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-            voteYear: 10,
+            voteYear: 11,
           }
         : {
             query: getAdditionalConstraintString(additionalConstraint.value),
             voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-            voteYear: 10,
+            voteYear: 11,
           }
       : queryword.value === ''
       ? {
           voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-          voteYear: 10,
+          voteYear: 11,
         }
       : {
           query: queryword.value,
           voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-          voteYear: 10,
+          voteYear: 11,
         },
     updateQuery(previousQueryResult, { fetchMoreResult }) {
       if (!fetchMoreResult) return previousQueryResult
@@ -480,22 +480,22 @@ const {
     ? getAdditionalConstraintString(additionalConstraint.value) === ''
       ? {
           voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-          voteYear: 10,
+          voteYear: 11,
         }
       : {
           query: getAdditionalConstraintString(additionalConstraint.value),
           voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-          voteYear: 10,
+          voteYear: 11,
         }
     : queryword.value === ''
     ? {
         voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-        voteYear: 10,
+        voteYear: 11,
       }
     : {
         query: queryword.value,
         voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
-        voteYear: 10,
+        voteYear: 11,
       },
   {
     fetchPolicy: 'network-only',
