@@ -154,14 +154,14 @@ async function getMusicEvolution(): Promise<void> {
   trendMusicNumber.value = musicsForEvolution.value.length
   if (queryMusicEbvolutionForceDisabled.value)
     loadMusicEbvolution(undefined, {
-      voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+      voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
       voteYear: 11,
       names: musicsForEvolution.value,
     })
   else
     queryMusicEbvolutionMore({
       variables: {
-        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
         voteYear: 11,
         names: musicsForEvolution.value,
       },
@@ -194,7 +194,7 @@ const {
     }
   `,
   {
-    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+    voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
     voteYear: 11,
     names: musicsForEvolution.value,
   },
@@ -248,7 +248,7 @@ const {
     }
   `,
   {
-    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+    voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
     voteYear: 11,
   },
   {

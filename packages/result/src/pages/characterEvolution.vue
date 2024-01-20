@@ -154,14 +154,14 @@ async function getCharacterEvolution(): Promise<void> {
   trendCharacterNumber.value = charactersForEvolution.value.length
   if (queryCharacterEbvolutionForceDisabled.value)
     loadCharacterEbvolution(undefined, {
-      voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+      voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
       voteYear: 11,
       names: charactersForEvolution.value,
     })
   else
     queryCharacterEbvolutionMore({
       variables: {
-        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
         voteYear: 11,
         names: charactersForEvolution.value,
       },
@@ -194,7 +194,7 @@ const {
     }
   `,
   {
-    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+    voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
     voteYear: 11,
     names: charactersForEvolution.value,
   },
@@ -251,7 +251,7 @@ const {
     }
   `,
   {
-    voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+    voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
     voteYear: 11,
   },
   {

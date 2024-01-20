@@ -216,12 +216,12 @@ const {
   `,
   props.q === ''
     ? {
-        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
         voteYear: 11,
         questionsOfInterest: allQuestionnaireIDList.value,
       }
     : {
-        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
         voteYear: 11,
         query: props.q,
         questionsOfInterest: allQuestionnaireIDList.value,
@@ -282,12 +282,12 @@ async function QuestionnaireDetail(q: string): Promise<void> {
       undefined,
       q === ''
         ? {
-            voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
             voteYear: 11,
             questionsOfInterest: allQuestionnaireIDList.value,
           }
         : {
-            voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
             voteYear: 11,
             query: q,
             questionsOfInterest: allQuestionnaireIDList.value,
@@ -298,12 +298,12 @@ async function QuestionnaireDetail(q: string): Promise<void> {
       variables:
         q === ''
           ? {
-              voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+              voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
               voteYear: 11,
               questionsOfInterest: allQuestionnaireIDList.value,
             }
           : {
-              voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+              voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
               voteYear: 11,
               query: q,
               questionsOfInterest: allQuestionnaireIDList.value,

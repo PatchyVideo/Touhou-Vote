@@ -81,12 +81,12 @@ const { result, loading, onError } = useQuery<Query>(
   `,
   q.value === ''
     ? {
-        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
         voteYear: 11,
         questionsOfInterest: [qid.value],
       }
     : {
-        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
         voteYear: 11,
         query: q.value,
         questionsOfInterest: [qid.value],

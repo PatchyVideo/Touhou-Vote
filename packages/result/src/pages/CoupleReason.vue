@@ -155,12 +155,12 @@ const { result, loading, onError } = useQuery<Query>(
   `,
   getAdditionalConstraintString(additionalConstraint.value) === ''
     ? {
-        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
         voteYear: 11,
         rank: coupleRank.value,
       }
     : {
-        voteStart: new Date(Date.UTC(2022, 5, 17, 10)),
+        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
         voteYear: 11,
         rank: coupleRank.value,
         query: getAdditionalConstraintString(additionalConstraint.value),
