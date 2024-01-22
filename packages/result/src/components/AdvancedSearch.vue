@@ -204,30 +204,46 @@
           <div>
             <div class="font-bold">角色部门投票结果：</div>
             <div class="pl-4">
-              • chars：角色名称数组
+              • chars：角色ID数组
               <div class="pl-4">
-                示例：chars: ["东风谷早苗", "博丽灵梦"]
+                示例：chars: ["faa03b91", "4068b1c2"]
                 <div class="text-xs italic">
-                  【注意】数组里的结果是以或的形式查询的，即示例中，查询的结果是角色部门中投了“东风谷早苗”或“博丽灵梦”的票中，各角色的投票结果
+                  【注意】数组里的结果是以或的形式查询的，即示例中，查询的结果是角色部门中投了“faa03b91(东风谷早苗)”或“4068b1c2(博丽灵梦)”的票中，各角色的投票结果
                 </div>
               </div>
-              • chars_first = 角色名
-              <div class="pl-4">示例：chars_first="东风谷早苗"</div>
+              • chars_first = 角色ID
+              <div class="pl-4">示例：chars_first="faa03b91"</div>
+              <div>
+                角色ID相关内容请参阅<a
+                  class="transition transition-colors underline p-1"
+                  href="https://github.com/PatchyVideo/Touhou-Vote/blob/dev/packages/shared/data/character.ts#L43"
+                  target="_blank"
+                  >这里</a
+                >
+              </div>
             </div>
           </div>
           <div>
             <div class="font-bold">音乐部门投票结果：</div>
             <div class="pl-4">
-              • musics：曲目名称数组
+              • musics：曲目ID数组
               <div class="pl-4">
-                示例：musics: ["信仰是为了虚幻之人", "Native Faith"]
+                示例：musics: ["843422df", "a1feb032"]
                 <div class="text-xs italic">
-                  【注意】数组里的结果是以或的形式查询的，即示例中，查询的结果是音乐部门中投了“信仰是为了虚幻之人”或“Native
-                  Faith”的票中，各曲目的投票结果
+                  【注意】数组里的结果是以或的形式查询的，即示例中，查询的结果是音乐部门中投了“843422df(信仰是为了虚幻之人)”或“a1feb032(Native
+                  Faith)”的票中，各曲目的投票结果
                 </div>
               </div>
-              • musics_first = 曲目名
-              <div class="pl-4">示例：musics_first="信仰是为了虚幻之人"</div>
+              • musics_first = 曲目ID
+              <div class="pl-4">示例：musics_first="843422df"</div>
+              <div>
+                曲目ID相关内容请参阅<a
+                  class="transition transition-colors underline p-1"
+                  href="https://github.com/PatchyVideo/Touhou-Vote/blob/dev/packages/shared/data/music.ts#L112"
+                  target="_blank"
+                  >这里</a
+                >
+              </div>
             </div>
           </div>
           <div>
@@ -235,19 +251,17 @@
             <div class="pl-4">
               • 不同规则相互叠加的情况，使用 AND 关键字连接
               <div class="pl-4">
-                示例：q11011 = 1101101 AND chars: ["东风谷早苗"] AND chars: ["博丽灵梦"]
+                示例：q11011 = 1101101 AND chars: ["faa03b91"] AND chars: ["4068b1c2"]
                 <div class="text-xs italic">
                   【注意】同一规则也可以使用 AND 关键字进行并列，如示例中，查询的结果是
-                  [问题id11011回答的结果是1101101，且同时在角色部门投了“东风谷早苗”和“博丽灵梦”]
+                  [问题id11011回答的结果是1101101，且同时在角色部门投了“faa03b91(东风谷早苗)”和“4068b1c2(博丽灵梦)”]
                   的票中，各角色的投票结果
                 </div>
               </div>
               • 不同规则并列的情况，使用 OR 关键字连接
-              <div class="pl-4">示例：q11011 = 1101101 OR chars: ["东风谷早苗"]</div>
+              <div class="pl-4">示例：q11011 = 1101101 OR chars: ["faa03b91"]</div>
               • 上述两种逻辑关系可以使用“(”或“)”调整优先级
-              <div class="pl-4">
-                示例：(q11011 = 1101101 AND chars: ["东风谷早苗"]) OR musics_first="信仰是为了虚幻之人"
-              </div>
+              <div class="pl-4">示例：(q11011 = 1101101 AND chars: ["faa03b91"]) OR musics_first="843422df"</div>
             </div>
           </div>
         </div>
@@ -467,7 +481,7 @@ const characterItemList = computed(() =>
     .map((item) => {
       return {
         name: item.name,
-        value: item.name,
+        value: item.id,
       }
     })
 )
@@ -508,7 +522,7 @@ const musicItemList = computed(() =>
     .map((item) => {
       return {
         name: item.name,
-        value: item.name,
+        value: item.id,
       }
     })
 )

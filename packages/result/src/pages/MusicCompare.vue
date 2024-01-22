@@ -148,6 +148,7 @@ import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { toPercentageString, toTimeFormat } from '@/lib/numberFormat'
+import { musicList } from '@touhou-vote/shared/data/music'
 import NProgress from 'nprogress'
 
 setSiteTitle('往届结果对比')
@@ -183,21 +184,21 @@ interface Header {
 }
 const header: Header[] = [
   { name: '名次', key: 'displayRank' },
-  { name: '第⑨届', key: 'displayRankLast1' },
-  { name: '第8届', key: 'displayRankLast2' },
+  { name: '第⑩届', key: 'displayRankLast1' },
+  { name: '第⑨届', key: 'displayRankLast2' },
   { name: '曲目名', key: 'name' },
   { name: '票数', key: 'voteCount', sortable: true },
-  { name: '第⑨届', key: 'voteCountLast1' },
-  { name: '第8届', key: 'voteCountLast2' },
+  { name: '第⑩届', key: 'voteCountLast1' },
+  { name: '第⑨届', key: 'voteCountLast2' },
   { name: '本命数', key: 'firstVoteCount', sortable: true },
-  { name: '第⑨届', key: 'firstVoteCountLast1' },
-  { name: '第8届', key: 'firstVoteCountLast2' },
+  { name: '第⑩届', key: 'firstVoteCountLast1' },
+  { name: '第⑨届', key: 'firstVoteCountLast2' },
   { name: '本命率', key: 'firstVotePercentage', sortable: true },
-  { name: '第⑨届', key: 'firstVotePercentageLast1' },
-  { name: '第8届', key: 'firstVotePercentageLast2' },
+  { name: '第⑩届', key: 'firstVotePercentageLast1' },
+  { name: '第⑨届', key: 'firstVotePercentageLast2' },
   { name: '票数占比', key: 'votePercentage' },
-  { name: '第⑨届', key: 'votePercentageLast1' },
-  { name: '第8届', key: 'votePercentageLast2' },
+  { name: '第⑩届', key: 'votePercentageLast1' },
+  { name: '第⑨届', key: 'votePercentageLast2' },
   { name: '本命占比', key: 'firstPercentage' },
   { name: '所在专辑', key: 'album' },
   { name: '日文名', key: 'nameJpn' },
@@ -263,7 +264,7 @@ const resultMusics = ref<ResultMusic[]>([])
 const resultMusicsForDisplay = computed<ResultMusic[]>(() => {
   return (
     resultMusics.value
-      // sort for 8th result
+      // sort for ⑩th result
       .sort((a, b) => {
         if (sortHeader.value.key === 'voteCount')
           if (percentageToNumber(b.voteCountLast2) - percentageToNumber(a.voteCountLast2)) {
@@ -305,7 +306,7 @@ const resultMusicsForDisplay = computed<ResultMusic[]>(() => {
         item.displayRankLast2 = i + 2
         return item
       })
-      // sort for 9th result
+      // sort for ⑨th result
       .sort((a, b) => {
         if (sortHeader.value.key === 'voteCount')
           if (percentageToNumber(b.voteCountLast1) - percentageToNumber(a.voteCountLast1)) {
@@ -526,8 +527,14 @@ watchEffect(() => {
         item.votePercentageLast1 = item.votePercentageLast1 < 0 ? '-' : toPercentageString(item.votePercentageLast1)
         item.votePercentageLast2 = item.votePercentageLast2 < 0 ? '-' : toPercentageString(item.votePercentageLast2)
         item.firstPercentage = toPercentageString(item.firstPercentage)
-        item.firstAppearance = toTimeFormat(item.firstAppearance)
-        item.album = item.album || '幻想的音乐'
+        // atrribute 'name' as id
+        const musicMeta = musicList.find((item2) => item2.id === item.name)
+        if (musicMeta) {
+          item.name = musicMeta.name
+          item.nameJpn = musicMeta.origname
+          item.album = musicMeta.album || '幻想的音乐'
+          item.firstAppearance = toTimeFormat(String(musicMeta.date))
+        }
         return item
       })
     }

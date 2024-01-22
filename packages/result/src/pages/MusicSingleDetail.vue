@@ -77,6 +77,7 @@ import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import { deadlineString, startTimeString } from '@touhou-vote/shared/data/time'
 import GraphEvolution from '@/components/GraphEvolution.vue'
 import Questionnaire from '@/components/Questionnaire.vue'
+import { musicList } from '@touhou-vote/shared/data/music'
 
 const route = useRoute()
 
@@ -133,9 +134,10 @@ const { result, loading, onError } = useQuery<Query>(
 watchEffect(() => {
   if (result.value) {
     if (result.value.queryMusicSingle) {
-      musicName.value = result.value.queryMusicSingle.name
+      // atrribute 'name' as id
+      musicName.value = musicList.find((item) => item.id === result.value!.queryMusicSingle.name)!.name
       setSiteTitle(musicName.value)
-      q.value = 'musics:["' + musicName.value + '"]'
+      q.value = 'musics:["' + result.value.queryMusicSingle.name + '"]'
       voteCount.value = result.value.queryMusicSingle.voteCount
       firstVoteCount.value = result.value.queryMusicSingle.firstVoteCount
       firstVotePercentage.value = toPercentageString(result.value.queryMusicSingle.firstVotePercentage)

@@ -152,6 +152,7 @@ import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import { toPercentageString } from '@/lib/numberFormat'
+import { characterList } from '@touhou-vote/shared/data/character'
 import NProgress from 'nprogress'
 
 setSiteTitle('CP部门结果')
@@ -530,9 +531,9 @@ watchEffect(() => {
       medianVotesPerItemCouple.value = result.value.queryCPRanking.global.medianVotesPerItem
       // @ts-expect-error
       resultCouples.value = JSON.parse(JSON.stringify(result.value.queryCPRanking.entries)).map((item) => {
-        item.aName = item.cp.a
-        item.bName = item.cp.b
-        item.cName = item.cp.c || '-'
+        item.aName = characterList.find((item2) => item2.id === item.cp.a)!.name
+        item.bName = characterList.find((item2) => item2.id === item.cp.b)!.name
+        item.cName = item.cp.c ? characterList.find((item2) => item2.id === item.cp.c)!.name : '-'
         delete item.cp
         item.aActive = toPercentageString(item.aActive)
         item.bActive = toPercentageString(item.bActive)

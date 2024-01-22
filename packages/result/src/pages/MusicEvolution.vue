@@ -117,7 +117,7 @@ const musicItemList = computed(() =>
     .map((item) => {
       return {
         name: item.name,
-        value: item.name,
+        value: item.id,
       }
     })
 )
@@ -147,6 +147,9 @@ const trend = ref<GraphDataLine[]>([])
 const trendFirst = ref<GraphDataLine[]>([])
 const trendMusicNumber = ref(musicsForEvolution.value.length)
 const showEvolutionGraph = ref(false)
+function getMusicsIDForEvolution(): string[] {
+  return musicsForEvolution.value.map((item) => musicList.find((item2) => item2.name === item)!.id)
+}
 async function getMusicEvolution(): Promise<void> {
   if (!musicsForEvolution.value.length || queryMusicEbvolutionLoading.value) return
   resultMusicEbvolution.value = undefined
@@ -156,14 +159,14 @@ async function getMusicEvolution(): Promise<void> {
     loadMusicEbvolution(undefined, {
       voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
       voteYear: 11,
-      names: musicsForEvolution.value,
+      names: getMusicsIDForEvolution(),
     })
   else
     queryMusicEbvolutionMore({
       variables: {
         voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
         voteYear: 11,
-        names: musicsForEvolution.value,
+        names: getMusicsIDForEvolution(),
       },
       updateQuery(previousQueryResult, { fetchMoreResult }) {
         if (!fetchMoreResult) return previousQueryResult

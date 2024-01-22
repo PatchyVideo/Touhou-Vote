@@ -152,6 +152,7 @@ import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import { toPercentageString, toTimeFormat } from '@/lib/numberFormat'
+import { musicList } from '@touhou-vote/shared/data/music'
 import NProgress from 'nprogress'
 
 setSiteTitle('音乐部门结果')
@@ -525,8 +526,14 @@ watchEffect(() => {
         item.femalePercentagePerChar = toPercentageString(item.femalePercentagePerChar)
         item.malePercentagePerTotal = toPercentageString(item.malePercentagePerTotal)
         item.femalePercentagePerTotal = toPercentageString(item.femalePercentagePerTotal)
-        item.firstAppearance = toTimeFormat(item.firstAppearance)
-        item.album = item.album || '幻想的音乐'
+        // atrribute 'name' as id
+        const musicMeta = musicList.find((item2) => item2.id === item.name)
+        if (musicMeta) {
+          item.name = musicMeta.name
+          item.nameJpn = musicMeta.origname
+          item.album = musicMeta.album || '幻想的音乐'
+          item.firstAppearance = toTimeFormat(String(musicMeta.date))
+        }
         return item
       })
     }

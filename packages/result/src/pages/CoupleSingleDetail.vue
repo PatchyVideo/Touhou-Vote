@@ -113,6 +113,7 @@
 import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
+import { characterList } from '@touhou-vote/shared/data/character'
 import NProgress from 'nprogress'
 import { toPercentageString } from '@/lib/numberFormat'
 import type { GraphDataLine } from '@/lib/Graph'
@@ -201,10 +202,12 @@ watchEffect(() => {
   if (result.value) {
     if (result.value.queryCPSingle) {
       coupleName.value =
-        result.value.queryCPSingle.cp.a +
+        characterList.find((item) => item.id === result.value!.queryCPSingle.cp.a)!.name +
         ' x ' +
-        result.value.queryCPSingle.cp.b +
-        (result.value.queryCPSingle.cp.c ? ' x ' + result.value.queryCPSingle.cp.c : '')
+        characterList.find((item) => item.id === result.value!.queryCPSingle.cp.b)!.name +
+        (result.value.queryCPSingle.cp.c
+          ? ' x ' + characterList.find((item) => item.id === result.value!.queryCPSingle.cp.c)!.name
+          : '')
       setSiteTitle(coupleName.value)
       q.value =
         'cp=("' +
