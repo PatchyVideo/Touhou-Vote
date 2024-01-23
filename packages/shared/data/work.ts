@@ -34,6 +34,7 @@ export const workList: Work[] = [
   { name: '蓬莱人形', kind: 'CD' },
   { name: '莲台野夜行', kind: 'CD' },
   { name: '旧约酒馆', kind: 'CD' },
+  { name: '东方文花帖（书籍）', kind: 'book' },
   { name: '东方求闻史纪', kind: 'book' },
   { name: '东方三月精', kind: 'book' },
   { name: '东方儚月抄', kind: 'book' },

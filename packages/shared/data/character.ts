@@ -1258,7 +1258,7 @@ export const characterList: Character[] = [
     honmei: false,
     date: 20050814,
     kind: ['new'],
-    work: ['东方花映塚'],
+    work: ['东方文花帖（书籍）'],
   },
   {
     id: 'e7e80511',
