@@ -263,7 +263,7 @@ const resultMusics = ref<ResultMusic[]>([])
 const resultMusicsForDisplay = computed<ResultMusic[]>(() => {
   return (
     resultMusics.value
-      // sort for 8th result
+      // sort for last2 result
       .sort((a, b) => {
         if (sortHeader.value.key === 'voteCount')
           if (percentageToNumber(b.voteCountLast2) - percentageToNumber(a.voteCountLast2)) {
@@ -305,7 +305,7 @@ const resultMusicsForDisplay = computed<ResultMusic[]>(() => {
         item.displayRankLast2 = i + 2
         return item
       })
-      // sort for 9th result
+      // sort for last result
       .sort((a, b) => {
         if (sortHeader.value.key === 'voteCount')
           if (percentageToNumber(b.voteCountLast1) - percentageToNumber(a.voteCountLast1)) {
@@ -347,7 +347,7 @@ const resultMusicsForDisplay = computed<ResultMusic[]>(() => {
         item.displayRankLast1 = i + 2
         return item
       })
-      // sort for 10th result
+      // sort for this result
       .sort((a, b) => {
         if (percentageToNumber(b[sortHeader.value.key]) - percentageToNumber(a[sortHeader.value.key])) {
           if (sortHeader.value.forward)

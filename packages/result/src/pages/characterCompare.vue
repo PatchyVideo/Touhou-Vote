@@ -267,7 +267,7 @@ const resultCharacters = ref<ResultCharacter[]>([])
 const resultCharactersForDisplay = computed<ResultCharacter[]>(() => {
   return (
     resultCharacters.value
-      // sort for 8th result
+      // sort for last2 result
       .sort((a, b) => {
         if (sortHeader.value.key === 'voteCount')
           if (percentageToNumber(b.voteCountLast2) - percentageToNumber(a.voteCountLast2)) {
@@ -309,7 +309,7 @@ const resultCharactersForDisplay = computed<ResultCharacter[]>(() => {
         item.displayRankLast2 = i + 2
         return item
       })
-      // sort for 9th result
+      // sort for last result
       .sort((a, b) => {
         if (sortHeader.value.key === 'voteCount')
           if (percentageToNumber(b.voteCountLast1) - percentageToNumber(a.voteCountLast1)) {
@@ -351,7 +351,7 @@ const resultCharactersForDisplay = computed<ResultCharacter[]>(() => {
         item.displayRankLast1 = i + 2
         return item
       })
-      // sort for 10th result
+      // sort for this result
       .sort((a, b) => {
         if (percentageToNumber(b[sortHeader.value.key]) - percentageToNumber(a[sortHeader.value.key])) {
           if (sortHeader.value.forward)
