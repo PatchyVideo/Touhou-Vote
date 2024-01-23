@@ -58,7 +58,6 @@ import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
 import { toPercentageString } from '@/lib/numberFormat'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
-import { musicList } from '@touhou-vote/shared/data/music'
 
 const route = useRoute()
 
@@ -114,8 +113,7 @@ watchEffect(() => {
 watchEffect(() => {
   if (result.value) {
     if (result.value.queryMusicSingle) {
-      // atrribute 'name' as id
-      musicName.value = musicList.find((item) => item.id === result.value!.queryMusicSingle.name)!.name
+      musicName.value = result.value.queryMusicSingle.name
       setSiteTitle(musicName.value + '的投票理由')
       voteCount.value = result.value.queryMusicSingle.voteCount
       firstVoteCount.value = result.value.queryMusicSingle.firstVoteCount

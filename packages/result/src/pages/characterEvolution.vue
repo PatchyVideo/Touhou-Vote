@@ -117,7 +117,7 @@ const characterItemList = computed(() =>
     .map((item) => {
       return {
         name: item.name,
-        value: item.id,
+        value: item.name,
       }
     })
 )
@@ -147,9 +147,6 @@ const trend = ref<GraphDataLine[]>([])
 const trendFirst = ref<GraphDataLine[]>([])
 const trendCharacterNumber = ref(charactersForEvolution.value.length)
 const showEvolutionGraph = ref(false)
-function getCharactersIDForEvolution(): string[] {
-  return charactersForEvolution.value.map((item) => characterList.find((item2) => item2.name === item)!.id)
-}
 async function getCharacterEvolution(): Promise<void> {
   if (!charactersForEvolution.value.length || queryCharacterEbvolutionLoading.value) return
   resultCharacterEbvolution.value = undefined
@@ -159,14 +156,14 @@ async function getCharacterEvolution(): Promise<void> {
     loadCharacterEbvolution(undefined, {
       voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
       voteYear: 11,
-      names: getCharactersIDForEvolution(),
+      names: charactersForEvolution.value,
     })
   else
     queryCharacterEbvolutionMore({
       variables: {
         voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
         voteYear: 11,
-        names: getCharactersIDForEvolution(),
+        names: charactersForEvolution.value,
       },
       updateQuery(previousQueryResult, { fetchMoreResult }) {
         if (!fetchMoreResult) return previousQueryResult

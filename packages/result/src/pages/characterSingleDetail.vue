@@ -135,10 +135,9 @@ const { result, loading, onError } = useQuery<Query>(
 watchEffect(() => {
   if (result.value) {
     if (result.value.queryCharacterSingle) {
-      // atrribute 'name' as id
-      characterName.value = characterList.find((item) => item.id === result.value!.queryCharacterSingle.name)!.name
+      characterName.value = result.value.queryCharacterSingle.name
       setSiteTitle(characterName.value)
-      q.value = 'chars:["' + result.value.queryCharacterSingle.name + '"]'
+      q.value = 'chars:["' + characterName.value + '"]'
       voteCount.value = result.value.queryCharacterSingle.voteCount
       firstVoteCount.value = result.value.queryCharacterSingle.firstVoteCount
       firstVotePercentage.value = toPercentageString(result.value.queryCharacterSingle.firstVotePercentage)

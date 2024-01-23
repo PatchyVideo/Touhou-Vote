@@ -152,7 +152,6 @@ import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import { toPercentageString, toTimeFormat } from '@/lib/numberFormat'
-import { characterList } from '@touhou-vote/shared/data/character'
 import NProgress from 'nprogress'
 
 setSiteTitle('角色部门结果')
@@ -531,15 +530,7 @@ watchEffect(() => {
         item.femalePercentagePerChar = toPercentageString(item.femalePercentagePerChar)
         item.malePercentagePerTotal = toPercentageString(item.malePercentagePerTotal)
         item.femalePercentagePerTotal = toPercentageString(item.femalePercentagePerTotal)
-        // atrribute 'name' as id
-        const characterMeta = characterList.find((item2) => item2.id === item.name)
-        if (characterMeta) {
-          item.name = characterMeta.name
-          item.nameJpn = characterMeta.origname
-          item.characterType = characterMeta.kind
-          item.characterOrigin = characterMeta.work
-          item.firstAppearance = toTimeFormat(String(characterMeta.date))
-        }
+        item.firstAppearance = toTimeFormat(item.firstAppearance)
         return item
       })
     }

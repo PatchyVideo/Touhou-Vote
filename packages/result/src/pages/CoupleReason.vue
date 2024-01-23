@@ -103,7 +103,6 @@ import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
 import { toPercentageString } from '@/lib/numberFormat'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
-import { characterList } from '@touhou-vote/shared/data/character'
 
 const route = useRoute()
 
@@ -177,14 +176,11 @@ watchEffect(() => {
 watchEffect(() => {
   if (result.value) {
     if (result.value.queryCPSingle) {
-      // atrribute 'name' as id
       coupleName.value =
-        characterList.find((item) => item.id === result.value!.queryCPSingle.cp.a)!.name +
+        result.value.queryCPSingle.cp.a +
         ' x ' +
-        characterList.find((item) => item.id === result.value!.queryCPSingle.cp.b)!.name +
-        (result.value.queryCPSingle.cp.c
-          ? ' x ' + characterList.find((item) => item.id === result.value!.queryCPSingle.cp.c)!.name
-          : '')
+        result.value.queryCPSingle.cp.b +
+        (result.value.queryCPSingle.cp.c ? ' x ' + result.value.queryCPSingle.cp.c : '')
       setSiteTitle(coupleName.value)
       voteCount.value = result.value.queryCPSingle.voteCount
       firstVoteCount.value = result.value.queryCPSingle.firstVoteCount

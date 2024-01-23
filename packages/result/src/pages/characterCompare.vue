@@ -148,7 +148,6 @@ import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { toPercentageString, toTimeFormat } from '@/lib/numberFormat'
-import { characterList } from '@touhou-vote/shared/data/character'
 import NProgress from 'nprogress'
 
 setSiteTitle('往届结果对比')
@@ -185,21 +184,21 @@ interface Header {
 }
 const header: Header[] = [
   { name: '名次', key: 'displayRank' },
-  { name: '第⑩届', key: 'displayRankLast1' },
-  { name: '第⑨届', key: 'displayRankLast2' },
+  { name: '第⑨届', key: 'displayRankLast1' },
+  { name: '第8届', key: 'displayRankLast2' },
   { name: '角色名', key: 'name' },
   { name: '票数', key: 'voteCount', sortable: true },
-  { name: '第⑩届', key: 'voteCountLast1' },
+  { name: '第⑨届', key: 'voteCountLast1' },
   { name: '第8届', key: 'voteCountLast2' },
   { name: '本命数', key: 'firstVoteCount', sortable: true },
-  { name: '第⑩届', key: 'firstVoteCountLast1' },
-  { name: '第⑨届', key: 'firstVoteCountLast2' },
+  { name: '第⑨届', key: 'firstVoteCountLast1' },
+  { name: '第8届', key: 'firstVoteCountLast2' },
   { name: '本命率', key: 'firstVotePercentage', sortable: true },
-  { name: '第⑩届', key: 'firstVotePercentageLast1' },
-  { name: '第⑨届', key: 'firstVotePercentageLast2' },
+  { name: '第⑨届', key: 'firstVotePercentageLast1' },
+  { name: '第8届', key: 'firstVotePercentageLast2' },
   { name: '票数占比', key: 'votePercentage' },
-  { name: '第⑩届', key: 'votePercentageLast1' },
-  { name: '第⑨届', key: 'votePercentageLast2' },
+  { name: '第⑨届', key: 'votePercentageLast1' },
+  { name: '第8届', key: 'votePercentageLast2' },
   { name: '本命占比', key: 'firstPercentage' },
   { name: '日文名', key: 'nameJpn' },
   { name: '所属作品类型', key: 'characterType' },
@@ -268,7 +267,7 @@ const resultCharacters = ref<ResultCharacter[]>([])
 const resultCharactersForDisplay = computed<ResultCharacter[]>(() => {
   return (
     resultCharacters.value
-      // sort for ⑩th result
+      // sort for 8th result
       .sort((a, b) => {
         if (sortHeader.value.key === 'voteCount')
           if (percentageToNumber(b.voteCountLast2) - percentageToNumber(a.voteCountLast2)) {
@@ -310,7 +309,7 @@ const resultCharactersForDisplay = computed<ResultCharacter[]>(() => {
         item.displayRankLast2 = i + 2
         return item
       })
-      // sort for ⑨th result
+      // sort for 9th result
       .sort((a, b) => {
         if (sortHeader.value.key === 'voteCount')
           if (percentageToNumber(b.voteCountLast1) - percentageToNumber(a.voteCountLast1)) {
@@ -533,15 +532,7 @@ watchEffect(() => {
         item.votePercentageLast1 = item.votePercentageLast1 < 0 ? '-' : toPercentageString(item.votePercentageLast1)
         item.votePercentageLast2 = item.votePercentageLast2 < 0 ? '-' : toPercentageString(item.votePercentageLast2)
         item.firstPercentage = toPercentageString(item.firstPercentage)
-        // atrribute 'name' as id
-        const characterMeta = characterList.find((item2) => item2.id === item.name)
-        if (characterMeta) {
-          item.name = characterMeta.name
-          item.nameJpn = characterMeta.origname
-          item.characterType = characterMeta.kind
-          item.characterOrigin = characterMeta.work
-          item.firstAppearance = toTimeFormat(String(characterMeta.date))
-        }
+        item.firstAppearance = toTimeFormat(item.firstAppearance)
         return item
       })
     }

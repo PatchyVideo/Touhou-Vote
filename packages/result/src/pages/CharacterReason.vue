@@ -115,8 +115,7 @@ watchEffect(() => {
 watchEffect(() => {
   if (result.value) {
     if (result.value.queryCharacterSingle) {
-      // atrribute 'name' as id
-      characterName.value = characterList.find((item) => item.id === result.value!.queryCharacterSingle.name)!.name
+      characterName.value = result.value.queryCharacterSingle.name
       setSiteTitle(characterName.value + '的投票理由')
       voteCount.value = result.value.queryCharacterSingle.voteCount
       firstVoteCount.value = result.value.queryCharacterSingle.firstVoteCount
