@@ -23,7 +23,7 @@
             <div v-else key="selecting">
               <transition-group name="coupleList" tag="div">
                 <div
-                  v-for="(couple, index) in couplesValid"
+                  v-for="(_couple, index) in couplesValid"
                   :key="index"
                   class="transition transition-all duration-200 mb-2"
                 >
