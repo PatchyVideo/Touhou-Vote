@@ -52,7 +52,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/res-be': {
-        target: 'https://touhou.vote/v10-be',
+        target: 'https://touhou.ai/vote-be',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/res-be/, ''),
