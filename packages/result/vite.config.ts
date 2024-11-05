@@ -49,6 +49,16 @@ export default defineConfig({
     // see unocss.config.ts for config
     unocss(),
   ],
+  server: {
+    proxy: {
+      '/res-be': {
+        target: 'https://touhou.ai/vote-be',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/res-be/, ''),
+      },
+    },
+  },
   build: {
     sourcemap: true,
     assetsDir: 'v11/assets',
