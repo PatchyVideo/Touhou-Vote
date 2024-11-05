@@ -6,7 +6,7 @@
   },
   "rewrites": [
     {
-      "source": "/v11-be/(.*)",
+      "source": "/res-be/(.*)",
       "destination": "https://touhou.ai/vote-be/$1"
     },
     {

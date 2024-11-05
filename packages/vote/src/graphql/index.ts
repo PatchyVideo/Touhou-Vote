@@ -34,7 +34,7 @@ export function createApollo(): ApolloClient<NormalizedCacheObject> {
   const link = from([
     // Backend Server
     new HttpLink({
-      uri: '/v11-be/graphql',
+      uri: '/res-be/graphql',
       credentials: 'include',
     }),
   ])

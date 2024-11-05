@@ -59,11 +59,11 @@ export default defineConfig(async ({ command, mode }) => {
     ],
     server: {
       proxy: {
-        '/v11-be': {
+        '/res-be': {
           target: 'https://touhou.ai/vote-be',
           changeOrigin: true,
           secure: false,
-          rewrite: (path) => path.replace(/^\/v11-be/, ''),
+          rewrite: (path) => path.replace(/^\/res-be/, ''),
         },
       },
     },
