@@ -77,13 +77,13 @@ importers:
         version: 0.51.5
       '@vitejs/plugin-vue':
         specifier: ^4.1.0
-        version: 4.1.0(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue@3.2.47)
+        version: 4.1.0(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue@3.2.47)
       '@vue/compiler-sfc':
         specifier: ^3.2.47
         version: 3.2.47
       unocss:
         specifier: ^0.57.7
-        version: 0.57.7(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
+        version: 0.57.7(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
       unplugin-auto-import:
         specifier: ^0.15.3
         version: 0.15.3(@vueuse/core@10.0.2(vue@3.2.47))(rollup@3.29.4)
@@ -91,11 +91,11 @@ importers:
         specifier: ^0.24.1
         version: 0.24.1(@babel/parser@7.23.5)(rollup@3.29.4)(vue@3.2.47)
       vite:
-        specifier: ^4.5.2
-        version: 4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
+        specifier: ^4.5.3
+        version: 4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
       vite-plugin-pages:
         specifier: ^0.29.0
-        version: 0.29.0(@vue/compiler-sfc@3.2.47)(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
+        version: 0.29.0(@vue/compiler-sfc@3.2.47)(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
 
   packages/result:
     dependencies:
@@ -174,7 +174,7 @@ importers:
         version: 0.51.5
       '@vitejs/plugin-vue':
         specifier: ^4.1.0
-        version: 4.1.0(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue@3.2.47)
+        version: 4.1.0(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue@3.2.47)
       '@vue/compiler-sfc':
         specifier: ^3.2.47
         version: 3.2.47
@@ -186,7 +186,7 @@ importers:
         version: 6.4.1
       unocss:
         specifier: ^0.57.7
-        version: 0.57.7(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
+        version: 0.57.7(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
       unplugin-auto-import:
         specifier: ^0.15.3
         version: 0.15.3(@vueuse/core@10.0.2(vue@3.2.47))(rollup@3.29.4)
@@ -194,14 +194,14 @@ importers:
         specifier: ^0.24.1
         version: 0.24.1(@babel/parser@7.23.5)(rollup@3.29.4)(vue@3.2.47)
       vite:
-        specifier: ^4.5.2
-        version: 4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
+        specifier: ^4.5.3
+        version: 4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
       vite-plugin-pages:
         specifier: ^0.29.0
-        version: 0.29.0(@vue/compiler-sfc@3.2.47)(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
+        version: 0.29.0(@vue/compiler-sfc@3.2.47)(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
       vite-plugin-vue-layouts:
         specifier: ^0.8.0
-        version: 0.8.0(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue-router@4.1.6(vue@3.2.47))(vue@3.2.47)
+        version: 0.8.0(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue-router@4.1.6(vue@3.2.47))(vue@3.2.47)
 
   packages/result-codegen:
     dependencies:
@@ -289,7 +289,7 @@ importers:
         version: 0.2.0
       '@vitejs/plugin-vue':
         specifier: ^4.1.0
-        version: 4.1.0(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue@3.2.47)
+        version: 4.1.0(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue@3.2.47)
       '@windicss/plugin-animations':
         specifier: ^1.0.9
         version: 1.0.9
@@ -321,11 +321,11 @@ importers:
         specifier: ^0.24.1
         version: 0.24.1(@babel/parser@7.23.5)(rollup@3.29.4)(vue@3.2.47)
       vite:
-        specifier: ^4.5.2
-        version: 4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
+        specifier: ^4.5.3
+        version: 4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
       vite-plugin-windicss:
         specifier: ^1.8.10
-        version: 1.8.10(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
+        version: 1.8.10(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
       windicss:
         specifier: ^3.5.6
         version: 3.5.6
@@ -6077,9 +6077,9 @@ snapshots:
     dependencies:
       '@unocss/core': 0.57.7
       '@unocss/reset': 0.57.7
-      '@unocss/vite': 0.57.7(rollup@3.29.4)(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
+      '@unocss/vite': 0.57.7(rollup@3.29.4)(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
     optionalDependencies:
-      vite: 4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
+      vite: 4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
     transitivePeerDependencies:
       - rollup
 
@@ -6212,7 +6212,7 @@ snapshots:
     dependencies:
       '@unocss/core': 0.57.7
 
-  '@unocss/vite@0.57.7(rollup@3.29.4)(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))':
+  '@unocss/vite@0.57.7(rollup@3.29.4)(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))':
     dependencies:
       '@ampproject/remapping': 2.2.1
       '@rollup/pluginutils': 5.1.0(rollup@3.29.4)
@@ -6224,13 +6224,13 @@ snapshots:
       chokidar: 3.5.3
       fast-glob: 3.3.2
       magic-string: 0.30.5
-      vite: 4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
+      vite: 4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
     transitivePeerDependencies:
       - rollup
 
-  '@vitejs/plugin-vue@4.1.0(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue@3.2.47)':
+  '@vitejs/plugin-vue@4.1.0(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue@3.2.47)':
     dependencies:
-      vite: 4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
+      vite: 4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
       vue: 3.2.47
 
   '@vscode/sqlite3@5.1.4-vscode':
@@ -8930,9 +8930,9 @@ snapshots:
     dependencies:
       normalize-path: 2.1.1
 
-  unocss@0.57.7(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))):
+  unocss@0.57.7(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))):
     dependencies:
-      '@unocss/astro': 0.57.7(rollup@3.29.4)(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
+      '@unocss/astro': 0.57.7(rollup@3.29.4)(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
       '@unocss/cli': 0.57.7(rollup@3.29.4)
       '@unocss/core': 0.57.7
       '@unocss/extractor-arbitrary-variants': 0.57.7
@@ -8951,9 +8951,9 @@ snapshots:
       '@unocss/transformer-compile-class': 0.57.7
       '@unocss/transformer-directives': 0.57.7
       '@unocss/transformer-variant-group': 0.57.7
-      '@unocss/vite': 0.57.7(rollup@3.29.4)(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
+      '@unocss/vite': 0.57.7(rollup@3.29.4)(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))
     optionalDependencies:
-      vite: 4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
+      vite: 4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
     transitivePeerDependencies:
       - postcss
       - rollup
@@ -9045,7 +9045,7 @@ snapshots:
 
   value-or-promise@1.0.12: {}
 
-  vite-plugin-pages@0.29.0(@vue/compiler-sfc@3.2.47)(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))):
+  vite-plugin-pages@0.29.0(@vue/compiler-sfc@3.2.47)(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))):
     dependencies:
       '@types/debug': 4.1.7
       debug: 4.3.4
@@ -9055,35 +9055,35 @@ snapshots:
       json5: 2.2.3
       local-pkg: 0.4.3
       picocolors: 1.0.0
-      vite: 4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
+      vite: 4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
       yaml: 2.2.1
     optionalDependencies:
       '@vue/compiler-sfc': 3.2.47
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-vue-layouts@0.8.0(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue-router@4.1.6(vue@3.2.47))(vue@3.2.47):
+  vite-plugin-vue-layouts@0.8.0(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)))(vue-router@4.1.6(vue@3.2.47))(vue@3.2.47):
     dependencies:
       '@vue/compiler-sfc': 3.2.47
       debug: 4.3.4
       fast-glob: 3.2.12
-      vite: 4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
+      vite: 4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
       vue: 3.2.47
       vue-router: 4.1.6(vue@3.2.47)
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-windicss@1.8.10(vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))):
+  vite-plugin-windicss@1.8.10(vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))):
     dependencies:
       '@windicss/plugin-utils': 1.8.10
       debug: 4.3.4
       kolorist: 1.7.0
-      vite: 4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
+      vite: 4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31))
       windicss: 3.5.6
     transitivePeerDependencies:
       - supports-color
 
-  vite@4.5.2(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)):
+  vite@4.5.3(@types/node@18.15.13)(sugarss@4.0.1(postcss@8.4.31)):
     dependencies:
       esbuild: 0.18.20
       postcss: 8.4.31
