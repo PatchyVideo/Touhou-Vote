@@ -50,7 +50,8 @@
       </div>
       <!-- Copyright -->
       <div class="quicksand w-full text-center my-6">
-        &copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.
+        &copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.<br />
+        Backend Depolied on <a class="text-pink-500" target="_blank" href="https://cloud.touhou.best">车万云</a>.
       </div>
     </div>
   </div>
