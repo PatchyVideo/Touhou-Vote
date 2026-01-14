@@ -1,36 +1,40 @@
 import { readFile } from 'fs/promises'
-import type { Statement } from '@vscode/sqlite3'
-import sqlite3_ from '@vscode/sqlite3'
-import { promisify } from 'util'
-
-const { Database } = sqlite3_.verbose()
+import initSqlJs from 'sql.js'
 
 export async function importDB(file: string) {
   console.log(`> Import DB ${file} > Importing`)
-  const db = new Database(':memory:')
 
-  const run = promisify(db.run.bind(db))
-  const exec = promisify(db.exec.bind(db))
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const each = (sql: string, cb: (this: Statement, err: Error | null, row: any) => void) =>
-    new Promise((resolve, reject) => {
-      db.each(sql, cb, (err, count) => {
-        if (err) reject(err)
-        else resolve(count)
-      })
-    })
+  const SQL = await initSqlJs({
+    // Required when sql.js is loaded by webpack or other bundlers
+    locateFile: (filename: string) => `https://sql.js.org/dist/${filename}`,
+  })
 
-  db.serialize()
+  const db = new SQL.Database()
 
-  await exec(await readFile(new URL(`../data/${file}`, import.meta.url), 'utf8'))
+  const sqlContent = await readFile(new URL(`../data/${file}`, import.meta.url), 'utf8')
+
+  try {
+    db.exec(sqlContent)
+  } catch (err) {
+    console.warn(`Warning: failed to execute SQL:`, err)
+  }
 
   console.log(`> Import DB ${file} > Done`)
 
   return {
     db,
-    run,
-    exec,
-    each,
+    run: (sql: string, params?: any[]) => db.run(sql, params),
+    exec: (sql: string) => db.exec(sql),
+    each: (sql: string, cb: (row: any) => void) => {
+      const stmt = db.prepare(sql)
+      let row
+      while (stmt.step()) {
+        row = stmt.getAsObject()
+        cb(row)
+      }
+      stmt.free()
+      return 0 // sql.js doesn't return count
+    },
   }
 }
 

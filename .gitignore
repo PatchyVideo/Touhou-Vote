@@ -40,6 +40,11 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
+# node-gyp build files
+build/config.gypi
+build/*.target.mk
+build/Makefile
+
 # Dependency directories
 node_modules/
 jspm_packages/
