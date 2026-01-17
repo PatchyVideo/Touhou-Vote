@@ -128,3 +128,9 @@ __generated__
 .idea
 .vercel
 .vs
+
+# vscode settings
+.vscode/
+
+# github settings
+.github/
