@@ -9,6 +9,8 @@
   "dependencies": {
     "@vueuse/core": "^10.0.2",
     "date-fns": "^2.29.3",
+    "naive-ui": "^2.43.2",
+    "vfonts": "^0.0.3",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
