@@ -12,6 +12,11 @@ import 'nprogress/css/nprogress.css'
 import '@/tailwindcss'
 import '@/darkmode'
 
+// 在开发环境加载测试工具
+if (import.meta.env.DEV) {
+  import('@/common/lib/testHelper')
+}
+
 // start progress bar
 function incProcess() {
   if (NProgress.isStarted()) NProgress.inc()
@@ -86,7 +91,7 @@ const router = createRouter({
     },
   ],
 })
-let pendingNProgress: number | undefined
+let pendingNProgress: ReturnType<typeof setTimeout> | undefined
 router.beforeEach(async (to, from, next) => {
   if (pendingNProgress === undefined)
     pendingNProgress = setTimeout(() => {

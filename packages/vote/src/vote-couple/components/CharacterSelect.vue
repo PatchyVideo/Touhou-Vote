@@ -55,7 +55,6 @@
 import type { PropType } from 'vue'
 import { computed, ref, watchEffect } from 'vue'
 import { useVModels, watchThrottled } from '@vueuse/core'
-import { CachedSearcher, SearchLogicContain } from 'pinin'
 import AdvancedFilter from './AdvancedFilter.vue'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
@@ -63,7 +62,7 @@ import { Character } from '@/vote-character/lib/character'
 import { characterList } from '@/vote-character/lib/characterList'
 import { Couple } from '@/vote-couple/lib/couple'
 import { filterForKind, workSelected } from '@/vote-couple/lib/workList'
-import { pinin } from '@/common/lib/pinin'
+import { orderOptions, filterCharactersByMeta, searchAndSort } from '@/common/lib/characterSearch'
 import Mask from '@/common/components/Mask.vue'
 
 const props = defineProps({
@@ -110,16 +109,6 @@ watchEffect(() => {
 const loading = ref(false)
 const advancedFilterOpen = ref(false)
 
-const orderOptions = [
-  {
-    name: '出场正序',
-    value: 'newest',
-  },
-  {
-    name: '出场倒序',
-    value: 'oldest',
-  },
-]
 const order = ref(orderOptions[0])
 
 const characterListLeft = computed<Character[]>(() => {
@@ -133,13 +122,8 @@ const characterListLeft = computed<Character[]>(() => {
   //   return !characterInCharacters
   // })
 
-  if (filterForKind.value.length) {
-    charaList = charaList.filter((chara) => filterForKind.value.find((k1) => chara.kind.find((k2) => k2 === k1.value)))
-  }
-
-  if (workSelected.value.name) {
-    charaList = charaList.filter((chara) => chara.work.find((work) => work === workSelected.value.name))
-  }
+  const kinds = filterForKind.value.map((k) => k.value)
+  charaList = filterCharactersByMeta(charaList, kinds, workSelected.value.name || undefined)
   return charaList
 })
 
@@ -149,31 +133,9 @@ function search(): void {
   keyword.value = searchContent.value
 }
 watchThrottled(searchContent, search, { throttle: 100 })
-const searcher = computed(() => {
-  const s = new CachedSearcher<Character>(SearchLogicContain, pinin)
 
-  for (const c of characterListLeft.value) {
-    s.put(c.name.toLowerCase(), c)
-    for (const altname of c.altnames) {
-      s.put(altname.toLowerCase(), c)
-    }
-    for (const work of c.work) {
-      s.put(work.toLowerCase(), c)
-    }
-  }
-
-  return s
-})
 const characterListLeftWithFilter = computed<Character[]>(() => {
-  const res = keyword.value ? [...new Set(searcher.value.search(keyword.value.toLowerCase()))] : characterListLeft.value
-
-  if (order.value.name === orderOptions[0].name) {
-    res.sort((a, b) => a.date - b.date)
-  } else {
-    res.sort((a, b) => b.date - a.date)
-  }
-
-  return res
+  return searchAndSort<Character>(characterListLeft.value, keyword.value, order.value.name)
 })
 
 function characterSelect(id: string): void {
