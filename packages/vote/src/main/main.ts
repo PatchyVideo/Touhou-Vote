@@ -15,6 +15,7 @@ import '@/darkmode'
 // 在开发环境加载测试工具
 if (import.meta.env.DEV) {
   import('@/common/lib/testHelper')
+  import('@/common/lib/testErrorHandling')
 }
 
 // start progress bar

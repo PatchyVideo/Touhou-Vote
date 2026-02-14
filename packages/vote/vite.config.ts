@@ -90,6 +90,24 @@ export default defineConfig(({ command, mode }) => {
             });
           }
         },
+        // 解决 thwiki 图片跨域的代理
+        '/thwiki-assets': {
+          target: 'https://static.thwiki.cc',
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path: string) => path.replace(/^\/thwiki-assets/, ''),
+          configure: (proxy) => {
+            proxy.on('proxyRes', (proxyRes) => {
+              proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+              proxyRes.headers['Access-Control-Allow-Methods'] = 'GET, OPTIONS';
+              proxyRes.headers['Access-Control-Allow-Headers'] = 'X-Requested-With, content-type, Authorization';
+
+              if (proxyRes.headers['content-type']?.includes('image')) {
+                proxyRes.headers['cache-control'] = 'public, max-age=31536000';
+              }
+            });
+          }
+        },
       },
     },
     build: {
