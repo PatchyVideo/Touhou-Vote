@@ -3,7 +3,10 @@
 export const startTime = new Date(2023, 11, 29, 18).getTime()
 // Deadline: 2024/1/15 00:00:00 UTC+8
 // Notice that month start at "0", not "1", so January is "0"
-export const deadline = new Date(2024, 0, 15).getTime()
+//export const deadline = new Date(2024, 0, 15).getTime()
+
+// 为了开发方便，我暂时需要把Deadline设置得比较远，等到投票阶段开始前再修改回来
+export const deadline = new Date(2099, 1, 15).getTime()
 export function timeFormat(date: Date): string {
   return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ': 00'
 }

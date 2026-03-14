@@ -38,6 +38,15 @@
             >
               <div>账号设置</div>
             </router-link>
+            <div class="p-2 border-t border-gray-200">
+              <ExportCharacterVoteImage />
+            </div>
+            <div class="p-2 border-t border-gray-200">
+              <ExportMusicVoteImage />
+            </div>
+            <div class="p-2 border-t border-gray-200">
+              <ExportCoupleVoteImage />
+            </div>
             <div
               class="rounded-xl cursor-pointer transition transition-colors hover:bg-accent-color-100"
               @click="logout()"
@@ -185,6 +194,15 @@
                   >
                     <div>账号设置</div>
                   </router-link>
+                  <div class="p-2 border-t border-gray-200">
+                    <ExportCharacterVoteImage />
+                  </div>
+                  <div class="p-2 border-t border-gray-200">
+                    <ExportMusicVoteImage />
+                  </div>
+                  <div class="p-2 border-t border-gray-200">
+                    <ExportCoupleVoteImage />
+                  </div>
                   <div
                     class="rounded-xl cursor-pointer transition transition-colors hover:bg-accent-color-100"
                     tabindex="0"
@@ -237,6 +255,9 @@ import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
 import { popConfirmText } from '@/common/lib/popMessage'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { voteYear } from '@/common/lib/voteYear'
+import ExportCharacterVoteImage from '@/common/components/ExportCharacterVoteImage.vue'
+import ExportMusicVoteImage from '@/common/components/ExportMusicVoteImage.vue'
+import ExportCoupleVoteImage from '@/common/components/ExportCoupleVoteImage.vue'
 
 setSiteTitle(String(username.value))
 

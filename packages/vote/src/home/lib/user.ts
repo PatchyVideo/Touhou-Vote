@@ -51,7 +51,34 @@ export const voteToken = ref<string>('')
 
 export const sessionToken = ref<string>('')
 
+/**
+ * 开发模式标志
+ * 仅用于开发和测试环境，允许使用测试数据绕过后端验证
+ */
+export const isDevMode = ref<boolean>(false)
+
 export const isLogin = computed(() => voteToken.value != '')
+
+/**
+ * 启用开发模式
+ * 警告：仅用于开发和测试，生产环境不要使用
+ */
+export function enableDevMode() {
+  if (import.meta.env.DEV) {
+    isDevMode.value = true
+    console.warn('⚠️ 开发模式已启用 - 绕过后端验证')
+  } else {
+    console.error('❌ 无法在生产环境启用开发模式')
+  }
+}
+
+/**
+ * 禁用开发模式
+ */
+export function disableDevMode() {
+  isDevMode.value = false
+  console.log('✅ 开发模式已禁用')
+}
 
 export const voteCharacterComplete = ref(false)
 export const voteMusicComplete = ref(false)
@@ -71,6 +98,10 @@ export function setUserDataToLocalStorage(user: Voter, token: string, session: s
   localStorage.setItem('user', JSON.stringify(user))
   localStorage.setItem('voteToken', token)
   localStorage.setItem('sessionToken', session)
+  
+  // 同时更新响应式变量
+  voteToken.value = token
+  sessionToken.value = session
 }
 function replacePhoneNum(phone: string): string {
   let replacedPhoneNum = ''
@@ -97,7 +128,7 @@ export function deleteUserData(): void {
   localStorage.removeItem('sessionToken')
   localStorage.removeItem('questionnaireDataLocal')
   localStorage.removeItem('characters')
-  localStorage.removeItem('muiscs')
+  localStorage.removeItem('musics')
   localStorage.removeItem('couples')
   localStorage.removeItem('doujins')
   localStorage.removeItem('confirmedDoujinNotice')
@@ -111,6 +142,14 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
     deleteUserData()
     return
   }
+  
+  // 开发模式下，跳过后端验证，直接使用本地数据
+  if (isDevMode.value) {
+    console.log('🔧 开发模式：跳过后端验证，使用本地数据')
+    getUserDataFromLocalStorage()
+    return
+  }
+  
   await fetch('/v11-be/user-token-status', {
     method: 'POST',
     headers: new Headers({
@@ -139,7 +178,9 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
     })
     .catch((err) => {
       console.log(err)
-      if (err.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+      if (err.graphQLErrors && err.graphQLErrors[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') {
+        popMessageText('请求过于频繁！')
+      }
       deleteUserData()
     })
 }

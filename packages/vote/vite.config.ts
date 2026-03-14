@@ -12,18 +12,20 @@ import yaml from '@rollup/plugin-yaml'
 
 /**
  * Vite Configuration File
- *
  * Docs: https://vitejs.dev/config/
  */
-export default defineConfig(async ({ command, mode }) => {
-  /* create __generated__ dir */
-  {
-    const list = ['dts']
-    const promises = []
-    for (const dir of list) promises.push(fsp.mkdir(resolve(__dirname, `./src/${dir}/__generated__`)))
-    await Promise.allSettled(promises)
+// 自动创建生成目录逻辑（同步实现）
+const list = ['dts']
+for (const dir of list) {
+  try {
+    // 使用同步方法确保目录存在
+    require('fs').mkdirSync(resolve(__dirname, `./src/${dir}/__generated__`), { recursive: true })
+  } catch (e) {
+    // 忽略目录已存在的错误
   }
+}
 
+export default defineConfig(({ command, mode }) => {
   return {
     optimizeDeps: {
       exclude: ['@touhou-vote/shared'],
@@ -48,22 +50,63 @@ export default defineConfig(async ({ command, mode }) => {
         dts: resolve(__dirname, './src/dts/__generated__/viteComponents.d.ts'),
       }),
       icons(),
-      {
-        ...visualizer({
-          filename: 'dist/stats.html',
-          gzipSize: true,
-          brotliSize: true,
-        }),
-        apply: 'build',
-      },
-    ],
+      // 仅在构建时启用分析
+      command === 'build' ? visualizer({
+        filename: 'dist/stats.html',
+        gzipSize: true,
+        brotliSize: true,
+      }) : undefined,
+    ].filter(Boolean),
+
     server: {
       proxy: {
+        // 现有的后端接口代理
         '/v11-be': {
           target: 'https://touhou.ai/vote-be',
           changeOrigin: true,
           secure: false,
-          rewrite: (path) => path.replace(/^\/v11-be/, ''),
+          rewrite: (path: string) => path.replace(/^\/v11-be/, ''),
+        },
+        
+        // 重点：解决东方云盘图片跨域的代理
+        '/th-assets': {
+          target: 'https://asset.lilywhite.cc',
+          changeOrigin: true,
+          secure: false, // 如果目标站是自签名证书或有SSL问题，设为 false
+          rewrite: (path: string) => path.replace(/^\/th-assets/, ''),
+          
+          // 核心配置：修改响应头
+          configure: (proxy) => {
+            proxy.on('proxyRes', (proxyRes) => {
+              // 1. 强行添加 CORS 允许头
+              proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+              proxyRes.headers['Access-Control-Allow-Methods'] = 'GET, OPTIONS';
+              proxyRes.headers['Access-Control-Allow-Headers'] = 'X-Requested-With, content-type, Authorization';
+              
+              // 2. 优化图片缓存控制（可选）
+              if (proxyRes.headers['content-type']?.includes('image')) {
+                proxyRes.headers['cache-control'] = 'public, max-age=31536000';
+              }
+            });
+          }
+        },
+        // 解决 thwiki 图片跨域的代理
+        '/thwiki-assets': {
+          target: 'https://static.thwiki.cc',
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path: string) => path.replace(/^\/thwiki-assets/, ''),
+          configure: (proxy) => {
+            proxy.on('proxyRes', (proxyRes) => {
+              proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+              proxyRes.headers['Access-Control-Allow-Methods'] = 'GET, OPTIONS';
+              proxyRes.headers['Access-Control-Allow-Headers'] = 'X-Requested-With, content-type, Authorization';
+
+              if (proxyRes.headers['content-type']?.includes('image')) {
+                proxyRes.headers['cache-control'] = 'public, max-age=31536000';
+              }
+            });
+          }
         },
       },
     },
