@@ -21,7 +21,6 @@ import { voteToken } from '@/home/lib/user'
 import { fetchVoteData, type DataSourceMode } from './voteDataSource'
 import type { CharacterSubmitQuery, CpSubmitQuery, MusicSubmitQuery } from '@/graphql/__generated__/graphql'
 import { character0 } from '@/vote-character/lib/character'
-import { music0 } from '@/vote-music/lib/music'
 
 /**
  * 获取角色投票数据用于导出（从 localStorage）
