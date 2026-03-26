@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/vote-ci.yml'
       - 'pnpm-lock.yaml'
-      - 'packages/result/**'
+      - 'packages/vote/**'
 
 jobs:
   build:
@@ -41,12 +41,12 @@ jobs:
 
       - name: Codegen
         run: pnpm codegen
-        working-directory: ./packages/result
+        working-directory: ./packages/vote
         timeout-minutes: 5
 
       - name: Build
         run: pnpm build
-        working-directory: ./packages/result
+        working-directory: ./packages/vote
         timeout-minutes: 15
 
       - name: Deploy to Vercel
@@ -56,6 +56,6 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
-          working-directory: ./packages/result/dist
+          working-directory: ./packages/vote/dist
           github-comment: false
         timeout-minutes: 5
