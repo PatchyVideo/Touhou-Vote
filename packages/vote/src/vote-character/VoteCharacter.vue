@@ -135,7 +135,7 @@ import CharacterCard from '@/vote-character/components/CharacterCard.vue'
 import { character0 } from '@/vote-character/lib/character'
 import { charactersVoted, charactersVotedWithoutHonmei } from '@/vote-character/lib/characterList'
 import { CHARACTERVOTENUM, characterHonmei, characters, updateVoteCharacters } from '@/vote-character/lib/voteData'
-import { gql, useMutation, useQuery, useResult } from '@/graphql'
+import { gql, useMutation, useQuery } from '@/graphql'
 import type { Mutation, Query, schema } from '@/graphql'
 import { voteCharacterComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
@@ -175,7 +175,7 @@ watchEffect(() => {
     if (NProgress.isStarted()) NProgress.done()
   }
 })
-const resultData = useResult(result, null, (data) => data?.getSubmitCharacterVote)
+const resultData = computed(() => result.value?.getSubmitCharacterVote ?? null)
 watchEffect(() => {
   if (resultData.value) {
     updateVoteCharacters(resultData.value.characters)

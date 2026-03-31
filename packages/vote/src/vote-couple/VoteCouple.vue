@@ -122,7 +122,7 @@ import CoupleCard from '@/vote-couple/components/CoupleCard.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import type { Character } from '@/vote-character/lib/character'
 import { character0 } from '@/vote-character/lib/character'
-import { gql, useMutation, useQuery, useResult } from '@/graphql'
+import { gql, useMutation, useQuery } from '@/graphql'
 import type { Mutation, Query, schema } from '@/graphql'
 import { voteCoupleComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
@@ -165,7 +165,7 @@ watchEffect(() => {
     if (NProgress.isStarted()) NProgress.done()
   }
 })
-const resultData = useResult(result, null, (data) => data?.getSubmitCPVote)
+const resultData = computed(() => result.value?.getSubmitCPVote ?? null)
 watchEffect(() => {
   if (resultData.value) {
     updateVotecouple(resultData.value.cps)

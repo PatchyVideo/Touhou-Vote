@@ -44,6 +44,7 @@
 - Apollo 初始化在 `src/graphql/index.ts`。
 - GraphQL 请求地址固定为 `/v11-be/graphql`，本地开发依赖 Vite 代理。
 - `useQuery` 被二次封装，默认会重置结果并主动 `restart()`，同时统一打印 Apollo 错误。
+- 投票页读取“已提交投票数据”时，当前已经不再使用 `@vue/apollo-composable` 已弃用的 `useResult()`，而是直接用 `computed(() => result.value?.field ?? null)` 做结果映射。
 - `typePolicies` 和 schema 生成文件位于 `src/graphql/__generated__`，代码生成配置是 `src/graphql/codegen.yml`。
 
 ## 目录结构

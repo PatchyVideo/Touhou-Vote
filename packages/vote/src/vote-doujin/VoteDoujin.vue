@@ -89,7 +89,7 @@ import DoujinCard from '@/vote-doujin/components/DoujinCard.vue'
 import EditDoujin from '@/vote-doujin/components/EditDoujin.vue'
 import { doujins, updateVoteDataDoujins } from '@/vote-doujin/lib/voteData'
 import { doujinValid } from '@/vote-doujin/lib/doujinList'
-import { gql, useMutation, useQuery, useResult } from '@/graphql'
+import { gql, useMutation, useQuery } from '@/graphql'
 import type { Mutation, Query } from '@/graphql'
 import { voteDoujinComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
@@ -149,7 +149,7 @@ watchEffect(() => {
     if (NProgress.isStarted()) NProgress.done()
   }
 })
-const resultData = useResult(result, null, (data) => data?.getSubmitDojinVote)
+const resultData = computed(() => result.value?.getSubmitDojinVote ?? null)
 watchEffect(() => {
   if (resultData.value) {
     updateVoteDataDoujins(resultData.value.dojins)

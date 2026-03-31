@@ -137,7 +137,7 @@ import MusicCard from '@/vote-music/components/MusicCard.vue'
 import { music0 } from '@/vote-music/lib/music'
 import { musicsVoted, musicsVotedWithoutHonmei } from '@/vote-music/lib/musicList'
 import { MUSICVOTENUM, musicHonmei, musics, updateVoteMusics } from '@/vote-music/lib/voteData'
-import { gql, useMutation, useQuery, useResult } from '@/graphql'
+import { gql, useMutation, useQuery } from '@/graphql'
 import type { Mutation, Query, schema } from '@/graphql'
 import { voteMusicComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
@@ -177,7 +177,7 @@ watchEffect(() => {
     if (NProgress.isStarted()) NProgress.done()
   }
 })
-const resultData = useResult(result, null, (data) => data?.getSubmitMusicVote)
+const resultData = computed(() => result.value?.getSubmitMusicVote ?? null)
 watchEffect(() => {
   if (resultData.value) {
     updateVoteMusics(resultData.value.music)
