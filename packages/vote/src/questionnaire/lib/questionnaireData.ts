@@ -1,3 +1,8 @@
+// 当前生产环境仍使用本文件维护问卷运行时状态。
+// 核心模型仍是“题库 + 当前问题ID占位”的旧逻辑，现有问卷页面、
+// 首页完成态、路由守卫、本地缓存与后端提交都直接依赖这里。
+// `questionnaireV2` 是并行开发中的新结构，目前不替代本文件。
+
 import { computed, ref } from 'vue'
 import type { QuestionnaireALL } from '@/questionnaire/lib/questionnaire'
 import { questionnaire } from '@/questionnaire/lib/questionnaire'

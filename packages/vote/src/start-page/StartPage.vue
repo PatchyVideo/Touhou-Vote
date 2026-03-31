@@ -5,10 +5,7 @@
       class="baseBoxRoundedShadow space-y-6vh w-full p-5 md:py-10 md:flex md:flex-col md:flex-wrap md:content-center md:space-y-4vh"
     >
       <div class="md:w-1/2 xl:w-1/3 space-y-2">
-        <div class="quicksand md:text-xl">
-          <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://static.thwiki.cc/favicon.png" />THBWiki &
-          <img class="inline-block w-8 h-10 pb-1 align-middle" src="@/common/assets/logoVoilelabs.png" />VoileLabs
-        </div>
+        <div class="quicksand md:text-xl">中文东方人气投票组委会</div>
         <div class="w-full flex flex-wrap space-y-2">
           <div class="w-full"><img src="@/common/assets/title.svg" /></div>
           <div class="w-full"><img class="w-1/4 inline-block" src="@/common/assets/titleNum.svg" /></div>

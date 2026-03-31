@@ -5,12 +5,7 @@
   <div class="w-full max-w-screen-lg mx-auto">
     <div class="flex flex-col py-10vh lg:py-15vh mx-2">
       <!-- Header -->
-      <div class="quicksand text-gray-800 md:text-xl font-bold">
-        <img class="inline-block w-5 h-6 pb-1 align-middle" src="https://static.thwiki.cc/favicon.png" alt="THBWiki" /> 
-        THBWiki &
-        <img class="inline-block w-8 h-10 pb-1 align-middle" src="@/assets/logoVoilelabs.png" alt="VoileLabs" /> 
-        VoileLabs
-      </div>
+      <div class="quicksand text-gray-800 md:text-xl font-bold">中文东方人气投票组委会</div>
       
       <h1 class="text-5xl mt-2 mb-4">
         <img class="h-12" alt="中文东方人气投票" src="@/assets/title.svg" />
@@ -70,7 +65,7 @@
 
       <!-- Copyright -->
       <div class="quicksand w-full text-center my-6 text-gray-500 text-sm">
-        &copy; Copyright 2022 THBWiki, VoileLabs. Licensed under GPL-3.0.<br />
+        &copy; Copyright 2022 中文东方人气投票组委会. Licensed under GPL-3.0.<br />
         Backend Deployed on <a class="text-pink-500 hover:underline" target="_blank" href="https://cloud.touhou.best">车万云</a>.
       </div>
     </div>

@@ -47,9 +47,7 @@
       </template>
     </n-result>
 
-    <div class="absolute bottom-8 text-gray-400 text-sm quicksand font-medium opacity-60">
-      THBWiki & VoileLabs
-    </div>
+    <div class="absolute bottom-8 text-gray-400 text-sm quicksand font-medium opacity-60">中文东方人气投票组委会</div>
   </div>
 </template>
 
