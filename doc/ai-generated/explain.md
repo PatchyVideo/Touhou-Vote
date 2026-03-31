@@ -7,7 +7,7 @@
 
 目前文件说明如下：
 - `vote-dev-notes.md`：投票页，包含登录、问卷、角色/音乐/CP/提名投票流程。
-- `result-dev-notes.md`：结果页，包含自动路由、布局、Apollo/GraphQL 和图表页面。
-- `navigator-dev-notes.md`：导航页，负责历届投票入口与当前届引导。
+- `result-dev-notes.md`：结果页，包含显式路由、布局、Apollo/GraphQL 和图表页面。
+- `navigator-dev-notes.md`：导航页，负责历届投票入口与当前届引导，路由也已改为显式维护。
 
 如果接下来主要开发 `packages/vote`，建议先读 `vote-dev-notes.md`。当前仓库里前端交互最复杂、改动也最集中的部分就是投票页，包括首页入口状态切换和“导出投票结果为图片”组件链路。

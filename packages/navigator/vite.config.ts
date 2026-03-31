@@ -1,7 +1,6 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import pages from 'vite-plugin-pages'
 import components from 'unplugin-vue-components/vite'
 import autoImport from 'unplugin-auto-import/vite'
 import unocss from 'unocss/vite'
@@ -14,8 +13,6 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    // https://github.com/hannoeru/vite-plugin-pages
-    pages(),
     // https://github.com/antfu/unplugin-auto-import
     autoImport({
       imports: ['vue', 'vue-router', '@vueuse/core'],

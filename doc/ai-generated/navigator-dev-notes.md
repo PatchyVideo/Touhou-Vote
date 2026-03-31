@@ -9,7 +9,7 @@
 
 ## 架构概览
 - 入口：`src/main.ts`
-- 路由：`vite-plugin-pages` 自动生成，`App.vue` 只渲染 `<router-view />`
+- 路由：`src/router.ts` 显式定义，`App.vue` 只渲染 `<router-view />`
 - 样式：UnoCSS + `src/styles/global.postcss`
 - 主要运行时依赖：
   - Vue 3
@@ -19,10 +19,11 @@
   - `naive-ui`、`vfonts` 已安装，但当前入口页面里几乎没看到实际使用
 
 ## 关键文件
-- `src/main.ts`：创建应用并使用 `createWebHistory('/nav/')`
+- `src/main.ts`：创建应用并挂载 `src/router.ts`
+- `src/router.ts`：显式注册首页和 404 路由，使用 `createWebHistory('/nav/')`
 - `src/pages/index.vue`：整站主要页面，包含届数列表、最新届倒计时、版权区
 - `src/pages/[...all].vue`：404 兜底
-- `vite.config.ts`：自动路由、自动导入、组件自动注册、UnoCSS
+- `vite.config.ts`：自动导入、组件自动注册、UnoCSS
 - `unocss.config.ts`：`presetUno`、`presetIcons`、`transformerDirectives`
 
 ## 首页数据模型
@@ -53,7 +54,7 @@ pnpm nav:serve
 1. 更新届数、封面、投票时间，直接改 `src/pages/index.vue` 的 `resultListRaw`。
 2. 如果要把数据从硬编码改成接口拉取，优先重构 `resultListRaw` 和最新届派生逻辑，不要只改单个展示块。
 3. 如果部署前缀变化，至少同步检查 `src/main.ts` 里的 `/nav/` 和服务端回退规则。
-4. 如果要扩展更多页面，可以继续沿用 `src/pages` 约定式路由。
+4. 如果要扩展更多页面，新增页面文件后记得同步更新 `src/router.ts`。
 
 ## 调试提示
 - 构建产物开启了 `sourcemap`。

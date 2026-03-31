@@ -17,14 +17,22 @@
           <div :class="item.icon" />
           <div class="font-medium">{{ item.name }}</div>
         </div>
-        <router-link
-          :to="item2.to"
-          class="block indent-7 mt-1 text-gray-600 transition transition-transform md:hover:-translate-1 active:translate-1"
-          v-for="item2 in item.links"
-          :key="item2.name"
-        >
-          {{ item2.name }}
-        </router-link>
+        <template v-for="item2 in item.links" :key="item2.name">
+          <a
+            v-if="item2.href"
+            :href="item2.href"
+            class="block indent-7 mt-1 text-gray-600 transition transition-transform md:hover:-translate-1 active:translate-1"
+          >
+            {{ item2.name }}
+          </a>
+          <router-link
+            v-else
+            :to="item2.to"
+            class="block indent-7 mt-1 text-gray-600 transition transition-transform md:hover:-translate-1 active:translate-1"
+          >
+            {{ item2.name }}
+          </router-link>
+        </template>
       </div>
     </div>
   </div>
@@ -38,14 +46,26 @@ import { voteYear } from '@/lib/voteYear'
 
 const drawerOpen = ref(false)
 
-const links = [
+type NavItemLink = {
+  name: string
+  to?: string
+  href?: string
+}
+
+type NavItemGroup = {
+  name: string
+  icon: string
+  links: NavItemLink[]
+}
+
+const links: NavItemGroup[] = [
   {
     name: '首页',
     icon: 'i-uil:estate',
     links: [
       {
         name: '导航页',
-        to: '/nav',
+        href: '/nav',
       },
       {
         name: '结果首页',

@@ -5,11 +5,11 @@
 ## 项目定位
 - `packages/result` 是投票结果前端，负责结果首页、角色/音乐/CP/提名/问卷相关页面，以及多种图表展示。
 - 路由基准是 `/v11/`，和投票页一样挂在同一届目录下，但接口代理前缀单独使用 `/res-be`。
-- 应用依赖 Apollo Client 访问 GraphQL，页面路由和布局都走自动生成。
+- 应用依赖 Apollo Client 访问 GraphQL，页面路由由 `src/router.ts` 显式定义，布局仍通过 `vite-plugin-vue-layouts` 组装。
 
 ## 架构概览
 - 入口：`src/main.ts`
-- 路由：`vite-plugin-pages`
+- 路由：`src/router.ts`
 - 布局：`vite-plugin-vue-layouts`
 - 样式：UnoCSS + `src/styles/global.postcss`
 - 加载反馈：`nprogress`
@@ -18,8 +18,11 @@
 - `src/main.ts` 会：
   - 创建 Apollo Client
   - 通过 `provideClient` 注入到应用
-  - 使用 `setupLayouts(generatedRoutes)` 组装路由
-  - 创建 `createWebHistory('/v11/')`
+  - 挂载 `src/router.ts` 中创建的 router
+- `src/router.ts` 会：
+  - 显式注册 `src/pages` 下的页面组件
+  - 手动补齐原先 `<route lang="yaml">` 提供的 `meta.navid`
+  - 继续通过 `setupLayouts(routes)` 让首页使用 `blank` 布局
 - `App.vue` 只负责渲染路由出口。
 
 ## GraphQL 与数据层
@@ -33,8 +36,8 @@
 - 代码生成命令是 `pnpm result:codegen`，配置文件为 `src/composables/graphql/codegen.yml`。
 
 ## 路由与页面组织
-- 页面文件位于 `src/pages`，文件名直接决定路由。
-- 首页 `src/pages/index.vue` 使用 `<route lang="yaml">` 指定 `layout: blank`。
+- 页面文件位于 `src/pages`，但实际路由路径和 meta 由 `src/router.ts` 显式维护。
+- 首页 `/` 仍使用 `blank` 布局，其余页面走默认布局。
 - 主要页面分组如下：
   - 角色：`character.vue`、`characterDetail.vue`、`characterCompare.vue`、`characterEvolution.vue`、`characterSingleDetail.vue`、`CharacterReason.vue`
   - 音乐：`Music.vue`、`MusicDetail.vue`、`MusicCompare.vue`、`MusicEvolution.vue`、`MusicSingleDetail.vue`、`MusicReason.vue`
@@ -84,11 +87,12 @@ pnpm result:codegen
 ```
 
 ## 常见改动点
-1. 新增结果页路由时，直接在 `src/pages` 新建 `.vue` 文件；如果需要不同布局，用 `<route lang="yaml">` 标记 `layout`。
-2. 改首页入口、部门卡片或说明文案，优先看 `src/pages/index.vue`。
-3. 改导航结构时，通常同时涉及 `src/components/Nav.vue`、`src/components/NavTop.vue` 和 `src/layouts/default.vue`。
-4. 改图表表现，优先在 `src/components` 找现有组件复用，再决定是否新增。
-5. GraphQL schema 或缓存策略变化后，记得同时更新 codegen 产物和 `typePolicies.ts`。
+1. 新增结果页路由时，先在 `src/pages` 新建页面，再同步把路径和 `meta` 加到 `src/router.ts`。
+2. 指向 `/nav` 这类跨应用入口时，不要用 `router-link`，应使用普通 `href`，避免被结果页自己的 `/v11/` history 基准错误拼接。
+3. 改首页入口、部门卡片或说明文案，优先看 `src/pages/index.vue`。
+4. 改导航结构时，通常同时涉及 `src/components/Nav.vue`、`src/components/NavTop.vue` 和 `src/layouts/default.vue`。
+5. 改图表表现，优先在 `src/components` 找现有组件复用，再决定是否新增。
+6. GraphQL schema 或缓存策略变化后，记得同时更新 codegen 产物和 `typePolicies.ts`。
 
 ## 调试提示
 - 如果 GraphQL 数据异常，先检查 `/res-be` 代理是否可用，再看 Apollo 封装是否把旧结果清空导致页面瞬时空态。

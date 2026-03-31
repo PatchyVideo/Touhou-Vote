@@ -1,9 +1,7 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
 import NProgress from 'nprogress'
-import { setupLayouts } from 'virtual:generated-layouts'
-import generatedRoutes from '~pages'
 import App from './App.vue'
+import { router } from './router'
 
 import 'nprogress/css/nprogress.css'
 import '@unocss/reset/tailwind.css'
@@ -24,12 +22,6 @@ const app = createApp(
   })
 )
 
-const routes = setupLayouts(generatedRoutes)
-const router = createRouter({
-  history: createWebHistory('/v11/'),
-  strict: true,
-  routes,
-})
 app.use(router)
 app.mount('#app')
 
