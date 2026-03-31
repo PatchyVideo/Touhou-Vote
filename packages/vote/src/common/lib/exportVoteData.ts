@@ -8,19 +8,11 @@
  * 2. 调用 exportVoteData() 导出数据
  */
 
-import { characters, characterHonmei, characters as allCharacters } from '@/vote-character/lib/voteData'
 import { charactersVoted } from '@/vote-character/lib/characterList'
-import { characterList } from '@/vote-character/lib/characterList'
-import { Character } from '@/vote-character/lib/character'
 import { couples } from '@/vote-couple/lib/voteData'
-import { Couple } from '@/vote-couple/lib/couple'
 import { musics } from '@/vote-music/lib/voteData'
-import { musicsVoted } from '@/vote-music/lib/musicList'
-import { Music } from '@touhou-vote/shared/data/music'
-import { voteToken } from '@/home/lib/user'
 import { fetchVoteData, type DataSourceMode } from './voteDataSource'
 import type { CharacterSubmitQuery, CpSubmitQuery, MusicSubmitQuery } from '@/graphql/__generated__/graphql'
-import { character0 } from '@/vote-character/lib/character'
 
 /**
  * 获取角色投票数据用于导出（从 localStorage）

@@ -11,7 +11,7 @@
 import { ref } from 'vue'
 import { createApollo } from '@/graphql'
 import { gql } from '@apollo/client/core'
-import type { Query, CharacterSubmitQuery } from '@/graphql/__generated__/graphql'
+import type { Query } from '@/graphql/__generated__/graphql'
 import { voteToken } from '@/home/lib/user'
 
 /**

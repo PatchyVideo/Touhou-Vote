@@ -12,7 +12,7 @@
  */
 
 import { setDataSourceMode, getDataSourceMode, fetchVoteData } from './voteDataSource'
-import { setupTestUser, setupQuickTestVotes, checkTestStatus, setTestDataSourceMode } from './testHelper'
+import { setupTestUser, setupQuickTestVotes } from './testHelper'
 import { voteToken } from '@/home/lib/user'
 
 /**
