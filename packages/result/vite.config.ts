@@ -18,9 +18,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    vue({
-      reactivityTransform: true,
-    }),
+    vue(),
     // https://github.com/hannoeru/vite-plugin-pages
     pages(),
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -30,7 +28,6 @@ export default defineConfig({
       dirs: ['src/composables/*/index.{js,ts,jsx,tsx}'],
       imports: [
         'vue',
-        'vue/macros',
         'vue-router',
         '@vueuse/core',
         {

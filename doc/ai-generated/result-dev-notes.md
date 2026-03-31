@@ -63,7 +63,8 @@
 - 还额外定义了 `3xl` 断点和 `around` 阴影。
 - `vite.config.ts` 的几个关键点：
   - alias：`@/` -> `src/`
-  - `autoImport` 包含 `vue/macros`
+  - `@vitejs/plugin-vue` 使用默认配置，不再开启 `reactivityTransform`
+  - `autoImport` 只注入 `vue`、`vue-router`、`@vueuse/core` 和共享的 `setSiteTitle`
   - 组件自动注册仅扫描 `src/components`
   - `directoryAsNamespace: true`
   - `build.assetsDir = 'v11/assets'`
