@@ -59,8 +59,17 @@ export default defineConfig(({ command, mode }) => {
     ].filter(Boolean),
 
     server: {
+      port: 5175,
       proxy: {
-        // 现有的后端接口代理
+        // GraphQL 接口现在直接落在 /vote-be/graphql
+        '/v11-be/graphql': {
+          target: 'https://touhou.ai/vote-be/graphql',
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path: string) => path.replace(/^\/v11-be\/graphql/, ''),
+        },
+
+        // 其他后端接口仍然走 /vote-be 基路径
         '/v11-be': {
           target: 'https://touhou.ai/vote-be',
           changeOrigin: true,

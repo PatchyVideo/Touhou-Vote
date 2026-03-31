@@ -9,7 +9,7 @@
  */
 
 import { ref } from 'vue'
-import { useLazyQuery } from '@/graphql'
+import { createApollo } from '@/graphql'
 import { gql } from '@apollo/client/core'
 import type { Query, CharacterSubmitQuery } from '@/graphql/__generated__/graphql'
 import { voteToken } from '@/home/lib/user'
@@ -23,6 +23,7 @@ export type DataSourceMode = 'local' | 'graphql' | 'auto'
  * 当前数据源模式（全局配置）
  */
 const dataSourceMode = ref<DataSourceMode>('auto')
+const apolloClient = createApollo()
 
 /**
  * 设置数据源模式
@@ -158,38 +159,12 @@ async function fetchFromGraphQL<T>(dataType: VoteDataType): Promise<{ data: T[] 
       return { data: null, error: '不支持的投票类型' }
     }
 
-    const { load, result, error: loadErrorRef } = useLazyQuery<Query>(query, { voteToken: voteToken.value }, { fetchPolicy: 'network-only' })
-
-    await load()
-    
-    // 检查加载错误 - 使用 .value 访问 Ref
-    const loadError = loadErrorRef.value
-    if (loadError) {
-      console.error(`GraphQL 查询加载失败 (${dataType}):`, loadError)
-      
-      // 尝试识别错误类型
-      let errorMessage = '获取数据失败'
-      const errorMsg = loadError.message || ''
-      const graphQLErrors = loadError.graphQLErrors || []
-      
-      if (errorMsg.toLowerCase().includes('unauthorized') ||
-          errorMsg.toLowerCase().includes('token') ||
-          errorMsg.toLowerCase().includes('auth') ||
-          graphQLErrors.some((e: any) => 
-            e.message?.toLowerCase().includes('token') ||
-            e.message?.toLowerCase().includes('unauthorized')
-          )) {
-        errorMessage = '无效的 voteToken，请检查您的登录状态'
-      } else if (loadError.networkError) {
-        errorMessage = '网络连接失败，请检查网络连接'
-      } else if (errorMsg) {
-        errorMessage = `服务器错误: ${errorMsg}`
-      }
-      
-      return { data: null, error: errorMessage }
-    }
-    
-    const data = extractGraphQLData[dataType](result.value as Query)
+    const result = await apolloClient.query<Query>({
+      query,
+      variables: { voteToken: voteToken.value },
+      fetchPolicy: 'network-only',
+    })
+    const data = extractGraphQLData[dataType](result.data)
 
     // 严格检查：数据必须非空
     if (!data || data.length === 0) {
@@ -253,7 +228,14 @@ export async function fetchVoteData<T>(
   forceMode?: DataSourceMode
 ): Promise<{ data: T[] | null; error: string | null; usedMode: 'local' | 'graphql' | null }> {
   const mode = forceMode ?? dataSourceMode.value
-  const localStorageKey = `${dataType}s` // characters, musics, couples, doujins
+  const localStorageKeyMap: Record<VoteDataType, string> = {
+    character: 'characters',
+    music: 'musics',
+    couple: 'couples',
+    doujin: 'doujins',
+    questionnaire: 'questionnaireDataLocal',
+  }
+  const localStorageKey = localStorageKeyMap[dataType]
 
   // 模式：强制使用本地存储
   if (mode === 'local') {
@@ -279,6 +261,9 @@ export async function fetchVoteData<T>(
   if (mode === 'auto') {
     // 先尝试本地存储，如果有数据则直接返回（离线优先）
     const localData = fetchFromLocalStorage<T>(localStorageKey)
+    if (localData) {
+      return { data: localData, error: null, usedMode: 'local' }
+    }
     
     // 尝试 GraphQL
     const { data: graphqlData, error: graphqlError } = await fetchFromGraphQL<T>(dataType)

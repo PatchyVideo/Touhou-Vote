@@ -1,0 +1,2 @@
+votetester1@touhou.ai
+密码 wlrg6M43tpI6919i

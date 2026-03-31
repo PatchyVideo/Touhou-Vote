@@ -119,6 +119,10 @@ export function getUserDataFromLocalStorage(): void {
     user.value = userData
     voteToken.value = tokenData
     sessionToken.value = sessionData
+  } else {
+    user.value = createDefaultVoter()
+    voteToken.value = ''
+    sessionToken.value = ''
   }
 }
 
@@ -134,6 +138,8 @@ export function deleteUserData(): void {
   localStorage.removeItem('confirmedDoujinNotice')
   localStorage.removeItem('confirmedDoujinEditNotice')
   user.value = createDefaultVoter()
+  voteToken.value = ''
+  sessionToken.value = ''
 }
 
 export async function checkLoginStatus(needGetUserDataFromLocalStorage = false): Promise<void> {

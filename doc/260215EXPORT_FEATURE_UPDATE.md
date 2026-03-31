@@ -4,9 +4,11 @@
 
 本次更新为投票系统添加了**投票导出为图片**功能，支持角色、CP、音乐类型(其它类型尚未设计风格故没加)。用户可以将自己的投票数据生成精美图片以分享和保存。
 
-可以在用户头像点击后的下拉栏找到三个导出选项的按钮（之后它们具体放到哪要看UI设计了）
+当前入口位于 `UserHome.vue` 的用户头像下拉菜单中，移动端和桌面端都已接入三个导出按钮。
 
-由于后端老哥还没写完最终版本，我需要自己测试，因此我写了一些ts，基于localStorage设置数据（包括登录信息和投票）结果，并且设计了一个兼容GraphQL和本地数据的统一接口，后端API就绪后只需要切换数据源模式即可无缝迁移。
+由于后端最终版本当时还未就绪，这里补了基于 localStorage 的测试数据链路，并额外设计了兼容 GraphQL 和本地数据的统一接口。
+
+但以当前代码为准，导出 UI 并没有暴露数据源切换开关；当前默认行为已经改成 `auto`，即优先 GraphQL，失败时回退本地数据。如果以后恢复该开关，则可强制切到 `graphql`。
 
 在最下面是一个todo list，请看。
 
@@ -41,6 +43,12 @@
 - **预览**：在对话框中预览生成的图片
 - **下载**：保存为PNG文件到本地
 - **分享**：支持Web Share API（浏览器默认的）
+
+**当前实现限制**
+- 分享按钮只检查了 `navigator.share` 是否存在，没有检查文件分享能力是否真正可用
+- 预览图 URL 使用了 `URL.createObjectURL()`，当前没有看到显式释放旧 URL 的逻辑
+- 卡片底部二维码依赖第三方在线服务 `api.qrserver.com`
+- GraphQL 切换入口在 UI 上仍然隐藏，当前只能使用默认 `auto` 行为
 
 ### 3. 数据层架构
 
@@ -82,7 +90,7 @@ fetchVoteData<T>(dataType: VoteDataType, forceMode?: DataSourceMode)
 **模式说明**
 - **`local`**：强制使用localStorage数据
 - **`graphql`**：强制使用GraphQL API
-- **`auto`**：优先GraphQL，失败时回退到localStorage
+- **`auto`**：当前导出 Vue 组件默认行为；优先 GraphQL，失败时回退本地
 
 **错误识别**
 - 网络连接失败
@@ -214,29 +222,32 @@ packages/vote/src/
 ### 用户操作流程
 
 1. **完成投票**：在相应页面完成角色/CP/音乐投票
-2. **点击导出**：点击"导出为图片"按钮
-3. **预览生成**：查看生成的投票卡片
+2. **打开用户菜单**：在首页点击头像打开下拉菜单
+3. **点击导出**：点击对应的导出按钮
+4. **预览生成**：查看生成的投票卡片
 4. **保存或分享**：下载图片或直接分享
 
 ### 开发者测试流程
 
 ```bash
 # 1. 启动开发环境
-pnpm dev
+pnpm vote:dev
 
 # 2. 打开浏览器控制台
 # 3. 设置测试数据
 testHelper.setupAllTestVotes()
 
 # 4. 测试导出功能
-# - 访问角色投票页面 → 点击"导出角色投票为图片"
-# - 访问CP投票页面 → 点击"导出CP投票为图片"
-# - 访问音乐投票页面 → 点击"导出音乐投票为图片"
+# - 登录后进入首页
+# - 点击头像打开用户菜单
+# - 点击"导出角色投票为图片" / "导出CP投票为图片" / "导出音乐投票为图片"
 
 # 5. 测试数据源切换
-testHelper.setDataSourceMode('graphql')  # 测试GraphQL模式
-testHelper.setDataSourceMode('local')     # 测试本地模式
-testHelper.setDataSourceMode('auto')      # 测试自动模式（默认）
+# 注意：当前导出 UI 默认走 auto。
+# 如果要专门验证“强制 GraphQL”分支，仍需要恢复或补充导出组件中的数据源切换逻辑。
+testHelper.setDataSourceMode('graphql')
+testHelper.setDataSourceMode('local')
+testHelper.setDataSourceMode('auto')
 
 # 6. 清理测试数据
 testHelper.clearTestUserData()
@@ -264,6 +275,8 @@ testHelper.clearTestUserData()
 - 图片生成依赖 `html2canvas`，复杂CSS可能有兼容性问题
 - 大量图片可能导致性能问题
 - Web Share API在某些浏览器不支持（降级为下载）
+- 当前虽然默认走 `auto`，但“强制 GraphQL / 强制 local”的切换入口仍未开放到用户可操作层
+- 预览图和外部二维码资源仍有进一步稳定性优化空间
 
 ---
 ## Todo List
@@ -287,6 +300,28 @@ testHelper.clearTestUserData()
 ### 4. 模块化组件
 
 在一些地方换用Naive-UI的组件，并且尽可能把复用的部分抽离成独立组件和脚本，让它维护起来更方便一些。
+
+### 5. 当前必须优先处理的问题
+
+1. **数据源行为和文档不一致**
+
+当前这个问题已修正为默认走 `auto`。后续仍需决定是否恢复并整理数据源切换入口，让开发态能显式验证强制 `graphql` 分支。
+
+2. **导出卡片用户名错误**
+
+当前这个问题已修正，导出卡片会读取实际登录用户名；若用户名缺失再回退“匿名用户”。
+
+3. **Object URL 未释放**
+
+频繁导出会不断创建新的预览 URL，如果不释放旧 URL，浏览器内存占用会逐渐增加。
+
+4. **分享能力检测不完整**
+
+目前只判断 `navigator.share`，但文件分享是否可用并不总是等价，应该补 `navigator.canShare({ files })` 之类的检查。
+
+5. **第三方二维码依赖过强**
+
+导图流程依赖外部二维码服务，建议尽快改成本地静态资源或本地生成方案，降低不确定性。
 
 ## Git Commit 信息
 
