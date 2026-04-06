@@ -1,1 +1,1 @@
-export const voteYear = 11
+export const voteYear = 12
