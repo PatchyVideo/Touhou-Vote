@@ -2,7 +2,6 @@
   "name": "touhou-vote",
   "version": "2.1.0",
   "private": true,
-  "packageManager": "pnpm@9.3.0",
   "scripts": {
     "vote:codegen": "nr -C packages/vote codegen",
     "vote:dev": "nr -C packages/vote dev",
@@ -34,7 +33,5 @@
     "tsx": "^3.12.6",
     "typescript": "^5.0.4"
   },
-  "dependencies": {
-    "pnpm": "^10.33.0"
-  }
+  "dependencies": {}
 }
