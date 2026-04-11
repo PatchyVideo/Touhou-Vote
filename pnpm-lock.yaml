@@ -16,12 +16,9 @@ importers:
       eslint-plugin-import: ^2.27.5
       eslint-plugin-prettier: ^4.2.1
       eslint-plugin-vue: ^9.11.0
-      pnpm: ^10.33.0
       prettier: ^2.8.7
       tsx: ^3.12.6
       typescript: ^5.0.4
-    dependencies:
-      pnpm: 10.33.0
     devDependencies:
       '@antfu/ni': 0.21.12
       '@types/eslint': 8.56.12
@@ -6499,12 +6496,6 @@ packages:
       exsolve: 1.0.8
       pathe: 2.0.3
     dev: true
-
-  /pnpm/10.33.0:
-    resolution: {integrity: sha512-EFaLtKavtYyes2MNqQzJUWQXq+vT+rvmc58K55VyjaFJHp21pUTHatjrdXD1xLs9bGN7LLQb/c20f6gjyGSTGQ==}
-    engines: {node: '>=18.12'}
-    hasBin: true
-    dev: false
 
   /possible-typed-array-names/1.1.0:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
