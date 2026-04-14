@@ -39,8 +39,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm nav:build:test
-        working-directory: ./packages/navigator
+        run: pnpm --filter @thvote/navigator build -- --mode test
 
       - name: Login to GHCR
         uses: docker/login-action@v3

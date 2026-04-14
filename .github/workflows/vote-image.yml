@@ -39,12 +39,10 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Codegen
-        run: pnpm vote:codegen
-        working-directory: ./packages/vote
+        run: pnpm --filter @thvote/vote codegen
 
       - name: Build
-        run: pnpm vote:build:test
-        working-directory: ./packages/vote
+        run: pnpm --filter @thvote/vote build -- --mode test
 
       - name: Login to GHCR
         uses: docker/login-action@v3
