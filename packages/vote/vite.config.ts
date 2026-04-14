@@ -24,7 +24,9 @@ for (const dir of list) {
   }
 }
 
-export default defineConfig(({ command, mode }) => {
+const HOST = 'http://localhost'
+
+export default defineConfig(({ command }) => {
   return {
     optimizeDeps: {
       exclude: ['@touhou-vote/shared'],
@@ -62,15 +64,15 @@ export default defineConfig(({ command, mode }) => {
       proxy: {
         // GraphQL 接口现在直接落在 /vote-be/graphql
         '/v11-be/graphql': {
-          target: 'https://touhou.ai/vote-be/graphql',
+          target: `${HOST}/vote-be/graphql`,
           changeOrigin: true,
           secure: false,
           rewrite: (path: string) => path.replace(/^\/v11-be\/graphql/, ''),
         },
 
-        // 其他后端接口仍然走 /vote-be 基路径
+        // 其他后端接口仍然走 /v11-be 基路径
         '/v11-be': {
-          target: 'https://touhou.ai/vote-be',
+          target: `${HOST}/vote-be`,
           changeOrigin: true,
           secure: false,
           rewrite: (path: string) => path.replace(/^\/v11-be/, ''),
