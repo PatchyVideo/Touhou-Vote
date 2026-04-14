@@ -2,7 +2,7 @@ name: Vote Image Build
 on:
   push:
     branches:
-      - zfq_dev
+      - zfq_dev_fe
     paths:
       - '.github/workflows/vote-image.yml'
       - 'packages/vote/**'
@@ -66,9 +66,10 @@ jobs:
       - name: Build and Push Docker image
         run: |
           cd packages/vote/dist
-          TAG="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
+          VERSION_TAG="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
+          TEST_TAG="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:test"
           
-          docker build -t $TAG . << 'EOF'
+          docker build -t $VERSION_TAG -t $TEST_TAG . << 'EOF'
           FROM nginx:alpine
           COPY . /usr/share/nginx/html
           RUN echo 'server { listen 8082; location / { root /usr/share/nginx/html; try_files $uri $uri/ /index.html; } }' > /etc/nginx/conf.d/default.conf
@@ -76,8 +77,9 @@ jobs:
           CMD ["nginx", "-g", "daemon off;"]
           EOF
           
-          docker push $TAG
-          echo "IMAGE_TAG=$TAG" >> $GITHUB_OUTPUT
+          docker push $VERSION_TAG
+          docker push $TEST_TAG
+          echo "IMAGE_TAG=$VERSION_TAG" >> $GITHUB_OUTPUT
 
       - name: Summary
         run: |
