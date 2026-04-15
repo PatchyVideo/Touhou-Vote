@@ -40,7 +40,7 @@ env:
   IMAGE_NAME: thvote-vote
   # 后端服务地址（前端 codegen 从这里获取 schema）
   # 构建时由 workflow 根据环境注入
-  BACKEND_URL: ${BACKEND_URL}
+  # 注：实际由 backend-ready job 的 output 注入，此处仅作说明
 
 jobs:
   # ==================== 获取后端服务就绪 ====================
