@@ -288,28 +288,7 @@ jobs:
 
             # 如果 vote 服务配置不存在，先追加到 docker-compose.yml
             if ! grep -q "vote:" docker-compose.yml; then
-              cat >> docker-compose.yml <<- 'COMPOSEEOF'
-
-  vote:
-    image: ${VOTE_IMAGE:-ghcr.io/patchyvideo/thvote-vote:test}
-    container_name: thvote-vote
-    restart: unless-stopped
-    ports:
-      - "8082:80"
-    networks:
-      - thvote-net
-    depends_on:
-      backend:
-        condition: service_healthy
-    profiles:
-      - frontend
-    healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 15s
-COMPOSEEOF
+              printf '\n  vote:\n    image: ${VOTE_IMAGE:-ghcr.io/patchyvideo/thvote-vote:test}\n    container_name: thvote-vote\n    restart: unless-stopped\n    ports:\n      - "8082:80"\n    networks:\n      - thvote-net\n    depends_on:\n      backend:\n        condition: service_healthy\n    profiles:\n      - frontend\n    healthcheck:\n      test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]\n      interval: 30s\n      timeout: 10s\n      retries: 3\n      start_period: 15s\n' >> docker-compose.yml
             fi
 
             # 更新 docker-compose.yml 中的镜像版本
