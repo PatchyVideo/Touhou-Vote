@@ -20,6 +20,8 @@ on:
     branches:
       - zfq_dev_fe
     paths:
+      - '.github/workflows/navigator-image.yml'
+      - '.github/workflows/result-image.yml'
       - '.github/workflows/vote-image.yml'
       - 'packages/vote/**'
       - 'packages/shared/**'
@@ -292,7 +294,7 @@ jobs:
             fi
 
             # 更新 docker-compose.yml 中的镜像版本
-            sed -i "s|image: ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:.*|image: $VERSION_TAG|" docker-compose.yml
+            sed -i "s#image: ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:.*#image: $VERSION_TAG#" docker-compose.yml
 
             # 重启前端服务（使用 frontend profile）
             docker-compose up -d --profile frontend --no-deps vote

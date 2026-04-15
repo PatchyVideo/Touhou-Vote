@@ -11,7 +11,9 @@ on:
     branches:
       - zfq_dev_fe
     paths:
+      - '.github/workflows/navigator-image.yml'
       - '.github/workflows/result-image.yml'
+      - '.github/workflows/vote-image.yml'
       - 'packages/result/**'
       - 'packages/shared/**'
       - 'packages/result-codegen/**'
@@ -220,7 +222,7 @@ jobs:
       interval: 30s
       timeout: 10s
       retries: 3
-COMPOSEEOF
+ COMPOSEEOF
           fi
           sed -i "s#image: ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:.*#image: $VERSION_TAG#" docker-compose.yml
           docker-compose up -d --profile frontend --no-deps result
