@@ -103,7 +103,7 @@ jobs:
           docker push $PROD_TAG
           SCRIPT
 
-      - name: 构建并推送 Navigator 镜像
+      - name: 构建并推送Navigator 镜像
         run: bash docker-build.sh
 
       - name: 写入部署脚本
