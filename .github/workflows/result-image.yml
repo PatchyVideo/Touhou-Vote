@@ -162,13 +162,13 @@ jobs:
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: 构建并推送 Result 镜像
+      - name: 写入 Docker 构建脚本
         run: |
+          cat > docker-build.sh << 'SCRIPT'
           cd packages/result/dist
           VERSION_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
           TEST_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:test"
           PROD_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:prod"
-
           docker build -t $VERSION_TAG -t $TEST_TAG -t $PROD_TAG . << 'DOCKEREOF'
           FROM nginx:alpine
           RUN echo 'server { \
@@ -182,29 +182,25 @@ jobs:
           CMD ["nginx", "-g", "daemon off;"]
           COPY . /usr/share/nginx/html
           DOCKEREOF
-
           docker push $VERSION_TAG
           docker push $TEST_TAG
           docker push $PROD_TAG
+          SCRIPT
 
-      - name: 部署到目标服务器
-        if: github.event_name != 'workflow_dispatch' || github.event.inputs.environment != ''
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
-          username: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_USER || secrets.TEST_SERVER_USER }}
-          key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
-          envs: SERVER_DIR,VERSION_TAG
-          script: |
-            set -e
-            SERVER_DIR="${{ github.event.inputs.environment == 'prod' && vars.PROD_SERVER_DIR || vars.TEST_SERVER_DIR }}"
-            VERSION_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
-            cd "$SERVER_DIR"
-            echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin || true
-            docker pull $VERSION_TAG
+      - name: 构建并推送 Result 镜像
+        run: bash docker-build.sh
 
-            if ! grep -q "result:" docker-compose.yml; then
-              cat >> docker-compose.yml << 'COMPOSEEOF'
+      - name: 写入部署脚本
+        run: |
+          cat > deploy.sh << 'SCRIPT'
+          set -e
+          SERVER_DIR="${{ github.event.inputs.environment == 'prod' && vars.PROD_SERVER_DIR || vars.TEST_SERVER_DIR }}"
+          VERSION_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
+          cd "$SERVER_DIR"
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin || true
+          docker pull $VERSION_TAG
+          if ! grep -q "result:" docker-compose.yml; then
+            cat >> docker-compose.yml << 'COMPOSEEOF'
 
   result:
     image: ${RESULT_IMAGE:-ghcr.io/patchyvideo/thvote-result:test}
@@ -225,10 +221,19 @@ jobs:
       timeout: 10s
       retries: 3
 COMPOSEEOF
-            fi
+          fi
+          sed -i "s#image: ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:.*#image: $VERSION_TAG#" docker-compose.yml
+          docker-compose up -d --profile frontend --no-deps result
+          SCRIPT
 
-            sed -i "s|image: ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:.*|image: $VERSION_TAG|" docker-compose.yml
-            docker-compose up -d --profile frontend --no-deps result
+      - name: 部署到目标服务器
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.environment != ''
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
+          username: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_USER || secrets.TEST_SERVER_USER }}
+          key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
+          script: bash deploy.sh
 
       - name: 总结
         run: |
