@@ -1,0 +1,38 @@
+# ============================================================
+# THVote Navigator App Dockerfile 模板
+#
+# Navigator 不依赖 GraphQL，无需 codegen
+# ============================================================
+
+FROM node:20-alpine AS build
+
+RUN corepack enable && corepack prepare pnpm@7.33.7 --activate
+
+WORKDIR /app
+
+ENV PNPM_HOME=/pnpm
+ENV PATH=$PNPM_HOME:$PATH
+
+COPY . .
+
+RUN pnpm install --frozen-lockfile
+
+# 构建应用（无 codegen 步骤）
+RUN pnpm --filter @touhou-vote/navigator run build -- --mode test
+
+# ---- Production Stage ----
+FROM nginx:alpine
+
+RUN echo 'server { \
+    listen 8083; \
+    location / { \
+        root /usr/share/nginx/html; \
+        try_files $uri $uri/ /index.html; \
+    } \
+}' > /etc/nginx/conf.d/default.conf
+
+EXPOSE 8083
+
+COPY --from=build /app/packages/navigator/dist /usr/share/nginx/html
+
+CMD ["nginx", "-g", "daemon off;"]

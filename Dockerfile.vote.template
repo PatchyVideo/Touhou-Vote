@@ -1,0 +1,58 @@
+# ============================================================
+# THVote Vote App Dockerfile 模板
+#
+# 构建时由 CI workflow 内联生成（使用 heredoc）
+# 多阶段构建：从源代码构建
+#
+# 使用方式（在 workflow 中）：
+#   docker build -t $TAG --build-arg BACKEND_URL=http://backend:8000 -f - . << 'EOF'
+#   $(cat Dockerfile.vote.template)
+#   EOF
+# ============================================================
+
+# ---- Build Stage ----
+FROM node:20-alpine AS build
+
+# 安装 pnpm
+RUN corepack enable && corepack prepare pnpm@7.33.7 --activate
+
+WORKDIR /app
+
+# 设置 pnpm store
+ENV PNPM_HOME=/pnpm
+ENV PATH=$PNPM_HOME:$PATH
+
+# 复制源代码
+COPY . .
+
+# 安装依赖
+RUN pnpm install --frozen-lockfile
+
+# 设置 GraphQL schema 获取地址（构建时通过 --build-arg 传入）
+ARG BACKEND_URL=http://localhost:8000
+
+# 预下载 schema（如果本地存在则跳过）
+# codegen 在 CI 中由 workflow 执行，此处仅保留占位
+# RUN echo "GraphQL schema 从 ${BACKEND_URL} 获取"
+
+# 构建应用
+RUN pnpm --filter @touhou-vote/vote run build -- --mode test
+
+# ---- Production Stage ----
+FROM nginx:alpine
+
+# 监听 8082（与 test 环境配置一致）
+RUN echo 'server { \
+    listen 8082; \
+    location / { \
+        root /usr/share/nginx/html; \
+        try_files $uri $uri/ /index.html; \
+    } \
+}' > /etc/nginx/conf.d/default.conf
+
+EXPOSE 8082
+
+# 从 build stage 复制构建产物
+COPY --from=build /app/packages/vote/dist /usr/share/nginx/html
+
+CMD ["nginx", "-g", "daemon off;"]

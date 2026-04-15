@@ -1,5 +1,9 @@
 ;(async () => {
   console.log('> GraphQL > Codegen')
+  const fs = require('fs')
+  const path = require('path')
+  const generatedDir = path.join(__dirname, '../src/graphql/__generated__')
+  fs.mkdirSync(generatedDir, { recursive: true })
   await exec('pnpm', ['exec', 'graphql-codegen', '--config', './src/graphql/codegen.yml'])
   console.log('\n')
 })()
