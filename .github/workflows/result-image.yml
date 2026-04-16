@@ -210,7 +210,9 @@ jobs:
           docker push $PROD_TAG
 
       - name: 部署到目标服务器
-        if: github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'test' || github.event.inputs.environment == 'prod'
+        if: >-
+          (github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'test' || github.event.inputs.environment == 'prod')
+          && needs.env-setup.outputs.server-host != ''
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ needs.env-setup.outputs.server-host }}

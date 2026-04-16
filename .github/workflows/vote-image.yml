@@ -56,7 +56,9 @@ jobs:
       - name: 检测环境
         id: env-detect
         run: |
-          # workflow_dispatch 时用户选择了环境；推送时默认 test
+          echo "DEBUG: event_name=${{ github.event_name }}"
+          echo "DEBUG: inputs.environment=${{ github.event.inputs.environment }}"
+
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.environment }}" == "prod" ]]; then
             echo "env=prod" >> $GITHUB_OUTPUT
             echo "server_host=${{ secrets.PROD_SERVER_HOST }}" >> $GITHUB_OUTPUT
@@ -78,14 +80,17 @@ jobs:
       backend-url: ${{ steps.backend-url.outputs.url }}
     steps:
       - name: 确保后端服务运行
+        if: needs.env-setup.outputs.server-host != ''
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ needs.env-setup.outputs.server-host }}
           username: ${{ needs.env-setup.outputs.server-user }}
           key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
-          envs: SERVER_DIR,ENV
+          envs: SERVER_DIR
           script: |
             set -e
+            echo "DEBUG: server-host from needs=${{ needs.env-setup.outputs.server-host }}"
+            echo "DEBUG: server-user from needs=${{ needs.env-setup.outputs.server-user }}"
             SERVER_DIR="${{ needs.env-setup.outputs.server_dir }}"
             echo "=== 确保后端服务运行 ==="
             echo "部署目录: $SERVER_DIR"
@@ -109,6 +114,7 @@ jobs:
             echo "后端服务已启动/重启"
 
       - name: 等待后端健康检查
+        if: needs.env-setup.outputs.server-host != ''
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ needs.env-setup.outputs.server-host }}
@@ -134,6 +140,7 @@ jobs:
             exit 1
 
       - name: 验证 GraphQL schema 端点
+        if: needs.env-setup.outputs.server-host != ''
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ needs.env-setup.outputs.server-host }}
@@ -269,7 +276,9 @@ jobs:
           docker push $PROD_TAG
 
       - name: 部署到目标服务器
-        if: github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'test' || github.event.inputs.environment == 'prod'
+        if: >-
+          (github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'test' || github.event.inputs.environment == 'prod')
+          && needs.env-setup.outputs.server-host != ''
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ needs.env-setup.outputs.server-host }}

@@ -104,7 +104,9 @@ jobs:
           docker push $PROD_TAG
 
       - name: 部署到目标服务器
-        if: github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'test' || github.event.inputs.environment == 'prod'
+        if: >-
+          (github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'test' || github.event.inputs.environment == 'prod')
+          && vars.TEST_SERVER_HOST != ''
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
