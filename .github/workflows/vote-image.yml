@@ -293,9 +293,8 @@ jobs:
               printf '\n  vote:\n    image: ${VOTE_IMAGE:-ghcr.io/patchyvideo/thvote-vote:test}\n    container_name: thvote-vote\n    restart: unless-stopped\n    ports:\n      - "8082:80"\n    networks:\n      - thvote-net\n    depends_on:\n      backend:\n        condition: service_healthy\n    profiles:\n      - frontend\n    healthcheck:\n      test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]\n      interval: 30s\n      timeout: 10s\n      retries: 3\n      start_period: 15s\n' >> docker-compose.yml
             fi
 
-            # 更新 docker-compose.yml 中的镜像版本
-            sed -i "s#image: 
-              ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:.*#image: $VERSION_TAG#" docker-compose.yml
+            # 更新 docker-compose.yml 中的镜像版本（使用 yq 安全修改）
+            yq -i '.vote.image = env(VERSION_TAG)' docker-compose.yml
 
             # 重启前端服务（使用 frontend profile）
             docker-compose up -d --profile frontend --no-deps vote

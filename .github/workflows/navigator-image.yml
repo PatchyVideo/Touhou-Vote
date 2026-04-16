@@ -145,8 +145,10 @@ jobs:
       retries: 3
  COMPOSEEOF
           fi
-          sed -i "s#image:
-            ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:.*#image: $VERSION_TAG#" docker-compose.yml
+          # 安装 yq 用于安全修改 YAML
+          sudo apt-get update && sudo apt-get install -y yq
+          # 更新 navigator 服务的镜像版本
+          yq -i '.navigator.image = env(VERSION_TAG)' docker-compose.yml
           docker-compose up -d --profile frontend --no-deps navigator
           SCRIPT
 
