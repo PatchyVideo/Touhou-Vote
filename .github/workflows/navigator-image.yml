@@ -71,12 +71,12 @@ jobs:
       - name: 提取镜像版本
         id: meta
         run: |
-          if [ "${{ github.event.inputs.environment || 'test' }}" == "prod" ]; then
-            VERSION="prod-$(date +%Y%m%d)-$(echo '${{ github.sha }}' | cut -c1-7)"
-          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.environment }}" == "prod" ]]; then
+            VERSION="prod-$(date +%Y%m%d)-$(git rev-parse --short HEAD)"
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             VERSION="test-$(date +%Y%m%d-%H%M%S)"
           else
-            VERSION="test-$(date +%Y%m%d)-$(echo '${{ github.sha }}' | cut -c1-7)"
+            VERSION="test-$(date +%Y%m%d)-$(git rev-parse --short HEAD)"
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
