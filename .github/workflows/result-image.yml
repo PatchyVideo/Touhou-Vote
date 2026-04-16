@@ -1,7 +1,17 @@
 # ============================================================
 # THVote Result 前端独立部署流水线
 #
-# Result 依赖 GraphQL，需要从后端获取 schema（与 Vote 相同流程）
+# 流程：
+#   1. 确定环境配置（env-setup job）
+#   2. SSH 到后端服务器，启动 backend 容器（backend-ready job）
+#   3. 等待后端 /health 和 GraphQL 就绪
+#   4. 本地运行 codegen（从后端获取 schema）
+#   5. Docker 构建前端镜像并推送到仓库
+#   6. SSH 到目标服务器更新镜像
+#
+# 触发条件：
+#   - 推送代码到 zfq_dev_fe 分支（涉及 result 包）
+#   - 手动 workflow_dispatch
 # ============================================================
 
 name: Build & Deploy Result Frontend
@@ -34,40 +44,52 @@ env:
   IMAGE_NAME: thvote-result
 
 jobs:
+  # ==================== 确定环境配置 ====================
+  env-setup:
+    name: 确定环境配置
+    runs-on: ubuntu-latest
+    outputs:
+      env: ${{ steps.env-detect.outputs.env }}
+      server-dir: ${{ steps.env-detect.outputs.server_dir }}
+      server-host: ${{ steps.env-detect.outputs.server_host }}
+      server-user: ${{ steps.env-detect.outputs.server_user }}
+    steps:
+      - name: 检测环境
+        id: env-detect
+        run: |
+          # workflow_dispatch 时用户选择了环境；推送时默认 test
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.environment }}" == "prod" ]]; then
+            echo "env=prod" >> $GITHUB_OUTPUT
+            echo "server_host=${{ secrets.PROD_SERVER_HOST }}" >> $GITHUB_OUTPUT
+            echo "server_user=${{ secrets.PROD_SERVER_USER }}" >> $GITHUB_OUTPUT
+            echo "server_dir=${{ vars.PROD_SERVER_DIR || '/opt/thvote/prod' }}" >> $GITHUB_OUTPUT
+          else
+            echo "env=test" >> $GITHUB_OUTPUT
+            echo "server_host=${{ secrets.TEST_SERVER_HOST }}" >> $GITHUB_OUTPUT
+            echo "server_user=${{ secrets.TEST_SERVER_USER }}" >> $GITHUB_OUTPUT
+            echo "server_dir=${{ vars.TEST_SERVER_DIR || '/opt/thvote/test' }}" >> $GITHUB_OUTPUT
+          fi
+
   # ==================== 确保后端就绪 ====================
   backend-ready:
     name: 确保后端服务就绪
     runs-on: ubuntu-latest
+    needs: env-setup
     outputs:
       backend-url: ${{ steps.backend-url.outputs.url }}
-
     steps:
-      - name: 确定环境配置
-        id: env
-        run: |
-          if [ "${{ github.event.inputs.environment || 'test' }}" == "prod" ]; then
-            echo "server_host=${{ secrets.PROD_SERVER_HOST }}" >> $GITHUB_OUTPUT
-            echo "server_user=${{ secrets.PROD_SERVER_USER }}" >> $GITHUB_OUTPUT
-            echo "server_key=${{ secrets.PROD_SERVER_SSH_KEY }}" >> $GITHUB_OUTPUT
-            echo "server_dir=${{ vars.PROD_SERVER_DIR || '/opt/thvote/prod' }}" >> $GITHUB_OUTPUT
-          else
-            echo "server_host=${{ secrets.TEST_SERVER_HOST }}" >> $GITHUB_OUTPUT
-            echo "server_user=${{ secrets.TEST_SERVER_USER }}" >> $GITHUB_OUTPUT
-            echo "server_key=${{ secrets.TEST_SERVER_SSH_KEY }}" >> $GITHUB_OUTPUT
-            echo "server_dir=${{ vars.TEST_SERVER_DIR || '/opt/thvote/test' }}" >> $GITHUB_OUTPUT
-          fi
-
       - name: 确保后端服务运行
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ steps.env.outputs.server_host }}
-          username: ${{ steps.env.outputs.server_user }}
-          key: ${{ steps.env.outputs.server_key }}
-          envs: SERVER_DIR
+          host: ${{ needs.env-setup.outputs.server-host }}
+          username: ${{ needs.env-setup.outputs.server-user }}
+          key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
+          envs: SERVER_DIR,ENV
           script: |
             set -e
-            SERVER_DIR="${{ steps.env.outputs.server_dir }}"
+            SERVER_DIR="${{ needs.env-setup.outputs.server_dir }}"
             cd "$SERVER_DIR"
+
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin || true
             docker-compose pull backend || true
             docker-compose up -d --profile backend
@@ -75,13 +97,13 @@ jobs:
       - name: 等待后端健康检查
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ steps.env.outputs.server_host }}
-          username: ${{ steps.env.outputs.server_user }}
-          key: ${{ steps.env.outputs.server_key }}
+          host: ${{ needs.env-setup.outputs.server-host }}
+          username: ${{ needs.env-setup.outputs.server-user }}
+          key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           envs: SERVER_DIR
           script: |
             set -e
-            SERVER_DIR="${{ steps.env.outputs.server_dir }}"
+            SERVER_DIR="${{ needs.env-setup.outputs.server_dir }}"
             cd "$SERVER_DIR"
             for i in $(seq 1 60); do
               if docker-compose exec -T backend curl -sf http://localhost:8000/health > /dev/null 2>&1; then
@@ -98,7 +120,7 @@ jobs:
       - name: 确定后端地址
         id: backend-url
         run: |
-          if [ "${{ github.event.inputs.environment || 'test' }}" == "prod" ]; then
+          if [[ "${{ needs.env-setup.outputs.env }}" == "prod" ]]; then
             echo "url=http://${{ secrets.PROD_SERVER_HOST }}:8000" >> $GITHUB_OUTPUT
           else
             echo "url=http://${{ secrets.TEST_SERVER_HOST }}:8000" >> $GITHUB_OUTPUT
@@ -108,7 +130,7 @@ jobs:
   build:
     name: 构建 Result 镜像
     runs-on: ubuntu-latest
-    needs: backend-ready
+    needs: [env-setup, backend-ready]
     permissions:
       contents: read
       packages: write
@@ -155,18 +177,17 @@ jobs:
       - name: 提取镜像版本
         id: meta
         run: |
-          if [ "${{ github.event.inputs.environment || 'test' }}" == "prod" ]; then
-            VERSION="prod-$(date +%Y%m%d)-$(echo '${{ github.sha }}' | cut -c1-7)"
-          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.environment }}" == "prod" ]]; then
+            VERSION="prod-$(date +%Y%m%d)-$(git rev-parse --short HEAD)"
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             VERSION="test-$(date +%Y%m%d-%H%M%S)"
           else
-            VERSION="test-$(date +%Y%m%d)-$(echo '${{ github.sha }}' | cut -c1-7)"
+            VERSION="test-$(date +%Y%m%d)-$(git rev-parse --short HEAD)"
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: 写入 Docker 构建脚本
+      - name: 构建并推送镜像
         run: |
-          cat > docker-build.sh << 'SCRIPT'
           cd packages/result/dist
           VERSION_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
           TEST_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:test"
@@ -187,22 +208,28 @@ jobs:
           docker push $VERSION_TAG
           docker push $TEST_TAG
           docker push $PROD_TAG
-          SCRIPT
 
-      - name: 构建并推送 Result 镜像
-        run: bash docker-build.sh
+      - name: 部署到目标服务器
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'test' || github.event.inputs.environment == 'prod'
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ needs.env-setup.outputs.server-host }}
+          username: ${{ needs.env-setup.outputs.server-user }}
+          key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
+          envs: VERSION_TAG
+          script: |
+            set -e
+            SERVER_DIR="${{ needs.env-setup.outputs.server_dir }}"
+            VERSION_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
+            cd "$SERVER_DIR"
 
-      - name: 写入部署脚本
-        run: |
-          cat > deploy.sh << 'SCRIPT'
-          set -e
-          SERVER_DIR="${{ github.event.inputs.environment == 'prod' && vars.PROD_SERVER_DIR || vars.TEST_SERVER_DIR }}"
-          VERSION_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
-          cd "$SERVER_DIR"
-          echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin || true
-          docker pull $VERSION_TAG
-          if ! grep -q "result:" docker-compose.yml; then
-            cat >> docker-compose.yml << 'COMPOSEEOF'
+            echo "=== 部署 Result ==="
+
+            echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin || true
+            docker pull $VERSION_TAG
+
+            if ! grep -q "result:" docker-compose.yml; then
+              cat >> docker-compose.yml << 'COMPOSEEOF'
 
   result:
     image: ${RESULT_IMAGE:-ghcr.io/patchyvideo/thvote-result:test}
@@ -222,23 +249,22 @@ jobs:
       interval: 30s
       timeout: 10s
       retries: 3
- COMPOSEEOF
-          fi
-          # 安装 yq 用于安全修改 YAML
-          sudo apt-get update && sudo apt-get install -y yq
-          # 更新 result 服务的镜像版本
-          yq -i '.result.image = env(VERSION_TAG)' docker-compose.yml
-          docker-compose up -d --profile frontend --no-deps result
-          SCRIPT
+      start_period: 15s
+COMPOSEEOF
+            fi
 
-      - name: 部署到目标服务器
-        if: github.event_name != 'workflow_dispatch' || github.event.inputs.environment != ''
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
-          username: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_USER || secrets.TEST_SERVER_USER }}
-          key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
-          script: bash deploy.sh
+            # 更新镜像版本（使用 Python 安全修改 YAML）
+            python3 -c "
+import yaml
+with open('docker-compose.yml') as f:
+    doc = yaml.safe_load(f)
+doc['services']['result']['image'] = '$VERSION_TAG'
+with open('docker-compose.yml', 'w') as f:
+    yaml.dump(doc, f, default_flow_style=False, sort_keys=False)
+"
+            docker-compose up -d --profile frontend --no-deps result
+
+            echo "Result 部署完成"
 
       - name: 总结
         run: |
@@ -248,4 +274,5 @@ jobs:
           echo "|------|----|" >> $GITHUB_STEP_SUMMARY
           echo "| 镜像 | ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Tag | ${{ steps.meta.outputs.version }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 环境 | ${{ needs.env-setup.outputs.env }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Schema 来源 | ${{ needs.backend-ready.outputs.backend-url }}/graphql |" >> $GITHUB_STEP_SUMMARY

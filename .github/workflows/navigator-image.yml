@@ -80,9 +80,8 @@ jobs:
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: 写入 Docker 构建脚本
+      - name: 构建并推送镜像
         run: |
-          cat > docker-build.sh << 'SCRIPT'
           cd packages/navigator/dist
           VERSION_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
           TEST_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:test"
@@ -103,22 +102,32 @@ jobs:
           docker push $VERSION_TAG
           docker push $TEST_TAG
           docker push $PROD_TAG
-          SCRIPT
 
-      - name: 构建并推送Navigator 镜像
-        run: bash docker-build.sh
+      - name: 部署到目标服务器
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'prod' || (github.event.inputs.environment == 'test' && github.event.inputs.environment != '')
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
+          username: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_USER || secrets.TEST_SERVER_USER }}
+          key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
+          envs: VERSION_TAG
+          script: |
+            set -e
+            SERVER_DIR="${{ github.event.inputs.environment == 'prod' && vars.PROD_SERVER_DIR || vars.TEST_SERVER_DIR }}"
+            VERSION_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
+            cd "$SERVER_DIR"
 
-      - name: 写入部署脚本
-        run: |
-          cat > deploy.sh << 'SCRIPT'
-          set -e
-          SERVER_DIR="${{ github.event.inputs.environment == 'prod' && vars.PROD_SERVER_DIR || vars.TEST_SERVER_DIR }}"
-          VERSION_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
-          cd "$SERVER_DIR"
-          echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin || true
-          docker pull $VERSION_TAG
-          if ! grep -q "navigator:" docker-compose.yml; then
-            cat >> docker-compose.yml << 'COMPOSEEOF'
+            echo "=== 部署 Navigator ==="
+
+            # 登录镜像仓库
+            echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin || true
+
+            # 拉取镜像
+            docker pull $VERSION_TAG
+
+            # 如果服务不存在，追加到 docker-compose.yml
+            if ! grep -q "navigator:" docker-compose.yml; then
+              cat >> docker-compose.yml << 'COMPOSEEOF'
 
   navigator:
     image: ${NAVIGATOR_IMAGE:-ghcr.io/patchyvideo/thvote-navigator:test}
@@ -134,32 +143,26 @@ jobs:
     profiles:
       - frontend
     healthcheck:
-      test:
-        - CMD
-        - wget
-        - "--spider"
-        - "-q"
-        - "http://localhost/"
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
       interval: 30s
       timeout: 10s
       retries: 3
- COMPOSEEOF
-          fi
-          # 安装 yq 用于安全修改 YAML
-          sudo apt-get update && sudo apt-get install -y yq
-          # 更新 navigator 服务的镜像版本
-          yq -i '.navigator.image = env(VERSION_TAG)' docker-compose.yml
-          docker-compose up -d --profile frontend --no-deps navigator
-          SCRIPT
+      start_period: 15s
+COMPOSEEOF
+            fi
 
-      - name: 部署到目标服务器
-        if: github.event_name != 'workflow_dispatch' || github.event.inputs.environment != ''
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
-          username: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_USER || secrets.TEST_SERVER_USER }}
-          key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
-          script: bash deploy.sh
+            # 更新镜像版本
+            python3 -c "
+import yaml
+with open('docker-compose.yml') as f:
+    doc = yaml.safe_load(f)
+doc['services']['navigator']['image'] = '$VERSION_TAG'
+with open('docker-compose.yml', 'w') as f:
+    yaml.dump(doc, f, default_flow_style=False, sort_keys=False)
+"
+            docker-compose up -d --profile frontend --no-deps navigator
+
+            echo "Navigator 部署完成"
 
       - name: 总结
         run: |
