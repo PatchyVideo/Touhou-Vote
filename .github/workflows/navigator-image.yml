@@ -134,13 +134,19 @@ jobs:
     profiles:
       - frontend
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
+      test:
+        - CMD
+        - wget
+        - "--spider"
+        - "-q"
+        - "http://localhost/"
       interval: 30s
       timeout: 10s
       retries: 3
  COMPOSEEOF
           fi
-          sed -i "s#image: ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:.*#image: $VERSION_TAG#" docker-compose.yml
+          sed -i "s#image:
+            ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:.*#image: $VERSION_TAG#" docker-compose.yml
           docker-compose up -d --profile frontend --no-deps navigator
           SCRIPT
 

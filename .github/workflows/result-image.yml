@@ -224,7 +224,8 @@ jobs:
       retries: 3
  COMPOSEEOF
           fi
-          sed -i "s#image: ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:.*#image: $VERSION_TAG#" docker-compose.yml
+          sed -i "s#image:
+            ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:.*#image: $VERSION_TAG#" docker-compose.yml
           docker-compose up -d --profile frontend --no-deps result
           SCRIPT
 
