@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: env-setup
     outputs:
-      backend-url: ${{ steps.backend-url.outputs.url }}
+      backend_url: ${{ steps.backend-url.outputs.url }}
     steps:
       - name: 确保后端服务运行
         uses: appleboy/ssh-action@v1
@@ -119,6 +119,7 @@ jobs:
 
       - name: 确定后端地址
         id: backend-url
+        if: needs.env-setup.outputs.server_host != ''
         run: |
           if [[ "${{ needs.env-setup.outputs.env }}" == "prod" ]]; then
             echo "url=http://${{ secrets.PROD_SERVER_HOST }}:8000" >> $GITHUB_OUTPUT
@@ -155,7 +156,7 @@ jobs:
 
       - name: Codegen（从后端获取 schema）
         env:
-          GRAPHQL_SCHEMA_URL: ${{ needs.backend-ready.outputs.backend-url }}/graphql
+          GRAPHQL_SCHEMA_URL: ${{ needs.backend-ready.outputs.backend_url }}/graphql
         run: |
           echo "=== Codegen: schema from $GRAPHQL_SCHEMA_URL ==="
           if ! curl -sf "$GRAPHQL_SCHEMA_URL" -o /dev/null; then
@@ -243,4 +244,4 @@ jobs:
           echo "| 镜像 | ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Tag | ${{ steps.meta.outputs.version }} |" >> $GITHUB_STEP_SUMMARY
           echo "| 环境 | ${{ needs.env-setup.outputs.env }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Schema 来源 | ${{ needs.backend-ready.outputs.backend-url }}/graphql |" >> $GITHUB_STEP_SUMMARY
+          echo "| Schema 来源 | ${{ needs.backend-ready.outputs.backend_url }}/graphql |" >> $GITHUB_STEP_SUMMARY
