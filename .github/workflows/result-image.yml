@@ -216,56 +216,18 @@ jobs:
           host: ${{ needs.env-setup.outputs.server-host }}
           username: ${{ needs.env-setup.outputs.server-user }}
           key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
-          envs: VERSION_TAG
+          envs: SERVER_DIR
           script: |
             set -e
             SERVER_DIR="${{ needs.env-setup.outputs.server_dir }}"
-            VERSION_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
             cd "$SERVER_DIR"
 
             echo "=== 部署 Result ==="
 
+            # 登录镜像仓库
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin || true
-            docker pull $VERSION_TAG
 
-            # 写入服务配置更新脚本
-            cat > update_compose.py << 'PYEOF'
-import yaml, sys
-tag = sys.argv[1]
-
-with open('docker-compose.yml') as f:
-    doc = yaml.safe_load(f)
-
-services = doc.setdefault('services', {})
-
-NEW_SERVICE = {
-    'image': tag,
-    'container_name': 'thvote-result',
-    'restart': 'unless-stopped',
-    'ports': ['8084:80'],
-    'networks': ['thvote-net'],
-    'depends_on': {'vote': {'condition': 'service_healthy'}},
-    'profiles': ['frontend'],
-    'healthcheck': {
-        'test': ['CMD', 'wget', '--spider', '-q', 'http://localhost/'],
-        'interval': '30s',
-        'timeout': '10s',
-        'retries': 3,
-        'start_period': '15s',
-    },
-}
-
-if 'result' not in services:
-    services['result'] = NEW_SERVICE
-else:
-    services['result']['image'] = tag
-
-with open('docker-compose.yml', 'w') as f:
-    yaml.dump(doc, f, default_flow_style=False, sort_keys=False)
-PYEOF
-
-            python3 update_compose.py "$VERSION_TAG"
-            rm -f update_compose.py
+            # 拉起 / 重启 result（docker-compose 会自动拉取 :test 或 :prod tag）
             docker-compose up -d --profile frontend --no-deps result
 
             echo "Result 部署完成"
