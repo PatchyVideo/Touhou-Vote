@@ -290,41 +290,44 @@ jobs:
             # 拉取新镜像
             docker pull $VERSION_TAG
 
-            # 如果 vote 服务配置不存在，先追加到 docker-compose.yml
-            if ! grep -q "vote:" docker-compose.yml; then
-              cat >> docker-compose.yml << 'COMPOSEEOF'
+            # 写入服务配置更新脚本
+            cat > update_compose.py << 'PYEOF'
+import yaml, sys
+tag = sys.argv[1]
 
-  vote:
-    image: ${VOTE_IMAGE:-ghcr.io/patchyvideo/thvote-vote:test}
-    container_name: thvote-vote
-    restart: unless-stopped
-    ports:
-      - "8082:80"
-    networks:
-      - thvote-net
-    depends_on:
-      backend:
-        condition: service_healthy
-    profiles:
-      - frontend
-    healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 15s
-COMPOSEEOF
-            fi
-
-            # 更新镜像版本（使用 Python 安全修改 YAML）
-            python3 -c "
-import yaml
 with open('docker-compose.yml') as f:
     doc = yaml.safe_load(f)
-doc['services']['vote']['image'] = '$VERSION_TAG'
+
+services = doc.setdefault('services', {})
+
+NEW_SERVICE = {
+    'image': tag,
+    'container_name': 'thvote-vote',
+    'restart': 'unless-stopped',
+    'ports': ['8082:80'],
+    'networks': ['thvote-net'],
+    'depends_on': {'backend': {'condition': 'service_healthy'}},
+    'profiles': ['frontend'],
+    'healthcheck': {
+        'test': ['CMD', 'wget', '--spider', '-q', 'http://localhost/'],
+        'interval': '30s',
+        'timeout': '10s',
+        'retries': 3,
+        'start_period': '15s',
+    },
+}
+
+if 'vote' not in services:
+    services['vote'] = NEW_SERVICE
+else:
+    services['vote']['image'] = tag
+
 with open('docker-compose.yml', 'w') as f:
     yaml.dump(doc, f, default_flow_style=False, sort_keys=False)
-"
+PYEOF
+
+            python3 update_compose.py "$VERSION_TAG"
+            rm -f update_compose.py
 
             # 重启前端服务
             docker-compose up -d --profile frontend --no-deps vote

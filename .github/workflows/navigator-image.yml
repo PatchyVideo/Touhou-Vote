@@ -104,13 +104,13 @@ jobs:
           docker push $PROD_TAG
 
       - name: 部署到目标服务器
-        if: github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'prod' || (github.event.inputs.environment == 'test' && github.event.inputs.environment != '')
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'test' || github.event.inputs.environment == 'prod'
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
           username: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_USER || secrets.TEST_SERVER_USER }}
           key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
-          envs: VERSION_TAG
+          envs: VERSION_TAG,SERVER_DIR
           script: |
             set -e
             SERVER_DIR="${{ github.event.inputs.environment == 'prod' && vars.PROD_SERVER_DIR || vars.TEST_SERVER_DIR }}"
@@ -125,41 +125,44 @@ jobs:
             # 拉取镜像
             docker pull $VERSION_TAG
 
-            # 如果服务不存在，追加到 docker-compose.yml
-            if ! grep -q "navigator:" docker-compose.yml; then
-              cat >> docker-compose.yml << 'COMPOSEEOF'
+            # 写入服务配置更新脚本
+            cat > update_compose.py << 'PYEOF'
+import yaml, sys
+tag = sys.argv[1]
 
-  navigator:
-    image: ${NAVIGATOR_IMAGE:-ghcr.io/patchyvideo/thvote-navigator:test}
-    container_name: thvote-navigator
-    restart: unless-stopped
-    ports:
-      - "8083:80"
-    networks:
-      - thvote-net
-    depends_on:
-      vote:
-        condition: service_healthy
-    profiles:
-      - frontend
-    healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 15s
-COMPOSEEOF
-            fi
-
-            # 更新镜像版本
-            python3 -c "
-import yaml
 with open('docker-compose.yml') as f:
     doc = yaml.safe_load(f)
-doc['services']['navigator']['image'] = '$VERSION_TAG'
+
+services = doc.setdefault('services', {})
+
+NEW_SERVICE = {
+    'image': tag,
+    'container_name': 'thvote-navigator',
+    'restart': 'unless-stopped',
+    'ports': ['8083:80'],
+    'networks': ['thvote-net'],
+    'depends_on': {'vote': {'condition': 'service_healthy'}},
+    'profiles': ['frontend'],
+    'healthcheck': {
+        'test': ['CMD', 'wget', '--spider', '-q', 'http://localhost/'],
+        'interval': '30s',
+        'timeout': '10s',
+        'retries': 3,
+        'start_period': '15s',
+    },
+}
+
+if 'navigator' not in services:
+    services['navigator'] = NEW_SERVICE
+else:
+    services['navigator']['image'] = tag
+
 with open('docker-compose.yml', 'w') as f:
     yaml.dump(doc, f, default_flow_style=False, sort_keys=False)
-"
+PYEOF
+
+            python3 update_compose.py "$VERSION_TAG"
+            rm -f update_compose.py
             docker-compose up -d --profile frontend --no-deps navigator
 
             echo "Navigator 部署完成"
