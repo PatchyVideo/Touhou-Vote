@@ -50,9 +50,9 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       env: ${{ steps.env-detect.outputs.env }}
-      server-dir: ${{ steps.env-detect.outputs.server_dir }}
-      server-host: ${{ steps.env-detect.outputs.server_host }}
-      server-user: ${{ steps.env-detect.outputs.server_user }}
+      server_dir: ${{ steps.env-detect.outputs.server_dir }}
+      server_host: ${{ steps.env-detect.outputs.server_host }}
+      server_user: ${{ steps.env-detect.outputs.server_user }}
     steps:
       - name: 检测环境
         id: env-detect
@@ -81,8 +81,8 @@ jobs:
       - name: 确保后端服务运行
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ needs.env-setup.outputs.server-host }}
-          username: ${{ needs.env-setup.outputs.server-user }}
+          host: ${{ needs.env-setup.outputs.server_host }}
+          username: ${{ needs.env-setup.outputs.server_user }}
           key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           envs: SERVER_DIR,ENV
           script: |
@@ -97,8 +97,8 @@ jobs:
       - name: 等待后端健康检查
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ needs.env-setup.outputs.server-host }}
-          username: ${{ needs.env-setup.outputs.server-user }}
+          host: ${{ needs.env-setup.outputs.server_host }}
+          username: ${{ needs.env-setup.outputs.server_user }}
           key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           envs: SERVER_DIR
           script: |
@@ -212,11 +212,11 @@ jobs:
       - name: 部署到目标服务器
         if: >-
           (github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'test' || github.event.inputs.environment == 'prod')
-          && needs.env-setup.outputs.server-host != ''
+          && needs.env-setup.outputs.server_host != ''
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ needs.env-setup.outputs.server-host }}
-          username: ${{ needs.env-setup.outputs.server-user }}
+          host: ${{ needs.env-setup.outputs.server_host }}
+          username: ${{ needs.env-setup.outputs.server_user }}
           key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           envs: SERVER_DIR
           script: |

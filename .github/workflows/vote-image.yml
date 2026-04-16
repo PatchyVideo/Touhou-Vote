@@ -49,9 +49,9 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       env: ${{ steps.env-detect.outputs.env }}
-      server-dir: ${{ steps.env-detect.outputs.server_dir }}
-      server-host: ${{ steps.env-detect.outputs.server_host }}
-      server-user: ${{ steps.env-detect.outputs.server_user }}
+      server_dir: ${{ steps.env-detect.outputs.server_dir }}
+      server_host: ${{ steps.env-detect.outputs.server_host }}
+      server_user: ${{ steps.env-detect.outputs.server_user }}
     steps:
       - name: 检测环境
         id: env-detect
@@ -80,17 +80,17 @@ jobs:
       backend-url: ${{ steps.backend-url.outputs.url }}
     steps:
       - name: 确保后端服务运行
-        if: needs.env-setup.outputs.server-host != ''
+        if: needs.env-setup.outputs.server_host != ''
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ needs.env-setup.outputs.server-host }}
-          username: ${{ needs.env-setup.outputs.server-user }}
+          host: ${{ needs.env-setup.outputs.server_host }}
+          username: ${{ needs.env-setup.outputs.server_user }}
           key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           envs: SERVER_DIR
           script: |
             set -e
-            echo "DEBUG: server-host from needs=${{ needs.env-setup.outputs.server-host }}"
-            echo "DEBUG: server-user from needs=${{ needs.env-setup.outputs.server-user }}"
+            echo "DEBUG: server_host from needs=${{ needs.env-setup.outputs.server_host }}"
+            echo "DEBUG: server_user from needs=${{ needs.env-setup.outputs.server_user }}"
             SERVER_DIR="${{ needs.env-setup.outputs.server_dir }}"
             echo "=== 确保后端服务运行 ==="
             echo "部署目录: $SERVER_DIR"
@@ -114,11 +114,11 @@ jobs:
             echo "后端服务已启动/重启"
 
       - name: 等待后端健康检查
-        if: needs.env-setup.outputs.server-host != ''
+        if: needs.env-setup.outputs.server_host != ''
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ needs.env-setup.outputs.server-host }}
-          username: ${{ needs.env-setup.outputs.server-user }}
+          host: ${{ needs.env-setup.outputs.server_host }}
+          username: ${{ needs.env-setup.outputs.server_user }}
           key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           envs: SERVER_DIR
           script: |
@@ -140,11 +140,11 @@ jobs:
             exit 1
 
       - name: 验证 GraphQL schema 端点
-        if: needs.env-setup.outputs.server-host != ''
+        if: needs.env-setup.outputs.server_host != ''
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ needs.env-setup.outputs.server-host }}
-          username: ${{ needs.env-setup.outputs.server-user }}
+          host: ${{ needs.env-setup.outputs.server_host }}
+          username: ${{ needs.env-setup.outputs.server_user }}
           key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           envs: SERVER_DIR
           script: |
@@ -278,11 +278,11 @@ jobs:
       - name: 部署到目标服务器
         if: >-
           (github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'test' || github.event.inputs.environment == 'prod')
-          && needs.env-setup.outputs.server-host != ''
+          && needs.env-setup.outputs.server_host != ''
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ needs.env-setup.outputs.server-host }}
-          username: ${{ needs.env-setup.outputs.server-user }}
+          host: ${{ needs.env-setup.outputs.server_host }}
+          username: ${{ needs.env-setup.outputs.server_user }}
           key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           envs: SERVER_DIR
           script: |
