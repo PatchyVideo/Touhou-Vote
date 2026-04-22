@@ -39,13 +39,13 @@ jobs:
     environment:
       name: "${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}"
     outputs:
-      env: ${{ steps.env-detect.outputs.env }}
-      graphql_url: ${{ steps.env-detect.outputs.graphql_url }}
-      backend_dir: ${{ steps.env-detect.outputs.backend_dir }}
-      frontend_dir: ${{ steps.env-detect.outputs.frontend_dir }}
-      server_host: ${{ steps.env-detect.outputs.server_host }}
-      server_user: ${{ steps.env-detect.outputs.server_user }}
-      ssh_ready: ${{ steps.env-detect.outputs.ssh_ready }}
+      env: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}
+      graphql_url: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && format('http://{0}:8000/graphql', secrets.PROD_SERVER_HOST) || 'http://152.53.165.220:18000/graphql' }}
+      backend_dir: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && (vars.PROD_SERVER_DIR || '/opt/thvote/prod') || (vars.TEST_SERVER_DIR || '/opt/thvote/test') }}
+      frontend_dir: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && (vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod') || (vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test') }}
+      server_host: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
+      server_user: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_USER || secrets.TEST_SERVER_USER }}
+      ssh_ready: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'true' || 'true' }}
     steps:
       - name: 输出当前 GitHub Environment
         run: |
