@@ -16,6 +16,7 @@ on:
   push:
     branches:
       - zfq_dev_fe
+      - dev
     paths:
       - '.github/workflows/navigator-image.yml'
       - '.github/workflows/result-image.yml'
