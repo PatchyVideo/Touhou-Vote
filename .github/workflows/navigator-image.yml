@@ -1,7 +1,6 @@
 # ============================================================
 # THVote Navigator 前端独立部署流水线
 # ============================================================
-
 name: Build & Deploy Navigator Frontend
 
 on:
@@ -48,29 +47,36 @@ jobs:
         run: |
           echo "GitHub Environment: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}"
 
-      - name: 检测环境
+      - name: 检测环境 & 输出所有变量
         id: env-detect
+        shell: bash
         run: |
+          # 统一环境判定
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.environment }}" == "prod" ]]; then
-            echo "env=prod" >> $GITHUB_OUTPUT
-            echo "server_host=${{ secrets.PROD_SERVER_HOST }}" >> $GITHUB_OUTPUT
-            echo "server_user=${{ secrets.PROD_SERVER_USER }}" >> $GITHUB_OUTPUT
-            echo "frontend_dir=${{ vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod' }}" >> $GITHUB_OUTPUT
-            if [[ -n "${{ secrets.PROD_SERVER_HOST }}" && -n "${{ secrets.PROD_SERVER_USER }}" && -n "${{ secrets.PROD_SERVER_SSH_KEY }}" ]]; then
-              echo "ssh_ready=true" >> $GITHUB_OUTPUT
-            else
-              echo "ssh_ready=false" >> $GITHUB_OUTPUT
-            fi
+            ENV="prod"
+            SERVER_HOST="${{ secrets.PROD_SERVER_HOST }}"
+            SERVER_USER="${{ secrets.PROD_SERVER_USER }}"
+            FRONTEND_DIR="${{ vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod' }}"
+            SSH_KEY="${{ secrets.PROD_SERVER_SSH_KEY }}"
           else
-            echo "env=test" >> $GITHUB_OUTPUT
-            echo "server_host=${{ secrets.TEST_SERVER_HOST }}" >> $GITHUB_OUTPUT
-            echo "server_user=${{ secrets.TEST_SERVER_USER }}" >> $GITHUB_OUTPUT
-            echo "frontend_dir=${{ vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test' }}" >> $GITHUB_OUTPUT
-            if [[ -n "${{ secrets.TEST_SERVER_HOST }}" && -n "${{ secrets.TEST_SERVER_USER }}" && -n "${{ secrets.TEST_SERVER_SSH_KEY }}" ]]; then
-              echo "ssh_ready=true" >> $GITHUB_OUTPUT
-            else
-              echo "ssh_ready=false" >> $GITHUB_OUTPUT
-            fi
+            ENV="test"
+            SERVER_HOST="${{ secrets.TEST_SERVER_HOST }}"
+            SERVER_USER="${{ secrets.TEST_SERVER_USER }}"
+            FRONTEND_DIR="${{ vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test' }}"
+            SSH_KEY="${{ secrets.TEST_SERVER_SSH_KEY }}"
+          fi
+
+          # 统一输出到 job output
+          echo "env=$ENV" >> $GITHUB_OUTPUT
+          echo "frontend_dir=$FRONTEND_DIR" >> $GITHUB_OUTPUT
+          echo "server_host=$SERVER_HOST" >> $GITHUB_OUTPUT
+          echo "server_user=$SERVER_USER" >> $GITHUB_OUTPUT
+
+          # SSH 可用性校验
+          if [[ -n "$SERVER_HOST" && -n "$SERVER_USER" && -n "$SSH_KEY" ]]; then
+            echo "ssh_ready=true" >> $GITHUB_OUTPUT
+          else
+            echo "ssh_ready=false" >> $GITHUB_OUTPUT
           fi
 
   build:
@@ -156,11 +162,11 @@ jobs:
 
       - name: 部署到目标服务器
         if: needs.env-setup.outputs.ssh_ready == 'true'
-        uses: appleboy/ssh-action@v1
+        uses: appleboy/ssh-action@v1.2.5
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
           username: ${{ needs.env-setup.outputs.server_user }}
-          key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
+          key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           script: |
             set -e
             FRONTEND_DIR="${{ needs.env-setup.outputs.frontend_dir }}"
