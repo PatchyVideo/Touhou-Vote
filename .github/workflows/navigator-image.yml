@@ -39,8 +39,6 @@ jobs:
     outputs:
       env: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}
       frontend_dir: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && (vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod') || (vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test') }}
-      server_host: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
-      server_user: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_USER || secrets.TEST_SERVER_USER }}
       ssh_ready: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'true' || 'true' }}
     steps:
       - name: 输出当前 GitHub Environment
@@ -164,8 +162,8 @@ jobs:
         if: needs.env-setup.outputs.ssh_ready == 'true'
         uses: appleboy/ssh-action@v1.2.5
         with:
-          host: ${{ needs.env-setup.outputs.server_host }}
-          username: ${{ needs.env-setup.outputs.server_user }}
+          host: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
+          username: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_USER || secrets.TEST_SERVER_USER }}
           key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           script: |
             set -e
