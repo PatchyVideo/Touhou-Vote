@@ -36,6 +36,8 @@ jobs:
   env-setup:
     name: 确定环境配置
     runs-on: ubuntu-latest
+    environment:
+      name: "${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}"
     outputs:
       env: ${{ steps.env-detect.outputs.env }}
       graphql_url: ${{ steps.env-detect.outputs.graphql_url }}
@@ -45,6 +47,10 @@ jobs:
       server_user: ${{ steps.env-detect.outputs.server_user }}
       ssh_ready: ${{ steps.env-detect.outputs.ssh_ready }}
     steps:
+      - name: 输出当前 GitHub Environment
+        run: |
+          echo "GitHub Environment: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}"
+
       - name: 检测环境
         id: env-detect
         run: |
@@ -77,6 +83,8 @@ jobs:
   backend-ready:
     name: 确保后端服务就绪
     runs-on: ubuntu-latest
+    environment:
+      name: "${{ needs.env-setup.outputs.env }}"
     needs: env-setup
     outputs:
       graphql_url: ${{ needs.env-setup.outputs.graphql_url }}
@@ -153,6 +161,8 @@ jobs:
   build:
     name: 构建 Result 镜像
     runs-on: ubuntu-latest
+    environment:
+      name: "${{ needs.env-setup.outputs.env }}"
     needs: [env-setup, backend-ready]
     permissions:
       contents: read

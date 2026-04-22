@@ -35,6 +35,8 @@ jobs:
   env-setup:
     name: 确定环境配置
     runs-on: ubuntu-latest
+    environment:
+      name: "${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}"
     outputs:
       env: ${{ steps.env-detect.outputs.env }}
       frontend_dir: ${{ steps.env-detect.outputs.frontend_dir }}
@@ -42,6 +44,10 @@ jobs:
       server_user: ${{ steps.env-detect.outputs.server_user }}
       ssh_ready: ${{ steps.env-detect.outputs.ssh_ready }}
     steps:
+      - name: 输出当前 GitHub Environment
+        run: |
+          echo "GitHub Environment: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}"
+
       - name: 检测环境
         id: env-detect
         run: |
@@ -70,6 +76,8 @@ jobs:
   build:
     name: 构建 Navigator 镜像
     runs-on: ubuntu-latest
+    environment:
+      name: "${{ needs.env-setup.outputs.env }}"
     needs: env-setup
     permissions:
       contents: read
