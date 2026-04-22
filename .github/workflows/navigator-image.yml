@@ -41,7 +41,6 @@ jobs:
       frontend_dir: ${{ steps.env-detect.outputs.frontend_dir }}
       server_host: ${{ steps.env-detect.outputs.server_host }}
       server_user: ${{ steps.env-detect.outputs.server_user }}
-      ssh_key: ${{ steps.env-detect.outputs.ssh_key }}
       ssh_ready: ${{ steps.env-detect.outputs.ssh_ready }}
     steps:
       - name: 输出当前 GitHub Environment
@@ -52,26 +51,28 @@ jobs:
         id: env-detect
         shell: bash
         run: |
+          # 统一环境判定
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.environment }}" == "prod" ]]; then
             ENV="prod"
             SERVER_HOST="${{ secrets.PROD_SERVER_HOST }}"
             SERVER_USER="${{ secrets.PROD_SERVER_USER }}"
-            SSH_KEY="${{ secrets.PROD_SERVER_SSH_KEY }}"
             FRONTEND_DIR="${{ vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod' }}"
+            SSH_KEY="${{ secrets.PROD_SERVER_SSH_KEY }}"
           else
             ENV="test"
             SERVER_HOST="${{ secrets.TEST_SERVER_HOST }}"
             SERVER_USER="${{ secrets.TEST_SERVER_USER }}"
-            SSH_KEY="${{ secrets.TEST_SERVER_SSH_KEY }}"
             FRONTEND_DIR="${{ vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test' }}"
+            SSH_KEY="${{ secrets.TEST_SERVER_SSH_KEY }}"
           fi
 
+          # 统一输出到 job output
           echo "env=$ENV" >> $GITHUB_OUTPUT
           echo "frontend_dir=$FRONTEND_DIR" >> $GITHUB_OUTPUT
           echo "server_host=$SERVER_HOST" >> $GITHUB_OUTPUT
           echo "server_user=$SERVER_USER" >> $GITHUB_OUTPUT
-          echo "ssh_key=$SSH_KEY" >> $GITHUB_OUTPUT
 
+          # SSH 可用性校验
           if [[ -n "$SERVER_HOST" && -n "$SERVER_USER" && -n "$SSH_KEY" ]]; then
             echo "ssh_ready=true" >> $GITHUB_OUTPUT
           else
@@ -165,7 +166,7 @@ jobs:
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
           username: ${{ needs.env-setup.outputs.server_user }}
-          key: ${{ needs.env-setup.outputs.ssh_key }}
+          key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           script: |
             set -e
             FRONTEND_DIR="${{ needs.env-setup.outputs.frontend_dir }}"

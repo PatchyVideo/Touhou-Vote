@@ -45,7 +45,6 @@ jobs:
       frontend_dir: ${{ steps.env-detect.outputs.frontend_dir }}
       server_host: ${{ steps.env-detect.outputs.server_host }}
       server_user: ${{ steps.env-detect.outputs.server_user }}
-      ssh_key: ${{ steps.env-detect.outputs.ssh_key }}
       ssh_ready: ${{ steps.env-detect.outputs.ssh_ready }}
     steps:
       - name: 输出当前 GitHub Environment
@@ -57,23 +56,34 @@ jobs:
         shell: bash
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.environment }}" == "prod" ]]; then
-            echo "env=prod" >> $GITHUB_OUTPUT
-            echo "graphql_url=http://${{ secrets.PROD_SERVER_HOST }}:8000/graphql" >> $GITHUB_OUTPUT
-            echo "server_host=${{ secrets.PROD_SERVER_HOST }}" >> $GITHUB_OUTPUT
-            echo "server_user=${{ secrets.PROD_SERVER_USER }}" >> $GITHUB_OUTPUT
-            echo "ssh_key=${{ secrets.PROD_SERVER_SSH_KEY }}" >> $GITHUB_OUTPUT
-            echo "backend_dir=${{ vars.PROD_SERVER_DIR || '/opt/thvote/prod' }}" >> $GITHUB_OUTPUT
-            echo "frontend_dir=${{ vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod' }}" >> $GITHUB_OUTPUT
+            ENV="prod"
+            GRAPHQL_URL="http://${{ secrets.PROD_SERVER_HOST }}:8000/graphql"
+            SERVER_HOST="${{ secrets.PROD_SERVER_HOST }}"
+            SERVER_USER="${{ secrets.PROD_SERVER_USER }}"
+            BACKEND_DIR="${{ vars.PROD_SERVER_DIR || '/opt/thvote/prod' }}"
+            FRONTEND_DIR="${{ vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod' }}"
+            SSH_KEY="${{ secrets.PROD_SERVER_SSH_KEY }}"
+          else
+            ENV="test"
+            GRAPHQL_URL="http://152.53.165.220:18000/graphql"
+            SERVER_HOST="${{ secrets.TEST_SERVER_HOST }}"
+            SERVER_USER="${{ secrets.TEST_SERVER_USER }}"
+            BACKEND_DIR="${{ vars.TEST_SERVER_DIR || '/opt/thvote/test' }}"
+            FRONTEND_DIR="${{ vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test' }}"
+            SSH_KEY="${{ secrets.TEST_SERVER_SSH_KEY }}"
+          fi
+
+          echo "env=$ENV" >> $GITHUB_OUTPUT
+          echo "graphql_url=$GRAPHQL_URL" >> $GITHUB_OUTPUT
+          echo "backend_dir=$BACKEND_DIR" >> $GITHUB_OUTPUT
+          echo "frontend_dir=$FRONTEND_DIR" >> $GITHUB_OUTPUT
+          echo "server_host=$SERVER_HOST" >> $GITHUB_OUTPUT
+          echo "server_user=$SERVER_USER" >> $GITHUB_OUTPUT
+
+          if [[ -n "$SERVER_HOST" && -n "$SERVER_USER" && -n "$SSH_KEY" ]]; then
             echo "ssh_ready=true" >> $GITHUB_OUTPUT
           else
-            echo "env=test" >> $GITHUB_OUTPUT
-            echo "graphql_url=http://152.53.165.220:18000/graphql" >> $GITHUB_OUTPUT
-            echo "server_host=${{ secrets.TEST_SERVER_HOST }}" >> $GITHUB_OUTPUT
-            echo "server_user=${{ secrets.TEST_SERVER_USER }}" >> $GITHUB_OUTPUT
-            echo "ssh_key=${{ secrets.TEST_SERVER_SSH_KEY }}" >> $GITHUB_OUTPUT
-            echo "backend_dir=${{ vars.TEST_SERVER_DIR || '/opt/thvote/test' }}" >> $GITHUB_OUTPUT
-            echo "frontend_dir=${{ vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test' }}" >> $GITHUB_OUTPUT
-            echo "ssh_ready=true" >> $GITHUB_OUTPUT
+            echo "ssh_ready=false" >> $GITHUB_OUTPUT
           fi
 
   backend-ready:
@@ -90,7 +100,7 @@ jobs:
           if [[ "${{ needs.env-setup.outputs.ssh_ready }}" == "true" ]]; then
             echo "SSH 配置完整，执行远端后端健康检查"
           else
-            echo "SSH 配置缺失，跳过远端后端检查"
+            echo "SSH 配置缺失，跳过远端后端检查，直接使用 GRAPHQL_SCHEMA_URL=${{ needs.env-setup.outputs.graphql_url }}"
           fi
 
       - name: 确保后端服务运行
@@ -99,7 +109,7 @@ jobs:
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
           username: ${{ needs.env-setup.outputs.server_user }}
-          key: ${{ needs.env-setup.outputs.ssh_key }}
+          key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           script: |
             set -e
             BACKEND_DIR="${{ needs.env-setup.outputs.backend_dir }}"
@@ -114,7 +124,7 @@ jobs:
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
           username: ${{ needs.env-setup.outputs.server_user }}
-          key: ${{ needs.env-setup.outputs.ssh_key }}
+          key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           script: |
             set -e
             BACKEND_DIR="${{ needs.env-setup.outputs.backend_dir }}"
@@ -136,11 +146,12 @@ jobs:
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
           username: ${{ needs.env-setup.outputs.server_user }}
-          key: ${{ needs.env-setup.outputs.ssh_key }}
+          key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           script: |
             set -e
             BACKEND_DIR="${{ needs.env-setup.outputs.backend_dir }}"
             cd "$BACKEND_DIR"
+
             SCHEMA_OUTPUT=$(docker-compose exec -T backend curl -sf http://localhost:8000/graphql/schema 2>&1 | head -c 200)
             if [ -n "$SCHEMA_OUTPUT" ]; then
               echo "GraphQL schema 端点正常"
@@ -248,7 +259,7 @@ jobs:
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
           username: ${{ needs.env-setup.outputs.server_user }}
-          key: ${{ needs.env-setup.outputs.ssh_key }}
+          key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
           script: |
             set -e
             FRONTEND_DIR="${{ needs.env-setup.outputs.frontend_dir }}"
@@ -259,11 +270,13 @@ jobs:
 
             cat > docker-compose.yml << 'COMPOSEEOF'
             version: "3.8"
+
             x-frontend-common: &frontend_common
               restart: unless-stopped
               networks:
                 - thvote-net
               pull_policy: always
+
             services:
               vote:
                 <<: *frontend_common
@@ -271,18 +284,21 @@ jobs:
                 container_name: thvote-vote
                 ports:
                   - "${VOTE_PORT:-8082}:8082"
+
               navigator:
                 <<: *frontend_common
                 image: ${NAVIGATOR_IMAGE:-ghcr.io/patchyvideo/thvote-navigator:test}
                 container_name: thvote-navigator
                 ports:
                   - "${NAVIGATOR_PORT:-8083}:8083"
+
               result:
                 <<: *frontend_common
                 image: ${RESULT_IMAGE:-ghcr.io/patchyvideo/thvote-result:test}
                 container_name: thvote-result
                 ports:
                   - "${RESULT_PORT:-8084}:8084"
+
             networks:
               thvote-net:
                 name: thvote-net
