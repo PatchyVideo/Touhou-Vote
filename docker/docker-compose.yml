@@ -1,0 +1,38 @@
+version: "3.8"
+
+# THVote frontend-only compose.
+# Frontend and backend are deployed independently and communicate through the
+# shared external Docker network `thvote-net`.
+
+x-frontend-common: &frontend_common
+  restart: unless-stopped
+  networks:
+    - thvote-net
+  pull_policy: always
+
+services:
+  vote:
+    <<: *frontend_common
+    image: ${VOTE_IMAGE:-ghcr.io/patchyvideo/thvote-vote:test}
+    container_name: thvote-vote
+    ports:
+      - "${VOTE_PORT:-8082}:8082"
+
+  navigator:
+    <<: *frontend_common
+    image: ${NAVIGATOR_IMAGE:-ghcr.io/patchyvideo/thvote-navigator:test}
+    container_name: thvote-navigator
+    ports:
+      - "${NAVIGATOR_PORT:-8083}:8083"
+
+  result:
+    <<: *frontend_common
+    image: ${RESULT_IMAGE:-ghcr.io/patchyvideo/thvote-result:test}
+    container_name: thvote-result
+    ports:
+      - "${RESULT_PORT:-8084}:8084"
+
+networks:
+  thvote-net:
+    name: thvote-net
+    external: true

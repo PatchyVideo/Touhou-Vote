@@ -1,7 +1,5 @@
 # ============================================================
 # THVote Navigator 前端独立部署流水线
-#
-# Navigator 不依赖 GraphQL，直接构建镜像
 # ============================================================
 
 name: Build & Deploy Navigator Frontend
@@ -14,6 +12,7 @@ on:
       - '.github/workflows/navigator-image.yml'
       - '.github/workflows/result-image.yml'
       - '.github/workflows/vote-image.yml'
+      - 'docker/**'
       - 'packages/navigator/**'
       - 'packages/shared/**'
   workflow_dispatch:
@@ -33,9 +32,34 @@ env:
   IMAGE_NAME: thvote-navigator
 
 jobs:
+  env-setup:
+    name: 确定环境配置
+    runs-on: ubuntu-latest
+    outputs:
+      env: ${{ steps.env-detect.outputs.env }}
+      frontend_dir: ${{ steps.env-detect.outputs.frontend_dir }}
+      server_host: ${{ steps.env-detect.outputs.server_host }}
+      server_user: ${{ steps.env-detect.outputs.server_user }}
+    steps:
+      - name: 检测环境
+        id: env-detect
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.environment }}" == "prod" ]]; then
+            echo "env=prod" >> $GITHUB_OUTPUT
+            echo "server_host=${{ secrets.PROD_SERVER_HOST }}" >> $GITHUB_OUTPUT
+            echo "server_user=${{ secrets.PROD_SERVER_USER }}" >> $GITHUB_OUTPUT
+            echo "frontend_dir=${{ vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod' }}" >> $GITHUB_OUTPUT
+          else
+            echo "env=test" >> $GITHUB_OUTPUT
+            echo "server_host=${{ secrets.TEST_SERVER_HOST }}" >> $GITHUB_OUTPUT
+            echo "server_user=${{ secrets.TEST_SERVER_USER }}" >> $GITHUB_OUTPUT
+            echo "frontend_dir=${{ vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test' }}" >> $GITHUB_OUTPUT
+          fi
+
   build:
     name: 构建 Navigator 镜像
     runs-on: ubuntu-latest
+    needs: env-setup
     permissions:
       contents: read
       packages: write
@@ -104,29 +128,76 @@ jobs:
           docker push $PROD_TAG
 
       - name: 部署到目标服务器
-        if: >-
-          (github.event_name != 'workflow_dispatch' || github.event.inputs.environment == 'test' || github.event.inputs.environment == 'prod')
-          && vars.TEST_SERVER_HOST != ''
+        if: needs.env-setup.outputs.server_host != ''
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
-          username: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_USER || secrets.TEST_SERVER_USER }}
+          host: ${{ needs.env-setup.outputs.server_host }}
+          username: ${{ needs.env-setup.outputs.server_user }}
           key: ${{ github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
-          envs: SERVER_DIR
           script: |
             set -e
-            SERVER_DIR="${{ github.event.inputs.environment == 'prod' && vars.PROD_SERVER_DIR || vars.TEST_SERVER_DIR }}"
-            cd "$SERVER_DIR"
+            FRONTEND_DIR="${{ needs.env-setup.outputs.frontend_dir }}"
+            mkdir -p "$FRONTEND_DIR"
+            cd "$FRONTEND_DIR"
 
-            echo "=== 部署 Navigator ==="
-
-            # 登录镜像仓库
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin || true
 
-            # 拉起 / 重启 navigator（docker-compose 会自动拉取 :test 或 :prod tag）
-            docker-compose up -d --profile frontend --no-deps navigator
+            cat > docker-compose.yml << 'COMPOSEEOF'
+            version: "3.8"
 
-            echo "Navigator 部署完成"
+            x-frontend-common: &frontend_common
+              restart: unless-stopped
+              networks:
+                - thvote-net
+              pull_policy: always
+
+            services:
+              vote:
+                <<: *frontend_common
+                image: ${VOTE_IMAGE:-ghcr.io/patchyvideo/thvote-vote:test}
+                container_name: thvote-vote
+                ports:
+                  - "${VOTE_PORT:-8082}:8082"
+
+              navigator:
+                <<: *frontend_common
+                image: ${NAVIGATOR_IMAGE:-ghcr.io/patchyvideo/thvote-navigator:test}
+                container_name: thvote-navigator
+                ports:
+                  - "${NAVIGATOR_PORT:-8083}:8083"
+
+              result:
+                <<: *frontend_common
+                image: ${RESULT_IMAGE:-ghcr.io/patchyvideo/thvote-result:test}
+                container_name: thvote-result
+                ports:
+                  - "${RESULT_PORT:-8084}:8084"
+
+            networks:
+              thvote-net:
+                name: thvote-net
+                external: true
+            COMPOSEEOF
+
+            ENV_FILE=".env.${{ needs.env-setup.outputs.env }}"
+            if [ ! -f "$ENV_FILE" ]; then
+              cat > "$ENV_FILE" << 'ENVEOF'
+            VOTE_IMAGE=ghcr.io/patchyvideo/thvote-vote:${{ needs.env-setup.outputs.env }}
+            NAVIGATOR_IMAGE=ghcr.io/patchyvideo/thvote-navigator:${{ needs.env-setup.outputs.env }}
+            RESULT_IMAGE=ghcr.io/patchyvideo/thvote-result:${{ needs.env-setup.outputs.env }}
+            VOTE_PORT=8082
+            NAVIGATOR_PORT=8083
+            RESULT_PORT=8084
+            ENVEOF
+            fi
+
+            cp "$ENV_FILE" .env
+            sed -i.bak "s|^NAVIGATOR_IMAGE=.*|NAVIGATOR_IMAGE=${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ needs.env-setup.outputs.env }}|" .env
+            rm -f .env.bak
+
+            docker pull "${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ needs.env-setup.outputs.env }}" || true
+            docker-compose up -d --no-deps navigator
+            docker image prune -f
 
       - name: 总结
         run: |
@@ -136,3 +207,4 @@ jobs:
           echo "|------|----|" >> $GITHUB_STEP_SUMMARY
           echo "| 镜像 | ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Tag | ${{ steps.meta.outputs.version }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 环境 | ${{ needs.env-setup.outputs.env }} |" >> $GITHUB_STEP_SUMMARY
