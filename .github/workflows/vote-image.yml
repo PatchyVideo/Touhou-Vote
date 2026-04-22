@@ -50,6 +50,7 @@ jobs:
       frontend_dir: ${{ steps.env-detect.outputs.frontend_dir }}
       server_host: ${{ steps.env-detect.outputs.server_host }}
       server_user: ${{ steps.env-detect.outputs.server_user }}
+      ssh_ready: ${{ steps.env-detect.outputs.ssh_ready }}
     steps:
       - name: 检测环境
         id: env-detect
@@ -61,6 +62,11 @@ jobs:
             echo "server_user=${{ secrets.PROD_SERVER_USER }}" >> $GITHUB_OUTPUT
             echo "backend_dir=${{ vars.PROD_SERVER_DIR || '/opt/thvote/prod' }}" >> $GITHUB_OUTPUT
             echo "frontend_dir=${{ vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod' }}" >> $GITHUB_OUTPUT
+            if [[ -n "${{ secrets.PROD_SERVER_HOST }}" && -n "${{ secrets.PROD_SERVER_USER }}" && -n "${{ secrets.PROD_SERVER_SSH_KEY }}" ]]; then
+              echo "ssh_ready=true" >> $GITHUB_OUTPUT
+            else
+              echo "ssh_ready=false" >> $GITHUB_OUTPUT
+            fi
           else
             echo "env=test" >> $GITHUB_OUTPUT
             echo "graphql_url=http://152.53.165.220:18000/graphql" >> $GITHUB_OUTPUT
@@ -68,6 +74,11 @@ jobs:
             echo "server_user=${{ secrets.TEST_SERVER_USER }}" >> $GITHUB_OUTPUT
             echo "backend_dir=${{ vars.TEST_SERVER_DIR || '/opt/thvote/test' }}" >> $GITHUB_OUTPUT
             echo "frontend_dir=${{ vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test' }}" >> $GITHUB_OUTPUT
+            if [[ -n "${{ secrets.TEST_SERVER_HOST }}" && -n "${{ secrets.TEST_SERVER_USER }}" && -n "${{ secrets.TEST_SERVER_SSH_KEY }}" ]]; then
+              echo "ssh_ready=true" >> $GITHUB_OUTPUT
+            else
+              echo "ssh_ready=false" >> $GITHUB_OUTPUT
+            fi
           fi
 
   backend-ready:
@@ -77,8 +88,16 @@ jobs:
     outputs:
       graphql_url: ${{ needs.env-setup.outputs.graphql_url }}
     steps:
+      - name: 输出 SSH 检查结果
+        run: |
+          if [[ "${{ needs.env-setup.outputs.ssh_ready }}" == "true" ]]; then
+            echo "SSH 配置完整，执行远端后端健康检查"
+          else
+            echo "SSH 配置缺失，跳过远端后端检查，直接使用 GRAPHQL_SCHEMA_URL=${{ needs.env-setup.outputs.graphql_url }}"
+          fi
+
       - name: 确保后端服务运行
-        if: needs.env-setup.outputs.server_host != ''
+        if: needs.env-setup.outputs.ssh_ready == 'true'
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
@@ -100,7 +119,7 @@ jobs:
             docker-compose up -d backend
 
       - name: 等待后端健康检查
-        if: needs.env-setup.outputs.server_host != ''
+        if: needs.env-setup.outputs.ssh_ready == 'true'
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
@@ -124,7 +143,7 @@ jobs:
             exit 1
 
       - name: 验证 GraphQL schema 端点
-        if: needs.env-setup.outputs.server_host != ''
+        if: needs.env-setup.outputs.ssh_ready == 'true'
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
@@ -211,7 +230,7 @@ jobs:
           TEST_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:test"
           PROD_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:prod"
 
-          docker build -t $VERSION_TAG -t $TEST_TAG -t $PROD_TAG . << 'DOCKEREOF'
+          docker build -f - -t $VERSION_TAG -t $TEST_TAG -t $PROD_TAG . << 'DOCKEREOF'
           FROM nginx:alpine
           RUN echo 'server { \
               listen 8082; \
@@ -238,7 +257,7 @@ jobs:
           docker push $PROD_TAG
 
       - name: 部署到目标服务器
-        if: needs.env-setup.outputs.server_host != ''
+        if: needs.env-setup.outputs.ssh_ready == 'true'
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
@@ -319,3 +338,4 @@ jobs:
           echo "| Tag | ${{ steps.meta.outputs.version }} |" >> $GITHUB_STEP_SUMMARY
           echo "| 环境 | ${{ needs.env-setup.outputs.env }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Schema 来源 | ${{ needs.backend-ready.outputs.graphql_url }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| SSH 部署 | ${{ needs.env-setup.outputs.ssh_ready == 'true' && 'enabled' || 'skipped' }} |" >> $GITHUB_STEP_SUMMARY
