@@ -52,6 +52,7 @@ jobs:
       frontend_dir: ${{ steps.env-detect.outputs.frontend_dir }}
       server_host: ${{ steps.env-detect.outputs.server_host }}
       server_user: ${{ steps.env-detect.outputs.server_user }}
+      ssh_key: ${{ steps.env-detect.outputs.ssh_key }}
       ssh_ready: ${{ steps.env-detect.outputs.ssh_ready }}
     steps:
       - name: 输出当前 GitHub Environment
@@ -67,17 +68,17 @@ jobs:
             GRAPHQL_URL="http://${{ secrets.PROD_SERVER_HOST }}:8000/graphql"
             SERVER_HOST="${{ secrets.PROD_SERVER_HOST }}"
             SERVER_USER="${{ secrets.PROD_SERVER_USER }}"
+            SSH_KEY="${{ secrets.PROD_SERVER_SSH_KEY }}"
             BACKEND_DIR="${{ vars.PROD_SERVER_DIR || '/opt/thvote/prod' }}"
             FRONTEND_DIR="${{ vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod' }}"
-            SSH_KEY="${{ secrets.PROD_SERVER_SSH_KEY }}"
           else
             ENV="test"
             GRAPHQL_URL="http://152.53.165.220:18000/graphql"
             SERVER_HOST="${{ secrets.TEST_SERVER_HOST }}"
             SERVER_USER="${{ secrets.TEST_SERVER_USER }}"
+            SSH_KEY="${{ secrets.TEST_SERVER_SSH_KEY }}"
             BACKEND_DIR="${{ vars.TEST_SERVER_DIR || '/opt/thvote/test' }}"
             FRONTEND_DIR="${{ vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test' }}"
-            SSH_KEY="${{ secrets.TEST_SERVER_SSH_KEY }}"
           fi
 
           echo "env=$ENV" >> $GITHUB_OUTPUT
@@ -86,6 +87,7 @@ jobs:
           echo "frontend_dir=$FRONTEND_DIR" >> $GITHUB_OUTPUT
           echo "server_host=$SERVER_HOST" >> $GITHUB_OUTPUT
           echo "server_user=$SERVER_USER" >> $GITHUB_OUTPUT
+          echo "ssh_key=$SSH_KEY" >> $GITHUB_OUTPUT
 
           if [[ -n "$SERVER_HOST" && -n "$SERVER_USER" && -n "$SSH_KEY" ]]; then
             echo "ssh_ready=true" >> $GITHUB_OUTPUT
@@ -116,7 +118,7 @@ jobs:
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
           username: ${{ needs.env-setup.outputs.server_user }}
-          key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
+          key: ${{ needs.env-setup.outputs.ssh_key }}
           script: |
             set -e
             BACKEND_DIR="${{ needs.env-setup.outputs.backend_dir }}"
@@ -138,7 +140,7 @@ jobs:
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
           username: ${{ needs.env-setup.outputs.server_user }}
-          key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
+          key: ${{ needs.env-setup.outputs.ssh_key }}
           script: |
             set -e
             BACKEND_DIR="${{ needs.env-setup.outputs.backend_dir }}"
@@ -162,7 +164,7 @@ jobs:
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
           username: ${{ needs.env-setup.outputs.server_user }}
-          key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
+          key: ${{ needs.env-setup.outputs.ssh_key }}
           script: |
             set -e
             BACKEND_DIR="${{ needs.env-setup.outputs.backend_dir }}"
@@ -278,7 +280,7 @@ jobs:
         with:
           host: ${{ needs.env-setup.outputs.server_host }}
           username: ${{ needs.env-setup.outputs.server_user }}
-          key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
+          key: ${{ needs.env-setup.outputs.ssh_key }}
           script: |
             set -e
             FRONTEND_DIR="${{ needs.env-setup.outputs.frontend_dir }}"
