@@ -47,7 +47,6 @@ jobs:
       name: "${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}"
     outputs:
       env: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}
-      graphql_url: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && format('http://{0}:8000/graphql', secrets.PROD_SERVER_HOST) || 'http://152.53.165.220:18000/graphql' }}
       backend_dir: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && (vars.PROD_SERVER_DIR || '/opt/thvote/prod') || (vars.TEST_SERVER_DIR || '/opt/thvote/test') }}
       frontend_dir: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && (vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod') || (vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test') }}
       ssh_ready: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'true' || 'true' }}
@@ -98,14 +97,14 @@ jobs:
       name: "${{ needs.env-setup.outputs.env }}"
     needs: env-setup
     outputs:
-      graphql_url: ${{ needs.env-setup.outputs.graphql_url }}
+      graphql_url: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && format('http://{0}:8000/graphql', secrets.PROD_SERVER_HOST) || 'http://152.53.165.220:18000/graphql' }}
     steps:
       - name: 输出 SSH 检查结果
         run: |
           if [[ "${{ needs.env-setup.outputs.ssh_ready }}" == "true" ]]; then
             echo "SSH 配置完整，执行远端后端健康检查"
           else
-            echo "SSH 配置缺失，跳过远端后端检查，直接使用 GRAPHQL_SCHEMA_URL=${{ needs.env-setup.outputs.graphql_url }}"
+            echo "SSH 配置缺失，跳过远端后端检查，直接使用 GRAPHQL_SCHEMA_URL=http://152.53.165.220:18000/graphql"
           fi
 
       - name: 确保后端服务运行
@@ -208,7 +207,7 @@ jobs:
 
       - name: Codegen（从后端获取 schema）
         env:
-          GRAPHQL_SCHEMA_URL: ${{ needs.backend-ready.outputs.graphql_url }}
+          GRAPHQL_SCHEMA_URL: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && format('http://{0}:8000/graphql', secrets.PROD_SERVER_HOST) || 'http://152.53.165.220:18000/graphql' }}
         run: |
           echo "Schema 地址: $GRAPHQL_SCHEMA_URL"
           curl -sf "$GRAPHQL_SCHEMA_URL" -o /dev/null
@@ -351,5 +350,5 @@ jobs:
           echo "| 镜像 | ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Tag | ${{ steps.meta.outputs.version }} |" >> $GITHUB_STEP_SUMMARY
           echo "| 环境 | ${{ needs.env-setup.outputs.env }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Schema 来源 | ${{ needs.backend-ready.outputs.graphql_url }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Schema 来源 | ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && format('http://{0}:8000/graphql', secrets.PROD_SERVER_HOST) || 'http://152.53.165.220:18000/graphql' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| SSH 部署 | ${{ needs.env-setup.outputs.ssh_ready == 'true' && 'enabled' || 'skipped' }} |" >> $GITHUB_STEP_SUMMARY
