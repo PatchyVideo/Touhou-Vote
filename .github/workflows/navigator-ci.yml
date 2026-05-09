@@ -36,7 +36,7 @@ jobs:
         with:
           version: 7.33.7
           run_install: |
-            args: [--frozen-lockfile, --strict-peer-dependencies]
+            - args: [--frozen-lockfile, --strict-peer-dependencies]
         timeout-minutes: 10
 
       - name: Build
