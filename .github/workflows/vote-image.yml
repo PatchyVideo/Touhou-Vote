@@ -95,7 +95,7 @@ jobs:
     name: 确保后端服务就绪
     runs-on: ubuntu-latest
     environment:
-      name: "${{ needs.env-setup.outputs.env }}"
+      name: '${{ needs.env-setup.outputs.env }}'
     needs: env-setup
     outputs:
       graphql_url: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && format('http://{0}:8000/graphql', secrets.PROD_SERVER_HOST) || 'http://152.53.165.220:18000/graphql' }}
@@ -182,7 +182,7 @@ jobs:
     name: 构建 Vote 镜像
     runs-on: ubuntu-latest
     environment:
-      name: "${{ needs.env-setup.outputs.env }}"
+      name: '${{ needs.env-setup.outputs.env }}'
     needs: [env-setup, backend-ready]
     permissions:
       contents: read
@@ -195,7 +195,7 @@ jobs:
       - name: 设置 pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 7.33.7
+          version: 10.33.0
 
       - name: 设置 Node.js
         uses: actions/setup-node@v4
