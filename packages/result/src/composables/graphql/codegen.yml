@@ -1,6 +1,6 @@
 overwrite: true
 schema:
-  - ${GRAPHQL_SCHEMA_URL:-https://touhou.ai/vote-be/graphql}
+  - ${GRAPHQL_SCHEMA_URL:https://touhou.ai/vote-be/graphql}
 generates:
   src/composables/graphql/__generated__/graphql.ts:
     plugins:
