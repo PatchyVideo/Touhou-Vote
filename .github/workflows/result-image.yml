@@ -43,7 +43,7 @@ jobs:
       env: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}
       backend_dir: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && (vars.PROD_SERVER_DIR || '/opt/thvote/prod') || (vars.TEST_SERVER_DIR || '/opt/thvote/test') }}
       frontend_dir: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && (vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod') || (vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test') }}
-      ssh_ready: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'true' || 'true' }}
+      ssh_ready: ${{ steps.env-detect.outputs.ssh_ready }}
     steps:
       - name: 输出当前 GitHub Environment
         run: |
