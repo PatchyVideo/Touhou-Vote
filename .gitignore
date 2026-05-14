@@ -123,6 +123,15 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# GraphQL codegen generated files
+packages/result/src/composables/graphql/__generated__/
+
+# Vite plugin auto-generated type declarations
+packages/result/auto-imports.d.ts
+packages/result/components.d.ts
+packages/navigator/auto-imports.d.ts
+packages/navigator/components.d.ts
+
 # custom
 __generated__
 .idea
