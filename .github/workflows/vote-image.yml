@@ -5,7 +5,7 @@
 # 流程：
 #   1. 等待后端健康（直接 curl，无 SSH）
 #   2. codegen（从后端拉 GraphQL schema）
-#   3. 多阶段 Docker 构建（pnpm@7.33.7 + node:20）并推送镜像
+#   3. 多阶段 Docker 构建（pnpm@10.33.0 + node:20）并推送镜像
 #   4. SSH 部署到测试服务器
 #
 # 不影响生产流水线（vote-ci.yml 保持不变）
@@ -60,10 +60,10 @@ jobs:
           echo "后端 GraphQL 未就绪，终止"
           exit 1
 
-      - name: 设置 pnpm（与生产 vote-ci.yml 一致：pnpm@7.33.7）
+      - name: 设置 pnpm（与生产 vote-ci.yml 一致：pnpm@10.33.0）
         uses: pnpm/action-setup@v4
         with:
-          version: 7.33.7
+          version: 10.33.0
 
       - name: 设置 Node.js（与生产 vote-ci.yml 一致：node 20）
         uses: actions/setup-node@v4

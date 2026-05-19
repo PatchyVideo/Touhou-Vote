@@ -6,7 +6,7 @@
 
 FROM node:20-alpine AS build
 
-RUN corepack enable && corepack prepare pnpm@7.33.7 --activate
+RUN corepack enable && corepack prepare pnpm@10.33.0 --activate
 
 WORKDIR /app
 

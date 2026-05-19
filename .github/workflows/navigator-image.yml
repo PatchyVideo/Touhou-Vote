@@ -39,10 +39,10 @@ jobs:
       - name: 检出代码
         uses: actions/checkout@v4
 
-      - name: 设置 pnpm（与生产 navigator-ci.yml 一致：pnpm@7.33.7）
+      - name: 设置 pnpm（与生产 navigator-ci.yml 一致：pnpm@10.33.0）
         uses: pnpm/action-setup@v4
         with:
-          version: 7.33.7
+          version: 10.33.0
 
       - name: 设置 Node.js（与生产 navigator-ci.yml 一致：node 20）
         uses: actions/setup-node@v4
