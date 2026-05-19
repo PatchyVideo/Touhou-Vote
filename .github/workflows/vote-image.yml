@@ -20,6 +20,7 @@ on:
       - dev
     paths:
       - '.github/workflows/vote-image.yml'
+      - '.dockerignore'
       - 'docker/**'
       - 'packages/vote/**'
       - 'packages/shared/**'

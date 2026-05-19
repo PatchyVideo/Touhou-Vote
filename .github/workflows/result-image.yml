@@ -20,6 +20,7 @@ on:
       - dev
     paths:
       - '.github/workflows/result-image.yml'
+      - '.dockerignore'
       - 'docker/**'
       - 'packages/result/**'
       - 'packages/shared/**'
