@@ -17,9 +17,8 @@ COPY . .
 
 RUN pnpm install --frozen-lockfile
 
-# codegen 在 CI workflow 中执行（等待后端就绪后）
-# 此处保留占位，实际构建时 workflow 会先运行 codegen 再执行 build
 ARG BACKEND_URL=http://localhost:8000
+ENV GRAPHQL_SCHEMA_URL=${BACKEND_URL}/graphql
 
 RUN pnpm --filter @touhou-vote/result run codegen
 

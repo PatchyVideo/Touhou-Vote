@@ -1,6 +1,12 @@
 # ============================================================
-# THVote Navigator 前端独立部署流水线
+# THVote Navigator 前端测试环境部署流水线
+#
+# Navigator 无 GraphQL 依赖，无需 codegen，无需等后端
+# 触发：push 到 zfq_dev_fe / dev 分支，或手动触发
+#
+# 不影响生产流水线（navigator-ci.yml 保持不变）
 # ============================================================
+
 name: Build & Deploy Navigator Frontend
 
 on:
@@ -10,21 +16,10 @@ on:
       - dev
     paths:
       - '.github/workflows/navigator-image.yml'
-      - '.github/workflows/result-image.yml'
-      - '.github/workflows/vote-image.yml'
       - 'docker/**'
       - 'packages/navigator/**'
       - 'packages/shared/**'
   workflow_dispatch:
-    inputs:
-      environment:
-        description: '目标环境'
-        required: false
-        default: 'test'
-        type: choice
-        options:
-          - test
-          - prod
 
 env:
   REGISTRY: ghcr.io
@@ -32,58 +27,10 @@ env:
   IMAGE_NAME: thvote-navigator
 
 jobs:
-  env-setup:
-    name: 确定环境配置
-    runs-on: ubuntu-latest
-    environment:
-      name: "${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}"
-    outputs:
-      env: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}
-      frontend_dir: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && (vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod') || (vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test') }}
-      ssh_ready: ${{ steps.env-detect.outputs.ssh_ready }}
-    steps:
-      - name: 输出当前 GitHub Environment
-        run: |
-          echo "GitHub Environment: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && 'prod' || 'test' }}"
-
-      - name: 检测环境 & 输出所有变量
-        id: env-detect
-        shell: bash
-        run: |
-          # 统一环境判定
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.environment }}" == "prod" ]]; then
-            ENV="prod"
-            SERVER_HOST="${{ secrets.PROD_SERVER_HOST }}"
-            SERVER_USER="${{ secrets.PROD_SERVER_USER }}"
-            FRONTEND_DIR="${{ vars.PROD_FRONTEND_SERVER_DIR || '/opt/thvote-fe/prod' }}"
-            SSH_KEY="${{ secrets.PROD_SERVER_SSH_KEY }}"
-          else
-            ENV="test"
-            SERVER_HOST="${{ secrets.TEST_SERVER_HOST }}"
-            SERVER_USER="${{ secrets.TEST_SERVER_USER }}"
-            FRONTEND_DIR="${{ vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test' }}"
-            SSH_KEY="${{ secrets.TEST_SERVER_SSH_KEY }}"
-          fi
-
-          # 统一输出到 job output
-          echo "env=$ENV" >> $GITHUB_OUTPUT
-          echo "frontend_dir=$FRONTEND_DIR" >> $GITHUB_OUTPUT
-          echo "server_host=$SERVER_HOST" >> $GITHUB_OUTPUT
-          echo "server_user=$SERVER_USER" >> $GITHUB_OUTPUT
-
-          # SSH 可用性校验
-          if [[ -n "$SERVER_HOST" && -n "$SERVER_USER" && -n "$SSH_KEY" ]]; then
-            echo "ssh_ready=true" >> $GITHUB_OUTPUT
-          else
-            echo "ssh_ready=false" >> $GITHUB_OUTPUT
-          fi
-
   build:
-    name: 构建 Navigator 镜像
+    name: 构建并部署 Navigator 镜像
     runs-on: ubuntu-latest
-    environment:
-      name: '${{ needs.env-setup.outputs.env }}'
-    needs: env-setup
+    environment: test
     permissions:
       contents: read
       packages: write
@@ -92,12 +39,12 @@ jobs:
       - name: 检出代码
         uses: actions/checkout@v4
 
-      - name: 设置 pnpm
+      - name: 设置 pnpm（与生产 navigator-ci.yml 一致：pnpm@7.33.7）
         uses: pnpm/action-setup@v4
         with:
-          version: 10.33.0
+          version: 7.33.7
 
-      - name: 设置 Node.js
+      - name: 设置 Node.js（与生产 navigator-ci.yml 一致：node 20）
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -106,7 +53,7 @@ jobs:
       - name: 安装依赖
         run: pnpm install --frozen-lockfile
 
-      - name: 构建 Navigator 应用
+      - name: 构建 Navigator 应用（test mode）
         run: pnpm --filter @touhou-vote/navigator run build -- --mode test
 
       - name: 登录容器仓库
@@ -116,128 +63,76 @@ jobs:
           username: ${{ env.OWNER }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 提取镜像版本
+      - name: 提取镜像 tag
         id: meta
         run: |
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.environment }}" == "prod" ]]; then
-            VERSION="prod-$(date +%Y%m%d)-$(git rev-parse --short HEAD)"
-          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            VERSION="test-$(date +%Y%m%d-%H%M%S)"
-          else
-            VERSION="test-$(date +%Y%m%d)-$(git rev-parse --short HEAD)"
-          fi
+          VERSION="test-$(date +%Y%m%d)-$(git rev-parse --short HEAD)"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: 构建并推送镜像
+      - name: 构建并推送镜像（使用仓库 Dockerfile 模板）
         run: |
-          cd packages/navigator/dist
           VERSION_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
           TEST_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:test"
-          PROD_TAG="${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:prod"
-          docker build -f - -t $VERSION_TAG -t $TEST_TAG -t $PROD_TAG . << 'DOCKEREOF'
-          FROM nginx:alpine
-          RUN echo 'server { \
-              listen 8083; \
-              location / { \
-                  root /usr/share/nginx/html; \
-                  try_files $uri $uri/ /index.html; \
-              } \
-          }' > /etc/nginx/conf.d/default.conf
-          EXPOSE 8083
-          CMD ["nginx", "-g", "daemon off;"]
-          COPY . /usr/share/nginx/html
-          DOCKEREOF
-          docker push $VERSION_TAG
-          docker push $TEST_TAG
-          docker push $PROD_TAG
+          docker build \
+            -t "$VERSION_TAG" \
+            -t "$TEST_TAG" \
+            -f Dockerfile.navigator.template \
+            .
+          docker push "$VERSION_TAG"
+          docker push "$TEST_TAG"
 
-      - name: 输出 SSH 检查结果
-        run: |
-          if [[ "${{ needs.env-setup.outputs.ssh_ready }}" == "true" ]]; then
-            echo "SSH 配置完整，执行远端部署"
-          else
-            echo "SSH 配置缺失，跳过远端部署"
-          fi
-
-      - name: 部署到目标服务器
-        if: needs.env-setup.outputs.ssh_ready == 'true'
-        uses: appleboy/ssh-action@v1.2.5
+      - name: 上传 compose 模板到服务器
+        uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_HOST || secrets.TEST_SERVER_HOST }}
-          username: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && secrets.PROD_SERVER_USER || secrets.TEST_SERVER_USER }}
-          key: ${{ needs.env-setup.outputs.env == 'prod' && secrets.PROD_SERVER_SSH_KEY || secrets.TEST_SERVER_SSH_KEY }}
+          host: ${{ secrets.TEST_SERVER_HOST }}
+          username: ${{ secrets.TEST_SERVER_USER }}
+          key: ${{ secrets.TEST_SERVER_SSH_KEY }}
+          source: "docker/docker-compose.yml"
+          target: "${{ vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test' }}"
+          strip_components: 1
+
+      - name: 部署到测试服务器
+        uses: appleboy/ssh-action@v1
+        env:
+          NAVIGATOR_IMAGE: "${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:test"
+          REGISTRY: ${{ env.REGISTRY }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          host: ${{ secrets.TEST_SERVER_HOST }}
+          username: ${{ secrets.TEST_SERVER_USER }}
+          key: ${{ secrets.TEST_SERVER_SSH_KEY }}
+          envs: NAVIGATOR_IMAGE,REGISTRY,GITHUB_ACTOR,GITHUB_TOKEN
           script: |
             set -e
-            FRONTEND_DIR="${{ needs.env-setup.outputs.frontend_dir }}"
+            FRONTEND_DIR="${{ vars.TEST_FRONTEND_SERVER_DIR || '/opt/thvote-fe/test' }}"
             mkdir -p "$FRONTEND_DIR"
             cd "$FRONTEND_DIR"
 
-            echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin || true
+            echo "$GITHUB_TOKEN" | docker login "$REGISTRY" -u "$GITHUB_ACTOR" --password-stdin
 
-            cat > docker-compose.yml << 'COMPOSEEOF'
-            version: "3.8"
-
-            x-frontend-common: &frontend_common
-              restart: unless-stopped
-              networks:
-                - thvote-net
-              pull_policy: always
-
-            services:
-              vote:
-                <<: *frontend_common
-                image: ${VOTE_IMAGE:-ghcr.io/patchyvideo/thvote-vote:test}
-                container_name: thvote-vote
-                ports:
-                  - "${VOTE_PORT:-8082}:8082"
-
-              navigator:
-                <<: *frontend_common
-                image: ${NAVIGATOR_IMAGE:-ghcr.io/patchyvideo/thvote-navigator:test}
-                container_name: thvote-navigator
-                ports:
-                  - "${NAVIGATOR_PORT:-8083}:8083"
-
-              result:
-                <<: *frontend_common
-                image: ${RESULT_IMAGE:-ghcr.io/patchyvideo/thvote-result:test}
-                container_name: thvote-result
-                ports:
-                  - "${RESULT_PORT:-8084}:8084"
-
-            networks:
-              thvote-net:
-                name: thvote-net
-                external: true
-            COMPOSEEOF
-
-            ENV_FILE=".env.${{ needs.env-setup.outputs.env }}"
-            if [ ! -f "$ENV_FILE" ]; then
-              cat > "$ENV_FILE" << 'ENVEOF'
-            VOTE_IMAGE=ghcr.io/patchyvideo/thvote-vote:${{ needs.env-setup.outputs.env }}
-            NAVIGATOR_IMAGE=ghcr.io/patchyvideo/thvote-navigator:${{ needs.env-setup.outputs.env }}
-            RESULT_IMAGE=ghcr.io/patchyvideo/thvote-result:${{ needs.env-setup.outputs.env }}
-            VOTE_PORT=8082
-            NAVIGATOR_PORT=8083
-            RESULT_PORT=8084
-            ENVEOF
+            # 写入 .env（不覆盖其他服务的镜像配置）
+            if [ ! -f .env ]; then
+              {
+                echo "VOTE_IMAGE=ghcr.io/patchyvideo/thvote-vote:test"
+                echo "NAVIGATOR_IMAGE=ghcr.io/patchyvideo/thvote-navigator:test"
+                echo "RESULT_IMAGE=ghcr.io/patchyvideo/thvote-result:test"
+                echo "VOTE_PORT=8082"
+                echo "NAVIGATOR_PORT=8083"
+                echo "RESULT_PORT=8084"
+              } > .env
             fi
+            sed -i "s|^NAVIGATOR_IMAGE=.*|NAVIGATOR_IMAGE=${NAVIGATOR_IMAGE}|" .env
 
-            cp "$ENV_FILE" .env
-            sed -i.bak "s|^NAVIGATOR_IMAGE=.*|NAVIGATOR_IMAGE=${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ needs.env-setup.outputs.env }}|" .env
-            rm -f .env.bak
-
-            docker pull "${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ needs.env-setup.outputs.env }}" || true
+            docker pull "${NAVIGATOR_IMAGE}" || true
             docker-compose up -d --no-deps navigator
             docker image prune -f
+            echo "Navigator 部署完成，地址: http://localhost:8083"
 
       - name: 总结
         run: |
           echo "## Navigator 镜像构建完成" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
           echo "| 项目 | 值 |" >> $GITHUB_STEP_SUMMARY
           echo "|------|----|" >> $GITHUB_STEP_SUMMARY
           echo "| 镜像 | ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Tag | ${{ steps.meta.outputs.version }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| 环境 | ${{ needs.env-setup.outputs.env }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| SSH 部署 | ${{ needs.env-setup.outputs.ssh_ready == 'true' && 'enabled' || 'skipped' }} |" >> $GITHUB_STEP_SUMMARY
