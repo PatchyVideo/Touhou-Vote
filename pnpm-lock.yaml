@@ -290,9 +290,9 @@ importers:
       '@graphql-codegen/typescript':
         specifier: ^3.0.3
         version: 3.0.4(encoding@0.1.13)(graphql@16.14.0)
-      '@iconify/json':
-        specifier: ^2.2.52
-        version: 2.2.471
+      '@iconify-json/uil':
+        specifier: ^1.1.8
+        version: 1.2.3
       '@rollup/plugin-yaml':
         specifier: ^4.0.1
         version: 4.1.2(rollup@3.30.0)
@@ -1016,9 +1016,6 @@ packages:
 
   '@iconify-json/uil@1.2.3':
     resolution: {integrity: sha512-if91+UBhDQc6glPsIaXecGIcXnbQZfEO4Gdv89TV2xQ+V5e9GWbY5rNl2fsKZd8COsRQ5lRQAKimVQVL0CZZVg==}
-
-  '@iconify/json@2.2.471':
-    resolution: {integrity: sha512-9ZJ4l71MOGVQa/DJxPI5XJ49D5Ax+wOvCCw4ZPcGemP34rtWWFAPsfu2QyQLjEvedbrVmEJcomam3N0SsNgWDA==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -5435,11 +5432,6 @@ snapshots:
   '@iconify-json/uil@1.2.3':
     dependencies:
       '@iconify/types': 2.0.0
-
-  '@iconify/json@2.2.471':
-    dependencies:
-      '@iconify/types': 2.0.0
-      pathe: 2.0.3
 
   '@iconify/types@2.0.0': {}
 

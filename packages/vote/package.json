@@ -27,7 +27,7 @@
     "@graphql-codegen/fragment-matcher": "^4.0.1",
     "@graphql-codegen/schema-ast": "^3.0.1",
     "@graphql-codegen/typescript": "^3.0.3",
-    "@iconify/json": "^2.2.52",
+    "@iconify-json/uil": "^1.1.8",
     "@rollup/plugin-yaml": "^4.0.1",
     "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^4.1.0",
