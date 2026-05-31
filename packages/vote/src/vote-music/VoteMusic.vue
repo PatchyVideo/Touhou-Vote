@@ -185,7 +185,7 @@ watchEffect(() => {
 })
 getSubmitMusicVoteError((err) => {
   console.log(err.message)
-  if (err.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  if (err.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
 
@@ -223,9 +223,9 @@ onDone((result) => {
   router.push({ path: '/', query: { tab: 1, openList: 'vote', open: 1 } })
 })
 onError((error) => {
-  console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
-  else popMessageText('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('投票失败，原因：' + error.graphQLErrors?.[0]?.extensions?.human_readable_message)
 })
 </script>
 <style lang="postcss" scoped>

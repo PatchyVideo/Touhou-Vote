@@ -226,9 +226,9 @@ updateUsernameDone((result) => {
   logout()
 })
 updateUsernameError((error) => {
-  console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
-  else popMessageText('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('投票失败，原因：' + error.graphQLErrors?.[0]?.extensions?.human_readable_message)
   updateUsernameOpen.value = false
 })
 
@@ -276,9 +276,9 @@ updatePasswordDone((result) => {
   changePasswordOpen.value = false
 })
 updatePasswordError((error) => {
-  console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
-  else popMessageText('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('投票失败，原因：' + error.graphQLErrors?.[0]?.extensions?.human_readable_message)
   changePasswordOpen.value = false
 })
 
@@ -352,8 +352,8 @@ const { mutate: getPhoneCode, onError: getPhoneCodeError } = useMutation<Mutatio
   `
 )
 getPhoneCodeError((error) => {
-  console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT')
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT')
     popMessageText('请求过于频繁，请稍后再试！')
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
@@ -374,13 +374,13 @@ updatePhoneDone((result) => {
   logout()
 })
 updatePhoneError((error) => {
-  if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'INCORRECT_VERIFY_CODE')
     verificationCodeError.value = '请输入正确的验证码！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'PHONE_IN_USE')
+  else if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'PHONE_IN_USE')
     verificationCodeError.value = '该手机号已经被使用！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
-  console.log(error.graphQLErrors[0].extensions.error_kind)
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
 })
 
 const emailFormat =
@@ -397,8 +397,8 @@ const { mutate: getEmailCode, onError: getEmailCodeError } = useMutation<Mutatio
   `
 )
 getEmailCodeError((error) => {
-  console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT')
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT')
     popMessageText('请求过于频繁，请稍后再试！')
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
@@ -419,13 +419,13 @@ updateEmailDone((result) => {
   logout()
 })
 updateEmailError((error) => {
-  if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'INCORRECT_VERIFY_CODE')
     verificationCodeError.value = '请输入正确的验证码！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'EMAIL_IN_USE')
+  else if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'EMAIL_IN_USE')
     verificationCodeError.value = '该邮箱已经被使用！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
-  console.log(error.graphQLErrors[0].extensions.error_kind)
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
 })
 
 async function updatePhoneOrEmail(): Promise<void> {

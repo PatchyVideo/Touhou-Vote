@@ -223,8 +223,8 @@ const { mutate: getPhoneCode, onError: getPhoneCodeError } = useMutation<Mutatio
   `
 )
 getPhoneCodeError((error) => {
-  console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT')
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT')
     popMessageText('请求过于频繁，请稍后再试！')
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
@@ -236,8 +236,8 @@ const { mutate: getEmailCode, onError: getEmailCodeError } = useMutation<Mutatio
   `
 )
 getEmailCodeError((error) => {
-  console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT')
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT')
     popMessageText('请求过于频繁，请稍后再试！')
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
@@ -289,13 +289,13 @@ newLoginPhoneNumDone((result) => {
   location.reload()
 })
 newLoginPhoneNumError((error) => {
-  if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'INCORRECT_VERIFY_CODE')
     verificationCodeError.value = '请输入正确的验证码！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'SMS_VERIFY_FAILED')
+  else if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'SMS_VERIFY_FAILED')
     verificationCodeError.value = '验证码错误或已失效，请重新获取'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
-  console.log(error.graphQLErrors[0].extensions.error_kind)
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
 })
 const {
   mutate: newLoginEmail,
@@ -333,13 +333,13 @@ newLoginEmailDone((result) => {
   location.reload()
 })
 newLoginEmailError((error) => {
-  if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'INCORRECT_VERIFY_CODE')
     verificationCodeError.value = '请输入正确的验证码！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'SMS_VERIFY_FAILED')
+  else if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'SMS_VERIFY_FAILED')
     verificationCodeError.value = '验证码错误或已失效，请重新获取'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
-  console.log(error.graphQLErrors[0].extensions.error_kind)
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
 })
 
 /* Old System Login */
@@ -391,11 +391,11 @@ oldLoginDone((result) => {
   location.reload()
 })
 oldLoginError((error) => {
-  if (error.graphQLErrors[0].extensions.error_kind === 'NOT_FOUND') userNameError.value = '该用户不存在！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_PASSWORD') userPasswordError.value = '密码错误！'
-  else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'NOT_FOUND') userNameError.value = '该用户不存在！'
+  else if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'INCORRECT_PASSWORD') userPasswordError.value = '密码错误！'
+  else if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else userPasswordError.value = '网络错误！请稍后重试'
-  console.log(error.graphQLErrors[0].extensions.error_kind)
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
 })
 
 const codeEl = shallowRef<HTMLInputElement | null>()

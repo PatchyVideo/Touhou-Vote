@@ -371,8 +371,8 @@ onDone((result) => {
   submitCompleteMessageBoxOpen.value = true
 })
 onError((error) => {
-  console.log(error.graphQLErrors[0].extensions.error_kind)
-  if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
-  else popMessageText('投票失败，原因：' + error.graphQLErrors[0].extensions.human_readable_message)
+  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('投票失败，原因：' + error.graphQLErrors?.[0]?.extensions?.human_readable_message)
 })
 </script>
