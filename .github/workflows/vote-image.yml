@@ -157,8 +157,8 @@ jobs:
             fi
             sed -i "s|^VOTE_IMAGE=.*|VOTE_IMAGE=${VOTE_IMAGE}|" .env
 
-            # 拉失败硬红(不再 || true 静默用旧镜像):重试一次仍失败则终止
-            docker pull "${VOTE_IMAGE}" || { sleep 5; docker pull "${VOTE_IMAGE}"; } || { echo "镜像拉取失败,终止"; exit 1; }
+            # 拉镜像:最多 4 次重试兜那台机的网络抖动;仍失败则硬红(不静默用旧镜像)
+            n=0; until docker pull "${VOTE_IMAGE}"; do n=$((n+1)); [ "$n" -ge 4 ] && { echo "镜像拉取失败,终止"; exit 1; }; echo "pull 重试 $n/4..."; sleep 6; done
             docker-compose up -d --no-deps --force-recreate vote
             docker image prune -f
             echo "Vote 部署完成，地址: http://localhost:8082"
