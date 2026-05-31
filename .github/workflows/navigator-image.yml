@@ -16,6 +16,7 @@ on:
       - dev
     paths:
       - '.github/workflows/navigator-image.yml'
+      - 'Dockerfile.navigator.template'
       - '.dockerignore'
       - 'docker/**'
       - 'packages/navigator/**'
