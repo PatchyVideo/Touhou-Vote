@@ -33,6 +33,12 @@ env:
   OWNER: patchyvideo
   IMAGE_NAME: thvote-result
 
+# 三个前端共用同一台测试机的 Docker,串行部署,避免并发 docker pull 在 containerd
+# 内容库上竞态(rename ... no such file)+ 并发 docker login 互相干扰(registry denied)
+concurrency:
+  group: frontend-test-deploy
+  cancel-in-progress: false
+
 jobs:
   build:
     name: 构建并部署 Result 镜像
