@@ -95,7 +95,8 @@ jobs:
       - name: 部署到测试服务器
         uses: appleboy/ssh-action@v1
         env:
-          NAVIGATOR_IMAGE: "${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:test"
+          # 用本次构建的不可变版本 tag(非浮动 :test),保证部署的就是刚构建那个镜像
+          NAVIGATOR_IMAGE: "${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}"
           REGISTRY: ${{ env.REGISTRY }}
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -125,8 +126,9 @@ jobs:
             fi
             sed -i "s|^NAVIGATOR_IMAGE=.*|NAVIGATOR_IMAGE=${NAVIGATOR_IMAGE}|" .env
 
-            docker pull "${NAVIGATOR_IMAGE}" || true
-            docker-compose up -d --no-deps navigator
+            # 拉失败硬红(不再 || true 静默用旧镜像):重试一次仍失败则终止
+            docker pull "${NAVIGATOR_IMAGE}" || { sleep 5; docker pull "${NAVIGATOR_IMAGE}"; } || { echo "镜像拉取失败,终止"; exit 1; }
+            docker-compose up -d --no-deps --force-recreate navigator
             docker image prune -f
             echo "Navigator 部署完成，地址: http://localhost:8083"
 
