@@ -192,7 +192,9 @@ function userEmailOrPhoneNumVerify(): boolean {
   return true
 }
 const verificationCode = ref<string>('')
-const verificationCodeError = ref<' ' | '请输入验证码！' | '请输入正确的验证码！' | '网络错误！请稍后重试'>(' ')
+const verificationCodeError = ref<
+  ' ' | '请输入验证码！' | '请输入正确的验证码！' | '网络错误！请稍后重试' | '验证码错误或已失效，请重新获取'
+>(' ')
 const verificationCodeAvailable = ref(true)
 const verificationCodeAvailableTime = ref(120)
 let verificationCodeAvailableTimer: number
@@ -289,6 +291,8 @@ newLoginPhoneNumDone((result) => {
 newLoginPhoneNumError((error) => {
   if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
     verificationCodeError.value = '请输入正确的验证码！'
+  else if (error.graphQLErrors[0].extensions.error_kind === 'SMS_VERIFY_FAILED')
+    verificationCodeError.value = '验证码错误或已失效，请重新获取'
   else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
   console.log(error.graphQLErrors[0].extensions.error_kind)
@@ -331,6 +335,8 @@ newLoginEmailDone((result) => {
 newLoginEmailError((error) => {
   if (error.graphQLErrors[0].extensions.error_kind === 'INCORRECT_VERIFY_CODE')
     verificationCodeError.value = '请输入正确的验证码！'
+  else if (error.graphQLErrors[0].extensions.error_kind === 'SMS_VERIFY_FAILED')
+    verificationCodeError.value = '验证码错误或已失效，请重新获取'
   else if (error.graphQLErrors[0].extensions.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else verificationCodeError.value = '网络错误！请稍后重试'
   console.log(error.graphQLErrors[0].extensions.error_kind)
