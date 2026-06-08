@@ -5,7 +5,12 @@ import AppRouterView from './components/AppRouterView.vue'
 import GlobalMessages from '@/common/components/GlobalMessages.vue'
 import { createApollo, provideClient } from '@/graphql'
 import { checkLoginStatus, isLogin } from '@/home/lib/user'
-import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
+import {
+  isQuestionnaireAllDoneV2,
+  loadQuestionnaireStructure,
+  structureError,
+  structureReady,
+} from '@/questionnaire/lib/questionnaireStateV2'
 import { voteNotStart } from '@/start-page/lib/voteStart'
 import { voteEnded } from '@/end-page/lib/voteEnded'
 import 'nprogress/css/nprogress.css'
@@ -40,6 +45,9 @@ const appPromises: Promise<unknown>[] = []
 // check login status
 const checkLoginStatusPromise = checkLoginStatus(true)
 appPromises.push(checkLoginStatusPromise)
+
+// 并行拉取问卷结构(V2);成功/缓存/出错都会 resolve structureReady
+appPromises.push(loadQuestionnaireStructure())
 
 // router config
 declare module 'vue-router' {
@@ -101,11 +109,13 @@ router.beforeEach(async (to, from, next) => {
     }, 150)
 
   await checkLoginStatusPromise
+  await structureReady
   if (to.path != '/' && voteNotStart()) next({ path: '/' })
   else if (to.path != '/' && !isLogin.value) next({ path: '/' })
   else if (to.meta.availableAfterVoteEnded && voteEnded()) next()
   else if (voteEnded()) next({ path: '/' })
-  else if (to.meta.requriequestionnaire && !IsQuestionnaireAllDone.value) next({ path: '/' })
+  else if (to.meta.requriequestionnaire && !structureError.value && !isQuestionnaireAllDoneV2.value)
+    next({ path: '/' })
   else next()
 })
 router.afterEach((guard) => {
