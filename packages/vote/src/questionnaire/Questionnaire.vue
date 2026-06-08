@@ -54,7 +54,7 @@
             <div v-else>
               <textarea
                 v-model="answerContent"
-                maxlength="1000"
+                :maxlength="currentQuestion.maxInputLen ?? 1000"
                 class="p-1 md:p-3 w-full ring ring-accent-color-600 rounded-xl"
                 placeholder="请说点儿什么吧..."
                 rows="10"
@@ -93,8 +93,7 @@
 
   <QuestionnaireChange
     v-model:open="open"
-    :big-questionnaire="bigQuestionnaire"
-    :small-questionnaire="smallQuestionnaire"
+    :questionnaire-id="questionnaireIdParam"
     @change-question="changeQuestion"
   />
 
@@ -143,12 +142,12 @@ import {
   firstCompleteQuestionnaireAll,
   getRuntime,
   isQuestionnaireAllDoneV2,
+  questionnaires,
   setInput,
   structureError,
   structureLoading,
   toggleOption,
 } from '@/questionnaire/lib/questionnaireStateV2'
-import type { BigKey, SmallKey } from '@/questionnaire/lib/questionnaireStateV2'
 import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
 import QuestionnaireChange from '@/questionnaire/components/QuestionnaireChange.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
@@ -164,38 +163,15 @@ setSiteTitle('调查问卷')
 const route = useRoute()
 const router = useRouter()
 
-const bigQuestionnaire = computed<BigKey>(() => {
-  const big = String(
-    route.query.bigQuestionnaire
-      ? Array.isArray(route.query.bigQuestionnaire)
-        ? route.query.bigQuestionnaire[0]
-        : route.query.bigQuestionnaire
-      : 'mainQuestionnaire'
-  )
-  return big === 'mainQuestionnaire' || big === 'extraQuestionnaire' ? big : 'mainQuestionnaire'
-})
-const smallQuestionnaire = computed<SmallKey>(() => {
-  const small = String(
-    route.query.smallQuestionnaire
-      ? Array.isArray(route.query.smallQuestionnaire)
-        ? route.query.smallQuestionnaire[0]
-        : route.query.smallQuestionnaire
-      : 'requiredQuestionnaire'
-  )
-  const valid: SmallKey[] = [
-    'requiredQuestionnaire',
-    'optionalQuestionnaire1',
-    'optionalQuestionnaire2',
-    'exQuestionnaire1',
-    'exQuestionnaire2',
-    'exQuestionnaire3',
-    'exQuestionnaire4',
-    'exQuestionnaire5',
-  ]
-  return (valid as string[]).includes(small) ? (small as SmallKey) : 'requiredQuestionnaire'
+const questionnaireIdParam = computed<number>(() => {
+  const raw = route.query.questionnaireId
+  const id = Number(Array.isArray(raw) ? raw[0] : raw)
+  if (!isNaN(id) && id > 0) return id
+  // default to first questionnaire
+  return questionnaires.value[0]?.id ?? 0
 })
 
-const runtime = computed(() => getRuntime(bigQuestionnaire.value, smallQuestionnaire.value))
+const runtime = computed(() => getRuntime(questionnaireIdParam.value))
 const questionnaireName = computed<string>(() => runtime.value?.name ?? '')
 const visibleGroups = computed(() => runtime.value?.visibleGroups ?? [])
 
@@ -215,13 +191,13 @@ const questionnaireDone = computed<boolean>(() => runtime.value?.done ?? false)
 const TypeToChinese = {
   Single: '单选',
   Multiple: '多选',
-  Input: '输入，没有可填“无”',
+  Input: '输入，没有可填"无"',
 }
 
 // Input 题目本地文本,导航时从运行时重置,输入时回写 store
 const answerContent = ref<string>('')
 watch(
-  () => [bigQuestionnaire.value, smallQuestionnaire.value, questionNum.value] as const,
+  () => [questionnaireIdParam.value, questionNum.value] as const,
   () => {
     answerContent.value = currentQuestion.value?.type === 'Input' ? currentQuestion.value.input : ''
   },
@@ -229,7 +205,7 @@ watch(
 )
 watch(answerContent, (val) => {
   if (currentQuestion.value?.type === 'Input' && currentGroup.value && val !== currentQuestion.value.input) {
-    setInput(bigQuestionnaire.value, smallQuestionnaire.value, currentGroup.value.id, val)
+    setInput(questionnaireIdParam.value, currentGroup.value.id, val)
   }
 })
 
@@ -238,7 +214,7 @@ function selectOption(id: number): void {
   const group = currentGroup.value
   if (!question || !group) return
   const wasSelected = question.options.find((option) => option.id === id)?.selected ?? false
-  toggleOption(bigQuestionnaire.value, smallQuestionnaire.value, group.id, id)
+  toggleOption(questionnaireIdParam.value, group.id, id)
   if (question.type === 'Single' && !wasSelected && questionNum.value + 1 < visibleGroups.value.length) {
     changeQuestion('back')
   }

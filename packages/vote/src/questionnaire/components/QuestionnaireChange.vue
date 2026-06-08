@@ -4,37 +4,36 @@
     :class="{ '-translate-y-full lg:translate-y-0 lg:translate-x-full': !open }"
   >
     <div
-      v-for="(questionnaire, index) in questionnaireKeyToNameV2"
-      :key="index"
+      v-for="questionnaire in questionnaireKeyToNameV2"
+      :key="questionnaire.questionnaireId"
       class="baseBoxRoundedShadow w-full border border-accent-color-600 mb-2"
     >
       <div
         class="px-2 py-1 truncate cursor-pointer"
-        @click="screenSizes['<2xl'] && selectAsQuestionnaireCurrent(questionnaire.smallQuestionnaire)"
+        @click="screenSizes['<2xl'] && selectAsQuestionnaireCurrent(questionnaire.questionnaireId)"
       >
         {{
           questionnaire.name +
           '（' +
-          (getRuntime(questionnaire.bigQuestionnaire, questionnaire.smallQuestionnaire)?.answeredCount ?? 0) +
+          (getRuntime(questionnaire.questionnaireId)?.answeredCount ?? 0) +
           '/' +
-          (getRuntime(questionnaire.bigQuestionnaire, questionnaire.smallQuestionnaire)?.questionCount ?? 0) +
+          (getRuntime(questionnaire.questionnaireId)?.questionCount ?? 0) +
           '）'
         }}
       </div>
       <div
-        :id="questionnaire.smallQuestionnaire"
+        :id="String(questionnaire.questionnaireId)"
         name="questionnaire"
         class="innerBox flex flex-wrap m-1 mt-0 transform transition-all duration-200 ease-in-out overflow-hidden"
       >
         <div
-          v-for="(group, index2) in getRuntime(questionnaire.bigQuestionnaire, questionnaire.smallQuestionnaire)
-            ?.visibleGroups ?? []"
+          v-for="(group, index2) in getRuntime(questionnaire.questionnaireId)?.visibleGroups ?? []"
           :key="group.id"
           class="rounded-full m-2 w-8 h-8 leading-8 text-center cursor-pointer shadow ring"
           :class="[
             group.done ? 'ring ring-accent-color-600 bg-accent-color-300 text-white' : ' ring-accent-color-100',
           ]"
-          @click="changeQuestion(questionnaire.bigQuestionnaire, questionnaire.smallQuestionnaire, index2)"
+          @click="changeQuestion(questionnaire.questionnaireId, index2)"
         >
           {{ index2 + 1 }}
         </div>
@@ -68,14 +67,9 @@ const props = defineProps({
     default: false,
     requred: true,
   },
-  bigQuestionnaire: {
-    type: String,
-    default: 'mainQuestionnaire',
-    requred: true,
-  },
-  smallQuestionnaire: {
-    type: String,
-    default: 'requiredQuestionnaire',
+  questionnaireId: {
+    type: Number,
+    default: 0,
     requred: true,
   },
 })
@@ -93,9 +87,7 @@ watchEffect(() => {
     screenSizes['<2xl'] &&
       // Waiting for animation
       setTimeout(() => {
-        bigQuestionnaireCurrent.value = props.bigQuestionnaire
-        smallQuestionnaireCurrent.value = props.smallQuestionnaire
-        selectedQuestionnaire.value = props.smallQuestionnaire
+        selectedQuestionnaire.value = props.questionnaireId
         selectAsQuestionnaireCurrent(selectedQuestionnaire.value)
       }, 200)
   }
@@ -104,25 +96,22 @@ function close(): void {
   open.value = false
 }
 
-const bigQuestionnaireCurrent = ref(props.bigQuestionnaire)
-const smallQuestionnaireCurrent = ref(props.smallQuestionnaire)
-const selectedQuestionnaire = ref(props.smallQuestionnaire)
-watch(selectedQuestionnaire, () => {
-  bigQuestionnaireCurrent.value =
-    questionnaireKeyToNameV2.value.find((item) => item.smallQuestionnaire == selectedQuestionnaire.value)
-      ?.bigQuestionnaire ||
-    questionnaireKeyToNameV2.value[0]?.bigQuestionnaire ||
-    'mainQuestionnaire'
-  smallQuestionnaireCurrent.value = selectedQuestionnaire.value
-})
-function selectAsQuestionnaireCurrent(selectedClass: string): void {
+const selectedQuestionnaire = ref<number>(props.questionnaireId)
+watch(
+  () => props.questionnaireId,
+  (id) => {
+    selectedQuestionnaire.value = id
+  }
+)
+
+function selectAsQuestionnaireCurrent(questionnaireId: number): void {
   let SubContentAll = document.getElementsByName('questionnaire')
   SubContentAll.forEach((item) => {
     item.style.height = '0'
   })
-  let openSubContent = document.getElementById(selectedClass)
+  let openSubContent = document.getElementById(String(questionnaireId))
   if (openSubContent) openSubContent.style.height = openSubContent.scrollHeight + 'px'
-  selectedQuestionnaire.value = selectedClass
+  selectedQuestionnaire.value = questionnaireId
 }
 function unfoldAllQuestionnaire() {
   let SubContentAll = document.getElementsByName('questionnaire')
@@ -136,12 +125,13 @@ window.onresize = () => {
   window.innerWidth < 1536 ? selectAsQuestionnaireCurrent(selectedQuestionnaire.value) : unfoldAllQuestionnaire()
 }
 
-function changeQuestion(big: string, small: string, index: number): void {
+function changeQuestion(questionnaireId: number, index: number): void {
   emit('changeQuestion', 'no')
   const query = JSON.parse(JSON.stringify(route.query))
   query.number = index
-  query.bigQuestionnaire = big
-  query.smallQuestionnaire = small
+  query.questionnaireId = questionnaireId
+  delete query.bigQuestionnaire
+  delete query.smallQuestionnaire
   router.push({ path: route.path, query })
   close()
 }

@@ -2,34 +2,38 @@
   <div class="overflow-auto max-h-[calc(100vh-44px)]">
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
-      <div v-for="(group, catogory) in questionnaireNameById" :key="catogory">
-        <div class="flex flex-nowrap items-end border-b-1 border-gray-700 space-x-2">
-          <h2 class="text-base font-bold whitespace-nowrap">{{ group.name }}</h2>
-          <span class="text-sm truncate">{{ group.desc }}</span>
-        </div>
+      <div v-for="category in ['main', 'extra']" :key="category">
         <div
-          v-for="(_child, childId) in group.children"
-          :key="childId"
-          class="baseBoxRoundedShadow flex w-full p-0.5 mt-2"
-          @click="gotoQuestionnaire(catogory as string, childId as string)"
+          v-if="questionnairesByCategory[category] && questionnairesByCategory[category].length"
         >
-          <div class="w-1/3 p-0.5 overflow-hidden rounded-xl">
-            <div class="w-full aspect-1/1">
-              <img :src="questionnaireNameById[catogory].children[childId].image" class="object-cover" />
-            </div>
+          <div class="flex flex-nowrap items-end border-b-1 border-gray-700 space-x-2">
+            <h2 class="text-base font-bold whitespace-nowrap">{{ categoryDisplay[category]?.name }}</h2>
+            <span class="text-sm truncate">{{ categoryDisplay[category]?.desc }}</span>
           </div>
-          <div class="w-2/3 p-0.5 flex flex-wrap content-between">
-            <div class="w-full space-y-0.5">
-              <div class="w-full flex items-center space-x-2">
-                <div class="text-xl truncate">
-                  {{ questionnaireNameById[catogory].children[childId].name }}
-                </div>
-                <CompleteTag :complete="isQuestionnaireDoneV2(catogory as any, childId as any)" />
+          <div
+            v-for="questionnaire in questionnairesByCategory[category]"
+            :key="questionnaire.id"
+            class="baseBoxRoundedShadow flex w-full p-0.5 mt-2"
+            @click="gotoQuestionnaire(questionnaire.id)"
+          >
+            <div class="w-1/3 p-0.5 overflow-hidden rounded-xl">
+              <div class="w-full aspect-1/1">
+                <img :src="questionnaireDisplayByKey[questionnaire.key]?.image ?? ''" class="object-cover" />
               </div>
-              <span v-text="questionnaireNameById[catogory].children[childId].desc"></span>
             </div>
-            <div class="w-full text-right">
-              <button class="px-2 py-0.5 text-sm xl:px-3 xl:py-2">开始填写</button>
+            <div class="w-2/3 p-0.5 flex flex-wrap content-between">
+              <div class="w-full space-y-0.5">
+                <div class="w-full flex items-center space-x-2">
+                  <div class="text-xl truncate">
+                    {{ questionnaireDisplayByKey[questionnaire.key]?.name ?? questionnaire.title }}
+                  </div>
+                  <CompleteTag :complete="isQuestionnaireDoneV2(questionnaire.id)" />
+                </div>
+                <span>{{ questionnaireDisplayByKey[questionnaire.key]?.desc ?? questionnaire.introduction }}</span>
+              </div>
+              <div class="w-full text-right">
+                <button class="px-2 py-0.5 text-sm xl:px-3 xl:py-2">开始填写</button>
+              </div>
             </div>
           </div>
         </div>
@@ -39,17 +43,31 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { isQuestionnaireDoneV2 } from '@/questionnaire/lib/questionnaireStateV2'
-import { questionnaireNameById } from '@/home/lib/questionnaireNameById'
+import { questionnaires, isQuestionnaireDoneV2 } from '@/questionnaire/lib/questionnaireStateV2'
+import { questionnaireDisplayByKey, categoryDisplay } from '@/home/lib/questionnaireNameById'
 import CompleteTag from '@/home/components/CompleteTag.vue'
 
 const router = useRouter()
 
-function gotoQuestionnaire(bigQuestionnaire: string, smallQuestionnaire: string): void {
+const questionnairesByCategory = computed(() => {
+  const result: Record<string, typeof questionnaires.value> = {}
+  for (const q of questionnaires.value) {
+    if (!result[q.category]) result[q.category] = []
+    result[q.category].push(q)
+  }
+  // Sort by order within each category
+  for (const cat of Object.keys(result)) {
+    result[cat] = result[cat].slice().sort((a, b) => a.order - b.order)
+  }
+  return result
+})
+
+function gotoQuestionnaire(questionnaireId: number): void {
   router.push({
     path: '/questionnaire',
-    query: { bigQuestionnaire: bigQuestionnaire, smallQuestionnaire: smallQuestionnaire },
+    query: { questionnaireId },
   })
 }
 </script>
