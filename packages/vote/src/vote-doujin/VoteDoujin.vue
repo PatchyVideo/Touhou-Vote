@@ -136,9 +136,9 @@ const {
       }
     }
   `,
-  {
+  () => ({
     voteToken: voteToken.value,
-  },
+  }),
   {
     fetchPolicy: 'network-only',
   }
