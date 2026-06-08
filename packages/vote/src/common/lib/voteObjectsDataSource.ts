@@ -65,8 +65,8 @@ function enrichCharacter(item: BackendCharacterItem): Character {
     s?.image ?? 'https://static.thwiki.cc/favicon.png',
     s?.color ?? '#9b9b9b',
     '',
-    false,
-    s?.date ?? 0,
+    s?.date ?? 0,              // date
+    false,                     // honmei
     s?.kind?.length ? s.kind : ['others'],
     item.origin ? [item.origin] : (s?.work ?? []),
   )
