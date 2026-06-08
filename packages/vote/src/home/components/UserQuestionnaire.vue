@@ -2,13 +2,13 @@
   <div class="overflow-auto max-h-[calc(100vh-44px)]">
     <!-- Main Content -->
     <div class="w-full p-3 space-y-2">
-      <div v-for="(children, catogory) in questionnaire" :key="catogory">
+      <div v-for="(group, catogory) in questionnaireNameById" :key="catogory">
         <div class="flex flex-nowrap items-end border-b-1 border-gray-700 space-x-2">
-          <h2 class="text-base font-bold whitespace-nowrap">{{ questionnaireNameById[catogory].name }}</h2>
-          <span class="text-sm truncate">{{ questionnaireNameById[catogory].desc }}</span>
+          <h2 class="text-base font-bold whitespace-nowrap">{{ group.name }}</h2>
+          <span class="text-sm truncate">{{ group.desc }}</span>
         </div>
         <div
-          v-for="(_child, childId) in children"
+          v-for="(_child, childId) in group.children"
           :key="childId"
           class="baseBoxRoundedShadow flex w-full p-0.5 mt-2"
           @click="gotoQuestionnaire(catogory as string, childId as string)"
@@ -24,7 +24,7 @@
                 <div class="text-xl truncate">
                   {{ questionnaireNameById[catogory].children[childId].name }}
                 </div>
-                <CompleteTag :complete="IsQuestionnaireDone(catogory as string, childId as string)" />
+                <CompleteTag :complete="isQuestionnaireDoneV2(catogory as any, childId as any)" />
               </div>
               <span v-text="questionnaireNameById[catogory].children[childId].desc"></span>
             </div>
@@ -40,8 +40,7 @@
 
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
-import { questionnaire } from '@/questionnaire/lib/questionnaire'
-import { IsQuestionnaireDone } from '@/questionnaire/lib/questionnaireData'
+import { isQuestionnaireDoneV2 } from '@/questionnaire/lib/questionnaireStateV2'
 import { questionnaireNameById } from '@/home/lib/questionnaireNameById'
 import CompleteTag from '@/home/components/CompleteTag.vue'
 

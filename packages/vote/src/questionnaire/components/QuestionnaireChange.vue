@@ -4,7 +4,7 @@
     :class="{ '-translate-y-full lg:translate-y-0 lg:translate-x-full': !open }"
   >
     <div
-      v-for="(questionnaire, index) in questionnaireKeyToName"
+      v-for="(questionnaire, index) in questionnaireKeyToNameV2"
       :key="index"
       class="baseBoxRoundedShadow w-full border border-accent-color-600 mb-2"
     >
@@ -15,11 +15,9 @@
         {{
           questionnaire.name +
           '（' +
-          questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire].answers.filter(
-            (item) => item.done
-          ).length +
+          (getRuntime(questionnaire.bigQuestionnaire, questionnaire.smallQuestionnaire)?.answeredCount ?? 0) +
           '/' +
-          questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire].answers.length +
+          (getRuntime(questionnaire.bigQuestionnaire, questionnaire.smallQuestionnaire)?.questionCount ?? 0) +
           '）'
         }}
       </div>
@@ -29,12 +27,12 @@
         class="innerBox flex flex-wrap m-1 mt-0 transform transition-all duration-200 ease-in-out overflow-hidden"
       >
         <div
-          v-for="(answer, index2) in questionDone[questionnaire.bigQuestionnaire][questionnaire.smallQuestionnaire]
-            .answers"
-          :key="index2"
+          v-for="(group, index2) in getRuntime(questionnaire.bigQuestionnaire, questionnaire.smallQuestionnaire)
+            ?.visibleGroups ?? []"
+          :key="group.id"
           class="rounded-full m-2 w-8 h-8 leading-8 text-center cursor-pointer shadow ring"
           :class="[
-            answer.done ? 'ring ring-accent-color-600 bg-accent-color-300 text-white' : ' ring-accent-color-100',
+            group.done ? 'ring ring-accent-color-600 bg-accent-color-300 text-white' : ' ring-accent-color-100',
           ]"
           @click="changeQuestion(questionnaire.bigQuestionnaire, questionnaire.smallQuestionnaire, index2)"
         >
@@ -57,7 +55,7 @@
 import { onMounted, ref, watch, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useRoute, useRouter } from 'vue-router'
-import { questionDone, questionnaireKeyToName } from '@/questionnaire/lib/questionnaireData'
+import { getRuntime, questionnaireKeyToNameV2 } from '@/questionnaire/lib/questionnaireStateV2'
 import { screenSizes } from '@/tailwindcss'
 import Mask from '@/common/components/Mask.vue'
 
@@ -111,8 +109,10 @@ const smallQuestionnaireCurrent = ref(props.smallQuestionnaire)
 const selectedQuestionnaire = ref(props.smallQuestionnaire)
 watch(selectedQuestionnaire, () => {
   bigQuestionnaireCurrent.value =
-    questionnaireKeyToName.value.find((item) => item.smallQuestionnaire == selectedQuestionnaire.value)
-      ?.bigQuestionnaire || questionnaireKeyToName.value[0].bigQuestionnaire
+    questionnaireKeyToNameV2.value.find((item) => item.smallQuestionnaire == selectedQuestionnaire.value)
+      ?.bigQuestionnaire ||
+    questionnaireKeyToNameV2.value[0]?.bigQuestionnaire ||
+    'mainQuestionnaire'
   smallQuestionnaireCurrent.value = selectedQuestionnaire.value
 })
 function selectAsQuestionnaireCurrent(selectedClass: string): void {

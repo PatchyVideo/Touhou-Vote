@@ -18,76 +18,77 @@
       </div>
     </div>
 
-    <div class="w-full h-1 2xl:h-3 flex mb-1">
-      <div
-        v-for="answer in questionDone[bigQuestionnaire][smallQuestionnaire].answers"
-        :key="answer.id"
-        class="h-full"
-        :class="[answer.done ? 'bg-accent-color-600' : ' bg-subaccent']"
-        :style="'width:' + 100 / questionDone[bigQuestionnaire][smallQuestionnaire].answers.length + '%'"
-      ></div>
+    <div v-if="!runtime" class="flex-1 flex items-center justify-center p-6 text-center">
+      <div v-if="structureLoading">问卷加载中…</div>
+      <div v-else-if="structureError">问卷加载失败，请稍后刷新重试。</div>
+      <div v-else>暂无可填写的问题。</div>
     </div>
 
-    <div class="w-full flex flex-col space-y-3 p-1 md:w-1/2 2xl:w-5/12 md:m-auto">
-      <div class="baseBoxRoundedShadow p-1 w-full">
-        <div class="space-y-5 p-2">
-          <div>{{ questionNum + 1 + '：' + question.content + '（' + TypeToChinese[question.type] + '）' }}</div>
-          <div v-if="question.type != 'Input'" class="innerBox p-2 space-y-1">
-            <div
-              v-for="option in options"
-              :key="option.id"
-              class="py-1 px-1 rounded-xl transition transition-colors cursor-pointer md:hover:bg-subaccent md:hover:bg-opacity-80"
-              @click="selectOption(option.id)"
-            >
-              <VoteCheckBox
-                :check="answerData.findIndex((answer) => answer === option.id) != -1"
-                :read-only="true"
-                class="mr-2"
-              />{{ option.content }}
+    <template v-else>
+      <div class="w-full h-1 2xl:h-3 flex mb-1">
+        <div
+          v-for="group in visibleGroups"
+          :key="group.id"
+          class="h-full"
+          :class="[group.done ? 'bg-accent-color-600' : ' bg-subaccent']"
+          :style="'width:' + 100 / visibleGroups.length + '%'"
+        ></div>
+      </div>
+
+      <div class="w-full flex flex-col space-y-3 p-1 md:w-1/2 2xl:w-5/12 md:m-auto">
+        <div v-if="currentQuestion" class="baseBoxRoundedShadow p-1 w-full">
+          <div class="space-y-5 p-2">
+            <div>
+              {{ questionNum + 1 + '：' + currentQuestion.content + '（' + TypeToChinese[currentQuestion.type] + '）' }}
+            </div>
+            <div v-if="currentQuestion.type != 'Input'" class="innerBox p-2 space-y-1">
+              <div
+                v-for="option in availableOptions"
+                :key="option.id"
+                class="py-1 px-1 rounded-xl transition transition-colors cursor-pointer md:hover:bg-subaccent md:hover:bg-opacity-80"
+                @click="selectOption(option.id)"
+              >
+                <VoteCheckBox :check="option.selected" :read-only="true" class="mr-2" />{{ option.content }}
+              </div>
+            </div>
+            <div v-else>
+              <textarea
+                v-model="answerContent"
+                maxlength="1000"
+                class="p-1 md:p-3 w-full ring ring-accent-color-600 rounded-xl"
+                placeholder="请说点儿什么吧..."
+                rows="10"
+              />
             </div>
           </div>
-          <div v-else>
-            <textarea
-              v-model="answerContent"
-              maxlength="1000"
-              class="p-1 md:p-3 w-full ring ring-accent-color-600 rounded-xl"
-              placeholder="请说点儿什么吧..."
-              rows="10"
-            />
-          </div>
         </div>
-      </div>
-      <div class="flex justify-between space-x-2">
+        <div class="flex justify-between space-x-2">
+          <button
+            class="w-1/2 py-1 text-sm md:text-base"
+            :class="{ buttonDisabled: questionNum === 0 }"
+            @click="!questionNum || changeQuestion('forward')"
+          >
+            上一题
+          </button>
+          <button
+            class="w-1/2 py-1 text-sm md:text-base"
+            :class="{ buttonDisabled: questionNum + 1 === visibleGroups.length }"
+            @click="questionNum + 1 != visibleGroups.length && changeQuestion('back')"
+          >
+            下一题
+          </button>
+        </div>
         <button
-          class="w-1/2 py-1 text-sm md:text-base"
-          :class="{ buttonDisabled: questionNum === 0 }"
-          @click="!questionNum || changeQuestion('forward')"
+          class="w-full py-1 text-sm md:text-base"
+          :class="{ buttonDisabled: submiting }"
+          :style="questionnaireDone ? '' : 'visibility:hidden'"
+          @click="submitQuestionnire()"
         >
-          上一题
-        </button>
-        <button
-          class="w-1/2 py-1 text-sm md:text-base"
-          :class="{
-            buttonDisabled: questionNum + 1 === questionDone[bigQuestionnaire][smallQuestionnaire].answers.length,
-          }"
-          @click="
-            questionNum + 1 != questionDone[bigQuestionnaire][smallQuestionnaire].answers.length &&
-              changeQuestion('back')
-          "
-        >
-          下一题
+          <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />
+          {{ submiting ? '提交中' : '提交' }}
         </button>
       </div>
-      <button
-        class="w-full py-1 text-sm md:text-base"
-        :class="{ buttonDisabled: submiting }"
-        :style="questionnaireDone ? '' : 'visibility:hidden'"
-        @click="submitQuestionnire()"
-      >
-        <icon-uil-spinner-alt v-if="submiting" class="align-text-bottom animate-spin" />
-        {{ submiting ? '提交中' : '提交' }}
-      </button>
-    </div>
+    </template>
   </div>
 
   <QuestionnaireChange
@@ -108,7 +109,7 @@
 
   <VoteMessageBox v-model:open="submitCompleteMessageBoxOpen" title="提交成功！">
     <div class="p-2 space-y-2">
-      <div v-if="IsQuestionnaireAllDone && firstCompleteQuestionnaireAll">
+      <div v-if="isQuestionnaireAllDoneV2 && firstCompleteQuestionnaireAll">
         <div>感谢您完成了调查问卷的填写！您可以进行投票了！</div>
         <div>您是希望进行投票，还是继续填写/修改其他问卷呢？</div>
         <div>可以通过页面顶部的下拉菜单快速切换问卷或问题。</div>
@@ -124,9 +125,9 @@
       <div class="flex justify-between space-x-2">
         <button
           class="w-1/2 py-1 text-sm md:text-base"
-          @click="backHome(IsQuestionnaireAllDone && firstCompleteQuestionnaireAll)"
+          @click="backHome(isQuestionnaireAllDoneV2 && firstCompleteQuestionnaireAll)"
         >
-          {{ IsQuestionnaireAllDone && firstCompleteQuestionnaireAll ? '去投票！' : '休息一下，返回主页面' }}
+          {{ isQuestionnaireAllDoneV2 && firstCompleteQuestionnaireAll ? '去投票！' : '休息一下，返回主页面' }}
         </button>
         <button class="w-1/2 py-1 text-sm md:text-base" @click="continueEdit()">我还想继续填写/修改问卷！</button>
       </div>
@@ -138,21 +139,22 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import {
-  IsQuestionnaireAllDone,
-  IsQuestionnaireDone,
-  computeQuestionnaire,
+  buildAnswerStatePayload,
   firstCompleteQuestionnaireAll,
-  questionDone,
-  questionnaireComputed,
-  questionnaireData,
-} from '@/questionnaire/lib/questionnaireData'
+  getRuntime,
+  isQuestionnaireAllDoneV2,
+  setInput,
+  structureError,
+  structureLoading,
+  toggleOption,
+} from '@/questionnaire/lib/questionnaireStateV2'
+import type { BigKey, SmallKey } from '@/questionnaire/lib/questionnaireStateV2'
 import VoteCheckBox from '@/common/components/VoteCheckBox.vue'
 import QuestionnaireChange from '@/questionnaire/components/QuestionnaireChange.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import BackToHome from '@/common/components/BackToHome.vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { gql, useMutation } from '@/graphql'
-import type { Mutation } from '@/graphql'
 import { voteToken } from '@/home/lib/user'
 import { screenSizes } from '@/tailwindcss'
 import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
@@ -162,8 +164,8 @@ setSiteTitle('调查问卷')
 const route = useRoute()
 const router = useRouter()
 
-const bigQuestionnaire = computed<'mainQuestionnaire' | 'extraQuestionnaire'>(() => {
-  let big = String(
+const bigQuestionnaire = computed<BigKey>(() => {
+  const big = String(
     route.query.bigQuestionnaire
       ? Array.isArray(route.query.bigQuestionnaire)
         ? route.query.bigQuestionnaire[0]
@@ -172,159 +174,81 @@ const bigQuestionnaire = computed<'mainQuestionnaire' | 'extraQuestionnaire'>(()
   )
   return big === 'mainQuestionnaire' || big === 'extraQuestionnaire' ? big : 'mainQuestionnaire'
 })
-const smallQuestionnaire = computed<
-  | 'requiredQuestionnaire'
-  | 'optionalQuestionnaire1'
-  | 'optionalQuestionnaire2'
-  | 'exQuestionnaire1'
-  | 'exQuestionnaire2'
-  | 'exQuestionnaire3'
-  | 'exQuestionnaire4'
-  | 'exQuestionnaire5'
->(() => {
-  let small = String(
+const smallQuestionnaire = computed<SmallKey>(() => {
+  const small = String(
     route.query.smallQuestionnaire
       ? Array.isArray(route.query.smallQuestionnaire)
         ? route.query.smallQuestionnaire[0]
         : route.query.smallQuestionnaire
-      : 'mainQuestionnaire'
+      : 'requiredQuestionnaire'
   )
-  return small === 'requiredQuestionnaire' ||
-    small === 'optionalQuestionnaire1' ||
-    small === 'optionalQuestionnaire2' ||
-    small === 'exQuestionnaire1' ||
-    small === 'exQuestionnaire2' ||
-    small === 'exQuestionnaire3' ||
-    small === 'exQuestionnaire4' ||
-    small === 'exQuestionnaire5'
-    ? small
-    : 'requiredQuestionnaire'
+  const valid: SmallKey[] = [
+    'requiredQuestionnaire',
+    'optionalQuestionnaire1',
+    'optionalQuestionnaire2',
+    'exQuestionnaire1',
+    'exQuestionnaire2',
+    'exQuestionnaire3',
+    'exQuestionnaire4',
+    'exQuestionnaire5',
+  ]
+  return (valid as string[]).includes(small) ? (small as SmallKey) : 'requiredQuestionnaire'
 })
-const questionnaireName = computed<string>(
-  () => questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].name
-)
-const questionNum = computed<number>(() =>
+
+const runtime = computed(() => getRuntime(bigQuestionnaire.value, smallQuestionnaire.value))
+const questionnaireName = computed<string>(() => runtime.value?.name ?? '')
+const visibleGroups = computed(() => runtime.value?.visibleGroups ?? [])
+
+const rawNumber = computed<number>(() =>
   Number(route.query.number ? (Array.isArray(route.query.number) ? route.query.number[0] : route.query.number) : 0)
 )
-// Because questionnaireComputed will delete questions invaild while questionnaireData won't, questionNum is not equal to the index of this question in questionnaireData
-const indexOfAnswerInQuestionnaireData = computed<number>(() =>
-  questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers.findIndex(
-    (item) =>
-      item.id ===
-      questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].questions[questionNum.value][0].id
-  )
-)
-interface Question {
-  content: string
-  id: number
-  type: 'Single' | 'Multiple' | 'Input'
-}
-const question = computed<Question>(() => {
-  return {
-    content:
-      questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].questions[questionNum.value][0]
-        .question,
-    id: questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].questions[questionNum.value][0]
-      .id,
-    type: questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].questions[questionNum.value][0]
-      .type,
-  }
+const questionNum = computed<number>(() => {
+  const len = visibleGroups.value.length
+  if (len === 0) return 0
+  return Math.min(Math.max(rawNumber.value, 0), len - 1)
 })
+const currentGroup = computed(() => visibleGroups.value[questionNum.value] ?? null)
+const currentQuestion = computed(() => currentGroup.value?.activeQuestion ?? null)
+const availableOptions = computed(() => currentQuestion.value?.options.filter((option) => option.available) ?? [])
+const questionnaireDone = computed<boolean>(() => runtime.value?.done ?? false)
+
 const TypeToChinese = {
   Single: '单选',
   Multiple: '多选',
   Input: '输入，没有可填“无”',
 }
-interface Option {
-  content: string
-  id: number
-  group: number
-}
-const options = computed<Option[]>(() =>
-  questionnaireComputed.value[bigQuestionnaire.value][smallQuestionnaire.value].questions[
-    questionNum.value
-  ][0].options.map((option) => {
-    return {
-      content: option.content,
-      id: option.id,
-      group: option.group,
-    }
-  })
-)
-const answerData = ref<number[]>(updateAnswerData())
-function updateAnswerData(): number[] {
-  return (
-    questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
-      indexOfAnswerInQuestionnaireData.value
-    ].options || []
-  )
-}
-const answerContent = ref<string>(updateAnswerContent())
-function updateAnswerContent(): string {
-  return (
-    questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
-      indexOfAnswerInQuestionnaireData.value
-    ].input || ''
-  )
-}
+
+// Input 题目本地文本,导航时从运行时重置,输入时回写 store
+const answerContent = ref<string>('')
 watch(
-  answerContent,
+  () => [bigQuestionnaire.value, smallQuestionnaire.value, questionNum.value] as const,
   () => {
-    questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
-      indexOfAnswerInQuestionnaireData.value
-    ].input = answerContent.value
+    answerContent.value = currentQuestion.value?.type === 'Input' ? currentQuestion.value.input : ''
   },
-  { deep: true }
+  { immediate: true }
 )
-watch(
-  route,
-  () => {
-    answerData.value = updateAnswerData()
-    answerContent.value = updateAnswerContent()
-  },
-  { deep: true }
-)
+watch(answerContent, (val) => {
+  if (currentQuestion.value?.type === 'Input' && currentGroup.value && val !== currentQuestion.value.input) {
+    setInput(bigQuestionnaire.value, smallQuestionnaire.value, currentGroup.value.id, val)
+  }
+})
 
 function selectOption(id: number): void {
-  const index = answerData.value.findIndex((option) => option === id)
-  if (question.value.type === 'Single') {
-    if (index === -1) {
-      answerData.value = []
-      answerData.value.push(id)
-      if (questionNum.value + 1 != questionDone.value[bigQuestionnaire.value][smallQuestionnaire.value].answers.length)
-        changeQuestion('back')
-      else changeQuestion('no')
-    }
-  } else if (question.value.type === 'Multiple') {
-    index === -1 ? answerData.value.push(id) : answerData.value.splice(index, 1)
-    if (index === -1) {
-      const selectedOptionGroup = options.value.find((item) => item.id === id)!.group
-      answerData.value = answerData.value.filter(
-        (item) => options.value.find((item2) => item2.id === item)!.group === selectedOptionGroup
-      )
-    }
+  const question = currentQuestion.value
+  const group = currentGroup.value
+  if (!question || !group) return
+  const wasSelected = question.options.find((option) => option.id === id)?.selected ?? false
+  toggleOption(bigQuestionnaire.value, smallQuestionnaire.value, group.id, id)
+  if (question.type === 'Single' && !wasSelected && questionNum.value + 1 < visibleGroups.value.length) {
+    changeQuestion('back')
   }
 }
 
 function changeQuestion(direction: 'forward' | 'back' | 'no'): void {
-  changeQuestionnaireData()
-  questionnaireComputed.value = computeQuestionnaire()
   if (direction === 'no') return
   const query = JSON.parse(JSON.stringify(route.query))
   query.number = direction === 'forward' ? questionNum.value - 1 : questionNum.value + 1
   router.push({ path: route.path, query })
-}
-function changeQuestionnaireData(): void {
-  questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
-    indexOfAnswerInQuestionnaireData.value
-  ].options = answerData.value.sort()
-  questionnaireData.value[bigQuestionnaire.value][smallQuestionnaire.value].answers[
-    indexOfAnswerInQuestionnaireData.value
-  ].input = answerContent.value
-  setQuestionnaireDataToLocalStorage()
-}
-function setQuestionnaireDataToLocalStorage(): void {
-  localStorage.setItem('questionnaireDataLocal', JSON.stringify(questionnaireData.value))
 }
 
 const open = ref(false)
@@ -333,17 +257,31 @@ function drawerOpen(): void {
 }
 
 const submitCompleteMessageBoxOpen = ref(false)
-const questionnaireDone = computed<boolean>(() => {
-  return IsQuestionnaireDone(bigQuestionnaire.value, smallQuestionnaire.value)
-})
 
-async function submitQuestionnire() {
-  changeQuestion('no')
+const { mutate, loading: submiting, onDone, onError } = useMutation<{ submitPaperV2: boolean }>(gql`
+  mutation ($voteToken: String!, $answers: JSON!) {
+    submitPaperV2(voteToken: $voteToken, answers: $answers)
+  }
+`)
+
+async function submitQuestionnire(): Promise<void> {
   if (submiting.value) return
+  const payload = buildAnswerStatePayload()
+  if (!payload) {
+    popMessageText('问卷尚未加载完成，请稍后再试')
+    return
+  }
   if (await popConfirmText('确认提交' + questionnaireName.value + '吗？（您之后还可以修改）')) {
-    mutate({ content: { voteToken: voteToken.value, paperJson: JSON.stringify(questionnaireData.value) } })
+    mutate({ voteToken: voteToken.value, answers: payload })
   }
 }
+onDone(() => {
+  submitCompleteMessageBoxOpen.value = true
+})
+onError((error) => {
+  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else popMessageText('提交失败，原因：' + (error.graphQLErrors?.[0]?.extensions?.human_readable_message ?? '未知错误'))
+})
 
 function backHome(gotoVote: boolean): void {
   firstCompleteQuestionnaireAll.value = false
@@ -354,25 +292,4 @@ function continueEdit(): void {
   submitCompleteMessageBoxOpen.value = false
   drawerOpen()
 }
-
-const {
-  mutate,
-  loading: submiting,
-  onDone,
-  onError,
-} = useMutation<Mutation>(
-  gql`
-    mutation ($content: PaperSubmitGQL!) {
-      submitPaperVote(content: $content)
-    }
-  `
-)
-onDone((result) => {
-  submitCompleteMessageBoxOpen.value = true
-})
-onError((error) => {
-  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
-  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
-  else popMessageText('投票失败，原因：' + error.graphQLErrors?.[0]?.extensions?.human_readable_message)
-})
 </script>

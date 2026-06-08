@@ -251,7 +251,7 @@ import {
   voteDoujinComplete,
   voteMusicComplete,
 } from '@/home/lib/user'
-import { IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireData'
+import { isQuestionnaireAllDoneV2 as IsQuestionnaireAllDone } from '@/questionnaire/lib/questionnaireStateV2'
 import { popConfirmText } from '@/common/lib/popMessage'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { voteYear } from '@/common/lib/voteYear'
