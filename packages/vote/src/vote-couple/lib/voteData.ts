@@ -26,10 +26,10 @@ export function updateVotecouple(coupleVoteData: CpSubmitQuery[]): void {
     couples.value = new Array(CPVOTENUM).fill(null).map(() => new Couple())
     for (let i = 0; i < coupleVoteData.length; i++) {
       const coupleData = new Couple()
-      coupleData.characters[0] = characterList.find((item) => item.id === coupleVoteData[i].idA) || new Character()
-      coupleData.characters[1] = characterList.find((item) => item.id === coupleVoteData[i].idB) || new Character()
+      coupleData.characters[0] = characterList.value.find((item) => item.id === coupleVoteData[i].idA) || new Character()
+      coupleData.characters[1] = characterList.value.find((item) => item.id === coupleVoteData[i].idB) || new Character()
       if (coupleVoteData[i].idC)
-        coupleData.characters[2] = characterList.find((item) => item.id === coupleVoteData[i].idC) || new Character()
+        coupleData.characters[2] = characterList.value.find((item) => item.id === coupleVoteData[i].idC) || new Character()
       if (coupleVoteData[i].active)
         coupleData.seme = coupleData.characters.findIndex((item) => item.id === coupleVoteData[i].active)
       if (coupleVoteData[i].first) coupleData.honmei = true

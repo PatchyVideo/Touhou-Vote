@@ -204,7 +204,7 @@ function getMusicColor(name: string) {
 
 const fullMusicData = computed(() => {
 	return voteMusicData.value.map((voteMusic: { id: string; isHonmei: boolean; reason: string }) => {
-			const fullMusic = musicList.find(m => m.id === voteMusic.id)
+			const fullMusic = musicList.value.find(m => m.id === voteMusic.id)
 		return {
 			id: voteMusic.id,
 			name: fullMusic?.name || '未知曲目',

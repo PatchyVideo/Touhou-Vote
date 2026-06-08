@@ -5,12 +5,12 @@ import { musicHonmei, musics } from '@/vote-music/lib/voteData'
 import { albumSelected, filterForKind } from '@/vote-music/lib/albumList'
 import { pinin } from '@/common/lib/pinin'
 import type { Music } from '@touhou-vote/shared/data/music'
-import { musicList } from '@touhou-vote/shared/data/music'
+import { musicListFromBackend } from '@/common/lib/voteObjectsDataSource'
 
-export { musicList }
+export const musicList = musicListFromBackend
 
 export const musicListLeft = computed<Music[]>(() => {
-  let list = musicList.filter((music) => {
+  let list = musicList.value.filter((music) => {
     let musicInMusics = false
     for (let i = 0; i < musics.value.length; i++) {
       if (musics.value[i].id === music.id) musicInMusics = true
@@ -34,14 +34,8 @@ export const musicsVoted = computed<Music[]>(() => musics.value.filter((mus) => 
 export const musicsVotedWithoutHonmei = computed<Music[]>(() => musicsVoted.value.filter((mus) => !mus.honmei))
 
 export const orderOptions = [
-  {
-    name: '发布正序',
-    value: 'newest',
-  },
-  {
-    name: '发布倒序',
-    value: 'oldest',
-  },
+  { name: '发布正序', value: 'newest' },
+  { name: '发布倒序', value: 'oldest' },
 ]
 
 export const order = ref(orderOptions[0])
@@ -49,14 +43,13 @@ export const keyword = ref('')
 
 const searcher = computed(() => {
   const s = new CachedSearcher<Music>(SearchLogicContain, pinin)
-
   for (const music of musicListLeft.value) {
     s.put(music.name.toLowerCase(), music)
     s.put(music.album.toLowerCase(), music)
   }
-
   return s
 })
+
 export const musicListLeftWithFilter = computed<Music[]>(() => {
   const res = keyword.value ? [...new Set(searcher.value.search(keyword.value.toLowerCase()))] : musicListLeft.value
 

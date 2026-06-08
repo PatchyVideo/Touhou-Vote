@@ -184,7 +184,7 @@ function normalizeColor(input: string | undefined) {
 
 const fullCharacterData = computed(() => {
   return voteCharacterData.value.map((voteChar: { id: string; isHonmei: boolean; reason: string }) => {
-    const fullChar = characterList.find(c => c.id === voteChar.id)
+    const fullChar = characterList.value.find(c => c.id === voteChar.id)
     return {
       id: voteChar.id,
       name: fullChar?.name || '未知角色',

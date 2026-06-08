@@ -13,6 +13,7 @@
  */
 
 import { voteToken, isLogin, setUserDataToLocalStorage, user, createDefaultVoter, enableDevMode, disableDevMode } from '@/home/lib/user'
+import { voteYear } from '@/common/lib/voteYear'
 import { characters } from '@/vote-character/lib/voteData'
 import { characterList } from '@/vote-character/lib/characterList'
 import { Character } from '@/vote-character/lib/character'
@@ -260,6 +261,8 @@ export function clearTestUserData() {
   localStorage.removeItem('doujins')
   localStorage.removeItem('questionnaireDataLocal')
   localStorage.removeItem('questionnaireDataLocalV2')
+  sessionStorage.removeItem(`voteObjectsCharacters:${voteYear}`)
+  sessionStorage.removeItem(`voteObjectsMusic:${voteYear}`)
 
   // 重置状态
   user.value = createDefaultVoter()

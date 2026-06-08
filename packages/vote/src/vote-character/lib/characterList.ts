@@ -3,13 +3,13 @@ import type { Character } from './character'
 import { character0 } from './character'
 import { characterHonmei, characters } from './voteData'
 import { filterForKind, workSelected } from './workList'
-import { characterList } from '@touhou-vote/shared/data/character'
+import { characterListFromBackend } from '@/common/lib/voteObjectsDataSource'
 import { orderOptions as sharedOrderOptions, filterCharactersByMeta, searchAndSort } from '@/common/lib/characterSearch'
 
-export { characterList }
+export const characterList = characterListFromBackend
 
 export const characterListLeft = computed<Character[]>(() => {
-  let charaList = characterList.filter((character) => {
+  let charaList = characterList.value.filter((character) => {
     let characterInCharacters = false
     for (let i = 0; i < characters.value.length; i++) {
       if (characters.value[i].id === character.id) characterInCharacters = true
@@ -19,6 +19,7 @@ export const characterListLeft = computed<Character[]>(() => {
 
   const kinds = filterForKind.value.map((k) => k.value)
   charaList = filterCharactersByMeta(charaList, kinds, workSelected.value.name || undefined)
+
 
   return charaList
 })

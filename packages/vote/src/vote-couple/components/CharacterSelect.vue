@@ -112,7 +112,7 @@ const advancedFilterOpen = ref(false)
 const order = ref(orderOptions[0])
 
 const characterListLeft = computed<Character[]>(() => {
-  let charaList = characterList
+  let charaList = characterList.value
   // delete repeated characters, somebody think it is not needed
   // .filter((character) => {
   //   let characterInCharacters = false

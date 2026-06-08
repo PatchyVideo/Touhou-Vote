@@ -11,6 +11,7 @@ import {
   structureError,
   structureReady,
 } from '@/questionnaire/lib/questionnaireStateV2'
+import { loadVoteObjects } from '@/common/lib/voteObjectsDataSource'
 import { voteNotStart } from '@/start-page/lib/voteStart'
 import { voteEnded } from '@/end-page/lib/voteEnded'
 import 'nprogress/css/nprogress.css'
@@ -48,6 +49,9 @@ appPromises.push(checkLoginStatusPromise)
 
 // 并行拉取问卷结构(V2);成功/缓存/出错都会 resolve structureReady
 appPromises.push(loadQuestionnaireStructure())
+
+// 并行拉取角色/音乐投票对象列表(V2);成功/缓存/出错都会 resolve voteObjectsReady
+appPromises.push(loadVoteObjects())
 
 // router config
 declare module 'vue-router' {

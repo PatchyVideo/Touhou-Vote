@@ -24,7 +24,7 @@ export function updateVoteMusics(newVoteData: MusicSubmitQuery[]): void {
   } else if (newVoteData.length) {
     musics.value = new Array(MUSICVOTENUM).fill(null).map(() => new Music())
     for (let i = 0; i < newVoteData.length; i++) {
-      const musicData = musicList.find((item) => item.id === newVoteData[i].id) || musics.value[i]
+      const musicData = musicList.value.find((item) => item.id === newVoteData[i].id) || musics.value[i]
       musicData.honmei = newVoteData[i].first || false
       musicData.reason = newVoteData[i].reason || ''
       musics.value[i] = musicData
