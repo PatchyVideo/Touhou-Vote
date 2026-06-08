@@ -250,13 +250,11 @@ function applyPaperRows(rows: any[]): void {
   }
 }
 
-// 启动时回填(于 checkLoginStatus 内触发)。本地已有草稿则不覆盖,与 V1 一致。
+// 启动时回填(于 checkLoginStatus 内触发)。优先后端,本地草稿仅在后端空时兜底。
 export async function restorePaperV2(token: string): Promise<void> {
   await structureReady
   if (!questionnaires.value.length || !token) return
-  const hadLocalDraft = !!localStorage.getItem(LOCALSTORAGE_KEY)
   ensureAnswerState()
-  if (hadLocalDraft) return
   try {
     const res = await getRestoreClient().query<{ getPaperV2: unknown }>({
       query: GET_PAPER_V2,
@@ -264,10 +262,14 @@ export async function restorePaperV2(token: string): Promise<void> {
       fetchPolicy: 'network-only',
     })
     const rows = res.data?.getPaperV2
-    if (!Array.isArray(rows)) return
-    applyPaperRows(rows)
-    persistDrafts()
+    if (Array.isArray(rows) && rows.length > 0) {
+      // 后端有数据则以之为准,清掉本地草稿
+      applyPaperRows(rows)
+      persistDrafts()
+      return
+    }
+    // 后端无数据且本地有草稿 → 保留本地,不再写回
   } catch (err) {
-    console.error('[questionnaireV2] getPaperV2 回填失败:', err)
+    console.error('[questionnaireV2] getPaperV2 回填失败,fallback 本地草稿:', err)
   }
 }
