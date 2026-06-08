@@ -40,14 +40,6 @@ export interface QuestionnaireRuntimeV2 {
 
 type GroupLookup = Map<number, QuestionnaireGroupV2>
 
-function getQuestionOrder(questionId: number): number {
-  return questionId % 10
-}
-
-function isZeroOrderQuestion(questionId: number): boolean {
-  return getQuestionOrder(questionId) === 0
-}
-
 function cloneDraft(draft: QuestionnaireAnswerDraftV2): QuestionnaireAnswerDraftV2 {
   return {
     questionnaireId: draft.questionnaireId,
@@ -62,12 +54,14 @@ function cloneDraft(draft: QuestionnaireAnswerDraftV2): QuestionnaireAnswerDraft
 
 function buildLookups(definition: QuestionnaireDefinitionV2) {
   const groupsById: GroupLookup = new Map()
+  const questionToGroupId = new Map<number, number>()
 
   for (const group of definition.questionGroups) {
     groupsById.set(group.id, group)
+    for (const q of group.questions) questionToGroupId.set(q.id, group.id)
   }
 
-  return { groupsById }
+  return { groupsById, questionToGroupId }
 }
 
 function findQuestionInGroup(group: QuestionnaireGroupV2, questionId: number | null): QuestionnaireQuestionV2 | null {
@@ -75,13 +69,9 @@ function findQuestionInGroup(group: QuestionnaireGroupV2, questionId: number | n
   return group.questions.find((question) => question.id === questionId) ?? null
 }
 
-function getQuestionByOrder(group: QuestionnaireGroupV2, order: number): QuestionnaireQuestionV2 | null {
-  return group.questions.find((question) => getQuestionOrder(question.id) === order) ?? null
-}
-
 function getDefaultVisibleQuestionId(group: QuestionnaireGroupV2): number | null {
-  if (isZeroOrderQuestion(group.initialQuestionId)) return null
-  return getQuestionByOrder(group, 1)?.id ?? null
+  if (group.hiddenByDefault) return null
+  return group.questions[0]?.id ?? null
 }
 
 function validateQuestionnaireDefinitionV2(definition: QuestionnaireDefinitionV2) {
@@ -93,12 +83,6 @@ function validateQuestionnaireDefinitionV2(definition: QuestionnaireDefinitionV2
 
   if (firstGroup.questions.length !== 1) {
     throw new Error(`[questionnaireV2] questionnaire ${definition.id} first group must contain exactly one question`)
-  }
-
-  for (const group of definition.questionGroups) {
-    if (!findQuestionInGroup(group, group.initialQuestionId)) {
-      throw new Error(`[questionnaireV2] group ${group.id} initialQuestionId is not in questions`)
-    }
   }
 }
 
@@ -137,11 +121,9 @@ function chooseTriggeredQuestionId(
   currentQuestionId: number | null,
   triggeredQuestionIds: number[]
 ): number | null {
-  const visibleQuestionIds = triggeredQuestionIds.filter((questionId) => !isZeroOrderQuestion(questionId))
-
-  if (!visibleQuestionIds.length) return null
-  if (currentQuestionId != null && visibleQuestionIds.includes(currentQuestionId)) return currentQuestionId
-  return visibleQuestionIds[0]
+  if (!triggeredQuestionIds.length) return null
+  if (currentQuestionId != null && triggeredQuestionIds.includes(currentQuestionId)) return currentQuestionId
+  return triggeredQuestionIds[0]
 }
 
 function sanitizeSelectionByQuestion(question: QuestionnaireQuestionV2, groupDraft: QuestionnaireGroupAnswerDraftV2) {
@@ -177,7 +159,8 @@ function sanitizeSelectionByQuestion(question: QuestionnaireQuestionV2, groupDra
 function getVisibleTriggeredQuestionIds(
   definition: QuestionnaireDefinitionV2,
   draft: QuestionnaireAnswerDraftV2,
-  groupsById: GroupLookup
+  groupsById: GroupLookup,
+  questionToGroupId: Map<number, number>
 ) {
   const triggerMap = new Map<number, number[]>()
 
@@ -192,8 +175,8 @@ function getVisibleTriggeredQuestionIds(
       if (!selectedOption) continue
 
       for (const relatedQuestionId of selectedOption.relatedQuestionIds) {
-        const targetGroupId = Math.floor(relatedQuestionId / 10)
-        if (!groupsById.has(targetGroupId)) continue
+        const targetGroupId = questionToGroupId.get(relatedQuestionId)
+        if (targetGroupId == null || !groupsById.has(targetGroupId)) continue
         const current = triggerMap.get(targetGroupId) ?? []
         current.push(relatedQuestionId)
         triggerMap.set(targetGroupId, current)
@@ -207,9 +190,10 @@ function getVisibleTriggeredQuestionIds(
 function applyVisibilityAndQuestionBranch(
   definition: QuestionnaireDefinitionV2,
   draft: QuestionnaireAnswerDraftV2,
-  groupsById: GroupLookup
+  groupsById: GroupLookup,
+  questionToGroupId: Map<number, number>
 ) {
-  const triggerMap = getVisibleTriggeredQuestionIds(definition, draft, groupsById)
+  const triggerMap = getVisibleTriggeredQuestionIds(definition, draft, groupsById, questionToGroupId)
 
   for (const group of definition.questionGroups) {
     const groupDraft = draft.groups.find((item) => item.groupId === group.id)
@@ -257,14 +241,14 @@ export function normalizeQuestionnaireDraftV2(
   validateQuestionnaireDefinitionV2(definition)
 
   const nextDraft = cloneDraft(draft)
-  const { groupsById } = buildLookups(definition)
+  const { groupsById, questionToGroupId } = buildLookups(definition)
 
   ensureDraftGroups(definition, nextDraft)
 
   for (let iteration = 0; iteration < definition.questionGroups.length * 4; iteration += 1) {
     const snapshot = JSON.stringify(nextDraft)
 
-    applyVisibilityAndQuestionBranch(definition, nextDraft, groupsById)
+    applyVisibilityAndQuestionBranch(definition, nextDraft, groupsById, questionToGroupId)
 
     for (const group of definition.questionGroups) {
       const groupDraft = nextDraft.groups.find((item) => item.groupId === group.id)
@@ -323,9 +307,9 @@ export function parseQuestionnaireRuntimeV2(
   draft: QuestionnaireAnswerDraftV2
 ): QuestionnaireRuntimeV2 {
   const normalizedDraft = normalizeQuestionnaireDraftV2(definition, draft)
-  const { groupsById } = buildLookups(definition)
+  const { groupsById, questionToGroupId } = buildLookups(definition)
   const mutexTargets = collectMutexTargets(definition, normalizedDraft)
-  const triggerMap = getVisibleTriggeredQuestionIds(definition, normalizedDraft, groupsById)
+  const triggerMap = getVisibleTriggeredQuestionIds(definition, normalizedDraft, groupsById, questionToGroupId)
 
   const groups = definition.questionGroups.map((group) => {
     const groupDraft = normalizedDraft.groups.find((item) => item.groupId === group.id) ?? createEmptyGroupDraft(group)
@@ -352,7 +336,7 @@ export function parseQuestionnaireRuntimeV2(
 
   return {
     questionnaireId: definition.id,
-    name: definition.name,
+    name: definition.title,
     introduction: definition.introduction,
     groups,
     visibleGroups,
