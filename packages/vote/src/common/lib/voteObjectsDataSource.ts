@@ -6,6 +6,7 @@ import { Music } from '@/vote-music/lib/music'
 import { characterList as staticCharacterList } from '@touhou-vote/shared/data/character'
 import { musicList as staticMusicList, albumList as staticAlbumList } from '@touhou-vote/shared/data/music'
 import { voteYear } from '@/common/lib/voteYear'
+import { API_PREFIX } from '@/common/lib/apiPrefix'
 
 interface BackendCharacterItem {
   id: number
@@ -28,8 +29,8 @@ interface BackendGroup<T> {
   items: T[]
 }
 
-const CHARACTER_URL = `/v11-be/vote-objects/characters?vote_year=${voteYear}`
-const MUSIC_URL = `/v11-be/vote-objects/music?vote_year=${voteYear}`
+const CHARACTER_URL = `${API_PREFIX}/vote-objects/characters?vote_year=${voteYear}`
+const MUSIC_URL = `${API_PREFIX}/vote-objects/music?vote_year=${voteYear}`
 const CACHE_KEY_CHAR = `voteObjectsCharacters:${voteYear}`
 const CACHE_KEY_MUSIC = `voteObjectsMusic:${voteYear}`
 

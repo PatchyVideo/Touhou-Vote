@@ -212,6 +212,7 @@ import VoteSelect from '@/common/components/VoteSelect.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import Mask from '@/common/components/Mask.vue'
 import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
+import { API_PREFIX } from '@/common/lib/apiPrefix'
 
 const props = defineProps({
   open: {
@@ -291,7 +292,7 @@ function clearDoujinData(): void {
 const fetchLoading = ref(false)
 async function fetchMsg(): Promise<void> {
   fetchLoading.value = true
-  await fetch('/v11-be/doujin/api', {
+  await fetch(`${API_PREFIX}/doujin/api`, {
     method: 'POST',
     headers: new Headers({
       'Content-Type': 'application/json',

@@ -7,6 +7,7 @@ import RawObjectID from 'bson-objectid'
 import { DefaultApolloClient, useQuery as vUseQuery } from '@vue/apollo-composable'
 import { logErrorMessages } from '@vue/apollo-util'
 
+import { API_PREFIX } from '@/common/lib/apiPrefix'
 import scalarTypePolicies from './__generated__/typePolicies'
 import generatedIntrospection from './__generated__/graphql.fragment'
 
@@ -33,7 +34,7 @@ export function createApollo(): ApolloClient<NormalizedCacheObject> {
   const link = from([
     // Backend Server
     new HttpLink({
-      uri: '/v11-be/graphql',
+      uri: `${API_PREFIX}/graphql`,
       credentials: 'include',
     }),
   ])

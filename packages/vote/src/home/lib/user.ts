@@ -1,6 +1,7 @@
 import { computed, ref } from 'vue'
 import type { Voter } from '@/graphql/__generated__/graphql'
 import { clearQuestionnaireV2LocalData, restorePaperV2 } from '@/questionnaire/lib/questionnaireStateV2'
+import { API_PREFIX } from '@/common/lib/apiPrefix'
 import { popMessageText } from '@/common/lib/popMessage'
 
 export function createDefaultVoter(): Voter {
@@ -157,7 +158,7 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
     return
   }
   
-  await fetch('/v11-be/user-token-status', {
+  await fetch(`${API_PREFIX}/user-token-status`, {
     method: 'POST',
     headers: new Headers({
       'Content-Type': 'application/json',

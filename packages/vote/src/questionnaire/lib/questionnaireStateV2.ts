@@ -14,11 +14,12 @@ import {
   toggleQuestionOptionV2,
 } from '@/questionnaire/lib/questionnaireV2Parser'
 import type { QuestionnaireRuntimeV2 } from '@/questionnaire/lib/questionnaireV2Parser'
+import { API_PREFIX } from '@/common/lib/apiPrefix'
 import { createApollo, gql } from '@/graphql'
 
 const LOCALSTORAGE_KEY = 'questionnaireDataLocalV2'
 const SESSIONSTORAGE_KEY = 'questionnaireStructureV2'
-const STRUCTURE_URL = '/v11-be/questionnaire/structure'
+const STRUCTURE_URL = `${API_PREFIX}/questionnaire/structure`
 
 // ---------------- 结构 ----------------
 export const questionnaires = ref<QuestionnaireDefinitionV2[]>([])
