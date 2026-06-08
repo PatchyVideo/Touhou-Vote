@@ -1,3 +1,5 @@
+// ⚠️ 已休眠(legacy):V2 现直接以结构化 answers 提交后端(submitPaperV2),不再转 paperJson。
+// 本兼容层不被引用,仅保留以便回滚,后续 PR 可删除。
 import type {
   QuestionnaireAnswerDraftV2,
   QuestionnaireAnswerStateV2,

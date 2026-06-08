@@ -259,7 +259,8 @@ export function clearTestUserData() {
   localStorage.removeItem('couples')
   localStorage.removeItem('doujins')
   localStorage.removeItem('questionnaireDataLocal')
-  
+  localStorage.removeItem('questionnaireDataLocalV2')
+
   // 重置状态
   user.value = createDefaultVoter()
   voteToken.value = ''

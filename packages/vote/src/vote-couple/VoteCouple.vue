@@ -114,6 +114,7 @@
 <script lang="ts" setup>
 import { computed, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
+import { handleQuestionnaireGateError } from '@/common/lib/voteGateError'
 import NProgress from 'nprogress'
 import { CPVOTENUM, couples, updateVotecouple } from '@/vote-couple/lib/voteData'
 import { coupleHonmei, couplesValid, couplesValidWithoutHonmei } from '@/vote-couple/lib/coupleList'
@@ -295,6 +296,7 @@ onDone((result) => {
   router.push({ path: '/', query: { tab: 1, openList: 'vote', open: 1 } })
 })
 onError((error) => {
+  if (handleQuestionnaireGateError(error, router)) return
   console.log(error.graphQLErrors?.[0]?.extensions)
   if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else popMessageText('投票失败，原因：' + error.graphQLErrors?.[0]?.extensions?.human_readable_message)

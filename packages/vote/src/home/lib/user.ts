@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue'
 import type { Voter } from '@/graphql/__generated__/graphql'
-import { questionnaireData } from '@/questionnaire/lib/questionnaireData'
+import { clearQuestionnaireV2LocalData, restorePaperV2 } from '@/questionnaire/lib/questionnaireStateV2'
 import { popMessageText } from '@/common/lib/popMessage'
 
 export function createDefaultVoter(): Voter {
@@ -131,6 +131,7 @@ export function deleteUserData(): void {
   localStorage.removeItem('voteToken')
   localStorage.removeItem('sessionToken')
   localStorage.removeItem('questionnaireDataLocal')
+  clearQuestionnaireV2LocalData()
   localStorage.removeItem('characters')
   localStorage.removeItem('musics')
   localStorage.removeItem('couples')
@@ -168,16 +169,13 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
     credentials: 'include',
   })
     .then((data) => data.json())
-    .then((res) => {
+    .then(async (res) => {
       if (res.status === 'valid') {
         if (res.voting_status) setVoteStatus(res.voting_status)
-        if (res.papers_json && !localStorage.getItem('questionnaireDataLocal')) {
-          localStorage.setItem('questionnaireDataLocal', res.papers_json)
-          questionnaireData.value = JSON.parse(res.papers_json)
-        }
         if (needGetUserDataFromLocalStorage) {
           getUserDataFromLocalStorage()
         }
+        await restorePaperV2(localStorage.getItem('voteToken') || '')
       } else {
         deleteUserData()
       }
