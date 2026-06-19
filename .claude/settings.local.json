@@ -3,7 +3,8 @@
     "allow": [
       "WebFetch(domain:localhost)",
       "Bash(curl -s http://localhost:5173/v11/characterSingleDetail)",
-      "WebFetch(domain:touhou.vote)"
+      "WebFetch(domain:touhou.vote)",
+      "Bash(curl -s http://localhost:5173/)"
     ]
   }
 }
