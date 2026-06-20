@@ -4,7 +4,8 @@
       "WebFetch(domain:localhost)",
       "Bash(curl -s http://localhost:5173/v11/characterSingleDetail)",
       "WebFetch(domain:touhou.vote)",
-      "Bash(curl -s http://localhost:5173/)"
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(grep -c '。$' /Users/lurantis/Code/Touhou-Vote/Touhou-Vote/doc/VoileLabs-人气投票项目-需求文档-投票结果页面.md)"
     ]
   }
 }
