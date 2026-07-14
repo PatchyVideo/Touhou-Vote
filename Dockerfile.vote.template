@@ -42,11 +42,45 @@ RUN pnpm --filter @touhou-vote/vote run build -- --mode test
 FROM nginx:alpine
 
 # 监听 8082（与 test 环境配置一致）
+# v12 路由：精确前缀块转发到后端 /api/v1/*，兜底块处理 graphql 等根路径端点。
+# /v11-be/ 为过渡兼容块（当前已部署前端仍打 v11），前端全部切到 v12 后删除。
 RUN echo 'server { \
     listen 8082; \
     location / { \
         root /usr/share/nginx/html; \
         try_files $uri /index.html; \
+    } \
+    location /v12-be/vote-objects/ { \
+        proxy_pass http://thvote-backend:8000/api/v1/vote-objects/; \
+        proxy_http_version 1.1; \
+        proxy_set_header Host $host; \
+        proxy_set_header X-Real-IP $remote_addr; \
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; \
+        proxy_set_header X-Forwarded-Proto $scheme; \
+    } \
+    location /v12-be/questionnaire/ { \
+        proxy_pass http://thvote-backend:8000/api/v1/questionnaire/; \
+        proxy_http_version 1.1; \
+        proxy_set_header Host $host; \
+        proxy_set_header X-Real-IP $remote_addr; \
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; \
+        proxy_set_header X-Forwarded-Proto $scheme; \
+    } \
+    location /v12-be/doujin/ { \
+        proxy_pass http://thvote-backend:8000/api/v1/submit/dojin; \
+        proxy_http_version 1.1; \
+        proxy_set_header Host $host; \
+        proxy_set_header X-Real-IP $remote_addr; \
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; \
+        proxy_set_header X-Forwarded-Proto $scheme; \
+    } \
+    location /v12-be/ { \
+        proxy_pass http://thvote-backend:8000/; \
+        proxy_http_version 1.1; \
+        proxy_set_header Host $host; \
+        proxy_set_header X-Real-IP $remote_addr; \
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; \
+        proxy_set_header X-Forwarded-Proto $scheme; \
     } \
     location /v11-be/ { \
         proxy_pass http://thvote-backend:8000/; \
