@@ -69,11 +69,20 @@ export async function verifyHuman(): Promise<string | null | undefined> {
 
   return new Promise((resolve) => {
     let settled = false
+    let triggered = false
     const done = (v: string | null): void => {
       if (settled) return
       settled = true
       holder.remove()
       resolve(v)
+    }
+    // 触发弹窗：widget 通过 initAliyunCaptcha 给按钮绑定点击监听，这个绑定
+    // 是异步的——必须等 getInstance 回调（实例就绪=按钮已绑好）再点，否则
+    // 点击落空、Promise 永远悬住（表现为无弹窗/无报错/无倒计时）。
+    const trigger = (): void => {
+      if (triggered) return
+      triggered = true
+      document.getElementById(btnId)?.click()
     }
     window.initAliyunCaptcha?.({
       SceneId: CAPTCHA_SCENE_ID,
@@ -84,11 +93,11 @@ export async function verifyHuman(): Promise<string | null | undefined> {
       // 单次滑动失败由组件内部引导重试，不结束 Promise
       fail: (): void => undefined,
       onClose: (): void => done(null),
-      getInstance: (): void => undefined,
+      getInstance: (): void => trigger(),
       slideStyle: { width: 360, height: 40 },
       language: 'cn',
     })
-    // init 完成后由代理按钮触发弹窗；setTimeout 让 widget 先完成事件绑定
-    setTimeout(() => document.getElementById(btnId)?.click(), 0)
+    // 兜底：某些版本 getInstance 触发偏晚或不触发，300ms 后强制点一次
+    setTimeout(trigger, 300)
   })
 }
