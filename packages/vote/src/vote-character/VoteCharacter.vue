@@ -141,6 +141,8 @@ import { voteCharacterComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
+import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
+startFillTimer('character')
 
 setSiteTitle('角色部门')
 
@@ -207,7 +209,14 @@ const CharacterSubmit = computed<schema.CharacterSubmit[]>(() =>
     })
 )
 async function vote(): Promise<void> {
-  mutate({ content: { voteToken: voteToken.value, characters: CharacterSubmit.value, deviceId: getDeviceId() } })
+  mutate({
+    content: {
+      voteToken: voteToken.value,
+      characters: CharacterSubmit.value,
+      deviceId: getDeviceId(),
+      fillDurationMs: readFillDuration('character'),
+    },
+  })
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`

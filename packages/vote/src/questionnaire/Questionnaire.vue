@@ -157,6 +157,8 @@ import { voteToken } from '@/home/lib/user'
 import { screenSizes } from '@/tailwindcss'
 import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
+import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
+startFillTimer('paper')
 
 setSiteTitle('调查问卷')
 
@@ -347,6 +349,7 @@ async function submitQuestionnire() {
         voteToken: voteToken.value,
         paperJson: JSON.stringify(questionnaireData.value),
         deviceId: getDeviceId(),
+        fillDurationMs: readFillDuration('paper'),
       },
     })
   }

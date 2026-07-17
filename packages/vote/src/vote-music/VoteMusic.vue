@@ -143,6 +143,8 @@ import { voteMusicComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
+import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
+startFillTimer('music')
 
 setSiteTitle('音乐部门')
 
@@ -209,7 +211,14 @@ const MusicSubmit = computed<schema.MusicSubmit[]>(() =>
     })
 )
 async function vote(): Promise<void> {
-  mutate({ content: { voteToken: voteToken.value, musics: MusicSubmit.value, deviceId: getDeviceId() } })
+  mutate({
+    content: {
+      voteToken: voteToken.value,
+      musics: MusicSubmit.value,
+      deviceId: getDeviceId(),
+      fillDurationMs: readFillDuration('music'),
+    },
+  })
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`

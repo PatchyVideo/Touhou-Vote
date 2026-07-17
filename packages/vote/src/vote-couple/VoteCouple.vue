@@ -128,6 +128,8 @@ import { voteCoupleComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
+import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
+startFillTimer('cp')
 
 setSiteTitle('CP部门')
 
@@ -281,7 +283,14 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
 )
 const router = useRouter()
 async function vote(): Promise<void> {
-  mutate({ content: { voteToken: voteToken.value, cps: CPSubmit.value, deviceId: getDeviceId() } })
+  mutate({
+    content: {
+      voteToken: voteToken.value,
+      cps: CPSubmit.value,
+      deviceId: getDeviceId(),
+      fillDurationMs: readFillDuration('cp'),
+    },
+  })
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`
