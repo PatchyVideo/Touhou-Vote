@@ -140,6 +140,7 @@ import type { Mutation, Query, schema } from '@/graphql'
 import { voteCharacterComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
+import { getDeviceId } from '@/common/lib/deviceId'
 
 setSiteTitle('角色部门')
 
@@ -206,7 +207,7 @@ const CharacterSubmit = computed<schema.CharacterSubmit[]>(() =>
     })
 )
 async function vote(): Promise<void> {
-  mutate({ content: { voteToken: voteToken.value, characters: CharacterSubmit.value } })
+  mutate({ content: { voteToken: voteToken.value, characters: CharacterSubmit.value, deviceId: getDeviceId() } })
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`

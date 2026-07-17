@@ -143,6 +143,7 @@ import type { Mutation } from '@/graphql'
 import { setUserDataToLocalStorage } from '@/home/lib/user'
 import { popMessageText } from '@/common/lib/popMessage'
 import { preloadAliyunCaptcha, verifyHuman } from '@/common/lib/aliyunCaptcha'
+import { getDeviceId } from '@/common/lib/deviceId'
 import Mask from '@/common/components/Mask.vue'
 
 const props = defineProps({
@@ -256,9 +257,9 @@ async function login(): Promise<void> {
     return
   }
   if (userType.value === 'phone') {
-    newLoginPhoneNum({ phone: userEmailOrPhoneNum.value, verifyCode: verificationCode.value })
+    newLoginPhoneNum({ phone: userEmailOrPhoneNum.value, verifyCode: verificationCode.value, deviceId: getDeviceId() })
   } else if (userType.value === 'email') {
-    newLoginEmail({ email: userEmailOrPhoneNum.value, verifyCode: verificationCode.value })
+    newLoginEmail({ email: userEmailOrPhoneNum.value, verifyCode: verificationCode.value, deviceId: getDeviceId() })
   } else return
 }
 const {
@@ -268,8 +269,8 @@ const {
   onError: newLoginPhoneNumError,
 } = useMutation<Mutation>(
   gql`
-    mutation ($phone: String!, $nickname: String, $verifyCode: String!) {
-      loginPhone(phone: $phone, nickname: $nickname, verifyCode: $verifyCode) {
+    mutation ($phone: String!, $nickname: String, $verifyCode: String!, $deviceId: String) {
+      loginPhone(phone: $phone, nickname: $nickname, verifyCode: $verifyCode, deviceId: $deviceId) {
         user {
           username
           pfp
@@ -312,8 +313,8 @@ const {
   onError: newLoginEmailError,
 } = useMutation<Mutation>(
   gql`
-    mutation ($email: String!, $nickname: String, $verifyCode: String!) {
-      loginEmail(email: $email, nickname: $nickname, verifyCode: $verifyCode) {
+    mutation ($email: String!, $nickname: String, $verifyCode: String!, $deviceId: String) {
+      loginEmail(email: $email, nickname: $nickname, verifyCode: $verifyCode, deviceId: $deviceId) {
         user {
           username
           pfp

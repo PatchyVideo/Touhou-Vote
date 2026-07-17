@@ -156,6 +156,7 @@ import type { Mutation } from '@/graphql'
 import { voteToken } from '@/home/lib/user'
 import { screenSizes } from '@/tailwindcss'
 import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
+import { getDeviceId } from '@/common/lib/deviceId'
 
 setSiteTitle('调查问卷')
 
@@ -341,7 +342,13 @@ async function submitQuestionnire() {
   changeQuestion('no')
   if (submiting.value) return
   if (await popConfirmText('确认提交' + questionnaireName.value + '吗？（您之后还可以修改）')) {
-    mutate({ content: { voteToken: voteToken.value, paperJson: JSON.stringify(questionnaireData.value) } })
+    mutate({
+      content: {
+        voteToken: voteToken.value,
+        paperJson: JSON.stringify(questionnaireData.value),
+        deviceId: getDeviceId(),
+      },
+    })
   }
 }
 
