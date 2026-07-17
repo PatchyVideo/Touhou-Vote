@@ -144,6 +144,7 @@ import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
+import { getClientEnv } from '@/common/lib/clientEnv'
 startFillTimer('music')
 
 setSiteTitle('音乐部门')
@@ -217,6 +218,7 @@ async function vote(): Promise<void> {
       musics: MusicSubmit.value,
       deviceId: getDeviceId(),
       fillDurationMs: readFillDuration('music'),
+      clientEnv: getClientEnv(),
     },
   })
 }

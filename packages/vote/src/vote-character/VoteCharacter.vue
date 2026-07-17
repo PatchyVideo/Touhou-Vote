@@ -142,6 +142,7 @@ import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
+import { getClientEnv } from '@/common/lib/clientEnv'
 startFillTimer('character')
 
 setSiteTitle('角色部门')
@@ -215,6 +216,7 @@ async function vote(): Promise<void> {
       characters: CharacterSubmit.value,
       deviceId: getDeviceId(),
       fillDurationMs: readFillDuration('character'),
+      clientEnv: getClientEnv(),
     },
   })
 }

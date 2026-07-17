@@ -129,6 +129,7 @@ import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
+import { getClientEnv } from '@/common/lib/clientEnv'
 startFillTimer('cp')
 
 setSiteTitle('CP部门')
@@ -289,6 +290,7 @@ async function vote(): Promise<void> {
       cps: CPSubmit.value,
       deviceId: getDeviceId(),
       fillDurationMs: readFillDuration('cp'),
+      clientEnv: getClientEnv(),
     },
   })
 }

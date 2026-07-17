@@ -96,6 +96,7 @@ import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
+import { getClientEnv } from '@/common/lib/clientEnv'
 startFillTimer('doujin')
 
 setSiteTitle('提名作品')
@@ -171,6 +172,7 @@ async function vote(): Promise<void> {
       dojins: doujinValid.value,
       deviceId: getDeviceId(),
       fillDurationMs: readFillDuration('doujin'),
+      clientEnv: getClientEnv(),
     },
   })
 }

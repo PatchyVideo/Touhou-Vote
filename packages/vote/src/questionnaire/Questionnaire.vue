@@ -158,6 +158,7 @@ import { screenSizes } from '@/tailwindcss'
 import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
+import { getClientEnv } from '@/common/lib/clientEnv'
 startFillTimer('paper')
 
 setSiteTitle('调查问卷')
@@ -350,6 +351,7 @@ async function submitQuestionnire() {
         paperJson: JSON.stringify(questionnaireData.value),
         deviceId: getDeviceId(),
         fillDurationMs: readFillDuration('paper'),
+        clientEnv: getClientEnv(),
       },
     })
   }
