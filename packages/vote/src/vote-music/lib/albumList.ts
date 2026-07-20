@@ -1,21 +1,34 @@
-import { computed, ref } from 'vue'
-import { albumList as staticAlbumList } from '@touhou-vote/shared/data/music'
-import { musicGroupNames } from '@/common/lib/voteObjectsDataSource'
+import { computed, ref, watch } from 'vue'
+import { filterMeta } from '@/common/lib/voteObjectsDataSource'
 
 interface SelectList {
   name: string
-  value: 'game' | 'book' | 'CD' | 'others' | ''
+  value: string
 }
 
-export const kinds: SelectList[] = [
-  { name: '游戏OST', value: 'game' },
-  { name: 'CD', value: 'CD' },
-  { name: '出版物', value: 'book' },
-  { name: '其他', value: 'others' },
-]
+// 音乐页用不同 label
+const MUSIC_KIND_LABELS: Record<string, string> = {
+  old: '游戏旧作',
+  new: '游戏OST',
+  CD: 'CD',
+  book: '出版物',
+  others: '其他',
+}
 
-export const filterForKind = ref<SelectList[]>([...kinds])
-export const filterForKindTem = ref<SelectList[]>([...kinds])
+export const kinds = computed<SelectList[]>(() =>
+  filterMeta.value.kinds.map((k) => ({
+    name: MUSIC_KIND_LABELS[k.type] ?? k.label,
+    value: k.type,
+  }))
+)
+
+export const filterForKind = ref<SelectList[]>([])
+export const filterForKindTem = ref<SelectList[]>([])
+
+watch(kinds, (newKinds) => {
+  filterForKind.value = [...newKinds]
+  filterForKindTem.value = [...newKinds]
+}, { immediate: true })
 
 export function getFilterForKindTem(): void {
   filterForKindTem.value = JSON.parse(JSON.stringify(filterForKind.value))
@@ -28,28 +41,23 @@ export function updateFilterForKind(): void {
   filterForKind.value = JSON.parse(JSON.stringify(filterForKindTem.value))
 }
 export function resetFilterForKindTem(): void {
-  filterForKindTem.value = JSON.parse(JSON.stringify(kinds))
-}
-
-function albumNameToSelectList(albumName: string): SelectList {
-  const staticAlbum = staticAlbumList.find((a) => a.name === albumName)
-  return { name: albumName, value: staticAlbum?.kind ?? 'others' }
+  filterForKindTem.value = JSON.parse(JSON.stringify(kinds.value))
 }
 
 export const albumsListAfterFilter = computed<SelectList[]>(() => {
   const activeKinds = filterForKind.value.map((k) => k.value)
-  return musicGroupNames.value
-    .map(albumNameToSelectList)
-    .filter((a) => activeKinds.includes(a.value))
+  return filterMeta.value.works
+    .filter((w) => activeKinds.includes(w.type))
+    .map((w) => ({ name: w.name, value: w.type }))
 })
 
 export const albumSelected = ref<SelectList>({ name: '', value: '' })
 
 export const albumsListAfterFilterTem = computed<SelectList[]>(() => {
   const activeKinds = filterForKindTem.value.map((k) => k.value)
-  return musicGroupNames.value
-    .map(albumNameToSelectList)
-    .filter((a) => activeKinds.includes(a.value))
+  return filterMeta.value.works
+    .filter((w) => activeKinds.includes(w.type))
+    .map((w) => ({ name: w.name, value: w.type }))
 })
 
 export const albumSelectedTem = ref<SelectList>({ name: '', value: '' })

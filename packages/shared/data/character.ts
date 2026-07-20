@@ -11,6 +11,7 @@ export class Character {
   date: number
   kind: ('old' | 'new' | 'book' | 'CD' | 'others' | '')[]
   work: string[]
+  workIds: number[]
   constructor(
     id = '00000000',
     name = 'ERROR',
@@ -23,7 +24,8 @@ export class Character {
     date = 19961103,
     honmei = false,
     kind: ('old' | 'new' | 'book' | 'CD' | 'others' | '')[] = ['others'],
-    work = ['其他']
+    work = ['其他'],
+    workIds: number[] = [],
   ) {
     this.id = id
     this.name = name
@@ -37,6 +39,7 @@ export class Character {
     this.date = date
     this.kind = kind
     this.work = work
+    this.workIds = workIds
   }
 }
 
