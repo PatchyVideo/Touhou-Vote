@@ -187,6 +187,7 @@ import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { voteEnded } from '@/end-page/lib/voteEnded'
 import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
+import { preloadAliyunCaptcha, verifyHuman } from '@/common/lib/aliyunCaptcha'
 
 setSiteTitle('用户设置')
 
@@ -321,16 +322,19 @@ function userEmailOrPhoneVerify(): boolean {
   }
   return true
 }
+preloadAliyunCaptcha()
 async function verificationCodeGet(): Promise<void> {
   if (!verificationCodeAvailable.value || loading.value) return
   if (!userEmailOrPhoneVerify()) return
+  const captchaVerifyParam = await verifyHuman()
+  if (captchaVerifyParam === null) return // 用户关闭了人机验证弹窗
   verificationCodeAvailable.value = false
   verificationCodeAvailableTime.value = 120
   verificationCodeAvailableTimer = setInterval(() => {
     verificationCodeAvailableTime.value--
   }, 1000)
-  if (changeType.value === 'phone') getPhoneCode({ phone: newEmailOrPhone.value })
-  else if (changeType.value === 'email') getEmailCode({ email: newEmailOrPhone.value })
+  if (changeType.value === 'phone') getPhoneCode({ phone: newEmailOrPhone.value, captchaVerifyParam })
+  else if (changeType.value === 'email') getEmailCode({ email: newEmailOrPhone.value, captchaVerifyParam })
 }
 watchEffect(() => {
   if (!verificationCodeAvailableTime.value) {
@@ -346,8 +350,8 @@ function openChangePhone(): void {
 }
 const { mutate: getPhoneCode, onError: getPhoneCodeError } = useMutation<Mutation>(
   gql`
-    mutation ($phone: String!) {
-      requestPhoneCode(phone: $phone)
+    mutation ($phone: String!, $captchaVerifyParam: String) {
+      requestPhoneCode(phone: $phone, captchaVerifyParam: $captchaVerifyParam)
     }
   `
 )
@@ -355,6 +359,8 @@ getPhoneCodeError((error) => {
   console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
   if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT')
     popMessageText('请求过于频繁，请稍后再试！')
+  else if (String(error.graphQLErrors?.[0]?.extensions?.error_kind ?? '').startsWith('CAPTCHA'))
+    popMessageText(String(error.graphQLErrors?.[0]?.extensions?.human_readable_message ?? '请完成人机验证'))
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
 const {
@@ -391,8 +397,8 @@ function openChangeEmail(): void {
 }
 const { mutate: getEmailCode, onError: getEmailCodeError } = useMutation<Mutation>(
   gql`
-    mutation ($email: String!) {
-      requestEmailCode(email: $email)
+    mutation ($email: String!, $captchaVerifyParam: String) {
+      requestEmailCode(email: $email, captchaVerifyParam: $captchaVerifyParam)
     }
   `
 )
@@ -400,6 +406,8 @@ getEmailCodeError((error) => {
   console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
   if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT')
     popMessageText('请求过于频繁，请稍后再试！')
+  else if (String(error.graphQLErrors?.[0]?.extensions?.error_kind ?? '').startsWith('CAPTCHA'))
+    popMessageText(String(error.graphQLErrors?.[0]?.extensions?.human_readable_message ?? '请完成人机验证'))
   else verificationCodeError.value = '网络错误！请稍后重试'
 })
 const {

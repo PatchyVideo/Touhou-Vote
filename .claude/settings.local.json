@@ -4,20 +4,8 @@
       "WebFetch(domain:localhost)",
       "Bash(curl -s http://localhost:5173/v11/characterSingleDetail)",
       "WebFetch(domain:touhou.vote)",
-      "Bash(git clone *)",
-      "Bash(./setup --help)",
-      "Bash(command -v bun)",
-      "Bash(echo \"bun: $\\(command -v bun 2>/dev/null || echo MISSING\\)\")",
-      "Bash(command -v node)",
-      "Bash(echo \"node: $\\(command -v node 2>/dev/null || echo MISSING\\) $\\(node --version 2>/dev/null\\)\")",
-      "Bash(command -v npm)",
-      "Bash(npm install *)",
-      "Bash(bun --version)",
-      "Bash(powershell.exe -NoProfile -Command \"irm bun.sh/install.ps1 | iex\")",
-      "Bash(powershell.exe -NoProfile -Command 'Get-Process bun,node,bash -ErrorAction SilentlyContinue | Select-Object Name,Id,@{N='\\\\''CPU\\(s\\)'\\\\'';E={[math]::Round\\($_.CPU,1\\)}},@{N='\\\\''Mem\\(MB\\)'\\\\'';E={[math]::Round\\($_.WorkingSet/1MB,0\\)}} | Format-Table -AutoSize | Out-String')",
-      "Bash(powershell.exe -NoProfile -Command 'Get-Process bun -ErrorAction SilentlyContinue | Select-Object Id,@{N='\\\\''CPU'\\\\'';E={[math]::Round\\($_.CPU,1\\)}},@{N='\\\\''MB'\\\\'';E={[math]::Round\\($_.WorkingSet/1MB,0\\)}} | Format-Table -AutoSize | Out-String')",
-      "Read(//tmp/**)",
-      "Bash(xargs grep -l \"JSON\")"
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(grep -c '。$' /Users/lurantis/Code/Touhou-Vote/Touhou-Vote/doc/VoileLabs-人气投票项目-需求文档-投票结果页面.md)"
     ]
   }
 }

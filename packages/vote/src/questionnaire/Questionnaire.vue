@@ -157,6 +157,10 @@ import { gql, useMutation } from '@/graphql'
 import { voteToken } from '@/home/lib/user'
 import { screenSizes } from '@/tailwindcss'
 import { popConfirmText, popMessageText } from '@/common/lib/popMessage'
+import { getDeviceId } from '@/common/lib/deviceId'
+import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
+import { getClientEnv } from '@/common/lib/clientEnv'
+startFillTimer('paper')
 
 setSiteTitle('调查问卷')
 
@@ -248,7 +252,15 @@ async function submitQuestionnire(): Promise<void> {
     return
   }
   if (await popConfirmText('确认提交' + questionnaireName.value + '吗？（您之后还可以修改）')) {
-    mutate({ voteToken: voteToken.value, answers: payload })
+    mutate({
+      content: {
+        voteToken: voteToken.value,
+        paperJson: JSON.stringify(questionnaireData.value),
+        deviceId: getDeviceId(),
+        fillDurationMs: readFillDuration('paper'),
+        clientEnv: getClientEnv(),
+      },
+    })
   }
 }
 onDone(() => {

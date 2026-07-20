@@ -95,6 +95,10 @@ import type { Mutation, Query } from '@/graphql'
 import { voteDoujinComplete, voteToken } from '@/home/lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { popMessageText } from '@/common/lib/popMessage'
+import { getDeviceId } from '@/common/lib/deviceId'
+import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
+import { getClientEnv } from '@/common/lib/clientEnv'
+startFillTimer('doujin')
 
 setSiteTitle('提名作品')
 
@@ -163,7 +167,15 @@ getSubmitDojinVoteError((err) => {
 })
 
 async function vote(): Promise<void> {
-  mutate({ content: { voteToken: voteToken.value, dojins: doujinValid.value } })
+  mutate({
+    content: {
+      voteToken: voteToken.value,
+      dojins: doujinValid.value,
+      deviceId: getDeviceId(),
+      fillDurationMs: readFillDuration('doujin'),
+      clientEnv: getClientEnv(),
+    },
+  })
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`
