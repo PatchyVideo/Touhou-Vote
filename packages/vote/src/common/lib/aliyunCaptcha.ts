@@ -60,28 +60,34 @@ export async function verifyHuman(): Promise<string | null | undefined> {
   holderSeq += 1
   const btnId = `aliyun-captcha-btn-${holderSeq}`
   const elId = `aliyun-captcha-el-${holderSeq}`
-  // 隐藏代理按钮：widget 只支持绑定按钮触发，用屏幕外按钮承接，
-  // 避免与业务按钮上已有的校验/倒计时逻辑打架
+  // 隐藏代理按钮：opacity:0 让按钮在视口内，SDK 3.28.0 的 popup 模式
+  // 对 left:-9999px 的屏幕外按钮不再可靠触发。但按钮仍需保留——
+  // 部分旧版 SDK 只支持按钮点击触发，instance.show() 作为主方案。
   const holder = document.createElement('div')
-  holder.style.cssText = 'position:fixed;left:-9999px;top:0'
-  holder.innerHTML = `<button id="${btnId}" type="button"></button><div id="${elId}"></div>`
+  holder.style.cssText = 'position:fixed;left:0;top:0;width:0;height:0;overflow:hidden'
+  holder.innerHTML = `<button id="${btnId}" type="button" style="opacity:0;width:0;height:0"></button><div id="${elId}"></div>`
   document.body.appendChild(holder)
 
   return new Promise((resolve) => {
     let settled = false
     let triggered = false
+    let capInstance: any = null
     const done = (v: string | null): void => {
       if (settled) return
       settled = true
+      capInstance = null
       holder.remove()
       resolve(v)
     }
-    // 触发弹窗：widget 通过 initAliyunCaptcha 给按钮绑定点击监听，这个绑定
-    // 是异步的——必须等 getInstance 回调（实例就绪=按钮已绑好）再点，否则
-    // 点击落空、Promise 永远悬住（表现为无弹窗/无报错/无倒计时）。
     const trigger = (): void => {
       if (triggered) return
       triggered = true
+      // 优先用 instance.show()——SDK 3.28.0 对屏幕外按钮的 .click()
+      // 不再可靠弹出 popup（DOM 已渲染但 class 不切换）
+      if (capInstance && typeof capInstance.show === 'function') {
+        capInstance.show()
+      }
+      // 旧版 SDK / 不支持 show() 的兜底
       document.getElementById(btnId)?.click()
     }
     window.initAliyunCaptcha?.({
@@ -93,11 +99,14 @@ export async function verifyHuman(): Promise<string | null | undefined> {
       // 单次滑动失败由组件内部引导重试，不结束 Promise
       fail: (): void => undefined,
       onClose: (): void => done(null),
-      getInstance: (): void => trigger(),
+      getInstance: (instance: any): void => {
+        capInstance = instance
+        trigger()
+      },
       slideStyle: { width: 360, height: 40 },
       language: 'cn',
     })
-    // 兜底：某些版本 getInstance 触发偏晚或不触发，300ms 后强制点一次
+    // 兜底：某些版本 getInstance 触发偏晚或不触发，300ms 后强制触发
     setTimeout(trigger, 300)
   })
 }
