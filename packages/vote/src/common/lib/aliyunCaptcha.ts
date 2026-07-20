@@ -83,11 +83,12 @@ export async function verifyHuman(): Promise<string | null | undefined> {
       if (triggered) return
       triggered = true
       // 优先用 instance.show()——SDK 3.28.0 对屏幕外按钮的 .click()
-      // 不再可靠弹出 popup（DOM 已渲染但 class 不切换）
+      // 不再可靠触发 popup。button 只用做 SDK 初始化绑定，不用来切换。
       if (capInstance && typeof capInstance.show === 'function') {
         capInstance.show()
+        return
       }
-      // 旧版 SDK / 不支持 show() 的兜底
+      // 旧版 SDK / 不支持 show() 的兜底：点按钮触发
       document.getElementById(btnId)?.click()
     }
     window.initAliyunCaptcha?.({
