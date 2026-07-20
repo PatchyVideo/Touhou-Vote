@@ -40,7 +40,7 @@ export function preloadAliyunCaptcha(): Promise<boolean> {
   return scriptPromise
 }
 
-let holderSeq = 0
+let pendingPromise: Promise<string | null | undefined> | null = null
 
 /**
  * 弹出人机验证并返回 captchaVerifyParam。
@@ -50,6 +50,9 @@ let holderSeq = 0
  *   （后端闸门开着会以"请完成人机验证"拒绝，关着则照常发码）。
  */
 export async function verifyHuman(): Promise<string | null | undefined> {
+  // 防连点：上一次弹窗还在生命周期内就直接返回它的 Promise
+  if (pendingPromise) return pendingPromise
+
   const available = await preloadAliyunCaptcha()
   if (!available || !window.initAliyunCaptcha) return undefined
 
@@ -57,57 +60,47 @@ export async function verifyHuman(): Promise<string | null | undefined> {
   document.getElementById('aliyunCaptcha-mask')?.remove()
   document.getElementById('aliyunCaptcha-window-popup')?.remove()
 
-  holderSeq += 1
-  const btnId = `aliyun-captcha-btn-${holderSeq}`
-  const elId = `aliyun-captcha-el-${holderSeq}`
-  // 隐藏代理按钮：opacity:0 让按钮在视口内，SDK 3.28.0 的 popup 模式
-  // 对 left:-9999px 的屏幕外按钮不再可靠触发。但按钮仍需保留——
-  // 部分旧版 SDK 只支持按钮点击触发，instance.show() 作为主方案。
-  const holder = document.createElement('div')
-  holder.style.cssText = 'position:fixed;left:0;top:0;width:0;height:0;overflow:hidden'
-  holder.innerHTML = `<button id="${btnId}" type="button" style="opacity:0;width:0;height:0"></button><div id="${elId}"></div>`
-  document.body.appendChild(holder)
-
-  return new Promise((resolve) => {
+  pendingPromise = new Promise<string | null | undefined>((resolve) => {
     let settled = false
-    let triggered = false
     let capInstance: any = null
-    const done = (v: string | null): void => {
+
+    const done = (v: string | null | undefined): void => {
       if (settled) return
       settled = true
       capInstance = null
-      holder.remove()
+      pendingPromise = null
       resolve(v)
     }
-    const trigger = (): void => {
-      if (triggered) return
-      triggered = true
-      // 优先用 instance.show()——SDK 3.28.0 对屏幕外按钮的 .click()
-      // 不再可靠触发 popup。button 只用做 SDK 初始化绑定，不用来切换。
-      if (capInstance && typeof capInstance.show === 'function') {
-        capInstance.show()
-        return
-      }
-      // 旧版 SDK / 不支持 show() 的兜底：点按钮触发
-      document.getElementById(btnId)?.click()
-    }
+
+    // 连点/id 漂移导致 initAliyunCaptcha 可能在 pending[0] 期间被调多次，
+    // getInstance 也会重复触发；只信第一次实例
+    let inited = false
+
     window.initAliyunCaptcha?.({
       SceneId: CAPTCHA_SCENE_ID,
       mode: 'popup',
-      element: `#${elId}`,
-      button: `#${btnId}`,
       success: (captchaVerifyParam: string): void => done(captchaVerifyParam),
-      // 单次滑动失败由组件内部引导重试，不结束 Promise
       fail: (): void => undefined,
       onClose: (): void => done(null),
       getInstance: (instance: any): void => {
+        if (inited) return
+        inited = true
         capInstance = instance
-        trigger()
+        if (capInstance && typeof capInstance.show === 'function') {
+          capInstance.show()
+        }
       },
       slideStyle: { width: 360, height: 40 },
       language: 'cn',
     })
-    // 兜底：某些版本 getInstance 触发偏晚或不触发，300ms 后强制触发
-    setTimeout(trigger, 300)
+
+    // 极端兜底：若 getInstance 始终不触发，600ms 后放弃
+    setTimeout(() => {
+      if (inited || settled) return
+      // still no instance — SDK may have silently failed
+      done(undefined)
+    }, 600)
   })
+
+  return pendingPromise
 }
