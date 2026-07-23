@@ -33,7 +33,7 @@
     "eslint-plugin-vue": "^9.11.0",
     "prettier": "^2.8.7",
     "tsx": "^3.12.6",
-    "typescript": "^5.0.4"
-  },
-  "dependencies": {}
+    "typescript": "^5.0.4",
+    "vue-eslint-parser": "^9.4.3"
+  }
 }
