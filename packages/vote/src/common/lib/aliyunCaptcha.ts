@@ -83,7 +83,9 @@ export async function verifyHuman(): Promise<string | null | undefined> {
       fail: (): void => undefined,
       onClose: (): void => done(null),
       getInstance: (instance: any): void => {
-        if (inited) return
+        // settled=超时兜底已放弃本轮：不再 show()，否则会弹出一个
+        // 结果无人接收的孤儿拼图（用户拖完 success 被吞、界面无反应）
+        if (inited || settled) return
         inited = true
         capInstance = instance
         if (capInstance && typeof capInstance.show === 'function') {
@@ -94,12 +96,15 @@ export async function verifyHuman(): Promise<string | null | undefined> {
       language: 'cn',
     })
 
-    // 极端兜底：若 getInstance 始终不触发，600ms 后放弃
+    // 极端兜底：若 getInstance 始终不触发，5s 后放弃。
+    // 不能太短：SDK 初始化含设备指纹采集（官方建议脚本加载到验证 ≥2s），
+    // 慢网络下 getInstance 常晚于 600ms——超时误判会以 undefined 结算，
+    // LoginBox 只挡 null，无参请求直接打到后端报 CAPTCHA_REQUIRED
     setTimeout(() => {
       if (inited || settled) return
       // still no instance — SDK may have silently failed
       done(undefined)
-    }, 600)
+    }, 5000)
   })
 
   return pendingPromise
