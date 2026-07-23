@@ -37,22 +37,26 @@
 
 ## 如何在本地启动项目
 
+> 完整版（含 500 白屏 / 无报错白屏 / API 404 等坑的排查表）见
+> **[doc/LOCAL_DEV.md](./doc/LOCAL_DEV.md)**。下面是速览。
+
 ```bash
 # 拉取项目
 $ git clone https://github.com/PatchyVideo/Touhou-Vote.git
 $ cd Touhou-Vote
 
-# 安装依赖
+# 安装依赖（pnpm workspace，勿用 npm/yarn install）
 $ pnpm i
 ```
 
 ### 投票页
 
 ```bash
-# 生成 GraphQL Schema
-$ pnpm vote:codegen
+# 生成 GraphQL Schema —— 必须先于 dev，否则 500 白屏
+# （产物被 gitignore；默认 schema 地址已过期，需显式指定）
+$ GRAPHQL_SCHEMA_URL=http://154.37.215.62:18000/graphql pnpm vote:codegen
 
-# 启动本地调试
+# 启动本地调试 —— 端口 5175，务必访问 http://localhost:5175/v11/ （带 /v11/）
 $ pnpm vote:dev
 
 # 构建 & 运行
