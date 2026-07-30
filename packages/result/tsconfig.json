@@ -5,7 +5,6 @@
     "lib": ["ESNext", "ESNext.AsyncIterable", "DOM", "WebWorker"],
     "types": ["vite/client", "vite-plugin-vue-layouts/client"],
     "jsx": "preserve",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
