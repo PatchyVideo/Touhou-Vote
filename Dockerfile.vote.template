@@ -46,14 +46,11 @@ FROM nginx:alpine
 # /v11-be/ 为过渡兼容块（当前已部署前端仍打 v11），前端全部切到 v12 后删除。
 #
 # 2026-08-05 优化:
-# - resolver: 每 10s 重新解析 thvote-backend DNS，防止后端容器重启 IP 变更导致代理失败
 # - proxy_connect_timeout / proxy_read_timeout: 防止慢请求长时间占用连接
 # - proxy_next_upstream: 后端连接失败/超时自动重试
 # - gzip: 压缩静态资源减少传输时间
-# - 使用变量 $backend_upstream 触发 nginx 动态 DNS 解析 (resolver)
 RUN echo 'server { \
     listen 8082; \
-    resolver 127.0.0.11 valid=10s ipv6=off; \
     gzip on; \
     gzip_types text/plain text/css application/json application/javascript text/xml application/xml text/javascript; \
     gzip_min_length 256; \
@@ -62,8 +59,7 @@ RUN echo 'server { \
         try_files $uri /index.html; \
     } \
     location /v12-be/vote-objects/ { \
-        set $backend_upstream thvote-backend:8000; \
-        proxy_pass http://$backend_upstream/api/v1/vote-objects/; \
+        proxy_pass http://thvote-backend:8000/api/v1/vote-objects/; \
         proxy_http_version 1.1; \
         proxy_set_header Host $host; \
         proxy_set_header X-Real-IP $remote_addr; \
@@ -74,8 +70,7 @@ RUN echo 'server { \
         proxy_next_upstream error timeout http_502 http_503 http_504; \
     } \
     location /v12-be/questionnaire/ { \
-        set $backend_upstream thvote-backend:8000; \
-        proxy_pass http://$backend_upstream/api/v1/questionnaire/; \
+        proxy_pass http://thvote-backend:8000/api/v1/questionnaire/; \
         proxy_http_version 1.1; \
         proxy_set_header Host $host; \
         proxy_set_header X-Real-IP $remote_addr; \
@@ -86,8 +81,7 @@ RUN echo 'server { \
         proxy_next_upstream error timeout http_502 http_503 http_504; \
     } \
     location = /v12-be/doujin/api { \
-        set $backend_upstream thvote-backend:8000; \
-        proxy_pass http://$backend_upstream/api/v1/scraper/scrape; \
+        proxy_pass http://thvote-backend:8000/api/v1/scraper/scrape; \
         proxy_http_version 1.1; \
         proxy_set_header Host $host; \
         proxy_set_header X-Real-IP $remote_addr; \
@@ -98,8 +92,7 @@ RUN echo 'server { \
         proxy_next_upstream error timeout http_502 http_503 http_504; \
     } \
     location /v12-be/ { \
-        set $backend_upstream thvote-backend:8000; \
-        proxy_pass http://$backend_upstream/; \
+        proxy_pass http://thvote-backend:8000/; \
         proxy_http_version 1.1; \
         proxy_set_header Host $host; \
         proxy_set_header X-Real-IP $remote_addr; \
@@ -110,8 +103,7 @@ RUN echo 'server { \
         proxy_next_upstream error timeout http_502 http_503 http_504; \
     } \
     location /v11-be/ { \
-        set $backend_upstream thvote-backend:8000; \
-        proxy_pass http://$backend_upstream/; \
+        proxy_pass http://thvote-backend:8000/; \
         proxy_http_version 1.1; \
         proxy_set_header Host $host; \
         proxy_set_header X-Real-IP $remote_addr; \
