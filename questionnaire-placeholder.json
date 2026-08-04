@@ -1,0 +1,878 @@
+{
+  "mainQuestionnaire": {
+    "requiredQuestionnaire": {
+      "id": 11,
+      "name": "主要问卷 - 基础问卷",
+      "introduction": "新版问卷结构占位数据。",
+      "questionGroups": [
+        {
+          "id": 1101,
+          "questionnaireId": 11,
+          "order": 1,
+          "initialQuestionId": 11011,
+          "questions": [
+            {
+              "id": 11011,
+              "type": "Single",
+              "content": "占位问题组 1：请选择你要进入的后续路径",
+              "introduction": "第一个问题组必须仅有一个问题，后续合作者可在此基础上替换为正式题面。",
+              "options": [
+                {
+                  "id": 1101101,
+                  "content": "进入问题组 2 的第 1 个问题",
+                  "relatedQuestionIds": [
+                    11021
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 1101102,
+                  "content": "进入问题组 2 的第 2 个问题",
+                  "relatedQuestionIds": [
+                    11022
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 1101103,
+                  "content": "隐藏问题组 2",
+                  "relatedQuestionIds": [
+                    11020
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1102,
+          "questionnaireId": 11,
+          "order": 2,
+          "initialQuestionId": 11020,
+          "questions": [
+            {
+              "id": 11020,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 0 个问题",
+              "introduction": "末位为 0，该问题组默认隐藏。不应在页面上直接展示。",
+              "options": []
+            },
+            {
+              "id": 11021,
+              "type": "Single",
+              "content": "占位问题组 2 - 第 1 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": [
+                {
+                  "id": 1102101,
+                  "content": "继续",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 1102102,
+                  "content": "继续（备用）",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            },
+            {
+              "id": 11022,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 2 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": 1103,
+          "questionnaireId": 11,
+          "order": 3,
+          "initialQuestionId": 11031,
+          "questions": [
+            {
+              "id": 11031,
+              "type": "Input",
+              "content": "占位问题组 3 - 第 1 个问题",
+              "introduction": "本问题组初始问题不是第 0 个问题，因此默认展示第 1 个问题。",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    "optionalQuestionnaire1": {
+      "id": 12,
+      "name": "主要问卷 - 官作问卷",
+      "introduction": "新版问卷结构占位数据。",
+      "questionGroups": [
+        {
+          "id": 1201,
+          "questionnaireId": 12,
+          "order": 1,
+          "initialQuestionId": 12011,
+          "questions": [
+            {
+              "id": 12011,
+              "type": "Single",
+              "content": "占位问题组 1：请选择你要进入的后续路径",
+              "introduction": "第一个问题组必须仅有一个问题，后续合作者可在此基础上替换为正式题面。",
+              "options": [
+                {
+                  "id": 1201101,
+                  "content": "进入问题组 2 的第 1 个问题",
+                  "relatedQuestionIds": [
+                    12021
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 1201102,
+                  "content": "进入问题组 2 的第 2 个问题",
+                  "relatedQuestionIds": [
+                    12022
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 1201103,
+                  "content": "隐藏问题组 2",
+                  "relatedQuestionIds": [
+                    12020
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1202,
+          "questionnaireId": 12,
+          "order": 2,
+          "initialQuestionId": 12020,
+          "questions": [
+            {
+              "id": 12020,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 0 个问题",
+              "introduction": "末位为 0，该问题组默认隐藏。不应在页面上直接展示。",
+              "options": []
+            },
+            {
+              "id": 12021,
+              "type": "Single",
+              "content": "占位问题组 2 - 第 1 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": [
+                {
+                  "id": 1202101,
+                  "content": "继续",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 1202102,
+                  "content": "继续（备用）",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            },
+            {
+              "id": 12022,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 2 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": 1203,
+          "questionnaireId": 12,
+          "order": 3,
+          "initialQuestionId": 12031,
+          "questions": [
+            {
+              "id": 12031,
+              "type": "Input",
+              "content": "占位问题组 3 - 第 1 个问题",
+              "introduction": "本问题组初始问题不是第 0 个问题，因此默认展示第 1 个问题。",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    "optionalQuestionnaire2": {
+      "id": 13,
+      "name": "主要问卷 - 二创问卷",
+      "introduction": "新版问卷结构占位数据。",
+      "questionGroups": [
+        {
+          "id": 1301,
+          "questionnaireId": 13,
+          "order": 1,
+          "initialQuestionId": 13011,
+          "questions": [
+            {
+              "id": 13011,
+              "type": "Single",
+              "content": "占位问题组 1：请选择你要进入的后续路径",
+              "introduction": "第一个问题组必须仅有一个问题，后续合作者可在此基础上替换为正式题面。",
+              "options": [
+                {
+                  "id": 1301101,
+                  "content": "进入问题组 2 的第 1 个问题",
+                  "relatedQuestionIds": [
+                    13021
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 1301102,
+                  "content": "进入问题组 2 的第 2 个问题",
+                  "relatedQuestionIds": [
+                    13022
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 1301103,
+                  "content": "隐藏问题组 2",
+                  "relatedQuestionIds": [
+                    13020
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1302,
+          "questionnaireId": 13,
+          "order": 2,
+          "initialQuestionId": 13020,
+          "questions": [
+            {
+              "id": 13020,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 0 个问题",
+              "introduction": "末位为 0，该问题组默认隐藏。不应在页面上直接展示。",
+              "options": []
+            },
+            {
+              "id": 13021,
+              "type": "Single",
+              "content": "占位问题组 2 - 第 1 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": [
+                {
+                  "id": 1302101,
+                  "content": "继续",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 1302102,
+                  "content": "继续（备用）",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            },
+            {
+              "id": 13022,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 2 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": 1303,
+          "questionnaireId": 13,
+          "order": 3,
+          "initialQuestionId": 13031,
+          "questions": [
+            {
+              "id": 13031,
+              "type": "Input",
+              "content": "占位问题组 3 - 第 1 个问题",
+              "introduction": "本问题组初始问题不是第 0 个问题，因此默认展示第 1 个问题。",
+              "options": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "extraQuestionnaire": {
+    "exQuestionnaire1": {
+      "id": 21,
+      "name": "额外问卷 1 - 同人作品相关",
+      "introduction": "新版问卷结构占位数据。",
+      "questionGroups": [
+        {
+          "id": 2101,
+          "questionnaireId": 21,
+          "order": 1,
+          "initialQuestionId": 21011,
+          "questions": [
+            {
+              "id": 21011,
+              "type": "Single",
+              "content": "占位问题组 1：请选择你要进入的后续路径",
+              "introduction": "第一个问题组必须仅有一个问题，后续合作者可在此基础上替换为正式题面。",
+              "options": [
+                {
+                  "id": 2101101,
+                  "content": "进入问题组 2 的第 1 个问题",
+                  "relatedQuestionIds": [
+                    21021
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2101102,
+                  "content": "进入问题组 2 的第 2 个问题",
+                  "relatedQuestionIds": [
+                    21022
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2101103,
+                  "content": "隐藏问题组 2",
+                  "relatedQuestionIds": [
+                    21020
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2102,
+          "questionnaireId": 21,
+          "order": 2,
+          "initialQuestionId": 21020,
+          "questions": [
+            {
+              "id": 21020,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 0 个问题",
+              "introduction": "末位为 0，该问题组默认隐藏。不应在页面上直接展示。",
+              "options": []
+            },
+            {
+              "id": 21021,
+              "type": "Single",
+              "content": "占位问题组 2 - 第 1 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": [
+                {
+                  "id": 2102101,
+                  "content": "继续",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2102102,
+                  "content": "继续（备用）",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            },
+            {
+              "id": 21022,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 2 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": 2103,
+          "questionnaireId": 21,
+          "order": 3,
+          "initialQuestionId": 21031,
+          "questions": [
+            {
+              "id": 21031,
+              "type": "Input",
+              "content": "占位问题组 3 - 第 1 个问题",
+              "introduction": "本问题组初始问题不是第 0 个问题，因此默认展示第 1 个问题。",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    "exQuestionnaire2": {
+      "id": 22,
+      "name": "额外问卷 2 - 官作游戏相关",
+      "introduction": "新版问卷结构占位数据。",
+      "questionGroups": [
+        {
+          "id": 2201,
+          "questionnaireId": 22,
+          "order": 1,
+          "initialQuestionId": 22011,
+          "questions": [
+            {
+              "id": 22011,
+              "type": "Single",
+              "content": "占位问题组 1：请选择你要进入的后续路径",
+              "introduction": "第一个问题组必须仅有一个问题，后续合作者可在此基础上替换为正式题面。",
+              "options": [
+                {
+                  "id": 2201101,
+                  "content": "进入问题组 2 的第 1 个问题",
+                  "relatedQuestionIds": [
+                    22021
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2201102,
+                  "content": "进入问题组 2 的第 2 个问题",
+                  "relatedQuestionIds": [
+                    22022
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2201103,
+                  "content": "隐藏问题组 2",
+                  "relatedQuestionIds": [
+                    22020
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2202,
+          "questionnaireId": 22,
+          "order": 2,
+          "initialQuestionId": 22020,
+          "questions": [
+            {
+              "id": 22020,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 0 个问题",
+              "introduction": "末位为 0，该问题组默认隐藏。不应在页面上直接展示。",
+              "options": []
+            },
+            {
+              "id": 22021,
+              "type": "Single",
+              "content": "占位问题组 2 - 第 1 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": [
+                {
+                  "id": 2202101,
+                  "content": "继续",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2202102,
+                  "content": "继续（备用）",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            },
+            {
+              "id": 22022,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 2 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": 2203,
+          "questionnaireId": 22,
+          "order": 3,
+          "initialQuestionId": 22031,
+          "questions": [
+            {
+              "id": 22031,
+              "type": "Input",
+              "content": "占位问题组 3 - 第 1 个问题",
+              "introduction": "本问题组初始问题不是第 0 个问题，因此默认展示第 1 个问题。",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    "exQuestionnaire3": {
+      "id": 23,
+      "name": "额外问卷 3 - 展会与手游相关",
+      "introduction": "新版问卷结构占位数据。",
+      "questionGroups": [
+        {
+          "id": 2301,
+          "questionnaireId": 23,
+          "order": 1,
+          "initialQuestionId": 23011,
+          "questions": [
+            {
+              "id": 23011,
+              "type": "Single",
+              "content": "占位问题组 1：请选择你要进入的后续路径",
+              "introduction": "第一个问题组必须仅有一个问题，后续合作者可在此基础上替换为正式题面。",
+              "options": [
+                {
+                  "id": 2301101,
+                  "content": "进入问题组 2 的第 1 个问题",
+                  "relatedQuestionIds": [
+                    23021
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2301102,
+                  "content": "进入问题组 2 的第 2 个问题",
+                  "relatedQuestionIds": [
+                    23022
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2301103,
+                  "content": "隐藏问题组 2",
+                  "relatedQuestionIds": [
+                    23020
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2302,
+          "questionnaireId": 23,
+          "order": 2,
+          "initialQuestionId": 23020,
+          "questions": [
+            {
+              "id": 23020,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 0 个问题",
+              "introduction": "末位为 0，该问题组默认隐藏。不应在页面上直接展示。",
+              "options": []
+            },
+            {
+              "id": 23021,
+              "type": "Single",
+              "content": "占位问题组 2 - 第 1 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": [
+                {
+                  "id": 2302101,
+                  "content": "继续",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2302102,
+                  "content": "继续（备用）",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            },
+            {
+              "id": 23022,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 2 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": 2303,
+          "questionnaireId": 23,
+          "order": 3,
+          "initialQuestionId": 23031,
+          "questions": [
+            {
+              "id": 23031,
+              "type": "Input",
+              "content": "占位问题组 3 - 第 1 个问题",
+              "introduction": "本问题组初始问题不是第 0 个问题，因此默认展示第 1 个问题。",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    "exQuestionnaire4": {
+      "id": 24,
+      "name": "额外问卷 4 - 正版盗版相关",
+      "introduction": "新版问卷结构占位数据。",
+      "questionGroups": [
+        {
+          "id": 2401,
+          "questionnaireId": 24,
+          "order": 1,
+          "initialQuestionId": 24011,
+          "questions": [
+            {
+              "id": 24011,
+              "type": "Single",
+              "content": "占位问题组 1：请选择你要进入的后续路径",
+              "introduction": "第一个问题组必须仅有一个问题，后续合作者可在此基础上替换为正式题面。",
+              "options": [
+                {
+                  "id": 2401101,
+                  "content": "进入问题组 2 的第 1 个问题",
+                  "relatedQuestionIds": [
+                    24021
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2401102,
+                  "content": "进入问题组 2 的第 2 个问题",
+                  "relatedQuestionIds": [
+                    24022
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2401103,
+                  "content": "隐藏问题组 2",
+                  "relatedQuestionIds": [
+                    24020
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2402,
+          "questionnaireId": 24,
+          "order": 2,
+          "initialQuestionId": 24020,
+          "questions": [
+            {
+              "id": 24020,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 0 个问题",
+              "introduction": "末位为 0，该问题组默认隐藏。不应在页面上直接展示。",
+              "options": []
+            },
+            {
+              "id": 24021,
+              "type": "Single",
+              "content": "占位问题组 2 - 第 1 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": [
+                {
+                  "id": 2402101,
+                  "content": "继续",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2402102,
+                  "content": "继续（备用）",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            },
+            {
+              "id": 24022,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 2 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": 2403,
+          "questionnaireId": 24,
+          "order": 3,
+          "initialQuestionId": 24031,
+          "questions": [
+            {
+              "id": 24031,
+              "type": "Input",
+              "content": "占位问题组 3 - 第 1 个问题",
+              "introduction": "本问题组初始问题不是第 0 个问题，因此默认展示第 1 个问题。",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    "exQuestionnaire5": {
+      "id": 25,
+      "name": "额外问卷 5 - 主办方附加",
+      "introduction": "新版问卷结构占位数据。",
+      "questionGroups": [
+        {
+          "id": 2501,
+          "questionnaireId": 25,
+          "order": 1,
+          "initialQuestionId": 25011,
+          "questions": [
+            {
+              "id": 25011,
+              "type": "Single",
+              "content": "占位问题组 1：请选择你要进入的后续路径",
+              "introduction": "第一个问题组必须仅有一个问题，后续合作者可在此基础上替换为正式题面。",
+              "options": [
+                {
+                  "id": 2501101,
+                  "content": "进入问题组 2 的第 1 个问题",
+                  "relatedQuestionIds": [
+                    25021
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2501102,
+                  "content": "进入问题组 2 的第 2 个问题",
+                  "relatedQuestionIds": [
+                    25022
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2501103,
+                  "content": "隐藏问题组 2",
+                  "relatedQuestionIds": [
+                    25020
+                  ],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2502,
+          "questionnaireId": 25,
+          "order": 2,
+          "initialQuestionId": 25020,
+          "questions": [
+            {
+              "id": 25020,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 0 个问题",
+              "introduction": "末位为 0，该问题组默认隐藏。不应在页面上直接展示。",
+              "options": []
+            },
+            {
+              "id": 25021,
+              "type": "Single",
+              "content": "占位问题组 2 - 第 1 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": [
+                {
+                  "id": 2502101,
+                  "content": "继续",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                },
+                {
+                  "id": 2502102,
+                  "content": "继续（备用）",
+                  "relatedQuestionIds": [],
+                  "mutexOptionIds": [],
+                  "optionGroup": 0
+                }
+              ]
+            },
+            {
+              "id": 25022,
+              "type": "Input",
+              "content": "占位问题组 2 - 第 2 个问题",
+              "introduction": "当 related 指向本题时，页面应展示本问题。",
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": 2503,
+          "questionnaireId": 25,
+          "order": 3,
+          "initialQuestionId": 25031,
+          "questions": [
+            {
+              "id": 25031,
+              "type": "Input",
+              "content": "占位问题组 3 - 第 1 个问题",
+              "introduction": "本问题组初始问题不是第 0 个问题，因此默认展示第 1 个问题。",
+              "options": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

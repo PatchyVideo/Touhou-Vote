@@ -68,18 +68,18 @@ import Mask from '@/common/components/Mask.vue'
 const props = defineProps({
   open: {
     type: Boolean,
-    requred: true,
+    required: true,
   },
   coupleSelected: {
     type: Object as PropType<Couple>,
-    requred: true,
+    required: true,
     default: function () {
       return new Couple()
     },
   },
   characterSelected: {
     type: Object as PropType<Character>,
-    requred: true,
+    required: true,
     default: function () {
       return new Character()
     },
@@ -87,7 +87,7 @@ const props = defineProps({
   // flag is used to judge whether user selected same character or just close the window
   flag: {
     type: Number,
-    requred: true,
+    required: true,
     default: 0,
   },
 })

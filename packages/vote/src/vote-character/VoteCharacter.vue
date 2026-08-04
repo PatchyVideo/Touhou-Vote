@@ -43,7 +43,7 @@
       </transition>
 
       <div class="baseBoxRoundedShadow p-1 w-full">
-        <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl®">
+        <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
           <div>
             {{
               '我喜欢的角色(' +

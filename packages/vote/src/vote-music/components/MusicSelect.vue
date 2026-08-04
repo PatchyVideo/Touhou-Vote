@@ -105,16 +105,16 @@ import MusicImages from '@/vote-music/assets/defaultMusicImage.jpg?url'
 const props = defineProps({
   open: {
     type: Boolean,
-    requred: true,
+    required: true,
   },
   musicHonmeiIsSelected: {
     type: Boolean,
-    requred: true,
+    required: true,
     default: true,
   },
   musicSelected: {
     type: Object as PropType<Music>,
-    requred: true,
+    required: true,
     default: function () {
       return new Music()
     },

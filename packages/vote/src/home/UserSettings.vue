@@ -229,7 +229,7 @@ updateUsernameDone((result) => {
 updateUsernameError((error) => {
   console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
   if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
-  else popMessageText('投票失败，原因：' + error.graphQLErrors?.[0]?.extensions?.human_readable_message)
+  else popMessageText('修改用户名失败，原因：' + error.graphQLErrors?.[0]?.extensions?.human_readable_message)
   updateUsernameOpen.value = false
 })
 
@@ -279,7 +279,7 @@ updatePasswordDone((result) => {
 updatePasswordError((error) => {
   console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
   if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
-  else popMessageText('投票失败，原因：' + error.graphQLErrors?.[0]?.extensions?.human_readable_message)
+  else popMessageText('修改密码失败，原因：' + error.graphQLErrors?.[0]?.extensions?.human_readable_message)
   changePasswordOpen.value = false
 })
 

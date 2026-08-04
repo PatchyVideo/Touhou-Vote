@@ -63,7 +63,7 @@ import Mask from '@/common/components/Mask.vue'
 const props = defineProps({
   open: {
     type: Boolean,
-    requred: true,
+    required: true,
   },
 })
 const emit = defineEmits<{
@@ -74,7 +74,7 @@ function close(): void {
   open.value = false
 }
 
-watch(filterForKindTem.value, resetWorkSelectedTem)
+watch(filterForKindTem, resetWorkSelectedTem)
 
 function cancelFilter(): void {
   getFilterForKindTem()

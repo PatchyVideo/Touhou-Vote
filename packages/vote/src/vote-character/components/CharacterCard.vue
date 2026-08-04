@@ -39,7 +39,7 @@ import characterImages from '@/vote-character/assets/defaultCharacterImage.png?u
 const props = defineProps({
   character: {
     type: Object as PropType<Character>,
-    requred: true,
+    required: true,
     default: function () {
       return new Character()
     },
