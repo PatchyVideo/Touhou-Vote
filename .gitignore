@@ -150,3 +150,6 @@ local_summary/
 # CODEX
 AGENTS.md
 .gstack/
+
+# generate-test-cases 记忆
+.memory/
