@@ -51,7 +51,7 @@ const props = defineProps({
   itemList: {
     type: Array as PropType<SelectList[]>,
     default: () => [],
-    requred: true,
+    required: true,
   },
   selected: {
     type: Object as PropType<SelectList>,
@@ -61,7 +61,7 @@ const props = defineProps({
         value: '',
       }
     },
-    requred: true,
+    required: true,
   },
   selectedName: {
     type: String,

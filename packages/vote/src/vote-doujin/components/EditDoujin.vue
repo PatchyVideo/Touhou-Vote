@@ -144,7 +144,7 @@
             删除
           </button>
           <button class="px-5 py-1 bg-white text-accent-color-300 border" @click="cancelEdit()">取消</button>
-          <button class="px-5 py-1" @click="comfirmEdit()">确定</button>
+          <button class="px-5 py-1" @click="confirmEdit()">确定</button>
         </div>
       </div>
       <Transition name="mask">
@@ -217,7 +217,7 @@ import { API_PREFIX } from '@/common/lib/apiPrefix'
 const props = defineProps({
   open: {
     type: Boolean,
-    requred: true,
+    required: true,
   },
   index: {
     type: Number,
@@ -225,7 +225,7 @@ const props = defineProps({
   },
 })
 const emit = defineEmits<{
-  (event: 'update:open', value: Doujin): void
+  (event: 'update:open', value: boolean): void
 }>()
 const open = useVModel(props, 'open', emit)
 
@@ -338,7 +338,7 @@ async function fetchMsg(): Promise<void> {
 // 夕渃 2023/12/25 20:15
 // @Lurantis 其实你可以不用我搞了正则你还搞，你只要确保丢到我这边的是一个合法的url就行了
 const universalSiteRegExp = new RegExp(
-  '^((http|https):\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
+  '^((http|https):\\/\\/)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$'
 )
 // const bilibiliRegExp = new RegExp(
 //   '^(https:\\/\\/|http:\\/\\/)?(www\\.|m\\.)?(bilibili\\.com\\/video\\/([aA][vV][\\d]+|BV[a-zA-Z0-9]+)(\\?p=[\\d]+)?|b23\\.tv\\/([aA][vV][\\d]+|BV[a-zA-Z0-9]+)(\\?p=[\\d]+)?|b23\\.tv\\/[\\w\\d]+)'
@@ -472,7 +472,7 @@ async function cancelEdit(): Promise<void> {
     close()
   }
 }
-function comfirmEdit(): void {
+function confirmEdit(): void {
   if (isDoujinValid.value) {
     submitDoujinData()
     close()

@@ -30,7 +30,7 @@ const props = defineProps<{
   data: GraphDataRadar[]
   voteTotal: number
   voteMale: number
-  voteFamale: number
+  voteFemale: number
 }>()
 
 echarts.use([
@@ -100,7 +100,7 @@ const dataWithRelativeScale = computed<GraphDataRadar[]>(() => {
     relatedData[0].value.push((item * props.voteTotal) / props.voteMale)
   })
   props.data[2].value.map((item) => {
-    relatedData[1].value.push((item * props.voteTotal) / props.voteFamale)
+    relatedData[1].value.push((item * props.voteTotal) / props.voteFemale)
   })
   return props.data.concat(relatedData)
 })

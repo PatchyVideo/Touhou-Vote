@@ -37,7 +37,7 @@ import MusicImages from '@/vote-music/assets/defaultMusicImage.jpg?url'
 const props = defineProps({
   music: {
     type: Object as PropType<Music>,
-    requred: true,
+    required: true,
     default: function () {
       return new Music()
     },

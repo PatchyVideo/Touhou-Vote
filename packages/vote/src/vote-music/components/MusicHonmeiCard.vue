@@ -44,7 +44,7 @@ const props = defineProps({
   // Note that characterHonmei in voteData.ts is readonly
   musicHonmei: {
     type: Object as PropType<Music>,
-    requred: true,
+    required: true,
     default: function () {
       return new Music()
     },
@@ -53,7 +53,7 @@ const props = defineProps({
 
 const reasonInput = shallowRef<HTMLInputElement | null>(null)
 const reasonEdit = ref(props.musicHonmei.reason)
-watch(props.musicHonmei, function (newv) {
+watch(() => props.musicHonmei, (newv) => {
   reasonEdit.value = newv.reason
 })
 function updateReason(): void {

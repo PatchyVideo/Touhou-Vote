@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, watch, watchEffect } from 'vue'
+import { onMounted, onUnmounted, ref, watch, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { useRoute, useRouter } from 'vue-router'
 import { getRuntime, questionnaireKeyToNameV2 } from '@/questionnaire/lib/questionnaireStateV2'
@@ -65,16 +65,16 @@ const props = defineProps({
   open: {
     type: Boolean,
     default: false,
-    requred: true,
+    required: true,
   },
   questionnaireId: {
     type: Number,
     default: 0,
-    requred: true,
+    required: true,
   },
 })
 const emit = defineEmits<{
-  (event: 'update:open', value: string): void
+  (event: 'update:open', value: boolean): void
   (event: 'changeQuestion', direction: 'forward' | 'back' | 'no'): void
 }>()
 
@@ -120,10 +120,15 @@ function unfoldAllQuestionnaire() {
   })
 }
 onMounted(() => screenSizes['<2xl'] && selectAsQuestionnaireCurrent(selectedQuestionnaire.value))
-window.onresize = () => {
+const handleResize = () => {
   // 1536px: 2xl, screenSizes['<2xl'] does not respond timely
   window.innerWidth < 1536 ? selectAsQuestionnaireCurrent(selectedQuestionnaire.value) : unfoldAllQuestionnaire()
 }
+window.addEventListener('resize', handleResize)
+onUnmounted(() => {
+  document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:auto')
+  window.removeEventListener('resize', handleResize)
+})
 
 function changeQuestion(questionnaireId: number, index: number): void {
   emit('changeQuestion', 'no')

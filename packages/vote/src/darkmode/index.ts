@@ -17,6 +17,8 @@ function updateDOM(v: boolean) {
   }
 }
 
+const preferredDark = usePreferredDark()
+
 export const isDark = ref(false)
 
 watch(
@@ -25,7 +27,7 @@ watch(
     if (themes.includes(themePreference.value)) {
       isDark.value = themePreference.value === 'dark'
     } else {
-      isDark.value = usePreferredDark().value
+      isDark.value = preferredDark.value
     }
   },
   {
@@ -37,9 +39,9 @@ watch(
 watch(
   [isDark],
   () => {
-    if (themes.includes(themePreference.value) && isDark.value === usePreferredDark().value) {
+    if (themes.includes(themePreference.value) && isDark.value === preferredDark.value) {
       themePreference.value = ''
-    } else if (isDark.value !== usePreferredDark().value) {
+    } else if (isDark.value !== preferredDark.value) {
       themePreference.value = isDark.value ? 'dark' : 'light'
     }
     updateDOM(isDark.value)

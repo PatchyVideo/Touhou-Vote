@@ -78,13 +78,13 @@
           :data="getDataRadar(item)"
           :vote-total="item.totalAnswers"
           :vote-male="item.totalMale"
-          :vote-famale="item.totalFemale"
+          :vote-female="item.totalFemale"
           v-else-if="item.type === 'Multiple'"
           class="max-w-4xl pt-3 mx-auto"
         />
         <router-link
           class="py-3 inline-block"
-          :to="'QuestionnaireInputDetail?qid=' + item.questionId + '&q=' + props.q"
+          :to="'/QuestionnaireInputDetail?qid=' + item.questionId + '&q=' + props.q"
           v-else-if="item.type === 'Input'"
           >点击这里查看全部回答</router-link
         >
