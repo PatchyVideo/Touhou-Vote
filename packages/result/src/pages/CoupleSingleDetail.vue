@@ -110,6 +110,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { voteStart, voteYear } from '@/lib/voteYear'
 import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
@@ -179,13 +180,13 @@ const { result, loading, onError } = useQuery<Query>(
   `,
   getAdditionalConstraintString(additionalConstraint.value) === ''
     ? {
-        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-        voteYear: 11,
+        voteStart,
+        voteYear,
         rank: coupleRank.value,
       }
     : {
-        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-        voteYear: 11,
+        voteStart,
+        voteYear,
         rank: coupleRank.value,
         query: getAdditionalConstraintString(additionalConstraint.value),
       }

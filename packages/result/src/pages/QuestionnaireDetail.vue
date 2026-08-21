@@ -64,6 +64,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { voteStart, voteYear } from '@/lib/voteYear'
 import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
@@ -94,15 +95,15 @@ watch(additionalConstraint, () => {
     variables:
       getAdditionalConstraintString(additionalConstraint.value) === ''
         ? {
-            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-            voteYear: 11,
+            voteStart,
+            voteYear,
             // Use the first question to present the trend
             questionIds: ['q11011'],
           }
         : {
             query: getAdditionalConstraintString(additionalConstraint.value),
-            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-            voteYear: 11,
+            voteStart,
+            voteYear,
             // Use the first question to present the trend
             questionIds: ['q11011'],
           },
@@ -137,15 +138,15 @@ const { result, loading, onError, fetchMore } = useQuery<Query>(
   `,
   getAdditionalConstraintString(additionalConstraint.value) === ''
     ? {
-        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-        voteYear: 11,
+        voteStart,
+        voteYear,
         // Use the first question to present the trend
         questionIds: ['q11011'],
       }
     : {
         query: getAdditionalConstraintString(additionalConstraint.value),
-        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-        voteYear: 11,
+        voteStart,
+        voteYear,
         // Use the first question to present the trend
         questionIds: ['q11011'],
       }

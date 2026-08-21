@@ -143,6 +143,7 @@
 </template>
 
 <script lang="ts" setup>
+import { voteStart, voteYear } from '@/lib/voteYear'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
@@ -495,8 +496,8 @@ const {
     }
   `,
   {
-    voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-    voteYear: 11,
+    voteStart,
+    voteYear,
   },
   {
     fetchPolicy: 'network-only',

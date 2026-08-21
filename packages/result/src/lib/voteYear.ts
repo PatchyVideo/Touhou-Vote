@@ -1,3 +1,3 @@
-import { voteYear } from '@touhou-vote/shared/data/voteYear'
+import { voteStart, voteYear } from '@touhou-vote/shared/data/voteYear'
 
-export { voteYear }
+export { voteStart, voteYear }
