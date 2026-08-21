@@ -18,6 +18,7 @@ on:
     branches:
       - zfq_dev_fe
       - dev
+      - renko_dev  # 我方工作分支(push 触发读被推分支的 workflow,此行只在 renko_dev 上生效)
     paths:
       - '.github/workflows/result-image.yml'
       - 'Dockerfile.result.template'
