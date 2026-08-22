@@ -1,6 +1,10 @@
 import { computed, ref } from 'vue'
 import type { Voter } from '@/graphql/__generated__/graphql'
-import { clearQuestionnaireV2LocalData, restorePaperV2 } from '@/questionnaire/lib/questionnaireStateV2'
+import {
+  clearQuestionnaireV2LocalData,
+  loadQuestionnaireStructure,
+  restorePaperV2,
+} from '@/questionnaire/lib/questionnaireStateV2'
 import { API_PREFIX } from '@/common/lib/apiPrefix'
 import { popMessageText } from '@/common/lib/popMessage'
 
@@ -155,6 +159,8 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
   if (isDevMode.value) {
     console.log('🔧 开发模式：跳过后端验证，使用本地数据')
     getUserDataFromLocalStorage()
+    await loadQuestionnaireStructure()
+    await restorePaperV2(localStorage.getItem('voteToken') || '')
     return
   }
   
@@ -176,6 +182,7 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
         if (needGetUserDataFromLocalStorage) {
           getUserDataFromLocalStorage()
         }
+        await loadQuestionnaireStructure()
         await restorePaperV2(localStorage.getItem('voteToken') || '')
       } else {
         deleteUserData()
