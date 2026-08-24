@@ -49,13 +49,26 @@ const MUSIC_URL = `${API_PREFIX}/vote-objects/music?vote_year=${voteYear}`
 const CACHE_KEY_CHAR = `voteObjectsCharacters:${voteYear}`
 const CACHE_KEY_MUSIC = `voteObjectsMusic:${voteYear}`
 const CACHE_KEY_FILTER_META = `voteObjectsFilterMeta:${voteYear}`
+const CACHE_KEY_CHAR_FILTER_META = `voteObjectsCharacterFilterMeta:${voteYear}`
+const CACHE_KEY_MUSIC_FILTER_META = `voteObjectsMusicFilterMeta:${voteYear}`
 
 // ── 响应式状态 ───────────────────────────────────────────────────────────
 export const characterGroupsRaw = ref<BackendGroup<BackendCharacterItem>[]>([])
 export const musicGroupsRaw = ref<BackendGroup<BackendMusicItem>[]>([])
 export const filterMeta = ref<FilterMeta>({ kinds: [], works: [] })
-export const voteObjectsLoading = ref(false)
-export const voteObjectsError = ref<string | null>(null)
+export const characterVoteObjectsLoading = ref(false)
+export const musicVoteObjectsLoading = ref(false)
+export const characterVoteObjectsError = ref<string | null>(null)
+export const musicVoteObjectsError = ref<string | null>(null)
+export const voteObjectsLoading = computed(
+  () => characterVoteObjectsLoading.value || musicVoteObjectsLoading.value,
+)
+export const voteObjectsError = computed(
+  () => characterVoteObjectsError.value ?? musicVoteObjectsError.value,
+)
+
+const characterFilterMeta = ref<FilterMeta>({ kinds: [], works: [] })
+const musicFilterMeta = ref<FilterMeta>({ kinds: [], works: [] })
 
 // ── 工具 ──────────────────────────────────────────────────────────────────
 export function getWorkName(wid: number): string {
@@ -131,6 +144,8 @@ export const voteObjectsReady: Promise<void> = new Promise((r) => {
   resolveReady = r
 })
 let readyResolved = false
+let characterLoadPromise: Promise<void> | null = null
+let musicLoadPromise: Promise<void> | null = null
 let loadPromise: Promise<void> | null = null
 
 function markReady(): void {
@@ -146,86 +161,150 @@ function isFilterMeta(value: unknown): value is FilterMeta {
   return Array.isArray(candidate.kinds) && Array.isArray(candidate.works)
 }
 
-function readVoteObjectsCache(): {
-  characterGroups: BackendGroup<BackendCharacterItem>[]
-  musicGroups: BackendGroup<BackendMusicItem>[]
+function readResourceCache<T>(
+  groupsKey: string,
+  metaKey: string,
+  resourceName: string,
+): {
+  groups: BackendGroup<T>[]
   meta: FilterMeta
 } | null {
-  const cachedChar = sessionStorage.getItem(CACHE_KEY_CHAR)
-  const cachedMusic = sessionStorage.getItem(CACHE_KEY_MUSIC)
-  const cachedMeta = sessionStorage.getItem(CACHE_KEY_FILTER_META)
-  if (!cachedChar || !cachedMusic || !cachedMeta) return null
+  const cachedGroups = sessionStorage.getItem(groupsKey)
+  if (!cachedGroups) return null
+
+  // 兼容 ticket 02 已写入的合并 metadata；读取成功后会迁移为资源级缓存。
+  const cachedMeta = sessionStorage.getItem(metaKey) ?? sessionStorage.getItem(CACHE_KEY_FILTER_META)
+  if (!cachedMeta) return null
 
   try {
-    const characterGroups: unknown = JSON.parse(cachedChar)
-    const musicGroups: unknown = JSON.parse(cachedMusic)
+    const groups: unknown = JSON.parse(cachedGroups)
     const meta: unknown = JSON.parse(cachedMeta)
-    if (Array.isArray(characterGroups) && Array.isArray(musicGroups) && isFilterMeta(meta)) {
-      return { characterGroups, musicGroups, meta }
+    if (Array.isArray(groups) && isFilterMeta(meta)) {
+      sessionStorage.setItem(metaKey, JSON.stringify(meta))
+      return { groups, meta }
     }
   } catch (err) {
-    console.warn('[voteObjects] 会话缓存无法解析，将重新请求投票对象:', err)
+    console.warn(`[voteObjects] ${resourceName}会话缓存无法解析，将重新请求投票对象:`, err)
   }
 
-  // 旧逻辑只检查三个 key 是否存在：损坏或结构不完整的缓存会在每次刷新时反复加载失败。
-  // 清除这组无效缓存并按缓存未命中处理，让本次请求即可恢复，而不要求用户手动清 sessionStorage。
-  clearVoteObjectsCache()
+  sessionStorage.removeItem(groupsKey)
+  sessionStorage.removeItem(metaKey)
   return null
+}
+
+function updateCombinedFilterMeta(): void {
+  const meta: FilterMeta = {
+    kinds: dedupeKinds([...characterFilterMeta.value.kinds, ...musicFilterMeta.value.kinds]),
+    works: dedupeWorks([...characterFilterMeta.value.works, ...musicFilterMeta.value.works]),
+  }
+  filterMeta.value = meta
+  sessionStorage.setItem(CACHE_KEY_FILTER_META, JSON.stringify(meta))
+}
+
+function commitCharacterVoteObjects(
+  groups: BackendGroup<BackendCharacterItem>[],
+  meta: FilterMeta,
+): void {
+  characterGroupsRaw.value = groups
+  characterFilterMeta.value = meta
+  updateCombinedFilterMeta()
+}
+
+function commitMusicVoteObjects(groups: BackendGroup<BackendMusicItem>[], meta: FilterMeta): void {
+  musicGroupsRaw.value = groups
+  musicFilterMeta.value = meta
+  updateCombinedFilterMeta()
+}
+
+export function loadCharacterVoteObjects(force = false): Promise<void> {
+  if (characterLoadPromise && !force) return characterLoadPromise
+
+  characterLoadPromise = (async () => {
+    characterVoteObjectsLoading.value = true
+    characterVoteObjectsError.value = null
+    try {
+      if (!force) {
+        const cached = readResourceCache<BackendCharacterItem>(
+          CACHE_KEY_CHAR,
+          CACHE_KEY_CHAR_FILTER_META,
+          '角色投票对象',
+        )
+        if (cached) {
+          commitCharacterVoteObjects(cached.groups, cached.meta)
+          return
+        }
+      }
+
+      const charRes = await fetch(CHARACTER_URL, { credentials: 'include' })
+      if (!charRes.ok) throw new Error(`characters HTTP ${charRes.status}`)
+      const charData: VoteObjectsResponse<BackendCharacterItem> = await charRes.json()
+      if (!Array.isArray(charData.groups) || !isFilterMeta(charData.filterMeta)) {
+        throw new Error('角色投票对象响应结构不完整')
+      }
+
+      commitCharacterVoteObjects(charData.groups, charData.filterMeta)
+      sessionStorage.setItem(CACHE_KEY_CHAR, JSON.stringify(charData.groups))
+      sessionStorage.setItem(CACHE_KEY_CHAR_FILTER_META, JSON.stringify(charData.filterMeta))
+    } catch (err) {
+      characterVoteObjectsError.value = err instanceof Error ? err.message : String(err)
+      console.error('[voteObjects] 拉取角色投票对象失败，投票页将隐藏表单:', err)
+    } finally {
+      characterVoteObjectsLoading.value = false
+    }
+  })()
+
+  return characterLoadPromise
+}
+
+export function loadMusicVoteObjects(force = false): Promise<void> {
+  if (musicLoadPromise && !force) return musicLoadPromise
+
+  musicLoadPromise = (async () => {
+    musicVoteObjectsLoading.value = true
+    musicVoteObjectsError.value = null
+    try {
+      if (!force) {
+        const cached = readResourceCache<BackendMusicItem>(
+          CACHE_KEY_MUSIC,
+          CACHE_KEY_MUSIC_FILTER_META,
+          '曲目投票对象',
+        )
+        if (cached) {
+          commitMusicVoteObjects(cached.groups, cached.meta)
+          return
+        }
+      }
+
+      const musicRes = await fetch(MUSIC_URL, { credentials: 'include' })
+      if (!musicRes.ok) throw new Error(`music HTTP ${musicRes.status}`)
+      const musicData: VoteObjectsResponse<BackendMusicItem> = await musicRes.json()
+      if (!Array.isArray(musicData.groups) || !isFilterMeta(musicData.filterMeta)) {
+        throw new Error('曲目投票对象响应结构不完整')
+      }
+
+      commitMusicVoteObjects(musicData.groups, musicData.filterMeta)
+      sessionStorage.setItem(CACHE_KEY_MUSIC, JSON.stringify(musicData.groups))
+      sessionStorage.setItem(CACHE_KEY_MUSIC_FILTER_META, JSON.stringify(musicData.filterMeta))
+    } catch (err) {
+      musicVoteObjectsError.value = err instanceof Error ? err.message : String(err)
+      console.error('[voteObjects] 拉取曲目投票对象失败，投票页将隐藏表单:', err)
+    } finally {
+      musicVoteObjectsLoading.value = false
+    }
+  })()
+
+  return musicLoadPromise
 }
 
 export function loadVoteObjects(force = false): Promise<void> {
   if (loadPromise && !force) return loadPromise
 
-  loadPromise = (async () => {
-    voteObjectsLoading.value = true
-    voteObjectsError.value = null
-    try {
-      if (!force) {
-        const cached = readVoteObjectsCache()
-        if (cached) {
-          characterGroupsRaw.value = cached.characterGroups
-          musicGroupsRaw.value = cached.musicGroups
-          filterMeta.value = cached.meta
-          return
-        }
-      }
-      const [charRes, musicRes] = await Promise.all([
-        fetch(CHARACTER_URL, { credentials: 'include' }),
-        fetch(MUSIC_URL, { credentials: 'include' }),
-      ])
-      if (!charRes.ok) throw new Error(`characters HTTP ${charRes.status}`)
-      if (!musicRes.ok) throw new Error(`music HTTP ${musicRes.status}`)
-      const charData: VoteObjectsResponse<BackendCharacterItem> = await charRes.json()
-      const musicData: VoteObjectsResponse<BackendMusicItem> = await musicRes.json()
-      if (
-        !Array.isArray(charData.groups) ||
-        !Array.isArray(musicData.groups) ||
-        !isFilterMeta(charData.filterMeta) ||
-        !isFilterMeta(musicData.filterMeta)
-      ) {
-        throw new Error('投票对象响应结构不完整')
-      }
-
-      characterGroupsRaw.value = charData.groups
-      musicGroupsRaw.value = musicData.groups
-      // 合并两边 filterMeta（取并集）
-      const meta: FilterMeta = {
-        kinds: dedupeKinds([...charData.filterMeta.kinds, ...musicData.filterMeta.kinds]),
-        works: dedupeWorks([...charData.filterMeta.works, ...musicData.filterMeta.works]),
-      }
-      filterMeta.value = meta
-
-      sessionStorage.setItem(CACHE_KEY_CHAR, JSON.stringify(charData.groups))
-      sessionStorage.setItem(CACHE_KEY_MUSIC, JSON.stringify(musicData.groups))
-      sessionStorage.setItem(CACHE_KEY_FILTER_META, JSON.stringify(meta))
-    } catch (err) {
-      voteObjectsError.value = err instanceof Error ? err.message : String(err)
-      console.error('[voteObjects] 拉取投票对象失败,投票页将显示空列表:', err)
-    } finally {
-      voteObjectsLoading.value = false
-      markReady()
-    }
-  })()
+  loadPromise = Promise.all([
+    loadCharacterVoteObjects(force),
+    loadMusicVoteObjects(force),
+  ]).then(() => {
+    markReady()
+  })
 
   return loadPromise
 }
@@ -244,4 +323,6 @@ export function clearVoteObjectsCache(): void {
   sessionStorage.removeItem(CACHE_KEY_CHAR)
   sessionStorage.removeItem(CACHE_KEY_MUSIC)
   sessionStorage.removeItem(CACHE_KEY_FILTER_META)
+  sessionStorage.removeItem(CACHE_KEY_CHAR_FILTER_META)
+  sessionStorage.removeItem(CACHE_KEY_MUSIC_FILTER_META)
 }
