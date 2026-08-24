@@ -3,7 +3,16 @@
   <div class="w-full min-h-100vh flex flex-col">
     <NavVote VoteType="character" />
 
-    <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
+    <div v-if="pageDataError" class="flex-1 flex items-center justify-center p-6 text-center">
+      加载失败，请稍后刷新重试...
+    </div>
+    <div v-else-if="pageDataLoading" class="flex-1 flex items-center justify-center p-6 text-center text-gray-500">
+      <div class="flex items-center gap-2">
+        <icon-uil-spinner-alt class="animate-spin" />
+        <span>正在加载角色投票数据…</span>
+      </div>
+    </div>
+    <div v-else class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <transition name="characterHonmei" mode="out-in">
         <div v-if="charactersVoted.length" class="baseBoxRoundedShadow p-1 w-full">
           <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
@@ -90,11 +99,12 @@
     </div>
   </div>
   <CharacterSelect
+    v-if="pageDataReady"
     v-model:open="characterSelectOpen"
     v-model:characterSelected="characters[charactersVotedNumber]"
     :character-honmei-is-selected="characterHonmeiIsSelected"
   />
-  <VoteMessageBox v-model:open="confirmBoxOpen" title="请确定投票内容：">
+  <VoteMessageBox v-if="pageDataReady" v-model:open="confirmBoxOpen" title="请确定投票内容：">
     <div class="overflow-auto">
       <div class="divide-y p-2">
         <div v-if="characterHonmei.honmei" class="py-1">
@@ -127,7 +137,6 @@
 import { computed, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { handleQuestionnaireGateError } from '@/common/lib/voteGateError'
-import NProgress from 'nprogress'
 import NavVote from '@/common/components/NavVote.vue'
 import CharacterSelect from './components/CharacterSelect.vue'
 import CharacterHonmeiCard from './components/CharacterHonmeiCard.vue'
@@ -144,11 +153,17 @@ import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
 import { getClientEnv } from '@/common/lib/clientEnv'
+import { loadVoteObjects, voteObjectsError } from '@/common/lib/voteObjectsDataSource'
 startFillTimer('character')
 
 setSiteTitle('角色部门')
 
 const router = useRouter()
+const voteObjectsSettled = ref(false)
+void loadVoteObjects().finally(() => {
+  voteObjectsSettled.value = true
+})
+const getSubmitCharacterVoteFailed = ref(false)
 
 const {
   result,
@@ -173,24 +188,29 @@ const {
     fetchPolicy: 'network-only',
   }
 )
-watchEffect(() => {
-  if (getSubmitCharacterVoteLoading.value) {
-    if (!NProgress.isStarted()) NProgress.start()
-  } else {
-    if (NProgress.isStarted()) NProgress.done()
-  }
-})
 const resultData = computed(() => result.value?.getSubmitCharacterVote ?? null)
+const existingVoteRestored = ref(false)
 watchEffect(() => {
-  if (resultData.value) {
+  if (voteObjectsSettled.value && !voteObjectsError.value && resultData.value) {
     updateVoteCharacters(resultData.value.characters)
+    existingVoteRestored.value = true
   }
 })
 getSubmitCharacterVoteError((err) => {
+  getSubmitCharacterVoteFailed.value = true
   console.log(err.message)
   if (err.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
+const pageDataError = computed(
+  () => getSubmitCharacterVoteFailed.value || (voteObjectsSettled.value && voteObjectsError.value !== null)
+)
+const pageDataLoading = computed(
+  () =>
+    !pageDataError.value &&
+    (!voteObjectsSettled.value || getSubmitCharacterVoteLoading.value || !existingVoteRestored.value)
+)
+const pageDataReady = computed(() => !pageDataError.value && !pageDataLoading.value)
 
 const charactersVotedNumber = computed<number>(() => charactersVoted.value.length)
 

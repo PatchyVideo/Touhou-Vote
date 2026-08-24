@@ -140,6 +140,39 @@ function markReady(): void {
   }
 }
 
+function isFilterMeta(value: unknown): value is FilterMeta {
+  if (typeof value !== 'object' || value === null) return false
+  const candidate = value as Partial<FilterMeta>
+  return Array.isArray(candidate.kinds) && Array.isArray(candidate.works)
+}
+
+function readVoteObjectsCache(): {
+  characterGroups: BackendGroup<BackendCharacterItem>[]
+  musicGroups: BackendGroup<BackendMusicItem>[]
+  meta: FilterMeta
+} | null {
+  const cachedChar = sessionStorage.getItem(CACHE_KEY_CHAR)
+  const cachedMusic = sessionStorage.getItem(CACHE_KEY_MUSIC)
+  const cachedMeta = sessionStorage.getItem(CACHE_KEY_FILTER_META)
+  if (!cachedChar || !cachedMusic || !cachedMeta) return null
+
+  try {
+    const characterGroups: unknown = JSON.parse(cachedChar)
+    const musicGroups: unknown = JSON.parse(cachedMusic)
+    const meta: unknown = JSON.parse(cachedMeta)
+    if (Array.isArray(characterGroups) && Array.isArray(musicGroups) && isFilterMeta(meta)) {
+      return { characterGroups, musicGroups, meta }
+    }
+  } catch (err) {
+    console.warn('[voteObjects] 会话缓存无法解析，将重新请求投票对象:', err)
+  }
+
+  // 旧逻辑只检查三个 key 是否存在：损坏或结构不完整的缓存会在每次刷新时反复加载失败。
+  // 清除这组无效缓存并按缓存未命中处理，让本次请求即可恢复，而不要求用户手动清 sessionStorage。
+  clearVoteObjectsCache()
+  return null
+}
+
 export function loadVoteObjects(force = false): Promise<void> {
   if (loadPromise && !force) return loadPromise
 
@@ -148,13 +181,11 @@ export function loadVoteObjects(force = false): Promise<void> {
     voteObjectsError.value = null
     try {
       if (!force) {
-        const cachedChar = sessionStorage.getItem(CACHE_KEY_CHAR)
-        const cachedMusic = sessionStorage.getItem(CACHE_KEY_MUSIC)
-        const cachedMeta = sessionStorage.getItem(CACHE_KEY_FILTER_META)
-        if (cachedChar && cachedMusic && cachedMeta) {
-          characterGroupsRaw.value = JSON.parse(cachedChar)
-          musicGroupsRaw.value = JSON.parse(cachedMusic)
-          filterMeta.value = JSON.parse(cachedMeta)
+        const cached = readVoteObjectsCache()
+        if (cached) {
+          characterGroupsRaw.value = cached.characterGroups
+          musicGroupsRaw.value = cached.musicGroups
+          filterMeta.value = cached.meta
           return
         }
       }
@@ -166,6 +197,14 @@ export function loadVoteObjects(force = false): Promise<void> {
       if (!musicRes.ok) throw new Error(`music HTTP ${musicRes.status}`)
       const charData: VoteObjectsResponse<BackendCharacterItem> = await charRes.json()
       const musicData: VoteObjectsResponse<BackendMusicItem> = await musicRes.json()
+      if (
+        !Array.isArray(charData.groups) ||
+        !Array.isArray(musicData.groups) ||
+        !isFilterMeta(charData.filterMeta) ||
+        !isFilterMeta(musicData.filterMeta)
+      ) {
+        throw new Error('投票对象响应结构不完整')
+      }
 
       characterGroupsRaw.value = charData.groups
       musicGroupsRaw.value = musicData.groups
