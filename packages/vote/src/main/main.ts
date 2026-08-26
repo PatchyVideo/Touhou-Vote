@@ -1,7 +1,8 @@
-import { createApp, defineComponent, h, ref } from 'vue'
+import { createApp, defineComponent, h } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import AppRouterView from './components/AppRouterView.vue'
+import { isBootstrapping } from './lib/appBootstrap'
 import GlobalMessages from '@/common/components/GlobalMessages.vue'
 import { createApollo, provideClient } from '@/graphql'
 import { checkLoginStatus, isLogin } from '@/home/lib/user'
@@ -27,7 +28,6 @@ function incProcess() {
 
 // create graphql client
 const client = createApollo()
-const isBootstrapping = ref(Boolean(localStorage.getItem('voteToken')))
 // vue app
 const app = createApp(
   defineComponent({

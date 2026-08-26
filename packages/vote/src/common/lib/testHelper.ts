@@ -22,6 +22,7 @@ import {
   enableDevMode,
   disableDevMode,
 } from '@/home/lib/user'
+import { reloadWithBootstrap } from '@/main/lib/appBootstrap'
 import type { Voter } from '@/graphql/__generated__/graphql'
 import { voteYear } from '@/common/lib/voteYear'
 import { characters } from '@/vote-character/lib/voteData'
@@ -120,15 +121,16 @@ export function saveLoginTokens(): TestLoginSnapshotSummary {
 }
 
 /** 恢复登录输入状态并 reload，后续请求由应用启动逻辑自动触发。 */
-export function loginWithSavedTokens(): void {
+export async function loginWithSavedTokens(): Promise<void> {
   const snapshot = readLoginSnapshot()
-  deleteUserData()
-  setUserDataToLocalStorage({ ...snapshot.user }, snapshot.voteToken, snapshot.sessionToken)
-  console.log('✅ 已恢复测试登录 token，正在重新加载', {
-    username: snapshot.user.username,
-    savedAt: snapshot.savedAt,
+  await reloadWithBootstrap(() => {
+    deleteUserData()
+    setUserDataToLocalStorage({ ...snapshot.user }, snapshot.voteToken, snapshot.sessionToken)
+    console.log('✅ 已恢复测试登录 token，正在重新加载', {
+      username: snapshot.user.username,
+      savedAt: snapshot.savedAt,
+    })
   })
-  location.reload()
 }
 
 /** 幂等删除已保存的开发测试登录快照。 */
