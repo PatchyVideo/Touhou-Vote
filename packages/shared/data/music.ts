@@ -8360,9 +8360,9 @@ export const musicList: Music[] = [
     include: [],
   },
   {
-    id: 'd60777dd',
-    name: 'My Maid',
-    origname: ' Sweet Maid',
+    id: '462e28a2',
+    name: '我的女仆，我甜美的女仆',
+    origname: 'My Maid, Sweet Maid',
     album: '稀翁玉',
     date: 20011230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
