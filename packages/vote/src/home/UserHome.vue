@@ -279,7 +279,7 @@ const TabList = [
   {
     type: 'vote',
     title: '参与投票',
-    icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
+    icon: 'https://image.touhou.ai/i/2026/08/25/6a8da841bd525.png',
     desc: '为您喜爱的角色/曲目/CP投上一票吧！',
     complete: () => voteCharacterComplete.value && voteMusicComplete.value && voteCoupleComplete.value,
     buttonText: () =>
