@@ -144,6 +144,7 @@ import { setUserDataToLocalStorage } from '@/home/lib/user'
 import { popMessageText } from '@/common/lib/popMessage'
 import { preloadAliyunCaptcha, verifyHuman } from '@/common/lib/aliyunCaptcha'
 import { getDeviceId } from '@/common/lib/deviceId'
+import { reloadWithBootstrap } from '@/main/lib/appBootstrap'
 import Mask from '@/common/components/Mask.vue'
 
 const props = defineProps({
@@ -288,14 +289,15 @@ const {
   `
 )
 newLoginPhoneNumDone((result) => {
-  if (result.data?.loginPhone.user && result.data?.loginPhone.voteToken && result.data?.loginPhone.sessionToken) {
-    setUserDataToLocalStorage(
-      result.data?.loginPhone.user,
-      result.data?.loginPhone.voteToken,
-      result.data?.loginPhone.sessionToken
-    )
-  }
-  location.reload()
+  void reloadWithBootstrap(() => {
+    if (result.data?.loginPhone.user && result.data?.loginPhone.voteToken && result.data?.loginPhone.sessionToken) {
+      setUserDataToLocalStorage(
+        result.data.loginPhone.user,
+        result.data.loginPhone.voteToken,
+        result.data.loginPhone.sessionToken
+      )
+    }
+  })
 })
 newLoginPhoneNumError((error) => {
   if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'INCORRECT_VERIFY_CODE')
@@ -332,14 +334,15 @@ const {
   `
 )
 newLoginEmailDone((result) => {
-  if (result.data?.loginEmail.user && result.data?.loginEmail.voteToken && result.data?.loginEmail.sessionToken) {
-    setUserDataToLocalStorage(
-      result.data?.loginEmail.user,
-      result.data?.loginEmail.voteToken,
-      result.data?.loginEmail.sessionToken
-    )
-  }
-  location.reload()
+  void reloadWithBootstrap(() => {
+    if (result.data?.loginEmail.user && result.data?.loginEmail.voteToken && result.data?.loginEmail.sessionToken) {
+      setUserDataToLocalStorage(
+        result.data.loginEmail.user,
+        result.data.loginEmail.voteToken,
+        result.data.loginEmail.sessionToken
+      )
+    }
+  })
 })
 newLoginEmailError((error) => {
   if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'INCORRECT_VERIFY_CODE')
@@ -386,18 +389,19 @@ const {
   `
 )
 oldLoginDone((result) => {
-  if (
-    result.data?.loginEmailPassword.user &&
-    result.data?.loginEmailPassword.voteToken &&
-    result.data?.loginEmailPassword.sessionToken
-  ) {
-    setUserDataToLocalStorage(
-      result.data?.loginEmailPassword.user,
-      result.data?.loginEmailPassword.voteToken,
+  void reloadWithBootstrap(() => {
+    if (
+      result.data?.loginEmailPassword.user &&
+      result.data?.loginEmailPassword.voteToken &&
       result.data?.loginEmailPassword.sessionToken
-    )
-  }
-  location.reload()
+    ) {
+      setUserDataToLocalStorage(
+        result.data.loginEmailPassword.user,
+        result.data.loginEmailPassword.voteToken,
+        result.data.loginEmailPassword.sessionToken
+      )
+    }
+  })
 })
 oldLoginError((error) => {
   if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'NOT_FOUND') userNameError.value = '该用户不存在！'

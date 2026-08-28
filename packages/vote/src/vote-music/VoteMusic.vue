@@ -3,7 +3,16 @@
   <div class="w-full min-h-100vh flex flex-col">
     <NavVote VoteType="music" />
 
-    <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
+    <div v-if="pageDataError" class="flex-1 flex items-center justify-center p-6 text-center">
+      加载失败，请稍后刷新重试...
+    </div>
+    <div v-else-if="pageDataLoading" class="flex-1 flex items-center justify-center p-6 text-center text-gray-500">
+      <div class="flex items-center gap-2">
+        <icon-uil-spinner-alt class="animate-spin" />
+        <span>正在加载曲目投票数据…</span>
+      </div>
+    </div>
+    <div v-else class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <transition name="musicHonmei" mode="out-in">
         <div v-if="musicsVoted.length" class="baseBoxRoundedShadow p-1 w-full">
           <div class="p-1 flex justify-between md:text-base xl:text-xl 2xl:text-2xl">
@@ -90,11 +99,12 @@
     </div>
   </div>
   <MusicSelect
+    v-if="pageDataReady"
     v-model:open="musicSelectOpen"
     v-model:musicSelected="musics[musicsVotedNumber]"
     :music-honmei-is-selected="musicHonmeiIsSelected"
   />
-  <VoteMessageBox v-model:open="confirmBoxOpen" title="请确定投票内容：">
+  <VoteMessageBox v-if="pageDataReady" v-model:open="confirmBoxOpen" title="请确定投票内容：">
     <div class="overflow-auto">
       <div class="divide-y p-2">
         <div v-if="musicHonmei.honmei" class="py-1">
@@ -129,7 +139,6 @@
 import { computed, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { handleQuestionnaireGateError } from '@/common/lib/voteGateError'
-import NProgress from 'nprogress'
 import NavVote from '@/common/components/NavVote.vue'
 import MusicSelect from './components/MusicSelect.vue'
 import MusicHonmeiCard from './components/MusicHonmeiCard.vue'
@@ -146,11 +155,17 @@ import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
 import { getClientEnv } from '@/common/lib/clientEnv'
+import { loadVoteObjects, voteObjectsError } from '@/common/lib/voteObjectsDataSource'
 startFillTimer('music')
 
 setSiteTitle('音乐部门')
 
 const router = useRouter()
+const voteObjectsSettled = ref(false)
+void loadVoteObjects().finally(() => {
+  voteObjectsSettled.value = true
+})
+const getSubmitMusicVoteFailed = ref(false)
 
 const {
   result,
@@ -175,24 +190,27 @@ const {
     fetchPolicy: 'network-only',
   }
 )
-watchEffect(() => {
-  if (getSubmitMusicVoteLoading.value) {
-    if (!NProgress.isStarted()) NProgress.start()
-  } else {
-    if (NProgress.isStarted()) NProgress.done()
-  }
-})
 const resultData = computed(() => result.value?.getSubmitMusicVote ?? null)
+const existingVoteRestored = ref(false)
 watchEffect(() => {
-  if (resultData.value) {
+  if (voteObjectsSettled.value && !voteObjectsError.value && resultData.value) {
     updateVoteMusics(resultData.value.music)
+    existingVoteRestored.value = true
   }
 })
 getSubmitMusicVoteError((err) => {
+  getSubmitMusicVoteFailed.value = true
   console.log(err.message)
   if (err.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
+const pageDataError = computed(
+  () => getSubmitMusicVoteFailed.value || (voteObjectsSettled.value && voteObjectsError.value !== null)
+)
+const pageDataLoading = computed(
+  () => !pageDataError.value && (!voteObjectsSettled.value || getSubmitMusicVoteLoading.value || !existingVoteRestored.value)
+)
+const pageDataReady = computed(() => !pageDataError.value && !pageDataLoading.value)
 
 const musicsVotedNumber = computed<number>(() => musicsVoted.value.length)
 

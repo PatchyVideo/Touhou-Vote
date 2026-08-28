@@ -12,7 +12,18 @@
  * - 通过 setDataSourceMode() 控制数据获取方式
  */
 
-import { voteToken, isLogin, setUserDataToLocalStorage, user, createDefaultVoter, enableDevMode, disableDevMode } from '@/home/lib/user'
+import {
+  voteToken,
+  isLogin,
+  setUserDataToLocalStorage,
+  user,
+  createDefaultVoter,
+  deleteUserData,
+  enableDevMode,
+  disableDevMode,
+} from '@/home/lib/user'
+import { reloadWithBootstrap } from '@/main/lib/appBootstrap'
+import type { Voter } from '@/graphql/__generated__/graphql'
 import { voteYear } from '@/common/lib/voteYear'
 import { characters } from '@/vote-character/lib/voteData'
 import { characterList } from '@/vote-character/lib/characterList'
@@ -23,6 +34,111 @@ import { musics, MUSICVOTENUM } from '@/vote-music/lib/voteData'
 import { Music } from '@/vote-music/lib/music'
 import { musicList } from '@/vote-music/lib/musicList'
 import { setDataSourceMode, getDataSourceMode, type DataSourceMode } from './voteDataSource'
+
+const TEST_LOGIN_SNAPSHOT_KEY = 'thvote_test_login_snapshot'
+
+interface TestLoginSnapshot {
+  user: Voter
+  voteToken: string
+  sessionToken: string
+  savedAt: string
+}
+
+interface TestLoginSnapshotSummary {
+  username: string | null
+  savedAt: string
+}
+
+function parseUser(rawUser: string): Voter {
+  let parsed: unknown
+  try {
+    parsed = JSON.parse(rawUser)
+  } catch {
+    throw new Error('当前登录用户数据已损坏，无法保存测试 token')
+  }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed) || Object.keys(parsed).length === 0) {
+    throw new Error('当前登录用户数据无效，无法保存测试 token')
+  }
+  return parsed as Voter
+}
+
+function readLoginSnapshot(): TestLoginSnapshot {
+  const rawSnapshot = localStorage.getItem(TEST_LOGIN_SNAPSHOT_KEY)
+  if (!rawSnapshot) throw new Error('未找到已保存的测试登录 token')
+
+  let parsed: unknown
+  try {
+    parsed = JSON.parse(rawSnapshot)
+  } catch {
+    throw new Error('已保存的测试登录 token 快照已损坏')
+  }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error('已保存的测试登录 token 快照无效')
+  }
+
+  const snapshot = parsed as Partial<TestLoginSnapshot>
+  if (
+    !snapshot.user ||
+    typeof snapshot.user !== 'object' ||
+    Array.isArray(snapshot.user) ||
+    Object.keys(snapshot.user).length === 0
+  ) {
+    throw new Error('已保存的测试登录 token 快照缺少用户数据')
+  }
+  if (typeof snapshot.voteToken !== 'string' || !snapshot.voteToken) {
+    throw new Error('已保存的测试登录 token 快照缺少 voteToken')
+  }
+  if (typeof snapshot.sessionToken !== 'string' || !snapshot.sessionToken) {
+    throw new Error('已保存的测试登录 token 快照缺少 sessionToken')
+  }
+  if (typeof snapshot.savedAt !== 'string' || Number.isNaN(Date.parse(snapshot.savedAt))) {
+    throw new Error('已保存的测试登录 token 快照缺少有效保存时间')
+  }
+  return snapshot as TestLoginSnapshot
+}
+
+/** 将当前真实登录结果保存为开发测试快照。 */
+export function saveLoginTokens(): TestLoginSnapshotSummary {
+  const rawUser = localStorage.getItem('user')
+  const storedVoteToken = localStorage.getItem('voteToken')
+  const storedSessionToken = localStorage.getItem('sessionToken')
+  if (!rawUser || !storedVoteToken || !storedSessionToken) {
+    throw new Error('当前没有完整的真实登录数据，无法保存测试 token')
+  }
+
+  const storedUser = parseUser(rawUser)
+  const snapshot: TestLoginSnapshot = {
+    user: storedUser,
+    voteToken: storedVoteToken,
+    sessionToken: storedSessionToken,
+    savedAt: new Date().toISOString(),
+  }
+  localStorage.setItem(TEST_LOGIN_SNAPSHOT_KEY, JSON.stringify(snapshot))
+
+  const summary = { username: storedUser.username, savedAt: snapshot.savedAt }
+  console.log('✅ 测试登录 token 已保存', summary)
+  return summary
+}
+
+/** 恢复登录输入状态并 reload，后续请求由应用启动逻辑自动触发。 */
+export async function loginWithSavedTokens(): Promise<void> {
+  const snapshot = readLoginSnapshot()
+  await reloadWithBootstrap(() => {
+    deleteUserData()
+    setUserDataToLocalStorage({ ...snapshot.user }, snapshot.voteToken, snapshot.sessionToken)
+    console.log('✅ 已恢复测试登录 token，正在重新加载', {
+      username: snapshot.user.username,
+      savedAt: snapshot.savedAt,
+    })
+  })
+}
+
+/** 幂等删除已保存的开发测试登录快照。 */
+export function clearSavedLoginTokens(): void {
+  const snapshotExisted = localStorage.getItem(TEST_LOGIN_SNAPSHOT_KEY) !== null
+  localStorage.removeItem(TEST_LOGIN_SNAPSHOT_KEY)
+  console.log(snapshotExisted ? '✅ 已清除测试登录 token' : 'ℹ️ 没有需要清除的测试登录 token')
+}
 
 /**
  * 模拟登录用户
@@ -251,6 +367,7 @@ export function clearTestUserData() {
   
   // 禁用开发模式
   disableDevMode()
+  clearSavedLoginTokens()
   
   localStorage.removeItem('user')
   localStorage.removeItem('voteToken')
@@ -501,6 +618,9 @@ if (import.meta.env.DEV) {
     getAvailableCharacters,
     getAvailableMusics,
     getAvailableCoupleExamples,
+    saveLoginTokens,
+    loginWithSavedTokens,
+    clearSavedLoginTokens,
     clearTestUserData,
     checkTestStatus,
     setDataSourceMode: setTestDataSourceMode,
@@ -529,6 +649,9 @@ if (import.meta.env.DEV) {
   testHelper.getAvailableCharacters()   - 查看可用角色
   testHelper.getAvailableMusics()       - 查看可用音乐
   testHelper.getAvailableCoupleExamples() - 查看可用CP示例
+  testHelper.saveLoginTokens()          - 保存当前真实登录 token
+  testHelper.loginWithSavedTokens()     - 恢复已保存 token 并重新加载
+  testHelper.clearSavedLoginTokens()    - 清除已保存的测试 token
   testHelper.checkTestStatus()          - 检查当前状态
   testHelper.clearTestUserData()        - 清理测试数据
 
