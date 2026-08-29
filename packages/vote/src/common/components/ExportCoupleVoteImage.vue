@@ -211,6 +211,7 @@ import { popMessageText } from '@/common/lib/popMessage'
 import { username } from '@/home/lib/user'
 import { getExportAssetUrl } from '@/common/lib/exportAssetUrl'
 import { createVoteImageExportAbortError, useVoteImageExport } from '@/common/lib/useVoteImageExport'
+import { loadVoteObjects, voteObjectsError } from '@/common/lib/voteObjectsDataSource'
 
 const userName = computed(() => username.value || '匿名用户')
 
@@ -264,9 +265,9 @@ type FullCoupleData = {
 const fullCoupleData = computed<FullCoupleData[]>(() => {
   return voteCoupleData.value.map((cp) => {
     // 获取3个角色
-    const charA = characterList.find(c => c.id === cp.idA)
-    const charB = characterList.find(c => c.id === cp.idB)
-    const charC = characterList.find(c => c.id === cp.idC)
+    const charA = characterList.value.find(c => c.id === cp.idA)
+    const charB = characterList.value.find(c => c.id === cp.idB)
+    const charC = characterList.value.find(c => c.id === cp.idC)
 
     // 确定主动方索引
     const activeIndex = cp.active ? [charA, charB, charC].findIndex(c => c?.id === cp.active) : -1
@@ -355,6 +356,11 @@ const {
   fileName: () => `th-cp-vote-${Date.now()}.png`,
   shareTitle: '我的东方人气CP投票',
   prepare: async () => {
+    await loadVoteObjects()
+    if (voteObjectsError.value) {
+      popMessageText('加载投票数据失败，请稍后重试')
+      throw createVoteImageExportAbortError()
+    }
     voteCoupleData.value = await resolveVoteCoupleData()
     if (!voteCoupleData.value.length) {
       popMessageText('你还没有投票数据，请先提交投票后再导出图片。')

@@ -146,6 +146,7 @@ import { popMessageText } from '@/common/lib/popMessage'
 import { username } from '@/home/lib/user'
 import { getExportAssetUrl } from '@/common/lib/exportAssetUrl'
 import { createVoteImageExportAbortError, useVoteImageExport } from '@/common/lib/useVoteImageExport'
+import { loadVoteObjects, voteObjectsError } from '@/common/lib/voteObjectsDataSource'
 
 const userName = computed(() => username.value || '匿名用户')
 
@@ -270,6 +271,11 @@ const {
 	fileName: () => `th-music-vote-${Date.now()}.png`,
 	shareTitle: '我的东方人气投票',
 	prepare: async () => {
+		await loadVoteObjects()
+		if (voteObjectsError.value) {
+			popMessageText('加载投票数据失败，请稍后重试')
+			throw createVoteImageExportAbortError()
+		}
 		voteMusicData.value = await resolveVoteMusicData()
 		if (!voteMusicData.value.length) {
 			popMessageText('你还没有投票数据，请先提交投票后再导出图片。')

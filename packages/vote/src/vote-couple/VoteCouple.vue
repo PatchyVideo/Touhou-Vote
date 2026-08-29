@@ -3,7 +3,16 @@
   <div class="w-full min-h-100vh flex flex-col">
     <NavVote VoteType="couple" />
 
-    <div class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
+    <div v-if="pageDataError" class="flex-1 flex items-center justify-center p-6 text-center">
+      加载失败，请稍后刷新重试...
+    </div>
+    <div v-else-if="pageDataLoading" class="flex-1 flex items-center justify-center p-6 text-center text-gray-500">
+      <div class="flex items-center gap-2">
+        <icon-uil-spinner-alt class="animate-spin" />
+        <span>正在加载 CP 投票数据…</span>
+      </div>
+    </div>
+    <div v-else class="md:flex-grow flex flex-wrap md:content-center p-1 space-y-2 md:w-1/2 3xl:w-1/4 md:m-auto">
       <div class="baseBoxRoundedShadow p-1 w-full space-y-2">
         <div class="p-1 flex justify-between items-center md:text-base xl:text-xl 2xl:text-2xl">
           <div>{{ '角色组合(' + couplesValid.length + '/' + CPVOTENUM + ')' }}</div>
@@ -54,7 +63,7 @@
       </button>
     </div>
   </div>
-  <VoteMessageBox v-model:open="noticeOpen" title="投票须知">
+  <VoteMessageBox v-if="pageDataReady" v-model:open="noticeOpen" title="投票须知">
     <div class="flex flex-col overflow-auto">
       <div class="space-y-1 p-2">
         <p>CP选取规则：</p>
@@ -74,7 +83,7 @@
       </button>
     </div>
   </VoteMessageBox>
-  <VoteMessageBox v-model:open="confirmBoxOpen" title="请确定投票内容：">
+  <VoteMessageBox v-if="pageDataReady" v-model:open="confirmBoxOpen" title="请确定投票内容：">
     <div class="overflow-auto">
       <div class="divide-y p-2">
         <div v-if="coupleHonmei.honmei" class="py-1">
@@ -115,7 +124,6 @@
 import { computed, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { handleQuestionnaireGateError } from '@/common/lib/voteGateError'
-import NProgress from 'nprogress'
 import { CPVOTENUM, couples, updateVotecouple } from '@/vote-couple/lib/voteData'
 import { coupleHonmei, couplesValid, couplesValidWithoutHonmei } from '@/vote-couple/lib/coupleList'
 import NavVote from '@/common/components/NavVote.vue'
@@ -131,11 +139,20 @@ import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
 import { getClientEnv } from '@/common/lib/clientEnv'
+import {
+  characterVoteObjectsError,
+  loadCharacterVoteObjects,
+} from '@/common/lib/voteObjectsDataSource'
 startFillTimer('cp')
 
 setSiteTitle('CP部门')
 
 const noticeOpen = ref(false)
+const characterVoteObjectsSettled = ref(false)
+void loadCharacterVoteObjects().finally(() => {
+  characterVoteObjectsSettled.value = true
+})
+const getSubmitCPVoteFailed = ref(false)
 
 const {
   result,
@@ -163,24 +180,36 @@ const {
     fetchPolicy: 'network-only',
   }
 )
-watchEffect(() => {
-  if (getSubmitCPVoteLoading.value) {
-    if (!NProgress.isStarted()) NProgress.start()
-  } else {
-    if (NProgress.isStarted()) NProgress.done()
-  }
-})
 const resultData = computed(() => result.value?.getSubmitCPVote ?? null)
+const existingVoteRestored = ref(false)
 watchEffect(() => {
-  if (resultData.value) {
+  if (
+    characterVoteObjectsSettled.value &&
+    !characterVoteObjectsError.value &&
+    resultData.value &&
+    !existingVoteRestored.value
+  ) {
     updateVotecouple(resultData.value.cps)
+    existingVoteRestored.value = true
   }
 })
 getSubmitCPVoteError((err) => {
+  getSubmitCPVoteFailed.value = true
   console.log(err.message)
   if (err.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
+const pageDataError = computed(
+  () =>
+    getSubmitCPVoteFailed.value ||
+    (characterVoteObjectsSettled.value && characterVoteObjectsError.value !== null)
+)
+const pageDataLoading = computed(
+  () =>
+    !pageDataError.value &&
+    (!characterVoteObjectsSettled.value || getSubmitCPVoteLoading.value || !existingVoteRestored.value)
+)
+const pageDataReady = computed(() => !pageDataError.value && !pageDataLoading.value)
 
 function addCouple(): void {
   couples.value[couplesValid.value.length].valid = true

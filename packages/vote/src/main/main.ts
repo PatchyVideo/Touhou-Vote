@@ -2,16 +2,14 @@ import { createApp, defineComponent, h } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import AppRouterView from './components/AppRouterView.vue'
+import { isBootstrapping } from './lib/appBootstrap'
 import GlobalMessages from '@/common/components/GlobalMessages.vue'
 import { createApollo, provideClient } from '@/graphql'
 import { checkLoginStatus, isLogin } from '@/home/lib/user'
 import {
   isQuestionnaireAllDoneV2,
-  loadQuestionnaireStructure,
   structureError,
-  structureReady,
 } from '@/questionnaire/lib/questionnaireStateV2'
-import { loadVoteObjects } from '@/common/lib/voteObjectsDataSource'
 import { voteNotStart } from '@/start-page/lib/voteStart'
 import { voteEnded } from '@/end-page/lib/voteEnded'
 import 'nprogress/css/nprogress.css'
@@ -24,34 +22,26 @@ if (import.meta.env.DEV) {
   import('@/common/lib/testErrorHandling')
 }
 
-// start progress bar
 function incProcess() {
   if (NProgress.isStarted()) NProgress.inc()
 }
-NProgress.start()
 
 // create graphql client
 const client = createApollo()
 // vue app
 const app = createApp(
   defineComponent({
-    render: () => [h(AppRouterView), h(GlobalMessages)],
+    render: () => [h(AppRouterView, { bootstrapping: isBootstrapping.value }), h(GlobalMessages)],
     setup() {
       provideClient(client)
     },
   })
 )
-const appPromises: Promise<unknown>[] = []
 
-// check login status
-const checkLoginStatusPromise = checkLoginStatus(true)
-appPromises.push(checkLoginStatusPromise)
-
-// 并行拉取问卷结构(V2);成功/缓存/出错都会 resolve structureReady
-appPromises.push(loadQuestionnaireStructure())
-
-// 并行拉取角色/音乐投票对象列表(V2);成功/缓存/出错都会 resolve voteObjectsReady
-appPromises.push(loadVoteObjects())
+// 有本地凭据时，路由内容会被启动加载状态遮蔽，直到会话和问卷恢复完成。
+const checkLoginStatusPromise = checkLoginStatus(true).finally(() => {
+  isBootstrapping.value = false
+})
 
 // router config
 declare module 'vue-router' {
@@ -106,14 +96,14 @@ const router = createRouter({
 })
 let pendingNProgress: ReturnType<typeof setTimeout> | undefined
 router.beforeEach(async (to, from, next) => {
-  if (pendingNProgress === undefined)
+  const isInitialNavigation = from.matched.length === 0 && from.path === '/'
+  if (!isInitialNavigation && !isBootstrapping.value && pendingNProgress === undefined)
     pendingNProgress = setTimeout(() => {
       if (!NProgress.isStarted()) NProgress.start()
       pendingNProgress = undefined
     }, 150)
 
   await checkLoginStatusPromise
-  await structureReady
   if (to.path != '/' && voteNotStart()) next({ path: '/' })
   else if (to.path != '/' && !isLogin.value) next({ path: '/' })
   else if (to.meta.availableAfterVoteEnded && voteEnded()) next()
@@ -124,19 +114,13 @@ router.beforeEach(async (to, from, next) => {
 })
 router.afterEach((guard) => {
   incProcess()
-  appPromisesFinish.then(() => {
-    if (pendingNProgress) {
-      clearTimeout(pendingNProgress)
-      pendingNProgress = undefined
-    }
-    if (!guard.meta.holdLoading) {
-      if (NProgress.isStarted()) NProgress.done()
-    }
-  })
+  if (pendingNProgress) {
+    clearTimeout(pendingNProgress)
+    pendingNProgress = undefined
+  }
+  if (!guard.meta.holdLoading) {
+    if (NProgress.isStarted()) NProgress.done()
+  }
 })
 app.use(router)
-
-const appPromisesFinish = Promise.allSettled(appPromises.map((v) => v.then(incProcess))).then(() => {
-  app.mount('#app')
-  incProcess()
-})
+app.mount('#app')
