@@ -48,8 +48,12 @@ export default defineConfig({
   ],
   server: {
     proxy: {
+      // 对应 Dockerfile.result.template 的 `location /res-be/` → 后端根路径。
+      // 源码只用 /res-be/graphql（composables/graphql/index.ts）。
+      // 此前指向老 Rust 生产后端 touhou.ai，而 result 页面已按 Python 契约层
+      // 重写（12 个 query* 字段），老 Rust 没有这些字段 → dev 下必然报错。
       '/res-be': {
-        target: 'https://touhou.ai/vote-be',
+        target: process.env.VITE_DEV_BACKEND ?? 'http://154.37.215.62:18000',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/res-be/, ''),

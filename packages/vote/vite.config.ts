@@ -24,7 +24,11 @@ for (const dir of list) {
   }
 }
 
-const HOST = 'http://localhost'
+/**
+ * dev 模式下后端地址。默认指向测试机；想连本地起的后端时：
+ *   VITE_DEV_BACKEND=http://localhost:8000 pnpm dev
+ */
+const BACKEND = process.env.VITE_DEV_BACKEND ?? 'http://154.37.215.62:18000'
 
 export default defineConfig(({ command }) => {
   return {
@@ -62,20 +66,39 @@ export default defineConfig(({ command }) => {
     server: {
       port: 5175,
       proxy: {
-        // GraphQL 接口现在直接落在 /vote-be/graphql
-        '/v11-be/graphql': {
-          target: `${HOST}/vote-be/graphql`,
+        // ⚠️ 以下四条必须与 Dockerfile.vote.template 的 nginx v12 块**逐条对应**。
+        //    改一处必须同步另一处：dev 走这里、部署走 nginx，两边不一致会出现
+        //    "本地好的、线上坏的"（或反之）。2026-08-31 就是因为 v12 迁移只改了
+        //    apiPrefix.ts 和 nginx、漏了这里，导致 dev 下所有后端请求被 SPA
+        //    fallback 静默返回 index.html。
+        '/v12-be/vote-objects/': {
+          target: BACKEND,
           changeOrigin: true,
           secure: false,
-          rewrite: (path: string) => path.replace(/^\/v11-be\/graphql/, ''),
+          rewrite: (path: string) => path.replace(/^\/v12-be\/vote-objects\//, '/api/v1/vote-objects/'),
         },
 
-        // 其他后端接口仍然走 /v11-be 基路径
-        '/v11-be': {
-          target: `${HOST}/vote-be`,
+        '/v12-be/questionnaire/': {
+          target: BACKEND,
           changeOrigin: true,
           secure: false,
-          rewrite: (path: string) => path.replace(/^\/v11-be/, ''),
+          rewrite: (path: string) => path.replace(/^\/v12-be\/questionnaire\//, '/api/v1/questionnaire/'),
+        },
+
+        // 对应 nginx 的 `location = /v12-be/doujin/api`（精确匹配）
+        '^/v12-be/doujin/api(\\?.*)?$': {
+          target: BACKEND,
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path: string) => path.replace(/^\/v12-be\/doujin\/api/, '/api/v1/scraper/scrape'),
+        },
+
+        // 兜底：覆盖 /graphql 与根路径的 legacy-compat 端点（如 /user-token-status）
+        '/v12-be/': {
+          target: BACKEND,
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path: string) => path.replace(/^\/v12-be/, ''),
         },
         
         // 重点：解决东方云盘图片跨域的代理
