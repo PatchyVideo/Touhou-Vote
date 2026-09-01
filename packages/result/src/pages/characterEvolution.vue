@@ -78,7 +78,7 @@
         <div class="md:my-1 px-3 py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700">
           * 该图表表示该角色随着投票进程的票数变化情况<br />
           * 其中减少的票数是因为投票人修改自己的投票去掉该角色而导致<br />
-          * 投票时间：2022-06-17 18:00:00 至 2022-07-05 00:00:00
+          * 投票时间以当届公示为准
         </div>
         <div class="px-3 pt-3 md:pt-1 text-lg border-b border-accent-300">总票数演进</div>
         <!-- Graph for vote evolution -->
@@ -91,6 +91,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { voteStart, voteYear } from '@/lib/voteYear'
 import { watchEffect } from 'vue'
 import NProgress from 'nprogress'
 import { gql, useLazyQuery, useQuery } from '@/composables/graphql'
@@ -154,15 +155,15 @@ async function getCharacterEvolution(): Promise<void> {
   trendCharacterNumber.value = charactersForEvolution.value.length
   if (queryCharacterEbvolutionForceDisabled.value)
     loadCharacterEbvolution(undefined, {
-      voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-      voteYear: 11,
+      voteStart,
+      voteYear,
       names: charactersForEvolution.value,
     })
   else
     queryCharacterEbvolutionMore({
       variables: {
-        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-        voteYear: 11,
+        voteStart,
+        voteYear,
         names: charactersForEvolution.value,
       },
       updateQuery(previousQueryResult, { fetchMoreResult }) {
@@ -194,8 +195,8 @@ const {
     }
   `,
   {
-    voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-    voteYear: 11,
+    voteStart,
+    voteYear,
     names: charactersForEvolution.value,
   },
   {
@@ -251,8 +252,8 @@ const {
     }
   `,
   {
-    voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-    voteYear: 11,
+    voteStart,
+    voteYear,
   },
   {
     fetchPolicy: 'network-only',

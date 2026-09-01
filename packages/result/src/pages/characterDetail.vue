@@ -146,6 +146,7 @@
 </template>
 
 <script lang="ts" setup>
+import { voteStart, voteYear } from '@/lib/voteYear'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
@@ -363,13 +364,13 @@ watch(additionalConstraint, () => {
     variables:
       getAdditionalConstraintString(additionalConstraint.value) === ''
         ? {
-            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-            voteYear: 11,
+            voteStart,
+            voteYear,
           }
         : {
             query: getAdditionalConstraintString(additionalConstraint.value),
-            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-            voteYear: 11,
+            voteStart,
+            voteYear,
           },
     updateQuery(previousQueryResult, { fetchMoreResult }) {
       if (!fetchMoreResult) return previousQueryResult
@@ -385,13 +386,13 @@ watch(queryword, () => {
     variables:
       queryword.value === ''
         ? {
-            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-            voteYear: 11,
+            voteStart,
+            voteYear,
           }
         : {
             query: queryword.value,
-            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-            voteYear: 11,
+            voteStart,
+            voteYear,
           },
     updateQuery(previousQueryResult, { fetchMoreResult }) {
       if (!fetchMoreResult) return previousQueryResult
@@ -407,23 +408,23 @@ watch(GUIMode, () => {
     variables: GUIMode.value
       ? getAdditionalConstraintString(additionalConstraint.value) === ''
         ? {
-            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-            voteYear: 11,
+            voteStart,
+            voteYear,
           }
         : {
             query: getAdditionalConstraintString(additionalConstraint.value),
-            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-            voteYear: 11,
+            voteStart,
+            voteYear,
           }
       : queryword.value === ''
       ? {
-          voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-          voteYear: 11,
+          voteStart,
+          voteYear,
         }
       : {
           query: queryword.value,
-          voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-          voteYear: 11,
+          voteStart,
+          voteYear,
         },
     updateQuery(previousQueryResult, { fetchMoreResult }) {
       if (!fetchMoreResult) return previousQueryResult
@@ -484,23 +485,23 @@ const {
   GUIMode.value
     ? getAdditionalConstraintString(additionalConstraint.value) === ''
       ? {
-          voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-          voteYear: 11,
+          voteStart,
+          voteYear,
         }
       : {
           query: getAdditionalConstraintString(additionalConstraint.value),
-          voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-          voteYear: 11,
+          voteStart,
+          voteYear,
         }
     : queryword.value === ''
     ? {
-        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-        voteYear: 11,
+        voteStart,
+        voteYear,
       }
     : {
         query: queryword.value,
-        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-        voteYear: 11,
+        voteStart,
+        voteYear,
       },
   {
     fetchPolicy: 'network-only',

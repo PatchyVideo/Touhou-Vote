@@ -136,7 +136,7 @@
   <Mask v-model:open="open" />
 </template>
 <script lang="ts" setup>
-import { computed, ref, shallowRef, watchEffect } from 'vue'
+import { computed, onUnmounted, ref, shallowRef, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { gql, useMutation } from '@/graphql'
 import type { Mutation } from '@/graphql'
@@ -151,7 +151,7 @@ const props = defineProps({
   open: {
     type: Boolean,
     default: false,
-    requred: true,
+    required: true,
   },
 })
 const emit = defineEmits<{
@@ -162,6 +162,10 @@ const open = useVModel(props, 'open', emit)
 watchEffect(() => {
   if (!open.value) document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:auto')
   else document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:hidden')
+})
+onUnmounted(() => {
+  document.getElementsByTagName('body')[0].setAttribute('style', 'overflow:auto')
+  if (verificationCodeAvailableTimer) clearInterval(verificationCodeAvailableTimer)
 })
 function close(): void {
   open.value = false

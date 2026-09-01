@@ -44,7 +44,7 @@ const props = defineProps({
   // Note that characterHonmei in voteData.ts is readonly
   characterHonmei: {
     type: Object as PropType<Character>,
-    requred: true,
+    required: true,
     default: function () {
       return new Character()
     },

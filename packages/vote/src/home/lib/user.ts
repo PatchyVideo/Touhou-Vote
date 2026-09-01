@@ -6,7 +6,6 @@ import {
   restorePaperV2,
 } from '@/questionnaire/lib/questionnaireStateV2'
 import { API_PREFIX } from '@/common/lib/apiPrefix'
-import { popMessageText } from '@/common/lib/popMessage'
 
 export function createDefaultVoter(): Voter {
   return {
@@ -189,10 +188,7 @@ export async function checkLoginStatus(needGetUserDataFromLocalStorage = false):
       }
     })
     .catch((err) => {
-      console.log(err)
-      if (err.graphQLErrors && err.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') {
-        popMessageText('请求过于频繁！')
-      }
+      console.error('[checkLoginStatus]', err)
       deleteUserData()
     })
 }

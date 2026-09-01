@@ -83,9 +83,13 @@ import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
 import { getClientEnv } from '@/common/lib/clientEnv'
+import { handleQuestionnaireGateError } from '@/common/lib/voteGateError'
+import { useRouter } from 'vue-router'
 startFillTimer('doujin')
 
 setSiteTitle('提名作品')
+
+const router = useRouter()
 
 const confirmedNotice = useLocalStorage('confirmedDoujinNotice', false)
 
@@ -187,6 +191,7 @@ onDone((result) => {
   confirmedNotice.value = false
 })
 onError((error) => {
+  if (handleQuestionnaireGateError(error, router)) return
   console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
   const errorKind = error.graphQLErrors?.[0]?.extensions?.error_kind
   if (errorKind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')

@@ -13,7 +13,7 @@
       >
         <img class="w-32 h-32 object-cover" :src="vote.image" />
         <div>
-          <CompleteTag :complete="vote.compelete.value" />
+          <CompleteTag :complete="vote.complete.value" />
           <h3 class="text-2xl max-w-17ch" v-text="vote.name"></h3>
           <span v-text="vote.desc"></span>
         </div>
@@ -34,19 +34,19 @@ const votes = {
     name: '角色部门',
     desc: '为喜欢的角色投票',
     image: 'https://asset.lilywhite.cc/thvote/imgs/nav/character@100px.png',
-    compelete: voteCharacterComplete,
+    complete: voteCharacterComplete,
   },
   music: {
     name: '音乐部门',
     desc: '为喜欢的音乐投票',
     image: 'https://asset.lilywhite.cc/thvote/imgs/nav/music@100px.png',
-    compelete: voteMusicComplete,
+    complete: voteMusicComplete,
   },
   couple: {
     name: 'CP部门',
     desc: '为喜欢的角色组合投票',
     image: 'https://asset.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
-    compelete: voteCoupleComplete,
+    complete: voteCoupleComplete,
   },
 }
 </script>

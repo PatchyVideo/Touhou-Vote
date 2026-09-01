@@ -79,7 +79,7 @@ const props = defineProps({
   },
   couple: {
     type: Object as PropType<Couple>,
-    requred: true,
+    required: true,
     default: function () {
       return new Couple()
     },

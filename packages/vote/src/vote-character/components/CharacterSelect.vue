@@ -80,16 +80,16 @@ import Mask from '@/common/components/Mask.vue'
 const props = defineProps({
   open: {
     type: Boolean,
-    requred: true,
+    required: true,
   },
   characterHonmeiIsSelected: {
     type: Boolean,
-    requred: true,
+    required: true,
     default: true,
   },
   characterSelected: {
     type: Object as PropType<Character>,
-    requred: true,
+    required: true,
     default: function () {
       return new Character()
     },

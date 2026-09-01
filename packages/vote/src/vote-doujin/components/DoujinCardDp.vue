@@ -49,7 +49,7 @@ import { Doujin, Doujin0, Doujin0NoImageUrl, getDoujinTypeData } from '@/vote-do
 const props = defineProps({
   doujin: {
     type: Object as PropType<Doujin>,
-    requred: true,
+    required: true,
     default: function () {
       return new Doujin()
     },

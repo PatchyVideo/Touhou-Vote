@@ -44,6 +44,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { voteStart, voteYear } from '@/lib/voteYear'
 import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
@@ -81,13 +82,13 @@ const { result, loading, onError } = useQuery<Query>(
   `,
   q.value === ''
     ? {
-        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-        voteYear: 11,
+        voteStart,
+        voteYear,
         questionsOfInterest: [qid.value],
       }
     : {
-        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-        voteYear: 11,
+        voteStart,
+        voteYear,
         query: q.value,
         questionsOfInterest: [qid.value],
       }

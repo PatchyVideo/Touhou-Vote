@@ -293,7 +293,7 @@ const props = defineProps({
   open: {
     type: Boolean,
     default: false,
-    requred: true,
+    required: true,
   },
   filtermode: {
     type: Boolean,

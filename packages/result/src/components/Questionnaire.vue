@@ -78,13 +78,13 @@
           :data="getDataRadar(item)"
           :vote-total="item.totalAnswers"
           :vote-male="item.totalMale"
-          :vote-famale="item.totalFemale"
+          :vote-female="item.totalFemale"
           v-else-if="item.type === 'Multiple'"
           class="max-w-4xl pt-3 mx-auto"
         />
         <router-link
           class="py-3 inline-block"
-          :to="'QuestionnaireInputDetail?qid=' + item.questionId + '&q=' + props.q"
+          :to="'/QuestionnaireInputDetail?qid=' + item.questionId + '&q=' + props.q"
           v-else-if="item.type === 'Input'"
           >点击这里查看全部回答</router-link
         >
@@ -93,6 +93,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { voteStart, voteYear } from '@/lib/voteYear'
 import { gql, useLazyQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
@@ -216,13 +217,13 @@ const {
   `,
   props.q === ''
     ? {
-        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-        voteYear: 11,
+        voteStart,
+        voteYear,
         questionsOfInterest: allQuestionnaireIDList.value,
       }
     : {
-        voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-        voteYear: 11,
+        voteStart,
+        voteYear,
         query: props.q,
         questionsOfInterest: allQuestionnaireIDList.value,
       }
@@ -282,13 +283,13 @@ async function QuestionnaireDetail(q: string): Promise<void> {
       undefined,
       q === ''
         ? {
-            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-            voteYear: 11,
+            voteStart,
+            voteYear,
             questionsOfInterest: allQuestionnaireIDList.value,
           }
         : {
-            voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-            voteYear: 11,
+            voteStart,
+            voteYear,
             query: q,
             questionsOfInterest: allQuestionnaireIDList.value,
           }
@@ -298,13 +299,13 @@ async function QuestionnaireDetail(q: string): Promise<void> {
       variables:
         q === ''
           ? {
-              voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-              voteYear: 11,
+              voteStart,
+              voteYear,
               questionsOfInterest: allQuestionnaireIDList.value,
             }
           : {
-              voteStart: new Date(Date.UTC(2023, 11, 29, 10)),
-              voteYear: 11,
+              voteStart,
+              voteYear,
               query: q,
               questionsOfInterest: allQuestionnaireIDList.value,
             },

@@ -15,21 +15,21 @@ interface FilterMeta {
 }
 
 interface BackendCharacterItem {
-  id: number
+  candidateId: number
   name: string
-  name_jp: string
+  nameJp: string
   workIds: number[]
   workTypes: string[]
-  first_appearance: string | null
+  firstAppearance: string | null
 }
 
 interface BackendMusicItem {
-  id: number
+  candidateId: number
   name: string
-  name_jp: string
+  nameJp: string
   workIds: number[]
   workTypes: string[]
-  first_appearance: string | null
+  firstAppearance: string | null
 }
 
 interface BackendGroup<T> {
@@ -84,9 +84,9 @@ function enrichCharacter(item: BackendCharacterItem): Character {
     ? (item.workTypes.filter(Boolean) as ('old' | 'new' | 'book' | 'CD' | 'others')[])
     : (s?.kind?.length ? s.kind : ['others'])
   return new Character(
-    String(item.id),
+    String(item.candidateId),
     item.name,
-    s?.origname ?? item.name_jp,
+    s?.origname ?? item.nameJp,
     s?.altnames ?? [],
     s?.title ?? '',
     s?.image ?? 'https://static.thwiki.cc/favicon.png',
@@ -107,9 +107,9 @@ function enrichMusic(item: BackendMusicItem): Music {
     ? (item.workTypes.filter(Boolean) as ('game' | 'book' | 'CD' | 'others')[])
     : (s?.kind?.length ? s.kind : ['others'])
   return new Music(
-    String(item.id),
+    String(item.candidateId),
     item.name,
-    s?.origname ?? item.name_jp,
+    s?.origname ?? item.nameJp,
     albumName, // album → work name
     s?.date ?? 0,
     s?.image ?? 'https://static.thwiki.cc/favicon.png',

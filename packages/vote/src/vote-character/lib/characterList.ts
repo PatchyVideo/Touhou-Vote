@@ -3,7 +3,7 @@ import type { Character } from './character'
 import { character0 } from './character'
 import { characterHonmei, characters } from './voteData'
 import { filterForKind, workSelected } from './workList'
-import { characterListFromBackend } from '@/common/lib/voteObjectsDataSource'
+import { characterListFromBackend, characterGroupsRaw } from '@/common/lib/voteObjectsDataSource'
 import { orderOptions as sharedOrderOptions, filterCharactersByMeta, searchAndSort } from '@/common/lib/characterSearch'
 
 export const characterList = characterListFromBackend
@@ -20,6 +20,17 @@ export const characterListLeft = computed<Character[]>(() => {
   const kinds = filterForKind.value.map((k) => k.value)
   charaList = filterCharactersByMeta(charaList, kinds, workSelected.value.name || undefined)
 
+  if (!charaList.length) {
+    console.warn('[DEBUG characterListLeft] EMPTY!', {
+      totalChars: characterList.value.length,
+      groupsRawLen: characterGroupsRaw.value.length,
+      votedIds: characters.value.map(c => c.id),
+      honmeiId: characterHonmei.value.id,
+      filterForKindN: filterForKind.value.length,
+      kinds,
+      workSelected: workSelected.value.name,
+    })
+  }
 
   return charaList
 })
