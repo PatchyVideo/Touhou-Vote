@@ -180,19 +180,44 @@ async function vote(): Promise<void> {
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`
     mutation ($content: DojinSubmitGQL!) {
-      submitDojin(content: $content)
+      submitDojin(content: $content) {
+        accepted
+        rejected {
+          index
+          reason
+        }
+        skipped {
+          index
+          reason
+        }
+      }
     }
   `
 )
 onDone((result) => {
-  popMessageText('投票成功！')
+  const submitResult = result.data?.submitDojin
+  if (submitResult) {
+    const parts = [`已提交 ${submitResult.accepted} 条提名，等待人工审核`]
+    if (submitResult.rejected.length) {
+      parts.push(`${submitResult.rejected.length} 条未通过：${submitResult.rejected.map((r) => r.reason).join('；')}`)
+    }
+    if (submitResult.skipped.length) {
+      parts.push(`${submitResult.skipped.length} 条为重复提名，已跳过`)
+    }
+    popMessageText(parts.join('；'))
+  } else {
+    popMessageText('投票成功！')
+  }
   voteDoujinComplete.value = true
   router.push({ path: '/', query: { tab: 2 } })
 })
 onError((error) => {
   if (handleQuestionnaireGateError(error, router)) return
-  console.log(error.graphQLErrors?.[0]?.extensions?.error_kind)
-  if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  const errorKind = error.graphQLErrors?.[0]?.extensions?.error_kind
+  console.log(errorKind)
+  if (errorKind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
+  else if (errorKind === 'NOMINATION_CLOSED') popMessageText('提名通道未开放或已关闭')
+  else if (errorKind === 'NOMINATION_NOT_CONFIGURED') popMessageText('提名功能暂未开放')
   else popMessageText('投票失败，原因：' + error.graphQLErrors?.[0]?.extensions?.human_readable_message)
 })
 </script>
