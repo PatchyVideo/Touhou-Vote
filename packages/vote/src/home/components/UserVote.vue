@@ -53,7 +53,7 @@ const VoteList = [
   {
     type: 'character',
     title: '角色部门',
-    icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/character@100px.png',
+    icon: 'https://image.touhou.ai/i/2026/09/04/6a9a1c884e8d4.png',
     desc: '为喜欢的角色投票',
     complete: () => voteCharacterComplete.value,
     buttontext: () => (voteCharacterComplete.value ? '修改结果' : '开始投票'),

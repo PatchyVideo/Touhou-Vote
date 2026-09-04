@@ -33,7 +33,7 @@ const votes = {
   character: {
     name: '角色部门',
     desc: '为喜欢的角色投票',
-    image: 'https://asset.lilywhite.cc/thvote/imgs/nav/character@100px.png',
+    image: 'https://image.touhou.ai/i/2026/09/04/6a9a1c884e8d4.png',
     complete: voteCharacterComplete,
   },
   music: {
