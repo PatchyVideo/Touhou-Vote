@@ -49,6 +49,14 @@ FROM nginx:alpine
 # - proxy_connect_timeout / proxy_read_timeout: 防止慢请求长时间占用连接
 # - proxy_next_upstream: 后端连接失败/超时自动重试
 # - gzip: 压缩静态资源减少传输时间
+#
+# 2026-09-07 新增 /th-assets/:
+# - asset.lilywhite.cc 不返回 CORS 头，html2canvas 以 crossOrigin=anonymous 重新拉图会失败，
+#   导致「导出投票卡片」里的头像全空白；这里做同源反代绕过（前端侧见 exportAssetUrl.ts，
+#   生产环境对应 packages/vote/public/vercel.json 的同名 rewrite）。
+# - proxy_ssl_server_name on 必须开：上游在 Cloudflare 后面，没有 SNI 会握手失败。
+# - proxy_pass 用静态域名，nginx 启动时解析一次：DNS 不通会导致容器起不来，
+#   靠 docker-compose 的 restart: unless-stopped 自愈。
 RUN echo 'server { \
     listen 8082; \
     gzip on; \
@@ -57,6 +65,16 @@ RUN echo 'server { \
     location / { \
         root /usr/share/nginx/html; \
         try_files $uri /index.html; \
+    } \
+    location /th-assets/ { \
+        proxy_pass https://asset.lilywhite.cc/; \
+        proxy_ssl_server_name on; \
+        proxy_set_header Host asset.lilywhite.cc; \
+        proxy_http_version 1.1; \
+        proxy_connect_timeout 5s; \
+        proxy_read_timeout 30s; \
+        proxy_hide_header Set-Cookie; \
+        add_header Access-Control-Allow-Origin * always; \
     } \
     location /v12-be/vote-objects/ { \
         proxy_pass http://thvote-backend:8000/api/v1/vote-objects/; \
