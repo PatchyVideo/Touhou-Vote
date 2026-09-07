@@ -110,25 +110,7 @@
 						</div>
 					</div>
 
-					<!-- 底部装饰信息 -->
-					<div class="mt-auto pt-10 border-t-2 border-gray-50 flex flex-col items-center text-gray-400">
-						<div class="w-36 h-36 mb-3 rounded-lg border-2 border-gray-100 bg-[linear-gradient(90deg,#f3f4f6_50%,transparent_50%),linear-gradient(#f3f4f6_50%,transparent_50%)] bg-[length:16px_16px] bg-[position:0_0,0_0] flex items-center justify-center">
-							<div class="w-24 h-24 border-4 border-gray-500 bg-white flex items-center justify-center text-center text-xs leading-5 font-bold text-gray-500">
-								TOUHOU
-								<br />
-								VOTE
-							</div>
-						</div>
-						<p class="text-sm mb-4">打开 touhou.vote 参与投票</p>
-
-						<div class="text-center space-y-1 font-medium">
-							<p>
-								投票链接：
-								<span class="underline">https://touhou.vote</span>
-							</p>
-							<p>投票时间： xxxx年xx月xx日-xxxx年xx月xx日</p>
-						</div>
-					</div>
+					<ExportCardFooter />
 				</div>
 			</div>
 		</VoteMessageBox>
@@ -138,6 +120,7 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
 import VoteMessageBox from './VoteMessageBox.vue'
+import ExportCardFooter from './ExportCardFooter.vue'
 import { getExportMusicData, getExportMusicDataFromDataSource } from '@/common/lib/exportVoteData'
 import { getDataSourceMode, type DataSourceMode } from '@/common/lib/voteDataSource'
 import { musicList } from '@/vote-music/lib/musicList'
