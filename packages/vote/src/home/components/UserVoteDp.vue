@@ -19,6 +19,8 @@
         </div>
       </RouterLink>
     </div>
+
+    <ShareMyVote class="mt-6" />
   </div>
 </template>
 
@@ -26,6 +28,7 @@
 import { username, voteCharacterComplete, voteCoupleComplete, voteMusicComplete } from '../lib/user'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import CompleteTag from '@/home/components/CompleteTag.vue'
+import ShareMyVote from '@/home/components/ShareMyVote.vue'
 
 setSiteTitle(String(username.value))
 

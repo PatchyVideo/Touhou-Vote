@@ -38,13 +38,13 @@
             >
               <div>账号设置</div>
             </router-link>
-            <div class="p-2 border-t border-gray-200">
+            <div v-if="voteCharacterComplete" class="p-2 border-t border-gray-200">
               <ExportCharacterVoteImage />
             </div>
-            <div class="p-2 border-t border-gray-200">
+            <div v-if="voteMusicComplete" class="p-2 border-t border-gray-200">
               <ExportMusicVoteImage />
             </div>
-            <div class="p-2 border-t border-gray-200">
+            <div v-if="voteCoupleComplete" class="p-2 border-t border-gray-200">
               <ExportCoupleVoteImage />
             </div>
             <div
@@ -194,13 +194,13 @@
                   >
                     <div>账号设置</div>
                   </router-link>
-                  <div class="p-2 border-t border-gray-200">
+                  <div v-if="voteCharacterComplete" class="p-2 border-t border-gray-200">
                     <ExportCharacterVoteImage />
                   </div>
-                  <div class="p-2 border-t border-gray-200">
+                  <div v-if="voteMusicComplete" class="p-2 border-t border-gray-200">
                     <ExportMusicVoteImage />
                   </div>
-                  <div class="p-2 border-t border-gray-200">
+                  <div v-if="voteCoupleComplete" class="p-2 border-t border-gray-200">
                     <ExportCoupleVoteImage />
                   </div>
                   <div

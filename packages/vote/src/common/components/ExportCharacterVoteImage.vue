@@ -1,7 +1,7 @@
 <template>
   <ExportVoteImageDialog
     accent="purple"
-    button-label="导出角色投票为图片"
+    :button-label="buttonLabel"
     :card-title="`${userName}的角色部门投票`"
     file-name-prefix="th-vote"
     share-title="我的东方人气投票"
@@ -76,6 +76,9 @@ import { username } from '@/home/lib/user'
 import { getExportAssetUrl } from '@/common/lib/exportAssetUrl'
 import { darkenColor, normalizeColor } from '@/common/lib/exportCardColor'
 import { useVoteCardData } from '@/common/lib/useVoteCardData'
+
+// 触发按钮文案可以被调用方改写（提交成功页用的是「生成分享图」）。
+withDefaults(defineProps<{ buttonLabel?: string }>(), { buttonLabel: '导出角色投票为图片' })
 
 const userName = computed(() => username.value || '匿名用户')
 
