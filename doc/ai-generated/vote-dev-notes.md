@@ -59,10 +59,13 @@
 - `src/darkmode`：暗色模式初始化。
 
 ## 导出投票结果为图片
-- 导出功能目前已经接入 `UserHome.vue` 的头像菜单，移动端和桌面端各自都挂了 3 个入口：
-  - `ExportCharacterVoteImage.vue`
-  - `ExportMusicVoteImage.vue`
-  - `ExportCoupleVoteImage.vue`
+- 三个部门的导出组件是 `ExportCharacterVoteImage.vue` / `ExportMusicVoteImage.vue` / `ExportCoupleVoteImage.vue`，共有三处入口（2026-09-08 起）：
+  1. **提交成功后的引导**（主入口）——三个投票页提交成功时弹 `VoteSubmittedDialog.vue`，里面直接放对应部门的导出组件（按钮文案改成「生成分享图」）。这是用户最想给人看自己选择的时刻；在这之前提交成功只有一个一闪而过的 toast 然后直接跳回首页。
+  2. **首页常驻入口**——`ShareMyVote.vue`，挂在移动端 `UserVote.vue` 和桌面端 `UserVoteDp.vue` 的部门卡片下方，照顾隔天回来想再导一次的用户。
+  3. **头像菜单**——`UserHome.vue` 里原有的三个入口保留（移动端 `:41` 起、桌面端 `:196` 起）。
+- **三处都按完成状态 gate**：只有 `voteCharacterComplete` / `voteMusicComplete` / `voteCoupleComplete` 为真的部门才显示入口。在这之前是无条件显示，没投过票的人点开只会得到「你还没有投票数据」。`ShareMyVote` 在三个都没完成时整块不渲染。
+- ⚠️ **提交成功弹层和导出弹层是叠着的，不要改成「打开导出就关掉成功弹层」**：导出组件在成功弹层的插槽里，关掉成功弹层会把它整个卸载，导出立刻中断。现在的行为是导出弹层盖在上面，关掉它回到成功弹层，再点「回首页」走人。
+- 提交成功后停在本页，所以 `onDone` 里要自己把确认框 `confirmBoxOpen` 收掉——原来靠跳页把它一起卸载。
 - 这几个组件都放在 `src/common/components`，说明它们被视为跨部门的通用能力，而不是某个单一投票页私有逻辑。
 - 当前实现链路基本一致：
   1. 打开 `VoteMessageBox` 预览弹层
