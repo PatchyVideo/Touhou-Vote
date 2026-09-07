@@ -1,7 +1,7 @@
 <template>
   <ExportVoteImageDialog
     accent="pink"
-    button-label="导出CP投票为图片"
+    :button-label="buttonLabel"
     :card-title="`${userName}的CP组合投票`"
     file-name-prefix="th-cp-vote"
     share-title="我的东方人气CP投票"
@@ -140,6 +140,9 @@ type FullCoupleData = {
     image: string
   }>
 }
+
+// 触发按钮文案可以被调用方改写（提交成功页用的是「生成分享图」）。
+withDefaults(defineProps<{ buttonLabel?: string }>(), { buttonLabel: '导出CP投票为图片' })
 
 const userName = computed(() => username.value || '匿名用户')
 

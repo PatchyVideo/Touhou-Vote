@@ -118,6 +118,11 @@
       </button>
     </div>
   </VoteMessageBox>
+
+  <!-- 提交成功后的引导：这时投票数据一定是完整的，导出不会走空数据分支 -->
+  <VoteSubmittedDialog v-model:open="submittedDialogOpen" department="CP部门">
+    <ExportCoupleVoteImage button-label="生成分享图" />
+  </VoteSubmittedDialog>
 </template>
 
 <script lang="ts" setup>
@@ -129,6 +134,8 @@ import { coupleHonmei, couplesValid, couplesValidWithoutHonmei } from '@/vote-co
 import NavVote from '@/common/components/NavVote.vue'
 import CoupleCard from '@/vote-couple/components/CoupleCard.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import VoteSubmittedDialog from '@/common/components/VoteSubmittedDialog.vue'
+import ExportCoupleVoteImage from '@/common/components/ExportCoupleVoteImage.vue'
 import type { Character } from '@/vote-character/lib/character'
 import { character0 } from '@/vote-character/lib/character'
 import { gql, useMutation, useQuery } from '@/graphql'
@@ -313,6 +320,8 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
   })
 )
 const router = useRouter()
+
+const submittedDialogOpen = ref(false)
 async function vote(): Promise<void> {
   mutate({
     content: {
@@ -331,10 +340,12 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
     }
   `
 )
-onDone((result) => {
-  popMessageText('投票成功！')
+onDone(() => {
   voteCoupleComplete.value = true
-  router.push({ path: '/', query: { tab: 1, openList: 'vote', open: 1 } })
+  // 原来提交完直接跳走，确认框跟着卸载；现在停在本页，得自己收掉。
+  confirmBoxOpen.value = false
+  // 不再直接跳回首页：先问一句要不要生成分享图，用户选「回首页」时才跳。
+  submittedDialogOpen.value = true
 })
 onError((error) => {
   if (handleQuestionnaireGateError(error, router)) return

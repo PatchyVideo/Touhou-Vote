@@ -3,7 +3,7 @@
   角色 / 音乐 / CP 三个部门只有卡片正文不同，正文通过默认插槽传进来。
 -->
 <template>
-  <div class="w-full">
+  <div>
     <button class="px-4 py-2 text-white rounded-xl transition" :class="accentStyle.button" @click="openExport">
       <icon-uil-image-download class="inline-block mr-2" />
       {{ buttonLabel }}
@@ -101,4 +101,5 @@ const { canShare, downloadImage, exportDialogOpen, generating, openExport, previ
     shareTitle: props.shareTitle,
     prepare: () => props.prepare(),
   })
+
 </script>

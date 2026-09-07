@@ -1,7 +1,7 @@
 <template>
   <ExportVoteImageDialog
     accent="blue"
-    button-label="导出音乐投票为图片"
+    :button-label="buttonLabel"
     :card-title="`${userName}的音乐部门投票`"
     file-name-prefix="th-music-vote"
     share-title="我的东方人气投票"
@@ -77,6 +77,9 @@ import { username } from '@/home/lib/user'
 import { getExportAssetUrl } from '@/common/lib/exportAssetUrl'
 import { darkenColor, getMusicColor } from '@/common/lib/exportCardColor'
 import { useVoteCardData } from '@/common/lib/useVoteCardData'
+
+// 触发按钮文案可以被调用方改写（提交成功页用的是「生成分享图」）。
+withDefaults(defineProps<{ buttonLabel?: string }>(), { buttonLabel: '导出音乐投票为图片' })
 
 const userName = computed(() => username.value || '匿名用户')
 

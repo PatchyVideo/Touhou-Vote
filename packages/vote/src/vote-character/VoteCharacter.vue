@@ -131,6 +131,11 @@
       </button>
     </div>
   </VoteMessageBox>
+
+  <!-- 提交成功后的引导：这时投票数据一定是完整的，导出不会走空数据分支 -->
+  <VoteSubmittedDialog v-model:open="submittedDialogOpen" department="角色部门">
+    <ExportCharacterVoteImage button-label="生成分享图" />
+  </VoteSubmittedDialog>
 </template>
 
 <script lang="ts" setup>
@@ -141,6 +146,8 @@ import NavVote from '@/common/components/NavVote.vue'
 import CharacterSelect from './components/CharacterSelect.vue'
 import CharacterHonmeiCard from './components/CharacterHonmeiCard.vue'
 import VoteMessageBox from '@/common/components/VoteMessageBox.vue'
+import VoteSubmittedDialog from '@/common/components/VoteSubmittedDialog.vue'
+import ExportCharacterVoteImage from '@/common/components/ExportCharacterVoteImage.vue'
 import CharacterCard from '@/vote-character/components/CharacterCard.vue'
 import { character0 } from '@/vote-character/lib/character'
 import { charactersVoted, charactersVotedWithoutHonmei } from '@/vote-character/lib/characterList'
@@ -159,6 +166,8 @@ startFillTimer('character')
 setSiteTitle('角色部门')
 
 const router = useRouter()
+
+const submittedDialogOpen = ref(false)
 const voteObjectsSettled = ref(false)
 void loadVoteObjects().finally(() => {
   voteObjectsSettled.value = true
@@ -248,10 +257,12 @@ const { mutate, loading, onDone, onError } = useMutation<Mutation>(
     }
   `
 )
-onDone((result) => {
-  popMessageText('投票成功！')
+onDone(() => {
   voteCharacterComplete.value = true
-  router.push({ path: '/', query: { tab: 1, openList: 'vote', open: 1 } })
+  // 原来提交完直接跳走，确认框跟着卸载；现在停在本页，得自己收掉。
+  confirmBoxOpen.value = false
+  // 不再直接跳回首页：先问一句要不要生成分享图，用户选「回首页」时才跳。
+  submittedDialogOpen.value = true
 })
 onError((error) => {
   if (handleQuestionnaireGateError(error, router)) return
