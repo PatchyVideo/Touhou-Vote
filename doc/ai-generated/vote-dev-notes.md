@@ -151,7 +151,16 @@ pnpm vote:serve
   - `src/common/lib/testHelper`
   - `src/common/lib/testErrorHandling`
 - 这意味着本地调试时会附带额外的测试辅助逻辑，排查行为差异时需要先确认是否只在 `import.meta.env.DEV` 下触发。
-- `testHelper` 里已经有针对导出图片的快捷测试数据提示，调试导出功能时可以优先复用。
+- `testHelper` 提供一键灌测试投票的入口，调试导出图片时优先复用：
+  ```js
+  await testHelper.setupAllTestVotes()   // 角色 + CP + 音乐三份都灌好，并模拟登录
+  await testHelper.setupQuickTestVotes() // 只灌角色
+  testHelper.checkTestStatus()           // 看当前登录态和已灌的票
+  ```
+- ⚠️ **凡是要按名字找候选的入口都是 async**（`setupTestCharacterVotes` / `setupTestMusicVotes` / `setupTestCoupleVotes` / 三个 `setupQuick*` / `setupAllTestVotes` / `getAvailable*`）。候选表是从后端拉的（`voteObjectsDataSource`），这些函数内部会先 `await loadVoteObjects()`，拉不到会抛错而不是灌出一份空投票。
+- 名字按子串匹配，中文译名（`name`）和日文原名（`origname`）都试；**匹配不到会在控制台 `warn`**，不会静默少投一票——2026-02 那批默认曲名（`亡き王女の为のセプテット` 简繁写错、`U.N.オーエンは彼女なのか？` 只存在于 `origname`）就是这么静默失效了好几个月的。
+- 灌进去的是完整候选对象 + `honmei`/`reason`，和线上 `updateVoteCharacters` 的形状一致，所以投票页也能正常显示，不只是导图能用。
+- ⚠️ `doc/260215EXPORT_FEATURE_UPDATE.md` 里的「测试方式」一节是 2026-02 的历史记录，写法已经过期（那时 `characterList` 还是静态数组），以本节为准。
 - 如果页面资源正常、接口却异常，先检查 `/v11-be` 代理和 Cookie `credentials: 'include'` 是否符合本地环境。
 
 ## 问卷结构现状
