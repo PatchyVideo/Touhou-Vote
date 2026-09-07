@@ -13,6 +13,11 @@ type UseVoteImageExportOptions = {
 }
 
 const EXPORT_ABORT_ERROR = 'VOTE_IMAGE_EXPORT_ABORT'
+const EXPORT_TIMEOUT_ERROR = 'VOTE_IMAGE_EXPORT_TIMEOUT'
+
+// 素材加载的兜底时限：图片既不 load 也不 error（请求被挂住）时，
+// 没有这个上限就会永远卡在「正在生成图片…」，用户只能关掉弹窗。
+const IMAGE_LOAD_TIMEOUT_MS = 10_000
 
 export function createVoteImageExportAbortError() {
   return new Error(EXPORT_ABORT_ERROR)
@@ -26,18 +31,36 @@ function clearObjectUrl(url: string) {
   if (url) URL.revokeObjectURL(url)
 }
 
+/** 等到所有图片有结果（成功或失败都算），超过 IMAGE_LOAD_TIMEOUT_MS 则抛超时错误。 */
 async function waitForImages(element: HTMLElement) {
-  const images = Array.from(element.querySelectorAll('img'))
-  await Promise.all(
-    images.map((img) => {
-      if (img.complete) return Promise.resolve()
-      return new Promise<void>((resolve) => {
-        const handler = () => resolve()
-        img.onload = handler
-        img.onerror = handler
-      })
-    })
-  )
+  const pending = Array.from(element.querySelectorAll('img')).filter((img) => !img.complete)
+  if (!pending.length) return
+
+  let timer: ReturnType<typeof setTimeout> | undefined
+  try {
+    await Promise.race([
+      Promise.all(
+        pending.map(
+          (img) =>
+            new Promise<void>((resolve) => {
+              // 用 addEventListener 而不是赋值 onload/onerror，避免覆盖调用方已挂的处理函数。
+              const settle = () => {
+                img.removeEventListener('load', settle)
+                img.removeEventListener('error', settle)
+                resolve()
+              }
+              img.addEventListener('load', settle)
+              img.addEventListener('error', settle)
+            })
+        )
+      ),
+      new Promise<never>((_, reject) => {
+        timer = setTimeout(() => reject(new Error(EXPORT_TIMEOUT_ERROR)), IMAGE_LOAD_TIMEOUT_MS)
+      }),
+    ])
+  } finally {
+    if (timer) clearTimeout(timer)
+  }
 }
 
 function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob> {
@@ -91,6 +114,7 @@ export function useVoteImageExport(options: UseVoteImageExportOptions) {
       backgroundColor: '#ffffff',
       logging: false,
       width: options.width ?? 640,
+      imageTimeout: IMAGE_LOAD_TIMEOUT_MS,
     })
 
     const blob = await canvasToBlob(canvas)
@@ -110,10 +134,13 @@ export function useVoteImageExport(options: UseVoteImageExportOptions) {
       await nextTick()
       await generatePreview()
     } catch (error) {
-      if (error instanceof Error && error.message === EXPORT_ABORT_ERROR) {
+      const reason = error instanceof Error ? error.message : ''
+      if (reason === EXPORT_ABORT_ERROR || reason === EXPORT_TIMEOUT_ERROR) {
+        // 中止和超时都不留半成品弹窗：直接关闭，让用户重来一次。
         exportDialogOpen.value = false
         clearPreviewImageUrl()
         imageBlob.value = null
+        if (reason === EXPORT_TIMEOUT_ERROR) popMessageText('图片素材加载超时，请稍后重试')
         return
       }
       console.error('生成图片失败:', error)
