@@ -72,11 +72,13 @@
   5. 在离屏 DOM 中渲染卡片，再用 `html2canvas` 生成图片
   6. 支持预览、下载，以及在支持的浏览器中调用 Web Share API
 - 当前 3 个导出组件不再保留隐藏的 GraphQL 调试开关，运行时统一遵循 `voteDataSource.ts` 的全局数据源模式；默认仍是 `auto`，也就是优先 GraphQL，失败时回退本地数据。
-- 开发环境下图片 URL 会被替换到本地代理：
-  - `asset.lilywhite.cc` -> `/th-assets`
-  - `static.thwiki.cc` -> `/thwiki-assets`
-- 这是为了让 `html2canvas` 在本地也能拿到跨域图片，不然导图很容易因为资源跨域失败。
-- 这一点当前只在开发环境下成立；如果生产环境仍直接使用第三方图片源，而源站没有返回适用于 canvas 的 CORS 头，导图问题仍可能复现。
+- 导图用到的图片 URL 会被 `exportAssetUrl.ts` 改写成同源代理路径 `/th-assets`，**所有环境都生效**（2026-09-07 起）：
+  - 本地 dev：`packages/vote/vite.config.ts` 的 proxy
+  - 测试机 :8082：`Dockerfile.vote.template` 里 nginx 的 `location /th-assets/`
+  - 生产 Vercel：`packages/vote/public/vercel.json` 的 `/th-assets/(.*)` rewrite
+- 原因：`html2canvas` 会在克隆节点上以 `crossOrigin="anonymous"` 重新拉取每张图，而 `asset.lilywhite.cc` 实测不返回 `Access-Control-Allow-Origin`，直连会让导出的卡片里头像全部空白。`static.thwiki.cc` 自带 `Access-Control-Allow-Origin: *`，不需要代理，dev 下沿用既有 `/thwiki-assets` 只是为了省掉一次 308 跳转。
+- ⚠️ 新增部署环境时必须同步补上 `/th-assets` 代理，三处任缺其一，对应环境的导出图就会缺图。
+- 页面上普通 `<img>` 的展示走 `assetUrl.ts`，仍直连 CDN，不受此影响。
 - 当前导出组件已经补上两类稳定性处理：
   - 预览图更新或弹层关闭时会释放旧的 `ObjectURL`
   - 分享按钮会基于 `navigator.share` 和 `navigator.canShare({ files })` 做真实能力判断
@@ -85,18 +87,24 @@
 - `voteDataSource.ts` 的 GraphQL 获取现在使用 Apollo Client 直接查询，而不是在通用工具函数里调用 `useLazyQuery`；这样点击导出按钮时不会再触发 “Apollo client with id default not found” 这类错误。
 - 导出组件里重复的图片生成逻辑已经抽到两个共享模块：
   - `src/common/lib/useVoteImageExport.ts`：统一处理离屏渲染、图片等待、预览 URL 生命周期、下载和分享
-  - `src/common/lib/exportAssetUrl.ts`：统一处理开发环境下的图片代理 URL 改写
+  - `src/common/lib/exportAssetUrl.ts`：统一把导图用的图片 URL 改写到同源代理路径
+  - `src/common/components/ExportCardFooter.vue`：三张卡片共用的底部信息区（二维码、投票链接、投票时间）
 - 现在三份 `Export*VoteImage.vue` 主要保留各自的数据映射、配色和卡片结构，后续继续改导图时应优先复用这两个共享模块。
 - 三个导出入口现在都会在生成前检查投票数据是否为空；如果本地数据和 GraphQL 数据都为空，会直接提示“我没有数据，请你先提交投票”，并中断生成，不再继续导出空白图片。
-- 卡片底部不再依赖第三方在线二维码服务，而是改成静态引导样式块，只保留 `touhou.vote` 的访问提示，避免生产环境继续受在线二维码服务可用性和跨域表现影响。
+- 卡片底部不依赖任何在线二维码服务：二维码是仓库内的静态图 `src/common/assets/vote-qrcode.png`（内容为 `https://touhou.vote/`），走 vite 资源引用，导出时是同源图片。在这之前那里是一个 CSS 画的假格子，扫不出东西。
+- 卡片底部的「投票时间」由 `shared/data/voteYear.ts` 的 `voteWindowStart` / `voteWindowEnd` 驱动，经 `src/common/lib/voteYear.ts` 的 `voteWindowText` 按 UTC+8 格式化；本届未定档时两个常量为 `null`，该行整行隐藏。**不要在模板里填占位文字**，它会被直接截进用户分享出去的图片（历史上这里印过 `xxxx年xx月xx日`）。
+- 定档后需要同时更新三处：`shared/data/voteYear.ts`、`shared/data/time.ts`（投票开关的真值，当前 `deadline` 仍是 `2099` 的开发用占位）、后端 Nacos `VOTE_START_ISO`。
+- `useVoteImageExport.ts` 的素材等待有 10s 上限（`IMAGE_LOAD_TIMEOUT_MS`），超时会关掉弹层并提示「图片素材加载超时，请稍后重试」；`html2canvas` 的 `imageTimeout` 取同一个值。在这之前 `waitForImages` 既无超时、又用赋值方式覆盖 `img.onload/onerror`，图片被挂住时会永远卡在「正在生成图片…」。
 
 ## 导出功能当前限制
-- 角色头像、曲绘等远程图片在开发环境里会走本地代理，但生产环境仍需要确认正式图源是否满足 canvas 绘制所需的 CORS 条件。
+- `html2canvas@1.4.1` 不支持 `object-fit`，卡片里 `object-cover` 的头像在导出的 PNG 里会被拉伸而不是裁切，尚未处理。
+- `voteDataSource.ts` 的 `auto` 模式是「localStorage 有数据就不打 GraphQL」，所以在换设备/清过缓存的浏览器上才会走后端；本地数据与后端不一致时导出的是本地那份。
+- 三份 `Export*VoteImage.vue` 里 `normalizeColor` / `darkenColor` 和卡片版式仍各写一份，只有底部信息区抽成了 `ExportCardFooter.vue`。
 
 ## 导出功能后续开发建议
 1. 如果要继续迭代导出能力，优先先统一三份 `Export*VoteImage.vue` 里重复的生成、等待图片、下载、分享和 URL 代理逻辑。
 2. 在补 GraphQL 导出前，先决定 UI 是否真的要暴露“数据源模式”给用户，还是只保留开发态入口。
-3. 生产环境上线前，要先确认二维码资源、角色图、曲绘图在 Canvas 场景下都满足跨域要求。
+3. ~~生产环境上线前，要先确认二维码资源、角色图、曲绘图在 Canvas 场景下都满足跨域要求。~~ 已于 2026-09-07 处理：二维码改本地静态图，远程图片全部走 `/th-assets` 同源代理。
 
 ## 样式与构建
 - 构建配置在 `vite.config.ts`：
