@@ -1,5 +1,5 @@
 import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
-import html2canvas from 'html2canvas'
+import { domToBlob } from 'modern-screenshot'
 import { popMessageText } from '@/common/lib/popMessage'
 
 type ElementRef = { value?: HTMLElement | null }
@@ -19,6 +19,8 @@ const EXPORT_TIMEOUT_ERROR = 'VOTE_IMAGE_EXPORT_TIMEOUT'
 // 没有这个上限就会永远卡在「正在生成图片…」，用户只能关掉弹窗。
 const IMAGE_LOAD_TIMEOUT_MS = 10_000
 
+const CARD_WIDTH_PX = 640
+
 export function createVoteImageExportAbortError() {
   return new Error(EXPORT_ABORT_ERROR)
 }
@@ -29,6 +31,11 @@ function resolveFileName(fileName: string | (() => string)) {
 
 function clearObjectUrl(url: string) {
   if (url) URL.revokeObjectURL(url)
+}
+
+/** 等浏览器实际画完一帧，确保离屏卡片的布局已经定下来再截图。 */
+function nextFrame() {
+  return new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())))
 }
 
 /** 等到所有图片有结果（成功或失败都算），超过 IMAGE_LOAD_TIMEOUT_MS 则抛超时错误。 */
@@ -61,15 +68,6 @@ async function waitForImages(element: HTMLElement) {
   } finally {
     if (timer) clearTimeout(timer)
   }
-}
-
-function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob> {
-  return new Promise((resolve, reject) => {
-    canvas.toBlob((blob) => {
-      if (blob) resolve(blob)
-      else reject(new Error('生成图片数据失败'))
-    }, 'image/png', 0.95)
-  })
 }
 
 export function useVoteImageExport(options: UseVoteImageExportOptions) {
@@ -106,18 +104,20 @@ export function useVoteImageExport(options: UseVoteImageExportOptions) {
   async function generatePreview() {
     if (!options.cardRef.value) throw new Error('导图节点不存在')
     await waitForImages(options.cardRef.value)
-    await new Promise((resolve) => setTimeout(resolve, 300))
+    await nextTick()
+    await nextFrame()
 
-    const canvas = await html2canvas(options.cardRef.value, {
+    // modern-screenshot 走 SVG foreignObject，由浏览器真正做一遍 CSS 布局，
+    // 所以 object-fit / clip-path / 渐变这些都能正确落到图上（html2canvas 自己实现布局，做不到）。
+    // 代价是远程图片要被 fetch 成 data URL，同样受 CORS 约束 —— 见 exportAssetUrl.ts 的同源代理。
+    const blob = await domToBlob(options.cardRef.value, {
       scale: 2,
-      useCORS: true,
       backgroundColor: '#ffffff',
-      logging: false,
-      width: options.width ?? 640,
-      imageTimeout: IMAGE_LOAD_TIMEOUT_MS,
+      width: options.width ?? CARD_WIDTH_PX,
+      type: 'image/png',
+      timeout: IMAGE_LOAD_TIMEOUT_MS,
     })
 
-    const blob = await canvasToBlob(canvas)
     imageBlob.value = blob
     clearPreviewImageUrl()
     previewImageUrl.value = URL.createObjectURL(blob)
