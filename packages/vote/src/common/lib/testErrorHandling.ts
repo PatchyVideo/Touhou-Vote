@@ -51,7 +51,7 @@ export async function testLocalDataFallback() {
   console.log('\n=== 测试 2: 本地数据回退 ===')
   
   // 设置测试数据
-  setupQuickTestVotes()
+  await setupQuickTestVotes()
   
   // 设置为 GraphQL 模式（但 token 可能无效）
   setDataSourceMode('graphql')
@@ -77,7 +77,7 @@ export async function testLocalMode() {
   console.log('\n=== 测试 3: 本地模式 ===')
   
   // 设置测试数据
-  setupQuickTestVotes()
+  await setupQuickTestVotes()
   
   // 设置为 local 模式
   setDataSourceMode('local')
@@ -102,7 +102,7 @@ export async function testAutoMode() {
   console.log('\n=== 测试 4: 自动模式 ===')
   
   // 设置测试数据
-  setupQuickTestVotes()
+  await setupQuickTestVotes()
   
   // 设置为 auto 模式
   setDataSourceMode('auto')
