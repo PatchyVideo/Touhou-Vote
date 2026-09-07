@@ -28,6 +28,8 @@
           </div>
         </div>
       </div>
+
+      <ShareMyVote class="pt-2" />
     </div>
   </div>
 </template>
@@ -36,6 +38,7 @@
 import { useRouter } from 'vue-router'
 import { voteCharacterComplete, voteCoupleComplete, voteMusicComplete } from '@/home/lib/user'
 import CompleteTag from '@/home/components/CompleteTag.vue'
+import ShareMyVote from '@/home/components/ShareMyVote.vue'
 
 const router = useRouter()
 
