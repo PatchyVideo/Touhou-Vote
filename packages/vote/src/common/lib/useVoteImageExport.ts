@@ -1,5 +1,5 @@
 import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
-import html2canvas from 'html2canvas'
+import { domToBlob } from 'modern-screenshot'
 import { popMessageText } from '@/common/lib/popMessage'
 
 type ElementRef = { value?: HTMLElement | null }
@@ -13,6 +13,13 @@ type UseVoteImageExportOptions = {
 }
 
 const EXPORT_ABORT_ERROR = 'VOTE_IMAGE_EXPORT_ABORT'
+const EXPORT_TIMEOUT_ERROR = 'VOTE_IMAGE_EXPORT_TIMEOUT'
+
+// 素材加载的兜底时限：图片既不 load 也不 error（请求被挂住）时，
+// 没有这个上限就会永远卡在「正在生成图片…」，用户只能关掉弹窗。
+const IMAGE_LOAD_TIMEOUT_MS = 10_000
+
+const CARD_WIDTH_PX = 640
 
 export function createVoteImageExportAbortError() {
   return new Error(EXPORT_ABORT_ERROR)
@@ -26,27 +33,41 @@ function clearObjectUrl(url: string) {
   if (url) URL.revokeObjectURL(url)
 }
 
-async function waitForImages(element: HTMLElement) {
-  const images = Array.from(element.querySelectorAll('img'))
-  await Promise.all(
-    images.map((img) => {
-      if (img.complete) return Promise.resolve()
-      return new Promise<void>((resolve) => {
-        const handler = () => resolve()
-        img.onload = handler
-        img.onerror = handler
-      })
-    })
-  )
+/** 等浏览器实际画完一帧，确保离屏卡片的布局已经定下来再截图。 */
+function nextFrame() {
+  return new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())))
 }
 
-function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob> {
-  return new Promise((resolve, reject) => {
-    canvas.toBlob((blob) => {
-      if (blob) resolve(blob)
-      else reject(new Error('生成图片数据失败'))
-    }, 'image/png', 0.95)
-  })
+/** 等到所有图片有结果（成功或失败都算），超过 IMAGE_LOAD_TIMEOUT_MS 则抛超时错误。 */
+async function waitForImages(element: HTMLElement) {
+  const pending = Array.from(element.querySelectorAll('img')).filter((img) => !img.complete)
+  if (!pending.length) return
+
+  let timer: ReturnType<typeof setTimeout> | undefined
+  try {
+    await Promise.race([
+      Promise.all(
+        pending.map(
+          (img) =>
+            new Promise<void>((resolve) => {
+              // 用 addEventListener 而不是赋值 onload/onerror，避免覆盖调用方已挂的处理函数。
+              const settle = () => {
+                img.removeEventListener('load', settle)
+                img.removeEventListener('error', settle)
+                resolve()
+              }
+              img.addEventListener('load', settle)
+              img.addEventListener('error', settle)
+            })
+        )
+      ),
+      new Promise<never>((_, reject) => {
+        timer = setTimeout(() => reject(new Error(EXPORT_TIMEOUT_ERROR)), IMAGE_LOAD_TIMEOUT_MS)
+      }),
+    ])
+  } finally {
+    if (timer) clearTimeout(timer)
+  }
 }
 
 export function useVoteImageExport(options: UseVoteImageExportOptions) {
@@ -83,17 +104,20 @@ export function useVoteImageExport(options: UseVoteImageExportOptions) {
   async function generatePreview() {
     if (!options.cardRef.value) throw new Error('导图节点不存在')
     await waitForImages(options.cardRef.value)
-    await new Promise((resolve) => setTimeout(resolve, 300))
+    await nextTick()
+    await nextFrame()
 
-    const canvas = await html2canvas(options.cardRef.value, {
+    // modern-screenshot 走 SVG foreignObject，由浏览器真正做一遍 CSS 布局，
+    // 所以 object-fit / clip-path / 渐变这些都能正确落到图上（html2canvas 自己实现布局，做不到）。
+    // 代价是远程图片要被 fetch 成 data URL，同样受 CORS 约束 —— 见 exportAssetUrl.ts 的同源代理。
+    const blob = await domToBlob(options.cardRef.value, {
       scale: 2,
-      useCORS: true,
       backgroundColor: '#ffffff',
-      logging: false,
-      width: options.width ?? 640,
+      width: options.width ?? CARD_WIDTH_PX,
+      type: 'image/png',
+      timeout: IMAGE_LOAD_TIMEOUT_MS,
     })
 
-    const blob = await canvasToBlob(canvas)
     imageBlob.value = blob
     clearPreviewImageUrl()
     previewImageUrl.value = URL.createObjectURL(blob)
@@ -110,10 +134,13 @@ export function useVoteImageExport(options: UseVoteImageExportOptions) {
       await nextTick()
       await generatePreview()
     } catch (error) {
-      if (error instanceof Error && error.message === EXPORT_ABORT_ERROR) {
+      const reason = error instanceof Error ? error.message : ''
+      if (reason === EXPORT_ABORT_ERROR || reason === EXPORT_TIMEOUT_ERROR) {
+        // 中止和超时都不留半成品弹窗：直接关闭，让用户重来一次。
         exportDialogOpen.value = false
         clearPreviewImageUrl()
         imageBlob.value = null
+        if (reason === EXPORT_TIMEOUT_ERROR) popMessageText('图片素材加载超时，请稍后重试')
         return
       }
       console.error('生成图片失败:', error)

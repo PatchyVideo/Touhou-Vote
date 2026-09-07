@@ -25,7 +25,7 @@ import {
 import { reloadWithBootstrap } from '@/main/lib/appBootstrap'
 import type { Voter } from '@/graphql/__generated__/graphql'
 import { voteYear } from '@/common/lib/voteYear'
-import { characters } from '@/vote-character/lib/voteData'
+import { characters, CHARACTERVOTENUM } from '@/vote-character/lib/voteData'
 import { characterList } from '@/vote-character/lib/characterList'
 import { Character } from '@/vote-character/lib/character'
 import { couples, CPVOTENUM } from '@/vote-couple/lib/voteData'
@@ -33,9 +33,39 @@ import { Couple } from '@/vote-couple/lib/couple'
 import { musics, MUSICVOTENUM } from '@/vote-music/lib/voteData'
 import { Music } from '@/vote-music/lib/music'
 import { musicList } from '@/vote-music/lib/musicList'
+import { loadVoteObjects, voteObjectsError } from '@/common/lib/voteObjectsDataSource'
 import { setDataSourceMode, getDataSourceMode, type DataSourceMode } from './voteDataSource'
 
 const TEST_LOGIN_SNAPSHOT_KEY = 'thvote_test_login_snapshot'
+
+/**
+ * 角色/曲目候选表是从后端拉的（voteObjectsDataSource），在控制台里直接调用这些
+ * 工具时多半还没加载。所有按名字找候选的入口都要先过这一步，否则会静默设置出
+ * 一份空投票。
+ */
+async function ensureVoteObjects(): Promise<void> {
+  await loadVoteObjects()
+  if (voteObjectsError.value) {
+    throw new Error(`投票候选表加载失败：${voteObjectsError.value}`)
+  }
+}
+
+/**
+ * 按名字在候选表里找一项。后端的 `name` 是中文译名、`origname` 是日文原名，
+ * 两边都试一次；找不到就出声——静默跳过正是这些默认曲名过期了好几个月都没人
+ * 发现的原因。
+ */
+function findByName<T extends { name: string; origname?: string }>(
+  list: T[],
+  keyword: string,
+  what: string
+): T | undefined {
+  const hit =
+    list.find((item) => item.name.includes(keyword)) ??
+    list.find((item) => item.origname?.includes(keyword))
+  if (!hit) console.warn(`⚠️ 候选表里没有${what}「${keyword}」，这一票会被跳过`)
+  return hit
+}
 
 interface TestLoginSnapshot {
   user: Voter
@@ -179,61 +209,56 @@ export function setupTestUser() {
 }
 
 /**
- * 设置角色投票数据
- * 只存储 id + reason + honmei，其他信息从 characterList 中读取
- * @param honmeiName 本命角色名称
+ * 设置角色投票数据。
+ * 存整份候选对象 + honmei/reason，和线上 `updateVoteCharacters` 的形状一致，
+ * 这样投票页也能正常显示，而不只是导图能用。
+ * @param honmeiName 本命角色名称（中文名或日文原名，子串匹配）
  * @param otherNames 其他角色名称数组
  */
-export function setupTestCharacterVotes(honmeiName?: string, otherNames: string[] = []) {
+export async function setupTestCharacterVotes(honmeiName?: string, otherNames: string[] = []) {
   console.log('🔧 设置测试角色投票数据...')
-  
-  // 清空现有数据（使用 Character 类）
-  characters.value = new Array(8).fill(null).map(() => new Character())
-  
+  await ensureVoteObjects()
+
+  // 清空现有数据（空位是默认 Character，id 为 '00000000'）
+  characters.value = new Array(CHARACTERVOTENUM).fill(null).map(() => new Character())
+
   // 设置本命角色
   if (honmeiName) {
-    const honmeiChar = characterList.find(c => c.name.includes(honmeiName))
+    const honmeiChar = findByName(characterList.value, honmeiName, '角色')
     if (honmeiChar) {
-      const newHonmei = new Character()
-      newHonmei.id = honmeiChar.id
-      newHonmei.honmei = true
-      newHonmei.reason = `奶龙奶龙奶龙奶龙奶龙奶龙奶龙奶龙奶龙奶龙奶龙我是奶龙！`
-      characters.value[0] = newHonmei
+      characters.value[0] = { ...honmeiChar, honmei: true, reason: '第一次见到她的时候，弹幕已经铺满了整个屏幕。' }
       console.log(`✅ 设置本命角色: ${honmeiChar.name} (ID: ${honmeiChar.id})`)
     }
   }
-  
+
   // 设置其他角色
   otherNames.forEach((name, index) => {
-    if (index >= 9) return // 最多9个普通角色
-    const char = characterList.find(c => c.name.includes(name))
+    if (index + 1 >= CHARACTERVOTENUM) return
+    const char = findByName(characterList.value, name, '角色')
     if (char) {
-      const newChar = new Character()
-      newChar.id = char.id
-      newChar.honmei = false
-      newChar.reason = '' // 非本命角色不需要 reason
-      characters.value[index + 1] = newChar
+      // 非本命角色不需要 reason
+      characters.value[index + 1] = { ...char, honmei: false, reason: '' }
       console.log(`✅ 设置角色 ${index + 1}: ${char.name} (ID: ${char.id})`)
     }
   })
-  
+
   // 保存到 localStorage
   localStorage.setItem('characters', JSON.stringify(characters.value))
-  
-  console.log('✅ 角色投票数据设置完成（只存储 id + reason + honmei）')
+
+  console.log('✅ 角色投票数据设置完成')
 }
 
 /**
  * 快速设置常见角色投票数据
  */
-export function setupQuickTestVotes() {
+export async function setupQuickTestVotes() {
   console.log('🔧 设置快速角色测试数据...')
   
   // 模拟登录
   setupTestUser()
   
   // 设置角色投票（博丽灵梦 + 常见角色）
-  setupTestCharacterVotes(
+  await setupTestCharacterVotes(
     '博丽灵梦', // 本命
     ['雾雨魔理沙', '琪露诺', '十六夜咲夜', '蕾米莉亚', '芙兰朵露', '帕秋莉', '爱丽丝'] // 其他7个
   )
@@ -248,35 +273,28 @@ export function setupQuickTestVotes() {
  * @param honmeiName 本命音乐名称
  * @param otherNames 其他音乐名称数组
  */
-export function setupTestMusicVotes(honmeiName?: string, otherNames: string[] = []) {
+export async function setupTestMusicVotes(honmeiName?: string, otherNames: string[] = []) {
   console.log('🔧 设置测试音乐投票数据...')
+  await ensureVoteObjects()
 
-  // 清空现有数据（使用 Music 类）
+  // 清空现有数据（空位是默认 Music，id 为 '00000000'）
   musics.value = new Array(MUSICVOTENUM).fill(null).map(() => new Music())
 
   // 设置本命音乐
   if (honmeiName) {
-    const honmeiMusic = musicList.find(m => m.name.includes(honmeiName))
+    const honmeiMusic = findByName(musicList.value, honmeiName, '曲目')
     if (honmeiMusic) {
-      const newHonmei = new Music()
-      newHonmei.id = honmeiMusic.id
-      newHonmei.honmei = true
-      newHonmei.reason = '因为太好听了，循环播放停不下来！'
-      musics.value[0] = newHonmei
+      musics.value[0] = { ...honmeiMusic, honmei: true, reason: '因为太好听了，循环播放停不下来！' }
       console.log(`✅ 设置本命音乐: ${honmeiMusic.name} (ID: ${honmeiMusic.id})`)
     }
   }
 
   // 设置其他音乐
   otherNames.forEach((name, index) => {
-    if (index >= MUSICVOTENUM - 1) return
-    const music = musicList.find(m => m.name.includes(name))
+    if (index + 1 >= MUSICVOTENUM) return
+    const music = findByName(musicList.value, name, '曲目')
     if (music) {
-      const newMusic = new Music()
-      newMusic.id = music.id
-      newMusic.honmei = false
-      newMusic.reason = ''
-      musics.value[index + 1] = newMusic
+      musics.value[index + 1] = { ...music, honmei: false, reason: '' }
       console.log(`✅ 设置音乐 ${index + 1}: ${music.name} (ID: ${music.id})`)
     }
   })
@@ -284,27 +302,26 @@ export function setupTestMusicVotes(honmeiName?: string, otherNames: string[] = 
   // 保存到 localStorage
   localStorage.setItem('musics', JSON.stringify(musics.value))
 
-  console.log('✅ 音乐投票数据设置完成（只存储 id + reason + honmei）')
+  console.log('✅ 音乐投票数据设置完成')
 }
 
 /**
- * 快速设置完整的角色和CP投票数据
- * 同时配置角色投票和CP投票
+ * 一键设置角色 + CP + 音乐三份投票数据。
  */
-export function setupAllTestVotes() {
-  console.log('🔧 设置完整测试数据（角色 + CP）...')
+export async function setupAllTestVotes() {
+  console.log('🔧 设置完整测试数据（角色 + CP + 音乐）...')
   
   // 模拟登录
   setupTestUser()
   
   // 设置角色投票（博丽灵梦 + 常见角色）
-  setupTestCharacterVotes(
+  await setupTestCharacterVotes(
     '博丽灵梦', // 本命
     ['雾雨魔理沙', '琪露诺', '十六夜咲夜', '蕾米莉亚', '芙兰朵露', '帕秋莉', '爱丽丝'] // 其他7个
   )
   
   // 设置CP投票
-  setupTestCoupleVotes(
+  await setupTestCoupleVotes(
     // 本命CP
     [
       {
@@ -334,9 +351,9 @@ export function setupAllTestVotes() {
   )
 
   // 设置音乐投票
-  setupTestMusicVotes(
+  await setupTestMusicVotes(
     '幽雅地绽放吧，墨染的樱花',
-    ['U.N.オーエンは彼女なのか？', '上海红茶馆', '亡き王女の为のセプテット']
+    ['U.N.OWEN就是她吗？', '上海红茶馆', '献给已逝公主的七重奏']
   )
   
   console.log('✅ 完整测试数据设置完成！')
@@ -346,8 +363,9 @@ export function setupAllTestVotes() {
 /**
  * 获取可用的角色列表（用于测试）
  */
-export function getAvailableCharacters() {
-  const commonCharacters = characterList
+export async function getAvailableCharacters() {
+  await ensureVoteObjects()
+  const commonCharacters = characterList.value
     .filter(c => c.name.includes('灵梦') || c.name.includes('魔理沙') || c.name.includes('琪露诺'))
     .slice(0, 20)
   
@@ -394,12 +412,13 @@ export function clearTestUserData() {
  * @param honmeiCouples 本命CP配置数组 [{names: ['角色1', '角色2'], active: '角色1', reason: '理由'}]
  * @param otherCouples 其他CP配置数组
  */
-export function setupTestCoupleVotes(
+export async function setupTestCoupleVotes(
   honmeiCouples: Array<{ names: string[]; active?: string; reason?: string }> = [],
   otherCouples: Array<{ names: string[]; active?: string; reason?: string }> = []
 ) {
   console.log('🔧 设置测试CP投票数据...')
-  
+  await ensureVoteObjects()
+
   // 清空现有CP数据
   couples.value = new Array(CPVOTENUM).fill(null).map(() => new Couple())
   
@@ -415,19 +434,23 @@ export function setupTestCoupleVotes(
     // 设置角色
     coupleConfig.names.forEach((name, charIndex) => {
       if (charIndex >= 3) return // 最多3个角色
-      const char = characterList.find(c => c.name.includes(name))
+      const char = findByName(characterList.value, name, '角色')
       if (char) {
-        newCouple.characters[charIndex] = char
+        newCouple.characters[charIndex] = { ...char }
         console.log(`  ${isHonmei ? '本命' : '其他'}CP[${index}] 角色${charIndex}: ${char.name}`)
       }
     })
     
     // 设置主动方
     if (coupleConfig.active) {
-      const activeIndex = newCouple.characters.findIndex(c => c && c.name.includes(coupleConfig.active!))
+      const activeIndex = newCouple.characters.findIndex(
+        (c) => c && (c.name.includes(coupleConfig.active!) || c.origname?.includes(coupleConfig.active!))
+      )
       if (activeIndex >= 0) {
         newCouple.seme = activeIndex
         console.log(`  ${isHonmei ? '本命' : '其他'}CP[${index}] 主动方: ${coupleConfig.active} (索引${activeIndex})`)
+      } else {
+        console.warn(`⚠️ CP[${index}] 的主动方「${coupleConfig.active}」不在这组角色里，按未指定处理`)
       }
     }
     
@@ -461,14 +484,14 @@ export function setupTestCoupleVotes(
 /**
  * 快速设置常见CP投票数据
  */
-export function setupQuickTestCoupleVotes() {
+export async function setupQuickTestCoupleVotes() {
   console.log('🔧 设置快速CP测试数据...')
   
   // 模拟登录
   setupTestUser()
   
   // 设置CP投票
-  setupTestCoupleVotes(
+  await setupTestCoupleVotes(
     // 本命CP
     [
       {
@@ -504,16 +527,16 @@ export function setupQuickTestCoupleVotes() {
 /**
  * 快速设置常见音乐投票数据
  */
-export function setupQuickTestMusicVotes() {
+export async function setupQuickTestMusicVotes() {
   console.log('🔧 设置快速音乐测试数据...')
 
   // 模拟登录
   setupTestUser()
 
   // 设置音乐投票
-  setupTestMusicVotes(
+  await setupTestMusicVotes(
     '幽雅地绽放吧，墨染的樱花',
-    ['U.N.オーエンは彼女なのか？', '上海红茶馆', '亡き王女の为のセプテット']
+    ['U.N.OWEN就是她吗？', '上海红茶馆', '献给已逝公主的七重奏']
   )
 
   console.log('✅ 快速音乐测试数据设置完成！')
@@ -523,8 +546,9 @@ export function setupQuickTestMusicVotes() {
 /**
  * 获取可用的音乐列表（用于测试）
  */
-export function getAvailableMusics() {
-  const commonMusics = musicList
+export async function getAvailableMusics() {
+  await ensureVoteObjects()
+  const commonMusics = musicList.value
     .filter(m => m.name.includes('红魔') || m.name.includes('樱花') || m.name.includes('月'))
     .slice(0, 20)
 
@@ -632,9 +656,12 @@ if (import.meta.env.DEV) {
 ║           测试环境辅助工具已加载 ✅                       ║
 ╚═══════════════════════════════════════════════════════════╝
 
+⚠️ 需要候选表的命令都是 async（候选表从后端拉，控制台里直接调时通常还没加载），
+   建议加 await；不加也能跑完，只是日志会晚一点出来。
+
 💡 在控制台使用以下命令:
 
-  testHelper.setupAllTestVotes()      - 快速设置完整测试数据（角色+CP）
+  await testHelper.setupAllTestVotes() - 一键设置完整测试数据（角色+CP+音乐）
   testHelper.setupQuickTestVotes()    - 快速设置角色测试数据
   testHelper.setupQuickTestCoupleVotes() - 快速设置CP测试数据
   testHelper.setupTestUser()           - 仅设置测试用户
@@ -656,9 +683,12 @@ if (import.meta.env.DEV) {
   testHelper.clearTestUserData()        - 清理测试数据
 
 🎯 快速开始: 
-  testHelper.setupAllTestVotes()         // 一键设置所有测试数据（推荐）
-  testHelper.setupQuickTestVotes()       // 仅测试角色投票导出
-  testHelper.setupQuickTestCoupleVotes()  // 仅测试CP投票导出
-  testHelper.setupQuickTestMusicVotes()  // 仅测试音乐投票导出
+  await testHelper.setupAllTestVotes()        // 一键设置所有测试数据（推荐）
+  await testHelper.setupQuickTestVotes()      // 仅测试角色投票导出
+  await testHelper.setupQuickTestCoupleVotes() // 仅测试CP投票导出
+  await testHelper.setupQuickTestMusicVotes() // 仅测试音乐投票导出
+
+   名字按子串匹配，中文译名和日文原名都行；匹配不到会在控制台 warn，
+   不会静默少投一票。
   `)
 }

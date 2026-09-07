@@ -16,7 +16,7 @@
     "@vueuse/core": "^10.0.2",
     "bson-objectid": "^2.0.4",
     "graphql": "^16.9.0",
-    "html2canvas": "^1.4.1",
+    "modern-screenshot": "^4.7.0",
     "nprogress": "1.0.0-1",
     "pinin": "^0.2.0",
     "vue": "^3.2.47",
