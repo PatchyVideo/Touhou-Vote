@@ -268,7 +268,7 @@ const TabList = [
   {
     type: 'questionnaire',
     title: '填写问卷',
-    icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/questionnaireDetail@100px.png',
+    icon: 'https://image.touhou.ai/i/2026/09/14/6aa7469a4fcd0.png',
     desc: '投票之前请先完成调查问卷哦',
     complete: () => IsQuestionnaireAllDone.value,
     buttonText: () => (IsQuestionnaireAllDone.value ? '修改问卷' : '开始填写'),
