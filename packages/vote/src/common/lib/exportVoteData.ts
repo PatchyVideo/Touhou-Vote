@@ -11,8 +11,20 @@
 import { charactersVoted } from '@/vote-character/lib/characterList'
 import { couples } from '@/vote-couple/lib/voteData'
 import { musics } from '@/vote-music/lib/voteData'
+import type { Character } from '@/vote-character/lib/character'
+import type { Couple } from '@/vote-couple/lib/couple'
+import type { Music } from '@/vote-music/lib/music'
 import { fetchVoteData, type DataSourceMode } from './voteDataSource'
 import type { CharacterSubmitQuery, CpSubmitQuery, MusicSubmitQuery } from '@/graphql/__generated__/graphql'
+
+/**
+ * usedMode 为 'local' 时，fetchVoteData 返回的是 localStorage 里原样存的投票槽位
+ * （由各 voteData.ts 的 watch 写入，形状是 Character / Music / Couple，并非 GraphQL 类型）。
+ * 没读到时返回 undefined，让调用方回到读内存的默认行为。
+ */
+function localVoteSlots<T>(data: unknown[] | null): T[] | undefined {
+  return data ? (data as T[]) : undefined
+}
 
 /**
  * 获取角色投票数据用于导出（从 localStorage）
@@ -20,10 +32,12 @@ import type { CharacterSubmitQuery, CpSubmitQuery, MusicSubmitQuery } from '@/gr
  * 只返回 id + reason + honmei
  * 注意：非本命角色不需要 reason（可选），只有本命角色需要填写
  * 其他信息（name, color, date, work, image）从 characterList 中读取
+ *
+ * @param source 投票槽位；不传时读内存里的 charactersVoted
  */
-export function getExportCharacterData() {
+export function getExportCharacterData(source: Character[] = charactersVoted.value) {
   // 获取已投票的角色（排除空票）
-  const votedCharacters = charactersVoted.value.filter(char => char.id !== '0')
+  const votedCharacters = source.filter(char => char.id !== '0' && char.id !== '00000000')
   
   // 只返回 id + reason + honmei
   // 非本命角色 reason 可以为空
@@ -44,7 +58,9 @@ export async function getExportCharacterDataFromDataSource(dataSourceMode?: Data
   const result = await fetchVoteData<CharacterSubmitQuery>('character', dataSourceMode)
 
   if (result.usedMode === 'local') {
-    const localData = getExportCharacterData()
+    // 必须用 fetchVoteData 刚从 localStorage 读出的那份：刷新页面后，内存里的
+    // characters 在用户进入角色投票页之前都是空槽位，读内存会得到空列表、导出被中止。
+    const localData = getExportCharacterData(localVoteSlots<Character>(result.data))
     return {
       data: localData,
       error: result.error,
@@ -103,10 +119,12 @@ export async function getExportCharacterDataFromDataSource(dataSourceMode?: Data
  * 
  * 只返回 idA, idB, idC, active, honmei, reason
  * 其他信息（name, color, date, work, image）从 characterList 中读取
+ *
+ * @param source 投票槽位；不传时读内存里的 couples
  */
-export function getExportCoupleData() {
+export function getExportCoupleData(source: Couple[] = couples.value) {
   // 获取已投票的CP（排除无效CP）
-  const votedCouples = couples.value.filter(couple => couple.valid)
+  const votedCouples = source.filter(couple => couple.valid)
   
   // 返回完整的CP数据（包含角色信息和seme索引）
   // 注意：active字段类型需要与GraphQL的Maybe<string>保持一致
@@ -130,7 +148,8 @@ export async function getExportCoupleDataFromDataSource(dataSourceMode?: DataSou
   const result = await fetchVoteData<CpSubmitQuery>('couple', dataSourceMode)
 
   if (result.usedMode === 'local') {
-    const localData = getExportCoupleData()
+    // 同角色：刷新后内存里的 couples 是空槽位，要用 localStorage 读出的那份。
+    const localData = getExportCoupleData(localVoteSlots<Couple>(result.data))
     return {
       data: localData,
       error: result.error,
@@ -193,10 +212,12 @@ export async function getExportCoupleDataFromDataSource(dataSourceMode?: DataSou
  * 只返回 id + reason + honmei
  * 注意：非本命音乐不需要 reason（可选），只有本命音乐需要填写
  * 其他信息（name, origname, album, image）从 musicList 中读取
+ *
+ * @param source 投票槽位；不传时读内存里的 musics
  */
-export function getExportMusicData() {
+export function getExportMusicData(source: Music[] = musics.value) {
   // 获取已投票的音乐（排除空票）
-  const votedMusics = musics.value.filter(music => music.id !== '00000000')
+  const votedMusics = source.filter(music => music.id !== '00000000')
   
   // 只返回 id + reason + honmei
   // 非本命音乐 reason 可以为空
@@ -217,7 +238,8 @@ export async function getExportMusicDataFromDataSource(dataSourceMode?: DataSour
   const result = await fetchVoteData<MusicSubmitQuery>('music', dataSourceMode)
 
   if (result.usedMode === 'local') {
-    const localData = getExportMusicData()
+    // 同角色：刷新后内存里的 musics 是空槽位，要用 localStorage 读出的那份。
+    const localData = getExportMusicData(localVoteSlots<Music>(result.data))
     return {
       data: localData,
       error: result.error,
