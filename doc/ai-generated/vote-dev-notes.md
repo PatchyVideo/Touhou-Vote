@@ -105,6 +105,7 @@
 ## 导出功能当前限制
 - 曾经用 `html2canvas@1.4.1`，它自己实现 CSS 布局、不支持 `object-fit`，卡片里 `object-cover` 的头像在导出的 PNG 里会被拉伸。2026-09-07 换成 `modern-screenshot` 后不再有这个问题：它走 SVG `foreignObject`，由浏览器真正做一遍布局，`object-fit` / `clip-path` / 渐变都能正确落到图上；顺带 vote 首屏 chunk 从 273KB 降到 97KB。
 - `voteDataSource.ts` 的 `auto` 模式是「localStorage 有数据就不打 GraphQL」，所以在换设备/清过缓存的浏览器上才会走后端；本地数据与后端不一致时导出的是本地那份。
+- ⚠️ **本地数据分支必须用 localStorage 读出的那份，不能回头读内存**（2026-09-15 修复）：`fetchVoteData` 在 `auto` 模式下读到 localStorage 就返回 `usedMode: 'local'`，而 `exportVoteData.ts` 的 `getExport*DataFromDataSource` 之前在这个分支里调的是无参 `getExport*Data()`，读的是内存里的 `characters` / `musics` / `couples`。刷新页面后这些 ref 在用户进入对应投票页之前都是空槽位，结果是「投完票刷新再导出」必定提示「你还没有投票数据」、导出被中止（换设备没有 localStorage 反而能走 GraphQL 导出）。现在 `getExport*Data(source?)` 接收槽位数组，本地分支把 `result.data` 传进去；不传参时仍读内存（提交成功弹层里导出走的就是内存那份，与 localStorage 由 watch 同步）。
 - 三份 `Export*VoteImage.vue` 里 `normalizeColor` / `darkenColor` 和卡片版式仍各写一份，只有底部信息区抽成了 `ExportCardFooter.vue`。
 
 ## 导出功能后续开发建议
