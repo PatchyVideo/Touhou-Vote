@@ -118,7 +118,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/aa1b7078@10s.mp3',
+    music: 'https://music.touhou.ai/aa1b7078.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -132,7 +132,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6e6ab316@10s.mp3',
+    music: 'https://music.touhou.ai/6e6ab316.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -146,7 +146,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5d6ff33d@10s.mp3',
+    music: 'https://music.touhou.ai/5d6ff33d.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -160,7 +160,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fe36f81b@10s.mp3',
+    music: 'https://music.touhou.ai/fe36f81b.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -174,7 +174,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/29cafe53@10s.mp3',
+    music: 'https://music.touhou.ai/29cafe53.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -188,7 +188,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/913f3270@10s.mp3',
+    music: 'https://music.touhou.ai/913f3270.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -202,7 +202,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4cfe44cc@10s.mp3',
+    music: 'https://music.touhou.ai/4cfe44cc.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -216,7 +216,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a9bb45d5@10s.mp3',
+    music: 'https://music.touhou.ai/a9bb45d5.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -230,7 +230,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8559cff5@10s.mp3',
+    music: 'https://music.touhou.ai/8559cff5.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -244,7 +244,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a7ec5b3a@10s.mp3',
+    music: 'https://music.touhou.ai/a7ec5b3a.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -258,7 +258,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f8a4c46b@10s.mp3',
+    music: 'https://music.touhou.ai/f8a4c46b.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -272,7 +272,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2be66d31@10s.mp3',
+    music: 'https://music.touhou.ai/2be66d31.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -286,7 +286,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9d9e3f16@10s.mp3',
+    music: 'https://music.touhou.ai/9d9e3f16.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -300,7 +300,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/567874d5@10s.mp3',
+    music: 'https://music.touhou.ai/567874d5.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -314,7 +314,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%81%B5%E5%BC%82%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/27e2a217@10s.mp3',
+    music: 'https://music.touhou.ai/27e2a217.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -328,7 +328,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/67968aa2@10s.mp3',
+    music: 'https://music.touhou.ai/67968aa2.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -342,7 +342,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/180c7ee4@10s.mp3',
+    music: 'https://music.touhou.ai/180c7ee4.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -356,7 +356,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/90a75218@10s.mp3',
+    music: 'https://music.touhou.ai/90a75218.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -370,7 +370,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/66240fe6@10s.mp3',
+    music: 'https://music.touhou.ai/66240fe6.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -384,7 +384,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/67e99126@10s.mp3',
+    music: 'https://music.touhou.ai/67e99126.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -398,7 +398,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/581d675d@10s.mp3',
+    music: 'https://music.touhou.ai/581d675d.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -412,7 +412,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b1af30ba@10s.mp3',
+    music: 'https://music.touhou.ai/b1af30ba.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -426,7 +426,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/05cca541@10s.mp3',
+    music: 'https://music.touhou.ai/05cca541.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -440,7 +440,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/186a6989@10s.mp3',
+    music: 'https://music.touhou.ai/186a6989.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -462,7 +462,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d42b0e10@10s.mp3',
+    music: 'https://music.touhou.ai/d42b0e10.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -476,7 +476,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fd3c7e89@10s.mp3',
+    music: 'https://music.touhou.ai/fd3c7e89.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -490,7 +490,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6e10beb2@10s.mp3',
+    music: 'https://music.touhou.ai/6e10beb2.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -504,7 +504,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/84ad1fad@10s.mp3',
+    music: 'https://music.touhou.ai/84ad1fad.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -518,7 +518,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d555130a@10s.mp3',
+    music: 'https://music.touhou.ai/d555130a.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -532,7 +532,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2346d81e@10s.mp3',
+    music: 'https://music.touhou.ai/2346d81e.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -546,7 +546,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cfab0825@10s.mp3',
+    music: 'https://music.touhou.ai/cfab0825.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -560,7 +560,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ef1e7dae@10s.mp3',
+    music: 'https://music.touhou.ai/ef1e7dae.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -574,7 +574,7 @@ export const musicList: Music[] = [
     date: 19970815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B0%81%E9%AD%94%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3a62a932@10s.mp3',
+    music: 'https://music.touhou.ai/3a62a932.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -588,7 +588,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ec8dd840@10s.mp3',
+    music: 'https://music.touhou.ai/ec8dd840.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -602,7 +602,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9e2604d2@10s.mp3',
+    music: 'https://music.touhou.ai/9e2604d2.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -616,7 +616,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cbf43e7e@10s.mp3',
+    music: 'https://music.touhou.ai/cbf43e7e.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -630,7 +630,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/14dee9e1@10s.mp3',
+    music: 'https://music.touhou.ai/14dee9e1.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -644,7 +644,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/332465d7@10s.mp3',
+    music: 'https://music.touhou.ai/332465d7.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -658,7 +658,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4c8dac15@10s.mp3',
+    music: 'https://music.touhou.ai/4c8dac15.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -672,7 +672,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2f062604@10s.mp3',
+    music: 'https://music.touhou.ai/2f062604.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -686,7 +686,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/38752548@10s.mp3',
+    music: 'https://music.touhou.ai/38752548.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -700,7 +700,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/741404ac@10s.mp3',
+    music: 'https://music.touhou.ai/741404ac.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -714,7 +714,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/335d2f52@10s.mp3',
+    music: 'https://music.touhou.ai/335d2f52.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -728,7 +728,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1e19043f@10s.mp3',
+    music: 'https://music.touhou.ai/1e19043f.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -742,7 +742,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6f405b2b@10s.mp3',
+    music: 'https://music.touhou.ai/6f405b2b.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -756,7 +756,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b153b000@10s.mp3',
+    music: 'https://music.touhou.ai/b153b000.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -770,7 +770,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0d4cdad6@10s.mp3',
+    music: 'https://music.touhou.ai/0d4cdad6.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -784,7 +784,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2c339a80@10s.mp3',
+    music: 'https://music.touhou.ai/2c339a80.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -798,7 +798,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/787874ed@10s.mp3',
+    music: 'https://music.touhou.ai/787874ed.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -812,7 +812,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7854fb22@10s.mp3',
+    music: 'https://music.touhou.ai/7854fb22.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -826,7 +826,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/daa42696@10s.mp3',
+    music: 'https://music.touhou.ai/daa42696.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -840,7 +840,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9b8523a0@10s.mp3',
+    music: 'https://music.touhou.ai/9b8523a0.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -854,7 +854,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e1dc7dac@10s.mp3',
+    music: 'https://music.touhou.ai/e1dc7dac.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -868,7 +868,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1908eafe@10s.mp3',
+    music: 'https://music.touhou.ai/1908eafe.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -882,7 +882,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b07df8bb@10s.mp3',
+    music: 'https://music.touhou.ai/b07df8bb.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -896,7 +896,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8c3c82e5@10s.mp3',
+    music: 'https://music.touhou.ai/8c3c82e5.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -910,7 +910,7 @@ export const musicList: Music[] = [
     date: 19971229,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%A2%A6%E6%97%B6%E7%A9%BA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/15579667@10s.mp3',
+    music: 'https://music.touhou.ai/15579667.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -924,7 +924,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1bb60d9a@10s.mp3',
+    music: 'https://music.touhou.ai/1bb60d9a.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -938,7 +938,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d0428740@10s.mp3',
+    music: 'https://music.touhou.ai/d0428740.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -952,7 +952,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/63df9bb3@10s.mp3',
+    music: 'https://music.touhou.ai/63df9bb3.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -966,7 +966,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/40d71a03@10s.mp3',
+    music: 'https://music.touhou.ai/40d71a03.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -980,7 +980,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/952c6c02@10s.mp3',
+    music: 'https://music.touhou.ai/952c6c02.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -994,7 +994,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/518363d7@10s.mp3',
+    music: 'https://music.touhou.ai/518363d7.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1008,7 +1008,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fe26c47a@10s.mp3',
+    music: 'https://music.touhou.ai/fe26c47a.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1022,7 +1022,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6a76f449@10s.mp3',
+    music: 'https://music.touhou.ai/6a76f449.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1036,7 +1036,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/acec11ca@10s.mp3',
+    music: 'https://music.touhou.ai/acec11ca.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1050,7 +1050,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/97911a3c@10s.mp3',
+    music: 'https://music.touhou.ai/97911a3c.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1064,7 +1064,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ac4cdbcb@10s.mp3',
+    music: 'https://music.touhou.ai/ac4cdbcb.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1078,7 +1078,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5ad88ced@10s.mp3',
+    music: 'https://music.touhou.ai/5ad88ced.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1092,7 +1092,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d4cc328f@10s.mp3',
+    music: 'https://music.touhou.ai/d4cc328f.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1106,7 +1106,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a76ac78d@10s.mp3',
+    music: 'https://music.touhou.ai/a76ac78d.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1120,7 +1120,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8727e4b8@10s.mp3',
+    music: 'https://music.touhou.ai/8727e4b8.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1134,7 +1134,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f664c246@10s.mp3',
+    music: 'https://music.touhou.ai/f664c246.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1148,7 +1148,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1ebd291f@10s.mp3',
+    music: 'https://music.touhou.ai/1ebd291f.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1162,7 +1162,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e3e81907@10s.mp3',
+    music: 'https://music.touhou.ai/e3e81907.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1176,7 +1176,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/164b9441@10s.mp3',
+    music: 'https://music.touhou.ai/164b9441.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1190,7 +1190,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/db53cae1@10s.mp3',
+    music: 'https://music.touhou.ai/db53cae1.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1204,7 +1204,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fd76022a@10s.mp3',
+    music: 'https://music.touhou.ai/fd76022a.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1218,7 +1218,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/338d484d@10s.mp3',
+    music: 'https://music.touhou.ai/338d484d.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1232,7 +1232,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1cb887d5@10s.mp3',
+    music: 'https://music.touhou.ai/1cb887d5.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1246,7 +1246,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/004166ca@10s.mp3',
+    music: 'https://music.touhou.ai/004166ca.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1260,7 +1260,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bfeb743d@10s.mp3',
+    music: 'https://music.touhou.ai/bfeb743d.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1274,7 +1274,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0d6e05af@10s.mp3',
+    music: 'https://music.touhou.ai/0d6e05af.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1288,7 +1288,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c019653e@10s.mp3',
+    music: 'https://music.touhou.ai/c019653e.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1302,7 +1302,7 @@ export const musicList: Music[] = [
     date: 19980814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/86f77e13@10s.mp3',
+    music: 'https://music.touhou.ai/86f77e13.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1316,7 +1316,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/121a6172@10s.mp3',
+    music: 'https://music.touhou.ai/121a6172.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1330,7 +1330,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1701d4fd@10s.mp3',
+    music: 'https://music.touhou.ai/1701d4fd.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1344,7 +1344,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3e75a2e0@10s.mp3',
+    music: 'https://music.touhou.ai/3e75a2e0.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1358,7 +1358,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/da79f45f@10s.mp3',
+    music: 'https://music.touhou.ai/da79f45f.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1372,7 +1372,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/15f73b44@10s.mp3',
+    music: 'https://music.touhou.ai/15f73b44.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1386,7 +1386,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/be8defa9@10s.mp3',
+    music: 'https://music.touhou.ai/be8defa9.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1400,7 +1400,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4137cf03@10s.mp3',
+    music: 'https://music.touhou.ai/4137cf03.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1414,7 +1414,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/eec6e4a8@10s.mp3',
+    music: 'https://music.touhou.ai/eec6e4a8.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1428,7 +1428,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0c673d61@10s.mp3',
+    music: 'https://music.touhou.ai/0c673d61.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1442,7 +1442,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7ea08311@10s.mp3',
+    music: 'https://music.touhou.ai/7ea08311.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1456,7 +1456,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cff989f0@10s.mp3',
+    music: 'https://music.touhou.ai/cff989f0.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1470,7 +1470,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/291f5e62@10s.mp3',
+    music: 'https://music.touhou.ai/291f5e62.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1484,7 +1484,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/74920cb1@10s.mp3',
+    music: 'https://music.touhou.ai/74920cb1.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1498,7 +1498,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c7978fea@10s.mp3',
+    music: 'https://music.touhou.ai/c7978fea.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1512,7 +1512,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0a1ef7e3@10s.mp3',
+    music: 'https://music.touhou.ai/0a1ef7e3.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1526,7 +1526,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5c5b793e@10s.mp3',
+    music: 'https://music.touhou.ai/5c5b793e.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1540,7 +1540,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7ac8971b@10s.mp3',
+    music: 'https://music.touhou.ai/7ac8971b.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1554,7 +1554,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3e9a5b83@10s.mp3',
+    music: 'https://music.touhou.ai/3e9a5b83.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1568,7 +1568,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/05f77862@10s.mp3',
+    music: 'https://music.touhou.ai/05f77862.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1582,7 +1582,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/13686d26@10s.mp3',
+    music: 'https://music.touhou.ai/13686d26.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1596,7 +1596,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/deb2e6b6@10s.mp3',
+    music: 'https://music.touhou.ai/deb2e6b6.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1610,7 +1610,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f85c0a8a@10s.mp3',
+    music: 'https://music.touhou.ai/f85c0a8a.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1624,7 +1624,7 @@ export const musicList: Music[] = [
     date: 19981230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%80%AA%E7%BB%AE%E8%B0%88@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fe162151@10s.mp3',
+    music: 'https://music.touhou.ai/fe162151.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1638,7 +1638,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e3957435@10s.mp3',
+    music: 'https://music.touhou.ai/e3957435.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1652,7 +1652,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/91fd38e0@10s.mp3',
+    music: 'https://music.touhou.ai/91fd38e0.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1666,7 +1666,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a959cf97@10s.mp3',
+    music: 'https://music.touhou.ai/a959cf97.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1680,7 +1680,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/07740fb3@10s.mp3',
+    music: 'https://music.touhou.ai/07740fb3.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1694,7 +1694,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/af806075@10s.mp3',
+    music: 'https://music.touhou.ai/af806075.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1708,7 +1708,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/aed661f2@10s.mp3',
+    music: 'https://music.touhou.ai/aed661f2.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1722,7 +1722,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ff978032@10s.mp3',
+    music: 'https://music.touhou.ai/ff978032.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1736,7 +1736,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/076d3905@10s.mp3',
+    music: 'https://music.touhou.ai/076d3905.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1750,7 +1750,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/46e5fb88@10s.mp3',
+    music: 'https://music.touhou.ai/46e5fb88.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1764,7 +1764,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/330a8409@10s.mp3',
+    music: 'https://music.touhou.ai/330a8409.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1778,7 +1778,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/923f3824@10s.mp3',
+    music: 'https://music.touhou.ai/923f3824.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1792,7 +1792,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/edc40b4c@10s.mp3',
+    music: 'https://music.touhou.ai/edc40b4c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1806,7 +1806,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/07576b4c@10s.mp3',
+    music: 'https://music.touhou.ai/07576b4c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1820,7 +1820,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ad1d1813@10s.mp3',
+    music: 'https://music.touhou.ai/ad1d1813.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1834,7 +1834,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ca2afd1e@10s.mp3',
+    music: 'https://music.touhou.ai/ca2afd1e.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1848,7 +1848,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/45f42c0a@10s.mp3',
+    music: 'https://music.touhou.ai/45f42c0a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1862,7 +1862,7 @@ export const musicList: Music[] = [
     date: 20020811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/00f20fc7@10s.mp3',
+    music: 'https://music.touhou.ai/00f20fc7.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1876,7 +1876,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/506a210b@10s.mp3',
+    music: 'https://music.touhou.ai/506a210b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1890,7 +1890,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1f366558@10s.mp3',
+    music: 'https://music.touhou.ai/1f366558.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1904,7 +1904,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/48c397a1@10s.mp3',
+    music: 'https://music.touhou.ai/48c397a1.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1918,7 +1918,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ad1bcdad@10s.mp3',
+    music: 'https://music.touhou.ai/ad1bcdad.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1932,7 +1932,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c747518e@10s.mp3',
+    music: 'https://music.touhou.ai/c747518e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1946,7 +1946,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f7da11df@10s.mp3',
+    music: 'https://music.touhou.ai/f7da11df.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1960,7 +1960,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2a42fd12@10s.mp3',
+    music: 'https://music.touhou.ai/2a42fd12.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -1974,7 +1974,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e8cb85a3@10s.mp3',
+    music: 'https://music.touhou.ai/e8cb85a3.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -1988,7 +1988,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/36cfee76@10s.mp3',
+    music: 'https://music.touhou.ai/36cfee76.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2002,7 +2002,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ee1b2ff4@10s.mp3',
+    music: 'https://music.touhou.ai/ee1b2ff4.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2016,7 +2016,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a05c6175@10s.mp3',
+    music: 'https://music.touhou.ai/a05c6175.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2030,7 +2030,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/52704618@10s.mp3',
+    music: 'https://music.touhou.ai/52704618.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2044,7 +2044,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/322b49b6@10s.mp3',
+    music: 'https://music.touhou.ai/322b49b6.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2058,7 +2058,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/29d9386a@10s.mp3',
+    music: 'https://music.touhou.ai/29d9386a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2072,7 +2072,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5ba01e01@10s.mp3',
+    music: 'https://music.touhou.ai/5ba01e01.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2086,7 +2086,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1f83f846@10s.mp3',
+    music: 'https://music.touhou.ai/1f83f846.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2100,7 +2100,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a7abbfb0@10s.mp3',
+    music: 'https://music.touhou.ai/a7abbfb0.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2114,7 +2114,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b0e36297@10s.mp3',
+    music: 'https://music.touhou.ai/b0e36297.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2128,7 +2128,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2d28faed@10s.mp3',
+    music: 'https://music.touhou.ai/2d28faed.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2142,7 +2142,7 @@ export const musicList: Music[] = [
     date: 20030817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A6%96%E5%A6%96%E6%A2%A6@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/64feb69b@10s.mp3',
+    music: 'https://music.touhou.ai/64feb69b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2156,7 +2156,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5291022f@10s.mp3',
+    music: 'https://music.touhou.ai/5291022f.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2170,7 +2170,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bb10d08e@10s.mp3',
+    music: 'https://music.touhou.ai/bb10d08e.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2184,7 +2184,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7a1e82e4@10s.mp3',
+    music: 'https://music.touhou.ai/7a1e82e4.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2198,7 +2198,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/73d77a15@10s.mp3',
+    music: 'https://music.touhou.ai/73d77a15.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2212,7 +2212,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4de9b189@10s.mp3',
+    music: 'https://music.touhou.ai/4de9b189.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2226,7 +2226,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ead10041@10s.mp3',
+    music: 'https://music.touhou.ai/ead10041.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2240,7 +2240,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/76ace9a4@10s.mp3',
+    music: 'https://music.touhou.ai/76ace9a4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2254,7 +2254,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fd27bffa@10s.mp3',
+    music: 'https://music.touhou.ai/fd27bffa.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2268,7 +2268,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1f31b785@10s.mp3',
+    music: 'https://music.touhou.ai/1f31b785.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2282,7 +2282,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9a80f46a@10s.mp3',
+    music: 'https://music.touhou.ai/9a80f46a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2296,7 +2296,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5d931307@10s.mp3',
+    music: 'https://music.touhou.ai/5d931307.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2310,7 +2310,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1297a3d0@10s.mp3',
+    music: 'https://music.touhou.ai/1297a3d0.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2324,7 +2324,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0bd39acc@10s.mp3',
+    music: 'https://music.touhou.ai/0bd39acc.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2338,7 +2338,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/de4e5841@10s.mp3',
+    music: 'https://music.touhou.ai/de4e5841.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2352,7 +2352,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e58a08f1@10s.mp3',
+    music: 'https://music.touhou.ai/e58a08f1.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2366,7 +2366,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/04e4b3e7@10s.mp3',
+    music: 'https://music.touhou.ai/04e4b3e7.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2380,7 +2380,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7310b7e7@10s.mp3',
+    music: 'https://music.touhou.ai/7310b7e7.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2394,7 +2394,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9322964a@10s.mp3',
+    music: 'https://music.touhou.ai/9322964a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2408,7 +2408,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/573a3a29@10s.mp3',
+    music: 'https://music.touhou.ai/573a3a29.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2422,7 +2422,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BB%E6%83%B3%E6%9B%B2%E6%8B%94%E8%90%83@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/34256cf4@10s.mp3',
+    music: 'https://music.touhou.ai/34256cf4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2436,7 +2436,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ceabc761@10s.mp3',
+    music: 'https://music.touhou.ai/ceabc761.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2450,7 +2450,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cb6a7e45@10s.mp3',
+    music: 'https://music.touhou.ai/cb6a7e45.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2464,7 +2464,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0833d1cf@10s.mp3',
+    music: 'https://music.touhou.ai/0833d1cf.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2478,7 +2478,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/31f7eb5c@10s.mp3',
+    music: 'https://music.touhou.ai/31f7eb5c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2492,7 +2492,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/87be77a4@10s.mp3',
+    music: 'https://music.touhou.ai/87be77a4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2506,7 +2506,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/48d6c1a4@10s.mp3',
+    music: 'https://music.touhou.ai/48d6c1a4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2520,7 +2520,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c30e50b6@10s.mp3',
+    music: 'https://music.touhou.ai/c30e50b6.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2534,7 +2534,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0c101fb4@10s.mp3',
+    music: 'https://music.touhou.ai/0c101fb4.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD', 'book'],
@@ -2548,7 +2548,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/40c1b9bc@10s.mp3',
+    music: 'https://music.touhou.ai/40c1b9bc.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2562,7 +2562,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/52f985bc@10s.mp3',
+    music: 'https://music.touhou.ai/52f985bc.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2576,7 +2576,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/18bbbfc4@10s.mp3',
+    music: 'https://music.touhou.ai/18bbbfc4.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2590,7 +2590,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2968f852@10s.mp3',
+    music: 'https://music.touhou.ai/2968f852.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2604,7 +2604,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/325f79bd@10s.mp3',
+    music: 'https://music.touhou.ai/325f79bd.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2618,7 +2618,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bba1d1e8@10s.mp3',
+    music: 'https://music.touhou.ai/bba1d1e8.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2632,7 +2632,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/19e39ded@10s.mp3',
+    music: 'https://music.touhou.ai/19e39ded.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2646,7 +2646,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/234cf9b5@10s.mp3',
+    music: 'https://music.touhou.ai/234cf9b5.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2660,7 +2660,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/62bbb4af@10s.mp3',
+    music: 'https://music.touhou.ai/62bbb4af.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2674,7 +2674,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f1ebb7c0@10s.mp3',
+    music: 'https://music.touhou.ai/f1ebb7c0.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2688,7 +2688,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B0%B8%E5%A4%9C%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/84d6c67c@10s.mp3',
+    music: 'https://music.touhou.ai/84d6c67c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2702,7 +2702,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/face6f08@10s.mp3',
+    music: 'https://music.touhou.ai/face6f08.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2716,7 +2716,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4d80672c@10s.mp3',
+    music: 'https://music.touhou.ai/4d80672c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2730,7 +2730,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/36c5e375@10s.mp3',
+    music: 'https://music.touhou.ai/36c5e375.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2744,7 +2744,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9d62ed86@10s.mp3',
+    music: 'https://music.touhou.ai/9d62ed86.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2758,7 +2758,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/06fc7519@10s.mp3',
+    music: 'https://music.touhou.ai/06fc7519.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2772,7 +2772,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0e4e7d2c@10s.mp3',
+    music: 'https://music.touhou.ai/0e4e7d2c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2786,7 +2786,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bad13fa8@10s.mp3',
+    music: 'https://music.touhou.ai/bad13fa8.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2800,7 +2800,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/13f4e9ea@10s.mp3',
+    music: 'https://music.touhou.ai/13f4e9ea.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2814,7 +2814,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/830d6ce9@10s.mp3',
+    music: 'https://music.touhou.ai/830d6ce9.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book', 'CD'],
@@ -2828,7 +2828,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1a351115@10s.mp3',
+    music: 'https://music.touhou.ai/1a351115.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2842,7 +2842,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/98659662@10s.mp3',
+    music: 'https://music.touhou.ai/98659662.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2856,7 +2856,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1c14d460@10s.mp3',
+    music: 'https://music.touhou.ai/1c14d460.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2870,7 +2870,7 @@ export const musicList: Music[] = [
     date: 20050814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%8A%B1%E6%98%A0%E5%A1%9A@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b4ff0c22@10s.mp3',
+    music: 'https://music.touhou.ai/b4ff0c22.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2884,7 +2884,7 @@ export const musicList: Music[] = [
     date: 20051230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/49abc1f6@10s.mp3',
+    music: 'https://music.touhou.ai/49abc1f6.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2898,7 +2898,7 @@ export const musicList: Music[] = [
     date: 20051230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/450aefd6@10s.mp3',
+    music: 'https://music.touhou.ai/450aefd6.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2912,7 +2912,7 @@ export const musicList: Music[] = [
     date: 20051230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e4938f5a@10s.mp3',
+    music: 'https://music.touhou.ai/e4938f5a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2926,7 +2926,7 @@ export const musicList: Music[] = [
     date: 20051230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1a73e624@10s.mp3',
+    music: 'https://music.touhou.ai/1a73e624.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2940,7 +2940,7 @@ export const musicList: Music[] = [
     date: 20051230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c7644738@10s.mp3',
+    music: 'https://music.touhou.ai/c7644738.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -2954,7 +2954,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cfb07ce3@10s.mp3',
+    music: 'https://music.touhou.ai/cfb07ce3.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2968,7 +2968,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/942b1e3e@10s.mp3',
+    music: 'https://music.touhou.ai/942b1e3e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2982,7 +2982,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4e8a1fa6@10s.mp3',
+    music: 'https://music.touhou.ai/4e8a1fa6.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -2996,7 +2996,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b8406eae@10s.mp3',
+    music: 'https://music.touhou.ai/b8406eae.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3010,7 +3010,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d9242c0d@10s.mp3',
+    music: 'https://music.touhou.ai/d9242c0d.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3024,7 +3024,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/61f75ca3@10s.mp3',
+    music: 'https://music.touhou.ai/61f75ca3.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3038,7 +3038,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e3c1fda3@10s.mp3',
+    music: 'https://music.touhou.ai/e3c1fda3.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3052,7 +3052,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/afa22d56@10s.mp3',
+    music: 'https://music.touhou.ai/afa22d56.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3066,7 +3066,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f288c6b5@10s.mp3',
+    music: 'https://music.touhou.ai/f288c6b5.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3080,7 +3080,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d95bded9@10s.mp3',
+    music: 'https://music.touhou.ai/d95bded9.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3094,7 +3094,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/843422df@10s.mp3',
+    music: 'https://music.touhou.ai/843422df.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3108,7 +3108,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b2847974@10s.mp3',
+    music: 'https://music.touhou.ai/b2847974.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3122,7 +3122,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8891e09c@10s.mp3',
+    music: 'https://music.touhou.ai/8891e09c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3136,7 +3136,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/37591878@10s.mp3',
+    music: 'https://music.touhou.ai/37591878.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -3150,7 +3150,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a1feb032@10s.mp3',
+    music: 'https://music.touhou.ai/a1feb032.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3164,7 +3164,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/66b665ac@10s.mp3',
+    music: 'https://music.touhou.ai/66b665ac.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3178,7 +3178,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1e13b0b0@10s.mp3',
+    music: 'https://music.touhou.ai/1e13b0b0.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3192,7 +3192,7 @@ export const musicList: Music[] = [
     date: 20070817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%A3%8E%E7%A5%9E%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f579fd34@10s.mp3',
+    music: 'https://music.touhou.ai/f579fd34.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3206,7 +3206,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b99a27e5@10s.mp3',
+    music: 'https://music.touhou.ai/b99a27e5.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3220,7 +3220,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a1c462f4@10s.mp3',
+    music: 'https://music.touhou.ai/a1c462f4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3234,7 +3234,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ec255f92@10s.mp3',
+    music: 'https://music.touhou.ai/ec255f92.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3248,7 +3248,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0f4b153d@10s.mp3',
+    music: 'https://music.touhou.ai/0f4b153d.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3262,7 +3262,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/23c04b7f@10s.mp3',
+    music: 'https://music.touhou.ai/23c04b7f.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3276,7 +3276,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a6b0e132@10s.mp3',
+    music: 'https://music.touhou.ai/a6b0e132.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3290,7 +3290,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/14250867@10s.mp3',
+    music: 'https://music.touhou.ai/14250867.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3304,7 +3304,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b66039b5@10s.mp3',
+    music: 'https://music.touhou.ai/b66039b5.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3318,7 +3318,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/173cd2ca@10s.mp3',
+    music: 'https://music.touhou.ai/173cd2ca.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3332,7 +3332,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b64dd552@10s.mp3',
+    music: 'https://music.touhou.ai/b64dd552.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3346,7 +3346,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/20de0d5a@10s.mp3',
+    music: 'https://music.touhou.ai/20de0d5a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3360,7 +3360,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/508edc2b@10s.mp3',
+    music: 'https://music.touhou.ai/508edc2b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3374,7 +3374,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/31b1bb2e@10s.mp3',
+    music: 'https://music.touhou.ai/31b1bb2e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3388,7 +3388,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3d8100fc@10s.mp3',
+    music: 'https://music.touhou.ai/3d8100fc.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3402,7 +3402,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/809f8500@10s.mp3',
+    music: 'https://music.touhou.ai/809f8500.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3416,7 +3416,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/501a7bd0@10s.mp3',
+    music: 'https://music.touhou.ai/501a7bd0.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3430,7 +3430,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8a0538a6@10s.mp3',
+    music: 'https://music.touhou.ai/8a0538a6.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3444,7 +3444,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%A4%A9%E4%B9%90%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4e450c9b@10s.mp3',
+    music: 'https://music.touhou.ai/4e450c9b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3458,7 +3458,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9e4dffee@10s.mp3',
+    music: 'https://music.touhou.ai/9e4dffee.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3472,7 +3472,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cc6c9e98@10s.mp3',
+    music: 'https://music.touhou.ai/cc6c9e98.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3486,7 +3486,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/95438689@10s.mp3',
+    music: 'https://music.touhou.ai/95438689.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3500,7 +3500,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c792ace8@10s.mp3',
+    music: 'https://music.touhou.ai/c792ace8.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3514,7 +3514,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3f6cd510@10s.mp3',
+    music: 'https://music.touhou.ai/3f6cd510.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3528,7 +3528,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/88a32a6d@10s.mp3',
+    music: 'https://music.touhou.ai/88a32a6d.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3542,7 +3542,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1a5ce9d3@10s.mp3',
+    music: 'https://music.touhou.ai/1a5ce9d3.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3556,7 +3556,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c7fbea7c@10s.mp3',
+    music: 'https://music.touhou.ai/c7fbea7c.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -3570,7 +3570,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f460195d@10s.mp3',
+    music: 'https://music.touhou.ai/f460195d.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3584,7 +3584,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1424930d@10s.mp3',
+    music: 'https://music.touhou.ai/1424930d.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3598,7 +3598,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bd6ed151@10s.mp3',
+    music: 'https://music.touhou.ai/bd6ed151.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3612,7 +3612,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6a64bae1@10s.mp3',
+    music: 'https://music.touhou.ai/6a64bae1.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3626,7 +3626,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ec17846e@10s.mp3',
+    music: 'https://music.touhou.ai/ec17846e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3640,7 +3640,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3104fd1a@10s.mp3',
+    music: 'https://music.touhou.ai/3104fd1a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3654,7 +3654,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c938bd3d@10s.mp3',
+    music: 'https://music.touhou.ai/c938bd3d.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -3668,7 +3668,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f80a8283@10s.mp3',
+    music: 'https://music.touhou.ai/f80a8283.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3682,7 +3682,7 @@ export const musicList: Music[] = [
     date: 20080816,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%9C%B0%E7%81%B5%E6%AE%BF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/963b75e8@10s.mp3',
+    music: 'https://music.touhou.ai/963b75e8.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3696,7 +3696,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c0b10b1c@10s.mp3',
+    music: 'https://music.touhou.ai/c0b10b1c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3710,7 +3710,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4a2cdba9@10s.mp3',
+    music: 'https://music.touhou.ai/4a2cdba9.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3724,7 +3724,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f8b9bda9@10s.mp3',
+    music: 'https://music.touhou.ai/f8b9bda9.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3738,7 +3738,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9d609e49@10s.mp3',
+    music: 'https://music.touhou.ai/9d609e49.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3752,7 +3752,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/413d7bec@10s.mp3',
+    music: 'https://music.touhou.ai/413d7bec.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3766,7 +3766,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5d7edbeb@10s.mp3',
+    music: 'https://music.touhou.ai/5d7edbeb.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3780,7 +3780,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/44e88728@10s.mp3',
+    music: 'https://music.touhou.ai/44e88728.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3794,7 +3794,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/da8cf6f8@10s.mp3',
+    music: 'https://music.touhou.ai/da8cf6f8.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3808,7 +3808,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3dc6bb9b@10s.mp3',
+    music: 'https://music.touhou.ai/3dc6bb9b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3822,7 +3822,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f1a40846@10s.mp3',
+    music: 'https://music.touhou.ai/f1a40846.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -3836,7 +3836,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e69c9578@10s.mp3',
+    music: 'https://music.touhou.ai/e69c9578.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3850,7 +3850,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8270d657@10s.mp3',
+    music: 'https://music.touhou.ai/8270d657.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3864,7 +3864,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4f911242@10s.mp3',
+    music: 'https://music.touhou.ai/4f911242.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3878,7 +3878,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/50c79183@10s.mp3',
+    music: 'https://music.touhou.ai/50c79183.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -3892,7 +3892,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1e62ee32@10s.mp3',
+    music: 'https://music.touhou.ai/1e62ee32.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3906,7 +3906,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/360cca73@10s.mp3',
+    music: 'https://music.touhou.ai/360cca73.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3920,7 +3920,7 @@ export const musicList: Music[] = [
     date: 20090815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%98%9F%E8%8E%B2%E8%88%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f6b6e474@10s.mp3',
+    music: 'https://music.touhou.ai/f6b6e474.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3934,7 +3934,7 @@ export const musicList: Music[] = [
     date: 20091231,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e47e1f2e@10s.mp3',
+    music: 'https://music.touhou.ai/e47e1f2e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3948,7 +3948,7 @@ export const musicList: Music[] = [
     date: 20091231,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/034b4d0e@10s.mp3',
+    music: 'https://music.touhou.ai/034b4d0e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3962,7 +3962,7 @@ export const musicList: Music[] = [
     date: 20091231,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/67ffea7c@10s.mp3',
+    music: 'https://music.touhou.ai/67ffea7c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3976,7 +3976,7 @@ export const musicList: Music[] = [
     date: 20091231,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4773ebad@10s.mp3',
+    music: 'https://music.touhou.ai/4773ebad.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -3990,7 +3990,7 @@ export const musicList: Music[] = [
     date: 20091231,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/616d16de@10s.mp3',
+    music: 'https://music.touhou.ai/616d16de.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4004,7 +4004,7 @@ export const musicList: Music[] = [
     date: 20091231,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5bb3c3b9@10s.mp3',
+    music: 'https://music.touhou.ai/5bb3c3b9.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -4018,7 +4018,7 @@ export const musicList: Music[] = [
     date: 20091231,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/dc1af385@10s.mp3',
+    music: 'https://music.touhou.ai/dc1af385.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4032,7 +4032,7 @@ export const musicList: Music[] = [
     date: 20091231,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A0%B8%E7%83%AD%E9%80%A0%E7%A5%9E%E9%9D%9E%E6%83%B3%E5%A4%A9%E5%88%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a3b21e44@10s.mp3',
+    music: 'https://music.touhou.ai/a3b21e44.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4046,7 +4046,7 @@ export const musicList: Music[] = [
     date: 20100314,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4ea1e7dd@10s.mp3',
+    music: 'https://music.touhou.ai/4ea1e7dd.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4060,7 +4060,7 @@ export const musicList: Music[] = [
     date: 20100314,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/37eb40cd@10s.mp3',
+    music: 'https://music.touhou.ai/37eb40cd.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4074,7 +4074,7 @@ export const musicList: Music[] = [
     date: 20100314,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4598544a@10s.mp3',
+    music: 'https://music.touhou.ai/4598544a.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book'],
@@ -4088,7 +4088,7 @@ export const musicList: Music[] = [
     date: 20100314,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8521cca5@10s.mp3',
+    music: 'https://music.touhou.ai/8521cca5.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4102,7 +4102,7 @@ export const musicList: Music[] = [
     date: 20100314,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e148794f@10s.mp3',
+    music: 'https://music.touhou.ai/e148794f.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -4116,7 +4116,7 @@ export const musicList: Music[] = [
     date: 20100314,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96DS@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ba7d62fe@10s.mp3',
+    music: 'https://music.touhou.ai/ba7d62fe.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4130,7 +4130,7 @@ export const musicList: Music[] = [
     date: 20100814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/76ad4769@10s.mp3',
+    music: 'https://music.touhou.ai/76ad4769.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4144,7 +4144,7 @@ export const musicList: Music[] = [
     date: 20100814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a6270364@10s.mp3',
+    music: 'https://music.touhou.ai/a6270364.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book'],
@@ -4158,7 +4158,7 @@ export const musicList: Music[] = [
     date: 20100814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c3c75f4e@10s.mp3',
+    music: 'https://music.touhou.ai/c3c75f4e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4172,7 +4172,7 @@ export const musicList: Music[] = [
     date: 20100814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6242313b@10s.mp3',
+    music: 'https://music.touhou.ai/6242313b.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book'],
@@ -4186,7 +4186,7 @@ export const musicList: Music[] = [
     date: 20100814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A6%96%E7%B2%BE%E5%A4%A7%E6%88%98%E4%BA%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d8da8afe@10s.mp3',
+    music: 'https://music.touhou.ai/d8da8afe.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4200,7 +4200,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f4d60a9b@10s.mp3',
+    music: 'https://music.touhou.ai/f4d60a9b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4214,7 +4214,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fcb50ee2@10s.mp3',
+    music: 'https://music.touhou.ai/fcb50ee2.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4228,7 +4228,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/02dc230f@10s.mp3',
+    music: 'https://music.touhou.ai/02dc230f.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4242,7 +4242,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/66a995cc@10s.mp3',
+    music: 'https://music.touhou.ai/66a995cc.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4256,7 +4256,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/012fca8e@10s.mp3',
+    music: 'https://music.touhou.ai/012fca8e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4270,7 +4270,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9bb5271c@10s.mp3',
+    music: 'https://music.touhou.ai/9bb5271c.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -4284,7 +4284,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a82b64bb@10s.mp3',
+    music: 'https://music.touhou.ai/a82b64bb.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4298,7 +4298,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c1538879@10s.mp3',
+    music: 'https://music.touhou.ai/c1538879.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -4312,7 +4312,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8febadc7@10s.mp3',
+    music: 'https://music.touhou.ai/8febadc7.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book'],
@@ -4326,7 +4326,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d0e70b30@10s.mp3',
+    music: 'https://music.touhou.ai/d0e70b30.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4340,7 +4340,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/81630e06@10s.mp3',
+    music: 'https://music.touhou.ai/81630e06.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -4354,7 +4354,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3071606c@10s.mp3',
+    music: 'https://music.touhou.ai/3071606c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4368,7 +4368,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a4de8980@10s.mp3',
+    music: 'https://music.touhou.ai/a4de8980.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4382,7 +4382,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4a8d8237@10s.mp3',
+    music: 'https://music.touhou.ai/4a8d8237.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -4396,7 +4396,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/499a02bb@10s.mp3',
+    music: 'https://music.touhou.ai/499a02bb.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4410,7 +4410,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fdf6e931@10s.mp3',
+    music: 'https://music.touhou.ai/fdf6e931.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4424,7 +4424,7 @@ export const musicList: Music[] = [
     date: 20110813,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%A5%9E%E7%81%B5%E5%BA%99@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/19515053@10s.mp3',
+    music: 'https://music.touhou.ai/19515053.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4438,7 +4438,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/608f8e51@10s.mp3',
+    music: 'https://music.touhou.ai/608f8e51.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4452,7 +4452,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/364bcf4f@10s.mp3',
+    music: 'https://music.touhou.ai/364bcf4f.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -4466,7 +4466,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/abd3c464@10s.mp3',
+    music: 'https://music.touhou.ai/abd3c464.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4480,7 +4480,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ea3a3090@10s.mp3',
+    music: 'https://music.touhou.ai/ea3a3090.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4494,7 +4494,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/aa530377@10s.mp3',
+    music: 'https://music.touhou.ai/aa530377.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4508,7 +4508,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3a1ac1d0@10s.mp3',
+    music: 'https://music.touhou.ai/3a1ac1d0.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4522,7 +4522,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8120ac61@10s.mp3',
+    music: 'https://music.touhou.ai/8120ac61.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4536,7 +4536,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e31fcc8b@10s.mp3',
+    music: 'https://music.touhou.ai/e31fcc8b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4550,7 +4550,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fb479e68@10s.mp3',
+    music: 'https://music.touhou.ai/fb479e68.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4564,7 +4564,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b6a9cbce@10s.mp3',
+    music: 'https://music.touhou.ai/b6a9cbce.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4578,7 +4578,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e698f678@10s.mp3',
+    music: 'https://music.touhou.ai/e698f678.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4592,7 +4592,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4b078f4c@10s.mp3',
+    music: 'https://music.touhou.ai/4b078f4c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4606,7 +4606,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/11885592@10s.mp3',
+    music: 'https://music.touhou.ai/11885592.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4620,7 +4620,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/dd1f0731@10s.mp3',
+    music: 'https://music.touhou.ai/dd1f0731.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book'],
@@ -4634,7 +4634,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e15f7651@10s.mp3',
+    music: 'https://music.touhou.ai/e15f7651.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4648,7 +4648,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/719e2b58@10s.mp3',
+    music: 'https://music.touhou.ai/719e2b58.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4662,7 +4662,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6ff6ecb9@10s.mp3',
+    music: 'https://music.touhou.ai/6ff6ecb9.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4676,7 +4676,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/03e7d1f8@10s.mp3',
+    music: 'https://music.touhou.ai/03e7d1f8.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4690,7 +4690,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/663b0450@10s.mp3',
+    music: 'https://music.touhou.ai/663b0450.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4704,7 +4704,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/41049bfd@10s.mp3',
+    music: 'https://music.touhou.ai/41049bfd.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -4718,7 +4718,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d6b97123@10s.mp3',
+    music: 'https://music.touhou.ai/d6b97123.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -4732,7 +4732,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/34b7f9fd@10s.mp3',
+    music: 'https://music.touhou.ai/34b7f9fd.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4746,7 +4746,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/366ea0d7@10s.mp3',
+    music: 'https://music.touhou.ai/366ea0d7.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4760,7 +4760,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/29efeb34@10s.mp3',
+    music: 'https://music.touhou.ai/29efeb34.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4774,7 +4774,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a96a62cb@10s.mp3',
+    music: 'https://music.touhou.ai/a96a62cb.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4788,7 +4788,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f7ca1dfb@10s.mp3',
+    music: 'https://music.touhou.ai/f7ca1dfb.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4802,7 +4802,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%BE%89%E9%92%88%E5%9F%8E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/91690ef0@10s.mp3',
+    music: 'https://music.touhou.ai/91690ef0.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4816,7 +4816,7 @@ export const musicList: Music[] = [
     date: 20140511,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2294a5f6@10s.mp3',
+    music: 'https://music.touhou.ai/2294a5f6.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4830,7 +4830,7 @@ export const musicList: Music[] = [
     date: 20140511,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ac0ebe18@10s.mp3',
+    music: 'https://music.touhou.ai/ac0ebe18.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4844,7 +4844,7 @@ export const musicList: Music[] = [
     date: 20140511,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5e28361c@10s.mp3',
+    music: 'https://music.touhou.ai/5e28361c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4858,7 +4858,7 @@ export const musicList: Music[] = [
     date: 20140511,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1584f77a@10s.mp3',
+    music: 'https://music.touhou.ai/1584f77a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4872,7 +4872,7 @@ export const musicList: Music[] = [
     date: 20140511,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%BC%B9%E5%B9%95%E5%A4%A9%E9%82%AA%E9%AC%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/46dc74b0@10s.mp3',
+    music: 'https://music.touhou.ai/46dc74b0.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -4886,7 +4886,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fa99f62e@10s.mp3',
+    music: 'https://music.touhou.ai/fa99f62e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4900,7 +4900,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bc014625@10s.mp3',
+    music: 'https://music.touhou.ai/bc014625.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4914,7 +4914,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/891fe1db@10s.mp3',
+    music: 'https://music.touhou.ai/891fe1db.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4928,7 +4928,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c78e8770@10s.mp3',
+    music: 'https://music.touhou.ai/c78e8770.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4942,7 +4942,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5cc732fb@10s.mp3',
+    music: 'https://music.touhou.ai/5cc732fb.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4956,7 +4956,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6fd2b707@10s.mp3',
+    music: 'https://music.touhou.ai/6fd2b707.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4970,7 +4970,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/df874f5b@10s.mp3',
+    music: 'https://music.touhou.ai/df874f5b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4984,7 +4984,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/34ea4b60@10s.mp3',
+    music: 'https://music.touhou.ai/34ea4b60.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -4998,7 +4998,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ff0d6f78@10s.mp3',
+    music: 'https://music.touhou.ai/ff0d6f78.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5012,7 +5012,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/53fe3a77@10s.mp3',
+    music: 'https://music.touhou.ai/53fe3a77.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5026,7 +5026,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5dc878d6@10s.mp3',
+    music: 'https://music.touhou.ai/5dc878d6.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5040,7 +5040,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/08967da6@10s.mp3',
+    music: 'https://music.touhou.ai/08967da6.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book'],
@@ -5054,7 +5054,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/337badc5@10s.mp3',
+    music: 'https://music.touhou.ai/337badc5.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5068,7 +5068,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fe93b97d@10s.mp3',
+    music: 'https://music.touhou.ai/fe93b97d.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5082,7 +5082,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fc112552@10s.mp3',
+    music: 'https://music.touhou.ai/fc112552.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5096,7 +5096,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8acaa5fd@10s.mp3',
+    music: 'https://music.touhou.ai/8acaa5fd.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5110,7 +5110,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3176fdb2@10s.mp3',
+    music: 'https://music.touhou.ai/3176fdb2.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5124,7 +5124,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/68dc9b51@10s.mp3',
+    music: 'https://music.touhou.ai/68dc9b51.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book'],
@@ -5138,7 +5138,7 @@ export const musicList: Music[] = [
     date: 20161208,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/364442bb@10s.mp3',
+    music: 'https://music.touhou.ai/364442bb.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5152,7 +5152,7 @@ export const musicList: Music[] = [
     date: 20161208,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1f1b5292@10s.mp3',
+    music: 'https://music.touhou.ai/1f1b5292.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5166,7 +5166,7 @@ export const musicList: Music[] = [
     date: 20161208,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8e72fd43@10s.mp3',
+    music: 'https://music.touhou.ai/8e72fd43.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book'],
@@ -5180,7 +5180,7 @@ export const musicList: Music[] = [
     date: 20161208,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d3e842cf@10s.mp3',
+    music: 'https://music.touhou.ai/d3e842cf.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5194,7 +5194,7 @@ export const musicList: Music[] = [
     date: 20161208,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%B7%B1%E7%A7%98%E4%B9%90%E6%9B%B2%E9%9B%86%C2%B7%E8%A1%A5@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bf3e9d98@10s.mp3',
+    music: 'https://music.touhou.ai/bf3e9d98.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5208,7 +5208,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5ea87d5a@10s.mp3',
+    music: 'https://music.touhou.ai/5ea87d5a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5222,7 +5222,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/737e2c82@10s.mp3',
+    music: 'https://music.touhou.ai/737e2c82.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5236,7 +5236,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/eee0646a@10s.mp3',
+    music: 'https://music.touhou.ai/eee0646a.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book'],
@@ -5250,7 +5250,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/17daa444@10s.mp3',
+    music: 'https://music.touhou.ai/17daa444.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5264,7 +5264,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0b2dc28b@10s.mp3',
+    music: 'https://music.touhou.ai/0b2dc28b.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -5278,7 +5278,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/73c15fd2@10s.mp3',
+    music: 'https://music.touhou.ai/73c15fd2.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5292,7 +5292,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6297409c@10s.mp3',
+    music: 'https://music.touhou.ai/6297409c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5306,7 +5306,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8cde6b01@10s.mp3',
+    music: 'https://music.touhou.ai/8cde6b01.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -5320,7 +5320,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4902c288@10s.mp3',
+    music: 'https://music.touhou.ai/4902c288.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5334,7 +5334,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f93b7570@10s.mp3',
+    music: 'https://music.touhou.ai/f93b7570.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5348,7 +5348,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ad197c76@10s.mp3',
+    music: 'https://music.touhou.ai/ad197c76.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5362,7 +5362,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bef43a7b@10s.mp3',
+    music: 'https://music.touhou.ai/bef43a7b.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -5376,7 +5376,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4ff2ed10@10s.mp3',
+    music: 'https://music.touhou.ai/4ff2ed10.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -5390,7 +5390,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f50f5e50@10s.mp3',
+    music: 'https://music.touhou.ai/f50f5e50.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5404,7 +5404,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cd1128a0@10s.mp3',
+    music: 'https://music.touhou.ai/cd1128a0.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -5418,7 +5418,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/edddca5f@10s.mp3',
+    music: 'https://music.touhou.ai/edddca5f.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5432,7 +5432,7 @@ export const musicList: Music[] = [
     date: 20150814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E7%BB%80%E7%8F%A0%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1df65078@10s.mp3',
+    music: 'https://music.touhou.ai/1df65078.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5446,7 +5446,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/563d6ba4@10s.mp3',
+    music: 'https://music.touhou.ai/563d6ba4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5460,7 +5460,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/12327c40@10s.mp3',
+    music: 'https://music.touhou.ai/12327c40.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5474,7 +5474,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1eacb99f@10s.mp3',
+    music: 'https://music.touhou.ai/1eacb99f.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5488,7 +5488,7 @@ export const musicList: Music[] = [
     date: 20130812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9A%97%E9%BB%91%E8%83%BD%E4%B9%90%E9%9B%86%E5%BF%83%E7%BB%AE%E6%A5%BC@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2bc178ed@10s.mp3',
+    music: 'https://music.touhou.ai/2bc178ed.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5502,7 +5502,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e51867ce@10s.mp3',
+    music: 'https://music.touhou.ai/e51867ce.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5516,7 +5516,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a1728674@10s.mp3',
+    music: 'https://music.touhou.ai/a1728674.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5530,7 +5530,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/faed9f70@10s.mp3',
+    music: 'https://music.touhou.ai/faed9f70.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5544,7 +5544,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a8033d3b@10s.mp3',
+    music: 'https://music.touhou.ai/a8033d3b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5558,7 +5558,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0ff9014b@10s.mp3',
+    music: 'https://music.touhou.ai/0ff9014b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5572,7 +5572,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1e954a02@10s.mp3',
+    music: 'https://music.touhou.ai/1e954a02.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5586,7 +5586,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/193f37fc@10s.mp3',
+    music: 'https://music.touhou.ai/193f37fc.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5600,7 +5600,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f29a913f@10s.mp3',
+    music: 'https://music.touhou.ai/f29a913f.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -5614,7 +5614,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5963aac6@10s.mp3',
+    music: 'https://music.touhou.ai/5963aac6.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5628,7 +5628,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/47a5e8b5@10s.mp3',
+    music: 'https://music.touhou.ai/47a5e8b5.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5642,7 +5642,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b4f3ff1b@10s.mp3',
+    music: 'https://music.touhou.ai/b4f3ff1b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5656,7 +5656,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/eb094bbe@10s.mp3',
+    music: 'https://music.touhou.ai/eb094bbe.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5670,7 +5670,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b98ef381@10s.mp3',
+    music: 'https://music.touhou.ai/b98ef381.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5684,7 +5684,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/32eb1fbb@10s.mp3',
+    music: 'https://music.touhou.ai/32eb1fbb.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5698,7 +5698,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4a5f7756@10s.mp3',
+    music: 'https://music.touhou.ai/4a5f7756.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5712,7 +5712,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f076e035@10s.mp3',
+    music: 'https://music.touhou.ai/f076e035.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5726,7 +5726,7 @@ export const musicList: Music[] = [
     date: 20170811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%A4%A9%E7%A9%BA%E7%92%8B@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2d995a00@10s.mp3',
+    music: 'https://music.touhou.ai/2d995a00.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5740,7 +5740,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/39af4faa@10s.mp3',
+    music: 'https://music.touhou.ai/39af4faa.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5754,7 +5754,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7ff9b2b1@10s.mp3',
+    music: 'https://music.touhou.ai/7ff9b2b1.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5768,7 +5768,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6a2c0d54@10s.mp3',
+    music: 'https://music.touhou.ai/6a2c0d54.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5782,7 +5782,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e3a25887@10s.mp3',
+    music: 'https://music.touhou.ai/e3a25887.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5796,7 +5796,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ff8ad0b0@10s.mp3',
+    music: 'https://music.touhou.ai/ff8ad0b0.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5810,7 +5810,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cd2f6b4d@10s.mp3',
+    music: 'https://music.touhou.ai/cd2f6b4d.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5824,7 +5824,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/54e26051@10s.mp3',
+    music: 'https://music.touhou.ai/54e26051.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5838,7 +5838,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/340f5875@10s.mp3',
+    music: 'https://music.touhou.ai/340f5875.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5852,7 +5852,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d784289a@10s.mp3',
+    music: 'https://music.touhou.ai/d784289a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5866,7 +5866,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8c629359@10s.mp3',
+    music: 'https://music.touhou.ai/8c629359.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5880,7 +5880,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9cacac2c@10s.mp3',
+    music: 'https://music.touhou.ai/9cacac2c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5894,7 +5894,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4cc36de2@10s.mp3',
+    music: 'https://music.touhou.ai/4cc36de2.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5908,7 +5908,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f26b9ab3@10s.mp3',
+    music: 'https://music.touhou.ai/f26b9ab3.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5922,7 +5922,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e83b49fb@10s.mp3',
+    music: 'https://music.touhou.ai/e83b49fb.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5936,7 +5936,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d818e31a@10s.mp3',
+    music: 'https://music.touhou.ai/d818e31a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5950,7 +5950,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/50c59b3e@10s.mp3',
+    music: 'https://music.touhou.ai/50c59b3e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5964,7 +5964,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bc9c7745@10s.mp3',
+    music: 'https://music.touhou.ai/bc9c7745.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5978,7 +5978,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b002fdda@10s.mp3',
+    music: 'https://music.touhou.ai/b002fdda.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -5992,7 +5992,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a3e02870@10s.mp3',
+    music: 'https://music.touhou.ai/a3e02870.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6006,7 +6006,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4ed9d6a3@10s.mp3',
+    music: 'https://music.touhou.ai/4ed9d6a3.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6020,7 +6020,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8618e5bc@10s.mp3',
+    music: 'https://music.touhou.ai/8618e5bc.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6034,7 +6034,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/43dc4d03@10s.mp3',
+    music: 'https://music.touhou.ai/43dc4d03.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6048,7 +6048,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a58981c1@10s.mp3',
+    music: 'https://music.touhou.ai/a58981c1.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6062,7 +6062,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f95d474e@10s.mp3',
+    music: 'https://music.touhou.ai/f95d474e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6076,7 +6076,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/75d5c90b@10s.mp3',
+    music: 'https://music.touhou.ai/75d5c90b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6090,7 +6090,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/13218812@10s.mp3',
+    music: 'https://music.touhou.ai/13218812.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6104,7 +6104,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bf590d9d@10s.mp3',
+    music: 'https://music.touhou.ai/bf590d9d.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6118,7 +6118,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ccdcf4cb@10s.mp3',
+    music: 'https://music.touhou.ai/ccdcf4cb.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6132,7 +6132,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/838b548f@10s.mp3',
+    music: 'https://music.touhou.ai/838b548f.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6146,7 +6146,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/221a2de4@10s.mp3',
+    music: 'https://music.touhou.ai/221a2de4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6160,7 +6160,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4bfe9f9e@10s.mp3',
+    music: 'https://music.touhou.ai/4bfe9f9e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6174,7 +6174,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/347ef38f@10s.mp3',
+    music: 'https://music.touhou.ai/347ef38f.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6188,7 +6188,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ef2d30ef@10s.mp3',
+    music: 'https://music.touhou.ai/ef2d30ef.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6202,7 +6202,7 @@ export const musicList: Music[] = [
     date: 20180506,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%AE%8C%E5%85%A8%E5%87%AD%E4%BE%9D%E5%94%B1%E7%89%87%E5%90%8D%E5%BD%95@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/62dcd1d4@10s.mp3',
+    music: 'https://music.touhou.ai/62dcd1d4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6216,7 +6216,7 @@ export const musicList: Music[] = [
     date: 20180810,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/49a7a8e1@10s.mp3',
+    music: 'https://music.touhou.ai/49a7a8e1.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6230,7 +6230,7 @@ export const musicList: Music[] = [
     date: 20180810,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/40d94036@10s.mp3',
+    music: 'https://music.touhou.ai/40d94036.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6244,7 +6244,7 @@ export const musicList: Music[] = [
     date: 20180810,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a8d4000b@10s.mp3',
+    music: 'https://music.touhou.ai/a8d4000b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6258,7 +6258,7 @@ export const musicList: Music[] = [
     date: 20180810,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%98%E5%B0%81%E5%99%A9%E6%A2%A6%E6%97%A5%E8%AE%B0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/553cc278@10s.mp3',
+    music: 'https://music.touhou.ai/553cc278.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6272,7 +6272,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/148780e7@10s.mp3',
+    music: 'https://music.touhou.ai/148780e7.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6286,7 +6286,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3a69e520@10s.mp3',
+    music: 'https://music.touhou.ai/3a69e520.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6300,7 +6300,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/dafb1d4a@10s.mp3',
+    music: 'https://music.touhou.ai/dafb1d4a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6314,7 +6314,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/24e51210@10s.mp3',
+    music: 'https://music.touhou.ai/24e51210.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6328,7 +6328,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ba742e7e@10s.mp3',
+    music: 'https://music.touhou.ai/ba742e7e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6342,7 +6342,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d54c2da7@10s.mp3',
+    music: 'https://music.touhou.ai/d54c2da7.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6356,7 +6356,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/69dbb73f@10s.mp3',
+    music: 'https://music.touhou.ai/69dbb73f.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6370,7 +6370,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/79d51667@10s.mp3',
+    music: 'https://music.touhou.ai/79d51667.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6384,7 +6384,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3fa749a2@10s.mp3',
+    music: 'https://music.touhou.ai/3fa749a2.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6398,7 +6398,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/192366a7@10s.mp3',
+    music: 'https://music.touhou.ai/192366a7.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6412,7 +6412,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0d31f8b1@10s.mp3',
+    music: 'https://music.touhou.ai/0d31f8b1.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6426,7 +6426,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/90a735d9@10s.mp3',
+    music: 'https://music.touhou.ai/90a735d9.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6440,7 +6440,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4d6d0151@10s.mp3',
+    music: 'https://music.touhou.ai/4d6d0151.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6454,7 +6454,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a1987d48@10s.mp3',
+    music: 'https://music.touhou.ai/a1987d48.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6468,7 +6468,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/73f6e28b@10s.mp3',
+    music: 'https://music.touhou.ai/73f6e28b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6482,7 +6482,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4fa0153f@10s.mp3',
+    music: 'https://music.touhou.ai/4fa0153f.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6496,7 +6496,7 @@ export const musicList: Music[] = [
     date: 20190812,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%AC%BC%E5%BD%A2%E5%85%BD@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0e8e5a3c@10s.mp3',
+    music: 'https://music.touhou.ai/0e8e5a3c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6510,7 +6510,7 @@ export const musicList: Music[] = [
     date: 20211128,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e233a133@10s.mp3',
+    music: 'https://music.touhou.ai/e233a133.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6524,7 +6524,7 @@ export const musicList: Music[] = [
     date: 20211128,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/542a4c62@10s.mp3',
+    music: 'https://music.touhou.ai/542a4c62.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6538,7 +6538,7 @@ export const musicList: Music[] = [
     date: 20211128,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2d627ef4@10s.mp3',
+    music: 'https://music.touhou.ai/2d627ef4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6552,7 +6552,7 @@ export const musicList: Music[] = [
     date: 20211128,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2617bade@10s.mp3',
+    music: 'https://music.touhou.ai/2617bade.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6566,7 +6566,7 @@ export const musicList: Music[] = [
     date: 20211128,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fb1a3467@10s.mp3',
+    music: 'https://music.touhou.ai/fb1a3467.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6580,7 +6580,7 @@ export const musicList: Music[] = [
     date: 20211128,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%B4%AA%E6%AC%B2%E4%B9%8B%E5%85%BD%E7%9A%84%E9%9F%B3%E4%B9%90@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/add94977@10s.mp3',
+    music: 'https://music.touhou.ai/add94977.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6594,7 +6594,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c564531a@10s.mp3',
+    music: 'https://music.touhou.ai/c564531a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6608,7 +6608,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/15f0f2af@10s.mp3',
+    music: 'https://music.touhou.ai/15f0f2af.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6622,7 +6622,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/dee396ed@10s.mp3',
+    music: 'https://music.touhou.ai/dee396ed.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6636,7 +6636,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a790c75e@10s.mp3',
+    music: 'https://music.touhou.ai/a790c75e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6650,7 +6650,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/534dfb49@10s.mp3',
+    music: 'https://music.touhou.ai/534dfb49.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6664,7 +6664,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e74caec3@10s.mp3',
+    music: 'https://music.touhou.ai/e74caec3.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6678,7 +6678,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/811df281@10s.mp3',
+    music: 'https://music.touhou.ai/811df281.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6692,7 +6692,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/44866da4@10s.mp3',
+    music: 'https://music.touhou.ai/44866da4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6706,7 +6706,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9dc096c4@10s.mp3',
+    music: 'https://music.touhou.ai/9dc096c4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6720,7 +6720,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7accab4b@10s.mp3',
+    music: 'https://music.touhou.ai/7accab4b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6734,7 +6734,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a1c4b4c3@10s.mp3',
+    music: 'https://music.touhou.ai/a1c4b4c3.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6748,7 +6748,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/be2b9f85@10s.mp3',
+    music: 'https://music.touhou.ai/be2b9f85.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6762,7 +6762,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/31318e23@10s.mp3',
+    music: 'https://music.touhou.ai/31318e23.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -6776,7 +6776,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7a37954f@10s.mp3',
+    music: 'https://music.touhou.ai/7a37954f.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6790,7 +6790,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/09f3b47c@10s.mp3',
+    music: 'https://music.touhou.ai/09f3b47c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6804,7 +6804,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e35ddb94@10s.mp3',
+    music: 'https://music.touhou.ai/e35ddb94.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6818,7 +6818,7 @@ export const musicList: Music[] = [
     date: 20210504,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E8%99%B9%E9%BE%99%E6%B4%9E@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e0350093@10s.mp3',
+    music: 'https://music.touhou.ai/e0350093.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6832,7 +6832,7 @@ export const musicList: Music[] = [
     date: 20220814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%BC%B9%E5%B9%95%E7%8B%82%E4%BB%AC%E7%9A%84%E9%BB%91%E5%B8%82@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a70f09b2@10s.mp3',
+    music: 'https://music.touhou.ai/a70f09b2.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6846,7 +6846,7 @@ export const musicList: Music[] = [
     date: 20220814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%BC%B9%E5%B9%95%E7%8B%82%E4%BB%AC%E7%9A%84%E9%BB%91%E5%B8%82@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d15be648@10s.mp3',
+    music: 'https://music.touhou.ai/d15be648.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6860,7 +6860,7 @@ export const musicList: Music[] = [
     date: 20220814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%BC%B9%E5%B9%95%E7%8B%82%E4%BB%AC%E7%9A%84%E9%BB%91%E5%B8%82@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ef593b6f@10s.mp3',
+    music: 'https://music.touhou.ai/ef593b6f.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6874,7 +6874,7 @@ export const musicList: Music[] = [
     date: 20220814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%BC%B9%E5%B9%95%E7%8B%82%E4%BB%AC%E7%9A%84%E9%BB%91%E5%B8%82@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8ceeef59@10s.mp3',
+    music: 'https://music.touhou.ai/8ceeef59.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6888,7 +6888,7 @@ export const musicList: Music[] = [
     date: 20220814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%BC%B9%E5%B9%95%E7%8B%82%E4%BB%AC%E7%9A%84%E9%BB%91%E5%B8%82@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a3af40aa@10s.mp3',
+    music: 'https://music.touhou.ai/a3af40aa.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6902,7 +6902,7 @@ export const musicList: Music[] = [
     date: 20220814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%BC%B9%E5%B9%95%E7%8B%82%E4%BB%AC%E7%9A%84%E9%BB%91%E5%B8%82@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/362860bc@10s.mp3',
+    music: 'https://music.touhou.ai/362860bc.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6916,7 +6916,7 @@ export const musicList: Music[] = [
     date: 20230817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%85%BD%E7%8E%8B%E5%9B%AD@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/c07e3e1a@10s.mp3',
+    music: 'https://music.touhou.ai/c07e3e1a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6930,7 +6930,7 @@ export const musicList: Music[] = [
     date: 20230817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%85%BD%E7%8E%8B%E5%9B%AD@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8fd26d5b@10s.mp3',
+    music: 'https://music.touhou.ai/8fd26d5b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6944,7 +6944,7 @@ export const musicList: Music[] = [
     date: 20230817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%85%BD%E7%8E%8B%E5%9B%AD@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/48efd79a@10s.mp3',
+    music: 'https://music.touhou.ai/48efd79a.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6958,7 +6958,7 @@ export const musicList: Music[] = [
     date: 20230817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%85%BD%E7%8E%8B%E5%9B%AD@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7b4d6e0c@10s.mp3',
+    music: 'https://music.touhou.ai/7b4d6e0c.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6972,7 +6972,7 @@ export const musicList: Music[] = [
     date: 20230817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%85%BD%E7%8E%8B%E5%9B%AD@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a8e8494e@10s.mp3',
+    music: 'https://music.touhou.ai/a8e8494e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -6986,7 +6986,7 @@ export const musicList: Music[] = [
     date: 20230817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%85%BD%E7%8E%8B%E5%9B%AD@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b5cca39e@10s.mp3',
+    music: 'https://music.touhou.ai/b5cca39e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -7000,7 +7000,7 @@ export const musicList: Music[] = [
     date: 20230817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%85%BD%E7%8E%8B%E5%9B%AD@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/629736f4@10s.mp3',
+    music: 'https://music.touhou.ai/629736f4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -7014,7 +7014,7 @@ export const musicList: Music[] = [
     date: 20230817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%85%BD%E7%8E%8B%E5%9B%AD@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9d19dfd7@10s.mp3',
+    music: 'https://music.touhou.ai/9d19dfd7.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -7028,7 +7028,7 @@ export const musicList: Music[] = [
     date: 20230817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%85%BD%E7%8E%8B%E5%9B%AD@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/291011a7@10s.mp3',
+    music: 'https://music.touhou.ai/291011a7.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -7042,7 +7042,7 @@ export const musicList: Music[] = [
     date: 20230817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%85%BD%E7%8E%8B%E5%9B%AD@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4a785260@10s.mp3',
+    music: 'https://music.touhou.ai/4a785260.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -7056,7 +7056,7 @@ export const musicList: Music[] = [
     date: 20230817,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%85%BD%E7%8E%8B%E5%9B%AD@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0688d2a3@10s.mp3',
+    music: 'https://music.touhou.ai/0688d2a3.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -7069,7 +7069,7 @@ export const musicList: Music[] = [
     album: '蓬莱人形',
     date: 20020811,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ab529d5e@10s.mp3',
+    music: 'https://music.touhou.ai/ab529d5e.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7082,7 +7082,7 @@ export const musicList: Music[] = [
     album: '蓬莱人形',
     date: 20020811,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d8dbd5a1@10s.mp3',
+    music: 'https://music.touhou.ai/d8dbd5a1.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7095,7 +7095,7 @@ export const musicList: Music[] = [
     album: '蓬莱人形',
     date: 20020811,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%93%AC%E8%8E%B1%E4%BA%BA%E5%BD%A2@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/90961976@10s.mp3',
+    music: 'https://music.touhou.ai/90961976.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7109,7 +7109,7 @@ export const musicList: Music[] = [
     date: 20031230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8C@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ea22a415@10s.mp3',
+    music: 'https://music.touhou.ai/ea22a415.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7123,7 +7123,7 @@ export const musicList: Music[] = [
     date: 20031230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8C@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/accf5d49@10s.mp3',
+    music: 'https://music.touhou.ai/accf5d49.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7137,7 +7137,7 @@ export const musicList: Music[] = [
     date: 20031230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8C@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/71966dca@10s.mp3',
+    music: 'https://music.touhou.ai/71966dca.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7151,7 +7151,7 @@ export const musicList: Music[] = [
     date: 20031230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8C@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/883b77c3@10s.mp3',
+    music: 'https://music.touhou.ai/883b77c3.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7165,7 +7165,7 @@ export const musicList: Music[] = [
     date: 20031230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8C@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/67c7aefb@10s.mp3',
+    music: 'https://music.touhou.ai/67c7aefb.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7179,7 +7179,7 @@ export const musicList: Music[] = [
     date: 20031230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8C@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0b8d4121@10s.mp3',
+    music: 'https://music.touhou.ai/0b8d4121.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7193,7 +7193,7 @@ export const musicList: Music[] = [
     date: 20031230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%8E%B2%E5%8F%B0%E9%87%8E%E5%A4%9C%E8%A1%8C@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/a0e8c59e@10s.mp3',
+    music: 'https://music.touhou.ai/a0e8c59e.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7207,7 +7207,7 @@ export const musicList: Music[] = [
     date: 20041230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5536f6b7@10s.mp3',
+    music: 'https://music.touhou.ai/5536f6b7.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7221,7 +7221,7 @@ export const musicList: Music[] = [
     date: 20041230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e0baa742@10s.mp3',
+    music: 'https://music.touhou.ai/e0baa742.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7235,7 +7235,7 @@ export const musicList: Music[] = [
     date: 20041230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4d18fc3e@10s.mp3',
+    music: 'https://music.touhou.ai/4d18fc3e.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7249,7 +7249,7 @@ export const musicList: Music[] = [
     date: 20041230,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%A2%A6%E8%BF%9D%E7%A7%91%E5%AD%A6%E4%B8%96%E7%BA%AA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4277112f@10s.mp3',
+    music: 'https://music.touhou.ai/4277112f.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7263,7 +7263,7 @@ export const musicList: Music[] = [
     date: 20060521,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f17b8906@10s.mp3',
+    music: 'https://music.touhou.ai/f17b8906.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7277,7 +7277,7 @@ export const musicList: Music[] = [
     date: 20060521,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/06885985@10s.mp3',
+    music: 'https://music.touhou.ai/06885985.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7291,7 +7291,7 @@ export const musicList: Music[] = [
     date: 20060521,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/374b3cef@10s.mp3',
+    music: 'https://music.touhou.ai/374b3cef.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7305,7 +7305,7 @@ export const musicList: Music[] = [
     date: 20060521,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%8D%AF%E9%85%89%E4%B8%9C%E6%B5%B7%E9%81%93@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8a310768@10s.mp3',
+    music: 'https://music.touhou.ai/8a310768.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7318,7 +7318,7 @@ export const musicList: Music[] = [
     album: '大空魔术',
     date: 20060813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/287691dc@10s.mp3',
+    music: 'https://music.touhou.ai/287691dc.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7331,7 +7331,7 @@ export const musicList: Music[] = [
     album: '大空魔术',
     date: 20060813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/668b578c@10s.mp3',
+    music: 'https://music.touhou.ai/668b578c.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7344,7 +7344,7 @@ export const musicList: Music[] = [
     album: '大空魔术',
     date: 20060813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5f5d2cd7@10s.mp3',
+    music: 'https://music.touhou.ai/5f5d2cd7.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7357,7 +7357,7 @@ export const musicList: Music[] = [
     album: '大空魔术',
     date: 20060813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7d80de05@10s.mp3',
+    music: 'https://music.touhou.ai/7d80de05.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7370,7 +7370,7 @@ export const musicList: Music[] = [
     album: '大空魔术',
     date: 20060813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/798716a4@10s.mp3',
+    music: 'https://music.touhou.ai/798716a4.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7383,7 +7383,7 @@ export const musicList: Music[] = [
     album: '大空魔术',
     date: 20060813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ae98f7c5@10s.mp3',
+    music: 'https://music.touhou.ai/ae98f7c5.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7396,7 +7396,7 @@ export const musicList: Music[] = [
     album: '大空魔术',
     date: 20060813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%A4%A7%E7%A9%BA%E9%AD%94%E6%9C%AF@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/736c3521@10s.mp3',
+    music: 'https://music.touhou.ai/736c3521.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7410,7 +7410,7 @@ export const musicList: Music[] = [
     date: 20110508,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%9C%AA%E7%9F%A5%E4%B9%8B%E8%8A%B1%20%E9%AD%85%E7%9F%A5%E4%B9%8B%E6%97%85@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/75515818@10s.mp3',
+    music: 'https://music.touhou.ai/75515818.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7423,7 +7423,7 @@ export const musicList: Music[] = [
     album: '鸟船遗迹',
     date: 20120430,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/964a1499@10s.mp3',
+    music: 'https://music.touhou.ai/964a1499.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7436,7 +7436,7 @@ export const musicList: Music[] = [
     album: '鸟船遗迹',
     date: 20120430,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8426365f@10s.mp3',
+    music: 'https://music.touhou.ai/8426365f.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7449,7 +7449,7 @@ export const musicList: Music[] = [
     album: '鸟船遗迹',
     date: 20120430,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0335e7c4@10s.mp3',
+    music: 'https://music.touhou.ai/0335e7c4.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7462,7 +7462,7 @@ export const musicList: Music[] = [
     album: '鸟船遗迹',
     date: 20120430,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/efce7780@10s.mp3',
+    music: 'https://music.touhou.ai/efce7780.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7475,7 +7475,7 @@ export const musicList: Music[] = [
     album: '鸟船遗迹',
     date: 20120430,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%B8%9F%E8%88%B9%E9%81%97%E8%BF%B9@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0b3db70c@10s.mp3',
+    music: 'https://music.touhou.ai/0b3db70c.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7489,7 +7489,7 @@ export const musicList: Music[] = [
     date: 20120811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ee11e28a@10s.mp3',
+    music: 'https://music.touhou.ai/ee11e28a.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7503,7 +7503,7 @@ export const musicList: Music[] = [
     date: 20120811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6b28e0a3@10s.mp3',
+    music: 'https://music.touhou.ai/6b28e0a3.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7517,7 +7517,7 @@ export const musicList: Music[] = [
     date: 20120811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d7e7ca68@10s.mp3',
+    music: 'https://music.touhou.ai/d7e7ca68.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7531,7 +7531,7 @@ export const musicList: Music[] = [
     date: 20120811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6f6d97b9@10s.mp3',
+    music: 'https://music.touhou.ai/6f6d97b9.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7545,7 +7545,7 @@ export const musicList: Music[] = [
     date: 20120811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%BC%8A%E5%A5%98%E8%AF%BA%E7%89%A9%E8%B4%A8@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b0cc3a6a@10s.mp3',
+    music: 'https://music.touhou.ai/b0cc3a6a.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7559,7 +7559,7 @@ export const musicList: Music[] = [
     date: 20060521,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E5%B9%BA%E4%B9%90%E5%9B%A2%E7%9A%84%E5%8E%86%E5%8F%B2@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/202a76c3@10s.mp3',
+    music: 'https://music.touhou.ai/202a76c3.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7573,7 +7573,7 @@ export const musicList: Music[] = [
     date: 20160508,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d70c0cc9@10s.mp3',
+    music: 'https://music.touhou.ai/d70c0cc9.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7587,7 +7587,7 @@ export const musicList: Music[] = [
     date: 20160508,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/95465f90@10s.mp3',
+    music: 'https://music.touhou.ai/95465f90.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7601,7 +7601,7 @@ export const musicList: Music[] = [
     date: 20160508,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1f51d8f1@10s.mp3',
+    music: 'https://music.touhou.ai/1f51d8f1.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7615,7 +7615,7 @@ export const musicList: Music[] = [
     date: 20160508,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/df55212b@10s.mp3',
+    music: 'https://music.touhou.ai/df55212b.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7629,7 +7629,7 @@ export const musicList: Music[] = [
     date: 20160508,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%87%95%E7%9F%B3%E5%8D%9A%E7%89%A9%E5%BF%97@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8781e6ab@10s.mp3',
+    music: 'https://music.touhou.ai/8781e6ab.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7642,7 +7642,7 @@ export const musicList: Music[] = [
     album: '旧约酒馆',
     date: 20160813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/746cf34e@10s.mp3',
+    music: 'https://music.touhou.ai/746cf34e.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7655,7 +7655,7 @@ export const musicList: Music[] = [
     album: '旧约酒馆',
     date: 20160813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/ee792d6c@10s.mp3',
+    music: 'https://music.touhou.ai/ee792d6c.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7668,7 +7668,7 @@ export const musicList: Music[] = [
     album: '旧约酒馆',
     date: 20160813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/82e1ef21@10s.mp3',
+    music: 'https://music.touhou.ai/82e1ef21.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7681,7 +7681,7 @@ export const musicList: Music[] = [
     album: '旧约酒馆',
     date: 20160813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cb946e59@10s.mp3',
+    music: 'https://music.touhou.ai/cb946e59.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7694,7 +7694,7 @@ export const musicList: Music[] = [
     album: '旧约酒馆',
     date: 20160813,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E6%97%A7%E7%BA%A6%E9%85%92%E9%A6%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d719dc34@10s.mp3',
+    music: 'https://music.touhou.ai/d719dc34.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7708,7 +7708,7 @@ export const musicList: Music[] = [
     date: 20211231,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E8%99%B9%E8%89%B2%E7%9A%84%E5%8C%97%E6%96%97%E4%B8%83%E6%98%9F@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/db31ee7f@10s.mp3',
+    music: 'https://music.touhou.ai/db31ee7f.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -7722,7 +7722,7 @@ export const musicList: Music[] = [
     date: 20061227,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/94960499@10s.mp3',
+    music: 'https://music.touhou.ai/94960499.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7736,7 +7736,7 @@ export const musicList: Music[] = [
     date: 20061227,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/324aa7f7@10s.mp3',
+    music: 'https://music.touhou.ai/324aa7f7.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7750,7 +7750,7 @@ export const musicList: Music[] = [
     date: 20061227,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%B1%82%E9%97%BB%E5%8F%B2%E7%BA%AA@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/43d6080e@10s.mp3',
+    music: 'https://music.touhou.ai/43d6080e.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7764,7 +7764,7 @@ export const musicList: Music[] = [
     date: 20091225,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1bceaa03@10s.mp3',
+    music: 'https://music.touhou.ai/1bceaa03.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7778,7 +7778,7 @@ export const musicList: Music[] = [
     date: 20091225,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%84%9A%E6%9C%88%E6%8A%84@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/135b3aa6@10s.mp3',
+    music: 'https://music.touhou.ai/135b3aa6.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7792,7 +7792,7 @@ export const musicList: Music[] = [
     date: 20050811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/12c04e09@10s.mp3',
+    music: 'https://music.touhou.ai/12c04e09.mp3',
     reason: '',
     honmei: false,
     kind: ['book', 'game'],
@@ -7806,7 +7806,7 @@ export const musicList: Music[] = [
     date: 20050811,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E6%96%87%E8%8A%B1%E5%B8%96%EF%BC%88%E4%B9%A6%E7%B1%8D%EF%BC%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3a11ed5c@10s.mp3',
+    music: 'https://music.touhou.ai/3a11ed5c.mp3',
     reason: '',
     honmei: false,
     kind: ['book', 'game'],
@@ -7819,7 +7819,7 @@ export const musicList: Music[] = [
     album: 'The Grimoire of Marisa',
     date: 20090728,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/The%20Grimoire%20of%20Marisa@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6c4cf788@10s.mp3',
+    music: 'https://music.touhou.ai/6c4cf788.mp3',
     reason: '',
     honmei: false,
     kind: ['book', 'game'],
@@ -7833,7 +7833,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/24bb929f@10s.mp3',
+    music: 'https://music.touhou.ai/24bb929f.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7847,7 +7847,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1218266b@10s.mp3',
+    music: 'https://music.touhou.ai/1218266b.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7861,7 +7861,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/713a3cbe@10s.mp3',
+    music: 'https://music.touhou.ai/713a3cbe.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7875,7 +7875,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/53c8fe06@10s.mp3',
+    music: 'https://music.touhou.ai/53c8fe06.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7889,7 +7889,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bba5e126@10s.mp3',
+    music: 'https://music.touhou.ai/bba5e126.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7903,7 +7903,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/34128478@10s.mp3',
+    music: 'https://music.touhou.ai/34128478.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7917,7 +7917,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/51eb2f00@10s.mp3',
+    music: 'https://music.touhou.ai/51eb2f00.mp3',
     reason: '',
     honmei: false,
     kind: ['book', 'game'],
@@ -7931,7 +7931,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0f040495@10s.mp3',
+    music: 'https://music.touhou.ai/0f040495.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7945,7 +7945,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0d7c5060@10s.mp3',
+    music: 'https://music.touhou.ai/0d7c5060.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7959,7 +7959,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6a8d631f@10s.mp3',
+    music: 'https://music.touhou.ai/6a8d631f.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -7973,7 +7973,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/69b13995@10s.mp3',
+    music: 'https://music.touhou.ai/69b13995.mp3',
     reason: '',
     honmei: false,
     kind: ['book', 'game'],
@@ -7987,7 +7987,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2246421d@10s.mp3',
+    music: 'https://music.touhou.ai/2246421d.mp3',
     reason: '',
     honmei: false,
     kind: ['book', 'game'],
@@ -8001,7 +8001,7 @@ export const musicList: Music[] = [
     date: 20070126,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E4%B8%89%E6%9C%88%E7%B2%BE@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4b567ad2@10s.mp3',
+    music: 'https://music.touhou.ai/4b567ad2.mp3',
     reason: '',
     honmei: false,
     kind: ['book', 'game'],
@@ -8015,7 +8015,7 @@ export const musicList: Music[] = [
     date: 20130326,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%93%83%E5%A5%88%E5%BA%B5@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/12cf3a64@10s.mp3',
+    music: 'https://music.touhou.ai/12cf3a64.mp3',
     reason: '',
     honmei: false,
     kind: ['book'],
@@ -8028,7 +8028,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/db97390b@10s.mp3',
+    music: 'https://music.touhou.ai/db97390b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8041,7 +8041,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9bfb8bad@10s.mp3',
+    music: 'https://music.touhou.ai/9bfb8bad.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8054,7 +8054,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/80eafac4@10s.mp3',
+    music: 'https://music.touhou.ai/80eafac4.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8067,7 +8067,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e729eef0@10s.mp3',
+    music: 'https://music.touhou.ai/e729eef0.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8080,7 +8080,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cb652ca8@10s.mp3',
+    music: 'https://music.touhou.ai/cb652ca8.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8093,7 +8093,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5c5bc471@10s.mp3',
+    music: 'https://music.touhou.ai/5c5bc471.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8106,7 +8106,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/beace7eb@10s.mp3',
+    music: 'https://music.touhou.ai/beace7eb.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8119,7 +8119,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2538f0d7@10s.mp3',
+    music: 'https://music.touhou.ai/2538f0d7.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book'],
@@ -8132,7 +8132,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/08e4e69b@10s.mp3',
+    music: 'https://music.touhou.ai/08e4e69b.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -8145,7 +8145,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4e2491cc@10s.mp3',
+    music: 'https://music.touhou.ai/4e2491cc.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8158,7 +8158,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7aa0b3f3@10s.mp3',
+    music: 'https://music.touhou.ai/7aa0b3f3.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -8171,7 +8171,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/750aadfc@10s.mp3',
+    music: 'https://music.touhou.ai/750aadfc.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8184,7 +8184,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/65eec8ed@10s.mp3',
+    music: 'https://music.touhou.ai/65eec8ed.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8197,7 +8197,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3a6d7c98@10s.mp3',
+    music: 'https://music.touhou.ai/3a6d7c98.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -8210,7 +8210,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6ea70362@10s.mp3',
+    music: 'https://music.touhou.ai/6ea70362.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8223,7 +8223,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/bb3e06e9@10s.mp3',
+    music: 'https://music.touhou.ai/bb3e06e9.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8236,7 +8236,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4c45f349@10s.mp3',
+    music: 'https://music.touhou.ai/4c45f349.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8249,7 +8249,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/8c331433@10s.mp3',
+    music: 'https://music.touhou.ai/8c331433.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -8262,7 +8262,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/dc7811f1@10s.mp3',
+    music: 'https://music.touhou.ai/dc7811f1.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8275,7 +8275,7 @@ export const musicList: Music[] = [
     album: '秋霜玉',
     date: 20001230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A7%8B%E9%9C%9C%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/6b2c0bcf@10s.mp3',
+    music: 'https://music.touhou.ai/6b2c0bcf.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8288,7 +8288,7 @@ export const musicList: Music[] = [
     album: '稀翁玉',
     date: 20011230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1a0e0699@10s.mp3',
+    music: 'https://music.touhou.ai/1a0e0699.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8301,7 +8301,7 @@ export const musicList: Music[] = [
     album: '稀翁玉',
     date: 20011230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/874044b8@10s.mp3',
+    music: 'https://music.touhou.ai/874044b8.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8314,7 +8314,7 @@ export const musicList: Music[] = [
     album: '稀翁玉',
     date: 20011230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/0e0f7b3e@10s.mp3',
+    music: 'https://music.touhou.ai/0e0f7b3e.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8327,7 +8327,7 @@ export const musicList: Music[] = [
     album: '稀翁玉',
     date: 20011230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/4ab0d1c1@10s.mp3',
+    music: 'https://music.touhou.ai/4ab0d1c1.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8340,7 +8340,7 @@ export const musicList: Music[] = [
     album: '稀翁玉',
     date: 20011230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/9046e7fc@10s.mp3',
+    music: 'https://music.touhou.ai/9046e7fc.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8353,7 +8353,7 @@ export const musicList: Music[] = [
     album: '稀翁玉',
     date: 20011230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/2b6bcb25@10s.mp3',
+    music: 'https://music.touhou.ai/2b6bcb25.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8366,7 +8366,7 @@ export const musicList: Music[] = [
     album: '稀翁玉',
     date: 20011230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d60777dd@10s.mp3',
+    music: 'https://music.touhou.ai/462e28a2.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8379,7 +8379,7 @@ export const musicList: Music[] = [
     album: '稀翁玉',
     date: 20011230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/5217265a@10s.mp3',
+    music: 'https://music.touhou.ai/5217265a.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -8392,7 +8392,7 @@ export const musicList: Music[] = [
     album: '稀翁玉',
     date: 20011230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1b62af00@10s.mp3',
+    music: 'https://music.touhou.ai/1b62af00.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8405,7 +8405,7 @@ export const musicList: Music[] = [
     album: '稀翁玉',
     date: 20011230,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A8%80%E7%BF%81%E7%8E%89@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/166435f1@10s.mp3',
+    music: 'https://music.touhou.ai/166435f1.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -8418,7 +8418,7 @@ export const musicList: Music[] = [
     album: 'Torte Le Magic',
     date: 20010504,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/Torte%20Le%20Magic@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f0cd1eac@10s.mp3',
+    music: 'https://music.touhou.ai/f0cd1eac.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'CD'],
@@ -8431,7 +8431,7 @@ export const musicList: Music[] = [
     album: 'Torte Le Magic',
     date: 20010504,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/Torte%20Le%20Magic@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f8dee778@10s.mp3',
+    music: 'https://music.touhou.ai/f8dee778.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8444,7 +8444,7 @@ export const musicList: Music[] = [
     album: 'Torte Le Magic',
     date: 20010504,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/Torte%20Le%20Magic@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/cda69fb8@10s.mp3',
+    music: 'https://music.touhou.ai/cda69fb8.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8457,7 +8457,7 @@ export const musicList: Music[] = [
     album: '黄昏酒场',
     date: 20071229,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E9%BB%84%E6%98%8F%E9%85%92%E5%9C%BA@100px.png',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f3bd4a8f@10s.mp3',
+    music: 'https://music.touhou.ai/f3bd4a8f.mp3',
     reason: '',
     honmei: false,
     kind: ['game', 'book'],
@@ -8471,7 +8471,7 @@ export const musicList: Music[] = [
     date: 20080525,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E7%A5%9E%E9%AD%94%E8%AE%A8%E7%BB%AE%E4%BC%A0@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/f90170f0@10s.mp3',
+    music: 'https://music.touhou.ai/f90170f0.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8485,7 +8485,7 @@ export const musicList: Music[] = [
     date: 20090308,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E5%B9%BB%E6%83%B3%E9%BA%BB%E5%B0%86@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/1ea64d8b@10s.mp3',
+    music: 'https://music.touhou.ai/1ea64d8b.mp3',
     reason: '',
     honmei: false,
     kind: ['game'],
@@ -8499,7 +8499,7 @@ export const musicList: Music[] = [
     date: 20040815,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/Cradle%20-%20%E4%B8%9C%E6%96%B9%E5%B9%BB%E4%B9%90%E7%A5%80%E5%85%B8@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/35ad4fb8@10s.mp3',
+    music: 'https://music.touhou.ai/35ad4fb8.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -8512,7 +8512,7 @@ export const musicList: Music[] = [
     album: '8BIT MUSIC POWER FINAL',
     date: 20170406,
     image: 'https://asset.lilywhite.cc/thvote/imgs/shared/music/8BIT%20MUSIC%20POWER%20FINAL@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/b77419b7@10s.mp3',
+    music: 'https://music.touhou.ai/b77419b7.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -8525,7 +8525,7 @@ export const musicList: Music[] = [
     album: 'INDIE Live Expo',
     date: 20201107,
     image: '',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e3be67b3@10s.mp3',
+    music: 'https://music.touhou.ai/e3be67b3.mp3',
     reason: '',
     honmei: false,
     kind: ['others'],
@@ -8539,7 +8539,7 @@ export const musicList: Music[] = [
     date: 20210814,
     image:
       'https://asset.lilywhite.cc/thvote/imgs/shared/music/%E4%B8%9C%E6%96%B9%E9%9F%B3%E7%84%B0%E7%81%AB@100px.jpg',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d2f24439@10s.mp3',
+    music: 'https://music.touhou.ai/d2f24439.mp3',
     reason: '',
     honmei: false,
     kind: ['CD'],
@@ -8552,7 +8552,7 @@ export const musicList: Music[] = [
     album: '其他',
     date: 19991213,
     image: '',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/7f3defc8@10s.mp3',
+    music: 'https://music.touhou.ai/7f3defc8.mp3',
     reason: '',
     honmei: false,
     kind: ['others'],
@@ -8565,7 +8565,7 @@ export const musicList: Music[] = [
     album: '其他',
     date: 19991213,
     image: '',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/e70ba3ea@10s.mp3',
+    music: 'https://music.touhou.ai/e70ba3ea.mp3',
     reason: '',
     honmei: false,
     kind: ['others'],
@@ -8578,7 +8578,7 @@ export const musicList: Music[] = [
     album: '其他',
     date: 20000223,
     image: '',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/fb9ae143@10s.mp3',
+    music: 'https://music.touhou.ai/fb9ae143.mp3',
     reason: '',
     honmei: false,
     kind: ['others'],
@@ -8591,7 +8591,7 @@ export const musicList: Music[] = [
     album: '其他',
     date: 20000521,
     image: '',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/3b0413ad@10s.mp3',
+    music: 'https://music.touhou.ai/3b0413ad.mp3',
     reason: '',
     honmei: false,
     kind: ['others'],
@@ -8604,7 +8604,7 @@ export const musicList: Music[] = [
     album: '其他',
     date: 20000521,
     image: '',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/641c3b5b@10s.mp3',
+    music: 'https://music.touhou.ai/641c3b5b.mp3',
     reason: '',
     honmei: false,
     kind: ['others'],
@@ -8617,7 +8617,7 @@ export const musicList: Music[] = [
     album: '其他',
     date: 20010114,
     image: '',
-    music: 'https://asset.lilywhite.cc/thvote/music/shared/music/d261c512@10s.mp3',
+    music: 'https://music.touhou.ai/d261c512.mp3',
     reason: '',
     honmei: false,
     kind: ['others'],
