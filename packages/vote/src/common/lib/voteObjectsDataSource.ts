@@ -1,61 +1,38 @@
-// 投票对象数据源:从后端拉取角色/音乐候选列表,按名称 enriching 静态 shared 数据(image/color/kind 等展示字段)。
-// 取代 @touhou-vote/shared/data/character|music 作为投票页运行时列表来源。
+// 投票对象数据源:从后端拉取角色/曲目候选列表及其资源字段(imageUrl 等),
+// 直接映射为 Character/Music。0019 起资源 URL 由后端随 voteable 下发,
+// 前端不再按 name 匹配 shared/data 静态表。
 import { computed, ref } from 'vue'
 import { Character } from '@/vote-character/lib/character'
 import { Music } from '@/vote-music/lib/music'
-import { characterList as staticCharacterList } from '@touhou-vote/shared/data/character'
-import { musicList as staticMusicList } from '@touhou-vote/shared/data/music'
+import {
+  fetchVoteObjects,
+  voteObjectsUrl,
+  type VoteObjectFilterMeta,
+  type VoteObjectGroup,
+  type VoteObjectItem,
+} from '@touhou-vote/shared/api/voteObjects'
 import { voteYear } from '@/common/lib/voteYear'
 import { API_PREFIX } from '@/common/lib/apiPrefix'
 
-// ── 类型 ──────────────────────────────────────────────────────────────────
-interface FilterMeta {
-  kinds: { type: string; label: string }[]
-  works: { workId: number; name: string; type: string }[]
-}
+// ── 配置 ──────────────────────────────────────────────────────────────────
+const CHARACTER_URL = voteObjectsUrl(`${API_PREFIX}/vote-objects`, 'characters', voteYear)
+const MUSIC_URL = voteObjectsUrl(`${API_PREFIX}/vote-objects`, 'music', voteYear)
 
-interface BackendCharacterItem {
-  candidateId: number
-  name: string
-  nameJp: string
-  workIds: number[]
-  workTypes: string[]
-  firstAppearance: string | null
-}
+// 历史静态表里 244 个角色的 color 全部是同一个值 → 改用常量，不再建列。
+const DEFAULT_CHARACTER_COLOR = '#FC4328'
 
-interface BackendMusicItem {
-  candidateId: number
-  name: string
-  nameJp: string
-  workIds: number[]
-  workTypes: string[]
-  firstAppearance: string | null
-}
+// 前端 sessionStorage 缓存 TTL（D8）：后端资源可被管理台修改，
+// 缓存过久会出现“改了不生效”。5 分钟内复用缓存，超时重新拉取。
+const CACHE_TTL_MS = 5 * 60 * 1000
+const CACHE_VERSION = 'v2'
 
-interface BackendGroup<T> {
-  group: string
-  items: T[]
-}
-
-interface VoteObjectsResponse<T> {
-  voteYear: number
-  groups: BackendGroup<T>[]
-  filterMeta: FilterMeta
-  aliasMap: Record<string, number>
-}
-
-const CHARACTER_URL = `${API_PREFIX}/vote-objects/characters?vote_year=${voteYear}`
-const MUSIC_URL = `${API_PREFIX}/vote-objects/music?vote_year=${voteYear}`
-const CACHE_KEY_CHAR = `voteObjectsCharacters:${voteYear}`
-const CACHE_KEY_MUSIC = `voteObjectsMusic:${voteYear}`
-const CACHE_KEY_FILTER_META = `voteObjectsFilterMeta:${voteYear}`
-const CACHE_KEY_CHAR_FILTER_META = `voteObjectsCharacterFilterMeta:${voteYear}`
-const CACHE_KEY_MUSIC_FILTER_META = `voteObjectsMusicFilterMeta:${voteYear}`
+const CACHE_KEY_CHAR = `voteObjectsCharacters:${voteYear}:${CACHE_VERSION}`
+const CACHE_KEY_MUSIC = `voteObjectsMusic:${voteYear}:${CACHE_VERSION}`
 
 // ── 响应式状态 ───────────────────────────────────────────────────────────
-export const characterGroupsRaw = ref<BackendGroup<BackendCharacterItem>[]>([])
-export const musicGroupsRaw = ref<BackendGroup<BackendMusicItem>[]>([])
-export const filterMeta = ref<FilterMeta>({ kinds: [], works: [] })
+export const characterGroupsRaw = ref<VoteObjectGroup<VoteObjectItem>[]>([])
+export const musicGroupsRaw = ref<VoteObjectGroup<VoteObjectItem>[]>([])
+export const filterMeta = ref<VoteObjectFilterMeta>({ kinds: [], works: [] })
 export const characterVoteObjectsLoading = ref(false)
 export const musicVoteObjectsLoading = ref(false)
 export const characterVoteObjectsError = ref<string | null>(null)
@@ -67,57 +44,58 @@ export const voteObjectsError = computed(
   () => characterVoteObjectsError.value ?? musicVoteObjectsError.value,
 )
 
-const characterFilterMeta = ref<FilterMeta>({ kinds: [], works: [] })
-const musicFilterMeta = ref<FilterMeta>({ kinds: [], works: [] })
+const characterFilterMeta = ref<VoteObjectFilterMeta>({ kinds: [], works: [] })
+const musicFilterMeta = ref<VoteObjectFilterMeta>({ kinds: [], works: [] })
 
 // ── 工具 ──────────────────────────────────────────────────────────────────
 export function getWorkName(wid: number): string {
   return filterMeta.value.works.find((w) => w.workId === wid)?.name ?? ''
 }
 
-// ── enrich ────────────────────────────────────────────────────────────────
-function enrichCharacter(item: BackendCharacterItem): Character {
-  const s = staticCharacterList.find((c) => c.name === item.name)
-  // 从 filterMeta 推导 kind 和 work 列表
+function toKinds<T extends string>(workTypes: string[]): T[] {
+  const kinds = workTypes.filter(Boolean) as T[]
+  return kinds.length ? kinds : (['others'] as T[])
+}
+
+function toDate(firstAppearance: string | null): number {
+  const n = firstAppearance ? Number(firstAppearance) : 0
+  return Number.isFinite(n) ? n : 0
+}
+
+// ── enrich:后端字段 → Character / Music（无静态匹配）─────────────────────
+function enrichCharacter(item: VoteObjectItem): Character {
   const workNames = item.workIds.map(getWorkName).filter(Boolean)
-  const kinds = item.workTypes.length
-    ? (item.workTypes.filter(Boolean) as ('old' | 'new' | 'book' | 'CD' | 'others')[])
-    : (s?.kind?.length ? s.kind : ['others'])
   return new Character(
     String(item.candidateId),
     item.name,
-    s?.origname ?? item.nameJp,
-    s?.altnames ?? [],
-    s?.title ?? '',
-    s?.image ?? 'https://static.thwiki.cc/favicon.png',
-    s?.color ?? '#9b9b9b',
+    item.nameJp || '',
+    item.aliases ?? [],
     '',
-    s?.date ?? 0,
+    item.imageUrl ?? '', // 空 → 组件回退 defaultCharacterImage.png
+    DEFAULT_CHARACTER_COLOR,
+    '',
+    toDate(item.firstAppearance),
     false,
-    kinds,
-    workNames.length ? workNames : (s?.work ?? []),
+    toKinds(item.workTypes),
+    workNames,
     item.workIds,
   )
 }
 
-function enrichMusic(item: BackendMusicItem): Music {
-  const s = staticMusicList.find((m) => m.name === item.name)
+function enrichMusic(item: VoteObjectItem): Music {
   const albumName = item.workIds.length ? getWorkName(item.workIds[0]) : ''
-  const kinds = item.workTypes.length
-    ? (item.workTypes.filter(Boolean) as ('game' | 'book' | 'CD' | 'others')[])
-    : (s?.kind?.length ? s.kind : ['others'])
   return new Music(
     String(item.candidateId),
     item.name,
-    s?.origname ?? item.nameJp,
-    albumName, // album → work name
-    s?.date ?? 0,
-    s?.image ?? 'https://static.thwiki.cc/favicon.png',
-    s?.music ?? '',
+    item.nameJp || '',
+    albumName,
+    toDate(item.firstAppearance),
+    item.imageUrl ?? '', // 空 → 组件回退 defaultMusicImage.jpg
+    item.musicUrl ?? '',
     '',
     false,
-    kinds,
-    s?.include ?? [],
+    toKinds(item.workTypes),
+    item.include ?? [],
   )
 }
 
@@ -130,7 +108,7 @@ export const musicListFromBackend = computed<Music[]>(() =>
   musicGroupsRaw.value.flatMap((g) => g.items.map(enrichMusic)),
 )
 
-// ── 分组名列表（供筛选下拉）───────────────────────────────────────────────
+// ── 分组名列表(供筛选下拉)───────────────────────────────────────────────
 export const characterGroupNames = computed<string[]>(() =>
   characterGroupsRaw.value.map((g) => g.group),
 )
@@ -144,9 +122,8 @@ export const voteObjectsReady: Promise<void> = new Promise((r) => {
   resolveReady = r
 })
 let readyResolved = false
-let characterLoadPromise: Promise<void> | null = null
-let musicLoadPromise: Promise<void> | null = null
-let loadPromise: Promise<void> | null = null
+let characterRefresh: Promise<void> | null = null
+let musicRefresh: Promise<void> | null = null
 
 function markReady(): void {
   if (!readyResolved) {
@@ -155,174 +132,197 @@ function markReady(): void {
   }
 }
 
-function isFilterMeta(value: unknown): value is FilterMeta {
+function isFilterMeta(value: unknown): value is VoteObjectFilterMeta {
   if (typeof value !== 'object' || value === null) return false
-  const candidate = value as Partial<FilterMeta>
+  const candidate = value as Partial<VoteObjectFilterMeta>
   return Array.isArray(candidate.kinds) && Array.isArray(candidate.works)
 }
 
-function readResourceCache<T>(
-  groupsKey: string,
-  metaKey: string,
-  resourceName: string,
-): {
-  groups: BackendGroup<T>[]
-  meta: FilterMeta
-} | null {
-  const cachedGroups = sessionStorage.getItem(groupsKey)
-  if (!cachedGroups) return null
+interface TierCache<T> {
+  groups: VoteObjectGroup<T>[]
+  meta: VoteObjectFilterMeta
+  cachedAt: number
+}
 
-  // 兼容 ticket 02 已写入的合并 metadata；读取成功后会迁移为资源级缓存。
-  const cachedMeta = sessionStorage.getItem(metaKey) ?? sessionStorage.getItem(CACHE_KEY_FILTER_META)
-  if (!cachedMeta) return null
-
+// 读缓存时不看 TTL：过期数据也先渲染，再后台刷新（见 load*）。这样命中缓存
+// 的页面加载永远是 0 等待；TTL 只决定「何时后台 revalidate」。
+function readCacheEntry<T>(key: string): TierCache<T> | null {
   try {
-    const groups: unknown = JSON.parse(cachedGroups)
-    const meta: unknown = JSON.parse(cachedMeta)
-    if (Array.isArray(groups) && isFilterMeta(meta)) {
-      sessionStorage.setItem(metaKey, JSON.stringify(meta))
-      return { groups, meta }
+    const raw = sessionStorage.getItem(key)
+    if (!raw) return null
+    const parsed = JSON.parse(raw) as Partial<TierCache<T>>
+    if (
+      Array.isArray(parsed.groups) &&
+      isFilterMeta(parsed.meta) &&
+      typeof parsed.cachedAt === 'number'
+    ) {
+      return {
+        groups: parsed.groups,
+        meta: parsed.meta,
+        cachedAt: parsed.cachedAt,
+      }
     }
   } catch (err) {
-    console.warn(`[voteObjects] ${resourceName}会话缓存无法解析，将重新请求投票对象:`, err)
+    console.warn('[voteObjects] 会话缓存无法解析，将重新请求:', err)
   }
-
-  sessionStorage.removeItem(groupsKey)
-  sessionStorage.removeItem(metaKey)
+  sessionStorage.removeItem(key)
   return null
 }
 
+function isStale(entry: { cachedAt: number }): boolean {
+  return Date.now() - entry.cachedAt >= CACHE_TTL_MS
+}
+
+function writeCache<T>(key: string, entry: TierCache<T>): void {
+  try {
+    sessionStorage.setItem(key, JSON.stringify(entry))
+  } catch (err) {
+    console.warn('[voteObjects] 会话缓存写入失败(配额?):', err)
+  }
+}
+
 function updateCombinedFilterMeta(): void {
-  const meta: FilterMeta = {
+  filterMeta.value = {
     kinds: dedupeKinds([...characterFilterMeta.value.kinds, ...musicFilterMeta.value.kinds]),
     works: dedupeWorks([...characterFilterMeta.value.works, ...musicFilterMeta.value.works]),
   }
-  filterMeta.value = meta
-  sessionStorage.setItem(CACHE_KEY_FILTER_META, JSON.stringify(meta))
 }
 
 function commitCharacterVoteObjects(
-  groups: BackendGroup<BackendCharacterItem>[],
-  meta: FilterMeta,
+  groups: VoteObjectGroup<VoteObjectItem>[],
+  meta: VoteObjectFilterMeta,
 ): void {
   characterGroupsRaw.value = groups
   characterFilterMeta.value = meta
   updateCombinedFilterMeta()
 }
 
-function commitMusicVoteObjects(groups: BackendGroup<BackendMusicItem>[], meta: FilterMeta): void {
+function commitMusicVoteObjects(
+  groups: VoteObjectGroup<VoteObjectItem>[],
+  meta: VoteObjectFilterMeta,
+): void {
   musicGroupsRaw.value = groups
   musicFilterMeta.value = meta
   updateCombinedFilterMeta()
 }
 
-export function loadCharacterVoteObjects(force = false): Promise<void> {
-  if (characterLoadPromise && !force) return characterLoadPromise
-
-  characterLoadPromise = (async () => {
+function refreshCharacter(): Promise<void> {
+  if (characterRefresh) return characterRefresh
+  characterRefresh = (async () => {
     characterVoteObjectsLoading.value = true
     characterVoteObjectsError.value = null
     try {
-      if (!force) {
-        const cached = readResourceCache<BackendCharacterItem>(
-          CACHE_KEY_CHAR,
-          CACHE_KEY_CHAR_FILTER_META,
-          '角色投票对象',
-        )
-        if (cached) {
-          commitCharacterVoteObjects(cached.groups, cached.meta)
-          return
-        }
-      }
-
-      const charRes = await fetch(CHARACTER_URL, { credentials: 'include' })
-      if (!charRes.ok) throw new Error(`characters HTTP ${charRes.status}`)
-      const charData: VoteObjectsResponse<BackendCharacterItem> = await charRes.json()
-      if (!Array.isArray(charData.groups) || !isFilterMeta(charData.filterMeta)) {
-        throw new Error('角色投票对象响应结构不完整')
-      }
-
-      commitCharacterVoteObjects(charData.groups, charData.filterMeta)
-      sessionStorage.setItem(CACHE_KEY_CHAR, JSON.stringify(charData.groups))
-      sessionStorage.setItem(CACHE_KEY_CHAR_FILTER_META, JSON.stringify(charData.filterMeta))
+      const data = await fetchVoteObjects<VoteObjectItem>(CHARACTER_URL)
+      commitCharacterVoteObjects(data.groups, data.filterMeta)
+      writeCache(CACHE_KEY_CHAR, {
+        groups: data.groups,
+        meta: data.filterMeta,
+        cachedAt: Date.now(),
+      })
     } catch (err) {
-      characterVoteObjectsError.value = err instanceof Error ? err.message : String(err)
-      console.error('[voteObjects] 拉取角色投票对象失败，投票页将隐藏表单:', err)
+      // 已有缓存时不打断页面（后台刷新失败只记日志）；无数据才暴露错误
+      if (!characterGroupsRaw.value.length) {
+        characterVoteObjectsError.value = err instanceof Error ? err.message : String(err)
+      }
+      console.error('[voteObjects] 拉取角色投票对象失败:', err)
     } finally {
       characterVoteObjectsLoading.value = false
+      characterRefresh = null
     }
   })()
-
-  return characterLoadPromise
+  return characterRefresh
 }
 
-export function loadMusicVoteObjects(force = false): Promise<void> {
-  if (musicLoadPromise && !force) return musicLoadPromise
-
-  musicLoadPromise = (async () => {
+function refreshMusic(): Promise<void> {
+  if (musicRefresh) return musicRefresh
+  musicRefresh = (async () => {
     musicVoteObjectsLoading.value = true
     musicVoteObjectsError.value = null
     try {
-      if (!force) {
-        const cached = readResourceCache<BackendMusicItem>(
-          CACHE_KEY_MUSIC,
-          CACHE_KEY_MUSIC_FILTER_META,
-          '曲目投票对象',
-        )
-        if (cached) {
-          commitMusicVoteObjects(cached.groups, cached.meta)
-          return
-        }
-      }
-
-      const musicRes = await fetch(MUSIC_URL, { credentials: 'include' })
-      if (!musicRes.ok) throw new Error(`music HTTP ${musicRes.status}`)
-      const musicData: VoteObjectsResponse<BackendMusicItem> = await musicRes.json()
-      if (!Array.isArray(musicData.groups) || !isFilterMeta(musicData.filterMeta)) {
-        throw new Error('曲目投票对象响应结构不完整')
-      }
-
-      commitMusicVoteObjects(musicData.groups, musicData.filterMeta)
-      sessionStorage.setItem(CACHE_KEY_MUSIC, JSON.stringify(musicData.groups))
-      sessionStorage.setItem(CACHE_KEY_MUSIC_FILTER_META, JSON.stringify(musicData.filterMeta))
+      const data = await fetchVoteObjects<VoteObjectItem>(MUSIC_URL)
+      commitMusicVoteObjects(data.groups, data.filterMeta)
+      writeCache(CACHE_KEY_MUSIC, {
+        groups: data.groups,
+        meta: data.filterMeta,
+        cachedAt: Date.now(),
+      })
     } catch (err) {
-      musicVoteObjectsError.value = err instanceof Error ? err.message : String(err)
-      console.error('[voteObjects] 拉取曲目投票对象失败，投票页将隐藏表单:', err)
+      if (!musicGroupsRaw.value.length) {
+        musicVoteObjectsError.value = err instanceof Error ? err.message : String(err)
+      }
+      console.error('[voteObjects] 拉取曲目投票对象失败:', err)
     } finally {
       musicVoteObjectsLoading.value = false
+      musicRefresh = null
     }
   })()
-
-  return musicLoadPromise
+  return musicRefresh
 }
 
-export function loadVoteObjects(force = false): Promise<void> {
-  if (loadPromise && !force) return loadPromise
+/**
+ * 加载角色投票对象。
+ * - `force=true`：等网络；
+ * - 命中缓存：**立即返回**（先渲染），过期则后台 revalidate；
+ * - 无缓存：等网络（首次加载，无法避免）。
+ */
+export function loadCharacterVoteObjects(force = false): Promise<void> {
+  if (force) return refreshCharacter()
+  const cached = readCacheEntry<VoteObjectItem>(CACHE_KEY_CHAR)
+  if (cached) {
+    commitCharacterVoteObjects(cached.groups, cached.meta)
+    if (isStale(cached)) void refreshCharacter()
+    return Promise.resolve()
+  }
+  return refreshCharacter()
+}
 
-  loadPromise = Promise.all([
+/** 加载曲目投票对象，语义同 loadCharacterVoteObjects。 */
+export function loadMusicVoteObjects(force = false): Promise<void> {
+  if (force) return refreshMusic()
+  const cached = readCacheEntry<VoteObjectItem>(CACHE_KEY_MUSIC)
+  if (cached) {
+    commitMusicVoteObjects(cached.groups, cached.meta)
+    if (isStale(cached)) void refreshMusic()
+    return Promise.resolve()
+  }
+  return refreshMusic()
+}
+
+/** 需要两类的场景(导出海报等)。 */
+export function loadVoteObjects(force = false): Promise<void> {
+  return Promise.all([
     loadCharacterVoteObjects(force),
     loadMusicVoteObjects(force),
   ]).then(() => {
     markReady()
   })
-
-  return loadPromise
 }
 
-function dedupeKinds(kinds: { type: string; label: string }[]): { type: string; label: string }[] {
+function dedupeKinds(
+  kinds: { type: string; label: string }[],
+): { type: string; label: string }[] {
   const seen = new Set<string>()
   return kinds.filter((k) => (seen.has(k.type) ? false : (seen.add(k.type), true)))
 }
 
-function dedupeWorks(works: { workId: number; name: string; type: string }[]): { workId: number; name: string; type: string }[] {
+function dedupeWorks(
+  works: { workId: number; name: string; type: string }[],
+): { workId: number; name: string; type: string }[] {
   const seen = new Set<number>()
   return works.filter((w) => (seen.has(w.workId) ? false : (seen.add(w.workId), true)))
 }
 
 export function clearVoteObjectsCache(): void {
-  sessionStorage.removeItem(CACHE_KEY_CHAR)
-  sessionStorage.removeItem(CACHE_KEY_MUSIC)
-  sessionStorage.removeItem(CACHE_KEY_FILTER_META)
-  sessionStorage.removeItem(CACHE_KEY_CHAR_FILTER_META)
-  sessionStorage.removeItem(CACHE_KEY_MUSIC_FILTER_META)
+  // v2 键 + 历史遗留键一并清理
+  for (const key of [
+    CACHE_KEY_CHAR,
+    CACHE_KEY_MUSIC,
+    `voteObjectsCharacters:${voteYear}`,
+    `voteObjectsMusic:${voteYear}`,
+    `voteObjectsFilterMeta:${voteYear}`,
+    `voteObjectsCharacterFilterMeta:${voteYear}`,
+    `voteObjectsMusicFilterMeta:${voteYear}`,
+  ]) {
+    sessionStorage.removeItem(key)
+  }
 }

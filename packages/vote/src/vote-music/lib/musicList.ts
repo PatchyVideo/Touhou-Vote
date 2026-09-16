@@ -4,7 +4,7 @@ import { music0 } from '@/vote-music/lib/music'
 import { musicHonmei, musics } from '@/vote-music/lib/voteData'
 import { albumSelected, filterForKind } from '@/vote-music/lib/albumList'
 import { pinin } from '@/common/lib/pinin'
-import type { Music } from '@touhou-vote/shared/data/music'
+import type { Music } from '@touhou-vote/shared/model/music'
 import { musicListFromBackend } from '@/common/lib/voteObjectsDataSource'
 
 export const musicList = musicListFromBackend

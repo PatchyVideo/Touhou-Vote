@@ -1,4 +1,4 @@
-import { Character } from '@touhou-vote/shared/data/character'
+import { Character } from '@touhou-vote/shared/model/character'
 
 export { Character }
 

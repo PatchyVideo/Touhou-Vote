@@ -283,11 +283,16 @@ import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useVModel } from '@vueuse/core'
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
-import { characterList } from '@touhou-vote/shared/data/character'
-import { musicList } from '@touhou-vote/shared/data/music'
+import { ensureVoteObjectResources, getCharacterNames, getMusicNames } from '@/lib/voteObjectResources'
 import type { Question } from '@touhou-vote/shared/data/questionnaire'
 import { questionnaire } from '@touhou-vote/shared/data/questionnaire'
 import VoteSelect from '@/components/VoteSelect.vue'
+
+const resourceReady = ref(false)
+ensureVoteObjectResources()
+  .then(() => { resourceReady.value = true })
+  .catch(() => {})
+
 
 const props = defineProps({
   open: {
@@ -459,18 +464,19 @@ function changeSearchRange(value: SearchRange): void {
 }
 
 // Filter for vote character
-const characterItemList = computed(() =>
-  characterList
+const characterItemList = computed(() => {
+  void resourceReady.value
+  return getCharacterNames()
     .filter(
-      (item) => characters.value.findIndex((item2) => item2 === item.name) === -1 && item.name != charactersFirst.value
+      (name) => characters.value.findIndex((item2) => item2 === name) === -1 && name != charactersFirst.value
     )
-    .map((item) => {
+    .map((name) => {
       return {
-        name: item.name,
-        value: item.name,
+        name,
+        value: name,
       }
     })
-)
+})
 const characterSelected = ref({
   name: '',
   value: '',
@@ -502,16 +508,17 @@ function deleteCharacter(character: string | null) {
 }
 
 // Filter for vote music
-const musicItemList = computed(() =>
-  musicList
-    .filter((item) => musics.value.findIndex((item2) => item2 === item.name) === -1 && item.name != musicsFirst.value)
-    .map((item) => {
+const musicItemList = computed(() => {
+  void resourceReady.value
+  return getMusicNames()
+    .filter((name) => musics.value.findIndex((item2) => item2 === name) === -1 && name != musicsFirst.value)
+    .map((name) => {
       return {
-        name: item.name,
-        value: item.name,
+        name,
+        value: name,
       }
     })
-)
+})
 const musicSelected = ref({
   name: '',
   value: '',

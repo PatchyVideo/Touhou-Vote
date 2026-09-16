@@ -54,12 +54,18 @@ import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import NProgress from 'nprogress'
-import { characterList } from '@touhou-vote/shared/data/character'
+import { ensureVoteObjectResources, getCharacterImage } from '@/lib/voteObjectResources'
 import { toPercentageString } from '@/lib/numberFormat'
 import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import characterImages from '@/assets/defaultCharacterImage.png?url'
 
 const route = useRoute()
+
+// 资源索引(后端 vote-objects)异步加载；加载完成后触发图片 computed 重算
+const resourceReady = ref(false)
+ensureVoteObjectResources()
+  .then(() => { resourceReady.value = true })
+  .catch(() => {})
 
 const characterRank = ref(
   Number(route.query.rank ? (Array.isArray(route.query.rank) ? route.query.rank[0] : route.query.rank) : 1)
@@ -68,9 +74,10 @@ const additionalConstraint = computed(() =>
   String(route.query.q ? (Array.isArray(route.query.q) ? route.query.q[0] : route.query.q) : '')
 )
 const characterName = ref('ID：' + characterRank.value)
-const characterImg = computed(
-  () => characterList.find((item) => item.name === characterName.value)?.image || characterImages
-)
+const characterImg = computed(() => {
+  void resourceReady.value
+  return getCharacterImage(characterName.value) || characterImages
+})
 const voteCount = ref(-1)
 const firstVoteCount = ref(-1)
 const firstVotePercentage = ref<number | string>(-1)
