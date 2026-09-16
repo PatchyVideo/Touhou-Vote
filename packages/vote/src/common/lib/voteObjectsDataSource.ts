@@ -122,9 +122,8 @@ export const voteObjectsReady: Promise<void> = new Promise((r) => {
   resolveReady = r
 })
 let readyResolved = false
-let characterLoadPromise: Promise<void> | null = null
-let musicLoadPromise: Promise<void> | null = null
-let loadPromise: Promise<void> | null = null
+let characterRefresh: Promise<void> | null = null
+let musicRefresh: Promise<void> | null = null
 
 function markReady(): void {
   if (!readyResolved) {
@@ -145,7 +144,9 @@ interface TierCache<T> {
   cachedAt: number
 }
 
-function readCache<T>(key: string): TierCache<T> | null {
+// 读缓存时不看 TTL：过期数据也先渲染，再后台刷新（见 load*）。这样命中缓存
+// 的页面加载永远是 0 等待；TTL 只决定「何时后台 revalidate」。
+function readCacheEntry<T>(key: string): TierCache<T> | null {
   try {
     const raw = sessionStorage.getItem(key)
     if (!raw) return null
@@ -153,8 +154,7 @@ function readCache<T>(key: string): TierCache<T> | null {
     if (
       Array.isArray(parsed.groups) &&
       isFilterMeta(parsed.meta) &&
-      typeof parsed.cachedAt === 'number' &&
-      Date.now() - parsed.cachedAt < CACHE_TTL_MS
+      typeof parsed.cachedAt === 'number'
     ) {
       return {
         groups: parsed.groups,
@@ -167,6 +167,10 @@ function readCache<T>(key: string): TierCache<T> | null {
   }
   sessionStorage.removeItem(key)
   return null
+}
+
+function isStale(entry: { cachedAt: number }): boolean {
+  return Date.now() - entry.cachedAt >= CACHE_TTL_MS
 }
 
 function writeCache<T>(key: string, entry: TierCache<T>): void {
@@ -202,21 +206,12 @@ function commitMusicVoteObjects(
   updateCombinedFilterMeta()
 }
 
-export function loadCharacterVoteObjects(force = false): Promise<void> {
-  if (characterLoadPromise && !force) return characterLoadPromise
-
-  characterLoadPromise = (async () => {
+function refreshCharacter(): Promise<void> {
+  if (characterRefresh) return characterRefresh
+  characterRefresh = (async () => {
     characterVoteObjectsLoading.value = true
     characterVoteObjectsError.value = null
     try {
-      if (!force) {
-        const cached = readCache<VoteObjectItem>(CACHE_KEY_CHAR)
-        if (cached) {
-          commitCharacterVoteObjects(cached.groups, cached.meta)
-          return
-        }
-      }
-
       const data = await fetchVoteObjects<VoteObjectItem>(CHARACTER_URL)
       commitCharacterVoteObjects(data.groups, data.filterMeta)
       writeCache(CACHE_KEY_CHAR, {
@@ -225,31 +220,25 @@ export function loadCharacterVoteObjects(force = false): Promise<void> {
         cachedAt: Date.now(),
       })
     } catch (err) {
-      characterVoteObjectsError.value = err instanceof Error ? err.message : String(err)
-      console.error('[voteObjects] 拉取角色投票对象失败，投票页将隐藏表单:', err)
+      // 已有缓存时不打断页面（后台刷新失败只记日志）；无数据才暴露错误
+      if (!characterGroupsRaw.value.length) {
+        characterVoteObjectsError.value = err instanceof Error ? err.message : String(err)
+      }
+      console.error('[voteObjects] 拉取角色投票对象失败:', err)
     } finally {
       characterVoteObjectsLoading.value = false
+      characterRefresh = null
     }
   })()
-
-  return characterLoadPromise
+  return characterRefresh
 }
 
-export function loadMusicVoteObjects(force = false): Promise<void> {
-  if (musicLoadPromise && !force) return musicLoadPromise
-
-  musicLoadPromise = (async () => {
+function refreshMusic(): Promise<void> {
+  if (musicRefresh) return musicRefresh
+  musicRefresh = (async () => {
     musicVoteObjectsLoading.value = true
     musicVoteObjectsError.value = null
     try {
-      if (!force) {
-        const cached = readCache<VoteObjectItem>(CACHE_KEY_MUSIC)
-        if (cached) {
-          commitMusicVoteObjects(cached.groups, cached.meta)
-          return
-        }
-      }
-
       const data = await fetchVoteObjects<VoteObjectItem>(MUSIC_URL)
       commitMusicVoteObjects(data.groups, data.filterMeta)
       writeCache(CACHE_KEY_MUSIC, {
@@ -258,27 +247,55 @@ export function loadMusicVoteObjects(force = false): Promise<void> {
         cachedAt: Date.now(),
       })
     } catch (err) {
-      musicVoteObjectsError.value = err instanceof Error ? err.message : String(err)
-      console.error('[voteObjects] 拉取曲目投票对象失败，投票页将隐藏表单:', err)
+      if (!musicGroupsRaw.value.length) {
+        musicVoteObjectsError.value = err instanceof Error ? err.message : String(err)
+      }
+      console.error('[voteObjects] 拉取曲目投票对象失败:', err)
     } finally {
       musicVoteObjectsLoading.value = false
+      musicRefresh = null
     }
   })()
-
-  return musicLoadPromise
+  return musicRefresh
 }
 
-export function loadVoteObjects(force = false): Promise<void> {
-  if (loadPromise && !force) return loadPromise
+/**
+ * 加载角色投票对象。
+ * - `force=true`：等网络；
+ * - 命中缓存：**立即返回**（先渲染），过期则后台 revalidate；
+ * - 无缓存：等网络（首次加载，无法避免）。
+ */
+export function loadCharacterVoteObjects(force = false): Promise<void> {
+  if (force) return refreshCharacter()
+  const cached = readCacheEntry<VoteObjectItem>(CACHE_KEY_CHAR)
+  if (cached) {
+    commitCharacterVoteObjects(cached.groups, cached.meta)
+    if (isStale(cached)) void refreshCharacter()
+    return Promise.resolve()
+  }
+  return refreshCharacter()
+}
 
-  loadPromise = Promise.all([
+/** 加载曲目投票对象，语义同 loadCharacterVoteObjects。 */
+export function loadMusicVoteObjects(force = false): Promise<void> {
+  if (force) return refreshMusic()
+  const cached = readCacheEntry<VoteObjectItem>(CACHE_KEY_MUSIC)
+  if (cached) {
+    commitMusicVoteObjects(cached.groups, cached.meta)
+    if (isStale(cached)) void refreshMusic()
+    return Promise.resolve()
+  }
+  return refreshMusic()
+}
+
+/** 需要两类的场景(导出海报等)。 */
+export function loadVoteObjects(force = false): Promise<void> {
+  return Promise.all([
     loadCharacterVoteObjects(force),
     loadMusicVoteObjects(force),
   ]).then(() => {
     markReady()
   })
-
-  return loadPromise
 }
 
 function dedupeKinds(

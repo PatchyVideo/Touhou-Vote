@@ -155,14 +155,14 @@ import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
 import { getClientEnv } from '@/common/lib/clientEnv'
-import { loadVoteObjects, voteObjectsError } from '@/common/lib/voteObjectsDataSource'
+import { loadMusicVoteObjects, voteObjectsError } from '@/common/lib/voteObjectsDataSource'
 startFillTimer('music')
 
 setSiteTitle('音乐部门')
 
 const router = useRouter()
 const voteObjectsSettled = ref(false)
-void loadVoteObjects().finally(() => {
+void loadMusicVoteObjects().finally(() => {
   voteObjectsSettled.value = true
 })
 const getSubmitMusicVoteFailed = ref(false)

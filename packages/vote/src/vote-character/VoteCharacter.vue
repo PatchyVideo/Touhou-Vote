@@ -153,14 +153,14 @@ import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
 import { getClientEnv } from '@/common/lib/clientEnv'
-import { loadVoteObjects, voteObjectsError } from '@/common/lib/voteObjectsDataSource'
+import { loadCharacterVoteObjects, voteObjectsError } from '@/common/lib/voteObjectsDataSource'
 startFillTimer('character')
 
 setSiteTitle('角色部门')
 
 const router = useRouter()
 const voteObjectsSettled = ref(false)
-void loadVoteObjects().finally(() => {
+void loadCharacterVoteObjects().finally(() => {
   voteObjectsSettled.value = true
 })
 const getSubmitCharacterVoteFailed = ref(false)
