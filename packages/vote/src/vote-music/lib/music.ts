@@ -1,4 +1,4 @@
-import { Music } from '@touhou-vote/shared/data/music'
+import { Music } from '@touhou-vote/shared/model/music'
 
 export { Music }
 

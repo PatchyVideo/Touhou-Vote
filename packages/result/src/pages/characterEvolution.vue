@@ -96,13 +96,19 @@ import { watchEffect } from 'vue'
 import NProgress from 'nprogress'
 import { gql, useLazyQuery, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
-import { characterList } from '@touhou-vote/shared/data/character'
+import { ensureVoteObjectResources, getCharacterNames } from '@/lib/voteObjectResources'
 import type { GraphDataLine } from '@/lib/Graph'
 import { GraphTimeRange, getTrendData } from '@/lib/Graph'
 import VoteSelect from '@/components/VoteSelect.vue'
 import GraphEvolution from '@/components/GraphEvolution.vue'
 
 setSiteTitle('角色投票演进')
+
+const resourceReady = ref(false)
+ensureVoteObjectResources()
+  .then(() => { resourceReady.value = true })
+  .catch(() => {})
+
 
 const totalUniqueItemsCharacter = ref(-1)
 const totalFirstCharacter = ref(-1)
@@ -112,16 +118,17 @@ const ifMoreCharacterCanAdd = computed<boolean>(
   () => charactersForEvolution.value.length < 10 && !queryCharacterEbvolutionLoading.value
 )
 
-const characterItemList = computed(() =>
-  characterList
-    .filter((item) => charactersForEvolution.value.findIndex((item2) => item2 === item.name) === -1)
-    .map((item) => {
+const characterItemList = computed(() => {
+  void resourceReady.value
+  return getCharacterNames()
+    .filter((name) => charactersForEvolution.value.findIndex((item2) => item2 === name) === -1)
+    .map((name) => {
       return {
-        name: item.name,
-        value: item.name,
+        name,
+        value: name,
       }
     })
-)
+})
 const characterSelected = ref({
   name: '',
   value: '',

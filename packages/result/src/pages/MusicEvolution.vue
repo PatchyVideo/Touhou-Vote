@@ -96,13 +96,19 @@ import { watchEffect } from 'vue'
 import NProgress from 'nprogress'
 import { gql, useLazyQuery, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
-import { musicList } from '@touhou-vote/shared/data/music'
+import { ensureVoteObjectResources, getMusicNames } from '@/lib/voteObjectResources'
 import type { GraphDataLine } from '@/lib/Graph'
 import { GraphTimeRange, getTrendData } from '@/lib/Graph'
 import VoteSelect from '@/components/VoteSelect.vue'
 import GraphEvolution from '@/components/GraphEvolution.vue'
 
 setSiteTitle('曲目投票演进')
+
+const resourceReady = ref(false)
+ensureVoteObjectResources()
+  .then(() => { resourceReady.value = true })
+  .catch(() => {})
+
 
 const totalUniqueItemsMusic = ref(-1)
 const totalFirstMusic = ref(-1)
@@ -112,16 +118,17 @@ const ifMoreMusicCanAdd = computed<boolean>(
   () => musicsForEvolution.value.length < 10 && !queryMusicEbvolutionLoading.value
 )
 
-const musicItemList = computed(() =>
-  musicList
-    .filter((item) => musicsForEvolution.value.findIndex((item2) => item2 === item.name) === -1)
-    .map((item) => {
+const musicItemList = computed(() => {
+  void resourceReady.value
+  return getMusicNames()
+    .filter((name) => musicsForEvolution.value.findIndex((item2) => item2 === name) === -1)
+    .map((name) => {
       return {
-        name: item.name,
-        value: item.name,
+        name,
+        value: name,
       }
     })
-)
+})
 const musicSelected = ref({
   name: '',
   value: '',

@@ -158,10 +158,6 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: '/test',
-    component: () => import('@/pages/Test.vue'),
-  },
-  {
     path: '/:pathMatch(.*)*',
     component: () => import('@/pages/[...all].vue'),
   },
