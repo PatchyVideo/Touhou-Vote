@@ -1,3 +1,4 @@
+import { draftRevision } from '@/vote-card/lib/voteDraftBridge'
 import { computed, ref, watch } from 'vue'
 import { Couple } from '@/vote-couple/lib/couple'
 import { characterList } from '@/vote-character/lib/characterList'
@@ -13,9 +14,10 @@ export const coupleHonmei = computed<Couple>(() => couples.value.find((couple) =
 
 export const couples = ref<Couple[]>(new Array(CPVOTENUM).fill(null).map(() => new Couple()))
 
-watch(couples, setVoteDataCouples, { deep: true })
+let stopPersistence = watch(couples, setVoteDataCouples, { deep: true })
 function setVoteDataCouples(): void {
   localStorage.setItem('couples', JSON.stringify(couples.value))
+  draftRevision.value++
 }
 
 export function updateVotecouple(coupleVoteData: CpSubmitQuery[]): void {
@@ -26,10 +28,13 @@ export function updateVotecouple(coupleVoteData: CpSubmitQuery[]): void {
     couples.value = new Array(CPVOTENUM).fill(null).map(() => new Couple())
     for (let i = 0; i < coupleVoteData.length; i++) {
       const coupleData = new Couple()
-      coupleData.characters[0] = characterList.value.find((item) => item.id === coupleVoteData[i].idA) || new Character()
-      coupleData.characters[1] = characterList.value.find((item) => item.id === coupleVoteData[i].idB) || new Character()
+      coupleData.characters[0] =
+        characterList.value.find((item) => item.id === coupleVoteData[i].idA) || new Character()
+      coupleData.characters[1] =
+        characterList.value.find((item) => item.id === coupleVoteData[i].idB) || new Character()
       if (coupleVoteData[i].idC)
-        coupleData.characters[2] = characterList.value.find((item) => item.id === coupleVoteData[i].idC) || new Character()
+        coupleData.characters[2] =
+          characterList.value.find((item) => item.id === coupleVoteData[i].idC) || new Character()
       if (coupleVoteData[i].active)
         coupleData.seme = coupleData.characters.findIndex((item) => item.id === coupleVoteData[i].active)
       if (coupleVoteData[i].first) coupleData.honmei = true
@@ -38,4 +43,10 @@ export function updateVotecouple(coupleVoteData: CpSubmitQuery[]): void {
       couples.value[i] = coupleData
     }
   }
+}
+
+export function resetCoupleDraftMemory(): void {
+  stopPersistence()
+  couples.value = new Array(CPVOTENUM).fill(null).map(() => new Couple())
+  stopPersistence = watch(couples, setVoteDataCouples, { deep: true })
 }

@@ -136,7 +136,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watchEffect } from 'vue'
+import { registerVoteDraft } from '@/vote-card/lib/voteDraftBridge'
+import { resetMusicDraftMemory } from './lib/voteData'
+import { computed, ref, watch, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { handleQuestionnaireGateError } from '@/common/lib/voteGateError'
 import NavVote from '@/common/components/NavVote.vue'
@@ -208,9 +210,18 @@ const pageDataError = computed(
   () => getSubmitMusicVoteFailed.value || (voteObjectsSettled.value && voteObjectsError.value !== null)
 )
 const pageDataLoading = computed(
-  () => !pageDataError.value && (!voteObjectsSettled.value || getSubmitMusicVoteLoading.value || !existingVoteRestored.value)
+  () =>
+    !pageDataError.value &&
+    (!voteObjectsSettled.value || getSubmitMusicVoteLoading.value || !existingVoteRestored.value)
 )
 const pageDataReady = computed(() => !pageDataError.value && !pageDataLoading.value)
+watch(
+  pageDataReady,
+  (ready) => {
+    if (ready) registerVoteDraft('music', () => musics.value, resetMusicDraftMemory)
+  },
+  { immediate: true }
+)
 
 const musicsVotedNumber = computed<number>(() => musicsVoted.value.length)
 

@@ -134,7 +134,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watchEffect } from 'vue'
+import { registerVoteDraft } from '@/vote-card/lib/voteDraftBridge'
+import { resetCharacterDraftMemory } from './lib/voteData'
+import { computed, ref, watch, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { handleQuestionnaireGateError } from '@/common/lib/voteGateError'
 import NavVote from '@/common/components/NavVote.vue'
@@ -211,6 +213,13 @@ const pageDataLoading = computed(
     (!voteObjectsSettled.value || getSubmitCharacterVoteLoading.value || !existingVoteRestored.value)
 )
 const pageDataReady = computed(() => !pageDataError.value && !pageDataLoading.value)
+watch(
+  pageDataReady,
+  (ready) => {
+    if (ready) registerVoteDraft('role', () => characters.value, resetCharacterDraftMemory)
+  },
+  { immediate: true }
+)
 
 const charactersVotedNumber = computed<number>(() => charactersVoted.value.length)
 

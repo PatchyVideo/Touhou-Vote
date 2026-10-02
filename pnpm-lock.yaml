@@ -274,6 +274,9 @@ importers:
       pinin:
         specifier: ^0.2.0
         version: 0.2.0
+      unicode-segmenter:
+        specifier: ^0.17.3
+        version: 0.17.3
       vue:
         specifier: ^3.2.47
         version: 3.5.34(typescript@5.9.3)
@@ -4143,6 +4146,9 @@ packages:
 
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
+  unicode-segmenter@0.17.3:
+    resolution: {integrity: sha512-hKZwqBjJDmqNrq1+LjDxck1qLzJFcLLJM2Xq92ORRHOuau6GSHeELmn+uyk6zNH1CK9mogrUJGP9WJCJUQXMAw==}
 
   unimport@3.14.6:
     resolution: {integrity: sha512-CYvbDaTT04Rh8bmD8jz3WPmHYZRG/NnvYVzwD6V1YAlvvKROlAeNDUBhkBGzNav2RKaeuXvlWYaa1V4Lfi/O0g==}
@@ -9002,6 +9008,8 @@ snapshots:
       jiti: 1.21.7
 
   undici-types@5.26.5: {}
+
+  unicode-segmenter@0.17.3: {}
 
   unimport@3.14.6(rollup@3.30.0):
     dependencies:

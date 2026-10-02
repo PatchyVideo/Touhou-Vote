@@ -17,7 +17,10 @@
           <div class="w-full space-y-0.5">
             <div class="w-full flex items-center space-x-2">
               <div class="text-xl truncate">{{ item.title }}</div>
+            </div>
+            <div class="flex items-center gap-2">
               <CompleteTag :complete="item.complete()" />
+              <VoteCardExportButton :department="item.department" />
             </div>
             <div class="text-sm">{{ item.desc }}</div>
           </div>
@@ -33,6 +36,9 @@
 </template>
 
 <script lang="ts" setup>
+import VoteCardExportButton from '@/vote-card/components/VoteCardExportButton.vue'
+import { useVoteCardSession } from '@/vote-card/lib/voteCardSession'
+useVoteCardSession()
 import { useRouter } from 'vue-router'
 import { voteCharacterComplete, voteCoupleComplete, voteMusicComplete } from '@/home/lib/user'
 import CompleteTag from '@/home/components/CompleteTag.vue'
@@ -52,6 +58,7 @@ function voteCouple(): void {
 const VoteList = [
   {
     type: 'character',
+    department: 'role' as const,
     title: '角色部门',
     icon: 'https://image.touhou.ai/i/2026/09/04/6a9a1c884e8d4.png',
     desc: '为喜欢的角色投票',
@@ -61,8 +68,9 @@ const VoteList = [
   },
   {
     type: 'music',
+    department: 'music' as const,
     title: '音乐部门',
-    icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/music@100px.png',
+    icon: 'https://image.touhou.ai/i/2026/09/24/6ab480dd9de47.png',
     desc: '为喜欢的音乐投票',
     complete: () => voteMusicComplete.value,
     buttontext: () => (voteMusicComplete.value ? '修改结果' : '开始投票'),
@@ -70,6 +78,7 @@ const VoteList = [
   },
   {
     type: 'couple',
+    department: 'cp' as const,
     title: 'CP部门',
     icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
     desc: '为喜欢的角色组合投票',

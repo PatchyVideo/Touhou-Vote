@@ -1,3 +1,4 @@
+import { draftRevision } from '@/vote-card/lib/voteDraftBridge'
 import { computed, ref, watch } from 'vue'
 import { Character } from './character'
 import { characterList } from './characterList'
@@ -13,9 +14,10 @@ export const characterHonmei = computed<Character>(
 // Vote data, including blank ticket seat (as New Character)
 export const characters = ref<Character[]>(new Array(CHARACTERVOTENUM).fill(null).map(() => new Character()))
 
-watch(characters, setVoteDataCharacters, { deep: true })
+let stopPersistence = watch(characters, setVoteDataCharacters, { deep: true })
 function setVoteDataCharacters(): void {
   localStorage.setItem('characters', JSON.stringify(characters.value))
+  draftRevision.value++
 }
 
 export function updateVoteCharacters(newVoteData: CharacterSubmitQuery[]): void {
@@ -31,4 +33,10 @@ export function updateVoteCharacters(newVoteData: CharacterSubmitQuery[]): void 
       characters.value[i] = characterData
     }
   }
+}
+
+export function resetCharacterDraftMemory(): void {
+  stopPersistence()
+  characters.value = new Array(CHARACTERVOTENUM).fill(null).map(() => new Character())
+  stopPersistence = watch(characters, setVoteDataCharacters, { deep: true })
 }

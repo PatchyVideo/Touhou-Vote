@@ -121,7 +121,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watchEffect } from 'vue'
+import { registerVoteDraft } from '@/vote-card/lib/voteDraftBridge'
+import { resetCoupleDraftMemory } from './lib/voteData'
+import { computed, ref, watch, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { handleQuestionnaireGateError } from '@/common/lib/voteGateError'
 import { CPVOTENUM, couples, updateVotecouple } from '@/vote-couple/lib/voteData'
@@ -139,10 +141,7 @@ import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
 import { getClientEnv } from '@/common/lib/clientEnv'
-import {
-  characterVoteObjectsError,
-  loadCharacterVoteObjects,
-} from '@/common/lib/voteObjectsDataSource'
+import { characterVoteObjectsError, loadCharacterVoteObjects } from '@/common/lib/voteObjectsDataSource'
 startFillTimer('cp')
 
 setSiteTitle('CP部门')
@@ -200,9 +199,7 @@ getSubmitCPVoteError((err) => {
   else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
 const pageDataError = computed(
-  () =>
-    getSubmitCPVoteFailed.value ||
-    (characterVoteObjectsSettled.value && characterVoteObjectsError.value !== null)
+  () => getSubmitCPVoteFailed.value || (characterVoteObjectsSettled.value && characterVoteObjectsError.value !== null)
 )
 const pageDataLoading = computed(
   () =>
@@ -210,6 +207,13 @@ const pageDataLoading = computed(
     (!characterVoteObjectsSettled.value || getSubmitCPVoteLoading.value || !existingVoteRestored.value)
 )
 const pageDataReady = computed(() => !pageDataError.value && !pageDataLoading.value)
+watch(
+  pageDataReady,
+  (ready) => {
+    if (ready) registerVoteDraft('cp', () => couples.value, resetCoupleDraftMemory)
+  },
+  { immediate: true }
+)
 
 function addCouple(): void {
   couples.value[couplesValid.value.length].valid = true
