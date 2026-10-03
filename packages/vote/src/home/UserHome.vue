@@ -1,5 +1,7 @@
 <template>
   <div class="page"></div>
+  <Teleport v-if="cardEditor" :to="editorTarget || 'body'" :disabled="!editorTarget"
+    ><VoteCard /></Teleport>
   <!-- Mobile View -->
   <div v-if="screenSizes['<lg']" class="min-h-100vh flex flex-col text-sm">
     <!-- Top Nav -->
@@ -38,15 +40,6 @@
             >
               <div>账号设置</div>
             </router-link>
-            <div class="p-2 border-t border-gray-200">
-              <ExportCharacterVoteImage />
-            </div>
-            <div class="p-2 border-t border-gray-200">
-              <ExportMusicVoteImage />
-            </div>
-            <div class="p-2 border-t border-gray-200">
-              <ExportCoupleVoteImage />
-            </div>
             <div
               class="rounded-xl cursor-pointer transition transition-colors hover:bg-accent-color-100"
               @click="logout()"
@@ -60,7 +53,8 @@
     </div>
 
     <!-- Main Content -->
-    <div class="w-full overflow-hidden">
+    <div v-if="cardEditor" ref="editorTarget" class="baseBox flex-1" />
+    <div v-else class="w-full overflow-hidden">
       <div
         class="w-2/1 flex transform-gpu transition-transform duration-300 space-x-1"
         :class="{ '-translate-x-1/2': systemListIsOpen }"
@@ -194,15 +188,6 @@
                   >
                     <div>账号设置</div>
                   </router-link>
-                  <div class="p-2 border-t border-gray-200">
-                    <ExportCharacterVoteImage />
-                  </div>
-                  <div class="p-2 border-t border-gray-200">
-                    <ExportMusicVoteImage />
-                  </div>
-                  <div class="p-2 border-t border-gray-200">
-                    <ExportCoupleVoteImage />
-                  </div>
                   <div
                     class="rounded-xl cursor-pointer transition transition-colors hover:bg-accent-color-100"
                     tabindex="0"
@@ -218,10 +203,17 @@
           </div>
         </div>
         <!-- Main Content -->
-        <div id="maincontent" :key="dpActiveTab" class="flex-1 overflow-auto">
-          <component :is="TabList[dpActiveTab].component" />
+        <div
+          id="maincontent"
+          :key="dpActiveTab"
+          class="flex-1 overflow-auto"
+          :class="{ 'card-content-panel': cardEditor }"
+        >
+          <div v-if="cardEditor" ref="editorTarget" />
+          <component v-else :is="TabList[dpActiveTab].component" />
         </div>
-        <Copyright />
+        <div v-if="cardEditor" class="card-copyright"><Copyright /></div>
+        <Copyright v-else />
       </div>
     </div>
   </div>
@@ -232,6 +224,9 @@
 
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
+import VoteCard from '@/vote-card/VoteCard.vue'
+const props = defineProps<{ cardEditor?: boolean }>()
+const editorTarget = ref<HTMLElement>()
 import { useRoute, useRouter } from 'vue-router'
 import UserQuestionnaire from '@/home/components/UserQuestionnaire.vue'
 import UserVote from '@/home/components/UserVote.vue'
@@ -255,9 +250,6 @@ import { isQuestionnaireAllDoneV2 as IsQuestionnaireAllDone } from '@/questionna
 import { popConfirmText } from '@/common/lib/popMessage'
 import { setSiteTitle } from '@/common/lib/setSiteTitle'
 import { voteYear } from '@/common/lib/voteYear'
-import ExportCharacterVoteImage from '@/common/components/ExportCharacterVoteImage.vue'
-import ExportMusicVoteImage from '@/common/components/ExportMusicVoteImage.vue'
-import ExportCoupleVoteImage from '@/common/components/ExportCoupleVoteImage.vue'
 
 setSiteTitle(String(username.value))
 
@@ -362,7 +354,7 @@ async function logout(): Promise<void> {
 
 // destop exclusive
 const dpActiveTab = computed<number>({
-  get: () => Number(route.query.tab) || 0,
+  get: () => (props.cardEditor ? 1 : Number(route.query.tab) || 0),
   set: (v) => {
     router.push({
       path: route.path,
@@ -375,7 +367,7 @@ const dpActiveTab = computed<number>({
 })
 const resetTabMessageBoxOpen = ref(false)
 watch(dpActiveTab, (tab) => {
-  if (!IsQuestionnaireAllDone.value && tab > 0) {
+  if (!props.cardEditor && !IsQuestionnaireAllDone.value && tab > 0) {
     resetTabMessageBoxOpen.value = true
     router.push({
       path: route.path,
@@ -390,6 +382,12 @@ const dpCollapseNav = ref(screenSizes['<xl'])
 </script>
 
 <style lang="postcss" scoped>
+.card-content-panel {
+  min-height: 0;
+}
+.card-copyright {
+  flex-shrink: 0;
+}
 .userList-enter-active,
 .userList-leave-active {
   transition: opacity 0.2s ease;

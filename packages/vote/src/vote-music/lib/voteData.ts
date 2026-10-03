@@ -1,3 +1,4 @@
+import { draftRevision } from '@/vote-card/lib/voteDraftBridge'
 import { computed, ref, watch } from 'vue'
 import { Music } from '@/vote-music/lib/music'
 import { musicList } from '@/vote-music/lib/musicList'
@@ -12,9 +13,10 @@ export const musicHonmei = computed<Music>(() => musics.value.find((music) => mu
 // Vote data, including blank ticket seat (as New Music)
 export const musics = ref<Music[]>(new Array(MUSICVOTENUM).fill(null).map(() => new Music()))
 
-watch(musics, setVoteDataMusics, { deep: true })
+let stopPersistence = watch(musics, setVoteDataMusics, { deep: true })
 function setVoteDataMusics(): void {
   localStorage.setItem('musics', JSON.stringify(musics.value))
+  draftRevision.value++
 }
 
 export function updateVoteMusics(newVoteData: MusicSubmitQuery[]): void {
@@ -30,4 +32,10 @@ export function updateVoteMusics(newVoteData: MusicSubmitQuery[]): void {
       musics.value[i] = musicData
     }
   }
+}
+
+export function resetMusicDraftMemory(): void {
+  stopPersistence()
+  musics.value = new Array(MUSICVOTENUM).fill(null).map(() => new Music())
+  stopPersistence = watch(musics, setVoteDataMusics, { deep: true })
 }

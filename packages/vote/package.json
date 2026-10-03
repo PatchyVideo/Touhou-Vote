@@ -19,6 +19,7 @@
     "html2canvas": "^1.4.1",
     "nprogress": "1.0.0-1",
     "pinin": "^0.2.0",
+    "unicode-segmenter": "^0.17.3",
     "vue": "^3.2.47",
     "vue-router": "4.1.6"
   },

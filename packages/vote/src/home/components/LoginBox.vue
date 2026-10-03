@@ -293,14 +293,14 @@ const {
   `
 )
 newLoginPhoneNumDone((result) => {
+  const login = result.data?.loginPhone
+  if (!login?.user || !login.voteToken || !login.sessionToken) {
+    verificationCodeError.value = login ? '网络错误！请稍后重试' : '验证码错误或已失效，请重新获取'
+    popMessageText(verificationCodeError.value)
+    return
+  }
   void reloadWithBootstrap(() => {
-    if (result.data?.loginPhone.user && result.data?.loginPhone.voteToken && result.data?.loginPhone.sessionToken) {
-      setUserDataToLocalStorage(
-        result.data.loginPhone.user,
-        result.data.loginPhone.voteToken,
-        result.data.loginPhone.sessionToken
-      )
-    }
+    setUserDataToLocalStorage(login.user, login.voteToken, login.sessionToken)
   })
 })
 newLoginPhoneNumError((error) => {
@@ -363,7 +363,7 @@ const useOldSystemLogin = ref(false)
 const userName = ref<string>('')
 const userNameError = ref<' ' | '请输入用户名！' | '该用户不存在！'>(' ')
 const userPassword = ref<string>('')
-const userPasswordError = ref<' ' | '密码错误！' | '请输入密码！' | '网络错误！请稍后重试'>(' ')
+const userPasswordError = ref<' ' | '密码错误！' | '邮箱或密码错误！' | '请输入密码！' | '网络错误！请稍后重试'>(' ')
 async function oldSystemlogin(): Promise<void> {
   oldLogin({ email: userName.value, password: userPassword.value })
 }
@@ -393,18 +393,14 @@ const {
   `
 )
 oldLoginDone((result) => {
+  const login = result.data?.loginEmailPassword
+  if (!login?.user || !login.voteToken || !login.sessionToken) {
+    userPasswordError.value = login ? '网络错误！请稍后重试' : '邮箱或密码错误！'
+    popMessageText(userPasswordError.value)
+    return
+  }
   void reloadWithBootstrap(() => {
-    if (
-      result.data?.loginEmailPassword.user &&
-      result.data?.loginEmailPassword.voteToken &&
-      result.data?.loginEmailPassword.sessionToken
-    ) {
-      setUserDataToLocalStorage(
-        result.data.loginEmailPassword.user,
-        result.data.loginEmailPassword.voteToken,
-        result.data.loginEmailPassword.sessionToken
-      )
-    }
+    setUserDataToLocalStorage(login.user, login.voteToken, login.sessionToken)
   })
 })
 oldLoginError((error) => {

@@ -5,11 +5,11 @@ import { computed, ref } from 'vue'
 import { Character } from '@/vote-character/lib/character'
 import { Music } from '@/vote-music/lib/music'
 import {
-  fetchVoteObjects,
-  voteObjectsUrl,
   type VoteObjectFilterMeta,
   type VoteObjectGroup,
   type VoteObjectItem,
+  fetchVoteObjects,
+  voteObjectsUrl,
 } from '@touhou-vote/shared/api/voteObjects'
 import { voteYear } from '@/common/lib/voteYear'
 import { API_PREFIX } from '@/common/lib/apiPrefix'
@@ -44,8 +44,8 @@ export const voteObjectsError = computed(
   () => characterVoteObjectsError.value ?? musicVoteObjectsError.value,
 )
 
-const characterFilterMeta = ref<VoteObjectFilterMeta>({ kinds: [], works: [] })
-const musicFilterMeta = ref<VoteObjectFilterMeta>({ kinds: [], works: [] })
+export const characterFilterMeta = ref<VoteObjectFilterMeta>({ kinds: [], works: [] })
+export const musicFilterMeta = ref<VoteObjectFilterMeta>({ kinds: [], works: [] })
 
 // ── 工具 ──────────────────────────────────────────────────────────────────
 export function getWorkName(wid: number): string {
