@@ -4,7 +4,7 @@
   const path = require('path')
   const generatedDir = path.join(__dirname, '../src/graphql/__generated__')
   fs.mkdirSync(generatedDir, { recursive: true })
-  process.env.GRAPHQL_SCHEMA_URL ??= 'https://touhou.ai/vote-be/graphql'
+  process.env.GRAPHQL_SCHEMA_URL ??= 'http://154.37.215.62:18000/graphql'
   await exec('pnpm', ['exec', 'graphql-codegen', '--config', './src/graphql/codegen.yml'])
   console.log('\n')
 })()
