@@ -10,14 +10,14 @@ git clone git@github.com:PatchyVideo/Touhou-Vote.git
 cd Touhou-Vote
 pnpm install                # ① 只能用 pnpm，见坑表 P1
 cd packages/vote
-GRAPHQL_SCHEMA_URL=http://154.37.215.62:18000/graphql pnpm codegen
+pnpm codegen
                             # ② 必须先 codegen，见坑表 P2/P3
 pnpm dev                    # ③ 起 dev server（端口 5175）
 ```
 
 然后浏览器打开 **`http://localhost:5175/v11/`** —— **必须带 `/v11/`**（见坑表 P4）。
 
-Windows PowerShell 的第②步写法：
+如需指定其他 schema 地址，可设置 `GRAPHQL_SCHEMA_URL`；Windows PowerShell 写法：
 
 ```powershell
 $env:GRAPHQL_SCHEMA_URL = 'http://154.37.215.62:18000/graphql'; pnpm codegen
@@ -38,10 +38,8 @@ $env:GRAPHQL_SCHEMA_URL = 'http://154.37.215.62:18000/graphql'; pnpm codegen
 
 schema 来源按优先级：
 
-- 环境变量 `GRAPHQL_SCHEMA_URL`（推荐指向测试机后端
-  `http://154.37.215.62:18000/graphql`，schema 最新）；
-- 不设置时默认 `https://touhou.ai/vote-be/graphql`——**老地址，不保证可用，
-  且没有 v12 新增的查询字段**。
+- 环境变量 `GRAPHQL_SCHEMA_URL`（可指定本地或其他后端）；
+- 不设置时默认测试机后端 `http://154.37.215.62:18000/graphql`。
 
 CI 部署（`.github/workflows/vote-image.yml`）会自动对测试机后端跑 codegen，
 所以线上从不缺这些文件——这是「CI 正常、本地白屏」差异的来源。
@@ -90,7 +88,7 @@ v12 路由对齐）：
 |---|---|---|---|
 | P1 | `npm install` 报 `EUNSUPPORTEDPROTOCOL workspace:` | pnpm workspace 协议 | 用 `pnpm install` |
 | P2 | 打开页面 **500 白屏**，终端有 `Failed to resolve import "./__generated__/typePolicies"` | 没跑 codegen，产物被 gitignore | 按 ② 跑 codegen |
-| P3 | codegen 卡住/报网络错误 | 默认 schema 地址 `touhou.ai` 老旧不可用 | 设 `GRAPHQL_SCHEMA_URL` 指测试机 |
+| P3 | codegen 卡住/报网络错误 | schema 服务不可达 | 检查默认测试机连接，或设 `GRAPHQL_SCHEMA_URL` 指向可用后端 |
 | P4 | 页面**无报错白屏**，终端一切正常 | 打开了裸 `/`，路由 base 是 `/v11/` | 访问 `http://localhost:5175/v11/` |
 | P5 | 页面能开，登录/数据全部 404 | dev 代理缺 `/v12-be` 映射 | 按「本地联调」补 proxy |
 | P6 | 根目录 `npm run dev` 报 Missing script | 根目录只有 `vote:dev` 等前缀脚本 | `pnpm vote:dev` 或进 `packages/vote` 跑 `pnpm dev` |

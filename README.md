@@ -53,8 +53,8 @@ $ pnpm i
 
 ```bash
 # 生成 GraphQL Schema —— 必须先于 dev，否则 500 白屏
-# （产物被 gitignore；默认 schema 地址已过期，需显式指定）
-$ GRAPHQL_SCHEMA_URL=http://154.37.215.62:18000/graphql pnpm vote:codegen
+# （产物被 gitignore；默认使用测试机 schema，可用 GRAPHQL_SCHEMA_URL 覆盖）
+$ pnpm vote:codegen
 
 # 启动本地调试 —— 端口 5175，务必访问 http://localhost:5175/v11/ （带 /v11/）
 $ pnpm vote:dev
