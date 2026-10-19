@@ -41,12 +41,13 @@
       </div>
 
       <button
-        :class="{ buttonDisabled: !doujinValid.length || loading }"
+        :class="{ buttonDisabled: !doujinValid.length || submitting || loading }"
+        :disabled="!doujinValid.length || submitting || loading"
         class="w-full py-2 flex items-center space-x-1 justify-center"
         @click="!doujinValid.length || vote()"
       >
-        <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>
-          {{ doujinValid.length ? (loading ? '提交中...' : '提交!') : '请提名至少一个作品哦' }}
+        <icon-uil-spinner-alt v-if="submitting || loading" class="animate-spin" /><label>
+          {{ doujinValid.length ? (submitting || loading ? '提交中...' : '提交!') : '请提名至少一个作品哦' }}
         </label>
       </button>
     </div>
@@ -98,6 +99,7 @@ import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
 import { getClientEnv } from '@/common/lib/clientEnv'
+import { useSingleFlightSubmit } from '@/common/lib/useSingleFlightSubmit'
 startFillTimer('doujin')
 
 setSiteTitle('提名作品')
@@ -166,16 +168,19 @@ getSubmitDojinVoteError((err) => {
   else popMessageText('获取投票信息失败！失败原因：' + err.message)
 })
 
+const { submitting, run: runVoteSubmit } = useSingleFlightSubmit()
 async function vote(): Promise<void> {
-  mutate({
-    content: {
-      voteToken: voteToken.value,
-      dojins: doujinValid.value,
-      deviceId: getDeviceId(),
-      fillDurationMs: readFillDuration('doujin'),
-      clientEnv: getClientEnv(),
-    },
-  })
+  await runVoteSubmit(() =>
+    mutate({
+      content: {
+        voteToken: voteToken.value,
+        dojins: doujinValid.value,
+        deviceId: getDeviceId(),
+        fillDurationMs: readFillDuration('doujin'),
+        clientEnv: getClientEnv(),
+      },
+    })
+  )
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`

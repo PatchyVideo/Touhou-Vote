@@ -5,7 +5,7 @@ import AppRouterView from './components/AppRouterView.vue'
 import { isBootstrapping } from './lib/appBootstrap'
 import GlobalMessages from '@/common/components/GlobalMessages.vue'
 import { createApollo, provideClient } from '@/graphql'
-import { checkLoginStatus, isLogin } from '@/home/lib/user'
+import { checkLoginStatus, isLogin, setupCrossTabLoginSync } from '@/home/lib/user'
 import { isQuestionnaireAllDoneV2, structureError } from '@/questionnaire/lib/questionnaireStateV2'
 import { voteNotStart } from '@/start-page/lib/voteStart'
 import { voteEnded } from '@/end-page/lib/voteEnded'
@@ -39,6 +39,9 @@ const app = createApp(
 const checkLoginStatusPromise = checkLoginStatus(true).finally(() => {
   isBootstrapping.value = false
 })
+
+// 其它标签页登录/退出后同步本标签的登录态（FE-03）
+setupCrossTabLoginSync()
 
 // router config
 declare module 'vue-router' {

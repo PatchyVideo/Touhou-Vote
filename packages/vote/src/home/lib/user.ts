@@ -147,6 +147,30 @@ export function deleteUserData(): void {
   sessionToken.value = ''
 }
 
+/**
+ * 跨标签页登录态同步（FE-03）。
+ *
+ * 登出/登录只改动执行操作的那个标签页里的响应式状态，其它标签页不会自动感知，
+ * 会出现"已在别处退出但仍显示已登录"的误导 UI。这里在收到 storage 事件后
+ * 按 localStorage 的实际内容刷新本标签的 user/voteToken/sessionToken。
+ * 本地无 voteToken（已被其它标签登出）时回落到未登录状态。
+ */
+const LOGIN_STATE_STORAGE_KEYS = ['user', 'voteToken', 'sessionToken']
+
+export function syncLoginStateFromStorage(): void {
+  getUserDataFromLocalStorage()
+}
+
+export function setupCrossTabLoginSync(): () => void {
+  const listener = (event: StorageEvent): void => {
+    if (event.storageArea && event.storageArea !== window.localStorage) return
+    if (event.key !== null && !LOGIN_STATE_STORAGE_KEYS.includes(event.key)) return
+    syncLoginStateFromStorage()
+  }
+  window.addEventListener('storage', listener)
+  return () => window.removeEventListener('storage', listener)
+}
+
 export async function checkLoginStatus(needGetUserDataFromLocalStorage = false): Promise<void> {
   const tokenData = localStorage.getItem('voteToken')
   if (!tokenData) {

@@ -109,11 +109,12 @@
       </div>
       <button
         class="w-full py-2 flex items-center space-x-1 justify-center"
-        :class="{ buttonDisabled: loading }"
+        :class="{ buttonDisabled: submitting || loading }"
+        :disabled="submitting || loading"
         @click="vote()"
       >
-        <icon-uil-spinner-alt v-if="loading" class="animate-spin" /><label>{{
-          loading ? '投票中' : '确认投票！'
+        <icon-uil-spinner-alt v-if="submitting || loading" class="animate-spin" /><label>{{
+          submitting || loading ? '投票中' : '确认投票！'
         }}</label>
       </button>
     </div>
@@ -141,6 +142,7 @@ import { popMessageText } from '@/common/lib/popMessage'
 import { getDeviceId } from '@/common/lib/deviceId'
 import { readFillDuration, startFillTimer } from '@/common/lib/fillTimer'
 import { getClientEnv } from '@/common/lib/clientEnv'
+import { useSingleFlightSubmit } from '@/common/lib/useSingleFlightSubmit'
 import { characterVoteObjectsError, loadCharacterVoteObjects } from '@/common/lib/voteObjectsDataSource'
 startFillTimer('cp')
 
@@ -317,16 +319,19 @@ const CPSubmit = computed<schema.CpSubmit[]>(() =>
   })
 )
 const router = useRouter()
+const { submitting, run: runVoteSubmit } = useSingleFlightSubmit()
 async function vote(): Promise<void> {
-  mutate({
-    content: {
-      voteToken: voteToken.value,
-      cps: CPSubmit.value,
-      deviceId: getDeviceId(),
-      fillDurationMs: readFillDuration('cp'),
-      clientEnv: getClientEnv(),
-    },
-  })
+  await runVoteSubmit(() =>
+    mutate({
+      content: {
+        voteToken: voteToken.value,
+        cps: CPSubmit.value,
+        deviceId: getDeviceId(),
+        fillDurationMs: readFillDuration('cp'),
+        clientEnv: getClientEnv(),
+      },
+    })
+  )
 }
 const { mutate, loading, onDone, onError } = useMutation<Mutation>(
   gql`
