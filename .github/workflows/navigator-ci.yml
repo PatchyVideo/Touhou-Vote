@@ -15,14 +15,18 @@ jobs:
     if: github.repository == 'PatchyVideo/Touhou-Vote'
     environment: Navigator-CI
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
+        timeout-minutes: 10
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22.23.4
           check-latest: true
+        timeout-minutes: 10
 
       - name: Cache pnpm modules
         uses: actions/cache@v3
@@ -31,8 +35,10 @@ jobs:
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
+        timeout-minutes: 10
 
-      - uses: pnpm/action-setup@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
           version: 10
           run_install: |
@@ -42,12 +48,46 @@ jobs:
       - name: Build
         run: pnpm build
         working-directory: ./packages/navigator
-        timeout-minutes: 15
+        timeout-minutes: 10
 
+      # 其他人改动CI会导致部署失败，这里直接不携带Git信息
       - name: Deploy to Vercel
-        run: npx vercel@latest deploy --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
-        working-directory: ./packages/navigator/dist
+        id: deploy
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        timeout-minutes: 15
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        timeout-minutes: 10
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/vercel-site && mkdir -p /tmp/vercel-site
+          cp -a packages/navigator/dist/. /tmp/vercel-site/
+          cd /tmp/vercel-site
+          URL=$(npx vercel@latest deploy --prod --yes --no-wait --token="$VERCEL_TOKEN" | tail -n1)
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "### Vercel: $URL" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Verify deployment status
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        timeout-minutes: 10
+        run: |
+          set -uo pipefail
+          URL="${{ steps.deploy.outputs.url }}"
+          [ -n "$URL" ] || { echo "::error::Deployment URL was not produced"; exit 1; }
+          for i in $(seq 1 50); do
+            RESP=$(curl -sS -H "Authorization: Bearer $VERCEL_TOKEN" \
+              "https://api.vercel.com/v13/deployments/$URL?teamId=$VERCEL_ORG_ID")
+            STATE=$(printf '%s' "$RESP" | jq -r '.readyState // .state // "unknown"')
+            echo "[$i] $STATE"
+            case "$STATE" in
+              READY) exit 0 ;;
+              BLOCKED|ERROR|CANCELED)
+                printf '%s\n' "$RESP" | jq '{readyState, readyStateReason, errorCode, errorMessage}'
+                echo "::error::Deployment state $STATE, see the Vercel reason above"
+                exit 1 ;;
+            esac
+            sleep 10
+          done
+          echo "::warning::Deployment not ready after polling timeout (may still be queued): $URL"
