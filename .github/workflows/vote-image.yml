@@ -5,7 +5,7 @@
 # 流程：
 #   1. 等待后端健康（直接 curl，无 SSH）
 #   2. codegen（从后端拉 GraphQL schema）
-#   3. 多阶段 Docker 构建（pnpm@10.33.0 + node:20）并推送镜像
+#   3. 多阶段 Docker 构建（pnpm@10.33.0 + node:22.23.4）并推送镜像
 #   4. SSH 部署到测试服务器
 #
 # 不影响生产流水线（vote-ci.yml 保持不变）
@@ -67,10 +67,10 @@ jobs:
         with:
           version: 10.33.0
 
-      - name: 设置 Node.js（与生产 vote-ci.yml 一致：node 20）
+      - name: 设置 Node.js（与生产 vote-ci.yml 一致：node 22.23.4）
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22.23.4'
           cache: 'pnpm'
 
       - name: 安装依赖

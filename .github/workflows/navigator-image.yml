@@ -46,10 +46,10 @@ jobs:
         with:
           version: 10.33.0
 
-      - name: 设置 Node.js（与生产 navigator-ci.yml 一致：node 20）
+      - name: 设置 Node.js（与生产 navigator-ci.yml 一致：node 22.23.4）
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22.23.4'
           cache: 'pnpm'
 
       - name: 安装依赖
