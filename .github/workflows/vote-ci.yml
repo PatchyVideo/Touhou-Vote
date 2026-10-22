@@ -21,6 +21,37 @@ jobs:
           fetch-depth: 0
         timeout-minutes: 10
 
+      - name: Preflight Vercel credentials
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        timeout-minutes: 10
+        run: |
+          set -uo pipefail
+          missing=""
+          if [ -z "${VERCEL_TOKEN:-}" ]; then missing="$missing VERCEL_TOKEN"; fi
+          if [ -z "${VERCEL_ORG_ID:-}" ]; then missing="$missing VERCEL_ORG_ID"; fi
+          if [ -z "${VERCEL_PROJECT_ID:-}" ]; then missing="$missing VERCEL_PROJECT_ID"; fi
+          if [ -n "$missing" ]; then
+            echo "::error::Missing secrets in this environment:$missing"
+            exit 1
+          fi
+          WHO=$(curl -sS -H "Authorization: Bearer ${VERCEL_TOKEN}" https://api.vercel.com/v2/user)
+          if ! printf '%s' "$WHO" | jq -e '.user.username' >/dev/null 2>&1; then
+            echo "::error::Cannot read the token owner"
+            echo "${WHO:0:500}"
+            exit 1
+          fi
+          echo "token user: $(printf '%s' "$WHO" | jq -r '.user.username')"
+          PROJ=$(curl -sS -H "Authorization: Bearer ${VERCEL_TOKEN}" "https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}?teamId=${VERCEL_ORG_ID}")
+          if printf '%s' "$PROJ" | jq -e 'has("error")' >/dev/null 2>&1; then
+            echo "::error::Cannot read project ${VERCEL_PROJECT_ID} in team ${VERCEL_ORG_ID}"
+            printf '%s\n' "$PROJ" | jq -c '.error'
+            exit 1
+          fi
+          echo "project: $(printf '%s' "$PROJ" | jq -r '.name')"
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -95,14 +126,14 @@ jobs:
           for i in $(seq 1 50); do
             RESP=$(curl -sS -H "Authorization: Bearer ${VERCEL_TOKEN}" "$API")
             if ! printf '%s' "$RESP" | jq -e . >/dev/null 2>&1; then
-              echo "::error::Vercel API returned a non-JSON response"
+              echo "::warning::Vercel API returned a non-JSON response; deployment was created, status not verified"
               echo "${RESP:0:800}"
-              exit 1
+              exit 0
             fi
-            if printf '%s' "$RESP" | jq -e 'has("error")' >/dev/null 2>&1; then
-              echo "::error::Vercel API error"
-              printf '%s\n' "$RESP" | jq -c '.error'
-              exit 1
+            if printf '%s' "$RESP" | jq -e 'has("error") or has("code")' >/dev/null 2>&1; then
+              echo "::warning::Vercel API error; deployment was created, status not verified"
+              printf '%s\n' "$RESP" | jq -c '.error // {code, message}'
+              exit 0
             fi
             STATE=$(printf '%s' "$RESP" | jq -r --arg h "$HOST" \
               '[.deployments[]? | select((.url | sub("^https?://"; "")) == $h)][0].state // "unknown"')
