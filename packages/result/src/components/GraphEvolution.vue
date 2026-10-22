@@ -1,4 +1,11 @@
-<template><div ref="chartDom" class="w-full aspect-ratio-1/1 md:aspect-ratio-16/10"></div></template>
+<template>
+  <div class="relative">
+    <div ref="chartDom" class="w-full aspect-ratio-1/1 md:aspect-ratio-16/10"></div>
+    <div v-if="!xAxis.length || !hasVotes" class="absolute inset-0 flex items-center justify-center bg-white text-gray-500">
+      {{ xAxis.length ? '暂无投票数据' : '暂无趋势时间信息' }}
+    </div>
+  </div>
+</template>
 <script lang="ts" setup>
 import type { GraphDataLine } from '@/lib/Graph'
 import * as echarts from 'echarts/core'
@@ -27,6 +34,8 @@ const props = defineProps<{
   xAxis: string[]
   data: GraphDataLine[]
 }>()
+
+const hasVotes = computed(() => props.data.some((series) => series.data.some((count) => count !== 0)))
 
 echarts.use([
   TitleComponent,
@@ -113,7 +122,7 @@ onMounted(() => {
     window.addEventListener('resize', () => GraphEvolution.resize())
     option.value && GraphEvolution.setOption(option.value)
     watchEffect(() => {
-      if (props.xAxis.length) option.value && GraphEvolution.setOption(option.value)
+      GraphEvolution.setOption(option.value, { replaceMerge: ['series'] })
     })
   }
 })

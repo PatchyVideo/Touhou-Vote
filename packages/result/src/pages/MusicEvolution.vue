@@ -78,7 +78,7 @@
         <div class="md:my-1 px-3 py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700">
           * 该图表表示该曲目随着投票进程的票数变化情况<br />
           * 其中减少的票数是因为投票人修改自己的投票去掉该曲目而导致<br />
-          * 投票时间：2022-06-17 18:00:00 至 2022-07-05 00:00:00
+          * {{ dateRangeText }}
         </div>
         <div class="px-3 pt-3 md:pt-1 text-lg border-b border-accent-300">总票数演进</div>
         <!-- Graph for vote evolution -->
@@ -98,11 +98,13 @@ import { gql, useLazyQuery, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
 import { ensureVoteObjectResources, getMusicNames } from '@/lib/voteObjectResources'
 import type { GraphDataLine } from '@/lib/Graph'
-import { GraphTimeRange, getTrendData } from '@/lib/Graph'
+import { useResultTimeline } from '@/lib/Graph'
 import VoteSelect from '@/components/VoteSelect.vue'
 import GraphEvolution from '@/components/GraphEvolution.vue'
 
 setSiteTitle('曲目投票演进')
+
+const { GraphTimeRange, dateRangeText, setResultTimeline, getTrendData } = useResultTimeline()
 
 const resourceReady = ref(false)
 ensureVoteObjectResources()
@@ -189,6 +191,12 @@ const {
 } = useLazyQuery<Query>(
   gql`
     query ($voteStart: DateTimeUtc!, $voteYear: Int!, $names: [String!]!) {
+      queryResultTimeline(voteYear: $voteYear) {
+        voteStart
+        voteEnd
+        statisticsEnd
+        generatedAt
+      }
       queryMusicTrend(voteStart: $voteStart, voteYear: $voteYear, names: $names) {
         trend {
           hrs
@@ -219,6 +227,7 @@ watchEffect(() => {
 })
 watchEffect(() => {
   if (resultMusicEbvolution.value) {
+    setResultTimeline(resultMusicEbvolution.value.queryResultTimeline)
     if (resultMusicEbvolution.value.queryMusicTrend) {
       trend.value = []
       trendFirst.value = []
