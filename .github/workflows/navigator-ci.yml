@@ -64,30 +64,55 @@ jobs:
           cp -a packages/navigator/dist/. /tmp/vercel-site/
           cd /tmp/vercel-site
           URL=$(npx vercel@latest deploy --prod --yes --no-wait --token="$VERCEL_TOKEN" | tail -n1)
+          case "$URL" in
+            https://*.vercel.app*) ;;
+            *) echo "::error::Unexpected deploy output: ${URL:0:200}"; exit 1 ;;
+          esac
           echo "url=$URL" >> "$GITHUB_OUTPUT"
           echo "### Vercel: $URL" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Verify deployment status
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          DEPLOY_URL: ${{ steps.deploy.outputs.url }}
         timeout-minutes: 10
         run: |
           set -uo pipefail
-          URL="${{ steps.deploy.outputs.url }}"
-          [ -n "$URL" ] || { echo "::error::Deployment URL was not produced"; exit 1; }
+          HOST="${DEPLOY_URL#https://}"
+          HOST="${HOST%%/*}"
+          if [ -z "$HOST" ]; then
+            echo "::error::Deployment URL was not produced"
+            exit 1
+          fi
+          API="https://api.vercel.com/v6/deployments?projectId=${VERCEL_PROJECT_ID}&teamId=${VERCEL_ORG_ID}&limit=20"
           for i in $(seq 1 50); do
-            RESP=$(curl -sS -H "Authorization: Bearer $VERCEL_TOKEN" \
-              "https://api.vercel.com/v13/deployments/$URL?teamId=$VERCEL_ORG_ID")
-            STATE=$(printf '%s' "$RESP" | jq -r '.readyState // .state // "unknown"')
-            echo "[$i] $STATE"
+            RESP=$(curl -sS -H "Authorization: Bearer ${VERCEL_TOKEN}" "$API")
+            if ! printf '%s' "$RESP" | jq -e . >/dev/null 2>&1; then
+              echo "::error::Vercel API returned a non-JSON response"
+              echo "${RESP:0:800}"
+              exit 1
+            fi
+            if printf '%s' "$RESP" | jq -e 'has("error")' >/dev/null 2>&1; then
+              echo "::error::Vercel API error"
+              printf '%s\n' "$RESP" | jq -c '.error'
+              exit 1
+            fi
+            STATE=$(printf '%s' "$RESP" | jq -r --arg h "$HOST" \
+              '[.deployments[]? | select((.url | sub("^https?://"; "")) == $h)][0].state // "unknown"')
+            echo "[$i] $HOST -> $STATE"
+            if [ "$STATE" = "unknown" ] && [ "$i" -eq 1 ]; then
+              echo "Newest deployment hosts: $(printf '%s' "$RESP" | jq -r '[.deployments[]? | .url][0:3] | join(", ")')"
+            fi
             case "$STATE" in
               READY) exit 0 ;;
               BLOCKED|ERROR|CANCELED)
-                printf '%s\n' "$RESP" | jq '{readyState, readyStateReason, errorCode, errorMessage}'
-                echo "::error::Deployment state $STATE, see the Vercel reason above"
+                printf '%s\n' "$RESP" | jq -c --arg h "$HOST" \
+                  '[.deployments[]? | select((.url | sub("^https?://"; "")) == $h)][0]'
+                echo "::error::Deployment state $STATE"
                 exit 1 ;;
             esac
             sleep 10
           done
-          echo "::warning::Deployment not ready after polling timeout (may still be queued): $URL"
+          echo "::warning::Deployment not ready after polling timeout (may still be queued): $DEPLOY_URL"
