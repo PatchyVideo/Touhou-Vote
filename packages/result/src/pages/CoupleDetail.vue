@@ -86,7 +86,7 @@
                     :to="
                       '/coupleSingleDetail?rank=' +
                       item2.rank +
-                      (getAdditionalConstraintString(additionalConstraint) === '' ? '' : '&q=' + additionalConstraint)
+                      (detailConstraint === '' ? '' : '&q=' + detailConstraint)
                     "
                     >点击这里</router-link
                   >
@@ -151,7 +151,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { gql, useQuery } from '@/composables/graphql'
 import type { Query } from '@/composables/graphql'
-import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
+import { encodeAdditionalConstraint, getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import { toPercentageString } from '@/lib/numberFormat'
 import NProgress from 'nprogress'
 
@@ -406,6 +406,9 @@ watch(queryword, () => {
 const GUIMode = computed(() =>
   Number(route.query.gui ? (Array.isArray(route.query.gui) ? route.query.gui[0] : route.query.gui) : 1)
 )
+const detailConstraint = computed(() => encodeAdditionalConstraint(
+  GUIMode.value ? getAdditionalConstraintString(additionalConstraint.value) : queryword.value
+))
 watch(GUIMode, () => {
   queryRankingFetchMore({
     variables: GUIMode.value

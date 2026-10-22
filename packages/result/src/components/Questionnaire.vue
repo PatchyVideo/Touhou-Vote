@@ -113,6 +113,20 @@ const props = defineProps<{
   // "NONE" is the default value of q
   q: string
 }>()
+
+const questionnaireTitles = ref<Record<string, string>>({})
+onMounted(async () => {
+  try {
+    const response = await fetch('/res-be/api/v1/questionnaire/structure', { credentials: 'include' })
+    if (!response.ok) throw new Error(`questionnaire structure HTTP ${response.status}`)
+    const structure = await response.json() as { questionnaires: { key: string; title: string }[] }
+    questionnaireTitles.value = Object.fromEntries(
+      structure.questionnaires.map((item) => [item.key, item.title || item.key])
+    )
+  } catch (error) {
+    console.error('问卷名称加载失败', error)
+  }
+})
 watch(
   props,
   (newv) => {
@@ -266,8 +280,9 @@ watchEffect(() => {
     if (result.value.queryCompletionRates) {
       questionnaireCompletionRates.value = result.value.queryCompletionRates.items.map((item) => {
         return {
-          name: getSmallQuestionnaireChineseName(item.name),
+          name: questionnaireTitles.value[item.name] || getSmallQuestionnaireChineseName(item.name) || item.name,
           value: item.numComplete,
+          rate: item.rate,
         }
       })
     }

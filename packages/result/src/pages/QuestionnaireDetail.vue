@@ -46,7 +46,7 @@
       <div class="text-2xl py-0.5 border-b border-accent-600">投票演进</div>
       <div class="py-1 bg-white bg-opacity-80 rounded-b md:bg-opacity-0 text-sm italic text-gray-700">
         * 该图表表示投票进程的票数变化情况。<br />
-        * 投票日期：{{ startTimeString + ' ~ ' + deadlineString }}。<br />
+        * {{ dateRangeText }}<br />
         * 通过拖动底部和右侧的滑柄或在图表上缩放（鼠标或手指）可以筛选数据范围，也可以点击顶部的图例开关某个数据的显示。
       </div>
       <GraphEvolution :x-axis="GraphTimeRange" :data="trend" class="max-w-4xl pt-3 mx-auto" />
@@ -72,10 +72,11 @@ import { getAdditionalConstraintString } from '@/lib/decodeAdditionalConstraint'
 import NProgress from 'nprogress'
 import Questionnaire from '@/components/Questionnaire.vue'
 import type { GraphDataLine } from '@/lib/Graph'
-import { GraphTimeRange, getAddedTrendData, getTrendData } from '@/lib/Graph'
-import { deadlineString, startTimeString } from '@touhou-vote/shared/data/time'
+import { useResultTimeline } from '@/lib/Graph'
 
 setSiteTitle('调查问卷结果')
+
+const { GraphTimeRange, dateRangeText, setResultTimeline, getTrendData, getAddedTrendData } = useResultTimeline()
 
 const route = useRoute()
 
@@ -124,6 +125,12 @@ const { result, loading, onError, fetchMore } = useQuery<Query>(
         numCp
         numDoujin
       }
+      queryResultTimeline(voteYear: $voteYear) {
+        voteStart
+        voteEnd
+        statisticsEnd
+        generatedAt
+      }
       queryQuestionnaireTrend(voteStart: $voteStart, voteYear: $voteYear, questionIds: $questionIds, query: $query) {
         trend {
           hrs
@@ -160,6 +167,7 @@ watchEffect(() => {
 })
 watchEffect(() => {
   if (result.value) {
+    setResultTimeline(result.value.queryResultTimeline)
     if (result.value.queryGlobalStats) {
       numVote.value = result.value.queryGlobalStats.numVote
       numChar.value = result.value.queryGlobalStats.numChar

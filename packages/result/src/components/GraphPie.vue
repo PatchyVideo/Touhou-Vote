@@ -27,11 +27,19 @@ const props = defineProps<{
 echarts.use([ToolboxComponent, TooltipComponent, LegendComponent, PieChart, BarChart, CanvasRenderer, LabelLayout])
 
 type EChartsOption = echarts.ComposeOption<ToolboxComponentOption | TooltipComponentOption | LegendComponentOption>
+
+function formatItem(params: { name: string; value: unknown; percent?: number; data?: unknown }): string {
+  const item = params.data as GraphDataPie
+  return item.rate === undefined
+    ? `${params.name}: ${params.value}(${params.percent}%)`
+    : `${params.name}: ${params.value}（完成率 ${(item.rate * 100).toFixed(2)}%）`
+}
+
 const option = computed<EChartsOption>(() => {
   const returnData: EChartsOption = {
     tooltip: {
       trigger: 'item',
-      formatter: '{b}: {c}({d}%)',
+      formatter: (params) => formatItem(Array.isArray(params) ? params[0] : params),
     },
     legend: {},
     toolbox: {
@@ -45,7 +53,7 @@ const option = computed<EChartsOption>(() => {
         radius: '70%',
         data: props.data.sort((a, b) => b.value - a.value),
         label: {
-          formatter: '{b}: {c}({d}%)',
+          formatter: (params) => formatItem(params),
         },
         emphasis: {
           itemStyle: {

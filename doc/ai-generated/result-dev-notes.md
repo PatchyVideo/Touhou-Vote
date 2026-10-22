@@ -98,3 +98,32 @@ pnpm result:codegen
 - 如果 GraphQL 数据异常，先检查 `/res-be` 代理是否可用，再看 Apollo 封装是否把旧结果清空导致页面瞬时空态。
 - `optimizeDeps` 对 Apollo 做了 include/exclude 配置，升级依赖后如果 dev 启动异常，需要优先检查这里。
 - 构建开启了 sourcemap，适合线上问题回溯。
+
+
+## 结果趋势时间范围（2026-10-22）
+
+- 六处趋势页（角色/音乐演进、角色/音乐/CP 单条详情、问卷详情）在原 GraphQL 查询中同时请求 `queryResultTimeline(voteYear)`。
+- `src/lib/Graph.ts` 的 `useResultTimeline()` 为每个页面维护时间范围、日期说明和曲线转换方法。横轴采用本次计票的 `voteStart` 至 `statisticsEnd`，第 0 桶从投票开始时间标记，末尾不足一小时仍显示。
+- 时间文案统一用北京时间，包含配置的投票起止时间、统计截止和结果生成时间。不再读取 `shared/data/time.ts` 的旧日期，不依赖浏览器当前时刻，不按筛选对象最后一票裁剪横轴。
+- 多曲线使用同一范围，空小时补零、累计值延续、负增量保留。重新收到查询结果时替换旧曲线，不追加重复系列。
+- 旧结果时间信息为 null 时保留榜单、显示“暂无趋势时间信息”；范围内无票时显示“暂无投票数据”。后端继续在人工反作弊完成后人工计票，前端不会请求重算。
+- 先发布支持新字段的后端，再生成类型并发布前端。现有结果需在业务安排允许时重新计票，才会生成时间元信息；不自动重算线上结果。
+- 单元验证：`pnpm exec tsx --test packages/result/src/lib/__tests__/Graph.test.ts`；构建：`pnpm result:build`。
+
+
+## 部门有效票与问卷填写情况（2026-10-22）
+
+- 排名 `global.totalVotes` 现在是部门有效提交数，一张票的多个票位不累加成多张部门票；候选票数、本命及平均/中位得票保持原有口径。
+- `queryCompletionRates.items[].name` 为真实问卷 key。`Questionnaire.vue` 从既有 `/res-be/api/v1/questionnaire/structure` 读取 key→title，并保留旧静态问卷编号和原始名称回退。
+- 完成数量按最新答案批次及真实可见题组判定，选填问卷也统计；筛选后 numComplete/total/rate 以筛选人群计算。
+- GraphPie 保持原图表形式；有 rate 的问卷项显示后端完成率，其他饼图继续显示扇区占比。各问卷可以由同一个人完成，独立完成率不能使用所有扇区完成数之和作分母。
+- 后端/前端适配发布后，安排反作弊完成后的人工计票，才会刷新旧缓存口径。不自动重算真实结果。
+
+
+## 详情页人群筛选（2026-10-22）
+
+- 三个本届榜单通过 `encodeAdditionalConstraint()` 将当前有效的图形/指令模式投票者条件放入原有压缩 URL q 参数。`getAdditionalConstraintString()` 同时兼容旧图形约束对象与新原始 DSL 对象。
+- 单角色、音乐、组合详情通过 `withTargetConstraint()` 生成 `(原条件) AND 目标`，问卷组件不再丢失原筛选；OR 条件有括号保护，目标名称通过 JSON.stringify 转义。
+- 组合详情发送 `cp=("A","B"[,"C"])`，后端按组合票完整无序匹配，保留 A×A 的重复成员。两人组合不会匹配含同两人的三人组合，角色部门共投两个角色也不算投过该组合。
+- 后端先发布 cp 查询支持，再发布前端；不新增接口、存储、配置或依赖，不改变人工计票与既有高级搜索按需计算流程。
+- 相关单元检查：`pnpm exec tsx --test packages/result/src/lib/__tests__/detailConstraint.test.ts`。
