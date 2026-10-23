@@ -12,6 +12,9 @@ jobs:
   build:
     name: Build and Deploy to Vercel
     runs-on: ubuntu-22.04
+    concurrency:
+      group: vercel-production
+      cancel-in-progress: false
     if: github.repository == 'PatchyVideo/Touhou-Vote'
     environment: Vote-CI
     steps:
@@ -20,63 +23,6 @@ jobs:
         with:
           fetch-depth: 0
         timeout-minutes: 10
-
-      - name: Preflight Vercel credentials
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        timeout-minutes: 10
-        run: |
-          set -uo pipefail
-          missing=""
-          if [ -z "${VERCEL_TOKEN:-}" ]; then missing="$missing VERCEL_TOKEN"; fi
-          if [ -z "${VERCEL_ORG_ID:-}" ]; then missing="$missing VERCEL_ORG_ID"; fi
-          if [ -z "${VERCEL_PROJECT_ID:-}" ]; then missing="$missing VERCEL_PROJECT_ID"; fi
-          if [ -n "$missing" ]; then
-            echo "::error::Missing secrets in this environment:$missing"
-            exit 1
-          fi
-          WHO=$(curl -sS -H "Authorization: Bearer ${VERCEL_TOKEN}" https://api.vercel.com/v2/user)
-          if ! printf '%s' "$WHO" | jq -e '.user.username' >/dev/null 2>&1; then
-            echo "::error::Cannot read the token owner"
-            echo "${WHO:0:500}"
-            exit 1
-          fi
-          echo "token user: $(printf '%s' "$WHO" | jq -r '.user.username')"
-          read_project() {
-            curl -sS -H "Authorization: Bearer ${VERCEL_TOKEN}" "https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}${1:+?teamId=${1}}"
-          }
-          TEAM="${VERCEL_ORG_ID}"
-          PROJ=$(read_project "$TEAM")
-          if ! printf '%s' "$PROJ" | jq -e '.name' >/dev/null 2>&1; then
-            echo "Project is not readable with VERCEL_ORG_ID, resolving its team from the token"
-            PROJ=$(read_project "")
-            if ! printf '%s' "$PROJ" | jq -e '.name' >/dev/null 2>&1; then
-              TEAMS=$(curl -sS -H "Authorization: Bearer ${VERCEL_TOKEN}" https://api.vercel.com/v2/teams)
-              for T in $(printf '%s' "$TEAMS" | jq -r '.teams[]?.id' 2>/dev/null); do
-                CAND=$(read_project "$T")
-                if printf '%s' "$CAND" | jq -e '.name' >/dev/null 2>&1; then
-                  TEAM="$T"
-                  PROJ="$CAND"
-                  break
-                fi
-              done
-            else
-              TEAM=$(printf '%s' "$PROJ" | jq -r '.accountId // empty')
-            fi
-          fi
-          if ! printf '%s' "$PROJ" | jq -e '.name' >/dev/null 2>&1; then
-            echo "::error::Project ${VERCEL_PROJECT_ID} is not accessible with this token"
-            echo "teams visible to this token: $(printf '%s' "${TEAMS:-}" | jq -r '[.teams[]?.slug] | join(", ")' 2>/dev/null)"
-            exit 1
-          fi
-          echo "project: $(printf '%s' "$PROJ" | jq -r '.name')"
-          if [ -n "$TEAM" ] && [ "$TEAM" != "$VERCEL_ORG_ID" ]; then
-            echo "::warning::VERCEL_ORG_ID does not match the project's team; using the resolved team id for this run"
-            echo "::warning::Update the VERCEL_ORG_ID secret in this environment to stop relying on the fallback"
-            echo "VERCEL_TEAM_ID=$TEAM" >> "$GITHUB_ENV"
-          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -114,7 +60,6 @@ jobs:
 
       # 其他人改动CI会导致部署失败，这里直接不携带Git信息
       - name: Deploy to Vercel
-        id: deploy
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -126,55 +71,19 @@ jobs:
           cp -a packages/vote/dist/. /tmp/vercel-site/
           cd /tmp/vercel-site
           URL=$(npx vercel@latest deploy --prod --yes --no-wait --token="$VERCEL_TOKEN" | tail -n1)
-          case "$URL" in
-            https://*.vercel.app*) ;;
-            *) echo "::error::Unexpected deploy output: ${URL:0:200}"; exit 1 ;;
-          esac
-          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "Deployed: $URL"
           echo "### Vercel: $URL" >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Verify deployment status
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          DEPLOY_URL: ${{ steps.deploy.outputs.url }}
-        timeout-minutes: 10
-        run: |
-          set -uo pipefail
-          HOST="${DEPLOY_URL#https://}"
-          HOST="${HOST%%/*}"
-          if [ -z "$HOST" ]; then
-            echo "::error::Deployment URL was not produced"
-            exit 1
-          fi
-          API="https://api.vercel.com/v6/deployments?projectId=${VERCEL_PROJECT_ID}&teamId=${VERCEL_TEAM_ID:-${VERCEL_ORG_ID}}&limit=20"
+          API="https://api.vercel.com/v6/deployments?projectId=${VERCEL_PROJECT_ID}&teamId=${VERCEL_ORG_ID}&limit=1"
           for i in $(seq 1 50); do
-            RESP=$(curl -sS -H "Authorization: Bearer ${VERCEL_TOKEN}" "$API")
-            if ! printf '%s' "$RESP" | jq -e . >/dev/null 2>&1; then
-              echo "::warning::Vercel API returned a non-JSON response; deployment was created, status not verified"
-              echo "${RESP:0:800}"
-              exit 0
-            fi
-            if printf '%s' "$RESP" | jq -e 'has("error") or has("code")' >/dev/null 2>&1; then
-              echo "::warning::Vercel API error; deployment was created, status not verified"
-              printf '%s\n' "$RESP" | jq -c '.error // {code, message}'
-              exit 0
-            fi
-            STATE=$(printf '%s' "$RESP" | jq -r --arg h "$HOST" \
-              '[.deployments[]? | select((.url | sub("^https?://"; "")) == $h)][0].state // "unknown"')
-            echo "[$i] $HOST -> $STATE"
-            if [ "$STATE" = "unknown" ] && [ "$i" -eq 1 ]; then
-              echo "Newest deployment hosts: $(printf '%s' "$RESP" | jq -r '[.deployments[]? | .url][0:3] | join(", ")')"
-            fi
+            STATE=$(curl -sS -H "Authorization: Bearer ${VERCEL_TOKEN}" "$API" | jq -r '.deployments[0].state // "unknown"')
+            echo "[$i] ${STATE}"
             case "$STATE" in
               READY) exit 0 ;;
               BLOCKED|ERROR|CANCELED)
-                printf '%s\n' "$RESP" | jq -c --arg h "$HOST" \
-                  '[.deployments[]? | select((.url | sub("^https?://"; "")) == $h)][0]'
-                echo "::error::Deployment state $STATE"
+                echo "::error::Deployment state ${STATE}"
                 exit 1 ;;
             esac
             sleep 10
           done
-          echo "::warning::Deployment not ready after polling timeout (may still be queued): $DEPLOY_URL"
+          echo "::error::Deployment not ready after 8 minutes"
+          exit 1
