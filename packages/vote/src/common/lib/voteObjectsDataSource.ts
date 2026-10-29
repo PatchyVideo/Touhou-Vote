@@ -21,18 +21,13 @@ const MUSIC_URL = voteObjectsUrl(`${API_PREFIX}/vote-objects`, 'music', voteYear
 // 历史静态表里 244 个角色的 color 全部是同一个值 → 改用常量，不再建列。
 const DEFAULT_CHARACTER_COLOR = '#FC4328'
 
-// 前端 sessionStorage 缓存 TTL（D8）：后端资源可被管理台修改，
-// 缓存过久会出现“改了不生效”。5 分钟内复用缓存，超时重新拉取。
-const CACHE_TTL_MS = 5 * 60 * 1000
-const CACHE_VERSION = 'v2'
-
-const CACHE_KEY_CHAR = `voteObjectsCharacters:${voteYear}:${CACHE_VERSION}`
-const CACHE_KEY_MUSIC = `voteObjectsMusic:${voteYear}:${CACHE_VERSION}`
-
 // ── 响应式状态 ───────────────────────────────────────────────────────────
 export const characterGroupsRaw = ref<VoteObjectGroup<VoteObjectItem>[]>([])
 export const musicGroupsRaw = ref<VoteObjectGroup<VoteObjectItem>[]>([])
 export const filterMeta = ref<VoteObjectFilterMeta>({ kinds: [], works: [] })
+// 记录成功加载，而非以列表长度判断：空列表也是有效响应。
+export const characterVoteObjectsLoaded = ref(false)
+export const musicVoteObjectsLoaded = ref(false)
 export const characterVoteObjectsLoading = ref(false)
 export const musicVoteObjectsLoading = ref(false)
 export const characterVoteObjectsError = ref<string | null>(null)
@@ -132,59 +127,66 @@ function markReady(): void {
   }
 }
 
-function isFilterMeta(value: unknown): value is VoteObjectFilterMeta {
-  if (typeof value !== 'object' || value === null) return false
-  const candidate = value as Partial<VoteObjectFilterMeta>
-  return Array.isArray(candidate.kinds) && Array.isArray(candidate.works)
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
 }
 
-interface TierCache<T> {
-  groups: VoteObjectGroup<T>[]
-  meta: VoteObjectFilterMeta
-  cachedAt: number
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((item) => typeof item === 'string')
 }
 
-// 读缓存时不看 TTL：过期数据也先渲染，再后台刷新（见 load*）。这样命中缓存
-// 的页面加载永远是 0 等待；TTL 只决定「何时后台 revalidate」。
-function readCacheEntry<T>(key: string): TierCache<T> | null {
-  try {
-    const raw = sessionStorage.getItem(key)
-    if (!raw) return null
-    const parsed = JSON.parse(raw) as Partial<TierCache<T>>
-    if (
-      Array.isArray(parsed.groups) &&
-      isFilterMeta(parsed.meta) &&
-      typeof parsed.cachedAt === 'number'
-    ) {
-      return {
-        groups: parsed.groups,
-        meta: parsed.meta,
-        cachedAt: parsed.cachedAt,
-      }
-    }
-  } catch (err) {
-    console.warn('[voteObjects] 会话缓存无法解析，将重新请求:', err)
-  }
-  sessionStorage.removeItem(key)
-  return null
+function isOptionalString(value: unknown): boolean {
+  return value == null || typeof value === 'string'
 }
 
-function isStale(entry: { cachedAt: number }): boolean {
-  return Date.now() - entry.cachedAt >= CACHE_TTL_MS
+function isVoteObjectItem(value: unknown): boolean {
+  if (!isRecord(value)) return false
+  return (
+    typeof value.candidateId === 'number' &&
+    Number.isFinite(value.candidateId) &&
+    typeof value.name === 'string' &&
+    isOptionalString(value.nameJp) &&
+    isOptionalString(value.firstAppearance) &&
+    isOptionalString(value.imageUrl) &&
+    isOptionalString(value.musicUrl) &&
+    Array.isArray(value.workIds) &&
+    value.workIds.every((id) => typeof id === 'number' && Number.isFinite(id)) &&
+    isStringArray(value.workTypes) &&
+    (value.aliases == null || isStringArray(value.aliases)) &&
+    (value.include == null || isStringArray(value.include))
+  )
 }
 
-function writeCache<T>(key: string, entry: TierCache<T>): void {
-  try {
-    sessionStorage.setItem(key, JSON.stringify(entry))
-  } catch (err) {
-    console.warn('[voteObjects] 会话缓存写入失败(配额?):', err)
-  }
+function validateVoteObjects(groups: unknown, meta: unknown): void {
+  const validGroups =
+    Array.isArray(groups) &&
+    groups.every(
+      (group) =>
+        isRecord(group) &&
+        typeof group.group === 'string' &&
+        Array.isArray(group.items) &&
+        group.items.every(isVoteObjectItem)
+    )
+  const validMeta =
+    isRecord(meta) &&
+    Array.isArray(meta.kinds) &&
+    meta.kinds.every((kind) => isRecord(kind) && typeof kind.type === 'string' && typeof kind.label === 'string') &&
+    Array.isArray(meta.works) &&
+    meta.works.every(
+      (work) =>
+        isRecord(work) &&
+        typeof work.workId === 'number' &&
+        Number.isFinite(work.workId) &&
+        typeof work.name === 'string' &&
+        typeof work.type === 'string'
+    )
+  if (!validGroups || !validMeta) throw new Error('vote-objects 响应结构不完整')
 }
 
-function updateCombinedFilterMeta(): void {
-  filterMeta.value = {
-    kinds: dedupeKinds([...characterFilterMeta.value.kinds, ...musicFilterMeta.value.kinds]),
-    works: dedupeWorks([...characterFilterMeta.value.works, ...musicFilterMeta.value.works]),
+function combineFilterMeta(characterMeta: VoteObjectFilterMeta, musicMeta: VoteObjectFilterMeta): VoteObjectFilterMeta {
+  return {
+    kinds: dedupeKinds([...characterMeta.kinds, ...musicMeta.kinds]),
+    works: dedupeWorks([...characterMeta.works, ...musicMeta.works]),
   }
 }
 
@@ -192,18 +194,23 @@ function commitCharacterVoteObjects(
   groups: VoteObjectGroup<VoteObjectItem>[],
   meta: VoteObjectFilterMeta,
 ): void {
+  // 校验和合并均先完成，避免准备失败后只更新了一部分内存资料。
+  validateVoteObjects(groups, meta)
+  const combinedMeta = combineFilterMeta(meta, musicFilterMeta.value)
   characterGroupsRaw.value = groups
   characterFilterMeta.value = meta
-  updateCombinedFilterMeta()
+  filterMeta.value = combinedMeta
 }
 
 function commitMusicVoteObjects(
   groups: VoteObjectGroup<VoteObjectItem>[],
   meta: VoteObjectFilterMeta,
 ): void {
+  validateVoteObjects(groups, meta)
+  const combinedMeta = combineFilterMeta(characterFilterMeta.value, meta)
   musicGroupsRaw.value = groups
   musicFilterMeta.value = meta
-  updateCombinedFilterMeta()
+  filterMeta.value = combinedMeta
 }
 
 function refreshCharacter(): Promise<void> {
@@ -214,14 +221,10 @@ function refreshCharacter(): Promise<void> {
     try {
       const data = await fetchVoteObjects<VoteObjectItem>(CHARACTER_URL)
       commitCharacterVoteObjects(data.groups, data.filterMeta)
-      writeCache(CACHE_KEY_CHAR, {
-        groups: data.groups,
-        meta: data.filterMeta,
-        cachedAt: Date.now(),
-      })
+      characterVoteObjectsLoaded.value = true
     } catch (err) {
-      // 已有缓存时不打断页面（后台刷新失败只记日志）；无数据才暴露错误
-      if (!characterGroupsRaw.value.length) {
+      // 已成功加载时保留内存资料；首次加载失败才暴露页面错误。
+      if (!characterVoteObjectsLoaded.value) {
         characterVoteObjectsError.value = err instanceof Error ? err.message : String(err)
       }
       console.error('[voteObjects] 拉取角色投票对象失败:', err)
@@ -241,13 +244,9 @@ function refreshMusic(): Promise<void> {
     try {
       const data = await fetchVoteObjects<VoteObjectItem>(MUSIC_URL)
       commitMusicVoteObjects(data.groups, data.filterMeta)
-      writeCache(CACHE_KEY_MUSIC, {
-        groups: data.groups,
-        meta: data.filterMeta,
-        cachedAt: Date.now(),
-      })
+      musicVoteObjectsLoaded.value = true
     } catch (err) {
-      if (!musicGroupsRaw.value.length) {
+      if (!musicVoteObjectsLoaded.value) {
         musicVoteObjectsError.value = err instanceof Error ? err.message : String(err)
       }
       console.error('[voteObjects] 拉取曲目投票对象失败:', err)
@@ -260,31 +259,19 @@ function refreshMusic(): Promise<void> {
 }
 
 /**
- * 加载角色投票对象。
- * - `force=true`：等网络；
- * - 命中缓存：**立即返回**（先渲染），过期则后台 revalidate；
- * - 无缓存：等网络（首次加载，无法避免）。
+ * 同次网页运行复用成功加载的资料；刷新网页后首次使用时重新请求。
+ * force 跳过内存复用，但仍等待同类进行中的请求。
  */
 export function loadCharacterVoteObjects(force = false): Promise<void> {
-  if (force) return refreshCharacter()
-  const cached = readCacheEntry<VoteObjectItem>(CACHE_KEY_CHAR)
-  if (cached) {
-    commitCharacterVoteObjects(cached.groups, cached.meta)
-    if (isStale(cached)) void refreshCharacter()
-    return Promise.resolve()
-  }
+  if (characterRefresh) return characterRefresh
+  if (!force && characterVoteObjectsLoaded.value) return Promise.resolve()
   return refreshCharacter()
 }
 
 /** 加载曲目投票对象，语义同 loadCharacterVoteObjects。 */
 export function loadMusicVoteObjects(force = false): Promise<void> {
-  if (force) return refreshMusic()
-  const cached = readCacheEntry<VoteObjectItem>(CACHE_KEY_MUSIC)
-  if (cached) {
-    commitMusicVoteObjects(cached.groups, cached.meta)
-    if (isStale(cached)) void refreshMusic()
-    return Promise.resolve()
-  }
+  if (musicRefresh) return musicRefresh
+  if (!force && musicVoteObjectsLoaded.value) return Promise.resolve()
   return refreshMusic()
 }
 
@@ -312,17 +299,24 @@ function dedupeWorks(
   return works.filter((w) => (seen.has(w.workId) ? false : (seen.add(w.workId), true)))
 }
 
+/** 仅清理当前年度的遗留存储键，不影响内存资料或投票草稿。 */
 export function clearVoteObjectsCache(): void {
-  // v2 键 + 历史遗留键一并清理
-  for (const key of [
-    CACHE_KEY_CHAR,
-    CACHE_KEY_MUSIC,
-    `voteObjectsCharacters:${voteYear}`,
-    `voteObjectsMusic:${voteYear}`,
-    `voteObjectsFilterMeta:${voteYear}`,
-    `voteObjectsCharacterFilterMeta:${voteYear}`,
-    `voteObjectsMusicFilterMeta:${voteYear}`,
-  ]) {
-    sessionStorage.removeItem(key)
+  try {
+    for (const key of [
+      `voteObjectsCharacters:${voteYear}:v2`,
+      `voteObjectsMusic:${voteYear}:v2`,
+      `voteObjectsCharacters:${voteYear}`,
+      `voteObjectsMusic:${voteYear}`,
+      `voteObjectsFilterMeta:${voteYear}`,
+      `voteObjectsCharacterFilterMeta:${voteYear}`,
+      `voteObjectsMusicFilterMeta:${voteYear}`,
+    ]) {
+      sessionStorage.removeItem(key)
+    }
+  } catch (err) {
+    // 浏览器禁用存储时仍可使用内存资料和网络加载。
+    console.warn('[voteObjects] 遗留会话缓存清理失败:', err)
   }
 }
+
+clearVoteObjectsCache()
