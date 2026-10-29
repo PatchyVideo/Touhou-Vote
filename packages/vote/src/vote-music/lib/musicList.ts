@@ -1,9 +1,8 @@
 import { computed, ref } from 'vue'
-import { CachedSearcher, SearchLogicContain } from 'pinin'
 import { music0 } from '@/vote-music/lib/music'
 import { musicHonmei, musics } from '@/vote-music/lib/voteData'
 import { albumSelected, filterForKind } from '@/vote-music/lib/albumList'
-import { pinin } from '@/common/lib/pinin'
+import { createMusicSearcher } from '@/vote-music/lib/musicSearch'
 import type { Music } from '@touhou-vote/shared/model/music'
 import { musicListFromBackend } from '@/common/lib/voteObjectsDataSource'
 
@@ -41,14 +40,7 @@ export const orderOptions = [
 export const order = ref(orderOptions[0])
 export const keyword = ref('')
 
-const searcher = computed(() => {
-  const s = new CachedSearcher<Music>(SearchLogicContain, pinin)
-  for (const music of musicListLeft.value) {
-    s.put(music.name.toLowerCase(), music)
-    s.put(music.album.toLowerCase(), music)
-  }
-  return s
-})
+const searcher = computed(() => createMusicSearcher(musicListLeft.value))
 
 export const musicListLeftWithFilter = computed<Music[]>(() => {
   const res = keyword.value ? [...new Set(searcher.value.search(keyword.value.toLowerCase()))] : musicListLeft.value
