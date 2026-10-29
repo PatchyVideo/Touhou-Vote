@@ -5,10 +5,12 @@ import { voteYear } from '@/common/lib/voteYear'
 import {
   characterGroupsRaw,
   characterListFromBackend,
+  characterVoteObjectsLoaded,
   loadCharacterVoteObjects,
   loadMusicVoteObjects,
   musicFilterMeta,
   musicGroupsRaw,
+  musicVoteObjectsLoaded,
 } from '@/common/lib/voteObjectsDataSource'
 import { getExportAssetUrl } from '@/common/lib/exportAssetUrl'
 import {
@@ -126,9 +128,7 @@ export function loadCardDepartment(department: Department, force = false): Promi
         return
       }
       const loadObjects = department === 'music' ? loadMusicVoteObjects : loadCharacterVoteObjects
-      const hadCache =
-        (department === 'music' ? musicGroupsRaw.value : characterGroupsRaw.value).length > 0 ||
-        sessionStorage.getItem(`voteObjects${department === 'music' ? 'Music' : 'Characters'}:${voteYear}:v2`) !== null
+      const hadLoaded = (department === 'music' ? musicVoteObjectsLoaded : characterVoteObjectsLoaded).value
       const entries = await withTimeout(
         (async () => {
           await loadObjects()
@@ -136,7 +136,7 @@ export function loadCardDepartment(department: Department, force = false): Promi
           try {
             return enrich(department, parsed.entries)
           } catch (error) {
-            if (!hadCache) throw error
+            if (!hadLoaded) throw error
             await loadObjects(true)
             if (!valid()) return []
             return enrich(department, parsed.entries)
