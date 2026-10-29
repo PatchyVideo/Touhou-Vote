@@ -91,6 +91,7 @@ function enrichMusic(item: VoteObjectItem): Music {
     false,
     toKinds(item.workTypes),
     item.include ?? [],
+    item.aliases ?? [],
   )
 }
 
