@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/vote-ci.yml'
       - 'pnpm-lock.yaml'
-      - 'packages/vote/**'
+      - 'packages/result/**'
 
 jobs:
   build:
@@ -50,12 +50,12 @@ jobs:
 
       - name: Codegen
         run: pnpm codegen
-        working-directory: ./packages/vote
+        working-directory: ./packages/result
         timeout-minutes: 10
 
       - name: Build
         run: pnpm build
-        working-directory: ./packages/vote
+        working-directory: ./packages/result
         timeout-minutes: 10
 
       # 其他人改动CI会导致部署失败，这里直接不携带Git信息
@@ -68,7 +68,7 @@ jobs:
         run: |
           set -euo pipefail
           rm -rf /tmp/vercel-site && mkdir -p /tmp/vercel-site
-          cp -a packages/vote/dist/. /tmp/vercel-site/
+          cp -a packages/result/dist/. /tmp/vercel-site/
           cd /tmp/vercel-site
           URL=$(npx vercel@latest deploy --prod --yes --no-wait --token="$VERCEL_TOKEN" | tail -n1)
           echo "Deployed: $URL"
