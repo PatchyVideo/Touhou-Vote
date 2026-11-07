@@ -188,3 +188,13 @@ pnpm vote:serve
 输入沿用 100ms 节流并限制 64 字符。空输入直接显示原列表且不请求；非空新输入清空旧命中，显示“正在搜索…”，当前请求失败显示“搜索失败，请修改关键词重试”。Vue watch cleanup 忽略旧响应，不增加自动重试、客户端拼音回退或结果缓存。
 
 Python 后端用 pypinyin 与项目内匹配器，Redis 分别缓存派生语料和结果 60 秒；复用候选／作品写入的失效逻辑。第二阶段只保留 `/autocomplete/search` 的候选 ID 契约，移除旧建议契约和临时候选路径；前后端须按同一阶段配套发布及回滚。无数据库迁移和新增配置。本地单元检查和构建不代表已部署或经过浏览器交互验收。
+
+
+## CP 作品筛选数据来源（2026-11-08）
+
+`src/vote-couple/lib/workList.ts` 的作品选项、分类选项及分类标签统一来自 `voteObjectsDataSource.characterFilterMeta`，由已有角色候选接口加载。这里使用角色专属元数据，音乐独有作品不会混入 CP 筛选；不再按作品名到 `shared/data/work.ts` 查分类，也不保留静态分类兜底。
+
+元数据加载后默认选中全部实际分类，临时条件与已确认条件仍分开，沿用确定、取消和重置流程；按作品筛选成员与 CP 允许重复成员的规则保持现状。本项无新增请求、后端接口或存储机制；回滚只需还原对应前端改动。
+
+
+验证：`./node_modules/.bin/tsx --tsconfig packages/vote/tsconfig.json --test packages/vote/src/vote-couple/lib/__tests__/workList.test.ts packages/vote/src/common/lib/__tests__/candidateSearch.test.ts packages/vote/src/common/lib/__tests__/useCandidateSearch.test.ts`，5 项通过；CP 筛选代码和用例 ESLint、`pnpm --filter @touhou-vote/vote build` 通过。新增用例先复现了新作品被归入 `others`，修改后验证后端分类、角色／音乐元数据隔离，以及临时条件、确认和重置。未进行浏览器交互验收。
