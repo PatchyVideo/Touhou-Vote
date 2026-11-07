@@ -68,7 +68,7 @@
   1. 打开 `VoteMessageBox` 预览弹层
   2. 通过 `exportVoteData.ts` 读取待导出的投票数据
   3. 数据源选择底层由 `voteDataSource.ts` 支持 `local` / `graphql` / `auto`
-  4. 结合 `characterList` / `musicList` 等静态元数据补全名称、图片、颜色
+  4. 结合 `characterList` / `musicList` 等后端候选数据补全名称、图片、颜色
   5. 在离屏 DOM 中渲染卡片，再用 `html2canvas` 生成图片
   6. 支持预览、下载，以及在支持的浏览器中调用 Web Share API
 - 当前 3 个导出组件不再保留隐藏的 GraphQL 调试开关，运行时统一遵循 `voteDataSource.ts` 的全局数据源模式；默认仍是 `auto`，也就是优先 GraphQL，失败时回退本地数据。
@@ -143,41 +143,14 @@ pnpm vote:serve
 - `testHelper` 里已经有针对导出图片的快捷测试数据提示，调试导出功能时可以优先复用。
 - 如果页面资源正常、接口却异常，先检查 `/v11-be` 代理和 Cookie `credentials: 'include'` 是否符合本地环境。
 
-## 问卷结构现状
-- 现有问卷页面仍在使用旧的“题库/候选问题数组”模型：
-  - 共享题库：`packages/shared/data/questionnaire.ts`
-  - 前端运行时状态：`packages/vote/src/questionnaire/lib/questionnaireData.ts`
-- 这套旧模型通过 `questions: Question[][]`、`answers[i].id` 和尾号为 `0` 的占位 ID 表示“当前问题组默认隐藏 / 当前显示哪个候选问题”，实现是可运行的，但和 PRD 里更显式的“问题组 -> 组内问题 -> 渐进暴露”模型不完全一致。
-- 现在已经补了一套更适合后续重构的新版格式：
-  - `packages/shared/data/questionnaireV2.ts`
-- `questionnaireV2.ts` 现在不再尝试从旧版问卷数据推导，而是作为新版问卷的独立 source of truth，先提供可替换的占位问题组结构：
-  - `questionGroups`
-  - `initialQuestionId`
-  - `questions`
-- 其中 `initialQuestionId` 明确对应 PRD 里的“初始问题”：
-  - 末位为 `0`：该问题组默认隐藏
-  - 末位非 `0`：该问题组默认展示第 `1` 个问题
-  - 第一个问题组必须只有一个问题，并从这个问题开始作答
-- 同文件还提供了 `createQuestionnaireAnswerStateV2()`，用于初始化新版答案草稿结构；后续合作者应直接在这份文件里维护正式问卷，而不是继续修改旧版 `questionnaire.ts` 或尝试从旧版结构自动推导。
-- 对应的新版解析器已经补在：
-  - `packages/vote/src/questionnaire/lib/questionnaireV2Parser.ts`
-- 这层解析器目前提供的核心能力包括：
-  - `normalizeQuestionnaireDraftV2()`：按新版问题组模型重算可见组、当前问题和答案清理
-  - `parseQuestionnaireRuntimeV2()`：产出页面可直接消费的运行时结构
-  - `toggleQuestionOptionV2()`：处理单选/多选点击后的答案更新
-  - `setQuestionInputV2()`：处理输入题答案更新
-  - `getRuntimeGroupByIdV2()` / `getRuntimeQuestionByIndexV2()`：给页面层按组或按当前顺序取题
-- 当前解析器已经覆盖：
-  - 严格按 PRD 处理单个问卷逻辑：
-  - 第一个问题组固定从唯一问题开始
-  - `related` 指向组内第 `0` 个问题时，目标问题组隐藏
-  - `related` 指向组内非 `0` 个问题时，展示对应问题
-  - 未被 `related` 命中的问题组，如果 `initialQuestionId` 非 `0` 结尾，则默认展示第 `1` 个问题
-  - `mutex` 触发的选项移除
-  - 多选题按 `group` 的组选项互斥
-  - 分支切换时重置无效答案
-- 目前还没有把旧页面切到这套解析器上；后续新问卷页面应直接基于 `questionnaireV2.ts + questionnaireV2Parser.ts` 实现。
+## 问卷结构现状（2026-11-08 源码核对）
 
+- 当前问卷页面、首页和回填使用 `src/questionnaire/lib/questionnaireStateV2.ts`，从后端 `/questionnaire/structure` 加载 `questionnaires` 数组，消费 category、order、required 和问题组结构。
+- 页面以结构化 answers 调用 `submitPaperV2`，通过 `getPaperV2` 回填；`questionnaireV2Parser.ts` 处理可见题组、选项互斥及答案归一化。
+- `packages/shared/data/questionnaireV2.ts` 是共享类型定义。正式问卷内容由后端维护，不在此文件重建静态题库。
+- 旧 `questionnaireData.ts`、`questionnaireV2PaperJson.ts` 保留为 legacy 过程代码，不能据它们仍存在便断言主链路没有迁移。
+- 当前仍优先复用 sessionStorage 中的问卷结构，答案草稿另存 localStorage；缓存策略是后续独立事项，本次文档核对未调整。
+- 本次未查询线上题库、语义 code 或统计数据，也未验证部署；旧“占位问卷”“统计恒0”不能作为当前结论。
 
 ## 候选拼音搜索（2026-11-08，本地实现）
 
