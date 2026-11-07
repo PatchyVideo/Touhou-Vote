@@ -271,9 +271,6 @@ importers:
       nprogress:
         specifier: 1.0.0-1
         version: 1.0.0-1
-      pinin:
-        specifier: ^0.2.0
-        version: 0.2.0
       unicode-segmenter:
         specifier: ^0.17.3
         version: 0.17.3
@@ -3537,9 +3534,6 @@ packages:
   pify@2.3.0:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
-
-  pinin@0.2.0:
-    resolution: {integrity: sha512-VvalP5xbcwV3WPZOzJPAJ3C8dJPnvIepzSneIkxGs+ay34ytv+M+mvZJzJ+tkS2RATKgFPI7Ibn8akc2fQAd5w==}
 
   pkg-types@1.3.1:
     resolution: {integrity: sha512-/Jm5M4RvtBFVkKWRu2BLUTNP8/M2a+UwuAX+ae4770q1qVGtfjG+WTCupoZixokjmHiry8uI+dlY8KXYV5HVVQ==}
@@ -8389,8 +8383,6 @@ snapshots:
   picomatch@4.0.4: {}
 
   pify@2.3.0: {}
-
-  pinin@0.2.0: {}
 
   pkg-types@1.3.1:
     dependencies:

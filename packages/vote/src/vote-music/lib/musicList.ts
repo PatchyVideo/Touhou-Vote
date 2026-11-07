@@ -2,7 +2,7 @@ import { computed, ref } from 'vue'
 import { music0 } from '@/vote-music/lib/music'
 import { musicHonmei, musics } from '@/vote-music/lib/voteData'
 import { albumSelected, filterForKind } from '@/vote-music/lib/albumList'
-import { createMusicSearcher } from '@/vote-music/lib/musicSearch'
+import { useCandidateSearch } from '@/common/lib/useCandidateSearch'
 import type { Music } from '@touhou-vote/shared/model/music'
 import { musicListFromBackend } from '@/common/lib/voteObjectsDataSource'
 
@@ -40,10 +40,14 @@ export const orderOptions = [
 export const order = ref(orderOptions[0])
 export const keyword = ref('')
 
-const searcher = computed(() => createMusicSearcher(musicListLeft.value))
+const candidateSearch = useCandidateSearch('music', keyword)
+export const musicSearchLoading = candidateSearch.loading
+export const musicSearchError = candidateSearch.error
 
 export const musicListLeftWithFilter = computed<Music[]>(() => {
-  const res = keyword.value ? [...new Set(searcher.value.search(keyword.value.toLowerCase()))] : musicListLeft.value
+  const res = keyword.value.trim()
+    ? musicListLeft.value.filter((item) => candidateSearch.matchedIds.value.has(item.id))
+    : [...musicListLeft.value]
 
   if (order.value.name === orderOptions[0].name) {
     res.sort((a, b) => a.date - b.date)

@@ -1,28 +1,3 @@
-import { CachedSearcher, SearchLogicContain } from 'pinin'
-import { pinin } from './pinin'
-
-export type SearchableCharacterLike = {
-  name: string
-  altnames: string[]
-  work: string[]
-}
-
-export function createCharacterSearcher<T extends SearchableCharacterLike>(list: T[]): CachedSearcher<T> {
-  const s = new CachedSearcher<T>(SearchLogicContain, pinin)
-
-  for (const c of list) {
-    s.put(c.name.toLowerCase(), c)
-    for (const altname of c.altnames) {
-      s.put(altname.toLowerCase(), c)
-    }
-    for (const work of c.work) {
-      s.put(work.toLowerCase(), c)
-    }
-  }
-
-  return s
-}
-
 export const orderOptions = [
   {
     name: '出场正序',
@@ -43,22 +18,6 @@ export function sortCharactersByOrder<T extends { date: number }>(list: T[], ord
   return list
 }
 
-export function searchAndSort<T extends SearchableCharacterLike & { date: number }>(
-  list: T[],
-  keyword: string,
-  orderName: string
-): T[] {
-  // 逻辑修改内容: 判断是否有关键词，没有则直接排序并返回，避免索引构建带来的性能开销
-  if (!keyword || !keyword.trim()) {
-    return sortCharactersByOrder([...list], orderName)
-  }
-
-  // 只有在确实需要搜索时才构建 Searcher
-  const searcher = createCharacterSearcher(list)
-  const res = [...new Set(searcher.search(keyword.toLowerCase()))]
-  
-  return sortCharactersByOrder(res, orderName)
-}
 export function filterCharactersByMeta<T extends { kind: string[]; work: string[] }>(
   list: T[],
   kinds?: string[],

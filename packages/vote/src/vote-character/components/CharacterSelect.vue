@@ -22,9 +22,15 @@
       </div>
 
       <div class="innerBox flex-grow overflow-y-auto p-2 pr-0 flex flex-col space-y-3">
+        <div v-if="!characterHonmeiIsSelected && characterSearchLoading" role="status">正在搜索…</div>
+        <div v-else-if="!characterHonmeiIsSelected && characterSearchError" role="alert">
+          {{ characterSearchError }}
+        </div>
         <!-- eslint-disable vue/no-v-html -->
         <div
-          v-if="!characterList.length"
+          v-if="
+            !characterList.length && (characterHonmeiIsSelected || (!characterSearchLoading && !characterSearchError))
+          "
           class="text-center py-10"
           v-html="
             characterHonmeiIsSelected
@@ -67,6 +73,8 @@ import { Character } from '@/vote-character/lib/character'
 import characterImages from '@/vote-character/assets/defaultCharacterImage.png?url'
 import {
   characterListLeftWithFilter,
+  characterSearchError,
+  characterSearchLoading,
   charactersVotedWithoutHonmei,
   keyword,
   order,

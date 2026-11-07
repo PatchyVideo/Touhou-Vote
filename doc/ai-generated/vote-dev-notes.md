@@ -177,3 +177,14 @@ pnpm vote:serve
   - 多选题按 `group` 的组选项互斥
   - 分支切换时重置无效答案
 - 目前还没有把旧页面切到这套解析器上；后续新问卷页面应直接基于 `questionnaireV2.ts + questionnaireV2Parser.ts` 实现。
+
+
+## 候选拼音搜索（2026-11-08，本地实现）
+
+角色、音乐和 CP 成员选择通过 `src/common/lib/useCandidateSearch.ts` 调用共享 `packages/shared/api/candidateSearch.ts`，不再执行前端 Pinin。请求路径为 `${API_PREFIX}/api/v1/autocomplete/candidates/search`，沿用现有前缀转发；明确传入 `voteYear`，分类为 character 或 music，CP 成员使用 character。
+
+后端按候选名称、各别名和主作品／专辑名匹配，返回全部匹配的整数 candidate IDs；hook 转成 `Set<string>`，与已经加载的候选列表求交。前端继续排除个人已选项、保留 CP 重复成员规则、作品／类别筛选和日期排序。搜索不包含音乐其他收录专辑、结果页筛选或 CP 组合推荐。
+
+输入沿用 100ms 节流并限制 64 字符。空输入直接显示原列表且不请求；非空新输入清空旧命中，显示“正在搜索…”，当前请求失败显示“搜索失败，请修改关键词重试”。Vue watch cleanup 忽略旧响应，不增加自动重试、客户端拼音回退或结果缓存。
+
+Python 后端用 pypinyin 与项目内匹配器，Redis 分别缓存派生语料和结果 60 秒；复用候选／作品写入的失效逻辑。发布需后端先提供接口，回滚先前端后后端；无数据库迁移和新增配置。本地单元检查和构建不代表已部署或经过浏览器交互验收。
