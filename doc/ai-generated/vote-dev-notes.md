@@ -2,6 +2,8 @@
 
 > 面向需要维护投票页的开发者，基于当前 `packages/vote` 代码整理。
 
+当前工作与核验范围见[项目状态](../../PROJECT_STATUS.md)；本页保留投票应用的代码导航。
+
 ## 项目定位
 - `packages/vote` 是主投票前端，负责登录后首页、问卷、角色/音乐/CP/提名投票，以及投票开始前和结束后的入口状态切换。
 - 应用使用 Vue 3 + Vue Router + Apollo Client，路由基准是 `/v11/`。
@@ -54,7 +56,7 @@
 - `src/vote-music`：音乐投票，结构与角色部门相近。
 - `src/vote-couple`：CP 投票，包含左右角色选择和 CP 卡片。
 - `src/vote-doujin`：提名编辑与展示。
-- `src/common`：通用组件、导出图片、消息、搜索、拼音匹配、测试辅助工具。
+- `src/common`：通用组件、导出图片、消息、候选搜索、测试辅助工具。
 - `src/tailwindcss`：全局样式入口和语义化 class，如 `baseBoxRoundedShadow`。
 - `src/darkmode`：暗色模式初始化。
 
@@ -143,14 +145,10 @@ pnpm vote:serve
 - `testHelper` 里已经有针对导出图片的快捷测试数据提示，调试导出功能时可以优先复用。
 - 如果页面资源正常、接口却异常，先检查 `/v11-be` 代理和 Cookie `credentials: 'include'` 是否符合本地环境。
 
-## 问卷结构现状（2026-11-08 源码核对）
+## 问卷阅读入口
 
-- 当前问卷页面、首页和回填使用 `src/questionnaire/lib/questionnaireStateV2.ts`，从后端 `/questionnaire/structure` 加载 `questionnaires` 数组，消费 category、order、required 和问题组结构。
-- 页面以结构化 answers 调用 `submitPaperV2`，通过 `getPaperV2` 回填；`questionnaireV2Parser.ts` 处理可见题组、选项互斥及答案归一化。
-- `packages/shared/data/questionnaireV2.ts` 是共享类型定义。正式问卷内容由后端维护，不在此文件重建静态题库。
-- 旧 `questionnaireData.ts`、`questionnaireV2PaperJson.ts` 保留为 legacy 过程代码，不能据它们仍存在便断言主链路没有迁移。
-- 当前仍优先复用 sessionStorage 中的问卷结构，答案草稿另存 localStorage；缓存策略是后续独立事项，本次文档核对未调整。
-- 本次未查询线上题库、语义 code 或统计数据，也未验证部署；旧“占位问卷”“统计恒0”不能作为当前结论。
+当前问卷的定义来源、状态引擎、解析规则、`submitPaperV2`／`getPaperV2` 和存储边界统一见[当前问卷指南](questionnaire-v2-notes.md)。
+页面、首页与守卫已接入 V2；旧迁移阶段及模型说明移入[历史归档](../../docs/archive/frontend/README.md)，不作为当前待办。
 
 ## 候选拼音搜索（2026-11-08，本地实现）
 

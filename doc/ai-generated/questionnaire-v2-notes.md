@@ -1,379 +1,91 @@
-# Questionnaire V2 说明
+# 当前问卷 V2 指南
 
-> 用于说明新版问卷模型 `questionnaireV2` 与旧版问卷实现的核心差异。
+核对日期：2026-11-08；依据本地已提交源码，未核验线上题库和部署。
+本页是当前问卷实现的阅读入口；历史模型说明和迁移方案见[归档索引](../../docs/archive/frontend/README.md)。
 
-## 结论
+## 定义来源与职责
 
-- 旧版问卷更接近“题库槽位”模型。
-- `v2` 更接近需求文档里的“问题组 -> 组内问题”模型。
-- `v2` 的目标是让问卷定义和前端解析逻辑更清晰，不再被旧提交格式反向绑定。
+- 正式问卷定义由后端 `${API_PREFIX}/questionnaire/structure` 返回，响应为 `{ questionnaires: [...] }`。
+- [共享类型](../../packages/shared/data/questionnaireV2.ts)定义契约，不维护前端静态题库或正式题目内容。
+- 问卷定义包含 `id`、`key`、`title`、`introduction`、`category`、`required`、`order` 和 `questionGroups`。
+- `category` 为 `main` 或 `extra`；页面和首页消费这些分类，必填完成态读取 `required`。
+- 问题组包含 `id`、`order`、`hiddenByDefault`、`questions`；当前模型没有 `initialQuestionId`。
+- 题目类型为 `Single`、`Multiple`、`Input`；选项携带 `relatedQuestionIds`、`mutexOptionIds`、`optionGroup`。
+- 题目、分组、选项及其 ID 以本次后端返回为准；本地旧表不能用来判断线上缺题或分配 ID。
 
-## 旧版逻辑
+## 当前主链路
 
-旧版相关文件：
+1. [登录状态模块](../../packages/vote/src/home/lib/user.ts)加载问卷结构，再调用 `restorePaperV2` 恢复后端答案。
+2. [questionnaireStateV2.ts](../../packages/vote/src/questionnaire/lib/questionnaireStateV2.ts)管理结构、答案草稿、持久化与完成态。
+3. [questionnaireV2Parser.ts](../../packages/vote/src/questionnaire/lib/questionnaireV2Parser.ts)把定义与草稿解析为可见题组和当前题目。
+4. [Questionnaire.vue](../../packages/vote/src/questionnaire/Questionnaire.vue)渲染题目、修改答案并提交；[切题侧栏](../../packages/vote/src/questionnaire/components/QuestionnaireChange.vue)使用同一运行时。
+5. 首页问卷入口与[路由守卫](../../packages/vote/src/main/main.ts)使用 V2 状态，不再以旧 `questionnaireData.ts` 作为主状态中心。
 
-- `packages/shared/data/questionnaire.ts`
-- `packages/vote/src/questionnaire/lib/questionnaireData.ts`
+## 答案、提交与回填
 
-旧版的核心特点：
-
-- 一个问卷的数据主体是 `questions: Question[][]`
-- 每个二维数组项更像一个“题库”或“候选问题集合”
-- 前端运行时再根据用户答案，决定当前这个题库应该显示哪一道题
-- 问题组是否显示、当前显示哪道题，很多时候编码在答案里的 `id` 中
-- 尾号为 `0` 的问题 ID 常被当作“隐藏 / 无效 / 占位问题”
-
-旧版提交给后端时，直接提交前端运行时状态：
-
-- 每个问卷下是 `answers`
-- 每条答案里有：
-  - `id`
-  - `options`
-  - `input`
-
-这意味着旧版的提交格式同时混合了：
-
-- 题目答案
-- 当前题库显示的是哪一道题
-- 某些隐藏状态的占位表达
-
-## V2 逻辑
-
-`v2` 相关文件：
-
-- `packages/shared/data/questionnaireV2.ts`
-- `packages/vote/src/questionnaire/lib/questionnaireV2Parser.ts`
-
-`v2` 的核心特点：
-
-- 一个问卷的数据主体是 `questionGroups`
-- 每个问题组都显式包含：
-  - `id`
-  - `order`
-  - `initialQuestionId`
-  - `questions`
-- 组内有多个问题时，当前显示哪一个问题由解析器决定
-- “问题组是否默认隐藏”不再靠旧版题库槽位推导，而是由 `initialQuestionId` 的规则直接表达
-
-`v2` 当前遵循的 PRD 规则：
-
-- 单个问卷由多个问题组组成
-- 用户从第一个问题组的第一个问题开始作答
-- 第一个问题组必定仅有一个问题
-- 若 `related` 指向某问题组第 `0` 个问题，则该问题组隐藏
-- 若 `related` 指向某问题组第非 `0` 个问题，则展示对应问题
-- 若问题组初始问题非第 `0` 个问题，则默认展示第 `1` 个问题
-
-## V2 数据结构
-
-`v2` 目前拆成两层：
-
-- 问卷定义
-- 问卷答案草稿 / 运行时状态
-
-### 1. 问卷定义
-
-问卷定义在 `packages/shared/data/questionnaireV2.ts`。
-
-核心结构：
-
-- `QuestionnaireDefinitionV2`
-  - `id`
-  - `name`
-  - `introduction`
-  - `questionGroups`
-- `QuestionnaireGroupV2`
-  - `id`
-  - `order`
-  - `initialQuestionId`
-  - `questions`
-- `QuestionnaireQuestionV2`
-  - `id`
-  - `type`
-  - `content`
-  - `introduction`
-  - `options`
-- `QuestionnaireOptionV2`
-  - `id`
-  - `content`
-  - `relatedQuestionIds`
-  - `mutexOptionIds`
-  - `optionGroup`
-
-### 2. 答案草稿
-
-答案草稿也在 `packages/shared/data/questionnaireV2.ts` 定义。
-
-每个问题组的答案状态是：
+草稿按问卷 ID 保存为 `QuestionnaireDrafts`；每个问卷下的 `groups` 包含：
 
 - `groupId`
-- `activeQuestionId`
+- `activeQuestionId`（隐藏时为 `null`）
 - `selectedOptionIds`
 - `input`
 
-这意味着 `v2` 里“题目定义”和“当前组内正在展示哪道题”是分开的。
-
-## 当前完整暴露逻辑
-
-当前 `v2` 的解析逻辑在：
-
-- `packages/vote/src/questionnaire/lib/questionnaireV2Parser.ts`
-
-它会把“问卷定义 + 当前答案草稿”解析成页面可直接消费的运行时结构。
-
-### 1. 第一个问题组
-
-规则：
-
-- 第一个问题组必须存在
-- 第一个问题组必须只包含一个问题
-- 用户总是从这个问题开始作答
-
-这是硬约束，不满足时解析器会直接报错，而不是尝试兜底。
-
-### 2. 问题组默认显示 / 默认隐藏
-
-每个问题组都有 `initialQuestionId`。
-
-当前规则：
-
-- 若 `initialQuestionId` 末位为 `0`
-  - 该问题组默认隐藏
-  - 在没有 `related` 触发前不会显示
-- 若 `initialQuestionId` 末位不为 `0`
-  - 该问题组默认可见
-  - 但实际显示的是该组内“第 `1` 个问题”
-
-也就是说：
-
-- `initialQuestionId` 的作用主要是表达“这个组默认隐藏还是默认显示”
-- 默认显示时，不是显示 `initialQuestionId` 本身，而是显示组内顺序为 `1` 的问题
-
-### 3. `related` 如何控制后续问题组
-
-`related` 现在定义在选项上，即：
-
-- `option.relatedQuestionIds`
-
-解析器会扫描当前所有已显示问题组中已被选中的选项，把它们的 `relatedQuestionIds` 收集起来，再决定后续问题组当前显示哪道题。
-
-规则如下：
-
-- 若某个选项的 `related` 指向目标问题组的第 `0` 个问题
-  - 目标问题组隐藏
-- 若某个选项的 `related` 指向目标问题组的第非 `0` 个问题
-  - 目标问题组显示该问题
-- 若一个问题组没有被任何 `related` 命中
-  - 若该组默认隐藏，则继续隐藏
-  - 若该组默认显示，则展示该组第 `1` 个问题
-
-### 4. 多个 `related` 同时命中同一问题组
-
-当前实现里，如果多个已选选项同时把 `related` 指向同一个问题组：
-
-- 会先过滤掉所有指向第 `0` 个问题的目标
-- 在剩余“可显示问题”中决定当前组显示哪一道题
-
-当前选题规则是：
-
-- 如果当前 `activeQuestionId` 仍然在新的命中列表里，则保留当前题
-- 否则取命中的第一道非 `0` 问题
-
-这是一条当前实现规则，后续如果 PRD 细化，也可以继续调整。
-
-### 5. 分支切换后的处理
-
-如果一个问题组原来显示的是问题 A，后来因为 `related` 变化改成了问题 B，当前实现会：
-
-- 把 `activeQuestionId` 切到新问题
-- 清空这个问题组原有的：
-  - `selectedOptionIds`
-  - `input`
-
-也就是说，当前实现采用的是“切分支就清空旧答案”的保守策略。
-
-### 6. 问题组隐藏后的处理
-
-如果某个问题组因为新的 `related` 结果需要隐藏：
-
-- `activeQuestionId` 会变成 `null`
-- 该组答案会被清空
-- 页面层不会把它视为可见问题组
-
-### 7. `mutex` 的作用方式
-
-`mutex` 现在定义在选项上，即：
-
-- `option.mutexOptionIds`
-
-语义是：
-
-- 当某个选项被选中时，它声明的 `mutexOptionIds` 对应选项将不可再选
-
-当前实现方式：
-
-- 解析器先扫描所有已选中的选项
-- 把它们声明的 `mutexOptionIds` 汇总成一个全局集合
-- 然后对所有当前可见题目执行两件事：
-  - 如果某个已选选项出现在 `mutex` 目标集合中，则自动取消勾选
-  - 运行时渲染该选项时，`available` 会变成 `false`
-
-所以 `mutex` 既影响：
-
-- 已经选上的答案
-- 也影响页面上还能不能继续选
-
-### 8. 多选题里的 `group` 互斥
-
-`group` 在 `v2` 里叫 `optionGroup`。
-
-当前规则只对多选题生效：
-
-- 用户可以选多个选项
-- 但最终只能保留和“最后一次选择的选项”属于同一个 `optionGroup` 的那些选项
-
-也就是说：
-
-- 如果先选了 A 组，再选了 B 组
-- 那么 A 组已选项会被清掉
-- 最终只保留 B 组的选择
-
-这是当前实现里“组选项互斥”的具体方式。
-
-### 9. 不同题型的答案规范化
-
-解析器每轮都会对当前题目的答案做规范化：
-
-- `Input`
-  - 不允许保留 `selectedOptionIds`
-- `Single`
-  - 只允许保留一个选项
-  - `input` 会被清空
-- `Multiple`
-  - `input` 会被清空
-  - 已选项会再按 `optionGroup` 规则清洗
-
-### 10. 问题完成判定
-
-当前单题完成规则：
-
-- `Input`
-  - `input.trim()` 非空
-- `Single`
-  - `selectedOptionIds.length > 0`
-- `Multiple`
-  - `selectedOptionIds.length > 0`
-
-### 11. 问卷完成判定
-
-当前 `v2` 运行时会产出：
-
-- `visibleGroups`
-- `questionCount`
-- `answeredCount`
-- `done`
-
-问卷完成条件是：
-
-- 至少存在一个可见问题组
-- 并且所有可见问题组都已完成
-
-也就是说，隐藏的问题组不计入当前问卷完成度。
-
-## 一个简化示例
-
-假设有 3 个问题组：
-
-- 问题组 1：固定显示问题 `11011`
-- 问题组 2：`initialQuestionId = 11020`
-- 问题组 3：`initialQuestionId = 11031`
-
-那么初始状态下：
-
-- 问题组 1 可见，显示 `11011`
-- 问题组 2 隐藏，因为初始题是第 `0` 题
-- 问题组 3 可见，显示第 `1` 题 `11031`
-
-如果问题组 1 中某个选项的 `related = [11022]`：
-
-- 问题组 2 会变为可见
-- 且显示 `11022`
-
-如果后来改选另一个选项，`related = [11020]`：
-
-- 问题组 2 会重新隐藏
-- 问题组 2 原先填写的答案会被清空
-
-## 当前实现边界
-
-- `v2` 现在已经把问卷的显示逻辑、选项互斥逻辑和完成判定逻辑显式化了
-- 但它目前还没有接到现有问卷页面上
-- 它也还没有接到旧后端的 `paperJson` 提交格式上
-- 所以后续真正落地时，还需要补：
-  - 新页面接入
-  - `v2 -> 旧提交格式` 适配层，或后端同步升级
-
-## 核心差异
-
-### 1. 建模方式不同
-
-旧版：
-
-- `题库槽位 -> 当前问题`
-
-`v2`：
-
-- `问题组 -> 组内问题 -> 当前激活问题`
-
-### 2. 状态表达方式不同
-
-旧版：
-
-- 用答案里的 `id` 和 `xxxxx0` 这类占位问题表达隐藏和分支状态
-
-`v2`：
-
-- 用 `groupId` 和 `activeQuestionId` 显式表达当前组状态
-
-### 3. 与需求文档的贴合度不同
-
-旧版：
-
-- 是历史实现驱动出来的可运行结构
-
-`v2`：
-
-- 直接按 PRD 的“问题组”概念设计
-
-### 4. 与后端提交格式的关系不同
-
-旧版：
-
-- 前端状态几乎直接就是后端提交格式
-
-`v2`：
-
-- 先保证前端模型正确
-- 后续如需兼容旧后端，应增加一层 `v2 -> paperJson` 转换
-
-## 为什么 V2 更适合后续开发
-
-- 更容易让新协作者理解
-- 更适合你们后续“小步问题组”的设计
-- 更容易扩展 `related` / `mutex` / 多选 `group` 规则
-- 更容易在页面层实现“当前可见问题组”“当前题目”“分支切换”等行为
-- 避免继续把旧版的隐式占位逻辑带入新问卷
-
-## 当前状态
-
-- 当前生产环境仍运行旧版问卷逻辑
-- `v2` 目前是并行开发中的新问卷定义和解析基础
-- `v2` 还没有接入现有问卷页面和默认提交流程
-- 如果后续要上线 `v2` 页面，需要补一层提交适配，或者让后端直接接受 `v2` 格式
-- 但这件事目前仍是待确认项，不应默认假设后端一定会同步改格式
-- 当前已经补了一层过渡用兼容代码：
-  - `packages/vote/src/questionnaire/lib/questionnaireV2PaperJson.ts`
-- 这层兼容代码会把 `v2` 的答案状态序列化成旧版 `paperJson` 结构，便于在后端未升级时继续对接旧接口。
-- 但它只是过渡方案，依赖一个前提：
-  - `v2` 仍然沿用当前问卷 ID 的分组规则，即“问题组 ID = 题目 ID 去掉最后一位”
-- 如果未来 `v2` 的正式问卷不再保持这个 ID 约定，那么这层兼容序列化也需要一起调整，而不能继续默认可用。
+`buildAnswerStatePayload()` 遍历当前定义中的问卷与题组，输出扁平答案行。
+每行包含 `questionnaireId` 及上述题组字段，直接作为 `submitPaperV2(voteToken, answers)` 的 `answers`。
+页面提交的是这份全量答案数组，未走 `v2 -> 旧 paperJson` 转换。
+
+`getPaperV2` 返回 snake_case 行：`questionnaire_id`、`group_id`、`active_question_id`、`selected_option_ids`、`input_text`。
+状态模块将这些行映射到现有题组，重新归一化并写回草稿。
+后端返回非空行时应用这些行；返回空数组或请求失败时保留本地草稿。
+这些是当前客户端恢复行为，不代表本次已完成真实账号联调。
+
+## 可见性与分支
+
+- 解析器要求数组中的第一个问题组存在且仅有一道题，不满足时抛错。
+- `order === 1` 的问题组固定显示其 `questions[0]`。
+- 其他题组没有选项触发时，按 `hiddenByDefault` 决定隐藏或显示 `questions[0]`。
+- 当前可见题目的已选选项通过 `relatedQuestionIds` 指向真实题目 ID，解析器据定义查找所属题组。
+- 多个触发命中同一组时，若当前题仍在命中列表中则保留，否则取第一项。
+- 题目切换或题组隐藏时清空该组旧选项和输入；隐藏题组的 `activeQuestionId` 为 `null`。
+- 当前逻辑不以题目 ID 尾数 `0` 判定隐藏，也不推导“题目 ID 去掉末位就是组 ID”。
+
+## 互斥、归一化与完成度
+
+- 已选选项声明的 `mutexOptionIds` 汇总为互斥目标；命中的已选项被移除，渲染时对应选项不可选。
+- 多选题只保留与最后选中选项具有相同 `optionGroup` 的选项。
+- 输入题移除选项选择；单选题最多保留一项并清空输入；多选题清空输入。
+- 归一化会移除当前题目不存在的选项，并重新计算分支和互斥。
+- 输入题以 `input.trim()` 非空为完成，选择题以至少一项选择为完成。
+- 单份问卷须至少有一个可见组，且所有可见组均完成；隐藏组不计入完成数量。
+- 全部必填完成态仅检查 `required === true` 的问卷，是客户端预判；提交校验仍以后端为准。
+
+## 存储边界
+
+| 存储 | 当前键 | 内容与用途 |
+| --- | --- | --- |
+| sessionStorage | `questionnaireStructureV2` | 后端结构响应的会话缓存，默认优先复用 |
+| localStorage | `questionnaireDataLocalV2` | 用户答案草稿，用于恢复未提交填写状态 |
+| 内存 | `questionnaires`、`drafts`、运行时计算值 | 当前页面加载后的定义、答案及显示状态 |
+
+`loadQuestionnaireStructure(force = false)` 默认读取会话缓存，未命中才请求后端；`force` 可跳过该缓存。
+结构加载成功后用当前定义归一化答案；`toggleOption`、`setInput` 写入本地草稿。
+退出登录会调用 `clearQuestionnaireV2LocalData()` 清除上述两个存储键及内存草稿。
+结构缓存与填写草稿的用途不同；本次文档整理未改变任何存储策略。
+
+## Legacy 文件与维护入口
+
+下列文件仍保留为历史代码，不能作为当前提交链路或正式题库的依据：
+
+- [旧共享问卷](../../packages/shared/data/questionnaire.ts)
+- [旧状态中心](../../packages/vote/src/questionnaire/lib/questionnaireData.ts)
+- [旧 paperJson 兼容层](../../packages/vote/src/questionnaire/lib/questionnaireV2PaperJson.ts)
+
+需要改问卷内容或规则定义时，先核对后端来源；前端继续负责现有契约的渲染、交互与答案状态。
+本指南不追加迁移阶段或产品规则，也不安排删除上述 legacy 文件。
+需求原文仍见[问卷大纲](../OUTLINE-Questionnaire.md)，旧迁移建议仅见归档。
+
+## 未核验范围
+
+- 线上具体题目、身份映射、统计数据及账号认证现状。
+- 当前部署是否与本地源码一致，以及真实账号提交、回填结果。
+- 问卷结构缓存后续是否调整；现有行为不构成新的实施要求。

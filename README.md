@@ -25,6 +25,10 @@
 
 ## 开发资料
 
+当前维护入口：[项目状态](PROJECT_STATUS.md)、[前端文档索引](doc/ai-generated/explain.md)、[本地启动与排障](doc/LOCAL_DEV.md)。
+问卷定义来源、V2 提交回填及缓存边界见[当前问卷指南](doc/ai-generated/questionnaire-v2-notes.md)；旧状态和迁移建议见[历史归档](docs/archive/frontend/README.md)。
+以下需求文档和大纲保留原文，当前实现进展请从上述入口查看。
+
 需求文档: <https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/VoileLabs-人气投票项目-需求文档.docx>
 
 需求文档（投票结果页面）:<https://github.com/PatchyVideo/Touhou-Vote/blob/dev/doc/VoileLabs-人气投票项目-需求文档-投票结果页面.docx>
