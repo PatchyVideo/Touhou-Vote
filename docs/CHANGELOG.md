@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2026-11-08 统一 autocomplete 搜索入口（第二阶段）
+
+- **Changed**：投票候选搜索统一请求 `POST /api/v1/autocomplete/search`，保留当前候选 ID 输入输出语义、筛选排序及请求状态处理。
+- **Changed**：公共 `AutoComplete.vue` 更名为 `CandidateSearchInput.vue`，明确其搜索输入框职责；角色和音乐导入同步更新，CP 继续用共享搜索 hook。
+- **兼容性影响**：配套后端替换旧 suggestions 契约并移除临时 `/autocomplete/candidates/search`，两端必须使用同一阶段版本；回滚也需配套。第一阶段提交为 `26f79df`。
+- **迁移 / 配置**：无数据迁移、新依赖或配置变化；未推送或部署。
+
 ## 2026-11-08 拼音候选搜索后端化
 
 - **Changed**：角色、音乐和 CP 成员选择统一通过新候选 ID 搜索接口匹配名称、别名和主作品／专辑；前端保留已选项处理、筛选与日期排序。

@@ -4,13 +4,13 @@ import { fetchCandidateSearch } from '../../../../../shared/api/candidateSearch'
 
 test('candidate search sends an explicit year and normalizes the query', async (t) => {
   t.mock.method(globalThis, 'fetch', async (url: string, init: RequestInit) => {
-    assert.equal(url, '/v12-be/api/v1/autocomplete/candidates/search')
+    assert.equal(url, '/v12-be/api/v1/autocomplete/search')
     assert.equal(init.method, 'POST')
     assert.equal(init.credentials, 'include')
     assert.deepEqual(JSON.parse(String(init.body)), { category: 'character', query: 'mls', vote_year: 12 })
     return new Response(JSON.stringify({ category: 'character', query: 'mls', vote_year: 12, candidate_ids: [7, 18] }))
   })
-  const result = await fetchCandidateSearch('/v12-be/api/v1/autocomplete/candidates/search', 'character', ' MLS ', 12)
+  const result = await fetchCandidateSearch('/v12-be/api/v1/autocomplete/search', 'character', ' MLS ', 12)
   assert.deepEqual(result.candidate_ids, [7, 18])
 })
 

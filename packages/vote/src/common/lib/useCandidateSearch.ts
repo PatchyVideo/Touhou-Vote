@@ -20,7 +20,7 @@ export function useCandidateSearch(category: CandidateCategory, query: Ref<strin
       loading.value = Boolean(keyword)
       if (!keyword) return
 
-      fetchCandidateSearch(`${API_PREFIX}/api/v1/autocomplete/candidates/search`, category, keyword, voteYear)
+      fetchCandidateSearch(`${API_PREFIX}/api/v1/autocomplete/search`, category, keyword, voteYear)
         .then((result) => {
           if (current) matchedIds.value = new Set(result.candidate_ids.map(String))
         })

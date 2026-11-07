@@ -11,7 +11,7 @@
 
       <div v-if="!characterHonmeiIsSelected" class="flex justify-between items-center">
         <div class="w-1/2">
-          <AutoComplete type="character" />
+          <CandidateSearchInput type="character" />
         </div>
         <VoteSelect v-model:selected="order" :item-list="orderOptions" />
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
@@ -82,7 +82,7 @@ import {
 } from '@/vote-character/lib/characterList'
 import { characters } from '@/vote-character/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
-import AutoComplete from '@/common/components/AutoComplete.vue'
+import CandidateSearchInput from '@/common/components/CandidateSearchInput.vue'
 import Mask from '@/common/components/Mask.vue'
 
 const props = defineProps({

@@ -7,15 +7,16 @@ const settle = () => new Promise<void>((resolve) => setImmediate(resolve))
 
 test('only the current search updates IDs, and clearing ignores pending replies', async (t) => {
   const pending: {
+    url: string
     body: { category: string; query: string; vote_year: number }
     resolve: (response: Response) => void
   }[] = []
   t.mock.method(
     globalThis,
     'fetch',
-    (_url: string, init: RequestInit) =>
+    (url: string, init: RequestInit) =>
       new Promise<Response>((resolve) => {
-        pending.push({ body: JSON.parse(String(init.body)), resolve })
+        pending.push({ url: String(url), body: JSON.parse(String(init.body)), resolve })
       })
   )
   const keyword = ref('')
@@ -25,6 +26,7 @@ test('only the current search updates IDs, and clearing ignores pending replies'
   assert.equal(pending.length, 0)
   keyword.value = 'mls'
   await nextTick()
+  assert.equal(pending[0].url, '/v12-be/api/v1/autocomplete/search')
   keyword.value = 'lm'
   await nextTick()
   assert.equal(search.loading.value, true)
