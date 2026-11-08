@@ -1,103 +1,38 @@
 # Touhou-Vote 当前开发状态
 
-本文件用于记录当前开发进度、已确认问题、以及上线前必须再次确认的生产事项。
-
-优先级高于零散对话记录，和 `README.md` 平级维护。
+核对日期：2026-11-08。范围为本地分支 `feat/pinyin-backend-search` 的已提交源码；不代表线上状态。
 
 ## 当前重点
-- 当前主要开发目标仍然是 `packages/vote`。
-- 当前已经在持续优化 `vote` 模块中的“导出投票结果为图片”功能。
-- 问卷提交链路本次只做了问题排查，没有保留临时鉴权调试逻辑。
-- 问卷模块正在推进 `v2` 数据结构与解析逻辑，但提交给后端的格式是否同步升级，目前仍是待确认事项。
 
-## 已完成进展
-- 首页入口相关文档已同步到 `doc/ai-generated`。
-- 导出图片功能已支持角色、音乐、CP 三个模块。
-- 导出图片的数据源逻辑已修正：
-  - 默认支持 `local` / `graphql` / `auto`
-  - 导出组件现在会遵循全局数据源模式
-  - 开发环境下可通过控制台 `testHelper.setDataSourceMode('local')` 强制使用本地测试数据
-- 导出图片的用户名不再写死，会读取当前登录用户名。
-- 导出图片的预览 `ObjectURL` 已增加释放逻辑，避免连续导出积累内存。
-- 导出图片的分享能力已改为基于 `navigator.share` 和 `navigator.canShare({ files })` 判断。
-- 导出数据的 GraphQL 获取方式已从 `useLazyQuery` 改为 Apollo Client 直接查询，避免在工具函数中触发 “Apollo client with id default not found”。
+- 主要维护 `packages/vote`，梳理后端数据来源、前端缓存与本地填写状态的边界。
+- 下方记录已提交源码事实；工作区试验和未提交调整不计入已完成进展。
 
-## 已确认问题
+## 已提交源码现状
 
-### 1. 后端用户/投票 token 问题
-- 现象：
-  - 某些账号可以正常登录
-  - `/v11-be/user-token-status` 可以返回有效
-  - 但问卷提交 GraphQL 会返回 `INVALID_TOKEN`
-- 当前结论：
-  - 该问题不是前端保存 token 写反导致的
-  - 问题已定位到后端认证/用户数据库状态
-  - 需要后端修正后，才能继续做真实账号联调
-- 当前处理策略：
-  - 前端不保留本次为排查临时加入的问卷提交前鉴权逻辑
-  - 真实账号测试暂时依赖后端修复
+- 问卷页面、首页完成态、登录回填和路由守卫已接入 `questionnaireStateV2.ts`。
+- 问卷定义由后端 `/questionnaire/structure` 返回；共享 `questionnaireV2.ts` 只定义类型。
+- 问卷以结构化答案调用 `submitPaperV2`，通过 `getPaperV2` 恢复，提交格式已接通。
+- 角色、音乐候选资料来自后端；同次页面运行复用内存，刷新页面后重新请求。
+- 角色、音乐、CP 成员搜索已使用 `/api/v1/autocomplete/search`，保留前端筛选与排序。
+- CP 作品及分类筛选已使用角色候选的 `characterFilterMeta`（提交 `edeaeea`）。
+- 角色、音乐、CP 的投票结果图片导出入口和共享生成逻辑已存在。
 
-### 2. 导出图片依赖图片跨域代理
-- 背景：
-  - 角色头像、音乐封面等图片多数来自外部资源地址，例如 `asset.lilywhite.cc`
-  - 图片直接显示通常没有问题，但绘制到 canvas 时会因为跨域导致导出失败
-- 当前解决方式：
-  - 仅在开发环境下，导出组件会将远程图片 URL 改写为本地代理路径：
-    - `asset.lilywhite.cc` -> `/th-assets`
-    - `static.thwiki.cc` -> `/thwiki-assets`
-  - Vite 代理会转发到目标站，并额外补 CORS 响应头
-  - `html2canvas` 在生成图片时启用了 `useCORS: true`
-- 当前结论：
-  - 本地开发环境下，这个问题目前已经可用
-  - 这不等于生产环境天然安全
+## 尚存代码与核验边界
 
-## 生产环境待解决事项
+- 问卷结构仍优先读取 sessionStorage 的 `questionnaireStructureV2`；答案草稿另存 localStorage 的 `questionnaireDataLocalV2`。两者用途不同。
+- 投票开放时间仍取自 `packages/shared/data/time.ts` 的静态值，其中截止时间为 2099 年。
+- 上述缓存和时间逻辑是现有代码事实；后续是否调整及具体方案需单独确认。
+- 旧问卷定义、状态与 paperJson 兼容代码仍保留为 legacy；文件存在不表示主链路尚未迁移。
+- 本次未查询线上题库、账号认证、统计或部署状态；旧记录中的认证故障未重新核验。
+- 导出图片在开发环境使用资源代理；正式图源的 canvas 跨域表现本次未验证。
 
-### 1. 图片导出跨域方案需要生产级确认
-- 当前图片代理改写只在 `import.meta.env.DEV` 下启用。
-- 如果生产环境继续直接使用第三方图片地址，而目标站点没有返回适合 canvas 的 CORS 头，导出图片仍然可能失败。
-- 上线前需要明确采用哪一种方案：
-  - 生产环境也走自有代理/CDN
-  - 或确认图片源站能稳定返回满足 canvas 使用的 CORS 响应头
+## 阅读入口
 
-### 2. 后端用户认证数据库修复后，需要重新做真实账号联调
-- 重点验证：
-  - 登录
-  - 问卷提交
-  - 角色/音乐/CP/提名提交
-  - 导出图片时 GraphQL 数据源读取
-- 只有后端修复后，这部分验证才有意义。
+- [本地启动与排障](doc/LOCAL_DEV.md)
+- [前端文档索引](doc/ai-generated/explain.md)
+- [投票页速查](doc/ai-generated/vote-dev-notes.md)
+- [当前问卷指南](doc/ai-generated/questionnaire-v2-notes.md)
+- [变更记录](docs/CHANGELOG.md)
+- [历史归档索引](docs/archive/frontend/README.md)
 
-### 3. `questionnaireV2` 是否直接同步为后端提交格式，当前未定
-- 当前现状：
-  - 旧页面提交给后端的仍然是旧版 `paperJson`
-  - `questionnaireV2` 只是新的前端问卷定义和解析基础
-- 当前补充：
-  - 已新增过渡兼容层 `packages/vote/src/questionnaire/lib/questionnaireV2PaperJson.ts`
-  - 可以把 `v2` 的答案状态转成旧版 `paperJson`
-- 当前不确定项：
-  - 后端是否会继续沿用旧版 `paperJson`
-  - 后端是否愿意同步接受 `v2` 的问题组结构
-- 因此当前策略：
-  - 先保持 `v2` 作为前端正确模型
-  - 暂不把“后端必须改成接收 `v2`”当成既定方案
-  - 在后端未定前，可先使用兼容层维持旧接口对接能力
-  - 等前后端确认后，再二选一推进：
-    - 前端增加 `v2 -> 旧 paperJson` 转换层
-    - 或后端直接升级为接收 `v2`
-- 这个事项当前应视为带问号的设计决策，而不是开发已定稿内容。
-
-## 当前建议的开发顺序
-1. 继续完善导出图片模块逻辑。
-2. 继续推进问卷 `v2` 的页面层和规则层实现，但先不要假设后端会同步改接口。
-3. 在问卷 `v2` 接近可用时，再和后端确认最终提交格式。
-4. 等后端修复用户认证数据库后，再恢复真实账号联调。
-5. 在生产部署前，单独验证图片跨域与 canvas 导出链路。
-
-## 相关文档
-- `README.md`
-- `agents.md`
-- `doc/ai-generated/vote-dev-notes.md`
-- `doc/ai-generated/questionnaire-v2-notes.md`
-- `doc/ai-generated/questionnaire-v2-migration-plan.md`
-- `doc/260215EXPORT_FEATURE_UPDATE.md`
+旧状态快照和问卷迁移方案保留在归档中，仅用于了解当时背景。

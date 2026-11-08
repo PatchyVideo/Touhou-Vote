@@ -2,6 +2,8 @@
 
 > 面向需要维护投票页的开发者，基于当前 `packages/vote` 代码整理。
 
+当前工作与核验范围见[项目状态](../../PROJECT_STATUS.md)；本页保留投票应用的代码导航。
+
 ## 项目定位
 - `packages/vote` 是主投票前端，负责登录后首页、问卷、角色/音乐/CP/提名投票，以及投票开始前和结束后的入口状态切换。
 - 应用使用 Vue 3 + Vue Router + Apollo Client，路由基准是 `/v11/`。
@@ -54,7 +56,7 @@
 - `src/vote-music`：音乐投票，结构与角色部门相近。
 - `src/vote-couple`：CP 投票，包含左右角色选择和 CP 卡片。
 - `src/vote-doujin`：提名编辑与展示。
-- `src/common`：通用组件、导出图片、消息、搜索、拼音匹配、测试辅助工具。
+- `src/common`：通用组件、导出图片、消息、候选搜索、测试辅助工具。
 - `src/tailwindcss`：全局样式入口和语义化 class，如 `baseBoxRoundedShadow`。
 - `src/darkmode`：暗色模式初始化。
 
@@ -68,7 +70,7 @@
   1. 打开 `VoteMessageBox` 预览弹层
   2. 通过 `exportVoteData.ts` 读取待导出的投票数据
   3. 数据源选择底层由 `voteDataSource.ts` 支持 `local` / `graphql` / `auto`
-  4. 结合 `characterList` / `musicList` 等静态元数据补全名称、图片、颜色
+  4. 结合 `characterList` / `musicList` 等后端候选数据补全名称、图片、颜色
   5. 在离屏 DOM 中渲染卡片，再用 `html2canvas` 生成图片
   6. 支持预览、下载，以及在支持的浏览器中调用 Web Share API
 - 当前 3 个导出组件不再保留隐藏的 GraphQL 调试开关，运行时统一遵循 `voteDataSource.ts` 的全局数据源模式；默认仍是 `auto`，也就是优先 GraphQL，失败时回退本地数据。
@@ -143,37 +145,27 @@ pnpm vote:serve
 - `testHelper` 里已经有针对导出图片的快捷测试数据提示，调试导出功能时可以优先复用。
 - 如果页面资源正常、接口却异常，先检查 `/v11-be` 代理和 Cookie `credentials: 'include'` 是否符合本地环境。
 
-## 问卷结构现状
-- 现有问卷页面仍在使用旧的“题库/候选问题数组”模型：
-  - 共享题库：`packages/shared/data/questionnaire.ts`
-  - 前端运行时状态：`packages/vote/src/questionnaire/lib/questionnaireData.ts`
-- 这套旧模型通过 `questions: Question[][]`、`answers[i].id` 和尾号为 `0` 的占位 ID 表示“当前问题组默认隐藏 / 当前显示哪个候选问题”，实现是可运行的，但和 PRD 里更显式的“问题组 -> 组内问题 -> 渐进暴露”模型不完全一致。
-- 现在已经补了一套更适合后续重构的新版格式：
-  - `packages/shared/data/questionnaireV2.ts`
-- `questionnaireV2.ts` 现在不再尝试从旧版问卷数据推导，而是作为新版问卷的独立 source of truth，先提供可替换的占位问题组结构：
-  - `questionGroups`
-  - `initialQuestionId`
-  - `questions`
-- 其中 `initialQuestionId` 明确对应 PRD 里的“初始问题”：
-  - 末位为 `0`：该问题组默认隐藏
-  - 末位非 `0`：该问题组默认展示第 `1` 个问题
-  - 第一个问题组必须只有一个问题，并从这个问题开始作答
-- 同文件还提供了 `createQuestionnaireAnswerStateV2()`，用于初始化新版答案草稿结构；后续合作者应直接在这份文件里维护正式问卷，而不是继续修改旧版 `questionnaire.ts` 或尝试从旧版结构自动推导。
-- 对应的新版解析器已经补在：
-  - `packages/vote/src/questionnaire/lib/questionnaireV2Parser.ts`
-- 这层解析器目前提供的核心能力包括：
-  - `normalizeQuestionnaireDraftV2()`：按新版问题组模型重算可见组、当前问题和答案清理
-  - `parseQuestionnaireRuntimeV2()`：产出页面可直接消费的运行时结构
-  - `toggleQuestionOptionV2()`：处理单选/多选点击后的答案更新
-  - `setQuestionInputV2()`：处理输入题答案更新
-  - `getRuntimeGroupByIdV2()` / `getRuntimeQuestionByIndexV2()`：给页面层按组或按当前顺序取题
-- 当前解析器已经覆盖：
-  - 严格按 PRD 处理单个问卷逻辑：
-  - 第一个问题组固定从唯一问题开始
-  - `related` 指向组内第 `0` 个问题时，目标问题组隐藏
-  - `related` 指向组内非 `0` 个问题时，展示对应问题
-  - 未被 `related` 命中的问题组，如果 `initialQuestionId` 非 `0` 结尾，则默认展示第 `1` 个问题
-  - `mutex` 触发的选项移除
-  - 多选题按 `group` 的组选项互斥
-  - 分支切换时重置无效答案
-- 目前还没有把旧页面切到这套解析器上；后续新问卷页面应直接基于 `questionnaireV2.ts + questionnaireV2Parser.ts` 实现。
+## 问卷阅读入口
+
+当前问卷的定义来源、状态引擎、解析规则、`submitPaperV2`／`getPaperV2` 和存储边界统一见[当前问卷指南](questionnaire-v2-notes.md)。
+页面、首页与守卫已接入 V2；旧迁移阶段及模型说明移入[历史归档](../../docs/archive/frontend/README.md)，不作为当前待办。
+
+## 候选拼音搜索（2026-11-08，本地实现）
+
+角色和音乐共用输入框已更名为 `CandidateSearchInput.vue`，CP 保留自己的输入框。角色、音乐和 CP 成员选择通过 `src/common/lib/useCandidateSearch.ts` 调用共享 `packages/shared/api/candidateSearch.ts`，不再执行前端 Pinin。请求路径为 `${API_PREFIX}/api/v1/autocomplete/search`，沿用现有前缀转发；明确传入 `voteYear`，分类为 character 或 music，CP 成员使用 character。
+
+后端按候选名称、各别名和主作品／专辑名匹配，返回全部匹配的整数 candidate IDs；hook 转成 `Set<string>`，与已经加载的候选列表求交。前端继续排除个人已选项、保留 CP 重复成员规则、作品／类别筛选和日期排序。搜索不包含音乐其他收录专辑、结果页筛选或 CP 组合推荐。
+
+输入沿用 100ms 节流并限制 64 字符。空输入直接显示原列表且不请求；非空新输入清空旧命中，显示“正在搜索…”，当前请求失败显示“搜索失败，请修改关键词重试”。Vue watch cleanup 忽略旧响应，不增加自动重试、客户端拼音回退或结果缓存。
+
+Python 后端用 pypinyin 与项目内匹配器，Redis 分别缓存派生语料和结果 60 秒；复用候选／作品写入的失效逻辑。第二阶段只保留 `/autocomplete/search` 的候选 ID 契约，移除旧建议契约和临时候选路径；前后端须按同一阶段配套发布及回滚。无数据库迁移和新增配置。本地单元检查和构建不代表已部署或经过浏览器交互验收。
+
+
+## CP 作品筛选数据来源（2026-11-08）
+
+`src/vote-couple/lib/workList.ts` 的作品选项、分类选项及分类标签统一来自 `voteObjectsDataSource.characterFilterMeta`，由已有角色候选接口加载。这里使用角色专属元数据，音乐独有作品不会混入 CP 筛选；不再按作品名到 `shared/data/work.ts` 查分类，也不保留静态分类兜底。
+
+元数据加载后默认选中全部实际分类，临时条件与已确认条件仍分开，沿用确定、取消和重置流程；按作品筛选成员与 CP 允许重复成员的规则保持现状。本项无新增请求、后端接口或存储机制；回滚只需还原对应前端改动。
+
+
+验证：`./node_modules/.bin/tsx --tsconfig packages/vote/tsconfig.json --test packages/vote/src/vote-couple/lib/__tests__/workList.test.ts packages/vote/src/common/lib/__tests__/candidateSearch.test.ts packages/vote/src/common/lib/__tests__/useCandidateSearch.test.ts`，5 项通过；CP 筛选代码和用例 ESLint、`pnpm --filter @touhou-vote/vote build` 通过。新增用例先复现了新作品被归入 `others`，修改后验证后端分类、角色／音乐元数据隔离，以及临时条件、确认和重置。未进行浏览器交互验收。

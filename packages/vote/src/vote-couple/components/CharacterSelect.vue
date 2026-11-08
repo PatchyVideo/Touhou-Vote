@@ -14,6 +14,7 @@
           <icon-uil-search class="flex-shrink-0 inline ml-2 mr-1" />
           <input
             v-model="searchContent"
+            maxlength="64"
             class="inline-block h-full outline-none w-full rounded"
             @keydown.enter="search()"
             :placeholder="'输入关键词搜索角色'"
@@ -26,6 +27,8 @@
       <div><small>可通过名称、外号、所属作品来搜索，支持部分匹配和拼音匹配。</small></div>
 
       <div class="innerBox flex-grow overflow-y-auto p-2 pr-0 flex flex-col space-y-3">
+        <div v-if="candidateSearchLoading" role="status">正在搜索…</div>
+        <div v-else-if="candidateSearchError" role="alert">{{ candidateSearchError }}</div>
         <div v-for="item in characterListLeftWithFilter" :key="item.id" class="baseBoxRoundedShadow p-1 flex">
           <div class="flex-shrink-0 w-1/3 max-w-32">
             <div class="baseBoxRoundedShadow aspect-ratio-1/1 border border-accent-color-600">
@@ -62,7 +65,8 @@ import { Character } from '@/vote-character/lib/character'
 import { characterList } from '@/vote-character/lib/characterList'
 import { Couple } from '@/vote-couple/lib/couple'
 import { filterForKind, workSelected } from '@/vote-couple/lib/workList'
-import { orderOptions, filterCharactersByMeta, searchAndSort } from '@/common/lib/characterSearch'
+import { filterCharactersByMeta, orderOptions, sortCharactersByOrder } from '@/common/lib/characterSearch'
+import { useCandidateSearch } from '@/common/lib/useCandidateSearch'
 import Mask from '@/common/components/Mask.vue'
 
 const props = defineProps({
@@ -128,6 +132,11 @@ const characterListLeft = computed<Character[]>(() => {
 })
 
 const keyword = ref('')
+const {
+  matchedIds,
+  loading: candidateSearchLoading,
+  error: candidateSearchError,
+} = useCandidateSearch('character', keyword)
 const searchContent = ref<string>(keyword.value)
 function search(): void {
   keyword.value = searchContent.value
@@ -135,7 +144,10 @@ function search(): void {
 watchThrottled(searchContent, search, { throttle: 100 })
 
 const characterListLeftWithFilter = computed<Character[]>(() => {
-  return searchAndSort<Character>(characterListLeft.value, keyword.value, order.value.name)
+  const list = keyword.value.trim()
+    ? characterListLeft.value.filter((item) => matchedIds.value.has(item.id))
+    : characterListLeft.value
+  return sortCharactersByOrder([...list], order.value.name)
 })
 
 function characterSelect(id: string): void {

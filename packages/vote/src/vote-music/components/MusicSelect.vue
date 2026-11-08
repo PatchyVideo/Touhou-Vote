@@ -11,7 +11,7 @@
 
       <div v-if="!musicHonmeiIsSelected" class="flex justify-between items-center">
         <div class="w-1/2">
-          <AutoComplete type="music" />
+          <CandidateSearchInput type="music" />
         </div>
         <VoteSelect v-model:selected="order" :item-list="orderOptions" />
         <div class="cursor-pointer shadow p-1" @click="advancedFilterOpen = true">筛选</div>
@@ -20,9 +20,11 @@
       <div v-if="!musicHonmeiIsSelected"><small>可通过名称、所属作品来搜索，支持部分匹配和拼音匹配。</small></div>
 
       <div class="innerBox flex-grow overflow-y-auto p-2 pr-0 flex flex-col space-y-3">
+        <div v-if="!musicHonmeiIsSelected && musicSearchLoading" role="status">正在搜索…</div>
+        <div v-else-if="!musicHonmeiIsSelected && musicSearchError" role="alert">{{ musicSearchError }}</div>
         <!-- eslint-disable vue/no-v-html -->
         <div
-          v-if="!musicList.length"
+          v-if="!musicList.length && (musicHonmeiIsSelected || (!musicSearchLoading && !musicSearchError))"
           class="text-center py-10"
           v-html="
             musicHonmeiIsSelected
@@ -92,6 +94,8 @@ import { Music } from '@/vote-music/lib/music'
 import {
   keyword,
   musicListLeftWithFilter,
+  musicSearchError,
+  musicSearchLoading,
   musicsVotedWithoutHonmei,
   order,
   orderOptions,
@@ -99,7 +103,7 @@ import {
 import { musics } from '@/vote-music/lib/voteData'
 import VoteSelect from '@/common/components/VoteSelect.vue'
 import Mask from '@/common/components/Mask.vue'
-import AutoComplete from '@/common/components/AutoComplete.vue'
+import CandidateSearchInput from '@/common/components/CandidateSearchInput.vue'
 import MusicImages from '@/vote-music/assets/defaultMusicImage.jpg?url'
 
 const props = defineProps({

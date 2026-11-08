@@ -1,3 +1,6 @@
+> 历史快照：2026-11-08 从 `doc/ai-generated/questionnaire-v2-migration-plan.md` 归档；原文件未标明编写日期。
+> 下方原文完整保留，其中状态、方案与线上结论不代表当前事实。当前说明见[归档索引](README.md)。
+
 # Questionnaire V2 迁移计划
 
 > 目标：在不一次性打爆现有问卷链路的前提下，把旧问卷实现逐步迁移到 `questionnaireV2`。
