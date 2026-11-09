@@ -1,0 +1,18 @@
+.cp-vote-image {
+  --cp-image-feather: radial-gradient(
+    ellipse closest-side,
+    #fff 0%,
+    rgba(255, 255, 255, 0.984) 10%,
+    rgba(255, 255, 255, 0.938) 20%,
+    rgba(255, 255, 255, 0.864) 30%,
+    rgba(255, 255, 255, 0.766) 40%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(255, 255, 255, 0.535) 60%,
+    rgba(255, 255, 255, 0.397) 70%,
+    rgba(255, 255, 255, 0.258) 80%,
+    rgba(255, 255, 255, 0.123) 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: var(--cp-image-feather);
+  mask-image: var(--cp-image-feather);
+}
