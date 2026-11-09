@@ -58,6 +58,10 @@
   - `GraphMap.vue`
   - `Graph1.vue`（更偏实验/示例性质）
 
+### 省区地图名称
+
+`src/composables/china.ts` 的34个 `features[].properties.name` 使用V3问卷的省区全称，如“北京市”“广西壮族自治区”。`GraphMap.vue` 直接按选项内容匹配区域；保持题库与地图名称一致即可，不需要转换函数。边界和坐标不因名称统一而改变。
+
 ## 样式与构建
 - `unocss.config.ts` 定义了项目主题色：
   - `accent`
