@@ -27,6 +27,6 @@ export const questionnaireDisplayByKey: Record<string, { image: string }> = {
 }
 
 export const categoryDisplay: Record<string, { name: string; desc: string }> = {
-  main: { name: '主要问卷', desc: '您至少需要选择填写两个主要问卷' },
-  extra: { name: '额外问卷', desc: '您至少需要选择填写一个额外问卷' },
+  main: { name: '主要问卷', desc: '请完成其中的必填问卷' },
+  extra: { name: '选填问卷', desc: '请至少完成一份选填问卷' },
 }

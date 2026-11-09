@@ -8,7 +8,7 @@
 - 正式问卷定义由后端 `${API_PREFIX}/questionnaire/structure` 返回，响应为 `{ questionnaires: [...] }`。
 - [共享请求](../../packages/shared/api/questionnaire.ts)供填写与结果应用加载同一后端结构；[共享类型](../../packages/shared/data/questionnaireV2.ts)定义契约，不维护前端静态题库或正式题目内容。
 - 问卷定义包含 `id`、`key`、`title`、`introduction`、`category`、`required`、`order` 和 `questionGroups`。
-- `category` 为 `main` 或 `extra`；页面和首页消费这些分类，必填完成态读取 `required`。
+- `category` 为 `main` 或 `extra`；页面和首页消费这些分类。整体预判同时读取 `required` 和 `category`：必填全部完成，且至少完成一份 extra 非必填。
 - 问题组包含 `id`、`order`、`hiddenByDefault`、`questions`；当前模型没有 `initialQuestionId`。
 - 题目与选项的 `id` 用于作答关联，可空 `code` 用于结果统计/DSL/链接，不可混用。题目类型为 `Single`、`Multiple`、`Input`；选项携带 `relatedQuestionIds`、`mutexOptionIds`、`optionGroup`。
 - 题目、分组、选项及其 ID 以本次后端返回为准；本地旧表不能用来判断线上缺题或分配 ID。
@@ -32,7 +32,7 @@
 
 `buildAnswerStatePayload()` 遍历当前定义中的问卷与题组，输出扁平答案行。
 每行包含 `questionnaireId` 及上述题组字段，直接作为 `submitPaperV2(voteToken, answers)` 的 `answers`。
-页面提交的是这份全量答案数组，未走 `v2 -> 旧 paperJson` 转换。
+页面提交的是这份全量答案数组，未走 `v2 -> 旧 paperJson` 转换。合法部分答案也能保存；`submitPaperV2` 成功表示快照已保存，不表示整套已完成。
 
 `getPaperV2` 返回 snake_case 行：`questionnaire_id`、`group_id`、`active_question_id`、`selected_option_ids`、`input_text`。
 状态模块将这些行映射到现有题组，重新归一化并写回草稿。
@@ -57,7 +57,7 @@
 - 归一化会移除当前题目不存在的选项，并重新计算分支和互斥。
 - 输入题以 `input.trim()` 非空为完成，选择题以至少一项选择为完成。
 - 单份问卷须至少有一个可见组，且所有可见组均完成；隐藏组不计入完成数量。
-- 全部必填完成态仅检查 `required === true` 的问卷，是客户端预判；提交校验仍以后端为准。
+- 整体完成预判通过共享 `meetsQuestionnaireCompletionPolicy`：至少存在一份必填、全部 required 问卷完成，并至少完成一份 category=extra 且非 required 的选填。配置缺少必填或选填时为未完成；后端对已保存答案作权威判断。
 
 ## 存储边界
 
@@ -82,10 +82,18 @@
 
 需要改问卷内容或规则定义时，先核对后端来源；前端继续负责现有契约的渲染、交互与答案状态。
 结果应用的图表、文本详情与高级搜索已改用后端定义及 code 索引；旧表只保留其他历史/测试入口使用，不作为结果来源。
-需求原文仍见[问卷大纲](../OUTLINE-Questionnaire.md)，旧迁移建议仅见归档。
+历史出题思路仍见[问卷大纲](../OUTLINE-Questionnaire.md)，旧迁移建议仅见归档；当前整体完成条件以本页后续确认的 A＋B/C/D 至少一份为准。
 
 ## 未核验范围
 
 - 线上具体题目、身份映射、统计数据及账号认证现状。
 - 当前部署是否与本地源码一致，以及真实账号提交、回填结果。
 - 特殊地图/性别图及趋势代理题保留既有 code 绑定；跨届题库定义未版本化。
+
+## 整体完成闸门维护
+
+用户确认的目标配置：A 为 main/required，B/C/D 为 extra/非required，组选填至少完成1份且允许多填；真实题库身份与分类尚未核验。后台通过 required/category 调整成员，阈值目前写在代码里，没有新增后台配额配置。
+
+前端政策入口为 `packages/shared/api/questionnaire.ts:meetsQuestionnaireCompletionPolicy`，状态中心 `isQuestionnaireAllDoneV2` 调用它，路由守卫和提交后提示读取同一预判。它基于当前本地草稿，可随尚未提交的编辑变化，不能代表后端已保存的完成状态。
+
+角色/音乐/组合的后端闸门读取本届最新已保存答案；本轮已本地移除 raw_paper 直接放行及空配置 row-coverage 兜底。首页满足条件时提示先提交保存，合法部分提交成功提示保存回答；投票被拒绝时沿用现有提示展示后端 human_readable_message。提名服务未调用同一闸门。后端政策/实际拦截入口集中记录在后端 `docs/architecture/backend-overview.md` 的“问卷整体完成闸门与配置入口”。调整配额时同步两端政策与文案，不把整体配额用于逐份完成率。未部署，真实题库分类未核验。

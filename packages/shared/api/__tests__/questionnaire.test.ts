@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { buildQuestionnaireIndex, fetchQuestionnaireStructure } from '../questionnaire'
+import { buildQuestionnaireIndex, fetchQuestionnaireStructure, meetsQuestionnaireCompletionPolicy } from '../questionnaire'
 import type { QuestionnaireStructureResponse } from '../../data/questionnaireV2'
 
 export function structure(): QuestionnaireStructureResponse {
@@ -39,4 +39,19 @@ test('HTTP and incomplete structure failures are rejected', async () => {
     globalThis.fetch = async () => Response.json({ questionnaires: [{}] })
     await assert.rejects(fetchQuestionnaireStructure('/structure'), /结构/)
   } finally { globalThis.fetch = original }
+})
+
+test('overall completion needs required A plus at least one optional extra', () => {
+  const definitions = [
+    { id: 1, required: true, category: 'main' as const },
+    ...[2, 3, 4].map((id) => ({ id, required: false, category: 'extra' as const })),
+  ]
+  assert.equal(meetsQuestionnaireCompletionPolicy(definitions, new Set([1])), false)
+  assert.equal(meetsQuestionnaireCompletionPolicy(definitions, new Set([2, 3, 4])), false)
+  for (const selected of [2, 3, 4]) {
+    assert.equal(meetsQuestionnaireCompletionPolicy(definitions, new Set([1, selected])), true)
+  }
+  assert.equal(meetsQuestionnaireCompletionPolicy(definitions, new Set([1, 2, 3, 4])), true)
+  assert.equal(meetsQuestionnaireCompletionPolicy(definitions.slice(0, 1), new Set([1])), false)
+  assert.equal(meetsQuestionnaireCompletionPolicy(definitions.slice(1), new Set([2])), false)
 })

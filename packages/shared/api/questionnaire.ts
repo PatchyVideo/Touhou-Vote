@@ -16,6 +16,16 @@ export interface QuestionnaireIndex {
   questionnaireByKey: Map<string, QuestionnaireDefinitionV2>
 }
 
+/** Client preview of the backend overall gate; individual completion is supplied. */
+export function meetsQuestionnaireCompletionPolicy(
+  questionnaires: Pick<QuestionnaireDefinitionV2, 'id' | 'required' | 'category'>[],
+  completed: ReadonlySet<number>,
+): boolean {
+  const required = questionnaires.filter((qn) => qn.required)
+  return required.length > 0 && required.every((qn) => completed.has(qn.id)) &&
+    questionnaires.some((qn) => qn.category === 'extra' && !qn.required && completed.has(qn.id))
+}
+
 /** A view over the backend definition, never a second question bank. */
 export function buildQuestionnaireIndex(structure: QuestionnaireStructureResponse): QuestionnaireIndex {
   const index: QuestionnaireIndex = {

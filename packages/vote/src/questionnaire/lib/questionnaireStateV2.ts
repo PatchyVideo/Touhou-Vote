@@ -6,7 +6,7 @@ import type {
   QuestionnaireDefinitionV2,
   QuestionnaireDrafts,
 } from '@touhou-vote/shared/data/questionnaireV2'
-import { fetchQuestionnaireStructure } from '@touhou-vote/shared/api/questionnaire'
+import { fetchQuestionnaireStructure, meetsQuestionnaireCompletionPolicy } from '@touhou-vote/shared/api/questionnaire'
 import {
   normalizeQuestionnaireDraftV2,
   parseQuestionnaireRuntimeV2,
@@ -149,9 +149,10 @@ export function isQuestionnaireDoneV2(questionnaireId: number): boolean {
   return getRuntime(questionnaireId)?.done ?? false
 }
 
-// 所有 required=true 的问卷完成即视为全部完成
+// 整体预判：全部必填完成，并至少完成一份 extra 选填问卷。
 export const isQuestionnaireAllDoneV2 = computed<boolean>(() => {
-  return questionnaires.value.filter((q) => q.required).every((q) => getRuntime(q.id)?.done ?? false)
+  const completed = new Set(questionnaires.value.filter((q) => getRuntime(q.id)?.done).map((q) => q.id))
+  return meetsQuestionnaireCompletionPolicy(questionnaires.value, completed)
 })
 
 // 是否第一次完成全部问卷(用于提交成功弹窗的引导文案)
