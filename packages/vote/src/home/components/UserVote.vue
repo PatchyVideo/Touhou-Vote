@@ -10,7 +10,7 @@
       >
         <div class="w-1/3 p-0.5 overflow-hidden rounded-xl">
           <div class="w-full aspect-1/1">
-            <img :src="item.icon" class="object-cover" />
+            <img :src="item.icon" class="object-cover" :class="{ 'cp-vote-image': item.department === 'cp' }" />
           </div>
         </div>
         <div class="w-2/3 p-0.5 flex flex-wrap content-between">
@@ -80,7 +80,7 @@ const VoteList = [
     type: 'couple',
     department: 'cp' as const,
     title: 'CP部门',
-    icon: 'https://asset.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
+    icon: 'https://image.touhou.ai/i/2026/10/08/6ac754d10287d.png',
     desc: '为喜欢的角色组合投票',
     complete: () => voteCoupleComplete.value,
     buttontext: () => (voteCoupleComplete.value ? '修改结果' : '开始投票'),
@@ -88,3 +88,4 @@ const VoteList = [
   },
 ]
 </script>
+<style scoped src="./voteImage.css"></style>

@@ -10,7 +10,9 @@
         :key="voteId"
         class="flex flex-row items-center gap-1 px-4 py-2 rounded-xl border-2 cursor-pointer border-accent-color-300 hover:shadow hover:border-accent-color-600 transition-all ease-in-out"
       >
-        <RouterLink :to="'/vote/' + voteId"><img class="w-32 h-32 object-cover" :src="vote.image" /></RouterLink>
+        <RouterLink :to="'/vote/' + voteId">
+          <img class="w-32 h-32 object-cover" :class="{ 'cp-vote-image': vote.department === 'cp' }" :src="vote.image" />
+        </RouterLink>
         <div>
           <div class="flex items-center gap-2">
             <CompleteTag :complete="vote.complete.value" /><VoteCardExportButton :department="vote.department" />
@@ -54,8 +56,9 @@ const votes = {
     department: 'cp' as const,
     name: 'CP部门',
     desc: '为喜欢的角色组合投票',
-    image: 'https://asset.lilywhite.cc/thvote/imgs/nav/couple@100px.png',
+    image: 'https://image.touhou.ai/i/2026/10/08/6ac754d10287d.png',
     complete: voteCoupleComplete,
   },
 }
 </script>
+<style scoped src="./voteImage.css"></style>
