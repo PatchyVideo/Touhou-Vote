@@ -2,9 +2,9 @@
   <div class="page"></div>
   <div class="flex flex-col gap-4">
     <div v-if="isQuestionnaireAllDoneV2" class="text-lg">
-      问卷填写完成了！您可以继续填写，或在左栏选择"参与投票"开始投票
+      当前草稿已满足填写要求，请提交保存后再参与投票。您也可以继续填写其他问卷。
     </div>
-    <div v-else class="text-lg">在开始投票之前，您需要完成所有必填问卷：</div>
+    <div v-else class="text-lg">开始投票前，请完成必填问卷，并至少完成一份选填问卷。</div>
     <div v-for="category in ['main', 'extra']" :key="category">
       <template v-if="questionnairesByCategory[category] && questionnairesByCategory[category].length">
         <div class="flex flex-nowrap items-end gap-2">
@@ -19,15 +19,16 @@
             :to="{ path: '/questionnaire', query: { questionnaireId: questionnaire.id } }"
           >
             <img
+              v-if="questionnaireDisplayByKey[questionnaire.key]?.image"
               class="w-32 h-32 object-cover"
               :src="questionnaireDisplayByKey[questionnaire.key]?.image ?? ''"
             />
             <div>
               <CompleteTag :complete="isQuestionnaireDoneV2(questionnaire.id)" />
               <h3 class="text-2xl max-w-17ch">
-                {{ questionnaireDisplayByKey[questionnaire.key]?.name ?? questionnaire.title }}
+                {{ questionnaire.title }}
               </h3>
-              <span>{{ questionnaireDisplayByKey[questionnaire.key]?.desc ?? questionnaire.introduction }}</span>
+              <span>{{ questionnaire.introduction }}</span>
             </div>
           </RouterLink>
         </div>

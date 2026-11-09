@@ -40,7 +40,7 @@
   - 未开始时只能进首页
   - 未登录时非首页会被拦回
   - 投票结束后大部分页面不可访问
-  - 需要完成问卷的页面依赖 `IsQuestionnaireAllDone`
+  - 需要完成问卷的页面依赖 `isQuestionnaireAllDoneV2` 的本地草稿预判；规则和服务端闸门范围见[当前问卷指南](questionnaire-v2-notes.md#整体完成闸门维护)
 
 ## 数据层
 - Apollo 初始化在 `src/graphql/index.ts`。

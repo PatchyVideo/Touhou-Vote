@@ -118,8 +118,8 @@ pnpm result:codegen
 ## 部门有效票与问卷填写情况（2026-10-22）
 
 - 排名 `global.totalVotes` 现在是部门有效提交数，一张票的多个票位不累加成多张部门票；候选票数、本命及平均/中位得票保持原有口径。
-- `queryCompletionRates.items[].name` 为真实问卷 key。`Questionnaire.vue` 从既有 `/res-be/api/v1/questionnaire/structure` 读取 key→title，并保留旧静态问卷编号和原始名称回退。
-- 完成数量按最新答案批次及真实可见题组判定，选填问卷也统计；筛选后 numComplete/total/rate 以筛选人群计算。
+- `queryCompletionRates.items[].name` 为真实问卷 key。`lib/Questionnaire.ts` 从既有 `/res-be/api/v1/questionnaire/structure` 读取定义并建立 code 索引，同次应用运行共享内存和进行中请求，失败可重试。题干、题型、选项、高级搜索和文本详情均来自该定义，刷新重新请求；无静态题库回退。
+- 完成数量按最新答案批次及真实可见题组判定，选填问卷也统计；筛选后 numComplete/total/rate 以筛选人群计算。整套投票条件“全部必填＋至少一份 extra 选填”不参与逐问卷完成率，只完成某份选填也可计入该份完成数。
 - GraphPie 保持原图表形式；有 rate 的问卷项显示后端完成率，其他饼图继续显示扇区占比。各问卷可以由同一个人完成，独立完成率不能使用所有扇区完成数之和作分母。
 - 后端/前端适配发布后，安排反作弊完成后的人工计票，才会刷新旧缓存口径。不自动重算真实结果。
 
@@ -131,3 +131,11 @@ pnpm result:codegen
 - 组合详情发送 `cp=("A","B"[,"C"])`，后端按组合票完整无序匹配，保留 A×A 的重复成员。两人组合不会匹配含同两人的三人组合，角色部门共投两个角色也不算投过该组合。
 - 后端先发布 cp 查询支持，再发布前端；不新增接口、存储、配置或依赖，不改变人工计票与既有高级搜索按需计算流程。
 - 相关单元检查：`pnpm exec tsx --test packages/result/src/lib/__tests__/detailConstraint.test.ts`。
+
+## 问卷定义来源统一（2026-11-09）
+
+- 共享请求与类型见 `packages/shared/api/questionnaire.ts`、`data/questionnaireV2.ts`；真实 id 关联作答，题/选项 code 关联统计/DSL/链接，不解码 id 推断层级。
+- 先加载定义再生成 queryQuestionnaire 的清单；完整清单以定义为准，已计票的缺题/缺选项计数补零，整届 RESULT_NOT_COMPUTED 和请求失败仍显示错误。无 code 题提示未配置，高级搜索不提供缺 code 的题目/选项。
+- queryCompletionRates 请求现有 rate/total；题目按 code 排序，选项按后端顺序。文本详情处理空 entries，趋势页处理空序列。
+- q11031 地图、q11011 饼图和总趋势代理题绑定暂保留。普通结果是计票快照，改题库不自动重算；历史题库未按届次版本化。
+- 本地验证不代表真实账号或线上统计验收；未部署或重算真实结果。

@@ -20,7 +20,10 @@
 
     <div v-if="!runtime" class="flex-1 flex items-center justify-center p-6 text-center">
       <div v-if="structureLoading">问卷加载中…</div>
-      <div v-else-if="structureError">问卷加载失败，请稍后刷新重试。</div>
+      <div v-else-if="structureError">
+        问卷加载失败。
+        <button class="underline" @click="loadQuestionnaireStructure(true)">重试</button>
+      </div>
       <div v-else>暂无可填写的问题。</div>
     </div>
 
@@ -115,8 +118,7 @@
       </div>
       <div v-else>
         <div>
-          感谢您完成了<strong>{{ questionnaireName }}</strong
-          >的填写！
+          已保存本次问卷回答。开始投票前，请完成必填问卷，并至少完成一份选填问卷。
         </div>
         <div>您是希望休息一下，还是继续填写/修改其他问卷呢？</div>
         <div>提示：可以通过页面顶部的下拉菜单快速切换问卷或问题。</div>
@@ -141,6 +143,7 @@ import {
   buildAnswerStatePayload,
   firstCompleteQuestionnaireAll,
   getRuntime,
+  loadQuestionnaireStructure,
   isQuestionnaireAllDoneV2,
   questionnaires,
   setInput,

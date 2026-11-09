@@ -137,6 +137,10 @@
           </div>
         </div>
         <div>调查问卷回答了以下问题：</div>
+        <div v-if="questionnaireLoading" class="text-sm">问卷加载中…</div>
+        <div v-else-if="questionnaireError" class="text-sm">
+          问卷加载失败。<button class="underline" @click="loadQuestionnaireDefinitions">重试</button>
+        </div>
         <div class="rounded border border-dashed border-accent-600 p-1">
           <div v-if="questionnaires.length" class="flex flex-wrap">
             <div
@@ -191,14 +195,7 @@
             <div class="pl-4">
               • q+问卷题目ID = 选项ID
               <div class="pl-4">示例：q11011 = 1101101</div>
-              <div>
-                问卷ID相关内容请参阅<a
-                  class="transition transition-colors underline p-1"
-                  href="https://github.com/PatchyVideo/Touhou-Vote/blob/dev/packages/shared/data/questionnaire.ts#L67"
-                  target="_blank"
-                  >这里</a
-                >
-              </div>
+              <div>题目和选项编号以当前后台问卷为准，可在图形模式中选择对应题目和选项。</div>
             </div>
           </div>
           <div>
@@ -284,9 +281,14 @@ import { useRoute, useRouter } from 'vue-router'
 import { useVModel } from '@vueuse/core'
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 import { ensureVoteObjectResources, getCharacterNames, getMusicNames } from '@/lib/voteObjectResources'
-import type { Question } from '@touhou-vote/shared/data/questionnaire'
-import { questionnaire } from '@touhou-vote/shared/data/questionnaire'
+import type { QuestionnaireQuestionV2 } from '@touhou-vote/shared/data/questionnaireV2'
+import { ensureQuestionnaireStructure, questionnaireIndex, questionnaireLoading, questionnaireError } from '@/lib/Questionnaire'
 import VoteSelect from '@/components/VoteSelect.vue'
+
+function loadQuestionnaireDefinitions(): void {
+  void ensureQuestionnaireStructure().catch(() => { /* Shared error is displayed below. */ })
+}
+loadQuestionnaireDefinitions()
 
 const resourceReady = ref(false)
 ensureVoteObjectResources()
@@ -566,60 +568,24 @@ const questionnaireAnswer = ref({
   name: '',
   value: '',
 })
-const questionnaireItemList = computed<
-  {
-    name: string
-    value: string
-  }[]
->(() => {
-  let questionnaireItemList = []
-  for (const bigquestionnaire in questionnaire)
-    for (const smallquestionnaire in questionnaire[bigquestionnaire])
-      for (const questionLib of questionnaire[bigquestionnaire][smallquestionnaire].questions)
-        for (const question of questionLib)
-          if (
-            question.type === 'Single' &&
-            !questionnaires.value.find((item) => item.questionID === String(question.id))
-          )
-            questionnaireItemList.push({
-              name: question.question,
-              value: String(question.id),
-            })
-          else if (question.type === 'Multiple' && checkQuestionAvailable(question))
-            questionnaireItemList.push({
-              name: question.question,
-              value: String(question.id),
-            })
-  return questionnaireItemList
+const questionnaireItemList = computed(() =>
+  (questionnaireIndex.value?.questions ?? [])
+    .map(({ question }) => question)
+    .filter((question) => question.code && question.options.some((option) => option.code) && (
+      (question.type === 'Single' && !questionnaires.value.some((item) => item.questionID === question.code)) ||
+      (question.type === 'Multiple' && checkQuestionAvailable(question))
+    ))
+    .map((question) => ({ name: question.content, value: question.code! }))
+)
+const questionnaireAnswerIitemList = computed(() => {
+  const question = questionnaireIndex.value?.questionByCode.get(questionnaireQuestion.value.value)?.question
+  return (question?.options ?? [])
+    .filter((option) => option.code && !questionnaires.value.some((item) => item.answerID === option.code))
+    .map((option) => ({ name: option.content, value: option.code! }))
 })
-const questionnaireAnswerIitemList = computed<
-  {
-    name: string
-    value: string
-  }[]
->(() => {
-  for (const bigquestionnaire in questionnaire)
-    for (const smallquestionnaire in questionnaire[bigquestionnaire])
-      for (const questionLib of questionnaire[bigquestionnaire][smallquestionnaire].questions)
-        for (const question of questionLib)
-          if (String(question.id) === questionnaireQuestion.value.value)
-            return question.options
-              .filter((item) => questionnaires.value.findIndex((item2) => item2.answerID === String(item.id)) === -1)
-              .map((item) => {
-                return {
-                  name: item.content,
-                  value: String(item.id),
-                }
-              })
-  return []
-})
-function checkQuestionAvailable(question: Question): boolean {
-  var flag = 0
-  for (const item of questionnaires.value) {
-    if (item.questionID === String(question.id)) flag++
-  }
-  if (flag === question.options.length) return false
-  else return true
+function checkQuestionAvailable(question: QuestionnaireQuestionV2): boolean {
+  return question.options.some((option) => option.code &&
+    !questionnaires.value.some((item) => item.questionID === question.code && item.answerID === option.code))
 }
 function addQuestion() {
   if (questionnaireQuestion.value.name === '' || questionnaireAnswer.value.name === '') return

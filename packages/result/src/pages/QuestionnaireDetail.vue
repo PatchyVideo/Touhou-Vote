@@ -179,8 +179,8 @@ watchEffect(() => {
     if (result.value.queryQuestionnaireTrend) {
       trend.value = []
       trend.value.push(
-        getTrendData('总票数', result.value.queryQuestionnaireTrend[0].trend),
-        getAddedTrendData('新增票数', result.value.queryQuestionnaireTrend[0].trend)
+        getTrendData('总票数', result.value.queryQuestionnaireTrend[0]?.trend ?? []),
+        getAddedTrendData('新增票数', result.value.queryQuestionnaireTrend[0]?.trend ?? [])
       )
     }
   }
