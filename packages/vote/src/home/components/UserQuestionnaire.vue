@@ -18,18 +18,18 @@
           >
             <div class="w-1/3 p-0.5 overflow-hidden rounded-xl">
               <div class="w-full aspect-1/1">
-                <img :src="questionnaireDisplayByKey[questionnaire.key]?.image ?? ''" class="object-cover" />
+                <img v-if="questionnaireDisplayByKey[questionnaire.key]?.image" :src="questionnaireDisplayByKey[questionnaire.key]?.image ?? ''" class="object-cover" />
               </div>
             </div>
             <div class="w-2/3 p-0.5 flex flex-wrap content-between">
               <div class="w-full space-y-0.5">
                 <div class="w-full flex items-center space-x-2">
                   <div class="text-xl truncate">
-                    {{ questionnaireDisplayByKey[questionnaire.key]?.name ?? questionnaire.title }}
+                    {{ questionnaire.title }}
                   </div>
                   <CompleteTag :complete="isQuestionnaireDoneV2(questionnaire.id)" />
                 </div>
-                <span>{{ questionnaireDisplayByKey[questionnaire.key]?.desc ?? questionnaire.introduction }}</span>
+                <span>{{ questionnaire.introduction }}</span>
               </div>
               <div class="w-full text-right">
                 <button class="px-2 py-0.5 text-sm xl:px-3 xl:py-2">开始填写</button>

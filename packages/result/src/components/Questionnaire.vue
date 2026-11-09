@@ -1,5 +1,11 @@
 <template>
   <div class="p-3">
+    <div v-if="questionnaireLoading || loading">问卷结果加载中…</div>
+    <div v-else-if="questionnaireError || statisticsError" class="py-3">
+      {{ questionnaireError || statisticsError }}
+      <button class="underline ml-2" @click="QuestionnaireDetail(props.q)">重试</button>
+    </div>
+    <template v-else-if="statisticsReady">
     <div>
       <div class="text-2xl py-0.5 border-b border-accent-600">投票群体 - 问卷填写情况</div>
       <GraphPie :data="questionnaireCompletionRates" :much-legend="true" class="max-w-4xl pt-3 mx-auto" />
@@ -10,9 +16,13 @@
         <div class="py-0.5 border-b border-accent-300">
           {{ item.question }}
         </div>
-        <div class="py-1 text-sm">
+        <div v-if="item.code" class="py-1 text-sm">
           {{ '总回答数：' + item.totalAnswers + '；男性数：' + item.totalMale + '；女性数：' + item.totalFemale }}
         </div>
+        <div v-if="!item.code" class="py-2 text-gray-600">本题尚未设置统计编号。</div>
+        <div v-else-if="item.totalAnswers === 0" class="py-2 text-gray-600">暂无回答。</div>
+        <template v-else>
+        <div v-if="item.hasUncodedOptions" class="text-gray-600">部分选项尚未设置统计编号，暂不展示对应选项统计。</div>
         <div v-if="item.type === 'Multiple'" class="py-1 text-sm italic text-gray-700">
           *【男性/女性相对比例】是方便查看男性/女性之间投票选项的差异而设置的，其计算公式为：回答该选项的男性/女性票数
           ➗ (回答该问题的男性/女性票数 ➗ 回答该问题的总票数)
@@ -88,8 +98,10 @@
           v-else-if="item.type === 'Input'"
           >点击这里查看全部回答</router-link
         >
+        </template>
       </div>
     </div>
+    </template>
   </div>
 </template>
 <script lang="ts" setup>
@@ -100,9 +112,12 @@ import NProgress from 'nprogress'
 import type { GraphDataPie, GraphDataRadar, GraphDataSunburst } from '@/lib/Graph'
 import {
   allQuestionnaireIDList,
-  findQuestionWithQuestionID,
+  buildQuestionnaireResultItems,
+  ensureQuestionnaireStructure,
+  questionnaireIndex,
+  questionnaireLoading,
+  questionnaireError,
   getSmallQuestionnaireChineseName,
-  qIDToID,
 } from '@/lib/Questionnaire'
 import GraphMap from '../components/GraphMap.vue'
 import GraphPie from '../components/GraphPie.vue'
@@ -114,47 +129,14 @@ const props = defineProps<{
   q: string
 }>()
 
-const questionnaireTitles = ref<Record<string, string>>({})
-onMounted(async () => {
-  try {
-    const response = await fetch('/res-be/api/v1/questionnaire/structure', { credentials: 'include' })
-    if (!response.ok) throw new Error(`questionnaire structure HTTP ${response.status}`)
-    const structure = await response.json() as { questionnaires: { key: string; title: string }[] }
-    questionnaireTitles.value = Object.fromEntries(
-      structure.questionnaires.map((item) => [item.key, item.title || item.key])
-    )
-  } catch (error) {
-    console.error('问卷名称加载失败', error)
-  }
-})
-watch(
-  props,
-  (newv) => {
-    if (newv.q != 'NONE') {
-      QuestionnaireDetail(props.q)
-    }
-  },
-  {
-    deep: true,
-  }
-)
+const statisticsError = ref<string | null>(null)
+const statisticsReady = ref(false)
+watch(() => props.q, (query) => {
+  if (query !== 'NONE') void QuestionnaireDetail(query)
+}, { immediate: true })
 
 const questionnaireCompletionRates = ref<GraphDataPie[]>([])
-interface QuestionItem {
-  questionId: string
-  question: string
-  type: 'Input' | 'Single' | 'Multiple'
-  answersCat: {
-    aid: string
-    content: string
-    totalVotes: number
-    maleVotes: number
-    femaleVotes: number
-  }[]
-  totalAnswers: number
-  totalMale: number
-  totalFemale: number
-}
+type QuestionItem = ReturnType<typeof buildQuestionnaireResultItems>[number]
 const questionItem = ref<QuestionItem[]>([])
 function getMaleAndFemaleAnswerNumber(item: QuestionItem): GraphDataSunburst[] {
   const dataOut: GraphDataSunburst[] = []
@@ -177,14 +159,12 @@ function getMaleAndFemaleAnswerNumber(item: QuestionItem): GraphDataSunburst[] {
 function getIndicator(item: QuestionItem): string[] {
   const indicator: string[] = []
   const answersCat = [...item.answersCat]
-  answersCat.sort((a, b) => Number(a.aid) - Number(b.aid))
   answersCat.map((item2) => indicator.push(item2.content))
   return indicator
 }
 function getDataRadar(item: QuestionItem): GraphDataRadar[] {
   const data: GraphDataRadar[] = []
   const answersCat = [...item.answersCat]
-  answersCat.sort((a, b) => Number(a.aid) - Number(b.aid))
   data.push(
     { name: '总票数', value: answersCat.map((item2) => item2.totalVotes) },
     { name: '男性票数', value: answersCat.map((item2) => item2.maleVotes) },
@@ -225,6 +205,8 @@ const {
         items {
           name
           numComplete
+          rate
+          total
         }
       }
     }
@@ -252,35 +234,15 @@ watchEffect(() => {
 watchEffect(() => {
   if (result.value) {
     if (result.value.queryQuestionnaire) {
-      questionItem.value = result.value.queryQuestionnaire.entries
-        .map((item) => {
-          return {
-            questionId: item.questionId,
-            question: findQuestionWithQuestionID(qIDToID(item.questionId)).question,
-            type: findQuestionWithQuestionID(qIDToID(item.questionId)).type,
-            answersCat: item.answersCat.map((item2) => {
-              return {
-                aid: item2.aid,
-                content:
-                  findQuestionWithQuestionID(qIDToID(item.questionId)).options.find(
-                    (item3) => String(item3.id) === item2.aid
-                  )?.content || 'ERROR',
-                totalVotes: item2.totalVotes,
-                maleVotes: item2.maleVotes,
-                femaleVotes: item2.femaleVotes,
-              }
-            }),
-            totalAnswers: item.totalAnswers,
-            totalMale: item.totalMale,
-            totalFemale: item.totalFemale,
-          }
-        })
-        .sort((a, b) => Number(qIDToID(a.questionId)) - Number(qIDToID(b.questionId)))
+      if (questionnaireIndex.value) {
+        questionItem.value = buildQuestionnaireResultItems(questionnaireIndex.value, result.value.queryQuestionnaire.entries)
+        statisticsReady.value = true
+      }
     }
     if (result.value.queryCompletionRates) {
       questionnaireCompletionRates.value = result.value.queryCompletionRates.items.map((item) => {
         return {
-          name: questionnaireTitles.value[item.name] || getSmallQuestionnaireChineseName(item.name) || item.name,
+          name: getSmallQuestionnaireChineseName(item.name),
           value: item.numComplete,
           rate: item.rate,
         }
@@ -289,45 +251,34 @@ watchEffect(() => {
   }
 })
 onError((err) => {
-  alert(err.message)
-  console.log(err.message)
+  statisticsReady.value = false
+  statisticsError.value = err.message
 })
 async function QuestionnaireDetail(q: string): Promise<void> {
-  if (queryQuestionnaireDisabled.value)
-    load(
-      undefined,
-      q === ''
-        ? {
-            voteStart,
-            voteYear,
-            questionsOfInterest: allQuestionnaireIDList.value,
-          }
-        : {
-            voteStart,
-            voteYear,
-            query: q,
-            questionsOfInterest: allQuestionnaireIDList.value,
-          }
-    )
-  else
-    fetchMore({
-      variables:
-        q === ''
-          ? {
-              voteStart,
-              voteYear,
-              questionsOfInterest: allQuestionnaireIDList.value,
-            }
-          : {
-              voteStart,
-              voteYear,
-              query: q,
-              questionsOfInterest: allQuestionnaireIDList.value,
-            },
-      updateQuery(previousQueryResult, { fetchMoreResult }) {
-        if (!fetchMoreResult) return previousQueryResult
-        return fetchMoreResult
-      },
-    })
+  if (q === 'NONE') return
+  statisticsError.value = null
+  statisticsReady.value = false
+  try {
+    await ensureQuestionnaireStructure()
+    if (q !== props.q) return
+    const variables = {
+      voteStart, voteYear, questionsOfInterest: allQuestionnaireIDList.value,
+      query: q || undefined,
+    }
+    if (queryQuestionnaireDisabled.value) {
+      await load(undefined, variables)
+    } else {
+      await fetchMore({ variables, updateQuery(previous, { fetchMoreResult }) {
+        return fetchMoreResult ?? previous
+      } })
+    }
+    // A cached successful response is also valid when the same filter is retried.
+    if (result.value?.queryQuestionnaire && !statisticsError.value && questionnaireIndex.value) {
+      questionItem.value = buildQuestionnaireResultItems(questionnaireIndex.value, result.value.queryQuestionnaire.entries)
+      statisticsReady.value = true
+    }
+  } catch (error) {
+    statisticsError.value = error instanceof Error ? error.message : String(error)
+  }
 }
 </script>

@@ -19,15 +19,16 @@
             :to="{ path: '/questionnaire', query: { questionnaireId: questionnaire.id } }"
           >
             <img
+              v-if="questionnaireDisplayByKey[questionnaire.key]?.image"
               class="w-32 h-32 object-cover"
               :src="questionnaireDisplayByKey[questionnaire.key]?.image ?? ''"
             />
             <div>
               <CompleteTag :complete="isQuestionnaireDoneV2(questionnaire.id)" />
               <h3 class="text-2xl max-w-17ch">
-                {{ questionnaireDisplayByKey[questionnaire.key]?.name ?? questionnaire.title }}
+                {{ questionnaire.title }}
               </h3>
-              <span>{{ questionnaireDisplayByKey[questionnaire.key]?.desc ?? questionnaire.introduction }}</span>
+              <span>{{ questionnaire.introduction }}</span>
             </div>
           </RouterLink>
         </div>

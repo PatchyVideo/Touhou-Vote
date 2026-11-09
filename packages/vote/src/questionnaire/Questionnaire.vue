@@ -20,7 +20,10 @@
 
     <div v-if="!runtime" class="flex-1 flex items-center justify-center p-6 text-center">
       <div v-if="structureLoading">问卷加载中…</div>
-      <div v-else-if="structureError">问卷加载失败，请稍后刷新重试。</div>
+      <div v-else-if="structureError">
+        问卷加载失败。
+        <button class="underline" @click="loadQuestionnaireStructure(true)">重试</button>
+      </div>
       <div v-else>暂无可填写的问题。</div>
     </div>
 
@@ -141,6 +144,7 @@ import {
   buildAnswerStatePayload,
   firstCompleteQuestionnaireAll,
   getRuntime,
+  loadQuestionnaireStructure,
   isQuestionnaireAllDoneV2,
   questionnaires,
   setInput,

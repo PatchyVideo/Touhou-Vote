@@ -6,7 +6,7 @@ import type {
   QuestionnaireDefinitionV2,
   QuestionnaireDrafts,
 } from '@touhou-vote/shared/data/questionnaireV2'
-import type { QuestionnaireStructureResponse } from '@touhou-vote/shared/data/questionnaireV2'
+import { fetchQuestionnaireStructure } from '@touhou-vote/shared/api/questionnaire'
 import {
   normalizeQuestionnaireDraftV2,
   parseQuestionnaireRuntimeV2,
@@ -33,6 +33,7 @@ export const structureReady: Promise<void> = new Promise((resolve) => {
 })
 let structureReadyResolved = false
 let loadPromise: Promise<void> | null = null
+let structureLoaded = false
 
 function markStructureReady(): void {
   if (!structureReadyResolved) {
@@ -42,37 +43,30 @@ function markStructureReady(): void {
 }
 
 export function loadQuestionnaireStructure(force = false): Promise<void> {
-  if (loadPromise && !force) return loadPromise
+  if (loadPromise) return loadPromise
+  if (structureLoaded && !force) return Promise.resolve()
 
   loadPromise = (async () => {
     structureLoading.value = true
     structureError.value = null
     try {
-      if (!force) {
-        const cached = sessionStorage.getItem(SESSIONSTORAGE_KEY)
-        if (cached) {
-          const parsed = JSON.parse(cached) as QuestionnaireStructureResponse
-          questionnaires.value = parsed.questionnaires
-          ensureAnswerState()
-          return
-        }
-      }
-      const res = await fetch(STRUCTURE_URL, { credentials: 'include' })
-      if (!res.ok) throw new Error(`structure HTTP ${res.status}`)
-      const json = (await res.json()) as QuestionnaireStructureResponse
+      sessionStorage.removeItem(SESSIONSTORAGE_KEY)
+      const json = await fetchQuestionnaireStructure(STRUCTURE_URL)
       questionnaires.value = json.questionnaires
-      sessionStorage.setItem(SESSIONSTORAGE_KEY, JSON.stringify(json))
       ensureAnswerState()
+      structureLoaded = true
     } catch (err) {
       structureError.value = err instanceof Error ? err.message : String(err)
-      console.error('[questionnaireV2] 拉取结构失败,进入降级模式:', err)
+      console.error('[questionnaireV2] 拉取结构失败:', err)
     } finally {
       structureLoading.value = false
       markStructureReady()
     }
   })()
 
-  return loadPromise
+  const pending = loadPromise
+  void pending.then(() => { loadPromise = null })
+  return pending
 }
 
 // ---------------- 答案状态 ----------------

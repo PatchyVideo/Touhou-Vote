@@ -1,16 +1,16 @@
 # 当前问卷 V2 指南
 
-核对日期：2026-11-08；依据本地已提交源码，未核验线上题库和部署。
+核对日期：2026-11-09；依据当前本地实现，未核验线上题库和部署。
 本页是当前问卷实现的阅读入口；历史模型说明和迁移方案见[归档索引](../../docs/archive/frontend/README.md)。
 
 ## 定义来源与职责
 
 - 正式问卷定义由后端 `${API_PREFIX}/questionnaire/structure` 返回，响应为 `{ questionnaires: [...] }`。
-- [共享类型](../../packages/shared/data/questionnaireV2.ts)定义契约，不维护前端静态题库或正式题目内容。
+- [共享请求](../../packages/shared/api/questionnaire.ts)供填写与结果应用加载同一后端结构；[共享类型](../../packages/shared/data/questionnaireV2.ts)定义契约，不维护前端静态题库或正式题目内容。
 - 问卷定义包含 `id`、`key`、`title`、`introduction`、`category`、`required`、`order` 和 `questionGroups`。
 - `category` 为 `main` 或 `extra`；页面和首页消费这些分类，必填完成态读取 `required`。
 - 问题组包含 `id`、`order`、`hiddenByDefault`、`questions`；当前模型没有 `initialQuestionId`。
-- 题目类型为 `Single`、`Multiple`、`Input`；选项携带 `relatedQuestionIds`、`mutexOptionIds`、`optionGroup`。
+- 题目与选项的 `id` 用于作答关联，可空 `code` 用于结果统计/DSL/链接，不可混用。题目类型为 `Single`、`Multiple`、`Input`；选项携带 `relatedQuestionIds`、`mutexOptionIds`、`optionGroup`。
 - 题目、分组、选项及其 ID 以本次后端返回为准；本地旧表不能用来判断线上缺题或分配 ID。
 
 ## 当前主链路
@@ -63,14 +63,14 @@
 
 | 存储 | 当前键 | 内容与用途 |
 | --- | --- | --- |
-| sessionStorage | `questionnaireStructureV2` | 后端结构响应的会话缓存，默认优先复用 |
+| sessionStorage | 旧 `questionnaireStructureV2` | 不再读取或写入；加载时移除旧键 |
 | localStorage | `questionnaireDataLocalV2` | 用户答案草稿，用于恢复未提交填写状态 |
 | 内存 | `questionnaires`、`drafts`、运行时计算值 | 当前页面加载后的定义、答案及显示状态 |
 
-`loadQuestionnaireStructure(force = false)` 默认读取会话缓存，未命中才请求后端；`force` 可跳过该缓存。
+`loadQuestionnaireStructure(force = false)` 在当前应用成功加载后复用内存，合并进行中请求；刷新页面后重新请求后端，失败可手动重试；`force` 可跳过成功内存复用。
 结构加载成功后用当前定义归一化答案；`toggleOption`、`setInput` 写入本地草稿。
 退出登录会调用 `clearQuestionnaireV2LocalData()` 清除上述两个存储键及内存草稿。
-结构缓存与填写草稿的用途不同；本次文档整理未改变任何存储策略。
+结构内存与填写草稿用途不同，移除旧题库缓存不删除个人答案。首页名称与说明读取后端 title/introduction，按 key 的配图暂保留。
 
 ## Legacy 文件与维护入口
 
@@ -81,11 +81,11 @@
 - [旧 paperJson 兼容层](../../packages/vote/src/questionnaire/lib/questionnaireV2PaperJson.ts)
 
 需要改问卷内容或规则定义时，先核对后端来源；前端继续负责现有契约的渲染、交互与答案状态。
-本指南不追加迁移阶段或产品规则，也不安排删除上述 legacy 文件。
+结果应用的图表、文本详情与高级搜索已改用后端定义及 code 索引；旧表只保留其他历史/测试入口使用，不作为结果来源。
 需求原文仍见[问卷大纲](../OUTLINE-Questionnaire.md)，旧迁移建议仅见归档。
 
 ## 未核验范围
 
 - 线上具体题目、身份映射、统计数据及账号认证现状。
 - 当前部署是否与本地源码一致，以及真实账号提交、回填结果。
-- 问卷结构缓存后续是否调整；现有行为不构成新的实施要求。
+- 特殊地图/性别图及趋势代理题保留既有 code 绑定；跨届题库定义未版本化。

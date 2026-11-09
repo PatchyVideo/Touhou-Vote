@@ -1,5 +1,7 @@
 export interface QuestionnaireOptionV2 {
   id: number
+  code?: string | null
+  order?: number
   content: string
   relatedQuestionIds: number[]
   mutexOptionIds: number[]
@@ -8,6 +10,8 @@ export interface QuestionnaireOptionV2 {
 
 export interface QuestionnaireQuestionV2 {
   id: number
+  code?: string | null
+  order?: number
   type: 'Single' | 'Multiple' | 'Input'
   content: string
   introduction: string
