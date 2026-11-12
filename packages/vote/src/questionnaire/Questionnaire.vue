@@ -140,11 +140,12 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import {
-  buildAnswerStatePayload,
   firstCompleteQuestionnaireAll,
   getRuntime,
   loadQuestionnaireStructure,
   isQuestionnaireAllDoneV2,
+  markPaperSubmitted,
+  preparePaperSubmission,
   questionnaires,
   setInput,
   structureError,
@@ -239,7 +240,7 @@ function drawerOpen(): void {
 
 const submitCompleteMessageBoxOpen = ref(false)
 
-const { mutate, loading: submiting, onDone, onError } = useMutation<{ submitPaperV2: boolean }>(gql`
+const { mutate, loading: submiting, onError } = useMutation<{ submitPaperV2: boolean }>(gql`
   mutation ($voteToken: String!, $answers: JSON!) {
     submitPaperV2(voteToken: $voteToken, answers: $answers)
   }
@@ -247,21 +248,24 @@ const { mutate, loading: submiting, onDone, onError } = useMutation<{ submitPape
 
 async function submitQuestionnire(): Promise<void> {
   if (submiting.value) return
-  const payload = buildAnswerStatePayload()
-  if (!payload) {
+  const token = voteToken.value
+  const confirmed = await popConfirmText('确认提交' + questionnaireName.value + '吗？（您之后还可以修改）')
+  if (!confirmed || submiting.value || !token || token !== voteToken.value) return
+  const submission = preparePaperSubmission()
+  if (!submission) {
     popMessageText('问卷尚未加载完成，请稍后再试')
     return
   }
-  if (await popConfirmText('确认提交' + questionnaireName.value + '吗？（您之后还可以修改）')) {
-    mutate({
-      voteToken: voteToken.value,
-      answers: payload,
-    })
+  // GraphQL 和网络错误由 onError 显示。
+  const result = await mutate({ voteToken: token, answers: submission.answers }).catch(() => undefined)
+  if (!result || token !== voteToken.value) return
+  if (result.data?.submitPaperV2 !== true) {
+    popMessageText('提交失败，请稍后再试')
+    return
   }
-}
-onDone(() => {
+  markPaperSubmitted(submission)
   submitCompleteMessageBoxOpen.value = true
-})
+}
 onError((error) => {
   if (error.graphQLErrors?.[0]?.extensions?.error_kind === 'REQUEST_TOO_FREQUENT') popMessageText('请求过于频繁！')
   else popMessageText('提交失败，原因：' + (error.graphQLErrors?.[0]?.extensions?.human_readable_message ?? '未知错误'))
