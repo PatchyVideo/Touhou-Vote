@@ -4,7 +4,6 @@ import type {
   QuestionnaireAnswerDraftV2,
   QuestionnaireAnswerRowV2,
   QuestionnaireDefinitionV2,
-  QuestionnaireDrafts,
 } from '@touhou-vote/shared/data/questionnaireV2'
 import { fetchQuestionnaireStructure, meetsQuestionnaireCompletionPolicy } from '@touhou-vote/shared/api/questionnaire'
 import {
@@ -70,11 +69,16 @@ export function loadQuestionnaireStructure(force = false): Promise<void> {
 }
 
 // ---------------- 答案状态 ----------------
-export const drafts = ref<QuestionnaireDrafts>({})
+// undefined 是旧缓存，null 是已同步的答案，字符串是未提交修改的版本。
+type LocalDraft = QuestionnaireAnswerDraftV2 & { editRevision?: string | null }
+type LocalDrafts = Record<number, LocalDraft>
+export const drafts = ref<LocalDrafts>({})
+let draftSession = 0
 
-function createEmptyDraft(questionnaire: QuestionnaireDefinitionV2): QuestionnaireAnswerDraftV2 {
+function createEmptyDraft(questionnaire: QuestionnaireDefinitionV2): LocalDraft {
   return {
     questionnaireId: questionnaire.id,
+    editRevision: null,
     groups: questionnaire.questionGroups.map((group) => ({
       groupId: group.id,
       activeQuestionId: null,
@@ -84,9 +88,9 @@ function createEmptyDraft(questionnaire: QuestionnaireDefinitionV2): Questionnai
   }
 }
 
-function reconcileDraft(definition: QuestionnaireDefinitionV2, draft: QuestionnaireAnswerDraftV2): QuestionnaireAnswerDraftV2 {
+function reconcileDraft(definition: QuestionnaireDefinitionV2, draft: LocalDraft): LocalDraft {
   try {
-    return normalizeQuestionnaireDraftV2(definition, draft)
+    return { ...normalizeQuestionnaireDraftV2(definition, draft), editRevision: draft.editRevision }
   } catch (err) {
     console.error(`[questionnaireV2] 归一化 questionnaire ${definition.id} 失败:`, err)
     return draft
@@ -128,20 +132,28 @@ export function getRuntime(questionnaireId: number): QuestionnaireRuntimeV2 | nu
 }
 
 // ---------------- 变更(写回 + 持久化) ----------------
+function newEditRevision(): string {
+  return globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random()}`
+}
+
+function saveEdit(previous: LocalDraft, next: QuestionnaireAnswerDraftV2): void {
+  if (JSON.stringify(previous.groups) === JSON.stringify(next.groups)) return
+  drafts.value[next.questionnaireId] = { ...next, editRevision: newEditRevision() }
+  persistDrafts()
+}
+
 export function toggleOption(questionnaireId: number, groupId: number, optionId: number): void {
   const questionnaire = questionnaires.value.find((q) => q.id === questionnaireId)
   const draft = drafts.value[questionnaireId]
   if (!questionnaire || !draft) return
-  drafts.value[questionnaireId] = toggleQuestionOptionV2(questionnaire, draft, groupId, optionId)
-  persistDrafts()
+  saveEdit(draft, toggleQuestionOptionV2(questionnaire, draft, groupId, optionId))
 }
 
 export function setInput(questionnaireId: number, groupId: number, input: string): void {
   const questionnaire = questionnaires.value.find((q) => q.id === questionnaireId)
   const draft = drafts.value[questionnaireId]
   if (!questionnaire || !draft) return
-  drafts.value[questionnaireId] = setQuestionInputV2(questionnaire, draft, groupId, input)
-  persistDrafts()
+  saveEdit(draft, setQuestionInputV2(questionnaire, draft, groupId, input))
 }
 
 // ---------------- 完成判定(仅本地预判,权威以后端为准) ----------------
@@ -168,14 +180,14 @@ export function persistDrafts(): void {
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(drafts.value))
 }
 
-export function loadDraftsFromLocalStorage(): QuestionnaireDrafts | null {
+export function loadDraftsFromLocalStorage(): LocalDrafts | null {
   const raw = localStorage.getItem(LOCALSTORAGE_KEY)
   if (!raw) return null
   try {
     const parsed = JSON.parse(raw)
     // Validate it's an object with numeric keys (flat Record<number, draft>)
     if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
-      return parsed as QuestionnaireDrafts
+      return parsed as LocalDrafts
     }
     return null
   } catch {
@@ -184,31 +196,50 @@ export function loadDraftsFromLocalStorage(): QuestionnaireDrafts | null {
 }
 
 export function clearQuestionnaireV2LocalData(): void {
+  draftSession++
   localStorage.removeItem(LOCALSTORAGE_KEY)
   sessionStorage.removeItem(SESSIONSTORAGE_KEY)
   drafts.value = {}
 }
 
 // ---------------- 提交 / 回填(后端) ----------------
-// 返回扁平行数组,直接作为 submitPaperV2 的 answers。
-export function buildAnswerStatePayload(): QuestionnaireAnswerRowV2[] | null {
+// 同时捕获扁平提交数据和各问卷的编辑版本。
+export function preparePaperSubmission() {
   if (!questionnaires.value.length) return null
-  const rows: QuestionnaireAnswerRowV2[] = []
+  const answers: QuestionnaireAnswerRowV2[] = []
+  const revisions = new Map<number, LocalDraft['editRevision']>()
   for (const questionnaire of questionnaires.value) {
     const draft = drafts.value[questionnaire.id]
     if (!draft) continue
+    revisions.set(questionnaire.id, draft.editRevision)
     for (const group of questionnaire.questionGroups) {
       const groupDraft = draft.groups.find((g) => g.groupId === group.id)
-      rows.push({
+      answers.push({
         questionnaireId: questionnaire.id,
         groupId: group.id,
         activeQuestionId: groupDraft?.activeQuestionId ?? null,
-        selectedOptionIds: groupDraft?.selectedOptionIds ?? [],
+        selectedOptionIds: [...(groupDraft?.selectedOptionIds ?? [])],
         input: groupDraft?.input ?? '',
       })
     }
   }
-  return rows
+  return { answers, revisions, session: draftSession }
+}
+
+export function markPaperSubmitted(submission: NonNullable<ReturnType<typeof preparePaperSubmission>>): void {
+  if (submission.session !== draftSession) return
+  const stored = loadDraftsFromLocalStorage()
+  let storageChanged = false
+  for (const [id, revision] of submission.revisions) {
+    const current = drafts.value[id]
+    if (current && current.editRevision === revision) current.editRevision = null
+    const cached = stored?.[id]
+    if (cached && cached.editRevision === revision && revision !== null) {
+      cached.editRevision = null
+      storageChanged = true
+    }
+  }
+  if (storageChanged) localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(stored))
 }
 
 let restoreClient: ReturnType<typeof createApollo> | null = null
@@ -224,12 +255,18 @@ const GET_PAPER_V2 = gql`
 
 // getPaperV2 返回扁平 snake_case 行,映射回各草稿。
 function applyPaperRows(rows: any[]): void {
+  const restored = new Map<number, LocalDraft>()
   for (const row of rows) {
     if (row == null) continue
     const questionnaireId = Number(row.questionnaire_id)
     const draft = drafts.value[questionnaireId]
-    if (!draft) continue
-    const groupDraft = draft.groups.find((group) => group.groupId === Number(row.group_id))
+    if (!draft || typeof draft.editRevision === 'string') continue
+    let candidate = restored.get(questionnaireId)
+    if (!candidate) {
+      candidate = { ...draft, groups: draft.groups.map(group => ({ ...group })) }
+      restored.set(questionnaireId, candidate)
+    }
+    const groupDraft = candidate.groups.find((group) => group.groupId === Number(row.group_id))
     if (!groupDraft) continue
     if (row.active_question_id != null) groupDraft.activeQuestionId = Number(row.active_question_id)
     groupDraft.selectedOptionIds = Array.isArray(row.selected_option_ids)
@@ -237,18 +274,26 @@ function applyPaperRows(rows: any[]): void {
       : []
     groupDraft.input = typeof row.input_text === 'string' ? row.input_text : ''
   }
-  // Re-normalize all questionnaires after restore
   for (const questionnaire of questionnaires.value) {
-    const draft = drafts.value[questionnaire.id]
-    if (!draft) continue
-    drafts.value[questionnaire.id] = reconcileDraft(questionnaire, draft)
+    const id = questionnaire.id
+    const candidate = restored.get(id)
+    if (!candidate) continue
+    const local = drafts.value[id]
+    const saved = reconcileDraft(questionnaire, candidate)
+    // 旧缓存没有编辑版本。存在差异时保留本地答案，以免升级时丢失草稿。
+    if (local.editRevision === undefined && JSON.stringify(local.groups) !== JSON.stringify(saved.groups)) {
+      local.editRevision = newEditRevision()
+    } else {
+      drafts.value[id] = { ...saved, editRevision: null }
+    }
   }
 }
 
-// 启动时回填(于 checkLoginStatus 内触发)。优先后端,本地草稿仅在后端空时兜底。
+// 启动时回填已提交的答案，保留有未提交修改的整份问卷。
 export async function restorePaperV2(token: string): Promise<void> {
+  const session = draftSession
   await structureReady
-  if (!questionnaires.value.length || !token) return
+  if (session !== draftSession || !questionnaires.value.length || !token) return
   ensureAnswerState()
   try {
     const res = await getRestoreClient().query<{ getPaperV2: unknown }>({
@@ -256,9 +301,9 @@ export async function restorePaperV2(token: string): Promise<void> {
       variables: { voteToken: token },
       fetchPolicy: 'network-only',
     })
+    if (session !== draftSession) return
     const rows = res.data?.getPaperV2
     if (Array.isArray(rows) && rows.length > 0) {
-      // 后端有数据则以之为准,清掉本地草稿
       applyPaperRows(rows)
       persistDrafts()
       return
