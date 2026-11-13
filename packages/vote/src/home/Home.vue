@@ -46,7 +46,7 @@
         class="w-full absolute top-94vh left-0 text-xl text-center text-accent-color-500 cursor-pointer transition hover:text-accent-color-600"
         @click="showMoreInfo()"
       >
-        <icon-uil-angle-double-down class="w-10 h-10 fill-current" />
+        <icon-uil-angle-double-down class="w-10 h-10 mx-auto fill-current" />
       </div>
 
       <!-- Other Messages -->

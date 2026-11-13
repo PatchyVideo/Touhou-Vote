@@ -153,3 +153,6 @@ AGENTS.md
 
 # generate-test-cases 记忆
 .memory/
+
+# DSH 临时分析产物
+.dsh-tmp/
