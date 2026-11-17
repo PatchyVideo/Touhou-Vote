@@ -79,6 +79,8 @@ export async function verifyHuman(): Promise<string | null | undefined> {
     window.initAliyunCaptcha?.({
       SceneId: CAPTCHA_SCENE_ID,
       mode: 'popup',
+      // 关闭 SDK 默认网络错误提示，避免与项目主题弹窗叠加。
+      showErrorTip: false,
       success: (captchaVerifyParam: string): void => done(captchaVerifyParam),
       fail: (): void => undefined,
       onClose: (): void => done(null),

@@ -49,6 +49,11 @@
 - 投票页读取“已提交投票数据”时，当前已经不再使用 `@vue/apollo-composable` 已弃用的 `useResult()`，而是直接用 `computed(() => result.value?.field ?? null)` 做结果映射。
 - `typePolicies` 和 schema 生成文件位于 `src/graphql/__generated__`，代码生成配置是 `src/graphql/codegen.yml`。
 
+## 登录与验证码错误提示
+- 登录框与账号设置共用 `src/common/lib/aliyunCaptcha.ts`。验证码网络异常关闭 SDK 默认提示（`showErrorTip: false`），避免“网络不给力请刷新重试”的黑色提示与项目主题弹窗同时出现。
+- 本次仅关闭 SDK 默认网络错误提示，保留现有验证、取消及初始化超时处理；后端错误仍通过 `popMessageText` → `GlobalMessages` → `VoteMessageBox` 显示主题提示。
+- `showErrorTip` 配置见[阿里云参数说明](https://help.aliyun.com/zh/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access)。
+
 ## 目录结构
 - `src/home`：首页、登录框、用户主页、用户设置。
 - `src/questionnaire`：问卷和问卷修改侧栏。
