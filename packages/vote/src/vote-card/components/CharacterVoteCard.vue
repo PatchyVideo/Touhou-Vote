@@ -10,7 +10,7 @@
     <div v-if="honmeiCharacter" class="mb-12">
       <div
         class="relative rounded-[2rem] p-8 text-white overflow-hidden shadow-lg"
-        :style="{ background: darkenColor(honmeiCharacter.color || '#C00000', 0.2) }"
+        :style="{ background: darkenColor(honmeiCharacter.color || palette.fallback.honmei, 0.2) }"
       >
         <div class="absolute top-0 right-0 w-32 h-32 overflow-hidden pointer-events-none">
           <div
@@ -68,6 +68,7 @@
 import { computed } from 'vue'
 import VoteCardFooter from './VoteCardFooter.vue'
 import HonmeiBadgeText from './HonmeiBadgeText.vue'
+import { palette } from '@/theme/colors'
 import type { CardEntry } from '../lib/types'
 const props = defineProps<{
   entries: CardEntry[]
@@ -79,7 +80,8 @@ const props = defineProps<{
 const honmeiCharacter = computed(() => props.entries.find((entry) => entry.isHonmei))
 const otherCharacters = computed(() => props.entries.filter((entry) => !entry.isHonmei))
 function darkenColor(input: string | undefined, amount: number) {
-  const hex = /^#([0-9a-fA-F]{6})$/.exec(input || '#FC4328')?.[1] || 'FC4328'
+  const fallback = palette.fallback.character
+  const hex = /^#([0-9a-fA-F]{6})$/.exec(input || fallback)?.[1] || fallback.slice(1)
   return (
     '#' +
     [0, 2, 4]
@@ -97,7 +99,7 @@ function darkenColor(input: string | undefined, amount: number) {
 .vote-card-template {
   box-sizing: border-box;
   overflow-wrap: anywhere;
-  color: #111;
+  color: var(--color-text);
 }
 .card-heading {
   display: flex;

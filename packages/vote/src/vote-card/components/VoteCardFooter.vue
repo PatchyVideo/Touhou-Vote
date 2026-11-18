@@ -13,6 +13,6 @@ defineProps<{ showQr?: boolean }>()
 </script>
 <style scoped>
 footer p {
-  color: #4b5563;
+  color: var(--color-text-muted);
 }
 </style>

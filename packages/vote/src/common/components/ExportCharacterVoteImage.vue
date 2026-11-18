@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <button
-      class="px-4 py-2 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition"
+      class="px-4 py-2 bg-accent-color-600 text-white rounded-xl hover:bg-accent-color-700 transition"
       @click="handleOpenExport"
     >
       <icon-uil-image-download class="inline-block mr-2" />
@@ -12,7 +12,7 @@
     <VoteMessageBox v-model:open="exportDialogOpen" :title="`第${voteYear}回 投票卡片`" close-button>
       <div class="space-y-4 p-2 flex flex-col items-center">
         <div v-if="generating" class="py-20 flex flex-col items-center">
-          <icon-uil-spinner-alt class="text-4xl animate-spin text-purple-500 mb-4" />
+          <icon-uil-spinner-alt class="text-4xl animate-spin text-accent-color-500 mb-4" />
           <p class="text-gray-500">{{ generatingText }}</p>
         </div>
 
@@ -24,7 +24,7 @@
         </div>
 
         <div v-if="!generating && previewImageUrl" class="flex w-[30vh] gap-2">
-          <button class="flex-1 py-1 text-sm bg-purple-600 text-white rounded-lg font-semibold" @click="downloadImage">
+          <button class="flex-1 py-1 text-sm bg-accent-color-600 text-white rounded-lg font-semibold" @click="downloadImage">
             保存图片
           </button>
           <button v-if="canShare" class="flex-1 py-1 text-sm bg-pink-500 text-white rounded-lg font-semibold" @click="shareImage">
@@ -54,23 +54,11 @@
           <div v-if="honmeiCharacter" class="mb-12">
             <div 
               class="relative rounded-[2rem] p-8 text-white overflow-hidden shadow-lg"
-              :style="{ background: darkenColor(honmeiCharacter.color || '#C00000', 0.2) }"
+              :style="{ background: darkenColor(honmeiCharacter.color || palette.fallback.honmei, 0.2) }"
             >
               <!-- 本命斜角标签 -->
               <div class="absolute top-0 right-0 w-32 h-32 overflow-hidden pointer-events-none">
-              <!-- 
-                外层 Strip (色块): 
-                1. shadow-sm: 增加层次
-                2. top/right: 保持色块本身的几何对齐（基于 w-40 计算）
-              -->
               <div class="absolute top-5 -right-12 w-40 h-9 bg-black bg-opacity-30 flex items-center justify-center transform rotate-45 shadow-sm">
-                
-                <!-- 
-                  内层 Text (文字修正):
-                  1. -mt-1 或 -mt-1.5: 这是关键！利用负外边距抵消字体的上方留白。
-                  2. relative: 确保定位生效。
-                  3. 如果字体留白非常大，试着把 -mt-1 改成 -mt-2 甚至更大，直到视觉居中。
-                -->
                 <span class="text-white text-xl font-black tracking-[0.2em] uppercase leading-none -mt-1.5 select-none">
                   本命票
                 </span>
@@ -125,7 +113,7 @@
 
           <!-- 底部装饰信息 -->
           <div class="mt-auto pt-10 border-t-2 border-gray-50 flex flex-col items-center text-gray-400">
-            <div class="w-36 h-36 mb-3 rounded-lg border-2 border-gray-100 bg-[linear-gradient(90deg,#f3f4f6_50%,transparent_50%),linear-gradient(#f3f4f6_50%,transparent_50%)] bg-[length:16px_16px] bg-[position:0_0,0_0] flex items-center justify-center">
+            <div class="w-36 h-36 mb-3 rounded-lg border-2 border-accent-color-200 bg-accent-color-100 flex items-center justify-center">
               <div class="w-24 h-24 border-4 border-gray-500 bg-white flex items-center justify-center text-center text-xs leading-5 font-bold text-gray-500">
                 TOUHOU
                 <br />
@@ -160,6 +148,7 @@ import { username } from '@/home/lib/user'
 import { getExportAssetUrl } from '@/common/lib/exportAssetUrl'
 import { createVoteImageExportAbortError, useVoteImageExport } from '@/common/lib/useVoteImageExport'
 import { loadVoteObjects, voteObjectsError } from '@/common/lib/voteObjectsDataSource'
+import { palette } from '@/theme/colors'
 
 const userName = computed(() => username.value || '匿名用户')
 
@@ -169,7 +158,7 @@ const fetchingVoteData = ref(false)
 const voteCharacterData = ref(getExportCharacterData())
 
 function normalizeColor(input: string | undefined) {
-  const fallback = '#FC4328'
+  const fallback = palette.fallback.character
   if (!input) return fallback
   const color = input.trim()
   const hexMatch = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.exec(color)
@@ -179,7 +168,7 @@ function normalizeColor(input: string | undefined) {
     ? hex.split('').map((c) => parseInt(c + c, 16))
     : [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((c) => parseInt(c, 16))
   const luminance = (0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]) / 255
-  if (luminance > 0.9) return '#999999'
+  if (luminance > 0.9) return palette.fallback.contrast
   return `#${hex.length === 3 ? hex.split('').map((c) => c + c).join('') : hex}`
 }
 

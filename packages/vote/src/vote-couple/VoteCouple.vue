@@ -17,7 +17,7 @@
         <div class="p-1 flex justify-between items-center md:text-base xl:text-xl 2xl:text-2xl">
           <div>{{ '角色组合(' + couplesValid.length + '/' + CPVOTENUM + ')' }}</div>
           <div
-            class="text-base text-accent-color-300 underline cursor-pointer transition transition-colors hover:text-accent-color-600"
+            class="text-base text-accent-color-600 underline cursor-pointer transition transition-colors hover:text-accent-color-800"
             @click="() => (noticeOpen = true)"
           >
             投票须知
@@ -91,7 +91,7 @@
             <label>本命CP：</label>
             <label v-for="(character, index) in computeCharactersValid(coupleHonmei.characters)" :key="character.id"
               >{{ character.name
-              }}<label v-if="coupleHonmei.seme === index" class="text-accent-color-300">(主动)</label>，</label
+              }}<label v-if="coupleHonmei.seme === index" class="text-accent-color-600">(主动)</label>，</label
             >
           </div>
         </div>
@@ -100,7 +100,7 @@
             <label>{{ '投票位' + (indexCouple + 1) + '：' }}</label>
             <label v-for="(character, indexCharacter) in computeCharactersValid(couple.characters)" :key="character.id">
               {{ character.name }}
-              <label v-if="couple.seme === indexCharacter" class="text-accent-color-300">(主动)</label>
+              <label v-if="couple.seme === indexCharacter" class="text-accent-color-600">(主动)</label>
               <label v-if="indexCharacter != computeCharactersValid(couple.characters).length - 1">，</label>
             </label>
           </div>

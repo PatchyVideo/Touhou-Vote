@@ -149,19 +149,19 @@ onBeforeUnmount(() => {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: #0009;
+  background: var(--color-mask);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px;
-  color: #111;
+  color: var(--color-text);
 }
 section {
   width: 100%;
   max-width: 760px;
   max-height: 94vh;
   max-height: 94dvh;
-  background: white;
+  background: var(--color-surface);
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -182,7 +182,7 @@ header {
   margin: 0 12px;
   padding-right: 0;
   padding-left: 0;
-  border-bottom: 1px solid #ede9fe;
+  border-bottom: 1px solid var(--color-accent-100);
 }
 footer {
   display: flex;
@@ -203,7 +203,7 @@ footer {
 }
 .failure-message {
   margin: 0;
-  color: #4c1d95;
+  color: var(--color-accent-800);
   font-size: 12px;
   line-height: 1.4;
   overflow-wrap: anywhere;
@@ -237,7 +237,7 @@ footer {
 .loading-spinner {
   width: 36px;
   height: 36px;
-  color: #7c3aed;
+  color: var(--color-accent-600);
 }
 .image-stage {
   position: relative;
@@ -254,13 +254,13 @@ footer {
   cursor: zoom-out;
 }
 .image-scroll img:focus-visible {
-  outline: 3px solid #a78bfa;
+  outline: 3px solid var(--color-accent-400);
   outline-offset: -3px;
 }
 button {
   border-radius: 8px;
   padding: 8px 12px;
-  background: #ede9fe;
+  background: var(--color-accent-100);
 }
 header button {
   background: transparent;
@@ -273,13 +273,13 @@ button:disabled {
 <style scoped>
 header h2,
 .image-scroll p {
-  color: #111827;
+  color: var(--color-text);
 }
 button {
-  color: #4c1d95;
+  color: var(--color-accent-800);
 }
 .save-actions button:last-child {
-  background: #7c3aed;
-  color: #fff;
+  background: var(--color-accent-600);
+  color: var(--color-on-accent);
 }
 </style>

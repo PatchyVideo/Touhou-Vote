@@ -552,17 +552,17 @@ header::after,
 input:not([type='checkbox']),
 select {
   width: 100%;
-  border: 1px solid #a78bfa;
+  border: 1px solid var(--color-accent-400);
   border-radius: 8px;
   padding: 10px;
-  background: white;
-  color: #111;
+  background: var(--color-surface);
+  color: var(--color-text);
 }
 .editor-form button {
   padding: 12px;
   border-radius: 12px;
-  background: #7c3aed;
-  color: white;
+  background: var(--color-accent-600);
+  color: var(--color-on-accent);
 }
 button:disabled {
   opacity: 0.4;

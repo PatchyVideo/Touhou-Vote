@@ -107,7 +107,7 @@
   <div v-else class="relative h-100vh p-4">
     <!-- Skip Navigation -->
     <a
-      class="z-52 absolute px-2 py-1 rounded-full bg-subaccent transform -translate-x-3/2 focus-visible:translate-x-0"
+      class="z-52 absolute px-2 py-1 rounded-full bg-accent-color-700 text-white transform -translate-x-3/2 focus-visible:translate-x-0"
       href="#maincontent"
       >Skip Navigation</a
     >
@@ -124,8 +124,8 @@
         class="flex flex-col justify-center items-center py-4 rounded-l-xl border-r-0 border-2 transform focus-visible:-translate-x-0.5 transition-transform"
         :class="
           dpActiveTab === index
-            ? 'bg-subaccent bg-opacity-90 border-accent-color-300'
-            : 'bg-subaccent bg-opacity-50 border-accent-color-300 cursor-pointer border-r-2'
+            ? 'bg-white border-accent-color-600 text-accent-color-700 shadow'
+            : 'bg-accent-color-100 bg-opacity-60 border-accent-color-200 cursor-pointer border-r-2'
         "
         :to="{ path: '/', query: { tab: index } }"
         role="tab"
@@ -133,7 +133,11 @@
         <div class="flex min-h-0 aspect-square">
           <img class="object-contain" :src="tab.icon" />
         </div>
-        <CompleteTag class="text-xs" :class="dpCollapseNav ? 'w-3ch' : 'w-auto'" :complete="tab.complete()" />
+        <CompleteTag
+          class="text-xs flex-shrink-0"
+          :class="dpCollapseNav ? 'origin-center scale-90' : ''"
+          :complete="tab.complete()"
+        />
         <div
           class="mx-auto text-center transition-all ease-in-out duration-600"
           :class="dpCollapseNav ? 'w-3ch' : 'w-auto'"

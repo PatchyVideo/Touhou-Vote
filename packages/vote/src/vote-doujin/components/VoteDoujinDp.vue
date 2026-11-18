@@ -11,7 +11,7 @@
       <span>
         为喜欢的同人作品提名
         <span
-          class="cursor-pointer text-accent-color-300 hover:text-gray-600"
+          class="cursor-pointer text-accent-color-600 hover:text-accent-color-800"
           tabindex="0"
           @click="() => (confirmedNotice = false)"
         >

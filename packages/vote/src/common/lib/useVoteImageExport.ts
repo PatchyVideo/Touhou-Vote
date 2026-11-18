@@ -1,6 +1,7 @@
 import { computed, nextTick, onBeforeUnmount, ref, shallowRef } from 'vue'
 import html2canvas from 'html2canvas'
 import { popMessageText } from '@/common/lib/popMessage'
+import { palette } from '@/theme/colors'
 import { checkExportImage, mapExportResources } from './checkExportImage'
 import { preserveCoverImages } from './preserveCoverImages'
 type ElementRef = { value?: HTMLElement | null }
@@ -139,7 +140,7 @@ export function useVoteImageExport(options: Options) {
               },
               scale,
               useCORS: true,
-              backgroundColor: '#fff',
+              backgroundColor: palette.surface,
               logging: false,
               width: cssWidth,
               height: cssHeight,

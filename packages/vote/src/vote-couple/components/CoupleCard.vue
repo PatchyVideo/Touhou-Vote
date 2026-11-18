@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center">
       <div>
         {{ '投票位' + (indexOfCouple + 1) }}
-        <span v-if="couple.honmei" class="rounded px-1 text-accent-color-600 bg-accent-color-300">本命</span>
+        <span v-if="couple.honmei" class="rounded px-1 text-accent-color-700 bg-accent-color-200">本命</span>
       </div>
       <icon-uil-times class="cursor-pointer" @click="closeCard()"></icon-uil-times>
     </div>

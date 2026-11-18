@@ -13,13 +13,14 @@ import {
 } from '@touhou-vote/shared/api/voteObjects'
 import { voteYear } from '@/common/lib/voteYear'
 import { API_PREFIX } from '@/common/lib/apiPrefix'
+import { palette } from '@/theme/colors'
 
 // ── 配置 ──────────────────────────────────────────────────────────────────
 const CHARACTER_URL = voteObjectsUrl(`${API_PREFIX}/vote-objects`, 'characters', voteYear)
 const MUSIC_URL = voteObjectsUrl(`${API_PREFIX}/vote-objects`, 'music', voteYear)
 
-// 历史静态表里 244 个角色的 color 全部是同一个值 → 改用常量，不再建列。
-const DEFAULT_CHARACTER_COLOR = '#FC4328'
+// All characters shared one color in the legacy static table; use the theme fallback.
+const DEFAULT_CHARACTER_COLOR = palette.fallback.character
 
 // ── 响应式状态 ───────────────────────────────────────────────────────────
 export const characterGroupsRaw = ref<VoteObjectGroup<VoteObjectItem>[]>([])

@@ -42,7 +42,7 @@
                   }
                 "
               >
-                <strong class="underline cursor-pointer transition hover:text-accent-color-300">
+                <strong class="underline cursor-pointer transition hover:text-accent-color-900">
                   点击这里把它选为您的本命曲哦
                 </strong>
               </div>

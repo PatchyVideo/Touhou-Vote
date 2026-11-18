@@ -24,7 +24,7 @@
       </div>
       <div class="w-full flex justify-end">
         <div
-          class="transform transform-gpu -rotate-45 border rounded border-accent-color-300 text-accent-color-300 md:text-lg xl:text-xl"
+          class="transform transform-gpu -rotate-45 border rounded border-accent-color-300 text-accent-color-700 md:text-lg xl:text-xl"
         >
           本命
         </div>

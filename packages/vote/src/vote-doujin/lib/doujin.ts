@@ -1,3 +1,5 @@
+import { palette } from '@/theme/colors'
+
 export class Doujin {
   dojinType: '' | 'MUSIC' | 'VIDEO' | 'DRAWING' | 'SOFTWARE' | 'ARTICLE' | 'CRAFT' | 'OTHER'
   url: string
@@ -34,42 +36,42 @@ export const doujinTypes: DoujinType[] = [
   {
     name: '',
     value: '',
-    color: '#000000',
+    color: palette.doujinType.none,
   },
   {
     name: '音乐',
     value: 'MUSIC',
-    color: '#4caf50',
+    color: palette.doujinType.music,
   },
   {
     name: '视频',
     value: 'VIDEO',
-    color: '#FF9800',
+    color: palette.doujinType.video,
   },
   {
     name: '绘画&设计',
     value: 'DRAWING',
-    color: '#D6C231',
+    color: palette.doujinType.drawing,
   },
   {
     name: '游戏&软件',
     value: 'SOFTWARE',
-    color: '#f77194',
+    color: palette.doujinType.software,
   },
   {
     name: '文字创作',
     value: 'ARTICLE',
-    color: '#0075c5',
+    color: palette.doujinType.article,
   },
   {
     name: '手工&服饰',
     value: 'CRAFT',
-    color: '#6339b5',
+    color: palette.doujinType.craft,
   },
   {
     name: '其他',
     value: 'OTHER',
-    color: '#733542',
+    color: palette.doujinType.other,
   },
 ]
 

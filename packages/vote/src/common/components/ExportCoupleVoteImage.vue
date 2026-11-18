@@ -177,7 +177,7 @@
 
           <!-- 底部装饰信息 -->
           <div class="mt-auto pt-10 border-t-2 border-gray-50 flex flex-col items-center text-gray-400">
-            <div class="w-36 h-36 mb-3 rounded-lg border-2 border-gray-100 bg-[linear-gradient(90deg,#f3f4f6_50%,transparent_50%),linear-gradient(#f3f4f6_50%,transparent_50%)] bg-[length:16px_16px] bg-[position:0_0,0_0] flex items-center justify-center">
+            <div class="w-36 h-36 mb-3 rounded-lg border-2 border-accent-color-200 bg-accent-color-100 flex items-center justify-center">
               <div class="w-24 h-24 border-4 border-gray-500 bg-white flex items-center justify-center text-center text-xs leading-5 font-bold text-gray-500">
                 TOUHOU
                 <br />
@@ -212,6 +212,7 @@ import { username } from '@/home/lib/user'
 import { getExportAssetUrl } from '@/common/lib/exportAssetUrl'
 import { createVoteImageExportAbortError, useVoteImageExport } from '@/common/lib/useVoteImageExport'
 import { loadVoteObjects, voteObjectsError } from '@/common/lib/voteObjectsDataSource'
+import { palette } from '@/theme/colors'
 
 const userName = computed(() => username.value || '匿名用户')
 
@@ -231,7 +232,7 @@ type CoupleData = {
 const voteCoupleData = ref<CoupleData[]>(getExportCoupleData())
 
 function normalizeColor(input: string | undefined) {
-  const fallback = '#FC4328'
+  const fallback = palette.fallback.character
   if (!input) return fallback
   const color = input.trim()
   const hexMatch = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.exec(color)
@@ -241,7 +242,7 @@ function normalizeColor(input: string | undefined) {
     ? hex.split('').map((c) => parseInt(c + c, 16))
     : [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((c) => parseInt(c, 16))
   const luminance = (0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]) / 255
-  if (luminance > 0.9) return '#999999'
+  if (luminance > 0.9) return palette.fallback.contrast
   return `#${hex.length === 3 ? hex.split('').map((c) => c + c).join('') : hex}`
 }
 
@@ -307,11 +308,11 @@ const generatingText = computed(() => (fetchingVoteData.value ? '正在获取投
 
 // 主题色：每个卡片取第一个角色的颜色
 function cpThemeColor(cp: FullCoupleData) {
-  return cp.characters[0]?.color || '#FC4328'
+  return cp.characters[0]?.color || palette.fallback.character
 }
 
 const honmeiThemeColor = computed(() => {
-  return honmeiCouple.value ? cpThemeColor(honmeiCouple.value) : '#FC4328'
+  return honmeiCouple.value ? cpThemeColor(honmeiCouple.value) : palette.fallback.character
 })
 
 async function resolveVoteCoupleData() {

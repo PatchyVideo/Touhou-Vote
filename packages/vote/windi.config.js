@@ -3,11 +3,14 @@ import typography from 'windicss/plugin/typography'
 import lineClamp from 'windicss/plugin/line-clamp'
 import aspectRatio from 'windicss/plugin/aspect-ratio'
 import animation from '@windicss/plugin-animations'
+import { palette } from './src/theme/colors'
 
 /**
  * WindiCSS Configuration File
  *
  * Docs: https://windicss.org/guide/configuration.html
+ *
+ * Colors live in src/theme/colors.ts; this file only maps them to semantic names.
  */
 export default defineConfig({
   extract: {
@@ -17,23 +20,14 @@ export default defineConfig({
   theme: {
     extend: {
       colors: {
-        // accent-color-600 is the default accent color of the project
-        // accent-color-300 is recommended to used for text
-        'accent-color': {
-          100: '#D6CEE6',
-          200: '#D6C2F7',
-          300: '#BDA6EF',
-          400: '#AD8EEF',
-          500: '#9C75EF',
-          600: '#7351C5',
-          700: '#5A41A4',
-          800: '#4A317B',
-          900: '#312052',
-        },
-        subaccent: '#3A3531',
-        // Color for divider in home page
-        'subaccent-divider': '#5a5a56',
-        textaccent: '#CEBEAD',
+        // Brand color: 100-300 tints, 600 primary, 700+ text/emphasis
+        'accent-color': palette.accent,
+        subaccent: palette.surface, // card background
+        'subaccent-divider': palette.divider, // separators
+        textaccent: palette.text, // body text
+        textmuted: palette.textMuted, // secondary text
+        onaccent: palette.onAccent, // text on accent
+        overlay: palette.mask, // modal overlay
       },
       screens: {
         '3xl': '1920px',

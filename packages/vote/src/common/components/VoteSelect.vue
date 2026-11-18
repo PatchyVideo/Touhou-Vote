@@ -17,6 +17,7 @@
       v-if="itemList.length"
       class="baseBoxRoundedShadow absolute z-52 mt-1 w-full overflow-hidden"
       :class="{ 'p-1': !listHidden }"
+      :style="listHidden ? { boxShadow: 'none' } : undefined"
     >
       <ul
         class="space-y-1 overflow-x-hidden overflow-y-auto transform-gpu transition-all duration-200"
@@ -25,7 +26,7 @@
         <li
           v-for="(item, index) in itemList"
           :key="index"
-          class="truncate cursor-pointer transition transition-colors hover:bg-accent-color-600"
+          class="truncate cursor-pointer transition transition-colors hover:bg-accent-color-600 hover:text-white"
           @click="selectItem(item)"
         >
           {{ item.name }}

@@ -2,6 +2,7 @@
   <div
     class="baseBoxShadow fixed top-0 inset-x-0 lg:inset-x-auto lg:inset-y-0 2xl:top-15 2xl:bottom-0 lg:right-0 lg:w-1/3 2xl:w-1/4 max-h-100vh z-51 2xl:z-auto p-3 lg:p-10 rounded-b overflow-auto transform-gpu transition-transform 2xl:translate-x-0 duration-200 ease-in-out flex flex-col"
     :class="{ '-translate-y-full lg:translate-y-0 lg:translate-x-full': !open }"
+    :style="!open && !screenSizes['2xl'] ? { boxShadow: 'none' } : undefined"
   >
     <div
       v-for="questionnaire in questionnaireKeyToNameV2"
@@ -30,9 +31,7 @@
           v-for="(group, index2) in getRuntime(questionnaire.questionnaireId)?.visibleGroups ?? []"
           :key="group.id"
           class="rounded-full m-2 w-8 h-8 leading-8 text-center cursor-pointer shadow ring"
-          :class="[
-            group.done ? 'ring ring-accent-color-600 bg-accent-color-300 text-white' : ' ring-accent-color-100',
-          ]"
+          :class="[group.done ? 'ring ring-accent-color-600 bg-accent-color-600 text-white' : ' ring-accent-color-200']"
           @click="changeQuestion(questionnaire.questionnaireId, index2)"
         >
           {{ index2 + 1 }}
@@ -41,7 +40,7 @@
     </div>
     <div
       v-if="screenSizes['<2xl']"
-      class="text-right text-accent-color-300 hover:text-accent-color-600 cursor-pointer"
+      class="text-right text-accent-color-600 hover:text-accent-color-800 cursor-pointer"
       @click="close()"
     >
       收起

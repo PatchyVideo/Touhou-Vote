@@ -33,7 +33,7 @@
           v-for="group in visibleGroups"
           :key="group.id"
           class="h-full"
-          :class="[group.done ? 'bg-accent-color-600' : ' bg-subaccent']"
+          :class="[group.done ? 'bg-accent-color-600' : ' bg-accent-color-200']"
           :style="'width:' + 100 / visibleGroups.length + '%'"
         ></div>
       </div>

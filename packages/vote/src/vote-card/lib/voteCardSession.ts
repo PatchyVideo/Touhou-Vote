@@ -13,6 +13,7 @@ import {
   musicVoteObjectsLoaded,
 } from '@/common/lib/voteObjectsDataSource'
 import { getExportAssetUrl } from '@/common/lib/exportAssetUrl'
+import { palette } from '@/theme/colors'
 import {
   cardAccess,
   checkCardTime,
@@ -61,7 +62,7 @@ function enrich(department: Department, entries: CardEntry[]): CardEntry[] {
         origname: object!.nameJp || '',
         album,
         image: getExportAssetUrl(object!.imageUrl || ''),
-        color: '#2563eb',
+        color: palette.department.music,
       }
     }
     const members = entry.members.map((member) => {

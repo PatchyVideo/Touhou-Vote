@@ -16,7 +16,7 @@
             :key="index"
             class="cursor-pointer rounded shadow py-1 px-2 mb-2 transition transition-colors select-none"
             :class="{
-              'ring ring-accent-color-600 bg-accent-color-300 text-white':
+              'ring ring-accent-color-600 bg-accent-color-600 text-white':
                 filterForKindTem.findIndex((filterKind) => filterKind.value === kind.value) != -1,
             }"
             @click="updateFilterForKindTem(kind)"
@@ -27,7 +27,7 @@
         <div>初登场作品：</div>
         <VoteSelect v-model:selected="workSelectedTem" :item-list="worksListAfterFilterTem" />
         <div
-          class="text-right text-accent-color-300 transition transition-colors cursor-pointer hover:text-accent-color-600"
+          class="text-right text-accent-color-600 transition transition-colors cursor-pointer hover:text-accent-color-800"
           @click="resetFilter()"
         >
           重置条件

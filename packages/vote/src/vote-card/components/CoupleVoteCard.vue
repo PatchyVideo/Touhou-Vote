@@ -126,6 +126,7 @@
 import { computed } from 'vue'
 import VoteCardFooter from './VoteCardFooter.vue'
 import HonmeiBadgeText from './HonmeiBadgeText.vue'
+import { palette } from '@/theme/colors'
 import type { CardEntry } from '../lib/types'
 const props = defineProps<{
   entries: CardEntry[]
@@ -137,7 +138,8 @@ const props = defineProps<{
 const honmeiCouple = computed(() => props.entries.find((entry) => entry.isHonmei))
 const otherCouples = computed(() => props.entries.filter((entry) => !entry.isHonmei))
 function darkenColor(input: string | undefined, amount: number) {
-  const hex = /^#([0-9a-fA-F]{6})$/.exec(input || '#FC4328')?.[1] || 'FC4328'
+  const fallback = palette.fallback.character
+  const hex = /^#([0-9a-fA-F]{6})$/.exec(input || fallback)?.[1] || fallback.slice(1)
   return (
     '#' +
     [0, 2, 4]
@@ -150,16 +152,18 @@ function darkenColor(input: string | undefined, amount: number) {
   )
 }
 function cpThemeColor(cp: CardEntry) {
-  return cp.members[0]?.color || '#FC4328'
+  return cp.members[0]?.color || palette.fallback.character
 }
-const honmeiThemeColor = computed(() => (honmeiCouple.value ? cpThemeColor(honmeiCouple.value) : '#FC4328'))
+const honmeiThemeColor = computed(() =>
+  honmeiCouple.value ? cpThemeColor(honmeiCouple.value) : palette.fallback.character
+)
 </script>
 
 <style scoped>
 .vote-card-template {
   box-sizing: border-box;
   overflow-wrap: anywhere;
-  color: #111;
+  color: var(--color-text);
 }
 .card-heading {
   display: flex;

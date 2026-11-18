@@ -112,7 +112,7 @@
 
 					<!-- 底部装饰信息 -->
 					<div class="mt-auto pt-10 border-t-2 border-gray-50 flex flex-col items-center text-gray-400">
-						<div class="w-36 h-36 mb-3 rounded-lg border-2 border-gray-100 bg-[linear-gradient(90deg,#f3f4f6_50%,transparent_50%),linear-gradient(#f3f4f6_50%,transparent_50%)] bg-[length:16px_16px] bg-[position:0_0,0_0] flex items-center justify-center">
+						<div class="w-36 h-36 mb-3 rounded-lg border-2 border-accent-color-200 bg-accent-color-100 flex items-center justify-center">
 							<div class="w-24 h-24 border-4 border-gray-500 bg-white flex items-center justify-center text-center text-xs leading-5 font-bold text-gray-500">
 								TOUHOU
 								<br />

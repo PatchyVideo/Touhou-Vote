@@ -76,7 +76,7 @@ onBeforeUnmount(() => observer?.disconnect())
   cursor: zoom-out;
 }
 .scaled-card:focus-visible {
-  outline: 3px solid #a78bfa;
+  outline: 3px solid var(--color-accent-400);
   outline-offset: 3px;
 }
 </style>

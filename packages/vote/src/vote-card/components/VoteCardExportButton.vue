@@ -59,7 +59,7 @@ const departmentVoteComplete = computed(() => {
 })
 const incompleteMessage = '请先完成投票哦'
 const state = computed(() => cardDepartments[props.department])
-const colors = { role: 'bg-purple-600', music: 'bg-blue-600', cp: 'bg-pink-600' }
+const colors = { role: 'bg-accent-color-600', music: 'bg-blue-600', cp: 'bg-pink-600' }
 const emptyMessages = { role: '请先选择角色哦', music: '请先选择音乐哦', cp: '请先选择CP哦' }
 function open() {
   if (!checkCardTime()) {

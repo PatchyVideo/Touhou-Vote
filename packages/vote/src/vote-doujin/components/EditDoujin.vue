@@ -138,12 +138,14 @@
         <div class="flex gap-x-4">
           <button
             v-if="props.index != doujinValid.length"
-            class="px-5 py-1 bg-white text-accent-color-300 border"
+            class="px-5 py-1 bg-white text-accent-color-600 border border-accent-color-300"
             @click="deleteEdit()"
           >
             删除
           </button>
-          <button class="px-5 py-1 bg-white text-accent-color-300 border" @click="cancelEdit()">取消</button>
+          <button class="px-5 py-1 bg-white text-accent-color-600 border border-accent-color-300" @click="cancelEdit()">
+            取消
+          </button>
           <button class="px-5 py-1" @click="confirmEdit()">确定</button>
         </div>
       </div>
@@ -153,7 +155,7 @@
           class="absolute inset-0 rounded-xl flex justify-center backdrop-filter backdrop-blur-sm"
           @touchmove.stop.prevent
         >
-          <div class="flex items-center text-accent-color-300 font-bold text-lg">
+          <div class="flex items-center text-accent-color-600 font-bold text-lg">
             <icon-uil-spinner-alt class="animate-spin" />
             少女祈祷中...
           </div>
@@ -172,7 +174,7 @@
             class="text-gray-800 hover:text-blue-600 transition transition-colors underline"
             href="https://www.bilibili.com/read/cv6364137"
             target="_blank"
-            ><label class="text-accent-color-300">东方Project使用规定</label></a
+            ><label class="text-accent-color-600">东方Project使用规定</label></a
           >
           的东方Project二次创作作品。
         </li>
@@ -183,9 +185,9 @@
           同一个作品在不同网站上发布或不同语言版本视为同一作品。提名的链接如指向无授权搬运或营销号盗用的发布，若能识别则计作对于原作品的提名，否则将不计票。考虑到有效性，建议使用原作者的发布地址进行提名。
         </li>
         <li>
-          可能出现<label class="text-accent-color-300">版权问题、公序良俗争议或内容触犯法律</label>的作品的提名无效。
+          可能出现<label class="text-accent-color-600">版权问题、公序良俗争议或内容触犯法律</label>的作品的提名无效。
         </li>
-        <li><label class="text-accent-color-300">R18</label> 作品的提名无效。</li>
+        <li><label class="text-accent-color-600">R18</label> 作品的提名无效。</li>
         <li>
           单品和组合作品（如创作合集与其中的单品）、合作作品的单独发布（如游戏的OST和该游戏本身）均可视为不同的作品分别提名。
         </li>
@@ -376,20 +378,20 @@ function useValidation<T>(el: Ref<HTMLElement | null>, value: Ref<T>, valCb: (va
   const throttled = useThrottle(value, 200, true, false)
   const isValid = computed(() => valCb(throttled.value))
   watch(el, (el) => {
-    if (el) el.classList.add('inline-block', 'animate-animated', 'decoration-accent-color-300')
+    if (el) el.classList.add('inline-block', 'animate-animated', 'decoration-accent-color-700')
   })
   watch([el, isValid], ([el, isValid]) => {
     if (!el) return
-    if (isValid) el.classList.remove('text-accent-color-300', 'underline')
+    if (isValid) el.classList.remove('text-accent-color-700', 'underline')
     else el.classList.add('underline')
   })
   watch(hintError, () => {
     if (!el.value) return
-    if (!isValid.value) el.value.classList.add('text-accent-color-300', 'animate-shakeX')
+    if (!isValid.value) el.value.classList.add('text-accent-color-700', 'animate-shakeX')
   })
   watch(open, (open) => {
     if (!el.value || open) return
-    el.value.classList.remove('text-accent-color-300', 'animate-shakeX')
+    el.value.classList.remove('text-accent-color-700', 'animate-shakeX')
   })
   const onAnimationEnd = () => {
     el.value?.classList.remove('animate-shakeX')
